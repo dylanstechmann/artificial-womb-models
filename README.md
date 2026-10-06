@@ -17,6 +17,7 @@ python -m venv .venv
 .venv\Scripts\wombmodels design-sweep --config examples/exchange_fixture.json --out artifacts/design-sweep-v1 --replicates 8
 .venv\Scripts\wombmodels transport-model --config examples/transport_fixture.json --out artifacts/transport-v1
 .venv\Scripts\wombmodels mechanics-model --config examples/mechanics_fixture.json --out artifacts/mechanics-v1
+.venv\Scripts\wombmodels verify-transport --config examples/transport_fixture.json --out artifacts/transport-verification-v1
 .venv\Scripts\wombmodels desk-status --url http://127.0.0.1:8092
 ```
 
@@ -27,6 +28,8 @@ Each output destination must be new. Evidence reports include claims, a species-
 The fixture has invented **dimensionless** stocks, rates, times and thresholds. It represents substrate conversion into waste, powered input and clearance, wall-power interruptions, finite backup reserve, and synthetic sensor bias/dropout. There is no conversion from its time coordinate into hours, gestational weeks or nine months. It computes no fetal physiology, development, probability of birth, machine-control action or biological safety rating.
 
 Two additional theoretical fixtures make alternative equations and future measurable outputs explicit: a two-compartment transport model compared with a well-mixed reference, and a Kelvin–Voigt viscoelastic response compared with an instantaneous elastic reference. Each artifact names one developmental research track while keeping all model values dimensionless. [THEORETICAL_MODELS.md](THEORETICAL_MODELS.md) documents their equations, assumptions, identifiable measurements, alternatives and the shared [developmental observation contract](schemas/developmental-observation.schema.json). These fixtures are not biologically calibrated and do not set organismal or device parameters.
+
+`verify-transport` evaluates the transport fixture's forward-Euler trajectory at five requested step sizes against an independent closed-form solution of the same constant-coefficient two-state equations. It publishes a receipt-bound convergence curve and the finest-step pointwise errors. The command is a numerical accuracy check for one supplied fixture configuration, not external validation or evidence about an organism.
 
 ## Developmental scope
 

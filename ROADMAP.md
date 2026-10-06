@@ -33,6 +33,12 @@ these equations or measured ectogenesis.
 **First implementation milestone.** Conservation identities already exist;
 add accuracy checks against independent solutions.
 
+**Progress:** `verify-transport` now publishes a receipt-bound, five-level
+step-halving curve against a closed-form two-state reference. Boundary-focused
+tests also compare the mechanics fixture with its analytic constant-load
+response. M1 remains in progress: the full parameter-regime matrix and
+reproducible mechanics accuracy curves still need to be completed.
+
 1. Derive the closed-form constant-coefficient two-compartment solution and
    compare both compartments and the capacity-matched reference over time.
 2. Measure transport Euler error under step halving, including unequal rates,

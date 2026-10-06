@@ -66,6 +66,19 @@ The model assumes the fixture's power-source labels are known. Sensor noise, mis
 
 Each synthetic trajectory is fit both with the integral-balance regression and with the nonnegative noise-aware state model. Generator-known rates are not passed into either fit; they are used only afterward to score parameter recovery. The prospective state forecast is trained through 70% of dimensionless duration and scored on later sensor values that were not used to fit parameters or as predictors. A last-training-reading baseline and approximate 95% prediction intervals are reported beside forecast error. The same-run and leave-one-seed-out balance residuals are retained for comparison but are labeled as consistency diagnostics because their interval predictors include observed endpoints. They are not predictive holdouts. Design summaries report forecastable replicate counts, median/nearest-rank 90th-percentile RMSE, baseline RMSE, nominal interval coverage and width. All designs share the same model family and event configuration; this is software robustness analysis, not independent experimental validation. Other summaries include the integral-fit estimable fraction, finite condition numbers, residual scale and synthetic parameter-recovery error. Replicate percentiles are descriptive and are not confidence intervals. A lower error, higher nominal coverage or better-conditioned design does not establish biological observability or recommend real measurement cadence.
 
+## Transport solver accuracy
+
+`verify-transport` refines the requested output step by factors of 1, 1/2, 1/4, 1/8 and 1/16, subject to the model's integration limits and a 100,000-total-timepoint budget. At every Euler output time it evaluates a separate closed-form reference for the constant-coefficient system
+
+```text
+x' = A x + f
+A = [[−(exchange + transport + loss), transport],
+     [transport, −(transport + loss)]]
+f = [exchange × boundary, 0]
+```
+
+The reference decomposes the 2×2 matrix into its trace component and a traceless matrix whose square is a scalar multiple of the identity. It evaluates the resulting two-mode matrix exponential and the integrated constant forcing term, with limits for repeated or near-zero eigenvalues. It does not call the Euler update. `transport_convergence.csv` records requested and actual steps, maximum state error, RMSE and descriptive observed order; `finest_step_trajectory.csv` retains pointwise Euler/reference values and absolute errors. The report preserves the exact input and implementation hashes in its receipt. This verifies discretization accuracy for the stated equations and configuration only; it cannot determine whether those equations represent a biological system.
+
 ## Reproducibility and publication
 
 Commands preserve the exact original input bytes. `receipt.json` records their SHA-256, package/Python versions, implementation file hashes, and each output's SHA-256 and byte count. The source URLs in the evidence ledger are bibliographic links, not archived or hash-pinned copies of the external pages. Re-review is necessary when expanding or updating a claim.
