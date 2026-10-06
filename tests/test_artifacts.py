@@ -1,10 +1,12 @@
 import io
+import json
 import tempfile
 import unittest
 from pathlib import Path
 from unittest.mock import patch
 
-from wombmodels.artifacts import MAX_JSON_BYTES, InputError, decode_json, publish_bundle, read_json
+from wombmodels.artifacts import (MAX_JSON_BYTES, MAX_JSON_DEPTH, MAX_JSON_INTEGER_DIGITS,
+                                 InputError, decode_json, publish_bundle, read_json)
 
 
 class ArtifactTests(unittest.TestCase):
@@ -42,6 +44,47 @@ class ArtifactTests(unittest.TestCase):
             with patch("wombmodels.artifacts.json.loads", side_effect=failure):
                 with self.assertRaises(InputError):
                     decode_json(b"{}")
+
+    def test_nesting_limit_has_a_portable_exact_boundary(self):
+        raw = b"[" * MAX_JSON_DEPTH + b"0" + b"]" * MAX_JSON_DEPTH
+        value = decode_json(raw)
+        for _ in range(MAX_JSON_DEPTH):
+            self.assertIsInstance(value, list)
+            self.assertEqual(len(value), 1)
+            value = value[0]
+        self.assertEqual(value, 0)
+        for raw in (b"[" * (MAX_JSON_DEPTH + 1) + b"0" + b"]" * (MAX_JSON_DEPTH + 1),
+                    b'{"value":' * (MAX_JSON_DEPTH + 1) + b"0" + b"}" * (MAX_JSON_DEPTH + 1)):
+            with self.subTest(raw_prefix=raw[:30]):
+                with patch("wombmodels.artifacts.json.loads") as decoder:
+                    with self.assertRaisesRegex(InputError, "nesting limit"):
+                        decode_json(raw)
+                    decoder.assert_not_called()
+
+    def test_nesting_scan_ignores_strings_and_json_escape_sequences(self):
+        text = '[{' * (MAX_JSON_DEPTH + 1) + '}]' * (MAX_JSON_DEPTH + 1)
+        expected = {"brackets": text, "quoted": '\\"' + text + '"\\',
+                    "escaped": '\\' * 5 + '"' + text}
+        raw = json.dumps(expected, ensure_ascii=False).encode("utf-8")
+        self.assertEqual(decode_json(raw), expected)
+        # A quoted opening bracket must not hide the actual array nesting that
+        # follows the closing quote, including an escaped trailing backslash.
+        prefix = json.dumps('"\\[{' * 3).encode("utf-8")
+        raw = b"[" + prefix + b"," + b"[" * MAX_JSON_DEPTH + b"0" + b"]" * MAX_JSON_DEPTH + b"]"
+        with self.assertRaisesRegex(InputError, "nesting limit"):
+            decode_json(raw)
+
+    def test_integer_digits_are_bounded_before_integer_conversion(self):
+        accepted = "9" * MAX_JSON_INTEGER_DIGITS
+        for prefix in ("", "-"):
+            raw = ('{"value":' + prefix + accepted + '}').encode()
+            self.assertEqual(decode_json(raw), {"value": int(prefix + accepted)})
+            raw = ('{"value":' + prefix + accepted + '9}').encode()
+            with self.assertRaisesRegex(InputError, "at most.*digits"):
+                decode_json(raw)
+        # Digit-like text is not a JSON integer and remains ordinary metadata.
+        digits = "9" * (MAX_JSON_INTEGER_DIGITS + 1)
+        self.assertEqual(decode_json(json.dumps({"text": digits}).encode()), {"text": digits})
 
     def test_partial_publication_has_no_receipt_and_cannot_overwrite(self):
         with tempfile.TemporaryDirectory() as directory:

@@ -15,6 +15,8 @@ from pathlib import Path
 from . import __version__
 
 MAX_JSON_BYTES = 2_000_000
+MAX_JSON_DEPTH = 64
+MAX_JSON_INTEGER_DIGITS = 256
 
 
 class InputError(ValueError):
@@ -43,6 +45,29 @@ def decode_json(raw: bytes):
     if len(raw) > MAX_JSON_BYTES:
         raise InputError("Input JSON exceeds the 2 MB limit")
     try:
+        decoded = raw.decode("utf-8")
+        # Bound container nesting independently of the Python JSON decoder's
+        # implementation and recursion behavior. JSON syntax within strings,
+        # including escaped quotes and backslashes, does not add nesting.
+        depth = 0
+        in_string = escaped = False
+        for character in decoded:
+            if in_string:
+                if escaped:
+                    escaped = False
+                elif character == "\\":
+                    escaped = True
+                elif character == '"':
+                    in_string = False
+            elif character == '"':
+                in_string = True
+            elif character in "[{":
+                depth += 1
+                if depth > MAX_JSON_DEPTH:
+                    raise InputError(f"Input JSON exceeds the {MAX_JSON_DEPTH}-level nesting limit")
+            elif character in "]}":
+                depth -= 1
+
         def reject_constant(value):
             raise InputError(f"Nonfinite JSON number: {value}")
 
@@ -52,6 +77,11 @@ def decode_json(raw: bytes):
                 raise InputError("Nonfinite JSON number")
             return result
 
+        def bounded_integer(value):
+            if len(value.lstrip("-")) > MAX_JSON_INTEGER_DIGITS:
+                raise InputError(f"JSON integers must have at most {MAX_JSON_INTEGER_DIGITS} digits")
+            return int(value)
+
         def unique_object(pairs):
             result = {}
             for key, value in pairs:
@@ -60,8 +90,9 @@ def decode_json(raw: bytes):
                 result[key] = value
             return result
 
-        return json.loads(raw.decode("utf-8"), parse_constant=reject_constant,
-                          parse_float=finite_float, object_pairs_hook=unique_object)
+        return json.loads(decoded, parse_constant=reject_constant,
+                          parse_float=finite_float, parse_int=bounded_integer,
+                          object_pairs_hook=unique_object)
     except InputError:
         raise
     except (ValueError, RecursionError, OverflowError) as exc:
