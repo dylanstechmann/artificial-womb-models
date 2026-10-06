@@ -37,7 +37,7 @@ def desk_status(url="http://127.0.0.1:8092"):
     opener = build_opener(ProxyHandler({}), NoRedirect())
     try:
         with opener.open(Request(endpoint, headers={"Accept": "application/json",
-                                                    "User-Agent": "wombmodels/0.2.0"}), timeout=REQUEST_TIMEOUT_SECONDS) as response:
+                                                    "User-Agent": "wombmodels/0.2.1"}), timeout=REQUEST_TIMEOUT_SECONDS) as response:
             raw = response.read(MAX_RESPONSE_BYTES + 1)
     except (HTTPError, URLError, OSError, TimeoutError) as exc:
         raise InputError("ResearchDesk did not return a usable local response") from exc

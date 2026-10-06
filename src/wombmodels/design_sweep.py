@@ -312,6 +312,8 @@ def sweep(config_path: Path, output: Path, *, replicates: int = 8) -> dict:
                             "prospective_forecast_bias": forecast["mean_error"],
                             "prospective_forecast_coverage_95": forecast["coverage_95"],
                             "prospective_forecast_mean_interval_width_95": forecast["mean_95_interval_width"],
+                            "prospective_forecast_prediction_interval_available": forecast["prediction_interval_available"],
+                            "prospective_forecast_prediction_interval_reason": forecast["prediction_interval_reason"],
                             "prospective_forecast_reason": forecast["reason"],
                             "state_fit_estimated_powered_input": state_parameters.get("powered_input"),
                             "state_fit_estimated_conversion": state_parameters.get("conversion"),
@@ -335,6 +337,8 @@ def sweep(config_path: Path, output: Path, *, replicates: int = 8) -> dict:
                                                if item["cross_replicate_holdout_estimable"]]
                     forecast_estimable = [item for item in cell_runs
                                           if item["prospective_forecast_estimable"]]
+                    forecast_intervals = [item for item in forecast_estimable
+                                          if item["prospective_forecast_prediction_interval_available"]]
                     scenario_rows.append({
                         "cadence_factor_requested": cadence_factor,
                         "actual_output_step": step,
@@ -359,6 +363,8 @@ def sweep(config_path: Path, output: Path, *, replicates: int = 8) -> dict:
                             [item["cross_replicate_holdout_fixture_scale_rmse"] for item in cross_holdout_estimable], 0.9),
                         "prospective_forecast_estimable_replicates": len(forecast_estimable),
                         "prospective_forecast_estimable_fraction": len(forecast_estimable) / replicates,
+                        "prospective_forecast_interval_available_replicates": len(forecast_intervals),
+                        "prospective_forecast_interval_available_fraction": len(forecast_intervals) / replicates,
                         "median_prospective_forecast_rmse": _median(
                             [item["prospective_forecast_rmse"] for item in forecast_estimable]),
                         "p90_prospective_forecast_rmse": _percentile(
@@ -366,9 +372,9 @@ def sweep(config_path: Path, output: Path, *, replicates: int = 8) -> dict:
                         "median_prospective_forecast_baseline_rmse": _median(
                             [item["prospective_forecast_last_value_baseline_rmse"] for item in forecast_estimable]),
                         "median_prospective_forecast_coverage_95": _median(
-                            [item["prospective_forecast_coverage_95"] for item in forecast_estimable]),
+                            [item["prospective_forecast_coverage_95"] for item in forecast_intervals]),
                         "median_prospective_forecast_interval_width_95": _median(
-                            [item["prospective_forecast_mean_interval_width_95"] for item in forecast_estimable]),
+                            [item["prospective_forecast_mean_interval_width_95"] for item in forecast_intervals]),
                         "median_usable_readings": _median([item["n_usable_readings"] for item in cell_runs]),
                         "median_design_condition_number": _median(
                             [item["normalized_design_condition_number"] for item in cell_runs]),
@@ -419,7 +425,7 @@ def sweep(config_path: Path, output: Path, *, replicates: int = 8) -> dict:
         "scoring_boundary": "Generator-known rates are used only to score estimates after fitting; they are not fit inputs.",
         "prospective_forecast_contract": "Fit the nonnegative single-stock state model only on unbiased scheduled sensor readings at or before 70% of dimensionless run duration; propagate its fitted state and the receipt-bound known power schedule forward without assimilating later readings; score later unbiased readings against a last-training-reading baseline.",
         "prospective_forecast_training_cutoff": "0.7 × dimensionless duration (not 70% of interval count)",
-        "prospective_forecast_noise_contract": "Independent Gaussian sensor noise with the configured standard deviation; local covariance plus observation noise gives an approximate 95% prediction interval.",
+        "prospective_forecast_noise_contract": "Independent Gaussian sensor noise with the configured standard deviation; finite invertible local covariance plus observation noise gives an approximate 95% prediction interval. Interval metrics are unavailable otherwise, and summaries report their available-replicate denominator.",
         "temporal_holdout_contract": "The legacy integral-balance residual diagnostic uses endpoint readings both in the response and trapezoidal predictors; it is consistency checking and not a forecast.",
         "temporal_holdout_training_fraction": 0.7,
         "cross_replicate_holdout_contract": "Leave one seeded synthetic replicate out, fit pooled intervals from other replicates of the same design and score the omitted run. These runs share the same fixture and schedule; this is not independent experimental validation.",
@@ -439,7 +445,7 @@ def sweep(config_path: Path, output: Path, *, replicates: int = 8) -> dict:
         "noise_reference_sd": noise_reference,
         "fixture_truth_used_for_scoring_only": true_rates,
         "method": "Seeded synthetic replicate sweep; the primary forecast fits a nonnegative state-space model to the first 70% of dimensionless run time and scores untouched future sensor readings against a last-observation baseline. The integral-balance analysis remains as a separately labeled residual diagnostic.",
-        "prospective_forecast_contract": "Each temporal forecast is trained only on scheduled, unbiased prefix readings. No future sensor values enter its predictors; intervals use local parameter covariance and declared fixture sensor noise.",
+        "prospective_forecast_contract": "Each temporal forecast is trained only on scheduled, unbiased prefix readings. No future sensor values enter its predictors; intervals require finite invertible local parameter covariance and declared fixture sensor noise. Coverage and width are unavailable otherwise; available-replicate counts are reported separately.",
         "prospective_forecast_training_cutoff": "0.7 × dimensionless duration (not 70% of interval count)",
         "temporal_holdout_contract": "Legacy balance-residual diagnostic; endpoint readings appear in the trapezoidal predictors and therefore the score is not a forecast.",
         "cross_replicate_holdout_contract": "For each seeded run, fit pooled intervals from other seeds in its design and score the omitted run. The seeds share one fixture, configuration and event schedule; this is not independent experimental validation.",

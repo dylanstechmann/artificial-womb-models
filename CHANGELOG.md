@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.2.1 — 2026-10-06
+
+- Match the transport reference's combined capacity to the two equal compartments; verify its rapid-mixing limit against an independently derived steady solution.
+- Keep point forecasts but suppress approximate intervals when local parameter covariance is unavailable. Report interval availability and its replicate denominator separately from forecast availability.
+- Replace the development roadmap with ordered milestones and explicit numerical, evidence, data and review acceptance criteria.
+
 ## 0.2.0 — 2026-10-06
 
 - Add noise-aware state estimation and a forward temporal forecast that excludes later readings from fitting and prediction inputs.

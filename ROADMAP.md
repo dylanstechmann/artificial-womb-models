@@ -1,36 +1,179 @@
-# Research software roadmap
+# Development roadmap
 
-The ambition is complete human ectogenesis from IVF through birth. Progress is tracked through useful software and verified evidence rather than a gestational readiness score.
+Reviewed against the code on 2026-10-06. The long-term research question remains
+complete human ectogenesis from IVF through birth. This roadmap advances
+mathematics, evidence quality and reproducible research software; it does not
+turn disconnected developmental intervals into a demonstrated gestation system.
 
-## First release
+## Delivered baseline
 
-- Preserve developmental stages, species, intervals, claim status and requirement references in a reviewed evidence ledger.
-- Generate reproducible evidence dossiers and dimensionless exchange/power/monitoring fixtures.
-- Diagnose input/conversion rate identifiability from scheduled observations and compare bounded seeded cadence/noise, monitor-fault and reflected event-timing profiles with explicitly separated synthetic recovery scoring.
-- Report balance residuals, seeded software fault metrics, input/implementation hashes and output receipts.
-- Discover the RegenWorkbench ResearchDesk ectogenesis blueprint through a read-only local bridge and display receipt-checked evidence/model reports.
-- Compare prospective temporal forecasts with a last-observation baseline, noise-aware intervals and seeded sensitivity summaries; keep endpoint-derived balance residuals labeled as consistency checks.
-- Add dimensionless two-compartment transport and Kelvin–Voigt mechanics fixtures, each compared with a simpler alternative and paired with a developmental-observation metadata contract.
+- Reviewed evidence ledger with source class, species, developmental stage,
+  stated interval, excluded inference and requirement links.
+- Exact piecewise exchange transitions, scheduled synthetic sensors, backup
+  power/fault fixtures, receipts and input/implementation/output hashes.
+- Integral-balance consistency diagnostics, noise-aware state estimation,
+  prospective prefix-trained forecasts versus a last-reading baseline, and
+  seeded cadence/noise/fault/event-timing sweeps.
+- Dimensionless two-compartment transport and Kelvin–Voigt mechanics examples
+  with simpler alternative models; developmental-observation JSON schema.
+- Read-only ResearchDesk discovery and receipt-checked report display.
 
-## Completed development work, 2026-10-06
+The 0.2.1 correction matches the transport reference to the combined capacity
+of both compartments. It also distinguishes point-forecast availability from
+approximate-interval availability when local parameter covariance is absent.
+Neither a finite covariance nor a low residual establishes biological validity.
 
-- Temporal forecasting fits only the first 70% of elapsed fixture duration and scores later scheduled, unbiased readings without using them as predictors. Simulation receipts bind the exact configuration and trajectory, and event schedules are checked before analysis.
-- The first measured-data benchmark is the published TEBV Figure 8 dataset in RegenWorkbench. It retains source workbook coordinates, units, one-donor provenance, missing vessel identifiers, the workbook/caption sample-count mismatch, and the author-reported analysis as separate evidence. Its nonmonotone descriptive result is a falsifier for a simple monotone dose rule, not donor-general evidence.
-- The ResearchDesk model bridge verifies and displays the new report schemas, forecast/baseline metrics and theory alternatives. Study manifests can retain developmental context, immutable run history and per-kind current pointers; dossier exports can include explicitly linked, revalidated analysis artifacts.
+The TEBV Figure 8 case in RegenWorkbench is a descriptive measured-data
+reanalysis with one donor, missing vessel identifiers and a recorded
+workbook/caption sample-count discrepancy. It is not an external validation of
+these equations or measured ectogenesis.
 
-These deliverables improve reproducibility and model critique. They do not establish a biologically calibrated model, continuous human gestation, reduced birth-defect risk, replacement of surrogacy, or an actionable device design.
+## M1 — Independently verify numerical accuracy
 
-## Next contributions
+**First implementation milestone.** Conservation identities already exist;
+add accuracy checks against independent solutions.
 
-1. Continue evidence review with a source-selection protocol, prioritize adverse/null outcomes and study quality, and keep each species and developmental interval distinct.
-2. Expand claim/source/assumption relationships and add reviewer notes so every requirement can be traced to evidence and missing measurements.
-3. Add profile likelihoods or singular-spectrum summaries to the dimensionless fixture only when their interpretation is independently reviewed; compare candidate observation models without implying biology.
-4. Build explicit synthetic observer benchmarks for delayed observations and common-cause faults. Separate calibration scenarios from evaluation scenarios and report event-level misses/false alarms without treating time samples as independent experiments.
-5. Find additional openly licensed measured datasets with accessible independent-unit IDs, then prespecify train/validation/test splits before fitting.
-6. Invite external methods review before claiming a publication-level contribution. Add source-version and reviewer-note history to the read-only artifact bridge.
+1. Derive the closed-form constant-coefficient two-compartment solution and
+   compare both compartments and the capacity-matched reference over time.
+2. Measure transport Euler error under step halving, including unequal rates,
+   zero exchange/loss, extreme mixing and rejected unstable inputs. Record
+   actual versus requested step and the numerical regime.
+3. Verify mechanics creep and relaxation against analytic solutions, including
+   load changes exactly at output boundaries and controlled rejection of
+   zero-duration inputs.
+4. Publish equations, units (dimensionless here), assumptions, tolerances and
+   error curves generated by a reproducible command.
 
-## Portfolio milestones
+**Acceptance:** independently derived reference values, quantitative convergence
+tests, controlled failures at unsupported regimes, and a verification report
+that cannot be mistaken for biological validation.
 
-A reviewed source map, tested mathematical solver, reproducible benchmark, documented identifiability analysis and clear contributor issues are useful artifacts for research software or computational modeling roles. They can support a methods write-up after limitations and external reviewer feedback are addressed. This repository does not itself establish scientific novelty, a publication result, device readiness or access to a research position.
+## M2 — Benchmark identifiability and forecast calibration
 
-Biological/device development and clinical translation would require appropriate specialist collaborations and independently evaluated evidence. This codebase's current contribution remains software, numerical methods and research organization.
+Depends on M1. The current bounded profile search and local covariance are a
+baseline, not a complete identifiability study.
+
+- Export the objective profile, search-bound hits, rank/singular-spectrum
+  diagnostics and approximate interval availability with explicit reasons.
+- Freeze separate calibration and evaluation scenarios before tuning. Vary
+  initial state, power schedule, cadence, noise and model mismatch; reserve
+  independent seeds and schedules for evaluation.
+- Compare forecasts at prespecified horizons with last-value and simpler
+  model baselines. Report error, bias, interval width and coverage together.
+- Distinguish per-reading coverage from coverage variation across independent
+  synthetic trajectories; include all failure/unavailable denominators.
+- Test equilibrium, weak excitation, parameter boundaries and wrong model
+  structure. Do not replace an unavailable forecast prediction interval with a
+  sensor-noise-only interval under the same label.
+
+**Acceptance:** machine-readable frozen scenario plans, no tuning on evaluation
+data, negative controls that expose non-identification, and reproducible
+baseline comparisons. Any use of profile likelihood or confidence language
+needs its statistical assumptions and independent methods review.
+
+## M3 — Add a causal observer benchmark
+
+Depends on M2. Keep this a software fixture, separate from live hardware.
+
+- Define a narrow observation interface carrying only measurements already
+  available at each timestamp. Hide generator truth, injected fault labels
+  and future measurements from the observer.
+- Add delay, drift/bias, dropout, shared power loss and model mismatch cases.
+  Document which power/event information is assumed known.
+- Score state error, event-level misses, false alarms and detection delay;
+  retain overlapping-event ambiguity and undetected-event outcomes.
+- Keep truth exclusively in the evaluator. Add tests that future readings and
+  hidden fault annotations cannot alter earlier observer outputs.
+
+**Acceptance:** frozen held-out scenarios, past-only interface tests, explicit
+event denominators and failure examples. No physiological alarms, clinical
+thresholds or control recommendations.
+
+## M4 — Enforce observation metadata and evidence intervals
+
+Can proceed alongside M1–M3. The observation schema is currently a contract;
+it needs a runtime validator and command, not just a schema file.
+
+- Validate examples and imported metadata with the stdlib runtime, including
+  source version, species/model, independent unit, stage, actual interval,
+  quantity/unit, missingness and calibration status.
+- Represent intervals structurally in each species' declared convention.
+  Check claim coverage against cited source coverage. Current ledger checks
+  species/stage references but does not establish interval containment.
+- Add claim/source/assumption links, exact figure/table/workbook locators,
+  reviewer identity/date/rationale and revision/supersession records.
+- Separate reported experiments, institutional announcements, regulator
+  discussions and hypotheses. Record adverse and null observations and
+  distinguish physiological support from growth/development outcomes.
+
+**Acceptance:** tests reject incompatible species, unsupported intervals,
+source-class promotion and contradictory missingness/calibration fields.
+Updating a source cannot silently change an existing reviewed claim.
+
+The [mouse developmental study](https://www.nature.com/articles/s41586-021-03416-3)
+and [FDA artificial-womb discussion](https://www.fda.gov/media/172252/download)
+address distinct stages and questions. The
+[preterm-lamb study](https://doi.org/10.3389/fphys.2023.1219185) also makes growth
+limitations important to the evidence map. These sources do not establish
+continuous human development from fertilization through birth.
+
+## M5 — Make model bundles independently verifiable
+
+Coordinate with [RegenWorkbench's roadmap](https://github.com/dylanstechmann/regen-workbench/blob/main/ROADMAP.md).
+
+- Copy the exact source simulation receipt into an observability bundle,
+  alongside the already pinned trajectory/configuration. A receipt hash alone
+  cannot resolve ancestry after the source folder disappears.
+- Add a standalone verifier for report family, schema, files, hashes, source
+  ancestry and required dependencies, with bounded reads and path checks.
+- Emit a machine-readable reproduction plan with package revision,
+  environment, exact inputs, commands and expected outputs.
+- Verify a relocated archive without relying on local absolute paths. Separate
+  verified bytes, resolved ancestry and scientific review status.
+
+**Acceptance:** a fresh environment can verify and rerun the synthetic example;
+missing parents or changed bytes fail explicitly. ResearchDesk remains an
+optional consumer, not a runtime requirement of the model package.
+
+## M6 — Establish an empirical benchmark with appropriate units
+
+Begin the data-access audit early; fit only after the plan is frozen.
+
+- Select openly licensed measurements relevant to a stated equation, with
+  accessible independent-unit IDs, units, uncertainty and instrument context.
+- Write a source/license card and applicability assessment. A developmental
+  paper is not automatically a calibration dataset for a transport model.
+- Prespecify outcomes, exclusions, independence level and grouped splits.
+  If units or identifiers are unavailable, retain a descriptive analysis and
+  label the missing validation opportunity.
+- Compare simple alternatives and model discrepancy on held-out units; publish
+  negative results and sensitivity to unverified assumptions.
+
+**Acceptance:** licensed reproducible intake, frozen unit-safe evaluation,
+data/model mismatch review and an externally reviewed methods report. No claim
+of clinical prediction, complete gestation or reduced congenital defects.
+
+## M7 — Add physiological scope only where it can be tested
+
+After the relevant verification and data gates, consider coupled transport,
+growth/remodeling or endocrine observation models. Each proposal needs an
+explicit question, equations, parameter provenance, measurements, a simpler
+comparator, identifiable quantities and falsifiers before implementation.
+
+Do not prioritize additional disconnected toy models, a gestation readiness
+score, device assembly instructions or biological operating parameters. The
+most useful contribution is a model whose limitations another researcher can
+reproduce and challenge.
+
+## Order and reviewable outputs
+
+1. Numerical verification report and improved uncertainty diagnostics (M1–M2).
+2. Causal observer benchmark plus executable metadata/evidence validation
+   (M3–M4; independent tasks can run in parallel).
+3. Portable verified dossier and first suitable empirical case (M5–M6).
+4. A scoped next model or methods manuscript after independent review (M7).
+
+Each milestone should produce a small release, executable example, documented
+negative cases and concrete contributor tasks. A reviewed benchmark and
+methods write-up are stronger evidence of research software ability than
+repository count; they do not guarantee novelty, publication or employment.

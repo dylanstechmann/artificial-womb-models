@@ -114,7 +114,15 @@ class DesignSweepTests(unittest.TestCase):
         self.assertTrue(all(int(item["prospective_forecast_scored_readings"]) > 0 for item in forecasts))
         self.assertTrue(all(item["prospective_forecast_rmse"] != "" for item in forecasts))
         self.assertTrue(all(item["prospective_forecast_last_value_baseline_rmse"] != "" for item in forecasts))
-        self.assertTrue(all(item["prospective_forecast_coverage_95"] != "" for item in forecasts))
+        for item in forecasts:
+            available = item["prospective_forecast_prediction_interval_available"] == "True"
+            self.assertEqual(item["prospective_forecast_coverage_95"] != "", available)
+            self.assertEqual(item["prospective_forecast_mean_interval_width_95"] != "", available)
+            if not available:
+                self.assertIn("covariance", item["prospective_forecast_prediction_interval_reason"])
+        for item in summaries:
+            self.assertLessEqual(int(item["prospective_forecast_interval_available_replicates"]),
+                                 int(item["prospective_forecast_estimable_replicates"]))
         self.assertTrue(all(item["prospective_forecast_estimable_replicates"] in {"0", "1", "2"}
                             for item in summaries))
         self.assertTrue(all(item["temporal_holdout_estimable_replicates"] in {"0", "1", "2"}

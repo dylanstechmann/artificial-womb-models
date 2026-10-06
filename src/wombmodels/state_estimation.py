@@ -139,6 +139,9 @@ def _fit_state(rows, eligible_indices, noise_sd):
                 {name: math.sqrt(max(0.0, covariance[position][position]))
                  for position, name in enumerate(("initial_state", "powered_input", "conversion"))}),
             "parameter_covariance": covariance,
+            "local_parameter_covariance_available": covariance is not None,
+            "local_parameter_covariance_reason": (None if covariance is not None else
+                "Training design does not provide a finite invertible local parameter covariance."),
             "n_training_readings": sample_count,
             "training_start_time": rows[initial_index]["time"],
             "training_end_time": rows[eligible_indices[-1]]["time"],
@@ -208,7 +211,10 @@ def prospective_forecast(rows, faults, split_time: float, noise_sd: float):
               "n_excluded_biased_readings": excluded_biased,
               "fixture_scale_rmse": None, "baseline_last_observation_rmse": None,
               "mae": None, "mean_error": None, "coverage_95": None,
-              "mean_95_interval_width": None, "reason": None}
+              "mean_95_interval_width": None, "reason": None,
+              "prediction_interval_available": False,
+              "prediction_interval_reason": "No fitted and scored forecast is available.",
+              "uncertainty_method": None}
     fit = _fit_state(rows, training_indices, noise_sd)
     if not fit["estimable"]:
         result["reason"] = fit["reason"]
@@ -229,12 +235,15 @@ def prospective_forecast(rows, faults, split_time: float, noise_sd: float):
     lower_basis = _basis(rows, origin_index, lower) if upper > lower else None
     upper_basis = _basis(rows, origin_index, upper) if upper > lower else None
     errors, baseline_errors, covered, widths = [], [], [], []
+    interval_available = fit["parameter_covariance"] is not None
     for index in heldout_indices:
         prediction = parameters["initial_state"] * a[index] + parameters["powered_input"] * b[index]
         actual = rows[index]["reading"]
         errors.append(actual - prediction)
         last_training_value = rows[training_indices[-1]]["reading"]
         baseline_errors.append(actual - last_training_value)
+        if not interval_available:
+            continue
         variance = noise_sd * noise_sd
         if fit["parameter_covariance"] is not None:
             derivative_k = 0.0
@@ -256,9 +265,13 @@ def prospective_forecast(rows, faults, split_time: float, noise_sd: float):
                   baseline_last_observation_rmse=baseline_rmse,
                   mae=math.fsum(abs(error) for error in errors) / len(errors),
                   mean_error=math.fsum(errors) / len(errors),
-                  coverage_95=sum(covered) / len(covered),
-                  mean_95_interval_width=math.fsum(widths) / len(widths),
-                  uncertainty_method="Delta-method state-parameter covariance plus the declared independent Gaussian sensor noise; approximate, synthetic-fixture-only.",
+                  coverage_95=(sum(covered) / len(covered) if interval_available else None),
+                  mean_95_interval_width=(math.fsum(widths) / len(widths) if interval_available else None),
+                  prediction_interval_available=interval_available,
+                  prediction_interval_reason=(None if interval_available else
+                      "Local parameter covariance is unavailable for this training design."),
+                  uncertainty_method=("Delta-method state-parameter covariance plus the declared independent Gaussian sensor noise; approximate, synthetic-fixture-only."
+                                      if interval_available else None),
                   reason=None,
                   state_fit={key: value for key, value in fit.items()
                              if key not in {"a", "b", "parameter_covariance"}})

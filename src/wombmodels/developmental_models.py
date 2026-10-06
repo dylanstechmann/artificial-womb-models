@@ -118,7 +118,7 @@ def simulate_transport(config_path: Path, output: Path) -> dict:
             break
         next_c1 = c1 + delta * (source_flux - internal_flux - loss * c1)
         next_c2 = c2 + delta * (internal_flux - loss * c2)
-        next_mixed = mixed + delta * (exchange * (boundary - mixed) - loss * mixed)
+        next_mixed = mixed + delta * ((exchange / 2.0) * (boundary - mixed) - loss * mixed)
         if min(next_c1, next_c2, next_mixed) < -1e-10 or not all(
                 math.isfinite(value) for value in (next_c1, next_c2, next_mixed)):
             raise InputError("Transport fixture left its finite nonnegative state range")
@@ -129,8 +129,9 @@ def simulate_transport(config_path: Path, output: Path) -> dict:
 
     final = rows[-1]
     alternative = {
-        "name": "single well-mixed reference compartment",
-        "equation": "dC/dt = boundary_exchange × (boundary − C) − loss × C",
+        "name": "capacity-matched single well-mixed reference compartment",
+        "equation": "dC/dt = (boundary_exchange / 2) × (boundary − C) − loss × C",
+        "capacity_relative_to_one_compartment": 2.0,
         "initial_state": (initial["interface"] + initial["core"]) / 2.0,
         "final_state": mixed_rows[-1]["single_compartment_state"],
         "final_core_difference_from_two_compartment_model": mixed_rows[-1]["single_compartment_state"] - final["core_state"],
@@ -139,7 +140,7 @@ def simulate_transport(config_path: Path, output: Path) -> dict:
     report = _scope_report(
         "dimensionless_two_compartment_transport",
         config,
-        ["The interface and core have equal abstract capacity.",
+        ["The interface and core have equal abstract capacity; the well-mixed reference has their combined capacity and the same single boundary-exchange pathway.",
          "Boundary exchange and intercompartment transfer are linear and time-invariant.",
          "The boundary concentration is a known constant; a first-order loss acts on both compartments.",
          "Forward Euler integration preserves a discrete accounting identity under the configured step bound."],

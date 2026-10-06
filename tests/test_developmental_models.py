@@ -44,6 +44,27 @@ class DevelopmentalModelTests(unittest.TestCase):
             simulate_transport(config_path, self.root / "unstable-bundle")
         self.assertFalse((self.root / "unstable-bundle").exists())
 
+    def test_transport_fast_mixing_approaches_capacity_matched_reference(self):
+        differences = []
+        for transfer in (20.0, 200.0):
+            config = self.config("transport_fixture.json")
+            config["initial"] = {"interface": 0.0, "core": 0.0}
+            config["boundary_concentration"] = 1.0
+            config["rates"] = {"boundary_exchange": 1.0,
+                               "intercompartment_transport": transfer, "loss": 0.5}
+            config["dimensionless_time"] = {"duration": 20.0, "step": 0.002}
+            _receipt, output = self.run_model(simulate_transport, config, f"mixing-{transfer}")
+            report = json.loads((output / "transport_report.json").read_text(encoding="utf-8"))
+            reference = report["alternative_model"]["final_state"]
+            core = report["outputs"]["final_core_state"]
+            steady_core = transfer / ((transfer + 0.5) + 0.5 * (2 * transfer + 0.5))
+            self.assertAlmostEqual(reference, 0.5, places=6)
+            self.assertAlmostEqual(core, steady_core, places=6)
+            self.assertEqual(report["alternative_model"]["capacity_relative_to_one_compartment"], 2.0)
+            differences.append(abs(reference - core))
+        self.assertLess(differences[1], 0.002)
+        self.assertLess(differences[1], differences[0] / 5)
+
     def test_mechanics_reports_piecewise_response_and_elastic_alternative(self):
         receipt, output = self.run_model(simulate_mechanics, self.config("mechanics_fixture.json"), "mechanics")
         report = json.loads((output / "mechanics_report.json").read_text(encoding="utf-8"))
