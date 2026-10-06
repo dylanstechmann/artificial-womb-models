@@ -8,7 +8,7 @@ from pathlib import Path
 
 from .artifacts import InputError, csv_bytes, json_bytes, publish_bundle, read_json, sha256
 from .exchange import NOTICE, run_fixture, validate_config
-from .identifiability import _fit, _intervals
+from .identifiability import RANK_TOLERANCE, _fit, _intervals
 
 CADENCE_FACTORS = (0.5, 1.0, 2.0)
 NOISE_MULTIPLIERS = (0.0, 1.0, 2.0)
@@ -100,6 +100,117 @@ def _temporal_holdout(intervals, duration):
     return result
 
 
+def _interval_statistics(intervals):
+    """Keep bounded sufficient statistics for seed-group holdout scoring."""
+    return {
+        "n_intervals": len(intervals),
+        "powered_squared": math.fsum(item["powered_exposure"] ** 2 for item in intervals),
+        "conversion_squared": math.fsum(item["conversion_exposure"] ** 2 for item in intervals),
+        "cross_product": math.fsum(item["powered_exposure"] * item["conversion_exposure"]
+                                   for item in intervals),
+        "powered_change": math.fsum(item["powered_exposure"] * item["observed_change"]
+                                    for item in intervals),
+        "conversion_change": math.fsum(item["conversion_exposure"] * item["observed_change"]
+                                       for item in intervals),
+        "change_squared": math.fsum(item["observed_change"] ** 2 for item in intervals),
+    }
+
+
+def _combine_statistics(groups):
+    names = ("powered_squared", "conversion_squared", "cross_product",
+             "powered_change", "conversion_change", "change_squared")
+    return {"n_intervals": sum(item["n_intervals"] for item in groups),
+            **{name: math.fsum(item[name] for item in groups) for name in names}}
+
+
+def _fit_statistics(stats):
+    """Fit a pooled seed group from sufficient statistics, without truth values."""
+    if stats["n_intervals"] < 2:
+        return {"estimable": False, "reason": "Fewer than two training intervals"}
+    norm0 = math.sqrt(stats["powered_squared"])
+    norm1 = math.sqrt(stats["conversion_squared"])
+    if norm0 == 0 or norm1 == 0:
+        return {"estimable": False, "reason": "At least one model term has no variation"}
+    correlation = (stats["cross_product"] / norm0) / norm1
+    correlation = max(-1.0, min(1.0, correlation))
+    eig_large = 1.0 + abs(correlation)
+    eig_small = 1.0 - abs(correlation)
+    singular_large = math.sqrt(eig_large)
+    singular_small = math.sqrt(max(0.0, eig_small))
+    condition = singular_large / singular_small if singular_small > 0 else None
+    if eig_small <= RANK_TOLERANCE * eig_large:
+        return {"estimable": False, "rank": 1,
+                "design_column_correlation": correlation,
+                "normalized_design_condition_number": condition,
+                "reason": "The pooled training effects are collinear"}
+    denominator = 1.0 - correlation * correlation
+    normalized_xy0 = stats["powered_change"] / norm0
+    normalized_xy1 = stats["conversion_change"] / norm1
+    normalized_beta0 = (normalized_xy0 - correlation * normalized_xy1) / denominator
+    normalized_beta1 = (normalized_xy1 - correlation * normalized_xy0) / denominator
+    estimates = {"powered_input": normalized_beta0 / norm0,
+                 "conversion": normalized_beta1 / norm1}
+    if not all(math.isfinite(value) for value in estimates.values()):
+        return {"estimable": False, "rank": 2,
+                "design_column_correlation": correlation,
+                "normalized_design_condition_number": condition,
+                "reason": "Pooled training estimates exceed the supported floating-point range"}
+    return {"estimable": True, "rank": 2, "parameter_estimates": estimates,
+            "design_column_correlation": correlation,
+            "normalized_design_condition_number": condition,
+            "n_intervals": stats["n_intervals"]}
+
+
+def _prediction_rmse(stats, estimates):
+    """Score a separate replicate from its sufficient statistics."""
+    powered = estimates["powered_input"]
+    conversion = estimates["conversion"]
+    terms = [stats["change_squared"],
+             -2.0 * powered * stats["powered_change"],
+             -2.0 * conversion * stats["conversion_change"],
+             powered * powered * stats["powered_squared"],
+             2.0 * powered * conversion * stats["cross_product"],
+             conversion * conversion * stats["conversion_squared"]]
+    try:
+        residual_sum = math.fsum(terms)
+    except OverflowError:
+        raise InputError("Cross-replicate residuals exceed the supported floating-point range") from None
+    if not math.isfinite(residual_sum):
+        raise InputError("Cross-replicate residuals exceed the supported floating-point range")
+    if residual_sum < 0:
+        tolerance = 1e-12 * max(1.0, math.fsum(abs(value) for value in terms))
+        if abs(residual_sum) <= tolerance:
+            residual_sum = 0.0
+        else:
+            raise InputError("Cross-replicate residual sum is numerically inconsistent")
+    rmse = math.sqrt(residual_sum / stats["n_intervals"])
+    if not math.isfinite(rmse):
+        raise InputError("Cross-replicate RMSE exceeds the supported floating-point range")
+    return rmse
+
+
+def _leave_one_replicate_out(groups):
+    """Fit all other seeded runs of one design and score the omitted run."""
+    results = []
+    for index, heldout in enumerate(groups):
+        training = [group for other, group in enumerate(groups) if other != index]
+        base = {"estimable": False, "training_replicates": len(training),
+                "fixture_scale_rmse": None, "reason": None}
+        if not training:
+            base["reason"] = "At least two seeded replicates are required"
+        else:
+            fit = _fit_statistics(_combine_statistics(training))
+            if not fit.get("estimable"):
+                base["reason"] = fit.get("reason", "Pooled training fit was not estimable")
+            elif heldout["n_intervals"] < 1:
+                base["reason"] = "Held-out replicate has no usable intervals"
+            else:
+                base.update(estimable=True,
+                            fixture_scale_rmse=_prediction_rmse(heldout, fit["parameter_estimates"]))
+        results.append(base)
+    return results
+
+
 def sweep(config_path: Path, output: Path, *, replicates: int = 8) -> dict:
     """Compare cadence/noise, monitor-fault and event-timing profiles with seeded runs."""
     if isinstance(replicates, bool) or not isinstance(replicates, int) or not MIN_REPLICATES <= replicates <= MAX_REPLICATES:
@@ -147,6 +258,7 @@ def sweep(config_path: Path, output: Path, *, replicates: int = 8) -> dict:
             for timing_profile in timing_profiles:
                 for fault_profile in fault_profiles:
                     cell_runs = []
+                    cell_statistics = []
                     for replicate in range(replicates):
                         candidate = copy.deepcopy(config)
                         candidate["dimensionless_time"]["output_step"] = step
@@ -166,6 +278,7 @@ def sweep(config_path: Path, output: Path, *, replicates: int = 8) -> dict:
                         intervals = _intervals(compact)
                         fit = _fit(intervals)
                         holdout = _temporal_holdout(intervals, parsed["duration"])
+                        cell_statistics.append(_interval_statistics(intervals))
                         result = {
                             "cadence_factor_requested": cadence_factor,
                             "actual_output_step": step,
@@ -186,9 +299,18 @@ def sweep(config_path: Path, output: Path, *, replicates: int = 8) -> dict:
                         }
                         run_rows.append(result)
                         cell_runs.append(result)
+                    cross_holdouts = _leave_one_replicate_out(cell_statistics)
+                    for item, holdout in zip(cell_runs, cross_holdouts):
+                        item.update(
+                            cross_replicate_holdout_estimable=holdout["estimable"],
+                            cross_replicate_holdout_training_replicates=holdout["training_replicates"],
+                            cross_replicate_holdout_fixture_scale_rmse=holdout["fixture_scale_rmse"],
+                            cross_replicate_holdout_reason=holdout["reason"])
                     estimable = [item for item in cell_runs if item["estimable"]]
                     holdout_estimable = [item for item in cell_runs
                                          if item["temporal_holdout_estimable"]]
+                    cross_holdout_estimable = [item for item in cell_runs
+                                               if item["cross_replicate_holdout_estimable"]]
                     scenario_rows.append({
                         "cadence_factor_requested": cadence_factor,
                         "actual_output_step": step,
@@ -205,6 +327,12 @@ def sweep(config_path: Path, output: Path, *, replicates: int = 8) -> dict:
                             [item["temporal_holdout_fixture_scale_rmse"] for item in holdout_estimable]),
                         "p90_temporal_holdout_fixture_scale_rmse": _percentile(
                             [item["temporal_holdout_fixture_scale_rmse"] for item in holdout_estimable], 0.9),
+                        "cross_replicate_holdout_estimable_replicates": len(cross_holdout_estimable),
+                        "cross_replicate_holdout_estimable_fraction": len(cross_holdout_estimable) / replicates,
+                        "median_cross_replicate_holdout_fixture_scale_rmse": _median(
+                            [item["cross_replicate_holdout_fixture_scale_rmse"] for item in cross_holdout_estimable]),
+                        "p90_cross_replicate_holdout_fixture_scale_rmse": _percentile(
+                            [item["cross_replicate_holdout_fixture_scale_rmse"] for item in cross_holdout_estimable], 0.9),
                         "median_usable_readings": _median([item["n_usable_readings"] for item in cell_runs]),
                         "median_design_condition_number": _median(
                             [item["normalized_design_condition_number"] for item in cell_runs]),
@@ -255,6 +383,7 @@ def sweep(config_path: Path, output: Path, *, replicates: int = 8) -> dict:
         "scoring_boundary": "Generator-known rates are used only to score estimates after fitting; they are not fit inputs.",
         "temporal_holdout_contract": "Fit the first 70% of usable intervals in each run and score later intervals from that same run; this is not independent validation.",
         "temporal_holdout_training_fraction": 0.7,
+        "cross_replicate_holdout_contract": "Leave one seeded synthetic replicate out, fit pooled intervals from other replicates of the same design and score the omitted run. These runs share the same fixture and schedule; this is not independent experimental validation.",
         "biological_measurements": False,
         "physiologically_calibrated": False,
         "human_gestation_prediction": False,
@@ -273,6 +402,7 @@ def sweep(config_path: Path, output: Path, *, replicates: int = 8) -> dict:
         "method": "Seeded synthetic replicate sweep; fit uses scheduled readings and known fixture power-source labels, then scores estimates against generator rates.",
         "temporal_holdout_contract": "Each run fits its first 70% of usable intervals and scores only later intervals from the same run; this is an internal fixture diagnostic, not independent validation.",
         "temporal_holdout_training_fraction": 0.7,
+        "cross_replicate_holdout_contract": "For each seeded run, fit pooled intervals from other seeds in its design and score the omitted run. The seeds share one fixture, configuration and event schedule; this is not independent experimental validation.",
         "design_summaries": scenario_rows,
         "event_timing_profiles": timing_profiles,
         "limits": [
@@ -281,6 +411,7 @@ def sweep(config_path: Path, output: Path, *, replicates: int = 8) -> dict:
             "Event timing profiles compare the configured schedule with its time reflection; they do not represent realistic outage or fault distributions.",
             "The unconstrained two-rate regression may be biased by trapezoidal approximation, noise and model mismatch.",
             "Temporal holdout scores use later intervals from the same generated run after fitting the first 70%; they are not independent validation.",
+            "Cross-replicate holdout fits use other seeded runs of the same fixture and event schedule; they are software checks, not independent experiments.",
             "Generator-known rates are excluded from each fit and appear only in explicitly labeled synthetic recovery scoring.",
             "Within each design profile, replicates share one model, input configuration and event schedule; they are not independent experiments.",
             "No embryo, animal, patient, device or clinical-outcome data are analyzed.",
@@ -296,10 +427,11 @@ def sweep(config_path: Path, output: Path, *, replicates: int = 8) -> dict:
              f"The bounded sweep contains {len(scenario_rows)} cadence/noise/fault/timing designs and {len(run_rows)} seeded software-fixture runs.",
              "Generator-known rates are used only after fitting to score synthetic recovery; they are not fit inputs.",
              "Temporal holdout fits use each run's first 70% of usable intervals and score its later intervals; they are internal diagnostics, not independent validation.",
+             "Leave-one-seed-out fits train on other runs with the same fixture and schedule; they do not establish independent experimental validation.",
              fault_note, timing_note,
              "All times, rates, cadence and noise are dimensionless fixture quantities.", "",
              "## Design-level summaries", "",
-             "`design_sweep.csv` reports estimability, same-run temporal holdout residuals, conditioning, fit residual scale and synthetic rate-recovery errors.",
+             "`design_sweep.csv` reports same-run temporal and leave-one-seed-out residuals, estimability, conditioning, fit residual scale and synthetic rate-recovery errors.",
              "These summaries do not recommend biological measurement schedules.", "", "## Limits", ""]
     lines.extend(f"- {item}" for item in report["limits"])
     files = {
