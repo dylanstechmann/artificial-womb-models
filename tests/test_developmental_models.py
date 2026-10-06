@@ -8,7 +8,9 @@ from pathlib import Path
 from wombmodels.artifacts import InputError
 from wombmodels.developmental_models import simulate_mechanics, simulate_transport
 from wombmodels.numerical_verification import (
+    _exact_mechanics_state,
     _exact_transport_state,
+    verify_mechanics_accuracy,
     verify_transport_accuracy,
 )
 
@@ -96,6 +98,46 @@ class DevelopmentalModelTests(unittest.TestCase):
         self.assertAlmostEqual(rows[5.0], stress_response_at_five, places=12)
         self.assertAlmostEqual(rows[7.0], stress_response_at_seven, places=12)
         self.assertAlmostEqual(rows[8.0], stress_response_at_seven * math.exp(-2), places=12)
+
+    def test_mechanics_convolution_reference_covers_creep_relaxation_and_zero_load(self):
+        schedule = [{"start": 1.0, "end": 3.0, "stress": 0.6},
+                    {"start": 4.0, "end": 5.0, "stress": -0.2}]
+        creep = _exact_mechanics_state(0.1, 4.5, elasticity=0.0, viscosity=2.0,
+                                       schedule=schedule)
+        self.assertAlmostEqual(creep, 0.1 + 0.6 * 2 / 2.0 - 0.2 * 0.5 / 2.0)
+        relaxed = _exact_mechanics_state(0.4, 2.0, elasticity=1.5, viscosity=0.75,
+                                        schedule=[])
+        self.assertAlmostEqual(relaxed, 0.4 * math.exp(-4.0))
+        unloaded = _exact_mechanics_state(0.2, 6.0, elasticity=1.5, viscosity=0.75,
+                                          schedule=schedule)
+        self.assertTrue(math.isfinite(unloaded))
+
+    def test_mechanics_verification_publishes_pointwise_and_boundary_errors(self):
+        config_path = ROOT / "examples" / "mechanics_fixture.json"
+        output = self.root / "mechanics-verification"
+        receipt = verify_mechanics_accuracy(config_path, output)
+        report = json.loads((output / "mechanics_verification_report.json").read_text(encoding="utf-8"))
+        with (output / "mechanics_boundary_errors.csv").open(newline="", encoding="utf-8") as stream:
+            boundaries = list(csv.DictReader(stream))
+        self.assertEqual(receipt["bundle_kind"], "dimensionless_mechanics_numerical_verification")
+        self.assertTrue(report["verification_passed"])
+        self.assertEqual(report["n_load_boundaries"], 4)
+        self.assertLessEqual(report["maximum_scaled_error"], report["relative_tolerance"])
+        self.assertEqual(len(boundaries), 4)
+        self.assertTrue((output / "mechanics_pointwise_errors.csv").is_file())
+
+    def test_mechanics_verification_supports_zero_elasticity_fixture(self):
+        config = self.config("mechanics_fixture.json")
+        config["rates"]["elasticity"] = 0.0
+        config["initial_strain"] = 0.15
+        config_path = self.root / "creep.json"
+        config_path.write_text(json.dumps(config), encoding="utf-8")
+        output = self.root / "creep-verification"
+        receipt = verify_mechanics_accuracy(config_path, output)
+        report = json.loads((output / "mechanics_verification_report.json").read_text(encoding="utf-8"))
+        self.assertEqual(receipt["bundle_kind"], "dimensionless_mechanics_numerical_verification")
+        self.assertIn("zero-elasticity", report["reference_method"])
+        self.assertTrue(report["verification_passed"])
 
     def test_exact_transport_reference_covers_zero_rates_and_unequal_transfer(self):
         self.assertEqual(_exact_transport_state(

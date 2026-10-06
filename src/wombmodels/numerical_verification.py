@@ -11,7 +11,7 @@ import tempfile
 from pathlib import Path
 
 from .artifacts import InputError, csv_bytes, json_bytes, publish_bundle, read_json
-from .developmental_models import _time_grid, simulate_transport
+from .developmental_models import _time_grid, simulate_mechanics, simulate_transport
 
 REFINEMENT_FACTORS = (1.0, 0.5, 0.25, 0.125, 0.0625)
 MAX_VERIFICATION_TIMEPOINTS = 100_000
@@ -93,6 +93,138 @@ def _exact_transport_state(interface: float, core: float, time: float, *,
 def _read_transport_rows(path: Path) -> list[dict[str, float]]:
     with path.open("r", encoding="utf-8", newline="") as stream:
         return [{key: float(value) for key, value in row.items()} for row in csv.DictReader(stream)]
+
+
+def _read_mechanics_rows(path: Path) -> list[dict[str, float]]:
+    with path.open("r", encoding="utf-8", newline="") as stream:
+        return [{key: float(row[key]) for key in ("dimensionless_time", "strain")}
+                for row in csv.DictReader(stream)]
+
+
+def _exact_mechanics_state(initial: float, time: float, *, elasticity: float,
+                           viscosity: float, schedule: list[dict[str, float]]) -> float:
+    """Evaluate piecewise-load response by convolution rather than solver steps.
+
+    For positive elasticity this sums each rectangular stress pulse convolved
+    with the Kelvin–Voigt exponential kernel. At zero elasticity the equation
+    reduces to linear creep, so each pulse contributes its elapsed overlap.
+    """
+    if elasticity == 0:
+        return initial + math.fsum(
+            float(event["stress"]) * max(0.0, min(time, float(event["end"]))
+                                          - float(event["start"])) / viscosity
+            for event in schedule)
+    relaxation_rate = elasticity / viscosity
+    state = initial * math.exp(-relaxation_rate * time)
+    for event in schedule:
+        start, end, stress = (float(event[key]) for key in ("start", "end", "stress"))
+        state += (stress / elasticity) * (
+            math.exp(-relaxation_rate * max(0.0, time - end))
+            - math.exp(-relaxation_rate * max(0.0, time - start)))
+    return state
+
+
+def verify_mechanics_accuracy(config_path: Path, output: Path) -> dict:
+    """Publish closed-form mechanics checks for every output and load boundary."""
+    config, raw = read_json(config_path)
+    output = Path(output).absolute()
+    if output.exists() or output.is_symlink():
+        raise InputError(f"Output already exists: {output}")
+    duration, requested_step, _steps = _time_grid(config.get("dimensionless_time"))
+    schedule = config.get("stress_schedule")
+    if isinstance(schedule, list):
+        estimated_points = math.ceil(duration / requested_step) + 1 + 2 * len(schedule)
+        if estimated_points > MAX_VERIFICATION_TIMEPOINTS:
+            raise InputError(f"Mechanics verification exceeds the {MAX_VERIFICATION_TIMEPOINTS}-timepoint budget; increase the requested step")
+
+    temporary = Path(tempfile.mkdtemp(prefix="wombmodels-mechanics-verification-"))
+    try:
+        bundle = temporary / "mechanics"
+        simulate_mechanics(config_path, bundle)
+        rows = _read_mechanics_rows(bundle / "mechanics_trajectory.csv")
+    finally:
+        shutil.rmtree(temporary)
+
+    rates = config["rates"]
+    elasticity = float(rates["elasticity"])
+    viscosity = float(rates["viscosity"])
+    initial = float(config["initial_strain"])
+    boundaries = {float(edge) for event in schedule for edge in (event["start"], event["end"])}
+    errors = []
+    pointwise_rows = []
+    boundary_rows = []
+    for row in rows:
+        time = row["dimensionless_time"]
+        reference = _exact_mechanics_state(initial, time, elasticity=elasticity,
+                                           viscosity=viscosity, schedule=schedule)
+        actual = row["strain"]
+        error = abs(actual - reference)
+        errors.append(error)
+        point = {"dimensionless_time": time, "solver_strain": actual,
+                 "convolution_reference_strain": reference,
+                 "absolute_error": error, "is_load_boundary": time in boundaries}
+        pointwise_rows.append(point)
+        if time in boundaries:
+            boundary_rows.append(point.copy())
+
+    maximum_error = max(errors, default=0.0)
+    rmse = math.sqrt(math.fsum(error * error for error in errors) / max(1, len(errors)))
+    scaled_error = max((error / max(1.0, abs(row["strain"]), abs(point["convolution_reference_strain"]))
+                        for error, row, point in zip(errors, rows, pointwise_rows)), default=0.0)
+    relative_tolerance = 1e-10
+    if scaled_error > relative_tolerance:
+        raise InputError("Mechanics solver exceeded the closed-form verification tolerance")
+
+    reference_name = ("piecewise rectangular-load convolution with Kelvin–Voigt exponential kernel"
+                      if elasticity > 0 else "piecewise-load integral for zero-elasticity linear creep")
+    report = {
+        "schema_version": 1,
+        "result_kind": "dimensionless_mechanics_numerical_verification",
+        "biological_measurements": False,
+        "physiologically_calibrated": False,
+        "human_gestation_prediction": False,
+        "fixture_notice": "Dimensionless numerical verification of a software fixture; no biological calibration or prediction.",
+        "reference_method": reference_name,
+        "equation": "viscosity × d(strain)/dt + elasticity × strain = applied_stress",
+        "input_sha256": hashlib.sha256(raw).hexdigest(),
+        "n_timepoints": len(rows),
+        "n_load_boundaries": len(boundary_rows),
+        "relative_tolerance": relative_tolerance,
+        "maximum_scaled_error": scaled_error,
+        "verification_passed": True,
+        "errors": {"max_absolute": maximum_error, "rmse": rmse,
+                   "max_boundary_absolute": max((row["absolute_error"] for row in boundary_rows), default=0.0)},
+        "limits": [
+            "All inputs, states and time values are dimensionless software-fixture quantities.",
+            "The convolution reference checks the piecewise-constant-load solution of the stated Kelvin–Voigt equation; it does not validate that equation for a biological system.",
+            "This is a closed-form consistency check, not experimental validation or a step-size convergence study.",
+            "Zero-elasticity creep and positive-elasticity relaxation are separate mathematical limits; neither provides a tissue property or developmental outcome.",
+        ],
+    }
+    report_bytes = json_bytes(report)
+    boundary_columns = list(boundary_rows[0]) if boundary_rows else list(pointwise_rows[0])
+    lines = ["# Dimensionless mechanics numerical verification", "", report["fixture_notice"], "",
+             f"Reference: {reference_name}.", "", "All time, state and error values are dimensionless.", "",
+             f"- Timepoints checked: {len(rows)}",
+             f"- Load boundaries checked: {len(boundary_rows)}",
+             f"- Maximum absolute error: {maximum_error:.12g}",
+             f"- Root mean square error: {rmse:.12g}",
+             f"- Maximum scaled error: {scaled_error:.12g} (tolerance {relative_tolerance:.1g})", "",
+             "## Limits", "", *[f"- {item}" for item in report["limits"]], ""]
+    files = {
+        "input_config.json": raw,
+        "mechanics_verification_report.json": report_bytes,
+        "mechanics_pointwise_errors.csv": csv_bytes(list(pointwise_rows[0]), pointwise_rows),
+        "mechanics_boundary_errors.csv": csv_bytes(boundary_columns, boundary_rows),
+        "REPORT.md": "\n".join(lines).encode("utf-8"),
+    }
+    return publish_bundle(
+        output, kind="dimensionless_mechanics_numerical_verification", input_raw=raw, files=files,
+        metadata={"biological_measurements": False,
+                  "physiologically_calibrated": False,
+                  "human_gestation_prediction": False,
+                  "n_timepoints": len(rows), "n_load_boundaries": len(boundary_rows),
+                  "verification_passed": True})
 
 
 def verify_transport_accuracy(config_path: Path, output: Path) -> dict:

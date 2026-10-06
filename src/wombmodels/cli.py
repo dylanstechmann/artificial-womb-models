@@ -12,7 +12,7 @@ from .developmental_models import simulate_mechanics, simulate_transport
 from .evidence import evidence_report
 from .exchange import simulate
 from .identifiability import analyze
-from .numerical_verification import verify_transport_accuracy
+from .numerical_verification import verify_mechanics_accuracy, verify_transport_accuracy
 
 
 def main(argv=None) -> int:
@@ -47,6 +47,10 @@ def main(argv=None) -> int:
         "verify-transport", help="Measure dimensionless transport Euler error against a closed-form reference")
     verification.add_argument("--config", type=Path, required=True)
     verification.add_argument("--out", type=Path, required=True)
+    mechanics_verification = commands.add_parser(
+        "verify-mechanics", help="Check dimensionless mechanics against a closed-form piecewise-load reference")
+    mechanics_verification.add_argument("--config", type=Path, required=True)
+    mechanics_verification.add_argument("--out", type=Path, required=True)
     args = parser.parse_args(argv)
     try:
         if args.command == "desk-status":
@@ -64,6 +68,8 @@ def main(argv=None) -> int:
             receipt = simulate_mechanics(args.config, args.out)
         elif args.command == "verify-transport":
             receipt = verify_transport_accuracy(args.config, args.out)
+        elif args.command == "verify-mechanics":
+            receipt = verify_mechanics_accuracy(args.config, args.out)
         else:
             receipt = simulate(args.config, args.out)
     except (InputError, OSError) as exc:

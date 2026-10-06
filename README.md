@@ -18,6 +18,7 @@ python -m venv .venv
 .venv\Scripts\wombmodels transport-model --config examples/transport_fixture.json --out artifacts/transport-v1
 .venv\Scripts\wombmodels mechanics-model --config examples/mechanics_fixture.json --out artifacts/mechanics-v1
 .venv\Scripts\wombmodels verify-transport --config examples/transport_fixture.json --out artifacts/transport-verification-v1
+.venv\Scripts\wombmodels verify-mechanics --config examples/mechanics_fixture.json --out artifacts/mechanics-verification-v1
 .venv\Scripts\wombmodels desk-status --url http://127.0.0.1:8092
 ```
 
@@ -30,6 +31,8 @@ The fixture has invented **dimensionless** stocks, rates, times and thresholds. 
 Two additional theoretical fixtures make alternative equations and future measurable outputs explicit: a two-compartment transport model compared with a well-mixed reference, and a Kelvin–Voigt viscoelastic response compared with an instantaneous elastic reference. Each artifact names one developmental research track while keeping all model values dimensionless. [THEORETICAL_MODELS.md](THEORETICAL_MODELS.md) documents their equations, assumptions, identifiable measurements, alternatives and the shared [developmental observation contract](schemas/developmental-observation.schema.json). These fixtures are not biologically calibrated and do not set organismal or device parameters.
 
 `verify-transport` evaluates the transport fixture's forward-Euler trajectory at five requested step sizes against an independent closed-form solution of the same constant-coefficient two-state equations. It publishes a receipt-bound convergence curve and the finest-step pointwise errors. The command is a numerical accuracy check for one supplied fixture configuration, not external validation or evidence about an organism.
+
+`verify-mechanics` checks every mechanics output time against a separate piecewise-load convolution solution, with explicit pointwise and load-boundary error files. It covers exponential relaxation for positive elasticity and linear creep at the zero-elasticity limit. Since the production mechanics solver already uses an exact transition on every constant-load interval, this report is a closed-form consistency check rather than a step-halving convergence study or external validation.
 
 ## Developmental scope
 

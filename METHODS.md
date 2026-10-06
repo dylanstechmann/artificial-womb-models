@@ -79,6 +79,10 @@ f = [exchange × boundary, 0]
 
 The reference decomposes the 2×2 matrix into its trace component and a traceless matrix whose square is a scalar multiple of the identity. It evaluates the resulting two-mode matrix exponential and the integrated constant forcing term, with limits for repeated or near-zero eigenvalues. It does not call the Euler update. `transport_convergence.csv` records requested and actual steps, maximum state error, RMSE and descriptive observed order; `finest_step_trajectory.csv` retains pointwise Euler/reference values and absolute errors. The report preserves the exact input and implementation hashes in its receipt. This verifies discretization accuracy for the stated equations and configuration only; it cannot determine whether those equations represent a biological system.
 
+## Mechanics solver verification
+
+`verify-mechanics` compares the production mechanics trajectory at every output time with a separately evaluated convolution of the piecewise-constant stress schedule and the Kelvin–Voigt exponential kernel. At zero elasticity it instead integrates each stress interval as linear creep. The command checks exact load boundaries, publishes per-timepoint and boundary errors, and rejects a result outside its scaled floating-point tolerance. The existing mechanics solver already applies exact constant-load transitions, so a refinement curve would imply an artificial discretization error; the convolution check is a consistency check, not a convergence or biological validation study.
+
 ## Reproducibility and publication
 
 Commands preserve the exact original input bytes. `receipt.json` records their SHA-256, package/Python versions, implementation file hashes, and each output's SHA-256 and byte count. The source URLs in the evidence ledger are bibliographic links, not archived or hash-pinned copies of the external pages. Re-review is necessary when expanding or updating a claim.
