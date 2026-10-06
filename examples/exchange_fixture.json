@@ -1,0 +1,13 @@
+{
+  "schema_version": 1,
+  "fixture_notice": "Artificial dimensionless software fixture; no physiological calibration, biological prediction or machine-control output.",
+  "dimensionless_time": {"duration": 12, "output_step": 0.25},
+  "initial": {"substrate": 1, "waste": 0.25, "backup_reserve": 1},
+  "rates": {"powered_input": 0.5, "conversion": 0.5, "powered_clearance": 1, "backup_draw": 0.5},
+  "wall_outages": [{"start": 3, "end": 7}],
+  "monitor": {"noise_sd": 0.015, "residual_threshold": 0.08, "seed": 20261006, "requires_exchange_power": true},
+  "monitor_faults": [
+    {"start": 1.5, "end": 2.5, "kind": "bias", "magnitude": 0.2},
+    {"start": 8.25, "end": 9, "kind": "dropout", "magnitude": 0}
+  ]
+}

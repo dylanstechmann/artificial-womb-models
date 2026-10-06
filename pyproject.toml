@@ -1,0 +1,17 @@
+[build-system]
+requires = ["setuptools>=68"]
+build-backend = "setuptools.build_meta"
+
+[project]
+name = "artificial-womb-models"
+version = "0.1.0"
+description = "Evidence mapping and dimensionless software fixtures for artificial gestation research"
+requires-python = ">=3.10"
+license = {text = "MIT"}
+dependencies = []
+
+[project.scripts]
+wombmodels = "wombmodels.cli:main"
+
+[tool.setuptools.packages.find]
+where = ["src"]
