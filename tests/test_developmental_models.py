@@ -140,6 +140,38 @@ class DevelopmentalModelTests(unittest.TestCase):
         self.assertIn("zero-elasticity", report["reference_method"])
         self.assertTrue(report["verification_passed"])
 
+    def test_mechanics_verification_covers_adjacent_loads_and_small_elasticity(self):
+        cases = (
+            ("fast-relaxation", 1000.0, 0.001, 0.0002,
+             [{"start": 0.0, "end": 0.25, "stress": 0.1},
+              {"start": 0.25, "end": 0.5, "stress": -0.1},
+              {"start": 0.5, "end": 0.75, "stress": 0.1},
+              {"start": 0.75, "end": 1.0, "stress": -0.1}]),
+            ("near-zero-elasticity", 1e-10, 1.0, 0.1,
+             [{"start": 0.0, "end": 0.2, "stress": 0.5},
+              {"start": 0.2, "end": 0.6, "stress": -0.25},
+              {"start": 0.8, "end": 1.0, "stress": 0.1}]),
+        )
+        for name, elasticity, viscosity, initial, schedule in cases:
+            with self.subTest(case=name):
+                config = self.config("mechanics_fixture.json")
+                step = 0.25 if name == "fast-relaxation" else 0.1
+                config["dimensionless_time"] = {"duration": 1.0, "step": step}
+                config["initial_strain"] = initial
+                config["rates"] = {"elasticity": elasticity, "viscosity": viscosity}
+                config["stress_schedule"] = schedule
+                config_path = self.root / f"{name}.json"
+                config_path.write_text(json.dumps(config), encoding="utf-8")
+                output = self.root / f"{name}-verification"
+                receipt = verify_mechanics_accuracy(config_path, output)
+                report = json.loads(
+                    (output / "mechanics_verification_report.json").read_text(encoding="utf-8"))
+                self.assertEqual(receipt["bundle_kind"], "dimensionless_mechanics_numerical_verification")
+                self.assertTrue(report["verification_passed"])
+                unique_boundaries = {edge for event in schedule for edge in (event["start"], event["end"])}
+                self.assertEqual(report["n_load_boundaries"], len(unique_boundaries))
+                self.assertLessEqual(report["maximum_scaled_error"], report["relative_tolerance"])
+
     def test_exact_transport_reference_covers_zero_rates_and_unequal_transfer(self):
         self.assertEqual(_exact_transport_state(
             0.3, 0.8, 4.0, exchange=0.0, transport=0.0, loss=0.0, boundary=1.0), (0.3, 0.8))
@@ -193,9 +225,10 @@ class DevelopmentalModelTests(unittest.TestCase):
         names = {item["name"] for item in report["scenarios"]}
         self.assertEqual(receipt["bundle_kind"], "dimensionless_transport_parameter_matrix_numerical_verification")
         self.assertEqual(names, {"configured_baseline", "zero_dynamics", "exchange_only",
-                                 "transfer_only", "unequal_coupled", "high_mixing"})
+                                 "transfer_only", "unequal_coupled", "high_mixing",
+                                 "near_degenerate"})
         self.assertEqual(report["n_refinement_levels"], 5)
-        self.assertEqual(len(curves), 30)
+        self.assertEqual(len(curves), 35)
         for name in names:
             errors = [float(row["max_abs_state_error"]) for row in curves if row["scenario"] == name]
             self.assertEqual(len(errors), 5)
@@ -204,6 +237,10 @@ class DevelopmentalModelTests(unittest.TestCase):
         self.assertEqual(zero_dynamics["finest_max_abs_state_error"], 0.0)
         high_mixing = next(item for item in report["scenarios"] if item["name"] == "high_mixing")
         self.assertLessEqual(high_mixing["stability_product"], 0.5)
+        near_degenerate = next(item for item in report["scenarios"] if item["name"] == "near_degenerate")
+        self.assertLess(near_degenerate["rates"]["boundary_exchange"], 1e-9)
+        self.assertLess(near_degenerate["rates"]["intercompartment_transport"], 1e-9)
+        self.assertLessEqual(near_degenerate["stability_product"], 0.5)
         self.assertTrue((output / "transport_matrix_scenario_configs.json").is_file())
         for name in names:
             self.assertTrue((output / f"transport_{name}_finest_errors.csv").is_file())

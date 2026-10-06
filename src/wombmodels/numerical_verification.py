@@ -28,6 +28,8 @@ TRANSPORT_MATRIX_PROFILES = (
                           "intercompartment_transport": 0.83, "loss": 0.06}),
     ("high_mixing", {"boundary_exchange": 0.8,
                      "intercompartment_transport": 20.0, "loss": 0.1}),
+    ("near_degenerate", {"boundary_exchange": 1e-10,
+                          "intercompartment_transport": 1e-10, "loss": 0.4}),
 )
 
 
@@ -132,9 +134,13 @@ def _exact_mechanics_state(initial: float, time: float, *, elasticity: float,
     state = initial * math.exp(-relaxation_rate * time)
     for event in schedule:
         start, end, stress = (float(event[key]) for key in ("start", "end", "stress"))
-        state += (stress / elasticity) * (
-            math.exp(-relaxation_rate * max(0.0, time - end))
-            - math.exp(-relaxation_rate * max(0.0, time - start)))
+        if time <= start:
+            continue
+        pulse_duration = min(time, end) - start
+        pulse = -math.expm1(-relaxation_rate * pulse_duration)
+        if time > end:
+            pulse *= math.exp(-relaxation_rate * (time - end))
+        state += (stress / elasticity) * pulse
     return state
 
 
@@ -242,7 +248,7 @@ def verify_mechanics_accuracy(config_path: Path, output: Path) -> dict:
 
 
 def verify_transport_matrix(config_path: Path, output: Path) -> dict:
-    """Run a reproducible convergence matrix across six dimensionless regimes."""
+    """Run a reproducible convergence matrix across seven dimensionless regimes."""
     config, raw = read_json(config_path)
     output = Path(output).absolute()
     if output.exists() or output.is_symlink():

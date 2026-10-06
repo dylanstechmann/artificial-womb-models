@@ -191,7 +191,7 @@ def simulate_mechanics(config_path: Path, output: Path) -> dict:
             raise InputError("each stress interval must contain exactly start, end and stress")
         start = _number(event["start"], "stress start", 0, duration)
         end = _number(event["end"], "stress end", 0, duration)
-        stress = _number(event["stress"], "stress")
+        stress = _number(event["stress"], "stress", -MAX_RATE, MAX_RATE)
         if start < previous_end or end <= start:
             raise InputError("stress intervals must be ordered, positive and nonoverlapping")
         parsed.append({"start": start, "end": end, "stress": stress})
