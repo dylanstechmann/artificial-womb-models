@@ -1,5 +1,12 @@
 # Changelog
 
+## 0.3.0 — 2026-10-06
+
+- Add a stdlib developmental-observation intake validator with declared source-metadata binding, local source-review revisions, exact reported-unit partitions, missingness and explicit transition-continuity states.
+- Reject same-unit observations mislabeled as independent and require source-linked, same-unit, chronologically comparable intervals before a transition can be recorded as demonstrated.
+- Publish raw records, exact-group tables, transition tables, a bounded report and receipt-last hashes; include schema files in implementation fingerprints.
+- Preserve the distinction between record validation, source review, analysis eligibility and biological evidence.
+
 ## 0.2.1 — 2026-10-06
 
 - Match the transport reference's combined capacity to the two equal compartments; verify its rapid-mixing limit against an independently derived steady solution.

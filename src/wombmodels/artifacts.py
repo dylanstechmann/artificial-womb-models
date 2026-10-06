@@ -112,7 +112,10 @@ def implementation_hashes() -> dict[str, str]:
     directory = Path(__file__).parent
     result = {f"src/wombmodels/{path.name}": sha256(path.read_bytes())
               for path in sorted(directory.glob("*.py"))}
-    project = directory.parents[1] / "pyproject.toml"
+    root = directory.parents[1]
+    result.update({f"schemas/{path.name}": sha256(path.read_bytes())
+                   for path in sorted((root / "schemas").glob("*.json"))})
+    project = root / "pyproject.toml"
     if project.is_file():
         result["pyproject.toml"] = sha256(project.read_bytes())
     return result

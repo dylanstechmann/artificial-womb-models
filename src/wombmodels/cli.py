@@ -17,6 +17,7 @@ from .numerical_verification import (
     verify_transport_accuracy,
     verify_transport_matrix,
 )
+from .observations import observation_report
 
 
 def main(argv=None) -> int:
@@ -25,6 +26,10 @@ def main(argv=None) -> int:
     evidence = commands.add_parser("evidence-report", help="Validate and report a reviewed evidence ledger")
     evidence.add_argument("--ledger", type=Path, required=True)
     evidence.add_argument("--out", type=Path, required=True)
+    observations = commands.add_parser("validate-observations", help="Validate source-linked developmental observations and preserve exact-unit groups")
+    observations.add_argument("--dataset", type=Path, required=True,
+                               help="Dataset card and observation records in observation-dataset.schema.json format")
+    observations.add_argument("--out", type=Path, required=True)
     exchange = commands.add_parser("simulate", help="Run a dimensionless, nonphysiologic exchange fixture")
     exchange.add_argument("--config", type=Path, required=True)
     exchange.add_argument("--out", type=Path, required=True)
@@ -66,6 +71,8 @@ def main(argv=None) -> int:
             return 0
         if args.command == "evidence-report":
             receipt = evidence_report(args.ledger, args.out)
+        elif args.command == "validate-observations":
+            receipt = observation_report(args.dataset, args.out)
         elif args.command == "identifiability-report":
             receipt = analyze(args.config, args.trajectory, args.out)
         elif args.command == "design-sweep":

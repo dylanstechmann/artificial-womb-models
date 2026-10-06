@@ -23,6 +23,9 @@ roadmap revision does not promote them into the evidence ledger.
   seeded cadence/noise/fault/event-timing sweeps.
 - Dimensionless two-compartment transport and Kelvin–Voigt mechanics examples
   with simpler alternative models; developmental-observation JSON schema.
+- `validate-observations`: bounded source-linked records, exact reported-unit
+  partitions, local source-review metadata, explicit continuity states and a
+  receipt-bound ResearchDesk report. Intake validity is not analysis eligibility.
 - Read-only ResearchDesk discovery and receipt-checked report display.
 
 The 0.2.1 correction matches the transport reference to the combined capacity
@@ -109,8 +112,24 @@ thresholds or control recommendations.
 
 ## M4 — Enforce observation metadata and evidence intervals
 
-Can proceed alongside M1–M3. The observation schema is currently a contract;
-it needs a runtime validator and command, not just a schema file.
+Can proceed alongside M1–M3. The observation record and dataset-card contracts
+now have a stdlib runtime validator; source coverage and scientific review
+still need additional work.
+
+**Progress:** `validate-observations` checks source-file references and declared hash metadata,
+species, developmental intervals, endpoint units, independent-unit hierarchy,
+missingness, calibration references and transition records. It partitions
+records by exact reported categories without unit conversion or pooling, and
+requires a reported unit identity plus same-source chronologically comparable
+intervals before accepting a `demonstrated` continuity assertion. ResearchDesk
+can display its receipt-bound output. This verifies record structure and byte
+provenance, not a paper transcription, reviewer's identity or scientific
+eligibility.
+
+Remaining work includes source-locator review history, claim-to-source interval
+containment in the evidence ledger, permission/access confirmation and one
+qualified empirical dataset. Candidate sources stay unpromoted until primary
+source review.
 
 - Validate examples and imported metadata with the stdlib runtime, including
   source version, species/model, independent unit, stage, actual interval,
