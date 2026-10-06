@@ -73,6 +73,33 @@ def _fit_record(fit, true_rates):
     return record
 
 
+def _temporal_holdout(intervals, duration):
+    """Fit the first 70% of one run and score only its later intervals."""
+    split_time = duration * 0.7
+    training = [item for item in intervals if item["end"] <= split_time]
+    heldout = [item for item in intervals if item["start"] >= split_time]
+    result = {"estimable": False, "split_time": split_time,
+              "n_intervals": len(heldout), "fixture_scale_rmse": None,
+              "reason": None}
+    fit = _fit(training)
+    if not fit.get("estimable"):
+        result["reason"] = "The first 70% of intervals did not identify both fixture rates"
+        return result
+    if not heldout:
+        result["reason"] = "No complete later intervals remain after the split"
+        return result
+    estimates = fit["parameter_estimates"]
+    errors = [item["observed_change"]
+              - (estimates["powered_input"] * item["powered_exposure"]
+                 + estimates["conversion"] * item["conversion_exposure"])
+              for item in heldout]
+    rmse = math.sqrt(math.fsum(error * error for error in errors) / len(errors))
+    if not math.isfinite(rmse):
+        raise InputError("Temporal holdout residuals exceed the supported floating-point range")
+    result.update(estimable=True, fixture_scale_rmse=rmse, reason=None)
+    return result
+
+
 def sweep(config_path: Path, output: Path, *, replicates: int = 8) -> dict:
     """Compare cadence/noise, monitor-fault and event-timing profiles with seeded runs."""
     if isinstance(replicates, bool) or not isinstance(replicates, int) or not MIN_REPLICATES <= replicates <= MAX_REPLICATES:
@@ -136,7 +163,9 @@ def sweep(config_path: Path, output: Path, *, replicates: int = 8) -> dict:
                         compact = _compact_rows(rows)
                         scheduled = sum(row["sampled"] for row in compact)
                         usable = sum(row["sampled"] and row["reading"] is not None for row in compact)
-                        fit = _fit(_intervals(compact))
+                        intervals = _intervals(compact)
+                        fit = _fit(intervals)
+                        holdout = _temporal_holdout(intervals, parsed["duration"])
                         result = {
                             "cadence_factor_requested": cadence_factor,
                             "actual_output_step": step,
@@ -148,11 +177,18 @@ def sweep(config_path: Path, output: Path, *, replicates: int = 8) -> dict:
                             "seed": candidate["monitor"]["seed"],
                             "n_scheduled_readings": scheduled,
                             "n_usable_readings": usable,
+                            "temporal_holdout_estimable": holdout["estimable"],
+                            "temporal_holdout_split_time": holdout["split_time"],
+                            "temporal_holdout_n_intervals": holdout["n_intervals"],
+                            "temporal_holdout_fixture_scale_rmse": holdout["fixture_scale_rmse"],
+                            "temporal_holdout_reason": holdout["reason"],
                             **_fit_record(fit, true_rates),
                         }
                         run_rows.append(result)
                         cell_runs.append(result)
                     estimable = [item for item in cell_runs if item["estimable"]]
+                    holdout_estimable = [item for item in cell_runs
+                                         if item["temporal_holdout_estimable"]]
                     scenario_rows.append({
                         "cadence_factor_requested": cadence_factor,
                         "actual_output_step": step,
@@ -163,6 +199,12 @@ def sweep(config_path: Path, output: Path, *, replicates: int = 8) -> dict:
                         "replicates": replicates,
                         "estimable_replicates": len(estimable),
                         "estimable_fraction": len(estimable) / replicates,
+                        "temporal_holdout_estimable_replicates": len(holdout_estimable),
+                        "temporal_holdout_estimable_fraction": len(holdout_estimable) / replicates,
+                        "median_temporal_holdout_fixture_scale_rmse": _median(
+                            [item["temporal_holdout_fixture_scale_rmse"] for item in holdout_estimable]),
+                        "p90_temporal_holdout_fixture_scale_rmse": _percentile(
+                            [item["temporal_holdout_fixture_scale_rmse"] for item in holdout_estimable], 0.9),
                         "median_usable_readings": _median([item["n_usable_readings"] for item in cell_runs]),
                         "median_design_condition_number": _median(
                             [item["normalized_design_condition_number"] for item in cell_runs]),
@@ -211,6 +253,8 @@ def sweep(config_path: Path, output: Path, *, replicates: int = 8) -> dict:
         "wall_outages_retained_in_all_profiles": True,
         "power-loss-related_missing_readings_retained_in_all_profiles": True,
         "scoring_boundary": "Generator-known rates are used only to score estimates after fitting; they are not fit inputs.",
+        "temporal_holdout_contract": "Fit the first 70% of usable intervals in each run and score later intervals from that same run; this is not independent validation.",
+        "temporal_holdout_training_fraction": 0.7,
         "biological_measurements": False,
         "physiologically_calibrated": False,
         "human_gestation_prediction": False,
@@ -227,6 +271,8 @@ def sweep(config_path: Path, output: Path, *, replicates: int = 8) -> dict:
         "noise_reference_sd": noise_reference,
         "fixture_truth_used_for_scoring_only": true_rates,
         "method": "Seeded synthetic replicate sweep; fit uses scheduled readings and known fixture power-source labels, then scores estimates against generator rates.",
+        "temporal_holdout_contract": "Each run fits its first 70% of usable intervals and scores only later intervals from the same run; this is an internal fixture diagnostic, not independent validation.",
+        "temporal_holdout_training_fraction": 0.7,
         "design_summaries": scenario_rows,
         "event_timing_profiles": timing_profiles,
         "limits": [
@@ -234,6 +280,7 @@ def sweep(config_path: Path, output: Path, *, replicates: int = 8) -> dict:
             "Cadence and noise contrasts describe this fixture only and are not biological measurement recommendations.",
             "Event timing profiles compare the configured schedule with its time reflection; they do not represent realistic outage or fault distributions.",
             "The unconstrained two-rate regression may be biased by trapezoidal approximation, noise and model mismatch.",
+            "Temporal holdout scores use later intervals from the same generated run after fitting the first 70%; they are not independent validation.",
             "Generator-known rates are excluded from each fit and appear only in explicitly labeled synthetic recovery scoring.",
             "Within each design profile, replicates share one model, input configuration and event schedule; they are not independent experiments.",
             "No embryo, animal, patient, device or clinical-outcome data are analyzed.",
@@ -248,10 +295,11 @@ def sweep(config_path: Path, output: Path, *, replicates: int = 8) -> dict:
     lines = ["# Dimensionless exchange design sweep", "", NOTICE, "",
              f"The bounded sweep contains {len(scenario_rows)} cadence/noise/fault/timing designs and {len(run_rows)} seeded software-fixture runs.",
              "Generator-known rates are used only after fitting to score synthetic recovery; they are not fit inputs.",
+             "Temporal holdout fits use each run's first 70% of usable intervals and score its later intervals; they are internal diagnostics, not independent validation.",
              fault_note, timing_note,
              "All times, rates, cadence and noise are dimensionless fixture quantities.", "",
              "## Design-level summaries", "",
-             "`design_sweep.csv` reports estimable fraction, conditioning, residual scale and synthetic rate-recovery errors.",
+             "`design_sweep.csv` reports estimability, same-run temporal holdout residuals, conditioning, fit residual scale and synthetic rate-recovery errors.",
              "These summaries do not recommend biological measurement schedules.", "", "## Limits", ""]
     lines.extend(f"- {item}" for item in report["limits"])
     files = {

@@ -33,7 +33,9 @@ class DesignSweepTests(unittest.TestCase):
         plan = json.loads((output / "sweep_plan.json").read_text(encoding="utf-8"))
         with (output / "design_summaries.csv").open(newline="", encoding="utf-8") as stream:
             summaries = list(csv.DictReader(stream))
-        return receipt, report, plan, summaries
+        with (output / "design_sweep.csv").open(newline="", encoding="utf-8") as stream:
+            runs = list(csv.DictReader(stream))
+        return receipt, report, plan, summaries, runs
 
     def test_reflection_preserves_interval_lengths_and_orders_events(self):
         events = [
@@ -54,7 +56,7 @@ class DesignSweepTests(unittest.TestCase):
         )
 
     def test_sweep_crosses_fault_and_reflected_timing_profiles_with_bounded_receipt(self):
-        receipt, report, plan, summaries = self.run_sweep(fixture())
+        receipt, report, plan, summaries, runs = self.run_sweep(fixture())
         self.assertEqual(report["n_designs"], 36)
         self.assertEqual(report["n_synthetic_runs"], 36)
         self.assertEqual(len(summaries), 36)
@@ -69,6 +71,14 @@ class DesignSweepTests(unittest.TestCase):
         )
         self.assertEqual(len(plan["cadence_designs"]), 3)
         self.assertEqual(len(plan["noise_designs"]), 3)
+        self.assertEqual(plan["temporal_holdout_training_fraction"], 0.7)
+        self.assertIn("same run", report["temporal_holdout_contract"])
+        holdout_runs = [item for item in runs if item["temporal_holdout_estimable"] == "True"]
+        self.assertTrue(holdout_runs)
+        self.assertTrue(all(item["temporal_holdout_n_intervals"] for item in holdout_runs))
+        self.assertTrue(all(item["temporal_holdout_fixture_scale_rmse"] != "" for item in holdout_runs))
+        self.assertTrue(all(item["temporal_holdout_estimable_replicates"] in {"0", "1"}
+                            for item in summaries))
         self.assertEqual(
             plan["event_schedules"][REFLECTED_TIMING]["wall_outages"],
             [{"start": 5.0, "end": 9.0}],
@@ -90,7 +100,7 @@ class DesignSweepTests(unittest.TestCase):
         config = fixture()
         config["wall_outages"] = []
         config["monitor_faults"] = []
-        _receipt, report, plan, summaries = self.run_sweep(config)
+        _receipt, report, plan, summaries, _runs = self.run_sweep(config)
         self.assertEqual(report["n_designs"], 9)
         self.assertEqual(report["n_synthetic_runs"], 9)
         self.assertEqual(report["event_timing_profiles"], [AS_CONFIGURED_TIMING])
