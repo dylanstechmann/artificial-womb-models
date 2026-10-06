@@ -6,17 +6,18 @@ The ambition is complete human ectogenesis from IVF through birth. Progress is t
 
 - Preserve developmental stages, species, intervals, claim status and requirement references in a reviewed evidence ledger.
 - Generate reproducible evidence dossiers and dimensionless exchange/power/monitoring fixtures.
+- Diagnose input/conversion rate identifiability from scheduled observations and compare bounded seeded cadence/noise, monitor-fault and reflected event-timing profiles with explicitly separated synthetic recovery scoring.
 - Report balance residuals, seeded software fault metrics, input/implementation hashes and output receipts.
-- Discover the RegenWorkbench ResearchDesk ectogenesis blueprint through a read-only local bridge.
+- Discover the RegenWorkbench ResearchDesk ectogenesis blueprint through a read-only local bridge and display receipt-checked evidence/model reports.
 
 ## Next contributions
 
 1. Expand the ledger through a documented source-selection process. Add null/adverse outcomes, comparison designs, sample structures and longer-term follow-up before stronger claims.
 2. Build a provenance-aware claim graph with validation of interval, model and endpoint mismatches. Make reviewers able to find the source of a requirement and its unresolved assumptions.
-3. Add sensitivity and structural-identifiability studies of abstract exchange models. Test what additional synthetic measurements would distinguish input, conversion and clearance, without inventing biological calibration.
-4. Replace the oracle-residual demonstration with a clearly labeled observer benchmark using held-out synthetic scenarios. Compare false alarms and missed faults under sensor bias, dropout, delayed readings and common-cause failures.
+3. Extend the design space with fault/outage timing, bias and dropout contrasts, then consider singular spectra and parameter profiles.
+4. Replace the oracle-residual demonstration with a clearly labeled observer benchmark using multiple synthetic runs and held-out fault scenarios. Compare missed events and false alarms under delayed readings and common-cause failures without treating time samples as independent experiments.
 5. Add a reviewed intake contract for public measurements if suitable licensed data becomes available. Preserve experimental units and separate fitting, model validation and test data.
-6. Improve evidence-dossier exchange with ResearchDesk using bounded, hash-verified artifacts. Preserve the independent offline package and the distinction between literature records, synthetic outputs and biological assays.
+6. Add source-version discovery and reviewer notes to the read-only artifact bridge while preserving the distinction between literature records, synthetic outputs and biological assays.
 
 ## Portfolio milestones
 

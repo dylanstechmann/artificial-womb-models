@@ -41,6 +41,27 @@ The monitor samples only at scheduled output timestamps, including the final end
 
 Exchange efficiency and consumption can be observationally confounded. A monitored concentration alone cannot identify every transport process or establish tissue delivery, growth, placentation, immune/endocrine function, organ maturity or a favorable long-term outcome. None of those mechanisms are modeled here.
 
+## Dimensionless parameter observability
+
+`identifiability-report` takes the original fixture configuration and the `trajectory.csv` produced by `simulate`. It uses only scheduled substrate sensor readings and the time intervals labeled wall, backup or no power. It ignores hidden substrate truth, integrated fluxes and the generator's chosen rates.
+
+For each pair of adjacent usable readings, the method approximates the integrated exchange balance:
+
+```text
+change in observed substrate ≈ powered_input × powered-time
+                             − conversion × trapezoidal observed-substrate area
+```
+
+Ordinary least squares estimates the two invented rates. A normalized two-column design diagnostic reports rank, feature correlation and condition number. The fit on the first 70% of the dimensionless interval is used for a later-window residual summary when that prefix identifies both parameters. The later window belongs to the same synthetic trajectory; it is a diagnostic split, not independent validation. A rank-deficient prefix is reported without manufacturing estimates.
+
+The model assumes the fixture's power-source labels are known. Sensor noise, missed samples, synthetic fault injection, trapezoidal approximation and model mismatch can change the estimates and conditioning. A numerical estimate or full-rank design does not validate assumptions, demonstrate structural identifiability beyond these two parameters, or establish biological observability. There is no biological calibration, statistical confidence interval, hardware state inference or connection to a controller.
+
+## Cadence, noise and event-timing design sweep
+
+`design-sweep` runs nine bounded cadence/noise combinations: requested output-step factors of 0.5, 1 and 2 crossed with sensor-noise multipliers of 0, 1 and 2. If the source configuration contains monitor faults, each combination is run both with the configured bias/dropout intervals and with those injected monitor faults removed. If it contains any outage or monitor fault, each combination also uses a reflected event-timing profile, for up to 36 design conditions. Reflection maps every half-open interval `[start, end)` to `[duration-end, duration-start)`, preserving each interval's length and reflecting the schedule across the fixture midpoint. The comparison changes event location relative to the initial fixture state and output cadence; it is a deterministic timing sensitivity case, not a sampled outage distribution. Wall outages remain in both monitor-fault profiles, as do missing readings caused by the shared power dependency. Multipliers use the configuration's noise level as the reference; if that value is zero, the report records a small dimensionless reference derived from the fixture residual threshold. Each design condition uses 1–20 deterministic seeds, subject to a four-million scheduled-sample budget for the whole command. The fixture's maximum output resolution and noise bounds still apply, so a requested factor can be capped; both the requested factor and actual dimensionless setting are recorded.
+
+Each synthetic trajectory is fit with the same two-rate, scheduled-reading regression described above. The generator's known rates are not passed into the fit; after estimation, the sweep uses them to score absolute and relative recovery error. A design-level summary reports the estimable fraction, median and empirical nearest-rank 90th percentile for finite condition numbers and absolute errors, plus median fit residual. Errors are summarized over estimable replicates; relative error is undefined when a fixture rate is zero. These percentiles are descriptive replicate summaries, not confidence intervals. Replicates share one mathematical model, base configuration and event schedule within a profile, so they characterize seeded software behavior rather than independent experiments. A lower numerical error or better-conditioned design does not establish biological observability or recommend a real-world sampling cadence.
+
 ## Reproducibility and publication
 
 Commands preserve the exact original input bytes. `receipt.json` records their SHA-256, package/Python versions, implementation file hashes, and each output's SHA-256 and byte count. The source URLs in the evidence ledger are bibliographic links, not archived or hash-pinned copies of the external pages. Re-review is necessary when expanding or updating a claim.
