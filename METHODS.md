@@ -83,6 +83,10 @@ The reference decomposes the 2×2 matrix into its trace component and a traceles
 
 `verify-mechanics` compares the production mechanics trajectory at every output time with a separately evaluated convolution of the piecewise-constant stress schedule and the Kelvin–Voigt exponential kernel. At zero elasticity it instead integrates each stress interval as linear creep. The command checks exact load boundaries, publishes per-timepoint and boundary errors, and rejects a result outside its scaled floating-point tolerance. The existing mechanics solver already applies exact constant-load transitions, so a refinement curve would imply an artificial discretization error; the convolution check is a consistency check, not a convergence or biological validation study.
 
+## Transport parameter-regime matrix
+
+`verify-transport-matrix` runs the same five-level Euler/reference comparison for the configured baseline and five deterministic rate profiles: zero dynamics, exchange only, transfer only, unequal coupled rates and high mixing. The derived rate coefficients are dimensionless software stress cases. Their steps are capped so `step × (boundary_exchange + intercompartment_transport + loss) ≤ 0.5`; the configured baseline keeps its requested step and must pass the solver's positivity check. The report includes each profile's exact configuration hash, rate values, requested/finest steps, convergence errors and pointwise finest-step errors. A global 160,000-timepoint budget bounds the bundle. These cases probe software behavior and do not estimate biological parameter ranges.
+
 ## Reproducibility and publication
 
 Commands preserve the exact original input bytes. `receipt.json` records their SHA-256, package/Python versions, implementation file hashes, and each output's SHA-256 and byte count. The source URLs in the evidence ledger are bibliographic links, not archived or hash-pinned copies of the external pages. Re-review is necessary when expanding or updating a claim.

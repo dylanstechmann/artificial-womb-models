@@ -1,4 +1,4 @@
-"""Independent accuracy checks for the dimensionless transport fixture."""
+"""Independent accuracy checks for dimensionless transport and mechanics fixtures."""
 from __future__ import annotations
 
 import csv
@@ -11,10 +11,24 @@ import tempfile
 from pathlib import Path
 
 from .artifacts import InputError, csv_bytes, json_bytes, publish_bundle, read_json
-from .developmental_models import _time_grid, simulate_mechanics, simulate_transport
+from .developmental_models import MAX_RATE, _number, _time_grid, simulate_mechanics, simulate_transport
 
 REFINEMENT_FACTORS = (1.0, 0.5, 0.25, 0.125, 0.0625)
 MAX_VERIFICATION_TIMEPOINTS = 100_000
+MAX_MATRIX_VERIFICATION_TIMEPOINTS = 160_000
+TRANSPORT_MATRIX_PROFILES = (
+    ("configured_baseline", None),
+    ("zero_dynamics", {"boundary_exchange": 0.0,
+                       "intercompartment_transport": 0.0, "loss": 0.0}),
+    ("exchange_only", {"boundary_exchange": 0.8,
+                       "intercompartment_transport": 0.0, "loss": 0.0}),
+    ("transfer_only", {"boundary_exchange": 0.0,
+                       "intercompartment_transport": 1.3, "loss": 0.0}),
+    ("unequal_coupled", {"boundary_exchange": 0.17,
+                          "intercompartment_transport": 0.83, "loss": 0.06}),
+    ("high_mixing", {"boundary_exchange": 0.8,
+                     "intercompartment_transport": 20.0, "loss": 0.1}),
+)
 
 
 def _integrated_exponential(rate: float, duration: float) -> float:
@@ -225,6 +239,145 @@ def verify_mechanics_accuracy(config_path: Path, output: Path) -> dict:
                   "human_gestation_prediction": False,
                   "n_timepoints": len(rows), "n_load_boundaries": len(boundary_rows),
                   "verification_passed": True})
+
+
+def verify_transport_matrix(config_path: Path, output: Path) -> dict:
+    """Run a reproducible convergence matrix across six dimensionless regimes."""
+    config, raw = read_json(config_path)
+    output = Path(output).absolute()
+    if output.exists() or output.is_symlink():
+        raise InputError(f"Output already exists: {output}")
+    duration, requested_step, _steps = _time_grid(config.get("dimensionless_time"))
+    base_rates = config.get("rates")
+    expected_rate_names = {"boundary_exchange", "intercompartment_transport", "loss"}
+    if not isinstance(base_rates, dict) or set(base_rates) != expected_rate_names:
+        raise InputError("rates must contain boundary exchange, intercompartment transport and loss")
+    for name, value in base_rates.items():
+        _number(value, name, 0, MAX_RATE)
+
+    scenarios = []
+    total_points = 0
+    for name, override_rates in TRANSPORT_MATRIX_PROFILES:
+        scenario = json.loads(json.dumps(config, allow_nan=False))
+        if override_rates is not None:
+            scenario["rates"] = dict(override_rates)
+            rate_sum = math.fsum(override_rates.values())
+            scenario_step = min(requested_step, duration, 0.5 / rate_sum if rate_sum else requested_step)
+            scenario["dimensionless_time"]["step"] = scenario_step
+        else:
+            scenario_step = requested_step
+        scenario_points = sum(math.ceil(duration / (scenario_step * factor)) + 1
+                              for factor in REFINEMENT_FACTORS)
+        if scenario_points > MAX_VERIFICATION_TIMEPOINTS:
+            raise InputError(f"Transport matrix profile {name} exceeds its per-profile point budget; increase the requested step")
+        total_points += scenario_points
+        if total_points > MAX_MATRIX_VERIFICATION_TIMEPOINTS:
+            raise InputError(f"Transport matrix exceeds the {MAX_MATRIX_VERIFICATION_TIMEPOINTS}-timepoint total budget; increase the requested step")
+        scenario_raw = raw if override_rates is None else json_bytes(scenario)
+        scenarios.append({"name": name, "config": scenario, "config_raw": scenario_raw,
+                          "config_sha256": hashlib.sha256(scenario_raw).hexdigest(),
+                          "requested_step": scenario_step, "rates": dict(scenario["rates"]),
+                          "stability_product": scenario_step * math.fsum(scenario["rates"].values()),
+                          "n_total_timepoints": scenario_points})
+
+    temporary = Path(tempfile.mkdtemp(prefix="wombmodels-transport-matrix-"))
+    curve_rows = []
+    scenario_reports = []
+    pointwise_files = {}
+    try:
+        for index, scenario in enumerate(scenarios):
+            config_path_for_case = config_path
+            if index:
+                config_path_for_case = temporary / f"{scenario['name']}.json"
+                config_path_for_case.write_bytes(scenario["config_raw"])
+            case_bundle = temporary / f"case-{index}"
+            child_receipt = verify_transport_accuracy(config_path_for_case, case_bundle)
+            child_report = json.loads((case_bundle / "numerical_verification_report.json").read_text(encoding="utf-8"))
+            if child_receipt["input_sha256"] != scenario["config_sha256"]:
+                raise InputError("A transport matrix case did not preserve its exact configuration")
+            for level in child_report["convergence"]:
+                curve_rows.append({"scenario": scenario["name"],
+                                   "boundary_exchange": scenario["rates"]["boundary_exchange"],
+                                   "intercompartment_transport": scenario["rates"]["intercompartment_transport"],
+                                   "loss": scenario["rates"]["loss"],
+                                   "stability_product": scenario["stability_product"],
+                                   **level})
+            pointwise_path = case_bundle / "finest_step_trajectory.csv"
+            with pointwise_path.open("r", encoding="utf-8", newline="") as stream:
+                pointwise = [{"scenario": scenario["name"], **row} for row in csv.DictReader(stream)]
+            pointwise_files[f"transport_{scenario['name']}_finest_errors.csv"] = csv_bytes(
+                list(pointwise[0]), pointwise)
+            final_level = child_report["convergence"][-1]
+            scenario_reports.append({
+                "name": scenario["name"],
+                "config_sha256": scenario["config_sha256"],
+                "rates": scenario["rates"],
+                "requested_step": scenario["requested_step"],
+                "stability_product": scenario["stability_product"],
+                "n_total_timepoints": child_report["n_total_timepoints"],
+                "finest_actual_max_step": final_level["actual_max_step"],
+                "finest_max_abs_state_error": final_level["max_abs_state_error"],
+                "finest_state_rmse": final_level["state_rmse"],
+            })
+    finally:
+        shutil.rmtree(temporary)
+
+    scenario_config_manifest = {
+        "schema_version": 1,
+        "fixture_notice": "Generated stress cases remain dimensionless numerical software inputs, not biological parameter values.",
+        "scenario_configs": [{"name": item["name"], "config_sha256": item["config_sha256"],
+                              "config_json": item["config_raw"].decode("utf-8")} for item in scenarios],
+    }
+    report = {
+        "schema_version": 1,
+        "result_kind": "dimensionless_transport_parameter_matrix_numerical_verification",
+        "biological_measurements": False,
+        "physiologically_calibrated": False,
+        "human_gestation_prediction": False,
+        "fixture_notice": "Dimensionless numerical stress matrix for software verification; no biological calibration or prediction.",
+        "reference_method": "Closed-form 2×2 matrix exponential and integrated constant forcing, evaluated against forward Euler at five step sizes per regime.",
+        "input_sha256": hashlib.sha256(raw).hexdigest(),
+        "n_scenarios": len(scenario_reports),
+        "n_refinement_levels": len(REFINEMENT_FACTORS),
+        "n_total_timepoints": total_points,
+        "scenarios": scenario_reports,
+        "limits": [
+            "All states, rates and time coordinates are dimensionless software-fixture values.",
+            "The fixed profiles are deterministic equation stress cases, not biological parameters, probability distributions or experimental conditions.",
+            "Each closed-form comparison verifies numerical integration of the stated two-compartment equations only; it does not validate their biological applicability.",
+            "The configured baseline retains the supplied step and rejects unsupported unstable settings; derived profiles reduce their requested step to keep the explicit stability product at or below 0.5.",
+        ],
+    }
+    curve_columns = list(curve_rows[0])
+    files = {
+        "input_config.json": raw,
+        "transport_matrix_report.json": json_bytes(report),
+        "transport_matrix_convergence.csv": csv_bytes(curve_columns, curve_rows),
+        "transport_matrix_scenario_configs.json": json_bytes(scenario_config_manifest),
+        **pointwise_files,
+        "REPORT.md": ("# Dimensionless transport parameter-matrix verification\n\n"
+                      + report["fixture_notice"] + "\n\n"
+                      + report["reference_method"] + "\n\n"
+                      + f"{len(scenario_reports)} regimes, {len(REFINEMENT_FACTORS)} refinement levels, "
+                      + f"{total_points} total timepoints.\n\n"
+                      + "| Regime | Boundary exchange | Intercompartment transfer | Loss | Requested step | Stability product | Finest max state error |\n"
+                      + "| --- | ---: | ---: | ---: | ---: | ---: | ---: |\n"
+                      + "\n".join(f"| {item['name']} | {item['rates']['boundary_exchange']:.6g} | "
+                              f"{item['rates']['intercompartment_transport']:.6g} | {item['rates']['loss']:.6g} | "
+                              f"{item['requested_step']:.6g} | {item['stability_product']:.6g} | "
+                              f"{item['finest_max_abs_state_error']:.6g} |" for item in scenario_reports)
+                      + "\n\n## Limits\n\n"
+                      + "\n".join(f"- {item}" for item in report["limits"]) + "\n").encode("utf-8"),
+    }
+    return publish_bundle(
+        output, kind="dimensionless_transport_parameter_matrix_numerical_verification",
+        input_raw=raw, files=files,
+        metadata={"biological_measurements": False,
+                  "physiologically_calibrated": False,
+                  "human_gestation_prediction": False,
+                  "n_scenarios": len(scenario_reports),
+                  "n_refinement_levels": len(REFINEMENT_FACTORS),
+                  "n_total_timepoints": total_points})
 
 
 def verify_transport_accuracy(config_path: Path, output: Path) -> dict:

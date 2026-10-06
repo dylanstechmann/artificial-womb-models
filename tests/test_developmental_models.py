@@ -12,6 +12,7 @@ from wombmodels.numerical_verification import (
     _exact_transport_state,
     verify_mechanics_accuracy,
     verify_transport_accuracy,
+    verify_transport_matrix,
 )
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -180,6 +181,42 @@ class DevelopmentalModelTests(unittest.TestCase):
         output = self.root / "unstable-verification"
         with self.assertRaisesRegex(InputError, "positivity bound"):
             verify_transport_accuracy(config_path, output)
+        self.assertFalse(output.exists())
+
+    def test_transport_parameter_matrix_covers_degenerate_coupled_and_mixed_regimes(self):
+        config_path = ROOT / "examples" / "transport_fixture.json"
+        output = self.root / "transport-matrix"
+        receipt = verify_transport_matrix(config_path, output)
+        report = json.loads((output / "transport_matrix_report.json").read_text(encoding="utf-8"))
+        with (output / "transport_matrix_convergence.csv").open(newline="", encoding="utf-8") as stream:
+            curves = list(csv.DictReader(stream))
+        names = {item["name"] for item in report["scenarios"]}
+        self.assertEqual(receipt["bundle_kind"], "dimensionless_transport_parameter_matrix_numerical_verification")
+        self.assertEqual(names, {"configured_baseline", "zero_dynamics", "exchange_only",
+                                 "transfer_only", "unequal_coupled", "high_mixing"})
+        self.assertEqual(report["n_refinement_levels"], 5)
+        self.assertEqual(len(curves), 30)
+        for name in names:
+            errors = [float(row["max_abs_state_error"]) for row in curves if row["scenario"] == name]
+            self.assertEqual(len(errors), 5)
+            self.assertTrue(all(right <= left for left, right in zip(errors, errors[1:])), name)
+        zero_dynamics = next(item for item in report["scenarios"] if item["name"] == "zero_dynamics")
+        self.assertEqual(zero_dynamics["finest_max_abs_state_error"], 0.0)
+        high_mixing = next(item for item in report["scenarios"] if item["name"] == "high_mixing")
+        self.assertLessEqual(high_mixing["stability_product"], 0.5)
+        self.assertTrue((output / "transport_matrix_scenario_configs.json").is_file())
+        for name in names:
+            self.assertTrue((output / f"transport_{name}_finest_errors.csv").is_file())
+        self.assertFalse(report["biological_measurements"])
+
+    def test_transport_matrix_rejects_unstable_baseline_without_publishing(self):
+        config = self.config("transport_fixture.json")
+        config["dimensionless_time"]["step"] = 2.0
+        config_path = self.root / "unstable-matrix.json"
+        config_path.write_text(json.dumps(config), encoding="utf-8")
+        output = self.root / "unstable-matrix"
+        with self.assertRaisesRegex(InputError, "positivity bound"):
+            verify_transport_matrix(config_path, output)
         self.assertFalse(output.exists())
 
 

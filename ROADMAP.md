@@ -34,17 +34,19 @@ these equations or measured ectogenesis.
 add accuracy checks against independent solutions.
 
 **Progress:** `verify-transport` publishes a receipt-bound, five-level
-step-halving curve against a closed-form two-state reference. `verify-mechanics`
-now compares every solver output and load boundary against an independently
-evaluated piecewise-load convolution, including the zero-elasticity creep limit.
-M1 remains in progress: the full transport parameter-regime matrix and
-reproducible across-regime error reports still need to be completed.
+step-halving curve against a closed-form two-state reference.
+`verify-transport-matrix` now repeats it across six deterministic regimes,
+including zero dynamics, isolated exchange/transfer, unequal rates and stable
+high mixing. `verify-mechanics` compares every output and load boundary against
+an independently evaluated piecewise-load convolution, including zero-
+elasticity creep. M1 remains in progress for broader floating-point limits and
+adversarial mechanics schedules.
 
 1. Derive the closed-form constant-coefficient two-compartment solution and
    compare both compartments and the capacity-matched reference over time.
-2. Measure transport Euler error under step halving, including unequal rates,
-   zero exchange/loss, extreme mixing and rejected unstable inputs. Record
-   actual versus requested step and the numerical regime.
+2. Expand transport checks to near-degenerate eigenvalues and additional
+   coefficient-scale extremes; retain actual versus requested steps and each
+   numerical regime in the receipt-bound report.
 3. Extend mechanics analytic checks across adversarial schedules and
    floating-point limits; test controlled rejection of unsupported inputs.
 4. Publish equations, units (dimensionless here), assumptions, tolerances and
