@@ -556,7 +556,7 @@ def observation_report(dataset_path: Path, output: Path, source_root: Path | Non
              f"{dataset['source_revision']['citation']} — [{dataset['source_revision']['source_url']}]({dataset['source_revision']['source_url']})",
              f"Recorded review state: {source_status}. A locally recorded review is not authenticated by this tool.", "",
              "## Exact groups", "",
-             "Records are grouped only when species, stage, interval, model, endpoint, reported unit, and source artifact match exactly. No conversion or pooling is performed.", ""]
+             "Records are grouped only when species, stage, interval, model, endpoint, reported unit, and source artifact match exactly. No conversion or pooling is performed.", ""])
     for row in group_rows[:100]:
         lines.append(f"- {row['group_id']}: {row['species']} · {row['stage_track']} · {row['interval_label']} ({row['interval_unit']}) · {row['endpoint']} [{row['unit']}] · {row['n_records']} records · {row['n_distinct_reported_unit_keys']} distinct reported unit keys")
     if len(group_rows) > 100:
