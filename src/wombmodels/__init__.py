@@ -1,3 +1,3 @@
 """Evidence mapping and synthetic software fixtures; no biological controller."""
 
-__version__ = "0.3.0"
+__version__ = "0.4.0"

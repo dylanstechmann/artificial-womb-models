@@ -1,7 +1,9 @@
 """Validate source-linked developmental observation records without pooling studies."""
 from __future__ import annotations
 
+import hashlib
 import math
+import os
 import re
 from collections import defaultdict
 from datetime import date
@@ -27,6 +29,8 @@ SOURCE_KINDS = {"peer_reviewed_animal", "peer_reviewed_human_invitro", "regulato
 REVIEW_STATES = {"candidate", "locally_reviewed_included", "locally_reviewed_excluded"}
 HEX64 = re.compile(r"[0-9a-f]{64}")
 RECORD_ID = re.compile(r"[a-z0-9][a-z0-9._-]{2,95}")
+MAX_SOURCE_FILE_BYTES = 1_000_000_000
+MAX_SOURCE_TOTAL_BYTES = 2_000_000_000
 
 
 def _object(value, required, optional, label):
@@ -111,7 +115,7 @@ def _validate_source_revision(value):
 
 def _validate_artifact(value, source_ids):
     required = {"artifact_id", "uri", "license", "sha256", "retrieved_on"}
-    item = _object(value, required, set(), "source artifact")
+    item = _object(value, required, {"local_path"}, "source artifact")
     artifact_id = _text(item["artifact_id"], "artifact_id", 96)
     if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]{1,95}", artifact_id) or artifact_id in source_ids:
         raise InputError(f"Invalid or duplicate source artifact ID: {artifact_id}")
@@ -121,6 +125,16 @@ def _validate_artifact(value, source_ids):
     if digest is not None and (not isinstance(digest, str) or not HEX64.fullmatch(digest)):
         raise InputError("Source artifact SHA-256 must be 64 lowercase hexadecimal characters or null")
     _date(item["retrieved_on"], "source artifact retrieved_on", nullable=True)
+    item.setdefault("local_path", None)
+    if item["local_path"] is not None:
+        local_path = _text(item["local_path"], "source artifact local_path", 500)
+        normalized = local_path.replace("\\", "/")
+        components = normalized.split("/")
+        if (normalized.startswith("/") or re.match(r"^[A-Za-z]:", normalized)
+                or any(part in {"", ".", ".."} or ":" in part for part in components)
+                or any(ord(character) < 32 for character in normalized)):
+            raise InputError("source artifact local_path must be a relative path without dot segments or control characters")
+        item["local_path"] = normalized
     return item
 
 
@@ -321,9 +335,118 @@ def validate_dataset(dataset):
     return dataset
 
 
-def observation_report(dataset_path: Path, output: Path) -> dict:
+def verify_source_files(artifacts, source_root):
+    """Compare user-declared source hashes with bounded local files; never fetch or copy them."""
+    if source_root is None:
+        return {
+            "status": "not_requested", "source_root_configured": False,
+            "n_artifacts": len(artifacts), "n_paths_declared": sum(item.get("local_path") is not None for item in artifacts),
+            "n_verified": 0, "n_mismatched": 0, "n_not_checked": len(artifacts), "bytes_hashed": 0,
+            "files": [{"artifact_id": item["artifact_id"], "relative_path": item.get("local_path") or "",
+                       "declared_sha256": item["sha256"] or "", "observed_sha256": "",
+                       "verification_status": "not_requested", "bytes_hashed": 0,
+                       "note": "No --source-root was supplied."} for item in artifacts],
+        }
+    root = Path(source_root)
+    if root.is_symlink() or not root.is_dir():
+        raise InputError("--source-root must be an existing directory and cannot be a symlink")
+    try:
+        root = root.resolve(strict=True)
+    except (OSError, RuntimeError) as exc:
+        raise InputError("--source-root could not be resolved") from exc
+
+    rows = []
+    bytes_hashed = 0
+    for item in artifacts:
+        relative = item.get("local_path")
+        base_row = {"artifact_id": item["artifact_id"], "relative_path": relative or "",
+                    "declared_sha256": item["sha256"] or "", "observed_sha256": "",
+                    "verification_status": "not_provided", "bytes_hashed": 0, "note": ""}
+        if relative is None:
+            base_row["note"] = "No local_path was declared for this artifact."
+            rows.append(base_row)
+            continue
+        if item["sha256"] is None:
+            base_row["verification_status"] = "hash_not_declared"
+            base_row["note"] = "A local file is mapped but no declared SHA-256 is available to compare."
+            rows.append(base_row)
+            continue
+        candidate = root.joinpath(*relative.split("/"))
+        current = root
+        has_symlink = False
+        for part in relative.split("/"):
+            current = current / part
+            if current.is_symlink():
+                has_symlink = True
+                break
+        if has_symlink:
+            base_row["verification_status"] = "symlink_rejected"
+            base_row["note"] = "Symlink source paths are not followed."
+            rows.append(base_row)
+            continue
+        try:
+            resolved = candidate.resolve(strict=True)
+            resolved.relative_to(root)
+            if not resolved.is_file():
+                raise OSError("not a regular file")
+            before = resolved.stat()
+            if before.st_size > MAX_SOURCE_FILE_BYTES:
+                base_row["verification_status"] = "file_limit_exceeded"
+                base_row["note"] = f"File exceeds the {MAX_SOURCE_FILE_BYTES} byte per-file limit."
+                rows.append(base_row)
+                continue
+            if bytes_hashed + before.st_size > MAX_SOURCE_TOTAL_BYTES:
+                base_row["verification_status"] = "total_limit_exceeded"
+                base_row["note"] = f"Hashing would exceed the {MAX_SOURCE_TOTAL_BYTES} byte total limit."
+                rows.append(base_row)
+                continue
+            digest = hashlib.sha256()
+            read_count = 0
+            with resolved.open("rb") as stream:
+                opened_before = os.fstat(stream.fileno())
+                while read_count < before.st_size:
+                    block = stream.read(min(1024 * 1024, before.st_size - read_count))
+                    if not block:
+                        break
+                    digest.update(block)
+                    read_count += len(block)
+                opened_after = os.fstat(stream.fileno())
+            after = resolved.stat()
+            base_row["bytes_hashed"] = read_count
+            bytes_hashed += read_count
+            if (read_count != before.st_size or opened_before.st_size != opened_after.st_size
+                    or opened_before.st_mtime_ns != opened_after.st_mtime_ns
+                    or opened_before.st_dev != opened_after.st_dev or opened_before.st_ino != opened_after.st_ino
+                    or before.st_size != after.st_size or before.st_mtime_ns != after.st_mtime_ns
+                    or before.st_dev != after.st_dev or before.st_ino != after.st_ino):
+                base_row["verification_status"] = "changed_during_hash"
+                base_row["note"] = "File metadata or size changed while it was being hashed."
+                rows.append(base_row)
+                continue
+            observed = digest.hexdigest()
+            base_row["observed_sha256"] = observed
+            base_row["verification_status"] = "verified" if observed == item["sha256"] else "mismatch"
+            base_row["note"] = ("Declared hash matches the bytes read." if observed == item["sha256"]
+                                else "Declared hash does not match the bytes read.")
+        except (OSError, ValueError, RuntimeError):
+            base_row["verification_status"] = "unavailable"
+            base_row["note"] = "The relative source file was missing, unreadable, or resolved outside --source-root."
+        rows.append(base_row)
+
+    verified = sum(row["verification_status"] == "verified" for row in rows)
+    mismatched = sum(row["verification_status"] == "mismatch" for row in rows)
+    not_checked = len(rows) - verified - mismatched
+    status = "mismatch" if mismatched else "complete" if verified == len(artifacts) else "partial"
+    return {"status": status, "source_root_configured": True, "n_artifacts": len(artifacts),
+            "n_paths_declared": sum(item.get("local_path") is not None for item in artifacts),
+            "n_verified": verified, "n_mismatched": mismatched, "n_not_checked": not_checked,
+            "bytes_hashed": bytes_hashed, "files": rows}
+
+
+def observation_report(dataset_path: Path, output: Path, source_root: Path | None = None) -> dict:
     dataset, raw = read_json(dataset_path)
     validate_dataset(dataset)
+    source_verification = verify_source_files(dataset["artifacts"], source_root)
     artifacts = {item["artifact_id"]: item for item in dataset["artifacts"]}
     records = dataset["observations"]
     group_fields = ("species", "stage_track", "developmental_interval", "model_system", "assay", "source")
@@ -388,7 +511,14 @@ def observation_report(dataset_path: Path, output: Path) -> dict:
         warnings.append("Some comparator IDs are absent; comparative effect estimation is not implied.")
     if any(artifacts[item["artifact_id"]]["sha256"] is None for item in dataset["artifacts"]):
         warnings.append("At least one source file has no SHA-256; byte-level source identity is incomplete.")
+    if source_verification["status"] == "not_requested":
+        warnings.append("Local source-file bytes were not checked; declared hashes remain unverified metadata.")
+    elif source_verification["status"] == "mismatch":
+        warnings.append("At least one local source-file hash does not match its declared SHA-256.")
+    elif source_verification["status"] == "partial":
+        warnings.append("Some source files were not checked because their local path, declared hash, access, or size limit was unavailable.")
     not_reported_edges = sum(item["continuity_status"] == "not_reported" for item in dataset["transitions"])
+    verification_summary = {key: value for key, value in source_verification.items() if key != "files"}
     report = {
         "schema_version": 1, "report_kind": "developmental_observation_intake",
         "dataset_id": dataset["dataset_id"], "title": dataset["title"],
@@ -398,6 +528,7 @@ def observation_report(dataset_path: Path, output: Path) -> dict:
         "n_transitions": len(dataset["transitions"]), "n_continuity_not_reported": not_reported_edges,
         "biological_assay_performed": False,
         "analysis_eligibility": "requires source-specific human review and a frozen analysis plan",
+        "source_file_verification": verification_summary,
         "groups": group_rows[:100], "n_groups_in_report": min(len(group_rows), 100),
         "groups_truncated": len(group_rows) > 100, "warnings": warnings,
         "limits": [
@@ -405,7 +536,8 @@ def observation_report(dataset_path: Path, output: Path) -> dict:
             "Counts of distinct identifier strings are not verified donors, embryos, organoids, or independent experimental units.",
             "Groups are partitioned by exact reported categories and units; no unit conversion, study concatenation, or summary-statistic pooling is performed.",
             "A locally recorded source review is not authenticated and does not promote a candidate into the evidence ledger.",
-            "Declared source SHA-256 values are checked for format and matched between records and artifact metadata; source URIs are not fetched and source bytes are not hashed by this command.",
+            "Declared source SHA-256 values are checked for format and matched between records and artifact metadata. Optional local byte checks hash only the relative files named under --source-root; source URIs are never fetched.",
+            "Source files are read-only inputs and are not copied into the bundle. Hash verification records bytes observed at that time; rerun if files change.",
             "Transition status is a source-recorded assertion. Demonstrated continuity requires matching recorded unit identifiers within one source artifact.",
         ],
     }
@@ -413,9 +545,14 @@ def observation_report(dataset_path: Path, output: Path) -> dict:
              f"Dataset: {dataset['title']} (`{dataset['dataset_id']}`)",
              f"Source revision: `{dataset['source_revision']['revision_id']}` · {source_status}",
              f"Records: {len(records)} · exact comparison groups: {len(group_rows)} · transitions: {len(dataset['transitions'])}", "",
-             "No biological assay was performed by this command. The report checks record structure and declared source metadata only; it does not fetch source URIs or hash source-file bytes.",
+             "No biological assay was performed by this command. Source URIs are never fetched. Optional local byte checks use only files beneath --source-root and do not copy their contents into this bundle.",
              "Analysis eligibility still requires source-specific human review and a frozen analysis plan.", "",
-             "## Source review", "",
+             "## Local source-file byte verification", "",
+             f"Status: {source_verification['status']} · verified: {source_verification['n_verified']}/{source_verification['n_artifacts']} artifacts · bytes hashed: {source_verification['bytes_hashed']}",
+             "The receipt covers the submitted dataset JSON and generated outputs, not the external source bytes.", ""]
+    for row in source_verification["files"]:
+        lines.append(f"- {row['artifact_id']} · {row['relative_path'] or 'no local path'} · {row['verification_status']} · {row['observed_sha256'] or 'no observed hash'}{': ' + row['note'] if row['note'] else ''}")
+    lines.extend(["", "## Source review", "",
              f"{dataset['source_revision']['citation']} — [{dataset['source_revision']['source_url']}]({dataset['source_revision']['source_url']})",
              f"Recorded review state: {source_status}. A locally recorded review is not authenticated by this tool.", "",
              "## Exact groups", "",
@@ -448,17 +585,24 @@ def observation_report(dataset_path: Path, output: Path) -> dict:
     transition_rows = [{"transition_id": item["transition_id"],
                         "from_record_ids": ";".join(item["from_record_ids"]),
                         "to_record_ids": ";".join(item["to_record_ids"]),
-                        "continuity_status": item["continuity_status"], "note": item["note"]}
+                       "continuity_status": item["continuity_status"], "note": item["note"]}
                        for item in dataset["transitions"]]
+    source_file_rows = [{key: row[key] for key in
+                         ("artifact_id", "relative_path", "declared_sha256", "observed_sha256",
+                          "verification_status", "bytes_hashed", "note")}
+                        for row in source_verification["files"]]
     files = {
         "input_dataset.json": raw,
         "observation_intake_report.json": json_bytes(report),
         "observation_records.csv": csv_bytes(list(observation_rows[0]), observation_rows),
         "interval_groups.csv": csv_bytes(list(group_rows[0]), group_rows),
         "transitions.csv": csv_bytes(["transition_id", "from_record_ids", "to_record_ids", "continuity_status", "note"], transition_rows),
+        "source_files.csv": csv_bytes(["artifact_id", "relative_path", "declared_sha256", "observed_sha256",
+                                        "verification_status", "bytes_hashed", "note"], source_file_rows),
         "REPORT.md": ("\n".join(lines) + "\n").encode("utf-8"),
     }
     return publish_bundle(output, kind="developmental_observation_intake", input_raw=raw, files=files,
                           metadata={"dataset_id": dataset["dataset_id"], "source_revision_id": revision["revision_id"],
                                     "source_review_status": revision["review_status"],
+                                    "source_file_verification_status": source_verification["status"],
                                     "biological_assay_performed": False})

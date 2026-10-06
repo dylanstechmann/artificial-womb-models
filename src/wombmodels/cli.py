@@ -29,6 +29,8 @@ def main(argv=None) -> int:
     observations = commands.add_parser("validate-observations", help="Validate source-linked developmental observations and preserve exact-unit groups")
     observations.add_argument("--dataset", type=Path, required=True,
                                help="Dataset card and observation records in observation-dataset.schema.json format")
+    observations.add_argument("--source-root", type=Path,
+                               help="Optional local source directory; hashes only declared relative local_path files")
     observations.add_argument("--out", type=Path, required=True)
     exchange = commands.add_parser("simulate", help="Run a dimensionless, nonphysiologic exchange fixture")
     exchange.add_argument("--config", type=Path, required=True)
@@ -72,7 +74,7 @@ def main(argv=None) -> int:
         if args.command == "evidence-report":
             receipt = evidence_report(args.ledger, args.out)
         elif args.command == "validate-observations":
-            receipt = observation_report(args.dataset, args.out)
+            receipt = observation_report(args.dataset, args.out, source_root=args.source_root)
         elif args.command == "identifiability-report":
             receipt = analyze(args.config, args.trajectory, args.out)
         elif args.command == "design-sweep":

@@ -24,8 +24,9 @@ roadmap revision does not promote them into the evidence ledger.
 - Dimensionless two-compartment transport and Kelvin–Voigt mechanics examples
   with simpler alternative models; developmental-observation JSON schema.
 - `validate-observations`: bounded source-linked records, exact reported-unit
-  partitions, local source-review metadata, explicit continuity states and a
-  receipt-bound ResearchDesk report. Intake validity is not analysis eligibility.
+  partitions, optional local source-byte hashing, local source-review metadata,
+  explicit continuity states and a receipt-bound ResearchDesk report. Intake
+  validity is not analysis eligibility.
 - Read-only ResearchDesk discovery and receipt-checked report display.
 
 The 0.2.1 correction matches the transport reference to the combined capacity
@@ -118,7 +119,9 @@ still need additional work.
 
 **Progress:** `validate-observations` checks source-file references and declared hash metadata,
 species, developmental intervals, endpoint units, independent-unit hierarchy,
-missingness, calibration references and transition records. It partitions
+missingness, calibration references and transition records. When given an
+explicit local root, it hashes bounded relative source files and records the
+match status without copying them. It partitions
 records by exact reported categories without unit conversion or pooling, and
 requires a reported unit identity plus same-source chronologically comparable
 intervals before accepting a `demonstrated` continuity assertion. ResearchDesk

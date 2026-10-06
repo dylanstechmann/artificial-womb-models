@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.4.0 — 2026-10-06
+
+- Optionally hash locally available source files under an explicit root and report matching, mismatched, missing, and bounded-limit states without fetching or copying source data.
+- Reject absolute, dot-segment, control-character, and symlink source paths; cap local hashing at 1 GB per artifact and 2 GB per intake.
+- Preserve source-byte verification status in receipt-bound outputs for ResearchDesk while keeping external source bytes outside the bundle.
+
 ## 0.3.0 — 2026-10-06
 
 - Add a stdlib developmental-observation intake validator with declared source-metadata binding, local source-review revisions, exact reported-unit partitions, missingness and explicit transition-continuity states.

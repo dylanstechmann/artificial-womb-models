@@ -2,7 +2,7 @@
   "$schema": "https://json-schema.org/draft/2020-12/schema",
   "$id": "https://github.com/dylanstechmann/artificial-womb-models/schemas/observation-dataset.schema.json",
   "title": "Source-linked developmental observation dataset",
-  "description": "Bounded manual intake contract. Validation checks record structure and declared source metadata; it does not fetch source URIs, hash source-file bytes, establish scientific eligibility, or authenticate review metadata.",
+  "description": "Bounded manual intake contract. Validation checks record structure and declared source metadata. Optional local_path values are hashed only under an explicitly supplied --source-root; source URIs are never fetched, and verification does not establish scientific eligibility or authenticate review metadata.",
   "type": "object",
   "additionalProperties": false,
   "required": ["schema_version", "dataset_id", "title", "source_revision", "artifacts", "observations"],
@@ -35,7 +35,9 @@
           "uri": {"type": "string", "format": "uri"},
           "license": {"type": "string", "minLength": 1, "maxLength": 120},
           "sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
-          "retrieved_on": {"type": ["string", "null"], "format": "date"}
+          "retrieved_on": {"type": ["string", "null"], "format": "date"},
+          "local_path": {"type": ["string", "null"], "minLength": 1, "maxLength": 500,
+                         "description": "Optional relative path beneath --source-root; runtime rejects absolute paths and dot segments."}
         }
       }
     },
