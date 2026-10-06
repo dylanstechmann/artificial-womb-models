@@ -1,0 +1,89 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/dylanstechmann/artificial-womb-models/schemas/developmental-observation.schema.json",
+  "title": "Measured developmental observation contract",
+  "description": "A source-linked record for measured developmental observations. It intentionally separates organism, stage track, model system, assay, independent unit, comparison and raw-data provenance.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": ["schema_version", "record_id", "evidence_status", "species", "stage_track", "developmental_interval", "model_system", "assay", "independent_unit", "observation", "source"],
+  "properties": {
+    "schema_version": { "const": 1 },
+    "record_id": { "type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{2,95}$" },
+    "evidence_status": { "enum": ["measured", "author_reported_summary", "planned", "synthetic_fixture"] },
+    "species": { "enum": ["human", "mouse", "ovine", "rat", "chick", "other", "unspecified"] },
+    "stage_track": { "enum": ["preimplantation", "implantation_and_placentation", "postimplantation_embryonic", "partial_fetal_support", "transition_to_neonatal", "developmental_outcomes", "organoid_or_tissue_model", "unspecified"] },
+    "developmental_interval": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["label", "time_unit", "stage_source_artifact_id"],
+      "properties": {
+        "label": { "type": "string", "minLength": 2, "maxLength": 120 },
+        "start": { "type": ["number", "string", "null"] },
+        "end": { "type": ["number", "string", "null"] },
+        "time_unit": { "type": "string", "minLength": 1, "maxLength": 40 },
+        "stage_source_artifact_id": { "type": "string", "minLength": 2, "maxLength": 96 }
+      }
+    },
+    "model_system": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "label"],
+      "properties": {
+        "kind": { "enum": ["intact_organism", "embryo_model", "organoid", "tissue_construct", "cell_culture", "simulation", "other"] },
+        "label": { "type": "string", "minLength": 3, "maxLength": 500 },
+        "batch_id": { "type": ["string", "null"], "maxLength": 120 },
+        "laboratory_id": { "type": ["string", "null"], "maxLength": 120 }
+      }
+    },
+    "assay": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["name", "endpoint", "unit", "measurement_role"],
+      "properties": {
+        "name": { "type": "string", "minLength": 3, "maxLength": 300 },
+        "endpoint": { "type": "string", "minLength": 3, "maxLength": 500 },
+        "unit": { "type": "string", "minLength": 1, "maxLength": 80 },
+        "measurement_role": { "enum": ["morphology", "molecular_identity", "function", "viability", "genome_stability", "adverse_effect", "durability", "environmental_condition", "other"] },
+        "calibration_artifact_id": { "type": ["string", "null"], "maxLength": 96 }
+      }
+    },
+    "independent_unit": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["kind", "id", "parent_id"],
+      "properties": {
+        "kind": { "enum": ["donor", "pregnant_animal", "embryo", "source_kidney", "organoid", "vessel_construct", "culture_batch", "other", "not_reported"] },
+        "id": { "type": ["string", "null"], "maxLength": 120 },
+        "parent_id": { "type": ["string", "null"], "maxLength": 120 },
+        "hierarchy_note": { "type": "string", "maxLength": 500 }
+      }
+    },
+    "observation": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["value", "measurement_time", "comparator_id", "replicate_role"],
+      "properties": {
+        "value": { "type": ["number", "string", "null"] },
+        "measurement_time": { "type": ["number", "string", "null"] },
+        "measurement_time_unit": { "type": "string", "maxLength": 80 },
+        "comparator_id": { "type": ["string", "null"], "maxLength": 120 },
+        "replicate_role": { "enum": ["independent", "repeated_measure", "technical", "summary_only", "not_reported"] },
+        "measurement_uncertainty": { "type": ["number", "string", "null"] },
+        "missingness_reason": { "type": "string", "maxLength": 500 }
+      }
+    },
+    "source": {
+      "type": "object",
+      "additionalProperties": false,
+      "required": ["artifact_id", "uri", "license", "sha256"],
+      "properties": {
+        "artifact_id": { "type": "string", "minLength": 2, "maxLength": 96 },
+        "uri": { "type": "string", "format": "uri" },
+        "license": { "type": "string", "minLength": 2, "maxLength": 120 },
+        "sha256": { "type": ["string", "null"], "pattern": "^[0-9a-fA-F]{64}$" },
+        "retrieved_on": { "type": ["string", "null"], "format": "date" }
+      }
+    },
+    "limitations": { "type": "array", "items": { "type": "string", "minLength": 8, "maxLength": 1000 } }
+  }
+}

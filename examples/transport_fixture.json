@@ -1,0 +1,23 @@
+{
+  "schema_version": 1,
+  "fixture_notice": "Artificial dimensionless software fixture; no physiological calibration, biological prediction or machine-control output.",
+  "context": {
+    "stage_track": "implantation_and_placentation",
+    "species": "mouse",
+    "interval_label": "unassigned"
+  },
+  "dimensionless_time": {
+    "duration": 8,
+    "step": 0.02
+  },
+  "initial": {
+    "interface": 0,
+    "core": 0
+  },
+  "rates": {
+    "boundary_exchange": 0.8,
+    "intercompartment_transport": 0.4,
+    "loss": 0.08
+  },
+  "boundary_concentration": 1
+}

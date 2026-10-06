@@ -100,11 +100,23 @@ class DesignSweepTests(unittest.TestCase):
         self.assertEqual(len(plan["cadence_designs"]), 3)
         self.assertEqual(len(plan["noise_designs"]), 3)
         self.assertEqual(plan["temporal_holdout_training_fraction"], 0.7)
-        self.assertIn("same run", report["temporal_holdout_contract"])
+        self.assertEqual(plan["prospective_forecast_training_cutoff"],
+                         "0.7 × dimensionless duration (not 70% of interval count)")
+        self.assertIn("not a forecast", report["temporal_holdout_contract"])
+        self.assertIn("No future sensor values enter its predictors", report["prospective_forecast_contract"])
         holdout_runs = [item for item in runs if item["temporal_holdout_estimable"] == "True"]
         self.assertTrue(holdout_runs)
         self.assertTrue(all(item["temporal_holdout_n_intervals"] for item in holdout_runs))
         self.assertTrue(all(item["temporal_holdout_fixture_scale_rmse"] != "" for item in holdout_runs))
+        forecasts = [item for item in runs if item["prospective_forecast_estimable"] == "True"]
+        self.assertTrue(forecasts)
+        self.assertTrue(all(int(item["prospective_forecast_training_readings"]) > 4 for item in forecasts))
+        self.assertTrue(all(int(item["prospective_forecast_scored_readings"]) > 0 for item in forecasts))
+        self.assertTrue(all(item["prospective_forecast_rmse"] != "" for item in forecasts))
+        self.assertTrue(all(item["prospective_forecast_last_value_baseline_rmse"] != "" for item in forecasts))
+        self.assertTrue(all(item["prospective_forecast_coverage_95"] != "" for item in forecasts))
+        self.assertTrue(all(item["prospective_forecast_estimable_replicates"] in {"0", "1", "2"}
+                            for item in summaries))
         self.assertTrue(all(item["temporal_holdout_estimable_replicates"] in {"0", "1", "2"}
                             for item in summaries))
         self.assertIn("one fixture", report["cross_replicate_holdout_contract"])

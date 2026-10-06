@@ -15,3 +15,7 @@ jobs:
       - run: python -W error::ResourceWarning -m unittest discover -s tests -v
       - run: wombmodels evidence-report --ledger config/evidence.json --out artifacts/evidence-ci
       - run: wombmodels simulate --config examples/exchange_fixture.json --out artifacts/exchange-ci
+      - run: wombmodels identifiability-report --config examples/exchange_fixture.json --trajectory artifacts/exchange-ci/trajectory.csv --out artifacts/identifiability-ci
+      - run: wombmodels design-sweep --config examples/exchange_fixture.json --out artifacts/design-sweep-ci --replicates 1
+      - run: wombmodels transport-model --config examples/transport_fixture.json --out artifacts/transport-ci
+      - run: wombmodels mechanics-model --config examples/mechanics_fixture.json --out artifacts/mechanics-ci

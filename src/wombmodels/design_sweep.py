@@ -9,6 +9,7 @@ from pathlib import Path
 from .artifacts import InputError, csv_bytes, json_bytes, publish_bundle, read_json, sha256
 from .exchange import NOTICE, run_fixture, validate_config
 from .identifiability import RANK_TOLERANCE, _fit, _intervals
+from .state_estimation import prospective_forecast
 
 CADENCE_FACTORS = (0.5, 1.0, 2.0)
 NOISE_MULTIPLIERS = (0.0, 1.0, 2.0)
@@ -278,6 +279,13 @@ def sweep(config_path: Path, output: Path, *, replicates: int = 8) -> dict:
                         intervals = _intervals(compact)
                         fit = _fit(intervals)
                         holdout = _temporal_holdout(intervals, parsed["duration"])
+                        forecast = prospective_forecast(
+                            compact, candidate["monitor_faults"], parsed["duration"] * 0.7, noise_sd)
+                        state_fit = forecast.get("state_fit", {})
+                        state_parameters = state_fit.get("parameters", {})
+                        state_errors = {name: (abs(state_parameters[name] - true_rates[name])
+                                               if name in state_parameters else None)
+                                        for name in ("powered_input", "conversion")}
                         cell_statistics.append(_interval_statistics(intervals))
                         result = {
                             "cadence_factor_requested": cadence_factor,
@@ -295,6 +303,20 @@ def sweep(config_path: Path, output: Path, *, replicates: int = 8) -> dict:
                             "temporal_holdout_n_intervals": holdout["n_intervals"],
                             "temporal_holdout_fixture_scale_rmse": holdout["fixture_scale_rmse"],
                             "temporal_holdout_reason": holdout["reason"],
+                            "prospective_forecast_estimable": forecast["estimable"],
+                            "prospective_forecast_training_readings": forecast["n_training_readings"],
+                            "prospective_forecast_scored_readings": forecast["n_scored_readings"],
+                            "prospective_forecast_rmse": forecast["fixture_scale_rmse"],
+                            "prospective_forecast_last_value_baseline_rmse": forecast["baseline_last_observation_rmse"],
+                            "prospective_forecast_mae": forecast["mae"],
+                            "prospective_forecast_bias": forecast["mean_error"],
+                            "prospective_forecast_coverage_95": forecast["coverage_95"],
+                            "prospective_forecast_mean_interval_width_95": forecast["mean_95_interval_width"],
+                            "prospective_forecast_reason": forecast["reason"],
+                            "state_fit_estimated_powered_input": state_parameters.get("powered_input"),
+                            "state_fit_estimated_conversion": state_parameters.get("conversion"),
+                            "state_fit_absolute_error_powered_input": state_errors["powered_input"],
+                            "state_fit_absolute_error_conversion": state_errors["conversion"],
                             **_fit_record(fit, true_rates),
                         }
                         run_rows.append(result)
@@ -311,6 +333,8 @@ def sweep(config_path: Path, output: Path, *, replicates: int = 8) -> dict:
                                          if item["temporal_holdout_estimable"]]
                     cross_holdout_estimable = [item for item in cell_runs
                                                if item["cross_replicate_holdout_estimable"]]
+                    forecast_estimable = [item for item in cell_runs
+                                          if item["prospective_forecast_estimable"]]
                     scenario_rows.append({
                         "cadence_factor_requested": cadence_factor,
                         "actual_output_step": step,
@@ -333,6 +357,18 @@ def sweep(config_path: Path, output: Path, *, replicates: int = 8) -> dict:
                             [item["cross_replicate_holdout_fixture_scale_rmse"] for item in cross_holdout_estimable]),
                         "p90_cross_replicate_holdout_fixture_scale_rmse": _percentile(
                             [item["cross_replicate_holdout_fixture_scale_rmse"] for item in cross_holdout_estimable], 0.9),
+                        "prospective_forecast_estimable_replicates": len(forecast_estimable),
+                        "prospective_forecast_estimable_fraction": len(forecast_estimable) / replicates,
+                        "median_prospective_forecast_rmse": _median(
+                            [item["prospective_forecast_rmse"] for item in forecast_estimable]),
+                        "p90_prospective_forecast_rmse": _percentile(
+                            [item["prospective_forecast_rmse"] for item in forecast_estimable], 0.9),
+                        "median_prospective_forecast_baseline_rmse": _median(
+                            [item["prospective_forecast_last_value_baseline_rmse"] for item in forecast_estimable]),
+                        "median_prospective_forecast_coverage_95": _median(
+                            [item["prospective_forecast_coverage_95"] for item in forecast_estimable]),
+                        "median_prospective_forecast_interval_width_95": _median(
+                            [item["prospective_forecast_mean_interval_width_95"] for item in forecast_estimable]),
                         "median_usable_readings": _median([item["n_usable_readings"] for item in cell_runs]),
                         "median_design_condition_number": _median(
                             [item["normalized_design_condition_number"] for item in cell_runs]),
@@ -381,7 +417,10 @@ def sweep(config_path: Path, output: Path, *, replicates: int = 8) -> dict:
         "wall_outages_retained_in_all_profiles": True,
         "power-loss-related_missing_readings_retained_in_all_profiles": True,
         "scoring_boundary": "Generator-known rates are used only to score estimates after fitting; they are not fit inputs.",
-        "temporal_holdout_contract": "Fit the first 70% of usable intervals in each run and score later intervals from that same run; this is not independent validation.",
+        "prospective_forecast_contract": "Fit the nonnegative single-stock state model only on unbiased scheduled sensor readings at or before 70% of dimensionless run duration; propagate its fitted state and the receipt-bound known power schedule forward without assimilating later readings; score later unbiased readings against a last-training-reading baseline.",
+        "prospective_forecast_training_cutoff": "0.7 × dimensionless duration (not 70% of interval count)",
+        "prospective_forecast_noise_contract": "Independent Gaussian sensor noise with the configured standard deviation; local covariance plus observation noise gives an approximate 95% prediction interval.",
+        "temporal_holdout_contract": "The legacy integral-balance residual diagnostic uses endpoint readings both in the response and trapezoidal predictors; it is consistency checking and not a forecast.",
         "temporal_holdout_training_fraction": 0.7,
         "cross_replicate_holdout_contract": "Leave one seeded synthetic replicate out, fit pooled intervals from other replicates of the same design and score the omitted run. These runs share the same fixture and schedule; this is not independent experimental validation.",
         "biological_measurements": False,
@@ -389,7 +428,7 @@ def sweep(config_path: Path, output: Path, *, replicates: int = 8) -> dict:
         "human_gestation_prediction": False,
     }
     report = {
-        "schema_version": 1,
+        "schema_version": 2,
         "fixture_notice": NOTICE,
         "result_kind": "synthetic_exchange_design_sweep",
         "biological_measurements": False,
@@ -399,9 +438,10 @@ def sweep(config_path: Path, output: Path, *, replicates: int = 8) -> dict:
         "n_synthetic_runs": len(run_rows),
         "noise_reference_sd": noise_reference,
         "fixture_truth_used_for_scoring_only": true_rates,
-        "method": "Seeded synthetic replicate sweep; fit uses scheduled readings and known fixture power-source labels, then scores estimates against generator rates.",
-        "temporal_holdout_contract": "Each run fits its first 70% of usable intervals and scores only later intervals from the same run; this is an internal fixture diagnostic, not independent validation.",
-        "temporal_holdout_training_fraction": 0.7,
+        "method": "Seeded synthetic replicate sweep; the primary forecast fits a nonnegative state-space model to the first 70% of dimensionless run time and scores untouched future sensor readings against a last-observation baseline. The integral-balance analysis remains as a separately labeled residual diagnostic.",
+        "prospective_forecast_contract": "Each temporal forecast is trained only on scheduled, unbiased prefix readings. No future sensor values enter its predictors; intervals use local parameter covariance and declared fixture sensor noise.",
+        "prospective_forecast_training_cutoff": "0.7 × dimensionless duration (not 70% of interval count)",
+        "temporal_holdout_contract": "Legacy balance-residual diagnostic; endpoint readings appear in the trapezoidal predictors and therefore the score is not a forecast.",
         "cross_replicate_holdout_contract": "For each seeded run, fit pooled intervals from other seeds in its design and score the omitted run. The seeds share one fixture, configuration and event schedule; this is not independent experimental validation.",
         "design_summaries": scenario_rows,
         "event_timing_profiles": timing_profiles,
@@ -409,8 +449,9 @@ def sweep(config_path: Path, output: Path, *, replicates: int = 8) -> dict:
             "All values, rates, noise and times are invented dimensionless software quantities.",
             "Cadence and noise contrasts describe this fixture only and are not biological measurement recommendations.",
             "Event timing profiles compare the configured schedule with its time reflection; they do not represent realistic outage or fault distributions.",
-            "The unconstrained two-rate regression may be biased by trapezoidal approximation, noise and model mismatch.",
-            "Temporal holdout scores use later intervals from the same generated run after fitting the first 70%; they are not independent validation.",
+            "The unconstrained two-rate integral regression may be biased by trapezoidal approximation, noise and model mismatch; its residual scores are not forecasts.",
+            "Prospective forecasts are temporal holdouts within one synthetic trajectory; the fixture's known state equation and noise distribution do not establish performance on measured biological systems.",
+            "Forecast uncertainty uses a local linear covariance approximation and is unreliable near parameter boundaries or weakly identified designs.",
             "Cross-replicate holdout fits use other seeded runs of the same fixture and event schedule; they are software checks, not independent experiments.",
             "Generator-known rates are excluded from each fit and appear only in explicitly labeled synthetic recovery scoring.",
             "Within each design profile, replicates share one model, input configuration and event schedule; they are not independent experiments.",
@@ -426,12 +467,13 @@ def sweep(config_path: Path, output: Path, *, replicates: int = 8) -> dict:
     lines = ["# Dimensionless exchange design sweep", "", NOTICE, "",
              f"The bounded sweep contains {len(scenario_rows)} cadence/noise/fault/timing designs and {len(run_rows)} seeded software-fixture runs.",
              "Generator-known rates are used only after fitting to score synthetic recovery; they are not fit inputs.",
-             "Temporal holdout fits use each run's first 70% of usable intervals and score its later intervals; they are internal diagnostics, not independent validation.",
-             "Leave-one-seed-out fits train on other runs with the same fixture and schedule; they do not establish independent experimental validation.",
+             "Prospective forecasts fit a nonnegative state-space model through 70% of run duration and propagate its state forward without using later sensor readings in predictors. Scores are compared with a last-training-reading baseline.",
+             "The integral-balance temporal and leave-one-seed-out results are residual consistency diagnostics because endpoint readings appear in their predictors. They are not forecasts.",
+             "Forecast intervals use a local parameter-covariance approximation plus configured Gaussian sensor noise; they are not calibrated biological uncertainty intervals.",
              fault_note, timing_note,
              "All times, rates, cadence and noise are dimensionless fixture quantities.", "",
              "## Design-level summaries", "",
-             "`design_sweep.csv` reports same-run temporal and leave-one-seed-out residuals, estimability, conditioning, fit residual scale and synthetic rate-recovery errors.",
+             "`design_sweep.csv` reports prospective state-model forecast error, a last-observation baseline, approximate interval coverage, legacy balance-residual diagnostics, fit conditioning and synthetic rate-recovery errors.",
              "These summaries do not recommend biological measurement schedules.", "", "## Limits", ""]
     lines.extend(f"- {item}" for item in report["limits"])
     files = {

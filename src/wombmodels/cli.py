@@ -8,6 +8,7 @@ from pathlib import Path
 from .artifacts import InputError
 from .desk import desk_status
 from .design_sweep import sweep
+from .developmental_models import simulate_mechanics, simulate_transport
 from .evidence import evidence_report
 from .exchange import simulate
 from .identifiability import analyze
@@ -35,6 +36,12 @@ def main(argv=None) -> int:
                               help="Replicates per design (1-20; default 8)")
     desk = commands.add_parser("desk-status", help="Read-only discovery of a local ResearchDesk ectogenesis blueprint")
     desk.add_argument("--url", default="http://127.0.0.1:8092")
+    transport = commands.add_parser("transport-model", help="Run a dimensionless two-compartment transport theory fixture")
+    transport.add_argument("--config", type=Path, required=True)
+    transport.add_argument("--out", type=Path, required=True)
+    mechanics = commands.add_parser("mechanics-model", help="Run a dimensionless Kelvin–Voigt mechanics theory fixture")
+    mechanics.add_argument("--config", type=Path, required=True)
+    mechanics.add_argument("--out", type=Path, required=True)
     args = parser.parse_args(argv)
     try:
         if args.command == "desk-status":
@@ -46,6 +53,10 @@ def main(argv=None) -> int:
             receipt = analyze(args.config, args.trajectory, args.out)
         elif args.command == "design-sweep":
             receipt = sweep(args.config, args.out, replicates=args.replicates)
+        elif args.command == "transport-model":
+            receipt = simulate_transport(args.config, args.out)
+        elif args.command == "mechanics-model":
+            receipt = simulate_mechanics(args.config, args.out)
         else:
             receipt = simulate(args.config, args.out)
     except (InputError, OSError) as exc:

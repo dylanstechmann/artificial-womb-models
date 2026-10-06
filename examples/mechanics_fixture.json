@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "fixture_notice": "Artificial dimensionless software fixture; no physiological calibration, biological prediction or machine-control output.",
+  "context": {
+    "stage_track": "postimplantation_embryonic",
+    "species": "mouse",
+    "interval_label": "unassigned"
+  },
+  "dimensionless_time": {
+    "duration": 8,
+    "step": 0.02
+  },
+  "initial_strain": 0,
+  "rates": {
+    "elasticity": 1.2,
+    "viscosity": 0.6
+  },
+  "stress_schedule": [
+    {
+      "start": 1,
+      "end": 4,
+      "stress": 0.8
+    },
+    {
+      "start": 5,
+      "end": 7,
+      "stress": 0.4
+    }
+  ]
+}

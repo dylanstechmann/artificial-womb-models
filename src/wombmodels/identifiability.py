@@ -11,7 +11,8 @@ from pathlib import Path
 
 from .artifacts import (InputError, csv_bytes, json_bytes, publish_bundle,
                         read_json, sha256)
-from .exchange import NOTICE, validate_config
+from .exchange import NOTICE, run_fixture, validate_config
+from .state_estimation import noise_aware_state_fit, prospective_forecast
 
 MAX_TRAJECTORY_BYTES = 12_000_000
 MAX_TRAJECTORY_ROWS = 50_402
@@ -20,7 +21,7 @@ RANK_TOLERANCE = 1e-12
 REQUIRED_COLUMNS = {"dimensionless_time", "power_source", "sensor_sampled", "sensor_reading"}
 
 
-def _read_trajectory(path: Path, duration: float, step: float):
+def _read_trajectory(path: Path, config: dict, duration: float, step: float):
     try:
         with path.open("rb") as stream:
             raw = stream.read(MAX_TRAJECTORY_BYTES + 1)
@@ -69,7 +70,34 @@ def _read_trajectory(path: Path, duration: float, step: float):
         raise InputError("Trajectory CSV must be valid bounded UTF-8 numeric data") from None
     if not rows or rows[0]["time"] != 0 or rows[-1]["time"] != duration:
         raise InputError("Trajectory must span the full source fixture duration")
+    if [row["time"] for row in rows if row["sampled"]] != sorted(scheduled):
+        raise InputError("Trajectory is missing one or more scheduled sensor timestamps")
+    expected_rows, _summary = run_fixture(config)
+    expected_schedule = [(row["dimensionless_time"], row["power_source"], row["sensor_sampled"])
+                         for row in expected_rows]
+    observed_schedule = [(row["time"], row["power"], row["sampled"]) for row in rows]
+    if observed_schedule != expected_schedule:
+        raise InputError("Trajectory event times or modeled power labels do not match the source configuration")
     return raw, rows
+
+
+def _verify_simulation_receipt(config_raw: bytes, trajectory_path: Path, trajectory_raw: bytes):
+    receipt_path = trajectory_path.parent / "receipt.json"
+    try:
+        receipt, receipt_raw = read_json(receipt_path)
+    except (OSError, InputError):
+        raise InputError("Trajectory must be accompanied by its valid simulate receipt") from None
+    output = receipt.get("outputs", {}).get("trajectory.csv")
+    if (receipt.get("schema_version") != 1
+            or receipt.get("bundle_kind") != "synthetic_exchange_software_fixture"
+            or receipt.get("input_sha256") != sha256(config_raw)
+            or not isinstance(output, dict)
+            or output.get("sha256") != sha256(trajectory_raw)
+            or output.get("size_bytes") != len(trajectory_raw)):
+        raise InputError("Simulation receipt does not bind this configuration and trajectory")
+    return {"receipt_path": "receipt.json", "receipt_sha256": sha256(receipt_raw),
+            "input_config_sha256": sha256(config_raw),
+            "trajectory_sha256": sha256(trajectory_raw)}
 
 
 def _intervals(rows):
@@ -151,13 +179,14 @@ def _fit(intervals):
 def analyze(config_path: Path, trajectory_path: Path, output: Path) -> dict:
     config, config_raw = read_json(config_path)
     parsed = validate_config(config)
-    trajectory_raw, rows = _read_trajectory(trajectory_path, parsed["duration"], parsed["step"])
+    trajectory_raw, rows = _read_trajectory(trajectory_path, config, parsed["duration"], parsed["step"])
+    binding = _verify_simulation_receipt(config_raw, trajectory_path, trajectory_raw)
     intervals = _intervals(rows)
     split_time = parsed["duration"] * 0.7
     early = [item for item in intervals if item["end"] <= split_time]
     fit = _fit(intervals)
     early_fit = _fit(early)
-    heldout = None
+    balance_residual_diagnostic = None
     if early_fit.get("estimable"):
         estimates = early_fit["parameter_estimates"]
         errors = [item["observed_change"]
@@ -165,33 +194,51 @@ def analyze(config_path: Path, trajectory_path: Path, output: Path) -> dict:
                      + estimates["conversion"] * item["conversion_exposure"])
                   for item in intervals if item["start"] >= split_time]
         if errors:
-            heldout = {"split_dimensionless_time": split_time,
-                       "n_intervals": len(errors),
-                       "fixture_scale_rmse": math.sqrt(math.fsum(error * error for error in errors) / len(errors)),
-                       "label": "Later intervals of the same synthetic run; not independent validation"}
+            balance_residual_diagnostic = {
+                "split_dimensionless_time": split_time,
+                "n_intervals": len(errors),
+                "fixture_scale_rmse": math.sqrt(math.fsum(error * error for error in errors) / len(errors)),
+                "label": "Same-run balance-residual consistency diagnostic; its interval predictors include the observed endpoint readings."}
+    full_state_fit = noise_aware_state_fit(rows, parsed["faults"], parsed["monitor"]["noise_sd"])
+    prospective = prospective_forecast(rows, parsed["faults"], split_time,
+                                        parsed["monitor"]["noise_sd"])
     report = {
-        "schema_version": 1,
+        "schema_version": 2,
         "fixture_notice": NOTICE,
         "result_kind": "synthetic_exchange_observability_diagnostic",
         "biological_measurements": False,
         "physiologically_calibrated": False,
         "human_gestation_prediction": False,
-        "method": "Integral balance regression with a trapezoidal observation approximation for the conversion exposure",
-        "observation_contract": "Only scheduled sensor readings and the modeled power-source intervals are used; hidden substrate truth and cumulative fluxes are ignored.",
+        "method": "Two complementary analyses: a dimensionless integral-balance residual diagnostic, and a nonlinear state-space fit under independent Gaussian sensor noise followed by a forward temporal forecast.",
+        "observation_contract": "Only scheduled sensor readings, the receipt-bound fixture configuration, and its modeled power-source event schedule are used; hidden substrate truth and cumulative fluxes are ignored by all fits.",
         "n_rows": len(rows),
         "n_scheduled_readings": sum(row["sampled"] for row in rows),
         "n_usable_readings": sum(row["sampled"] and row["reading"] is not None for row in rows),
         "n_usable_intervals": len(intervals),
         "full_series_fit": fit,
         "early_series_fit": early_fit,
-        "temporal_holdout": heldout,
+        "balance_residual_diagnostic": balance_residual_diagnostic,
+        "noise_aware_state_model": {
+            "equation": "dS/dt = powered_input × powered_state(t) - conversion × S; sensor reading = S + independent Gaussian error",
+            "full_series_fit": full_state_fit,
+            "prospective_forecast": prospective,
+            "assumptions": [
+                "The synthetic power schedule is known and held fixed.",
+                "Initial substrate, powered input, and nonnegative conversion are constant model parameters.",
+                "Sensor noise is independent Gaussian error with the standard deviation declared in the fixture configuration.",
+                "Readings during configured sensor-bias intervals are excluded; unavailable readings remain missing.",
+                "The approximate 95% forecast interval uses a local parameter covariance and the declared sensor noise.",
+            ],
+        },
+        "simulation_binding": binding,
         "model": {"observed_stock": "substrate", "unknown_fixture_rates": ["powered_input", "conversion"],
                   "assumed_known_schedule": "wall/backup/none labels from the synthetic trajectory"},
         "limits": [
             "All values and rates are invented dimensionless software quantities.",
-            "Trapezoidal exposure, measurement noise and fault intervals can alter rank and estimates.",
-            "A low condition number or a small residual does not validate this model or imply biological identifiability.",
-            "The temporal holdout is part of one generated trajectory, not an independent experiment.",
+            "The integral-balance regression uses readings in both the response and trapezoidal predictor, so its residual fit is not a future forecast.",
+            "The state model assumes a single well-mixed stock and independently distributed Gaussian sensor error; its uncertainty is a local approximation.",
+            "A low condition number, small forecast error, or nominal interval coverage does not validate the model or imply biological identifiability.",
+            "The prospective forecast is a temporal split within one generated trajectory, not independent experimental validation.",
             "The modeled power schedule is assumed known; this report does not infer actual device state.",
             "No embryo, animal, patient or device data are analyzed.",
         ],
@@ -203,16 +250,20 @@ def analyze(config_path: Path, trajectory_path: Path, output: Path) -> dict:
                       "observed_substrate_change": item["observed_change"]}
                      for item in intervals]
     lines = ["# Dimensionless exchange observability diagnostic", "", NOTICE, "",
-             "Only scheduled sensor readings and known synthetic power-source intervals enter this regression. Hidden substrate truth and cumulative fluxes are ignored.",
+             "The trajectory and source configuration are checked against the simulation receipt; scheduled timestamps and power-state event labels must match the source configuration.",
              "", "## Full-series fit", "", "```json",
              json_bytes(fit).decode().rstrip(), "```", "", "## Early-series fit", "", "```json",
              json_bytes(early_fit).decode().rstrip(), "```", "", "## Later-interval holdout", "",
-             json_bytes(heldout).decode().rstrip() if heldout else "The early window did not identify both fixture parameters; no holdout estimate was computed.",
+             "### Noise-aware state fit", "", "```json", json_bytes(full_state_fit).decode().rstrip(), "```",
+             "", "### Prospective temporal forecast", "", "```json", json_bytes(prospective).decode().rstrip(), "```",
+             "", "### Same-run balance residual diagnostic", "",
+             json_bytes(balance_residual_diagnostic).decode().rstrip() if balance_residual_diagnostic else "The early window did not identify both balance-regression fixture parameters; no residual diagnostic was computed.",
              "", "## Limits", ""]
     lines.extend(f"- {item}" for item in report["limits"])
-    manifest = {"analysis": "dimensionless_exchange_observability_v1",
+    manifest = {"analysis": "dimensionless_exchange_observability_v2",
                 "config_sha256": sha256(config_raw),
-                "trajectory_sha256": sha256(trajectory_raw)}
+                "trajectory_sha256": sha256(trajectory_raw),
+                "simulation_receipt_sha256": binding["receipt_sha256"]}
     source_raw = json_bytes(manifest)
     files = {"source_manifest.json": source_raw,
              "source_config.json": config_raw,
