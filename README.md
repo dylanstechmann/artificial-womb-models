@@ -4,6 +4,8 @@ An open research software project investigating **complete human ectogenesis: de
 
 The repository contains a reviewed stage/evidence map and an abstract exchange, backup-power and monitoring fixture. Its outputs measure software behavior. Complete human gestation, replacement of surrogacy and fewer congenital defects remain unassessed or undemonstrated in the evidence ledger reviewed on 2026-10-06.
 
+The [research program](RESEARCH_PROGRAM.md) now prioritizes a reviewed developmental-transition map, executable observation intake and one eligible placental/interface benchmark. It specifies competing explanations, data candidates, acceptance criteria and the missing observations needed before adding physiological scope. The [implementation roadmap](ROADMAP.md) retains the numerical, uncertainty and portable-verification work that supports that program.
+
 ## What you can run
 
 Python 3.10+; the runtime has no third-party dependencies.

@@ -5,6 +5,13 @@ complete human ectogenesis from IVF through birth. This roadmap advances
 mathematics, evidence quality and reproducible research software; it does not
 turn disconnected developmental intervals into a demonstrated gestation system.
 
+The [research program](RESEARCH_PROGRAM.md) defines the scientific questions,
+transition map, source/data shortlist and E1–E6 work packages. Start its E1–E3
+evidence/observation/data-eligibility work now alongside M1–M2. Additional
+dimensionless stress cases should not postpone qualifying a real measurement
+target. New sources in that plan are candidates awaiting source review; this
+roadmap revision does not promote them into the evidence ledger.
+
 ## Delivered baseline
 
 - Reviewed evidence ledger with source class, species, developmental stage,
@@ -44,8 +51,8 @@ Adversarial checks now cover adjacent sign-changing loads, endpoint loads,
 very fast relaxation and the near-zero-elasticity limit. M1 remains in progress
 for broader floating-point limits and coefficient-scale extremes.
 
-1. Derive the closed-form constant-coefficient two-compartment solution and
-   compare both compartments and the capacity-matched reference over time.
+1. Preserve the independently derived constant-coefficient two-compartment
+   reference and check both compartments over the supported numerical domain.
 2. Expand transport checks to additional coefficient-scale extremes; retain
    actual versus requested steps and each numerical regime in the
    receipt-bound report.
@@ -178,10 +185,13 @@ reproduce and challenge.
 
 ## Order and reviewable outputs
 
-1. Numerical verification report and improved uncertainty diagnostics (M1–M2).
-2. Causal observer benchmark plus executable metadata/evidence validation
-   (M3–M4; independent tasks can run in parallel).
-3. Portable verified dossier and first suitable empirical case (M5–M6).
+1. Stage-transition/source-review records, executable observation validation
+   and empirical data qualification (E1–E3; M4 and the M6 intake audit),
+   alongside bounded numerical/uncertainty work (M1–M2).
+2. One frozen empirical interface question and eligible baseline comparison
+   (E4/M6), or an explicit data/non-identification report if the gate fails.
+3. Portable verified dossier (E6/M5) and the synthetic observer benchmark
+   after forecast calibration (E5; M2–M3).
 4. A scoped next model or methods manuscript after independent review (M7).
 
 Each milestone should produce a small release, executable example, documented
