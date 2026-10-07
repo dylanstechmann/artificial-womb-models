@@ -10,7 +10,7 @@ The next flagship should be a stage-transition map and one eligible empirical
 benchmark. Numerical verification is essential supporting work, but extending
 dimensionless examples indefinitely will not identify missing biological
 functions. Coordinate implementation with [ROADMAP.md](ROADMAP.md) and the
-[ResearchDesk portfolio plan](https://github.com/dylanstechmann/regen-workbench/blob/main/RESEARCH_PROGRAMS.md).
+[ResearchDesk research plan](https://github.com/dylanstechmann/regen-workbench/blob/main/RESEARCH_PROGRAMS.md).
 
 ## 1. Treat the objective as a chain of biological transitions
 
