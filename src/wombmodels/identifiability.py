@@ -96,6 +96,7 @@ def _verify_simulation_receipt(config_raw: bytes, trajectory_path: Path, traject
             or output.get("size_bytes") != len(trajectory_raw)):
         raise InputError("Simulation receipt does not bind this configuration and trajectory")
     return {"receipt_path": "receipt.json", "receipt_sha256": sha256(receipt_raw),
+            "receipt_raw": receipt_raw,
             "input_config_sha256": sha256(config_raw),
             "trajectory_sha256": sha256(trajectory_raw)}
 
@@ -230,7 +231,7 @@ def analyze(config_path: Path, trajectory_path: Path, output: Path) -> dict:
                 "The approximate 95% forecast interval uses a local parameter covariance and the declared sensor noise.",
             ],
         },
-        "simulation_binding": binding,
+        "simulation_binding": {key: value for key, value in binding.items() if key != "receipt_raw"},
         "model": {"observed_stock": "substrate", "unknown_fixture_rates": ["powered_input", "conversion"],
                   "assumed_known_schedule": "wall/backup/none labels from the synthetic trajectory"},
         "limits": [
@@ -268,6 +269,9 @@ def analyze(config_path: Path, trajectory_path: Path, output: Path) -> dict:
     files = {"source_manifest.json": source_raw,
              "source_config.json": config_raw,
              "source_trajectory.csv": trajectory_raw,
+             # The parent receipt travels with the bundle: a hash alone cannot
+             # resolve ancestry once the source simulate directory is gone.
+             "source_receipt.json": binding["receipt_raw"],
              "observability_report.json": json_bytes(report),
              "interval_design.csv": csv_bytes(list(interval_rows[0]) if interval_rows else
                                                 ["start", "end", "duration", "powered_exposure",
@@ -279,4 +283,6 @@ def analyze(config_path: Path, trajectory_path: Path, output: Path) -> dict:
                                     "physiologically_calibrated": False,
                                     "human_gestation_prediction": False,
                                     "config_sha256": manifest["config_sha256"],
-                                    "trajectory_sha256": manifest["trajectory_sha256"]})
+                                    "trajectory_sha256": manifest["trajectory_sha256"],
+                                    "parent_receipt_sha256": binding["receipt_sha256"],
+                                    "parent_receipt_file": "source_receipt.json"})

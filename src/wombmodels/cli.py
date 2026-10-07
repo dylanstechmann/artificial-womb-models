@@ -6,6 +6,7 @@ import json
 from pathlib import Path
 
 from .artifacts import InputError
+from .bundle_verification import verify_bundle
 from .desk import desk_status
 from .design_sweep import sweep
 from .developmental_models import simulate_mechanics, simulate_transport
@@ -66,8 +67,18 @@ def main(argv=None) -> int:
         "verify-transport-matrix", help="Check transport Euler convergence across seven dimensionless rate regimes")
     matrix_verification.add_argument("--config", type=Path, required=True)
     matrix_verification.add_argument("--out", type=Path, required=True)
+    verify_bundle_parser = commands.add_parser(
+        "verify-bundle",
+        help="Verify a published bundle's receipt, files, parent ancestry and declared dependencies")
+    verify_bundle_parser.add_argument("--bundle", type=Path, required=True)
+    verify_bundle_parser.add_argument("--strict", action="store_true",
+                                      help="also fail on undeclared files and unknown bundle kinds")
     args = parser.parse_args(argv)
     try:
+        if args.command == "verify-bundle":
+            report = verify_bundle(args.bundle, strict=args.strict)
+            print(json.dumps(report, indent=2))
+            return 0 if report["bytes_verified"] else 1
         if args.command == "desk-status":
             print(json.dumps(desk_status(args.url), indent=2))
             return 0

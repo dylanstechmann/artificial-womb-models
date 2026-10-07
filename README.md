@@ -22,6 +22,7 @@ python -m venv .venv
 .venv\Scripts\wombmodels verify-transport --config examples/transport_fixture.json --out artifacts/transport-verification-v1
 .venv\Scripts\wombmodels verify-transport-matrix --config examples/transport_fixture.json --out artifacts/transport-matrix-v1
 .venv\Scripts\wombmodels verify-mechanics --config examples/mechanics_fixture.json --out artifacts/mechanics-verification-v1
+.venv\Scripts\wombmodels verify-bundle --bundle artifacts/identifiability-v1 --strict
 .venv\Scripts\wombmodels desk-status --url http://127.0.0.1:8092
 ```
 
@@ -42,6 +43,28 @@ The reviewed evidence ledger also supports optional structured `interval_compone
 `verify-transport-matrix` repeats that accuracy check across seven deterministic dimensionless regimes: the supplied configuration, zero dynamics, exchange-only, transfer-only, unequal coupled rates, high mixing and near-degenerate weak coupling. It publishes each exact scenario configuration, five-level error curves and a finest-step pointwise file per regime. Derived profiles reduce their step to a stated explicit-stability bound; an unstable supplied baseline is rejected. The fixed profiles are software stress cases, not biological parameters or experimental conditions.
 
 `verify-mechanics` checks every mechanics output time against a separate piecewise-load convolution solution, with explicit pointwise and load-boundary error files. It covers exponential relaxation for positive elasticity and linear creep at the zero-elasticity limit. Since the production mechanics solver already uses an exact transition on every constant-load interval, this report is a closed-form consistency check rather than a step-halving convergence study or external validation.
+
+## Verify a bundle after moving it
+
+Every bundle now carries `reproduction_plan.json` beside its receipt: the
+package version, Python version, declared dependencies, the command template, the
+inputs, the complete expected file set and the interpretation limits. It contains
+no absolute paths, so a copied bundle stays self-describing.
+
+`wombmodels verify-bundle --bundle DIRECTORY` checks that bundle on its own.
+It validates the receipt's structure without a schema library, rejects symlinked
+and oversize outputs before reading them, recomputes every SHA-256 and byte
+count, and resolves the recorded parent receipt. `identifiability-report` bundles
+now copy the exact source `simulate` receipt in as `source_receipt.json`, so
+ancestry still resolves after the original simulation directory is deleted.
+
+The report keeps the questions apart: `bytes_verified` (bundle integrity),
+`ancestry_resolved` (the declared parent receipt travels with the bundle and
+matches), `scientific_review`, always `not_established_by_this_tool`, and
+`reproduction`, always `not_attempted`. `--strict` also fails on files the
+receipt does not declare and on bundle kinds this package does not publish.
+Adding these verification steps to the GitHub Actions workflow is still pending:
+publishing a workflow change needs a token with the `workflow` scope.
 
 ## Developmental scope
 

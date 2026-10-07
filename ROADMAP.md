@@ -175,19 +175,31 @@ continuous human development from fertilization through birth.
 
 Coordinate with [RegenWorkbench's roadmap](https://github.com/dylanstechmann/regen-workbench/blob/main/ROADMAP.md).
 
-- Copy the exact source simulation receipt into an observability bundle,
-  alongside the already pinned trajectory/configuration. A receipt hash alone
-  cannot resolve ancestry after the source folder disappears.
-- Add a standalone verifier for report family, schema, files, hashes, source
-  ancestry and required dependencies, with bounded reads and path checks.
-- Emit a machine-readable reproduction plan with package revision,
-  environment, exact inputs, commands and expected outputs.
-- Verify a relocated archive without relying on local absolute paths. Separate
-  verified bytes, resolved ancestry and scientific review status.
+**Delivered 2026-10-07.** `identifiability-report` bundles copy the exact source
+`simulate` receipt in as `source_receipt.json` and declare its hash and filename
+in their own receipt metadata, so ancestry resolves after the source directory is
+deleted. Every bundle now carries `reproduction_plan.json` with the package
+version, Python version, declared dependencies, command template, inputs, the
+complete expected file set and interpretation limits, and no absolute paths.
+`wombmodels verify-bundle` validates receipt structure without a schema library,
+rejects symlinked and oversize outputs before reading them, recomputes every hash
+and byte count, and resolves the declared parent receipt. It reports
+`bytes_verified`, `ancestry_resolved`, `scientific_review`
+(`not_established_by_this_tool`) and `reproduction` (`not_attempted`) as separate
+statuses; `--strict` also fails on undeclared files and unpublished bundle kinds.
+Fifteen cases cover changed, missing, swapped-parent, symlinked, undeclared,
+malformed-receipt and relocated bundles, including one that verifies a copied
+bundle after deleting its source directory.
+
+- Remaining: a rerun harness. Verification does not execute the recorded command,
+  so "verified" and "reproduced" remain different claims. Bundles other than
+  `identifiability-report` have no parent, so their ancestry status is
+  `no_parent_declared` rather than resolved.
 
 **Acceptance:** a fresh environment can verify and rerun the synthetic example;
 missing parents or changed bytes fail explicitly. ResearchDesk remains an
-optional consumer, not a runtime requirement of the model package.
+optional consumer, not a runtime requirement of the model package. *Verification
+and explicit failures are met; automated rerunning is not.*
 
 ## M6 — Establish an empirical benchmark with appropriate units
 

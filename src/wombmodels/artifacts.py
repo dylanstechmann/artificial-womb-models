@@ -121,6 +121,47 @@ def implementation_hashes() -> dict[str, str]:
     return result
 
 
+def reproduction_plan(kind: str, files: dict[str, bytes], metadata: dict) -> dict:
+    """Describe what rerunning this bundle would require, without absolute paths.
+
+    The plan travels inside the bundle so a relocated copy stays self-describing.
+    Verifying bytes and rerunning the model are separate statuses; neither
+    establishes that a model is biologically valid.
+    """
+    command = {
+        "synthetic_exchange_software_fixture": "wombmodels simulate --config <config.json> --out <new-dir>",
+        "synthetic_exchange_observability_diagnostic":
+            "wombmodels identifiability-report --config <config.json> --trajectory <trajectory.csv> --out <new-dir>",
+        "synthetic_exchange_design_sweep": "wombmodels design-sweep --config <config.json> --out <new-dir>",
+        "reviewed_evidence_ledger_report": "wombmodels evidence-report --ledger <evidence.json> --out <new-dir>",
+        "developmental_observation_dataset_report":
+            "wombmodels validate-observations --dataset <dataset.json> --out <new-dir>",
+        "dimensionless_transport_theory": "wombmodels transport-model --config <config.json> --out <new-dir>",
+        "dimensionless_mechanics_theory": "wombmodels mechanics-model --config <config.json> --out <new-dir>",
+    }.get(kind)
+    parent = metadata.get("parent_receipt_file")
+    return {
+        "schema_version": 1,
+        "bundle_kind": kind,
+        "package_version": __version__,
+        "python_version": platform.python_version(),
+        "declared_dependencies": ["python>=3.10 standard library only"],
+        "command": command or f"no recorded command template for bundle kind {kind}",
+        "inputs": ["source_config.json"] if "source_config.json" in files else [],
+        "parent_bundle_receipt": parent,
+        # The plan lists itself and the receipt: a reviewer checking a relocated
+        # bundle should see the complete published file set.
+        "expected_outputs": sorted({*files, "reproduction_plan.json", "receipt.json"}),
+        "limits": [
+            "Matching hashes establish bundle integrity only, not numerical correctness, "
+            "parameter identifiability or biological validity.",
+            "Every value in these fixtures is dimensionless. Nothing here predicts human gestation.",
+            "Verification never reruns the model. A rerun needs the recorded package version and "
+            "the exact inputs listed above.",
+        ],
+    }
+
+
 def publish_bundle(output: Path, *, kind: str, input_raw: bytes,
                    files: dict[str, bytes], metadata: dict) -> dict:
     """Publish individual files atomically; receipt.json commits a complete bundle.
@@ -136,6 +177,8 @@ def publish_bundle(output: Path, *, kind: str, input_raw: bytes,
     if not files or any(Path(name).name != name or name in {".", "..", "receipt.json"}
                         for name in files):
         raise InputError("Bundle artifact names must be simple non-receipt filenames")
+    if "reproduction_plan.json" not in files:
+        files = {**files, "reproduction_plan.json": json_bytes(reproduction_plan(kind, files, metadata))}
     receipt = {"schema_version": 1, "bundle_kind": kind,
                "package_version": __version__, "python_version": platform.python_version(),
                "input_sha256": sha256(input_raw),

@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Add `verify-bundle`: a standalone, standard-library verifier for a published bundle's receipt structure, file hashes and byte counts, declared parent ancestry and recorded dependencies, with bounded reads, symlink rejection and a `--strict` mode for undeclared files and unpublished bundle kinds. Archive integrity, ancestry resolution, scientific review and reproduction are reported as four separate statuses; verification never reruns a model.
+- Copy the exact source `simulate` receipt into `identifiability-report` bundles as `source_receipt.json` and declare its hash in receipt metadata, so ancestry resolves after the source directory is deleted.
+- Publish `reproduction_plan.json` in every bundle with the package version, Python version, declared dependencies, command template, inputs, complete expected file set and interpretation limits, and no absolute paths.
 - Add a machine-readable developmental transition map with explicit unknown edges, source locators and same-unit claim links; prevent announcements, species mixing and unsupported claims from establishing continuity.
 - Export `transitions.csv` and include transition records in the receipt-bound evidence report for later ResearchDesk display.
 
