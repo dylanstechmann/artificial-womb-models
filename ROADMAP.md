@@ -16,6 +16,9 @@ roadmap revision does not promote them into the evidence ledger.
 
 - Reviewed evidence ledger with source class, species, developmental stage,
   stated interval, excluded inference and requirement links.
+- `evidence-report`: explicit stage-transition edges with same-unit IDs,
+  source/claim links and exact locators required before continuity can be
+  marked demonstrated or contradicted; current human-target edges stay unknown.
 - Exact piecewise exchange transitions, scheduled synthetic sensors, backup
   power/fault fixtures, receipts and input/implementation/output hashes.
 - Integral-balance consistency diagnostics, noise-aware state estimation,
@@ -134,11 +137,16 @@ interval components on sources and claims. A claim must match the cited source's
 axis and exact unit and stay within its bounds; missing or widened claim scopes
 fail validation. This catches scope expansion in curated metadata without
 converting units or pretending the validator checked a source transcription.
+It also emits five explicit developmental transitions. A reported edge must
+preserve species, cover both source stages, link exact source locators and unit
+IDs across its claims, and use a peer-reviewed source. Announcement and regulator
+records cannot establish same-unit continuity. All human-target edges remain
+`not_reported`; this is a gap in the bounded ledger, not evidence of absence.
 
 Remaining work includes source-locator review history, permission/access
 confirmation and one qualified empirical dataset. Candidate sources stay
-unpromoted until primary-source review, and structured bounds still need exact
-figure/table or passage locators and an auditable reviewer record.
+unpromoted until primary-source review. Curated transition locators and unit IDs
+still need source-transcription checks and an auditable reviewer record.
 
 - Validate examples and imported metadata with the stdlib runtime, including
   source version, species/model, independent unit, stage, actual interval,

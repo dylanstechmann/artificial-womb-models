@@ -35,13 +35,23 @@ preceding transition. A cohort of already-developed fetuses does not fill
 embryonic development. Record source-species conventions without converting
 mouse embryonic days into human gestational ages.
 
-**Proposed transition record:** source revision and exact figure/table locator;
-species and model system; actual start/end interval and convention; starting
-and ending biological states; unit IDs; whether the same unit crossed the
-transition; interfaces maintained or replaced; comparator; endpoint and
-follow-up; attrition/adverse findings; review decision; remaining requirements.
-Represent same-unit continuity as `demonstrated`, `contradicted` or
-`not_reported`, with source-linked unit IDs. Missing IDs preserve uncertainty;
+**Transition-contract progress:** `evidence-report` now emits a machine-readable
+edge for each boundary from preimplantation through longer-term outcomes. Each
+edge records its species, continuity state, source and claim IDs, source unit
+IDs, exact source locators, evidence needed and boundary. A `demonstrated` or
+`contradicted` edge requires the linked claims to name the same source unit IDs,
+cover both stages and cite a peer-reviewed source. Announcements and regulator
+discussions cannot establish continuity. The current human-target edges remain
+`not_reported`; the validator does not infer a path from endpoint coverage.
+Unit IDs must be de-identified labels already present in public source material;
+do not add names, contact details or identifiers that could reveal a person.
+
+The next source-review revision should add actual start/end intervals and their
+conventions, starting and ending biological states, interfaces maintained or
+replaced, comparator, endpoints and follow-up, attrition/adverse findings,
+review decision and remaining requirements. Exact locators and unit IDs are
+curated inputs: byte/shape validation does not verify their transcription,
+reviewer identity or scientific eligibility. Missing IDs preserve uncertainty;
 they do not establish continuity or its failure.
 
 The graph should show supported edges, incompatible comparisons and unknown

@@ -21,7 +21,7 @@ class EvidenceTests(unittest.TestCase):
             output = Path(directory) / "report"
             evidence_report(ROOT / "config/evidence.json", output)
             report = json.loads((output / "evidence_report.json").read_text(encoding="utf-8"))
-            for key in ("claims", "sources", "stages", "requirements"):
+            for key in ("claims", "sources", "stages", "requirements", "transitions"):
                 self.assertEqual(report[key], original[key])
             self.assertFalse(report["complete_human_gestation_demonstrated"])
             stage_map = (output / "stage_map.csv").read_text(encoding="utf-8")
@@ -29,6 +29,11 @@ class EvidenceTests(unittest.TestCase):
             self.assertIn("ovine fetal lamb", stage_map)
             self.assertIn("human", stage_map)
             self.assertNotIn("readiness", stage_map)
+            transitions_csv = (output / "transitions.csv").read_text(encoding="utf-8")
+            self.assertIn("preimplantation-to-interface", transitions_csv)
+            self.assertIn("not_reported", transitions_csv)
+            self.assertIn("unit_ids", transitions_csv)
+            self.assertNotIn("readiness", transitions_csv)
             with (output / "claims.csv").open(encoding="utf-8", newline="") as handle:
                 claims_csv = list(csv.DictReader(handle))
             lamb_claim = next(row for row in claims_csv if row["claim_id"] == "lamb-partial-support")
@@ -144,6 +149,71 @@ class EvidenceTests(unittest.TestCase):
         data = ledger()
         data["reviewed_on"] = "20261006"
         with self.assertRaises(InputError):
+            validate_ledger(data)
+
+    def test_transition_edges_require_known_distinct_stages_and_explicit_states(self):
+        data = ledger()
+        data["transitions"][0]["to_stage_id"] = "missing-stage"
+        with self.assertRaisesRegex(InputError, "two distinct known stage IDs"):
+            validate_ledger(data)
+
+        data = ledger()
+        data["transitions"][0]["to_stage_id"] = data["transitions"][0]["from_stage_id"]
+        with self.assertRaisesRegex(InputError, "two distinct known stage IDs"):
+            validate_ledger(data)
+
+        data = ledger()
+        data["transitions"][0]["continuity_state"] = "likely"
+        with self.assertRaisesRegex(InputError, "continuity_state"):
+            validate_ledger(data)
+
+    def test_transition_evidence_must_cover_both_stages_and_keep_source_class(self):
+        data = ledger()
+        transition = data["transitions"][2]
+        transition.update({
+            "species": "mouse postimplantation embryo",
+            "source_ids": ["aguilera2021"],
+            "claim_ids": ["mouse-embryonic-interval"],
+            "unit_ids": ["embryo-1"],
+            "source_locations": [{"source_id": "aguilera2021", "locator": "test locator"}],
+            "continuity_state": "demonstrated",
+        })
+        data["claims"][1]["unit_ids"] = ["embryo-1"]
+        with self.assertRaisesRegex(InputError, "extends its claim stage coverage"):
+            validate_ledger(data)
+
+        data = ledger()
+        transition = data["transitions"][3]
+        transition.update({
+            "species": "ovine fetal lamb",
+            "source_ids": ["fetalife2026"],
+            "claim_ids": ["fetalife-announced-support"],
+            "unit_ids": ["lamb-1"],
+            "source_locations": [{"source_id": "fetalife2026", "locator": "test locator"}],
+            "continuity_state": "demonstrated",
+        })
+        data["claims"][4]["unit_ids"] = ["lamb-1"]
+        with self.assertRaisesRegex(InputError, "cannot establish transition continuity"):
+            validate_ledger(data)
+
+    def test_reported_transition_units_must_be_explicitly_linked(self):
+        data = ledger()
+        transition = data["transitions"][0]
+        transition["continuity_state"] = "demonstrated"
+        transition["unit_ids"] = ["human-model-1"]
+        with self.assertRaisesRegex(InputError, "unit IDs need linked claims"):
+            validate_ledger(data)
+
+        data = ledger()
+        data["transitions"][0]["unit_ids"] = ["invented-unit"]
+        with self.assertRaisesRegex(InputError, "cannot name unit IDs"):
+            validate_ledger(data)
+
+    def test_transition_sources_require_exact_one_to_one_locators(self):
+        data = ledger()
+        transition = data["transitions"][0]
+        transition["source_locations"] = [{"source_id": "partridge2017", "locator": "test locator"}]
+        with self.assertRaisesRegex(InputError, "exactly one source locator"):
             validate_ledger(data)
 
 

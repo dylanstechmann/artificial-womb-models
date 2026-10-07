@@ -1,5 +1,10 @@
 # Changelog
 
+## Unreleased
+
+- Add a machine-readable developmental transition map with explicit unknown edges, source locators and same-unit claim links; prevent announcements, species mixing and unsupported claims from establishing continuity.
+- Export `transitions.csv` and include transition records in the receipt-bound evidence report for later ResearchDesk display.
+
 ## 0.4.0 — 2026-10-06
 
 - Optionally hash locally available source files under an explicit root and report matching, mismatched, missing, and bounded-limit states without fetching or copying source data.
