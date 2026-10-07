@@ -1,3 +1,4 @@
+import csv
 import json
 import tempfile
 import unittest
@@ -28,6 +29,48 @@ class EvidenceTests(unittest.TestCase):
             self.assertIn("ovine fetal lamb", stage_map)
             self.assertIn("human", stage_map)
             self.assertNotIn("readiness", stage_map)
+            with (output / "claims.csv").open(encoding="utf-8", newline="") as handle:
+                claims_csv = list(csv.DictReader(handle))
+            lamb_claim = next(row for row in claims_csv if row["claim_id"] == "lamb-partial-support")
+            self.assertEqual(json.loads(lamb_claim["interval_components"])[0]["maximum"], 28)
+
+    def test_claim_intervals_cannot_exceed_or_relabel_source_axes(self):
+        data = ledger()
+        validate_ledger(data)
+
+        data = ledger()
+        data["claims"][0]["interval_components"][0]["maximum"] = 29
+        with self.assertRaisesRegex(InputError, "extends or changes source"):
+            validate_ledger(data)
+
+        data = ledger()
+        data["claims"][1]["interval_components"][0]["unit"] = "day"
+        with self.assertRaisesRegex(InputError, "extends or changes source"):
+            validate_ledger(data)
+
+        data = ledger()
+        data["claims"][0].pop("interval_components")
+        with self.assertRaisesRegex(InputError, "omits structured intervals"):
+            validate_ledger(data)
+
+    def test_malformed_structured_interval_components_are_rejected(self):
+        malformed = (
+            {"axis": "support_duration", "unit": "day", "minimum": True, "maximum": 28},
+            {"axis": "support_duration", "unit": "day", "minimum": 0, "maximum": float("nan")},
+            {"axis": "support_duration", "unit": "day", "minimum": 30, "maximum": 28},
+        )
+        for component in malformed:
+            with self.subTest(component=component):
+                data = ledger()
+                data["claims"][0]["interval_components"] = [component]
+                with self.assertRaises(InputError):
+                    validate_ledger(data)
+
+        data = ledger()
+        data["sources"][0]["interval_components"].append(
+            data["sources"][0]["interval_components"][0].copy())
+        with self.assertRaisesRegex(InputError, "unique stable identifiers"):
+            validate_ledger(data)
 
     def test_species_and_stage_extrapolation_rejected(self):
         data = ledger()

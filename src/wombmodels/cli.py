@@ -63,7 +63,7 @@ def main(argv=None) -> int:
     mechanics_verification.add_argument("--config", type=Path, required=True)
     mechanics_verification.add_argument("--out", type=Path, required=True)
     matrix_verification = commands.add_parser(
-        "verify-transport-matrix", help="Check transport Euler convergence across six dimensionless rate regimes")
+        "verify-transport-matrix", help="Check transport Euler convergence across seven dimensionless rate regimes")
     matrix_verification.add_argument("--config", type=Path, required=True)
     matrix_verification.add_argument("--out", type=Path, required=True)
     args = parser.parse_args(argv)

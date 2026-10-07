@@ -1,6 +1,8 @@
 """Validate evidence without pooling species, stages, or source classes."""
 from __future__ import annotations
 
+import json
+import math
 import re
 from datetime import date
 from pathlib import Path
@@ -42,6 +44,35 @@ def references(value, allowed, label, *, allow_empty=False):
     return value
 
 
+def interval_components(item, label):
+    """Validate exact-axis numeric intervals without converting reported units."""
+    components = item.get("interval_components", [])
+    if not isinstance(components, list) or len(components) > 16:
+        raise InputError(f"{label}.interval_components must contain at most 16 objects")
+    result = {}
+    expected_fields = {"axis", "unit", "minimum", "maximum"}
+    for component in components:
+        if not isinstance(component, dict) or set(component) != expected_fields:
+            raise InputError(f"{label} interval components need axis, unit, minimum and maximum")
+        axis, unit = component["axis"], component["unit"]
+        if (not isinstance(axis, str) or not re.fullmatch(r"[a-z0-9][a-z0-9_-]{0,63}", axis)
+                or axis in result or not isinstance(unit, str)
+                or not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._/-]{0,63}", unit)):
+            raise InputError(f"{label} interval axes and units must be unique stable identifiers")
+        minimum, maximum = component["minimum"], component["maximum"]
+        if (isinstance(minimum, bool) or not isinstance(minimum, (int, float))
+                or isinstance(maximum, bool) or not isinstance(maximum, (int, float))):
+            raise InputError(f"{label} interval bounds must be finite numbers with minimum <= maximum")
+        try:
+            finite_bounds = math.isfinite(float(minimum)) and math.isfinite(float(maximum))
+        except OverflowError:
+            finite_bounds = False
+        if not finite_bounds or minimum > maximum:
+            raise InputError(f"{label} interval bounds must be finite numbers with minimum <= maximum")
+        result[axis] = {"axis": axis, "unit": unit, "minimum": minimum, "maximum": maximum}
+    return result
+
+
 def validate_ledger(ledger):
     if not isinstance(ledger, dict) or ledger.get("schema_version") != 1 or isinstance(ledger.get("schema_version"), bool):
         raise InputError("Evidence schema_version must be 1")
@@ -57,6 +88,7 @@ def validate_ledger(ledger):
     sources = indexed(ledger.get("sources"), "sources")
     claims = indexed(ledger.get("claims"), "claims")
     requirements = indexed(ledger.get("requirements"), "requirements")
+    source_interval_scopes = {}
     for stage in stages.values():
         text(stage.get("label"), "stage label")
         text(stage.get("boundary"), "stage boundary")
@@ -72,6 +104,7 @@ def validate_ledger(ledger):
         if parsed.scheme != "https" or not parsed.hostname or parsed.username or parsed.password:
             raise InputError("Sources must use public HTTPS URLs")
         references(source.get("stage_ids"), stages, "source stages")
+        source_interval_scopes[source["id"]] = interval_components(source, f"source {source['id']}")
     for claim in claims.values():
         for field in ("text", "species", "interval", "boundary"):
             text(claim.get(field), f"claim {field}")
@@ -81,12 +114,24 @@ def validate_ledger(ledger):
         references(claim.get("stage_ids"), stages, "claim stages")
         references(claim.get("source_ids"), sources, "claim sources",
                    allow_empty=status in {"unassessed", "undemonstrated"})
+        claim_intervals = interval_components(claim, f"claim {claim['id']}")
+        if claim_intervals and not claim["source_ids"]:
+            raise InputError(f"Claim {claim['id']} cannot assert structured intervals without a source")
         for source_id in claim["source_ids"]:
             source = sources[source_id]
             if claim["species"] != source["species"]:
                 raise InputError(f"Claim {claim['id']} changes its source species/model")
             if set(claim["stage_ids"]) - set(source["stage_ids"]):
                 raise InputError(f"Claim {claim['id']} extends its source stage coverage")
+            source_intervals = source_interval_scopes[source_id]
+            if source_intervals and not claim_intervals:
+                raise InputError(f"Claim {claim['id']} omits structured intervals reported by source {source_id}")
+            for axis, interval in claim_intervals.items():
+                source_interval = source_intervals.get(axis)
+                if (source_interval is None or interval["unit"] != source_interval["unit"]
+                        or interval["minimum"] < source_interval["minimum"]
+                        or interval["maximum"] > source_interval["maximum"]):
+                    raise InputError(f"Claim {claim['id']} extends or changes source {source_id} interval {axis}")
             expected = {"peer_reviewed_animal": "source_reported",
                         "peer_reviewed_human_invitro": "source_reported",
                         "regulator_discussion": "discussion_scope",
@@ -116,6 +161,9 @@ def evidence_report(ledger_path: Path, output: Path) -> dict:
     source_map = {item["id"]: item for item in ledger["sources"]}
     claim_rows = [{"claim_id": item["id"], "status": item["status"],
                    "species": item["species"], "interval": item["interval"],
+                   "interval_components": json.dumps(
+                       item.get("interval_components", []), ensure_ascii=False, sort_keys=True,
+                       separators=(",", ":")),
                    "stage_ids": ";".join(item["stage_ids"]),
                    "source_ids": ";".join(item["source_ids"]),
                    "source_kinds": ";".join(sorted({source_map[s]["kind"] for s in item["source_ids"]})),

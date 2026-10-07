@@ -12,6 +12,8 @@ Reviewed on **2026-10-06**. This is an initial bounded map; absence of a reviewe
 
 The Usuda growth result matters: maintaining circulation or a monitored physiological quantity cannot be treated as normal development. Different organ, functional and longer-term outcomes need separate evidence.
 
+The executable ledger records numeric interval components separately from the source's prose. Claims are checked against the cited source on the same named axis and exact unit, without converting species-specific clocks or merging developmental age with support duration. These coordinates are curated metadata; the validator does not verify a paper transcription or reviewer identity.
+
 Complete human IVF-to-birth gestation, replacement of gestational surrogacy and lower congenital-defect incidence remain explicit gaps. The theoretical ambition is preserved. The supplied software fixture contributes no evidence that any of these benefits have been achieved.
 
 When adding a source, retain starting developmental stage, actual supported interval, species, sample structure, comparator, adverse/null findings, endpoint and follow-up. Avoid combining maximum duration from one system with developmental findings from another to imply a single complete capability. Announcements, proposed trials and regulator meeting materials remain distinct from measured trial outcomes. Any AI-assisted extraction needs human source review before promotion into this ledger.

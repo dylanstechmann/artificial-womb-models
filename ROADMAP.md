@@ -129,17 +129,23 @@ can display its receipt-bound output. This verifies record structure and byte
 provenance, not a paper transcription, reviewer's identity or scientific
 eligibility.
 
-Remaining work includes source-locator review history, claim-to-source interval
-containment in the evidence ledger, permission/access confirmation and one
-qualified empirical dataset. Candidate sources stay unpromoted until primary
-source review.
+**Evidence-ledger progress:** `evidence-report` now accepts structured numeric
+interval components on sources and claims. A claim must match the cited source's
+axis and exact unit and stay within its bounds; missing or widened claim scopes
+fail validation. This catches scope expansion in curated metadata without
+converting units or pretending the validator checked a source transcription.
+
+Remaining work includes source-locator review history, permission/access
+confirmation and one qualified empirical dataset. Candidate sources stay
+unpromoted until primary-source review, and structured bounds still need exact
+figure/table or passage locators and an auditable reviewer record.
 
 - Validate examples and imported metadata with the stdlib runtime, including
   source version, species/model, independent unit, stage, actual interval,
   quantity/unit, missingness and calibration status.
-- Represent intervals structurally in each species' declared convention.
-  Check claim coverage against cited source coverage. Current ledger checks
-  species/stage references but does not establish interval containment.
+- Extend structured intervals to eligible empirical observations and link them
+  to exact source locators. Keep source-review records and dataset eligibility
+  separate from machine-checked range containment.
 - Add claim/source/assumption links, exact figure/table/workbook locators,
   reviewer identity/date/rationale and revision/supersession records.
 - Separate reported experiments, institutional announcements, regulator
