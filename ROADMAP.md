@@ -55,8 +55,12 @@ high mixing and near-degenerate weak coupling. `verify-mechanics` compares
 every output and load boundary against an independently evaluated,
 `expm1`-stabilized piecewise-load convolution, including zero-elasticity creep.
 Adversarial checks now cover adjacent sign-changing loads, endpoint loads,
-very fast relaxation and the near-zero-elasticity limit. M1 remains in progress
-for broader floating-point limits and coefficient-scale extremes.
+very fast relaxation and the near-zero-elasticity limit. A test now compares the
+closed-form transport reference with an independent 60-digit matrix exponential
+across 85 coefficient-scale cases (rates 1e-12 to 1e4, times 1e-6 to 1e3); the
+observed worst relative difference on 2026-10-08 was about 4e-16. M1 remains in
+progress for the mechanics reference at coefficient extremes and for broader
+floating-point limits.
 
 1. Preserve the independently derived constant-coefficient two-compartment
    reference and check both compartments over the supported numerical domain.

@@ -1,6 +1,7 @@
 import csv
 import json
 import math
+from decimal import Decimal, localcontext
 import tempfile
 import unittest
 from pathlib import Path
@@ -16,6 +17,34 @@ from wombmodels.numerical_verification import (
 )
 
 ROOT = Path(__file__).resolve().parents[1]
+
+
+def _decimal_matmul(a, b):
+    return [[sum(a[i][k] * b[k][j] for k in range(len(b))) for j in range(len(b[0]))] for i in range(len(a))]
+
+
+def _decimal_transport_reference(interface, core, time, *, exchange, transport, loss, boundary):
+    """Independent 60-digit reference: exp(M t) of the forcing-augmented system by scaling and squaring."""
+    with localcontext() as context:
+        context.prec = 60
+        e, tr, lo, b = (Decimal(repr(float(x))) for x in (exchange, transport, loss, boundary))
+        zero = Decimal(0)
+        matrix = [[-(e + tr + lo), tr, e * b], [tr, -(tr + lo), zero], [zero, zero, zero]]
+        scaled = [[value * Decimal(repr(float(time))) for value in row] for row in matrix]
+        norm, halvings = max(sum(abs(v) for v in row) for row in scaled), 0
+        while norm > Decimal("0.25"):
+            norm /= 2
+            halvings += 1
+        scaled = [[v / (Decimal(2) ** halvings) for v in row] for row in scaled]
+        result = [[Decimal(int(i == j)) for j in range(3)] for i in range(3)]
+        term = [row[:] for row in result]
+        for order in range(1, 50):
+            term = [[v / order for v in row] for row in _decimal_matmul(term, scaled)]
+            result = [[result[i][j] + term[i][j] for j in range(3)] for i in range(3)]
+        for _ in range(halvings):
+            result = _decimal_matmul(result, result)
+        start = [Decimal(repr(float(interface))), Decimal(repr(float(core))), Decimal(1)]
+        return tuple(float(sum(result[i][j] * start[j] for j in range(3))) for i in range(2))
 
 
 class DevelopmentalModelTests(unittest.TestCase):
@@ -187,6 +216,25 @@ class DevelopmentalModelTests(unittest.TestCase):
             0.2, 0.9, 1.0, exchange=0.7, transport=0.3, loss=0.11, boundary=1.3)
         self.assertAlmostEqual(second[0], combined[0], places=13)
         self.assertAlmostEqual(second[1], combined[1], places=13)
+
+    def test_exact_transport_reference_matches_a_60_digit_matrix_exponential_across_coefficient_scales(self):
+        worst = 0.0
+        checked = 0
+        for scale in (1e-12, 1e-9, 1e-6, 1e-3, 1.0, 1e2, 1e4):
+            for time in (1e-6, 1.0, 1e3):
+                if scale * time > 600:
+                    continue
+                for exchange, transport, loss in ((scale, scale, scale), (scale, 0.0, 0.0), (0.0, scale, 0.0),
+                                                  (scale, scale * 1e-3, scale), (scale * 1e-6, scale, 2 * scale)):
+                    values = dict(exchange=exchange, transport=transport, loss=loss, boundary=1.5)
+                    got = _exact_transport_state(0.4, 0.9, time, **values)
+                    want = _decimal_transport_reference(0.4, 0.9, time, **values)
+                    for g, w in zip(got, want):
+                        worst = max(worst, abs(g - w) / max(abs(w), 1e-300))
+                    checked += 1
+        self.assertGreaterEqual(checked, 80)
+        # Observed 2026-10-08: about 4e-16 relative over these cases. The bound leaves room for platform libm.
+        self.assertLess(worst, 1e-12)
 
     def test_transport_step_halving_report_shows_first_order_convergence(self):
         config_path = ROOT / "examples" / "transport_fixture.json"
