@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Refine the hybrid-interface feasibility strategy around maternal-niche remodeling, the same-unit transition to sustained exchange, and joint support/development outcomes. Record new mouse niche and ovine growth source candidates, competing designs and failure conditions without adding operating specifications or gestation claims.
+- Clarify that the Kelvin–Voigt fixture's strain-response time is not a finite stress-relaxation half-time under held strain; retain uncalibrated model scope.
+
 - Resolve native trajectory time units through referenced X metadata; emit source-linked Y-cell lexemes/locators and a candidate observation dataset with null biological IDs, no independence claims and no developmental continuity.
 - Retain successful-perfusion selection, unknown starting/excluded attempts and unresolved tissue-subsample hierarchy in a question/qualification card and unsent data inquiry; perform no biological fit or success-rate estimate.
 

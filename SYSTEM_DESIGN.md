@@ -108,6 +108,14 @@ neither is established as a complete human gestation solution. Comparative measu
 function and developmental outcomes must decide between them. Matching a few
 molecular markers or exchanging a tracer cannot establish the whole interface.
 
+The [feasibility strategy](FEASIBILITY_STRATEGY.md) sharpens this hypothesis:
+the maternal niche must accommodate mechanical response and remodeling while
+extraembryonic tissues establish a sustained, growing interface. The early-to-
+sustained-exchange boundary remains a separate unestablished capability.
+Require joint support and organ/lineage development: stable circulation can
+coexist with abnormal growth in partial-support evidence. Fixed-niche,
+fixed-barrier and stage-separated designs remain research comparators.
+
 ## Machine B: support and observation station
 
 The [selective-interface exploration](SELECTIVE_INTERFACE_FEASIBILITY.md)

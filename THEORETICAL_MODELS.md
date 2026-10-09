@@ -24,7 +24,15 @@ The mechanics fixture uses a Kelvin–Voigt element under piecewise-constant dim
 η dε/dt + Eε = σ(t)
 ```
 
-The exact solution is used between load changes. The report exposes strain over time and the dimensionless relaxation time `η/E` when `E > 0`. An instantaneous linear-elastic response `ε = σ/E` supplies an alternative trajectory. It omits relaxation and is only a theory contrast. Estimating both parameters from future data requires a calibrated stress history, measured strain over time, independent replicate identities, and enough changing input to separate elasticity from viscosity.
+The exact solution is used between load changes. The report exposes strain over time and the dimensionless strain-response time `η/E` when `E > 0` (the current output calls this `relaxation_time`). An instantaneous linear-elastic response `ε = σ/E` supplies an alternative trajectory. It omits time-dependent strain response and is only a theory contrast. Estimating both parameters from future data requires a calibrated stress history, measured strain over time, independent replicate identities, and enough changing input to separate elasticity from viscosity.
+
+Here `η/E` characterizes response under imposed stress, including creep and
+recovery. Under held strain after a step, `dε/dt = 0` and `σ = Eε`; an ideal
+Kelvin–Voigt element does not show finite exponential stress relaxation.
+Do not equate its time constant with a published stress-relaxation half-time.
+The [feasibility strategy](FEASIBILITY_STRATEGY.md) identifies an early mouse
+niche source motivating a distinct future loading/observation contract;
+this fixture remains uncalibrated.
 
 ## Keeping developmental tracks separate
 

@@ -12,6 +12,12 @@ The [machine concept design](SYSTEM_DESIGN.md) proposes an individual continuous
 
 ## What you can run
 
+The [feasibility strategy](FEASIBILITY_STRATEGY.md) now prioritizes a remodelable
+maternal niche, the same-unit transition to sustained exchange, and joint
+support/development outcomes. New early mouse niche evidence and ovine growth
+findings refine the hybrid-interface hypothesis and its failure conditions;
+they establish no continuous human path or operating specification.
+
 The [interface source qualification](SOURCE_QUALIFICATION.md) audits the Hori
 2024 Figure 5G workbook and two Bhide 2026 kinetic supplements. The new
 `audit-hori-source` command extracts 48 source-located Papp endpoints into a

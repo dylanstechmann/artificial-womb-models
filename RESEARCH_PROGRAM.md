@@ -19,6 +19,13 @@ gates remain unestablished for complete human ectogenesis. It is a functional
 research architecture; the E1–E3 evidence and data work below is needed to qualify
 any biological implementation.
 
+The [feasibility strategy](FEASIBILITY_STRATEGY.md), explored on 2026-10-09,
+prioritizes a remodelable maternal niche and the transition to a sustained,
+growing exchange interface. It links those questions to existing mechanics/
+development and partial-support/growth sources, retaining competing designs
+and explicit failure conditions. The next narrow target is source qualification
+of mechanics and progression together, rather than another uncalibrated fixture.
+
 ## 1. Treat the objective as a chain of biological transitions
 
 A wall-powered support system would have to preserve the functions needed at
