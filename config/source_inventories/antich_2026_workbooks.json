@@ -1,0 +1,830 @@
+{
+  "schema_version": 1,
+  "review_status": "candidate",
+  "human_review": "pending",
+  "article_url": "https://www.nature.com/articles/s41598-026-61708-y",
+  "retrieved_on": "2026-10-09",
+  "inspection": "Read-only workbook names, dimensions and first two rows up to 12 columns; no expression/functional reanalysis.",
+  "source_files_redistributed": false,
+  "source_code_executed": false,
+  "eligibility": "No paired functional trajectory or independent-unit analysis split qualified from this inventory.",
+  "limitations": [
+    "Workbook dimensions and row multiplicity are not biological n.",
+    "Early/Late expression labels do not supply donor gestational age or continuous development.",
+    "A Transport pathway sheet contains gene-expression labels; its name is not a physical transport measurement.",
+    "Only names/dimensions/initial rows were inspected; this is not a full cell-by-cell audit or a claim about all study data.",
+    "Raw GEO/PRIDE data, individual functional values and source-specific reuse terms remain unqualified."
+  ],
+  "workbooks": [
+    {
+      "filename": "41598_2026_61708_MOESM10_ESM.xlsx",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41598-026-61708-y/MediaObjects/41598_2026_61708_MOESM10_ESM.xlsx",
+      "bytes": 305593,
+      "sha256": "c8b65a52e203ed08e07520f7d2fd1365fb091a192ba869c37a5631bdf511496b",
+      "sheets": [
+        {
+          "sheet": "Selected Top GO pathways",
+          "dimensions": [
+            19,
+            14
+          ],
+          "inspected_header": [
+            "ONTOLOGY",
+            "ID",
+            "Description",
+            "setSize",
+            "enrichmentScore",
+            "NES",
+            "pvalue",
+            "p.adjust",
+            "qvalue",
+            "rank",
+            "leading_edge",
+            "core_enrichment"
+          ]
+        },
+        {
+          "sheet": "Early-late_EnrichedPathway_e",
+          "dimensions": [
+            1015,
+            12
+          ],
+          "inspected_header": [
+            "Gene",
+            "Early_1",
+            "Early_2",
+            "Early_3",
+            "Late_1",
+            "Late_2",
+            "Late_3",
+            "log2FoldChange",
+            "padj",
+            "GO Pathway",
+            "upregulated stage",
+            "Cell line"
+          ]
+        },
+        {
+          "sheet": "upregulated in early",
+          "dimensions": [
+            593,
+            12
+          ],
+          "inspected_header": [
+            "Gene",
+            "Early_1",
+            "Early_2",
+            "Early_3",
+            "Late_1",
+            "Late_2",
+            "Late_3",
+            "log2FoldChange",
+            "padj",
+            "GO Pathway",
+            "upregulated stage",
+            "Cell line"
+          ]
+        },
+        {
+          "sheet": "upregulated in late",
+          "dimensions": [
+            425,
+            12
+          ],
+          "inspected_header": [
+            "Gene",
+            "Early_1",
+            "Early_2",
+            "Early_3",
+            "Late_1",
+            "Late_2",
+            "Late_3",
+            "log2FoldChange",
+            "padj",
+            "GO Pathway",
+            "upregulated stage",
+            "Cell line"
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "41598_2026_61708_MOESM11_ESM.xlsx",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41598-026-61708-y/MediaObjects/41598_2026_61708_MOESM11_ESM.xlsx",
+      "bytes": 149425,
+      "sha256": "1319f94455df417cdc857b0e06e2f88e806a7842569d7213535b42daf8f778a9",
+      "sheets": [
+        {
+          "sheet": "Cell cycle",
+          "dimensions": [
+            60,
+            11
+          ],
+          "inspected_header": [
+            "Gene",
+            "Early_1",
+            "Early_2",
+            "Early_3",
+            "Late_1",
+            "Late_2",
+            "Late_3",
+            "log2FoldChange",
+            "padj",
+            "Pathway",
+            "Cell line",
+            null
+          ]
+        },
+        {
+          "sheet": "Metabolism",
+          "dimensions": [
+            219,
+            11
+          ],
+          "inspected_header": [
+            "Gene",
+            "Early_1",
+            "Early_2",
+            "Early_3",
+            "Late_1",
+            "Late_2",
+            "Late_3",
+            "log2FoldChange",
+            "padj",
+            "Pathway",
+            "Cell line",
+            null
+          ]
+        },
+        {
+          "sheet": "Immune and defense",
+          "dimensions": [
+            332,
+            11
+          ],
+          "inspected_header": [
+            "Gene",
+            "Early_1",
+            "Early_2",
+            "Early_3",
+            "Late_1",
+            "Late_2",
+            "Late_3",
+            "log2FoldChange",
+            "padj",
+            "Pathway",
+            "Cell line",
+            null
+          ]
+        },
+        {
+          "sheet": "Transport",
+          "dimensions": [
+            219,
+            11
+          ],
+          "inspected_header": [
+            "Gene",
+            "Early_1",
+            "Early_2",
+            "Early_3",
+            "Late_1",
+            "Late_2",
+            "Late_3",
+            "log2FoldChange",
+            "padj",
+            "Pathway",
+            "Cell line",
+            null
+          ]
+        },
+        {
+          "sheet": "Hormone and PSGs",
+          "dimensions": [
+            26,
+            11
+          ],
+          "inspected_header": [
+            "Gene",
+            "Early_1",
+            "Early_2",
+            "Early_3",
+            "Late_1",
+            "Late_2",
+            "Late_3",
+            "log2FoldChange",
+            "padj",
+            "Pathway",
+            "Cell line",
+            null
+          ]
+        },
+        {
+          "sheet": "ECM and ECM remodeling",
+          "dimensions": [
+            78,
+            11
+          ],
+          "inspected_header": [
+            "Gene",
+            "Early_1",
+            "Early_2",
+            "Early_3",
+            "Late_1",
+            "Late_2",
+            "Late_3",
+            "log2FoldChange",
+            "padj",
+            "Pathway",
+            "Cell line",
+            null
+          ]
+        },
+        {
+          "sheet": "Vascularization",
+          "dimensions": [
+            219,
+            11
+          ],
+          "inspected_header": [
+            "Gene",
+            "Early_1",
+            "Early_2",
+            "Early_3",
+            "Late_1",
+            "Late_2",
+            "Late_3",
+            "log2FoldChange",
+            "padj",
+            "Pathway",
+            "Cell line",
+            null
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "41598_2026_61708_MOESM12_ESM.xlsx",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41598-026-61708-y/MediaObjects/41598_2026_61708_MOESM12_ESM.xlsx",
+      "bytes": 41094,
+      "sha256": "b4671ce6c5620142f91f9aa2070bdda0f26005fb6b5a62f0afc333992cba5b9c",
+      "sheets": [
+        {
+          "sheet": "Sheet 1",
+          "dimensions": [
+            326,
+            9
+          ],
+          "inspected_header": [
+            "Ensembl_ID",
+            "Entrez Gene ID",
+            "Gene",
+            "ratio_Protein",
+            "padj_Protein",
+            "comparison",
+            "log2FC_Protein",
+            "padj_RNA",
+            "log2FC_RNA",
+            null,
+            null,
+            null
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "41598_2026_61708_MOESM13_ESM.xlsx",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41598-026-61708-y/MediaObjects/41598_2026_61708_MOESM13_ESM.xlsx",
+      "bytes": 33207,
+      "sha256": "b65771de3c0cbd3aa9dd19ab013bd64c2b5561dac5b9b6793f18617ecfa6f554",
+      "sheets": [
+        {
+          "sheet": "Sheet 1",
+          "dimensions": [
+            238,
+            9
+          ],
+          "inspected_header": [
+            "Ensembl_ID",
+            "Entrez Gene ID",
+            "Gene",
+            "ratio_Protein",
+            "padj_Protein",
+            "comparison",
+            "log2FC_Protein",
+            "padj_RNA",
+            "log2FC_RNA",
+            null,
+            null,
+            null
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "41598_2026_61708_MOESM14_ESM.xlsx",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41598-026-61708-y/MediaObjects/41598_2026_61708_MOESM14_ESM.xlsx",
+      "bytes": 803428,
+      "sha256": "8d5363c7ddfe205cef79be1219d8766e04a95a096e3a0bae3ad7761a2357f1b2",
+      "sheets": [
+        {
+          "sheet": "Sheet 1",
+          "dimensions": [
+            7431,
+            9
+          ],
+          "inspected_header": [
+            "Ensembl_ID",
+            "Entrez Gene ID",
+            "Gene",
+            "ratio_Protein",
+            "padj_Protein",
+            "comparison",
+            "log2FC_Protein",
+            "log2FC_RNA",
+            "padj_RNA",
+            null,
+            null,
+            null
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "41598_2026_61708_MOESM15_ESM.xlsx",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41598-026-61708-y/MediaObjects/41598_2026_61708_MOESM15_ESM.xlsx",
+      "bytes": 804157,
+      "sha256": "4ee3571943eab5bd19fbf8f6eaf9d428e8e8192156f62f921b3e58552d7037ca",
+      "sheets": [
+        {
+          "sheet": "Sheet 1",
+          "dimensions": [
+            7414,
+            9
+          ],
+          "inspected_header": [
+            "Ensembl_ID",
+            "Entrez Gene ID",
+            "Gene",
+            "ratio_Protein",
+            "padj_Protein",
+            "comparison",
+            "log2FC_Protein",
+            "log2FC_RNA",
+            "padj_RNA",
+            null,
+            null,
+            null
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "41598_2026_61708_MOESM4_ESM.xlsx",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41598-026-61708-y/MediaObjects/41598_2026_61708_MOESM4_ESM.xlsx",
+      "bytes": 151157,
+      "sha256": "1a0c0b1bc8be5d41572e86269dbb2f84365aa4cb7ef0e580cc2024a8013956e6",
+      "sheets": [
+        {
+          "sheet": "Cell Cycle ",
+          "dimensions": [
+            59,
+            11
+          ],
+          "inspected_header": [
+            "Gene",
+            "Early_1",
+            "Early_2",
+            "Early_3",
+            "Late_1",
+            "Late_2",
+            "Late_3",
+            "log2FoldChange",
+            "padj",
+            "Pathway",
+            "Cell line",
+            null
+          ]
+        },
+        {
+          "sheet": "Immune and defense",
+          "dimensions": [
+            332,
+            11
+          ],
+          "inspected_header": [
+            "Gene",
+            "Early_1",
+            "Early_2",
+            "Early_3",
+            "Late_1",
+            "Late_2",
+            "Late_3",
+            "log2FoldChange",
+            "padj",
+            "Pathway",
+            "Cell line",
+            null
+          ]
+        },
+        {
+          "sheet": "Transport",
+          "dimensions": [
+            208,
+            11
+          ],
+          "inspected_header": [
+            "Gene",
+            "Early_1",
+            "Early_2",
+            "Early_3",
+            "Late_1",
+            "Late_2",
+            "Late_3",
+            "log2FoldChange",
+            "padj",
+            "Pathway",
+            "Cell line",
+            null
+          ]
+        },
+        {
+          "sheet": "Vascularization",
+          "dimensions": [
+            119,
+            11
+          ],
+          "inspected_header": [
+            "Gene",
+            "Early_1",
+            "Early_2",
+            "Early_3",
+            "Late_1",
+            "Late_2",
+            "Late_3",
+            "log2FoldChange",
+            "padj",
+            "Pathway",
+            "Cell line",
+            null
+          ]
+        },
+        {
+          "sheet": "Metabolism",
+          "dimensions": [
+            133,
+            11
+          ],
+          "inspected_header": [
+            "Gene",
+            "Early_1",
+            "Early_2",
+            "Early_3",
+            "Late_1",
+            "Late_2",
+            "Late_3",
+            "log2FoldChange",
+            "padj",
+            "Pathway",
+            "Cell line",
+            null
+          ]
+        },
+        {
+          "sheet": "Hormone and PSGs",
+          "dimensions": [
+            28,
+            11
+          ],
+          "inspected_header": [
+            "Gene",
+            "Early_1",
+            "Early_2",
+            "Early_3",
+            "Late_1",
+            "Late_2",
+            "Late_3",
+            "log2FoldChange",
+            "padj",
+            "Pathway",
+            "Cell line",
+            null
+          ]
+        },
+        {
+          "sheet": "ECM and ECM remodeling",
+          "dimensions": [
+            45,
+            11
+          ],
+          "inspected_header": [
+            "Gene",
+            "Early_1",
+            "Early_2",
+            "Early_3",
+            "Late_1",
+            "Late_2",
+            "Late_3",
+            "log2FoldChange",
+            "padj",
+            "Pathway",
+            "Cell line",
+            null
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "41598_2026_61708_MOESM5_ESM.xlsx",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41598-026-61708-y/MediaObjects/41598_2026_61708_MOESM5_ESM.xlsx",
+      "bytes": 3356101,
+      "sha256": "7afa05368283d8d8b4974dc33a66c3f202af4dd04ea8b25d4fea157e823787c9",
+      "sheets": [
+        {
+          "sheet": "Sheet 1",
+          "dimensions": [
+            26945,
+            15
+          ],
+          "inspected_header": [
+            "Ensembl_ID",
+            "baseMean",
+            "log2FoldChange",
+            "lfcSE",
+            "stat",
+            "pvalue",
+            "padj",
+            "Symbol",
+            "protein",
+            "Early_1",
+            "Early_2",
+            "Early_3"
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "41598_2026_61708_MOESM6_ESM.xlsx",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41598-026-61708-y/MediaObjects/41598_2026_61708_MOESM6_ESM.xlsx",
+      "bytes": 3502443,
+      "sha256": "f4e282f2b6d0ac399c6252cb90c65d6b9f1bc3fc07c3a6bdd15afcf9de9668b3",
+      "sheets": [
+        {
+          "sheet": "Sheet 1",
+          "dimensions": [
+            27440,
+            15
+          ],
+          "inspected_header": [
+            "Ensembl_ID",
+            "baseMean",
+            "log2FoldChange",
+            "lfcSE",
+            "stat",
+            "pvalue",
+            "padj",
+            "Symbol",
+            "protein",
+            "Early_1",
+            "Early_2",
+            "Early_3"
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "41598_2026_61708_MOESM7_ESM.xlsx",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41598-026-61708-y/MediaObjects/41598_2026_61708_MOESM7_ESM.xlsx",
+      "bytes": 673274,
+      "sha256": "ac5cdfa9be7f3eae077a72d555192e400597893126fa3e83db30a096217676c2",
+      "sheets": [
+        {
+          "sheet": "all",
+          "dimensions": [
+            2259,
+            15
+          ],
+          "inspected_header": [
+            "Ensembl_ID",
+            "baseMean",
+            "log2FoldChange",
+            "lfcSE",
+            "stat",
+            "pvalue",
+            "padj",
+            "Symbol",
+            "protein",
+            "Early_1",
+            "Early_2",
+            "Early_3"
+          ]
+        },
+        {
+          "sheet": "activated in late",
+          "dimensions": [
+            1457,
+            15
+          ],
+          "inspected_header": [
+            "Ensembl_ID",
+            "baseMean",
+            "log2FoldChange",
+            "lfcSE",
+            "stat",
+            "pvalue",
+            "padj",
+            "Symbol",
+            "protein",
+            "Early_1",
+            "Early_2",
+            "Early_3"
+          ]
+        },
+        {
+          "sheet": "supressed in late",
+          "dimensions": [
+            803,
+            15
+          ],
+          "inspected_header": [
+            "Ensembl_ID",
+            "baseMean",
+            "log2FoldChange",
+            "lfcSE",
+            "stat",
+            "pvalue",
+            "padj",
+            "Symbol",
+            "protein",
+            "Early_1",
+            "Early_2",
+            "Early_3"
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "41598_2026_61708_MOESM8_ESM.xlsx",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41598-026-61708-y/MediaObjects/41598_2026_61708_MOESM8_ESM.xlsx",
+      "bytes": 220957,
+      "sha256": "e9ba99fa5c9156a414e666c00582906ad386d62842a9a6dd656f48dac1bc672d",
+      "sheets": [
+        {
+          "sheet": "Selected Top GO pathways",
+          "dimensions": [
+            23,
+            14
+          ],
+          "inspected_header": [
+            "ONTOLOGY",
+            "ID",
+            "Description",
+            "setSize",
+            "enrichmentScore",
+            "NES",
+            "pvalue",
+            "p.adjust",
+            "qvalue",
+            "rank",
+            "leading_edge",
+            "core_enrichment"
+          ]
+        },
+        {
+          "sheet": "regularized log transform value",
+          "dimensions": [
+            730,
+            12
+          ],
+          "inspected_header": [
+            "Gene",
+            "Early_1",
+            "Early_2",
+            "Early_3",
+            "Late_1",
+            "Late_2",
+            "Late_3",
+            "log2FoldChange",
+            "padj",
+            "GO Pathway",
+            "upregulated stage",
+            "Cell line"
+          ]
+        },
+        {
+          "sheet": "upregulated in early",
+          "dimensions": [
+            314,
+            12
+          ],
+          "inspected_header": [
+            "Gene",
+            "Early_1",
+            "Early_2",
+            "Early_3",
+            "Late_1",
+            "Late_2",
+            "Late_3",
+            "log2FoldChange",
+            "padj",
+            "GO Pathway",
+            "upregulated stage",
+            "Cell line"
+          ]
+        },
+        {
+          "sheet": "upregulated in late",
+          "dimensions": [
+            418,
+            12
+          ],
+          "inspected_header": [
+            "Gene",
+            "Early_1",
+            "Early_2",
+            "Early_3",
+            "Late_1",
+            "Late_2",
+            "Late_3",
+            "log2FoldChange",
+            "padj",
+            "GO Pathway",
+            "upregulated stage",
+            "Cell line"
+          ]
+        }
+      ]
+    },
+    {
+      "filename": "41598_2026_61708_MOESM9_ESM.xlsx",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41598-026-61708-y/MediaObjects/41598_2026_61708_MOESM9_ESM.xlsx",
+      "bytes": 1134606,
+      "sha256": "72b186604c01f2ee73352983fd1d7a0e674d8ad2b1733c8f3368c41ac543a456",
+      "sheets": [
+        {
+          "sheet": "all",
+          "dimensions": [
+            3808,
+            15
+          ],
+          "inspected_header": [
+            "Ensembl_ID",
+            "baseMean",
+            "log2FoldChange",
+            "lfcSE",
+            "stat",
+            "pvalue",
+            "padj",
+            "Symbol",
+            "protein",
+            "Early_1",
+            "Early_2",
+            "Early_3"
+          ]
+        },
+        {
+          "sheet": "supressed in late",
+          "dimensions": [
+            1914,
+            15
+          ],
+          "inspected_header": [
+            "Ensembl_ID",
+            "baseMean",
+            "log2FoldChange",
+            "lfcSE",
+            "stat",
+            "pvalue",
+            "padj",
+            "Symbol",
+            "protein",
+            "Early_1",
+            "Early_2",
+            "Early_3"
+          ]
+        },
+        {
+          "sheet": "activated in late",
+          "dimensions": [
+            1895,
+            15
+          ],
+          "inspected_header": [
+            "Ensembl_ID",
+            "baseMean",
+            "log2FoldChange",
+            "lfcSE",
+            "stat",
+            "pvalue",
+            "padj",
+            "Symbol",
+            "protein",
+            "Early_1",
+            "Early_2",
+            "Early_3"
+          ]
+        }
+      ]
+    }
+  ]
+}

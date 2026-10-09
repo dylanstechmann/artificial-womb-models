@@ -25,7 +25,7 @@ GROUPS = (("Cont", 4, "acellular collagen membrane control"),
           ("HU", 8, "HUVEC"), ("ST", 12, "ST"), ("ST/HU", 16, "ST/HUVEC"))
 
 
-def _figure_cells(raw: bytes) -> dict:
+def _figure_cells(raw: bytes, sheet_name: str = "Fig. 5G") -> dict:
     """Read one known sheet's scalar cells without evaluating workbook code."""
     if len(raw) > 1_000_000:
         raise InputError("Workbook exceeds the 1 MB audit limit")
@@ -44,9 +44,9 @@ def _figure_cells(raw: bytes) -> dict:
                 return ET.fromstring(content)
 
             sheets = [item for item in xml("xl/workbook.xml").findall("s:sheets/s:sheet", NS)
-                      if item.get("name") == "Fig. 5G"]
+                      if item.get("name") == sheet_name]
             if len(sheets) != 1:
-                raise InputError("Expected exactly one Fig. 5G sheet")
+                raise InputError(f"Expected exactly one {sheet_name} sheet")
             rid = sheets[0].get("{" + NS["r"] + "}id")
             links = [item for item in xml("xl/_rels/workbook.xml.rels").findall("p:Relationship", NS)
                      if item.get("Id") == rid]
@@ -65,7 +65,7 @@ def _figure_cells(raw: bytes) -> dict:
                 if not locator or locator in cells:
                     raise InputError("Missing or duplicate worksheet cell locator")
                 if cell.find("s:f", NS) is not None:
-                    raise InputError("Fig. 5G formulas are unsupported; cached results are not measurements")
+                    raise InputError("Selected-sheet formulas are unsupported; cached results are not measurements")
                 value = cell.find("s:v", NS)
                 token = value.text if value is not None else None
                 if cell.get("t") == "s":

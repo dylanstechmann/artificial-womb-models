@@ -162,6 +162,12 @@ identity/function analysis and includes an unsent data inquiry.
 
 ## One additional transport candidate was checked
 
+The subsequent [selective-interface exploration](SELECTIVE_INTERFACE_FEASIBILITY.md)
+adds IF-3: distinguish directional nutrient delivery, barrier integrity,
+injury and endocrine function. New primary tissue-model sources and a pinned
+functional-readout audit provide concrete observation targets, with specimen
+pairing and dynamic-model eligibility still unresolved.
+
 [Vachalova et al., 2024](https://doi.org/10.1016/j.biopha.2024.117399)
 has a [public three-workbook dataset](https://zenodo.org/records/15387278)
 with a CC BY 4.0 repository declaration. The downloaded files contain human

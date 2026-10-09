@@ -110,6 +110,13 @@ molecular markers or exchanging a tracer cannot establish the whole interface.
 
 ## Machine B: support and observation station
 
+The [selective-interface exploration](SELECTIVE_INTERFACE_FEASIBILITY.md)
+refines the interface requirement: separately qualify directional nutrient
+delivery, unintended passage, tissue injury and endocrine readouts. A
+single permeability coefficient or uptake signal cannot establish that
+joint function. New human tissue-model candidates motivate this distinction;
+they do not close continuous-development gates or supply machine settings.
+
 The station is an engineering layer around the biological boundary. Functional
 requirements are specified here without prescribing biological setpoints or control
 actions.

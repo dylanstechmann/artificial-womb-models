@@ -43,6 +43,12 @@ rosters, endpoint coverage, exclusions and experiment/source hierarchy.
 groups without estimating an effect. Its example is entirely artificial
 and dimensionless; the original functional measurements remain outstanding.
 
+The [selective-interface exploration](SELECTIVE_INTERFACE_FEASIBILITY.md)
+checks two additional primary human tissue-model studies and distinguishes
+nutrient delivery, barrier leakage, injury and endocrine readouts.
+`audit-fattahi-source` preserves published functional values and source
+locators without inferring specimen pairing or fitting a physiological model.
+
 ```powershell
 python -m venv .venv
 .venv\Scripts\python -m pip install -e .

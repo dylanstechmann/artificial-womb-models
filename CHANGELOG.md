@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Explore new stage-like and microengineered human placental-barrier sources; freeze IF-3's distinct selective-function observation requirements and refine the conceptual machine design without changing gestation claims.
+- Add a pinned offline Fattahi Figure 2 functional-readout audit retaining exact units, scalar lexemes, source conditions and unverified sample linkage; preserve glucose percentage as a receiver concentration-change readout and perform no model fit.
+
 - Add `validate-phenotypes` with exact specimen/endpoint matrix checks, original-value locators, explicit missing/excluded/unassessed outcomes, experiment/source/condition descriptive groups and unresolved qualification requirements. Keep the demonstration dimensionless and artificial; perform no effect estimation or phenotype/transcriptomic join.
 
 - Add an offline pinned CREST pool/annotation linkage audit, source-locator outputs and candidate metadata intake; retain absent phenotype links, incomplete membership and human-review status.
