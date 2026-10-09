@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Add `validate-phenotypes` with exact specimen/endpoint matrix checks, original-value locators, explicit missing/excluded/unassessed outcomes, experiment/source/condition descriptive groups and unresolved qualification requirements. Keep the demonstration dimensionless and artificial; perform no effect estimation or phenotype/transcriptomic join.
+
 - Add an offline pinned CREST pool/annotation linkage audit, source-locator outputs and candidate metadata intake; retain absent phenotype links, incomplete membership and human-review status.
 - Preserve source-declared sample-pool members in observation intake, reject overlapping independence assertions in the same source/assay scope, export membership tables and prevent pool records from establishing individual developmental continuity.
 - Define separate phenotype-only and paired identity/function reanalysis requirements and prepare an unsent source-data inquiry.

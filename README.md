@@ -37,6 +37,12 @@ and rejects overlapping independence assertions. Pool labels cannot establish
 individual developmental continuity; actual functional values and specimen
 links remain a separate data requirement.
 
+The [phenotype intake](PHENOTYPE_INTAKE.md) validates starting specimen
+rosters, endpoint coverage, exclusions and experiment/source hierarchy.
+`validate-phenotypes` preserves exact source units and produces descriptive
+groups without estimating an effect. Its example is entirely artificial
+and dimensionless; the original functional measurements remain outstanding.
+
 ```powershell
 python -m venv .venv
 .venv\Scripts\python -m pip install -e .

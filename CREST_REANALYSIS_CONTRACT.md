@@ -116,6 +116,12 @@ Both routes retain the actual early in-vitro model and ascertainment window.
 They establish no complete gestation or neonatal health. Embryos/blastoids,
 Figure 7/supplementary subsets and their exclusions remain separate.
 
+The executable [phenotype intake](PHENOTYPE_INTAKE.md) now checks declared
+starting rosters, all specimen/endpoint outcomes, exact units/ascertainment
+and source hierarchy. It produces descriptive groups and unresolved-data
+flags, with no effect estimation. Its demonstration values are entirely
+artificial and do not fill the missing source measurements.
+
 | Field family | Required existing source information |
 | --- | --- |
 | Identity/hierarchy | Coded specimen ID, embryo versus blastoid, experiment and endometrial-source IDs |

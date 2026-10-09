@@ -138,6 +138,8 @@ def reproduction_plan(kind: str, files: dict[str, bytes], metadata: dict) -> dic
             "wombmodels validate-observations --dataset <dataset.json> --out <new-dir>",
         "developmental_observation_intake":
             "wombmodels validate-observations --dataset <input_dataset.json> --out <new-dir>",
+        "specimen_phenotype_intake":
+            "wombmodels validate-phenotypes --dataset <input_phenotypes.json> --source-root <external-source-dir> --out <new-dir>",
         "published_endpoint_source_audit":
             "wombmodels audit-hori-source --workbook <external-pinned-source.xlsx> --out <new-dir>",
         "early_interface_source_linkage_audit":
@@ -158,6 +160,8 @@ def reproduction_plan(kind: str, files: dict[str, bytes], metadata: dict) -> dic
                    if kind == "published_endpoint_source_audit" else
                    ["input_source_manifest.json", "external pinned SDRF and code archive (not bundled)"]
                    if kind == "early_interface_source_linkage_audit" else
+                   ["input_phenotypes.json", "external source files for optional byte verification (not bundled)"]
+                   if kind == "specimen_phenotype_intake" else
                    ["input_config.json"] if kind == "dimensionless_transport_identifiability" else
                    ["input_dataset.json"] if kind == "developmental_observation_intake"
                    else ["source_config.json"] if "source_config.json" in files else []),
@@ -169,7 +173,7 @@ def reproduction_plan(kind: str, files: dict[str, bytes], metadata: dict) -> dic
             "Matching hashes establish bundle integrity only, not numerical correctness, "
             "parameter identifiability or biological validity.",
             ("Source audit/intake preserves reported units; it does not establish measurement validity, rights, analysis eligibility or predict human gestation."
-             if kind in {"developmental_observation_intake", "published_endpoint_source_audit", "early_interface_source_linkage_audit"} else
+             if kind in {"developmental_observation_intake", "published_endpoint_source_audit", "early_interface_source_linkage_audit", "specimen_phenotype_intake"} else
              "Every value in these fixtures is dimensionless. Nothing here predicts human gestation."),
             "Verification never reruns the model. A rerun needs the recorded package version and "
             "the exact inputs listed above.",

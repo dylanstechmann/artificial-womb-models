@@ -1,0 +1,1089 @@
+{
+  "schema_version": 1,
+  "observation_dataset": {
+    "schema_version": 1,
+    "dataset_id": "synthetic-phenotype-intake-example",
+    "title": "Invented dimensionless specimen/endpoint coverage and hierarchy fixture",
+    "source_revision": {
+      "revision_id": "synthetic-v1",
+      "citation": "AI-authored software fixture; no biological study or measurements.",
+      "source_kind": "other",
+      "source_url": "https://example.org/synthetic-intake",
+      "review_status": "candidate",
+      "reviewer": "",
+      "reviewed_on": null,
+      "review_note": ""
+    },
+    "artifacts": [
+      {
+        "artifact_id": "synthetic-source",
+        "uri": "https://example.org/synthetic-intake",
+        "license": "MIT software fixture",
+        "sha256": null,
+        "retrieved_on": null,
+        "developmental_scope": {
+          "species": "unspecified",
+          "stage_tracks": [
+            "unspecified"
+          ],
+          "time_unit": "dimensionless_fixture_time",
+          "start": 0,
+          "end": 4,
+          "source_locator": "Invented metadata in this example; no paper, biological interval or gestational time."
+        }
+      }
+    ],
+    "observations": [
+      {
+        "schema_version": 1,
+        "record_id": "synthetic-phenotype-1-1",
+        "evidence_status": "synthetic_fixture",
+        "species": "unspecified",
+        "stage_track": "unspecified",
+        "developmental_interval": {
+          "label": "Invented ascertainment interval",
+          "time_unit": "dimensionless_fixture_time",
+          "start": 0,
+          "end": 4,
+          "stage_source_artifact_id": "synthetic-source"
+        },
+        "model_system": {
+          "kind": "simulation",
+          "label": "invented metadata fixture"
+        },
+        "assay": {
+          "name": "invented scalar assay",
+          "endpoint": "abstract-area",
+          "unit": "dimensionless",
+          "measurement_role": "other"
+        },
+        "independent_unit": {
+          "kind": "other",
+          "id": "invented-specimen-1",
+          "parent_id": null
+        },
+        "observation": {
+          "value": 0.1,
+          "measurement_time": 2,
+          "measurement_time_unit": "dimensionless_fixture_time",
+          "comparator_id": null,
+          "replicate_role": "repeated_measure"
+        },
+        "source": {
+          "artifact_id": "synthetic-source",
+          "uri": "https://example.org/synthetic-intake",
+          "license": "MIT software fixture",
+          "sha256": null
+        },
+        "limitations": [
+          "All values and identifiers are invented software metadata, not biological observations."
+        ]
+      },
+      {
+        "schema_version": 1,
+        "record_id": "synthetic-phenotype-1-2",
+        "evidence_status": "synthetic_fixture",
+        "species": "unspecified",
+        "stage_track": "unspecified",
+        "developmental_interval": {
+          "label": "Invented ascertainment interval",
+          "time_unit": "dimensionless_fixture_time",
+          "start": 0,
+          "end": 4,
+          "stage_source_artifact_id": "synthetic-source"
+        },
+        "model_system": {
+          "kind": "simulation",
+          "label": "invented metadata fixture"
+        },
+        "assay": {
+          "name": "invented scalar assay",
+          "endpoint": "abstract-length",
+          "unit": "dimensionless",
+          "measurement_role": "other"
+        },
+        "independent_unit": {
+          "kind": "other",
+          "id": "invented-specimen-1",
+          "parent_id": null
+        },
+        "observation": {
+          "value": null,
+          "measurement_time": 2,
+          "measurement_time_unit": "dimensionless_fixture_time",
+          "comparator_id": null,
+          "replicate_role": "repeated_measure",
+          "missingness_reason": "Invented missing outcome for software validation."
+        },
+        "source": {
+          "artifact_id": "synthetic-source",
+          "uri": "https://example.org/synthetic-intake",
+          "license": "MIT software fixture",
+          "sha256": null
+        },
+        "limitations": [
+          "All values and identifiers are invented software metadata, not biological observations."
+        ]
+      },
+      {
+        "schema_version": 1,
+        "record_id": "synthetic-phenotype-2-1",
+        "evidence_status": "synthetic_fixture",
+        "species": "unspecified",
+        "stage_track": "unspecified",
+        "developmental_interval": {
+          "label": "Invented ascertainment interval",
+          "time_unit": "dimensionless_fixture_time",
+          "start": 0,
+          "end": 4,
+          "stage_source_artifact_id": "synthetic-source"
+        },
+        "model_system": {
+          "kind": "simulation",
+          "label": "invented metadata fixture"
+        },
+        "assay": {
+          "name": "invented scalar assay",
+          "endpoint": "abstract-area",
+          "unit": "dimensionless",
+          "measurement_role": "other"
+        },
+        "independent_unit": {
+          "kind": "other",
+          "id": "invented-specimen-2",
+          "parent_id": null
+        },
+        "observation": {
+          "value": 999,
+          "measurement_time": 2,
+          "measurement_time_unit": "dimensionless_fixture_time",
+          "comparator_id": null,
+          "replicate_role": "repeated_measure"
+        },
+        "source": {
+          "artifact_id": "synthetic-source",
+          "uri": "https://example.org/synthetic-intake",
+          "license": "MIT software fixture",
+          "sha256": null
+        },
+        "limitations": [
+          "All values and identifiers are invented software metadata, not biological observations."
+        ]
+      },
+      {
+        "schema_version": 1,
+        "record_id": "synthetic-phenotype-2-2",
+        "evidence_status": "synthetic_fixture",
+        "species": "unspecified",
+        "stage_track": "unspecified",
+        "developmental_interval": {
+          "label": "Invented ascertainment interval",
+          "time_unit": "dimensionless_fixture_time",
+          "start": 0,
+          "end": 4,
+          "stage_source_artifact_id": "synthetic-source"
+        },
+        "model_system": {
+          "kind": "simulation",
+          "label": "invented metadata fixture"
+        },
+        "assay": {
+          "name": "invented scalar assay",
+          "endpoint": "abstract-length",
+          "unit": "dimensionless",
+          "measurement_role": "other"
+        },
+        "independent_unit": {
+          "kind": "other",
+          "id": "invented-specimen-2",
+          "parent_id": null
+        },
+        "observation": {
+          "value": 0.25,
+          "measurement_time": 2,
+          "measurement_time_unit": "dimensionless_fixture_time",
+          "comparator_id": null,
+          "replicate_role": "repeated_measure"
+        },
+        "source": {
+          "artifact_id": "synthetic-source",
+          "uri": "https://example.org/synthetic-intake",
+          "license": "MIT software fixture",
+          "sha256": null
+        },
+        "limitations": [
+          "All values and identifiers are invented software metadata, not biological observations."
+        ]
+      },
+      {
+        "schema_version": 1,
+        "record_id": "synthetic-phenotype-3-1",
+        "evidence_status": "synthetic_fixture",
+        "species": "unspecified",
+        "stage_track": "unspecified",
+        "developmental_interval": {
+          "label": "Invented ascertainment interval",
+          "time_unit": "dimensionless_fixture_time",
+          "start": 0,
+          "end": 4,
+          "stage_source_artifact_id": "synthetic-source"
+        },
+        "model_system": {
+          "kind": "simulation",
+          "label": "invented metadata fixture"
+        },
+        "assay": {
+          "name": "invented scalar assay",
+          "endpoint": "abstract-area",
+          "unit": "dimensionless",
+          "measurement_role": "other"
+        },
+        "independent_unit": {
+          "kind": "other",
+          "id": "invented-specimen-3",
+          "parent_id": null
+        },
+        "observation": {
+          "value": 0.3,
+          "measurement_time": 2,
+          "measurement_time_unit": "dimensionless_fixture_time",
+          "comparator_id": null,
+          "replicate_role": "repeated_measure"
+        },
+        "source": {
+          "artifact_id": "synthetic-source",
+          "uri": "https://example.org/synthetic-intake",
+          "license": "MIT software fixture",
+          "sha256": null
+        },
+        "limitations": [
+          "All values and identifiers are invented software metadata, not biological observations."
+        ]
+      },
+      {
+        "schema_version": 1,
+        "record_id": "synthetic-phenotype-3-2",
+        "evidence_status": "synthetic_fixture",
+        "species": "unspecified",
+        "stage_track": "unspecified",
+        "developmental_interval": {
+          "label": "Invented ascertainment interval",
+          "time_unit": "dimensionless_fixture_time",
+          "start": 0,
+          "end": 4,
+          "stage_source_artifact_id": "synthetic-source"
+        },
+        "model_system": {
+          "kind": "simulation",
+          "label": "invented metadata fixture"
+        },
+        "assay": {
+          "name": "invented scalar assay",
+          "endpoint": "abstract-length",
+          "unit": "dimensionless",
+          "measurement_role": "other"
+        },
+        "independent_unit": {
+          "kind": "other",
+          "id": "invented-specimen-3",
+          "parent_id": null
+        },
+        "observation": {
+          "value": 0.35,
+          "measurement_time": 2,
+          "measurement_time_unit": "dimensionless_fixture_time",
+          "comparator_id": null,
+          "replicate_role": "repeated_measure"
+        },
+        "source": {
+          "artifact_id": "synthetic-source",
+          "uri": "https://example.org/synthetic-intake",
+          "license": "MIT software fixture",
+          "sha256": null
+        },
+        "limitations": [
+          "All values and identifiers are invented software metadata, not biological observations."
+        ]
+      },
+      {
+        "schema_version": 1,
+        "record_id": "synthetic-phenotype-4-1",
+        "evidence_status": "synthetic_fixture",
+        "species": "unspecified",
+        "stage_track": "unspecified",
+        "developmental_interval": {
+          "label": "Invented ascertainment interval",
+          "time_unit": "dimensionless_fixture_time",
+          "start": 0,
+          "end": 4,
+          "stage_source_artifact_id": "synthetic-source"
+        },
+        "model_system": {
+          "kind": "simulation",
+          "label": "invented metadata fixture"
+        },
+        "assay": {
+          "name": "invented scalar assay",
+          "endpoint": "abstract-area",
+          "unit": "dimensionless",
+          "measurement_role": "other"
+        },
+        "independent_unit": {
+          "kind": "other",
+          "id": "invented-specimen-4",
+          "parent_id": null
+        },
+        "observation": {
+          "value": 0.4,
+          "measurement_time": 2,
+          "measurement_time_unit": "dimensionless_fixture_time",
+          "comparator_id": null,
+          "replicate_role": "repeated_measure"
+        },
+        "source": {
+          "artifact_id": "synthetic-source",
+          "uri": "https://example.org/synthetic-intake",
+          "license": "MIT software fixture",
+          "sha256": null
+        },
+        "limitations": [
+          "All values and identifiers are invented software metadata, not biological observations."
+        ]
+      },
+      {
+        "schema_version": 1,
+        "record_id": "synthetic-phenotype-4-2",
+        "evidence_status": "synthetic_fixture",
+        "species": "unspecified",
+        "stage_track": "unspecified",
+        "developmental_interval": {
+          "label": "Invented ascertainment interval",
+          "time_unit": "dimensionless_fixture_time",
+          "start": 0,
+          "end": 4,
+          "stage_source_artifact_id": "synthetic-source"
+        },
+        "model_system": {
+          "kind": "simulation",
+          "label": "invented metadata fixture"
+        },
+        "assay": {
+          "name": "invented scalar assay",
+          "endpoint": "abstract-length",
+          "unit": "dimensionless",
+          "measurement_role": "other"
+        },
+        "independent_unit": {
+          "kind": "other",
+          "id": "invented-specimen-4",
+          "parent_id": null
+        },
+        "observation": {
+          "value": 0.45,
+          "measurement_time": 2,
+          "measurement_time_unit": "dimensionless_fixture_time",
+          "comparator_id": null,
+          "replicate_role": "repeated_measure"
+        },
+        "source": {
+          "artifact_id": "synthetic-source",
+          "uri": "https://example.org/synthetic-intake",
+          "license": "MIT software fixture",
+          "sha256": null
+        },
+        "limitations": [
+          "All values and identifiers are invented software metadata, not biological observations."
+        ]
+      },
+      {
+        "schema_version": 1,
+        "record_id": "synthetic-phenotype-5-1",
+        "evidence_status": "synthetic_fixture",
+        "species": "unspecified",
+        "stage_track": "unspecified",
+        "developmental_interval": {
+          "label": "Invented ascertainment interval",
+          "time_unit": "dimensionless_fixture_time",
+          "start": 0,
+          "end": 4,
+          "stage_source_artifact_id": "synthetic-source"
+        },
+        "model_system": {
+          "kind": "simulation",
+          "label": "invented metadata fixture"
+        },
+        "assay": {
+          "name": "invented scalar assay",
+          "endpoint": "abstract-area",
+          "unit": "dimensionless",
+          "measurement_role": "other"
+        },
+        "independent_unit": {
+          "kind": "other",
+          "id": "invented-specimen-5",
+          "parent_id": null
+        },
+        "observation": {
+          "value": 0.5,
+          "measurement_time": 2,
+          "measurement_time_unit": "dimensionless_fixture_time",
+          "comparator_id": null,
+          "replicate_role": "repeated_measure"
+        },
+        "source": {
+          "artifact_id": "synthetic-source",
+          "uri": "https://example.org/synthetic-intake",
+          "license": "MIT software fixture",
+          "sha256": null
+        },
+        "limitations": [
+          "All values and identifiers are invented software metadata, not biological observations."
+        ]
+      },
+      {
+        "schema_version": 1,
+        "record_id": "synthetic-phenotype-5-2",
+        "evidence_status": "synthetic_fixture",
+        "species": "unspecified",
+        "stage_track": "unspecified",
+        "developmental_interval": {
+          "label": "Invented ascertainment interval",
+          "time_unit": "dimensionless_fixture_time",
+          "start": 0,
+          "end": 4,
+          "stage_source_artifact_id": "synthetic-source"
+        },
+        "model_system": {
+          "kind": "simulation",
+          "label": "invented metadata fixture"
+        },
+        "assay": {
+          "name": "invented scalar assay",
+          "endpoint": "abstract-length",
+          "unit": "dimensionless",
+          "measurement_role": "other"
+        },
+        "independent_unit": {
+          "kind": "other",
+          "id": "invented-specimen-5",
+          "parent_id": null
+        },
+        "observation": {
+          "value": 0.55,
+          "measurement_time": 2,
+          "measurement_time_unit": "dimensionless_fixture_time",
+          "comparator_id": null,
+          "replicate_role": "repeated_measure"
+        },
+        "source": {
+          "artifact_id": "synthetic-source",
+          "uri": "https://example.org/synthetic-intake",
+          "license": "MIT software fixture",
+          "sha256": null
+        },
+        "limitations": [
+          "All values and identifiers are invented software metadata, not biological observations."
+        ]
+      },
+      {
+        "schema_version": 1,
+        "record_id": "synthetic-phenotype-6-1",
+        "evidence_status": "synthetic_fixture",
+        "species": "unspecified",
+        "stage_track": "unspecified",
+        "developmental_interval": {
+          "label": "Invented ascertainment interval",
+          "time_unit": "dimensionless_fixture_time",
+          "start": 0,
+          "end": 4,
+          "stage_source_artifact_id": "synthetic-source"
+        },
+        "model_system": {
+          "kind": "simulation",
+          "label": "invented metadata fixture"
+        },
+        "assay": {
+          "name": "invented scalar assay",
+          "endpoint": "abstract-area",
+          "unit": "dimensionless",
+          "measurement_role": "other"
+        },
+        "independent_unit": {
+          "kind": "other",
+          "id": "invented-specimen-6",
+          "parent_id": null
+        },
+        "observation": {
+          "value": 0.6,
+          "measurement_time": 2,
+          "measurement_time_unit": "dimensionless_fixture_time",
+          "comparator_id": null,
+          "replicate_role": "repeated_measure"
+        },
+        "source": {
+          "artifact_id": "synthetic-source",
+          "uri": "https://example.org/synthetic-intake",
+          "license": "MIT software fixture",
+          "sha256": null
+        },
+        "limitations": [
+          "All values and identifiers are invented software metadata, not biological observations."
+        ]
+      },
+      {
+        "schema_version": 1,
+        "record_id": "synthetic-phenotype-6-2",
+        "evidence_status": "synthetic_fixture",
+        "species": "unspecified",
+        "stage_track": "unspecified",
+        "developmental_interval": {
+          "label": "Invented ascertainment interval",
+          "time_unit": "dimensionless_fixture_time",
+          "start": 0,
+          "end": 4,
+          "stage_source_artifact_id": "synthetic-source"
+        },
+        "model_system": {
+          "kind": "simulation",
+          "label": "invented metadata fixture"
+        },
+        "assay": {
+          "name": "invented scalar assay",
+          "endpoint": "abstract-length",
+          "unit": "dimensionless",
+          "measurement_role": "other"
+        },
+        "independent_unit": {
+          "kind": "other",
+          "id": "invented-specimen-6",
+          "parent_id": null
+        },
+        "observation": {
+          "value": 0.65,
+          "measurement_time": 2,
+          "measurement_time_unit": "dimensionless_fixture_time",
+          "comparator_id": null,
+          "replicate_role": "repeated_measure"
+        },
+        "source": {
+          "artifact_id": "synthetic-source",
+          "uri": "https://example.org/synthetic-intake",
+          "license": "MIT software fixture",
+          "sha256": null
+        },
+        "limitations": [
+          "All values and identifiers are invented software metadata, not biological observations."
+        ]
+      },
+      {
+        "schema_version": 1,
+        "record_id": "synthetic-phenotype-7-1",
+        "evidence_status": "synthetic_fixture",
+        "species": "unspecified",
+        "stage_track": "unspecified",
+        "developmental_interval": {
+          "label": "Invented ascertainment interval",
+          "time_unit": "dimensionless_fixture_time",
+          "start": 0,
+          "end": 4,
+          "stage_source_artifact_id": "synthetic-source"
+        },
+        "model_system": {
+          "kind": "simulation",
+          "label": "invented metadata fixture"
+        },
+        "assay": {
+          "name": "invented scalar assay",
+          "endpoint": "abstract-area",
+          "unit": "dimensionless",
+          "measurement_role": "other"
+        },
+        "independent_unit": {
+          "kind": "other",
+          "id": "invented-specimen-7",
+          "parent_id": null
+        },
+        "observation": {
+          "value": 0.7,
+          "measurement_time": 2,
+          "measurement_time_unit": "dimensionless_fixture_time",
+          "comparator_id": null,
+          "replicate_role": "repeated_measure"
+        },
+        "source": {
+          "artifact_id": "synthetic-source",
+          "uri": "https://example.org/synthetic-intake",
+          "license": "MIT software fixture",
+          "sha256": null
+        },
+        "limitations": [
+          "All values and identifiers are invented software metadata, not biological observations."
+        ]
+      },
+      {
+        "schema_version": 1,
+        "record_id": "synthetic-phenotype-7-2",
+        "evidence_status": "synthetic_fixture",
+        "species": "unspecified",
+        "stage_track": "unspecified",
+        "developmental_interval": {
+          "label": "Invented ascertainment interval",
+          "time_unit": "dimensionless_fixture_time",
+          "start": 0,
+          "end": 4,
+          "stage_source_artifact_id": "synthetic-source"
+        },
+        "model_system": {
+          "kind": "simulation",
+          "label": "invented metadata fixture"
+        },
+        "assay": {
+          "name": "invented scalar assay",
+          "endpoint": "abstract-length",
+          "unit": "dimensionless",
+          "measurement_role": "other"
+        },
+        "independent_unit": {
+          "kind": "other",
+          "id": "invented-specimen-7",
+          "parent_id": null
+        },
+        "observation": {
+          "value": 0.75,
+          "measurement_time": 2,
+          "measurement_time_unit": "dimensionless_fixture_time",
+          "comparator_id": null,
+          "replicate_role": "repeated_measure"
+        },
+        "source": {
+          "artifact_id": "synthetic-source",
+          "uri": "https://example.org/synthetic-intake",
+          "license": "MIT software fixture",
+          "sha256": null
+        },
+        "limitations": [
+          "All values and identifiers are invented software metadata, not biological observations."
+        ]
+      },
+      {
+        "schema_version": 1,
+        "record_id": "synthetic-phenotype-8-1",
+        "evidence_status": "synthetic_fixture",
+        "species": "unspecified",
+        "stage_track": "unspecified",
+        "developmental_interval": {
+          "label": "Invented ascertainment interval",
+          "time_unit": "dimensionless_fixture_time",
+          "start": 0,
+          "end": 4,
+          "stage_source_artifact_id": "synthetic-source"
+        },
+        "model_system": {
+          "kind": "simulation",
+          "label": "invented metadata fixture"
+        },
+        "assay": {
+          "name": "invented scalar assay",
+          "endpoint": "abstract-area",
+          "unit": "dimensionless",
+          "measurement_role": "other"
+        },
+        "independent_unit": {
+          "kind": "other",
+          "id": "invented-specimen-8",
+          "parent_id": null
+        },
+        "observation": {
+          "value": 0.8,
+          "measurement_time": 2,
+          "measurement_time_unit": "dimensionless_fixture_time",
+          "comparator_id": null,
+          "replicate_role": "repeated_measure"
+        },
+        "source": {
+          "artifact_id": "synthetic-source",
+          "uri": "https://example.org/synthetic-intake",
+          "license": "MIT software fixture",
+          "sha256": null
+        },
+        "limitations": [
+          "All values and identifiers are invented software metadata, not biological observations."
+        ]
+      },
+      {
+        "schema_version": 1,
+        "record_id": "synthetic-phenotype-8-2",
+        "evidence_status": "synthetic_fixture",
+        "species": "unspecified",
+        "stage_track": "unspecified",
+        "developmental_interval": {
+          "label": "Invented ascertainment interval",
+          "time_unit": "dimensionless_fixture_time",
+          "start": 0,
+          "end": 4,
+          "stage_source_artifact_id": "synthetic-source"
+        },
+        "model_system": {
+          "kind": "simulation",
+          "label": "invented metadata fixture"
+        },
+        "assay": {
+          "name": "invented scalar assay",
+          "endpoint": "abstract-length",
+          "unit": "dimensionless",
+          "measurement_role": "other"
+        },
+        "independent_unit": {
+          "kind": "other",
+          "id": "invented-specimen-8",
+          "parent_id": null
+        },
+        "observation": {
+          "value": null,
+          "measurement_time": 2,
+          "measurement_time_unit": "dimensionless_fixture_time",
+          "comparator_id": null,
+          "replicate_role": "repeated_measure",
+          "missingness_reason": "Invented not_assessed outcome for software validation."
+        },
+        "source": {
+          "artifact_id": "synthetic-source",
+          "uri": "https://example.org/synthetic-intake",
+          "license": "MIT software fixture",
+          "sha256": null
+        },
+        "limitations": [
+          "All values and identifiers are invented software metadata, not biological observations."
+        ]
+      }
+    ],
+    "transitions": []
+  },
+  "cohorts": [
+    {
+      "cohort_id": "invented-cohort",
+      "population": "synthetic_fixture",
+      "selection_frame": "reported_complete",
+      "source": {
+        "artifact_id": "synthetic-source",
+        "locator": "Invented software metadata; no source study or biological observation."
+      },
+      "conditions": [
+        {
+          "condition_id": "group-a",
+          "label": "Invented group-a",
+          "role": "comparator",
+          "assignment_note": "Invented grouping only; no biological assignment.",
+          "source": {
+            "artifact_id": "synthetic-source",
+            "locator": "Invented software metadata; no source study or biological observation."
+          }
+        },
+        {
+          "condition_id": "group-b",
+          "label": "Invented group-b",
+          "role": "exposure",
+          "assignment_note": "Invented grouping only; no biological assignment.",
+          "source": {
+            "artifact_id": "synthetic-source",
+            "locator": "Invented software metadata; no source study or biological observation."
+          }
+        }
+      ],
+      "endpoints": [
+        {
+          "endpoint_id": "abstract-area",
+          "assay_name": "invented scalar assay",
+          "endpoint": "abstract-area",
+          "unit": "dimensionless",
+          "measurement_time": 2,
+          "measurement_time_unit": "dimensionless_fixture_time",
+          "definition": "Artificial software value; no imaging or biological measurement.",
+          "version": "fixture-v1",
+          "calibration_note": "Exact invented numbers; no physical calibration.",
+          "uncertainty_note": "No biological uncertainty model is supplied.",
+          "source": {
+            "artifact_id": "synthetic-source",
+            "locator": "Invented software metadata; no source study or biological observation."
+          }
+        },
+        {
+          "endpoint_id": "abstract-length",
+          "assay_name": "invented scalar assay",
+          "endpoint": "abstract-length",
+          "unit": "dimensionless",
+          "measurement_time": 2,
+          "measurement_time_unit": "dimensionless_fixture_time",
+          "definition": "Artificial software value; no imaging or biological measurement.",
+          "version": "fixture-v1",
+          "calibration_note": "Exact invented numbers; no physical calibration.",
+          "uncertainty_note": "No biological uncertainty model is supplied.",
+          "source": {
+            "artifact_id": "synthetic-source",
+            "locator": "Invented software metadata; no source study or biological observation."
+          }
+        }
+      ],
+      "specimens": [
+        {
+          "specimen_id": "invented-specimen-1",
+          "experiment_id": "invented-experiment-1",
+          "endometrial_source_id": "invented-source-1",
+          "condition_id": "group-a",
+          "source": {
+            "artifact_id": "synthetic-source",
+            "locator": "Invented software metadata; no source study or biological observation."
+          }
+        },
+        {
+          "specimen_id": "invented-specimen-2",
+          "experiment_id": "invented-experiment-1",
+          "endometrial_source_id": "invented-source-1",
+          "condition_id": "group-a",
+          "source": {
+            "artifact_id": "synthetic-source",
+            "locator": "Invented software metadata; no source study or biological observation."
+          }
+        },
+        {
+          "specimen_id": "invented-specimen-3",
+          "experiment_id": "invented-experiment-1",
+          "endometrial_source_id": "invented-source-1",
+          "condition_id": "group-b",
+          "source": {
+            "artifact_id": "synthetic-source",
+            "locator": "Invented software metadata; no source study or biological observation."
+          }
+        },
+        {
+          "specimen_id": "invented-specimen-4",
+          "experiment_id": "invented-experiment-1",
+          "endometrial_source_id": "invented-source-1",
+          "condition_id": "group-b",
+          "source": {
+            "artifact_id": "synthetic-source",
+            "locator": "Invented software metadata; no source study or biological observation."
+          }
+        },
+        {
+          "specimen_id": "invented-specimen-5",
+          "experiment_id": "invented-experiment-2",
+          "endometrial_source_id": "invented-source-2",
+          "condition_id": "group-a",
+          "source": {
+            "artifact_id": "synthetic-source",
+            "locator": "Invented software metadata; no source study or biological observation."
+          }
+        },
+        {
+          "specimen_id": "invented-specimen-6",
+          "experiment_id": "invented-experiment-2",
+          "endometrial_source_id": "invented-source-2",
+          "condition_id": "group-a",
+          "source": {
+            "artifact_id": "synthetic-source",
+            "locator": "Invented software metadata; no source study or biological observation."
+          }
+        },
+        {
+          "specimen_id": "invented-specimen-7",
+          "experiment_id": "invented-experiment-2",
+          "endometrial_source_id": "invented-source-2",
+          "condition_id": "group-b",
+          "source": {
+            "artifact_id": "synthetic-source",
+            "locator": "Invented software metadata; no source study or biological observation."
+          }
+        },
+        {
+          "specimen_id": "invented-specimen-8",
+          "experiment_id": "invented-experiment-2",
+          "endometrial_source_id": "invented-source-2",
+          "condition_id": "group-b",
+          "source": {
+            "artifact_id": "synthetic-source",
+            "locator": "Invented software metadata; no source study or biological observation."
+          }
+        }
+      ],
+      "outcomes": [
+        {
+          "specimen_id": "invented-specimen-1",
+          "endpoint_id": "abstract-area",
+          "record_id": "synthetic-phenotype-1-1",
+          "status": "observed",
+          "reason": "",
+          "source": {
+            "artifact_id": "synthetic-source",
+            "locator": "Invented software metadata; no source study or biological observation."
+          }
+        },
+        {
+          "specimen_id": "invented-specimen-1",
+          "endpoint_id": "abstract-length",
+          "record_id": "synthetic-phenotype-1-2",
+          "status": "missing",
+          "reason": "Invented missing outcome for software validation.",
+          "source": {
+            "artifact_id": "synthetic-source",
+            "locator": "Invented software metadata; no source study or biological observation."
+          }
+        },
+        {
+          "specimen_id": "invented-specimen-2",
+          "endpoint_id": "abstract-area",
+          "record_id": "synthetic-phenotype-2-1",
+          "status": "excluded",
+          "reason": "Invented excluded outcome for software validation.",
+          "source": {
+            "artifact_id": "synthetic-source",
+            "locator": "Invented software metadata; no source study or biological observation."
+          }
+        },
+        {
+          "specimen_id": "invented-specimen-2",
+          "endpoint_id": "abstract-length",
+          "record_id": "synthetic-phenotype-2-2",
+          "status": "observed",
+          "reason": "",
+          "source": {
+            "artifact_id": "synthetic-source",
+            "locator": "Invented software metadata; no source study or biological observation."
+          }
+        },
+        {
+          "specimen_id": "invented-specimen-3",
+          "endpoint_id": "abstract-area",
+          "record_id": "synthetic-phenotype-3-1",
+          "status": "observed",
+          "reason": "",
+          "source": {
+            "artifact_id": "synthetic-source",
+            "locator": "Invented software metadata; no source study or biological observation."
+          }
+        },
+        {
+          "specimen_id": "invented-specimen-3",
+          "endpoint_id": "abstract-length",
+          "record_id": "synthetic-phenotype-3-2",
+          "status": "observed",
+          "reason": "",
+          "source": {
+            "artifact_id": "synthetic-source",
+            "locator": "Invented software metadata; no source study or biological observation."
+          }
+        },
+        {
+          "specimen_id": "invented-specimen-4",
+          "endpoint_id": "abstract-area",
+          "record_id": "synthetic-phenotype-4-1",
+          "status": "observed",
+          "reason": "",
+          "source": {
+            "artifact_id": "synthetic-source",
+            "locator": "Invented software metadata; no source study or biological observation."
+          }
+        },
+        {
+          "specimen_id": "invented-specimen-4",
+          "endpoint_id": "abstract-length",
+          "record_id": "synthetic-phenotype-4-2",
+          "status": "observed",
+          "reason": "",
+          "source": {
+            "artifact_id": "synthetic-source",
+            "locator": "Invented software metadata; no source study or biological observation."
+          }
+        },
+        {
+          "specimen_id": "invented-specimen-5",
+          "endpoint_id": "abstract-area",
+          "record_id": "synthetic-phenotype-5-1",
+          "status": "observed",
+          "reason": "",
+          "source": {
+            "artifact_id": "synthetic-source",
+            "locator": "Invented software metadata; no source study or biological observation."
+          }
+        },
+        {
+          "specimen_id": "invented-specimen-5",
+          "endpoint_id": "abstract-length",
+          "record_id": "synthetic-phenotype-5-2",
+          "status": "observed",
+          "reason": "",
+          "source": {
+            "artifact_id": "synthetic-source",
+            "locator": "Invented software metadata; no source study or biological observation."
+          }
+        },
+        {
+          "specimen_id": "invented-specimen-6",
+          "endpoint_id": "abstract-area",
+          "record_id": "synthetic-phenotype-6-1",
+          "status": "observed",
+          "reason": "",
+          "source": {
+            "artifact_id": "synthetic-source",
+            "locator": "Invented software metadata; no source study or biological observation."
+          }
+        },
+        {
+          "specimen_id": "invented-specimen-6",
+          "endpoint_id": "abstract-length",
+          "record_id": "synthetic-phenotype-6-2",
+          "status": "observed",
+          "reason": "",
+          "source": {
+            "artifact_id": "synthetic-source",
+            "locator": "Invented software metadata; no source study or biological observation."
+          }
+        },
+        {
+          "specimen_id": "invented-specimen-7",
+          "endpoint_id": "abstract-area",
+          "record_id": "synthetic-phenotype-7-1",
+          "status": "observed",
+          "reason": "",
+          "source": {
+            "artifact_id": "synthetic-source",
+            "locator": "Invented software metadata; no source study or biological observation."
+          }
+        },
+        {
+          "specimen_id": "invented-specimen-7",
+          "endpoint_id": "abstract-length",
+          "record_id": "synthetic-phenotype-7-2",
+          "status": "observed",
+          "reason": "",
+          "source": {
+            "artifact_id": "synthetic-source",
+            "locator": "Invented software metadata; no source study or biological observation."
+          }
+        },
+        {
+          "specimen_id": "invented-specimen-8",
+          "endpoint_id": "abstract-area",
+          "record_id": "synthetic-phenotype-8-1",
+          "status": "observed",
+          "reason": "",
+          "source": {
+            "artifact_id": "synthetic-source",
+            "locator": "Invented software metadata; no source study or biological observation."
+          }
+        },
+        {
+          "specimen_id": "invented-specimen-8",
+          "endpoint_id": "abstract-length",
+          "record_id": "synthetic-phenotype-8-2",
+          "status": "not_assessed",
+          "reason": "Invented not_assessed outcome for software validation.",
+          "source": {
+            "artifact_id": "synthetic-source",
+            "locator": "Invented software metadata; no source study or biological observation."
+          }
+        }
+      ]
+    }
+  ]
+}

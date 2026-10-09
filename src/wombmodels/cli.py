@@ -21,6 +21,7 @@ from .numerical_verification import (
     verify_transport_matrix,
 )
 from .observations import observation_report
+from .phenotype_intake import phenotype_report
 from .transport_identifiability import transport_identifiability
 
 
@@ -36,6 +37,10 @@ def main(argv=None) -> int:
     observations.add_argument("--source-root", type=Path,
                                help="Optional local source directory; hashes only declared relative local_path files")
     observations.add_argument("--out", type=Path, required=True)
+    phenotypes = commands.add_parser("validate-phenotypes", help="Audit individual phenotype coverage, exclusions and experiment/source hierarchy; no effect estimation")
+    phenotypes.add_argument("--dataset", type=Path, required=True)
+    phenotypes.add_argument("--source-root", type=Path)
+    phenotypes.add_argument("--out", type=Path, required=True)
     source_audit = commands.add_parser("audit-hori-source", help="Audit the pinned Hori 2024 Figure 5G workbook offline; no model fit")
     source_audit.add_argument("--workbook", type=Path, required=True)
     source_audit.add_argument("--out", type=Path, required=True)
@@ -99,6 +104,8 @@ def main(argv=None) -> int:
             receipt = evidence_report(args.ledger, args.out)
         elif args.command == "validate-observations":
             receipt = observation_report(args.dataset, args.out, source_root=args.source_root)
+        elif args.command == "validate-phenotypes":
+            receipt = phenotype_report(args.dataset, args.out, source_root=args.source_root)
         elif args.command == "audit-hori-source":
             receipt = audit_hori_source(args.workbook, args.out)
         elif args.command == "audit-crest-linkage":
