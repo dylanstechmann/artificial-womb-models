@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Add `audit-yolk-sac-source` for a pinned mouse supplementary workbook: preserve 310 scalar/summary cells, check 124 summary calculations, retain D2/D6 text versus D1/D5 table-mean timing and exclude unqualified concentrations from numeric intake. Curate selected component/progression findings and a missing paired endpoint; require support function and embryonic coordination jointly without identifying a cause or proposing operating conditions.
+
 - Add optional source-linked functional contexts to observation intake, preserving compartment, material, process, quantity basis, assessment branch and locator without inferring omitted metadata or mechanisms. Pin a mouse yolk-sac primary-source XML and curate 14 candidate records retaining assay discordance, selection, adverse branches and missing organ-use follow-up; refine usable-transfer requirements without biological fitting or gestation claims.
 
 - Add explicit preprint source classification to observation intake and reports, separate from local human review. Curate nine qualitative terminal-window findings and one missing follow-up requirement from selected rendered mouse manuscript passages; retain adverse effects, separate starting cohorts, unpinned source bytes and unknown continuity. Refine internal-delivery/growth requirements without diagnosing a terminal cause or adding operating parameters.

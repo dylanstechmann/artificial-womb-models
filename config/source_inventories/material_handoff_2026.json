@@ -32,11 +32,12 @@
       "organism_species": "mouse",
       "source_class": "peer_reviewed_accepted_article",
       "publication_date": "2026-07-13",
-      "inspected_scope": "Indexed publisher abstract and accepted-article status; full article retrieval unavailable through web tool",
+      "inspected_scope": "Selected rendered accepted-manuscript Results/Discussion/captions and original read-only publisher source workbook; full manuscript bytes unpinned.",
       "snapshot_sha256": null,
-      "source_stage_coverage": "unqualified",
-      "functional_assays": "unqualified",
-      "followup": "Qualify original Results, actual interval, measured functions versus expression-based annotations, comparators and adverse outcomes before intake."
+      "source_stage_coverage": "E3.5 entry; delayed early progression and embryo-proper arrest. Culture duration and later yolk-sac resemblance do not establish a normal embryo ending stage.",
+      "functional_assays": "Selected uptake, medium-protein and colony-potential readouts qualified descriptively; units, pairing and recipient function remain unqualified.",
+      "followup": "See config/source_inventories/jin_yolk_sac_2026.json and SUPPORT_DEVELOPMENT_DISCORDANCE.md; reconcile source timing/units and starting/outcome rosters.",
+      "previous_inspected_scope": "Indexed publisher abstract and accepted-article status; full article retrieval unavailable through web tool"
     }
   ],
   "hash_scope": "Local Europe PMC XML retrieval only; not publisher revision authentication",

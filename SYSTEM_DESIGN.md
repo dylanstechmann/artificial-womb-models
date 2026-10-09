@@ -146,6 +146,12 @@ effective onward delivery. Machine B retains the observed compartment,
 material, quantity basis and assessment branch; missing linkage prevents these
 readouts from becoming a measured chain or a diagnosis of terminal failure.
 
+The [support/development comparison](SUPPORT_DEVELOPMENT_DISCORDANCE.md) requires
+usable exchange and appropriate embryonic tissue coordination together. Selected
+mouse yolk-sac function persists alongside an embryo-arrest narrative; a working
+support component alone cannot certify organism-level progression. The source
+does not identify a particular physical constraint, input or control correction.
+
 ## Machine B: support and observation station
 
 The [selective-interface exploration](SELECTIVE_INTERFACE_FEASIBILITY.md)

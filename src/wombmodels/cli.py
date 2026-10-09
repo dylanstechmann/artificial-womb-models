@@ -19,6 +19,7 @@ from .crest_linkage import audit_crest_linkage
 from .collection_accounting import collection_accounting
 from .roelofsen_source import audit_roelofsen_source
 from .guo_source import audit_guo_source
+from .yolk_sac_source import audit_yolk_sac_source
 from .numerical_verification import (
     verify_mechanics_accuracy,
     verify_transport_accuracy,
@@ -60,6 +61,9 @@ def main(argv=None) -> int:
     niche_audit = commands.add_parser("audit-guo-source", help="Audit pinned niche mechanical/profile cells and candidate developmental percentages; no fit or pairing")
     niche_audit.add_argument("--workbook", type=Path, required=True)
     niche_audit.add_argument("--out", type=Path, required=True)
+    yolk_audit = commands.add_parser("audit-yolk-sac-source", help="Audit pinned mouse yolk-sac readout cells and source timing; no unit inference or fit")
+    yolk_audit.add_argument("--workbook", type=Path, required=True)
+    yolk_audit.add_argument("--out", type=Path, required=True)
     crest_audit = commands.add_parser("audit-crest-linkage", help="Audit pinned early-interface sample pools and annotation labels offline; no phenotype fit")
     crest_audit.add_argument("--sdrf", type=Path, required=True)
     crest_audit.add_argument("--archive", type=Path, required=True)
@@ -132,6 +136,8 @@ def main(argv=None) -> int:
             receipt = audit_roelofsen_source(args.supplement, args.out)
         elif args.command == "audit-guo-source":
             receipt = audit_guo_source(args.workbook, args.out)
+        elif args.command == "audit-yolk-sac-source":
+            receipt = audit_yolk_sac_source(args.workbook, args.out)
         elif args.command == "audit-crest-linkage":
             receipt = audit_crest_linkage(args.sdrf, args.archive, args.out)
         elif args.command == "transport-identifiability":

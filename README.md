@@ -52,6 +52,13 @@ material, quantity basis and assessment context. It preserves mixed findings,
 selection and missing follow-up; the added metadata establishes no mechanism
 or continuous gestation.
 
+The [support/development comparison](SUPPORT_DEVELOPMENT_DISCORDANCE.md) adds
+`audit-yolk-sac-source`: a pinned read-only audit of 310 source cells that retains
+a manuscript/table timing discrepancy and excludes unqualified concentrations
+from observation intake. Selected mouse component assays coexist with an
+embryo-arrest narrative; same-unit function/progression and causal explanation
+remain unqualified.
+
 The [interface source qualification](SOURCE_QUALIFICATION.md) audits the Hori
 2024 Figure 5G workbook and two Bhide 2026 kinetic supplements. The new
 `audit-hori-source` command extracts 48 source-located Papp endpoints into a

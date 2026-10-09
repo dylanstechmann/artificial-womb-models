@@ -39,6 +39,13 @@ retain compartment/material/readout context, selected and adverse branches,
 and missing organ-use follow-up. The next eligible question needs linked
 recipient function rather than an inferred material balance across assays.
 
+The [support/development discordance](SUPPORT_DEVELOPMENT_DISCORDANCE.md) now
+freezes a narrower question: can specified component function persist while
+embryonic patterning/progression fails in the same source-qualified unit?
+The new mouse source supports descriptive discordance only. Its concentration
+workbook has an executable audit, but missing units, hierarchy, cohort roster
+and a timing discrepancy prevent a biological fit or paired effect estimate.
+
 ## 1. Treat the objective as a chain of biological transitions
 
 A wall-powered support system would have to preserve the functions needed at

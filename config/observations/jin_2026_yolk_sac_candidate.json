@@ -1,0 +1,812 @@
+{
+  "schema_version": 1,
+  "dataset_id": "jin2026-yolk-sac-development-candidate",
+  "title": "Selected mouse yolk-sac function and embryo-proper progression findings; candidate, pairing unqualified",
+  "source_revision": {
+    "revision_id": "jin2026-accepted-rendered-2026-10-09",
+    "citation": "Jin et al. (2026), Ex utero 3D culture system illuminates post-implantation development and functions of the mouse yolk sac. Communications Biology accepted article. DOI 10.1038/s42003-026-10656-4.",
+    "source_kind": "peer_reviewed_animal",
+    "source_url": "https://doi.org/10.1038/s42003-026-10656-4",
+    "review_status": "candidate",
+    "reviewer": "",
+    "reviewed_on": null,
+    "review_note": ""
+  },
+  "artifacts": [
+    {
+      "artifact_id": "jin2026-accepted-rendered",
+      "uri": "https://www.researchgate.net/publication/409415402_Ex_utero_3D_culture_system_illuminates_post-implantation_development_and_functions_of_the_mouse_yolk_sac",
+      "license": "CC BY-NC-ND 4.0 manuscript banner; source-specific reuse review pending",
+      "sha256": null,
+      "retrieved_on": "2026-10-09"
+    },
+    {
+      "artifact_id": "jin2026-source-data5",
+      "uri": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs42003-026-10656-4/MediaObjects/42003_2026_10656_MOESM8_ESM.xlsx",
+      "license": "Article CC BY-NC-ND 4.0; workbook-specific reuse review pending",
+      "sha256": "b2bd434213007dfab98df41c864db53a474aa74bf382f156ef0340c44a35ac6a",
+      "retrieved_on": "2026-10-09",
+      "local_path": "artifacts/jin-yolk-sac-2026-10-09/supplementary-data-5.xlsx"
+    }
+  ],
+  "observations": [
+    {
+      "schema_version": 1,
+      "record_id": "jin-early-delay",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "postimplantation_embryonic",
+      "developmental_interval": {
+        "label": "E3.5 entry; E6.5-like D4 appearance; source comparison",
+        "start": "E3.5 entry",
+        "end": "embryo ending stage unqualified",
+        "time_unit": "source embryonic stage labels",
+        "stage_source_artifact_id": "jin2026-accepted-rendered"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Mouse blastocyst-origin ex-utero embryo-proper assessment"
+      },
+      "assay": {
+        "name": "Selected accepted-manuscript qualitative finding",
+        "endpoint": "Embryo stage versus elapsed culture time",
+        "unit": "source-reported qualitative summary",
+        "measurement_role": "morphology",
+        "functional_context": {
+          "compartment": "embryo proper",
+          "material": "developmental morphology",
+          "process": "developmental_outcome",
+          "quantity_basis": "Stage resemblance in source narrative; no arithmetic age conversion",
+          "assessment_context": "ex_utero_whole_embryo",
+          "source_locator": "Results: Establishment of a 3D Bionic Culture Platform, D4 paragraph; Fig. 1B-C"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Individual units, dam/litter, starting rosters, losses and cross-assay pairing unqualified. Selected tissue pools are not individual trajectories."
+      },
+      "observation": {
+        "value": "D4 egg-cylinder appearance compared with E6.5; approximately one-day delay reported",
+        "measurement_time": "D4",
+        "measurement_time_unit": "source culture-day labels",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "jin2026-accepted-rendered",
+        "uri": "https://www.researchgate.net/publication/409415402_Ex_utero_3D_culture_system_illuminates_post-implantation_development_and_functions_of_the_mouse_yolk_sac",
+        "license": "CC BY-NC-ND 4.0 manuscript banner; source-specific reuse review pending",
+        "sha256": null,
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "Selected rendered accepted article text/captions only; original publisher full-manuscript bytes, images and raw biological observations unqualified.",
+        "Culture duration, embryo developmental stage and yolk-sac reference resemblance remain distinct; no continuous normal-organism trajectory inferred.",
+        "Reported function or molecular identity in support tissue does not establish recipient organ delivery or healthy later development."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "jin-gastrulation-defect",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "postimplantation_embryonic",
+      "developmental_interval": {
+        "label": "E3.5 entry; gastrulation morphology abnormal, ending stage unqualified",
+        "start": "E3.5 entry",
+        "end": "embryo ending stage unqualified",
+        "time_unit": "source embryonic stage labels",
+        "stage_source_artifact_id": "jin2026-accepted-rendered"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Mouse blastocyst-origin ex-utero embryo-proper assessment"
+      },
+      "assay": {
+        "name": "Selected accepted-manuscript qualitative finding",
+        "endpoint": "Embryo gastrulation morphology",
+        "unit": "source-reported qualitative summary",
+        "measurement_role": "adverse_effect",
+        "functional_context": {
+          "compartment": "embryo proper",
+          "material": "streak/mesoderm morphology",
+          "process": "developmental_outcome",
+          "quantity_basis": "Qualitative morphology associated with marker expression",
+          "assessment_context": "ex_utero_whole_embryo",
+          "source_locator": "Results: Establishment of a 3D Bionic Culture Platform, paragraph describing T-positive defects; Fig. 1D"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Individual units, dam/litter, starting rosters, losses and cross-assay pairing unqualified. Selected tissue pools are not individual trajectories."
+      },
+      "observation": {
+        "value": "Abnormal streak intrusion and atypical mesoderm migration reported",
+        "measurement_time": "D5 vicinity; exact onset unqualified",
+        "measurement_time_unit": "source culture-day labels",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "jin2026-accepted-rendered",
+        "uri": "https://www.researchgate.net/publication/409415402_Ex_utero_3D_culture_system_illuminates_post-implantation_development_and_functions_of_the_mouse_yolk_sac",
+        "license": "CC BY-NC-ND 4.0 manuscript banner; source-specific reuse review pending",
+        "sha256": null,
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "Selected rendered accepted article text/captions only; original publisher full-manuscript bytes, images and raw biological observations unqualified.",
+        "Culture duration, embryo developmental stage and yolk-sac reference resemblance remain distinct; no continuous normal-organism trajectory inferred.",
+        "Authors suggest missing maternal spatial constraints; causal attribution not identified. A marker-positive streak is not normal gastrulation."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "jin-embryo-arrest",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "postimplantation_embryonic",
+      "developmental_interval": {
+        "label": "E3.5 entry; ending embryo stage and arrest incidence unqualified",
+        "start": "E3.5 entry",
+        "end": "embryo ending stage unqualified",
+        "time_unit": "source embryonic stage labels",
+        "stage_source_artifact_id": "jin2026-accepted-rendered"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Mouse blastocyst-origin ex-utero embryo-proper assessment"
+      },
+      "assay": {
+        "name": "Selected accepted-manuscript qualitative finding",
+        "endpoint": "Later embryo-proper progression",
+        "unit": "source-reported qualitative summary",
+        "measurement_role": "adverse_effect",
+        "functional_context": {
+          "compartment": "embryo proper",
+          "material": "developmental morphology",
+          "process": "developmental_outcome",
+          "quantity_basis": "Qualitative adverse developmental endpoint",
+          "assessment_context": "ex_utero_whole_embryo",
+          "source_locator": "Discussion: paragraph on divergent embryo-proper and yolk-sac development"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Individual units, dam/litter, starting rosters, losses and cross-assay pairing unqualified. Selected tissue pools are not individual trajectories."
+      },
+      "observation": {
+        "value": "Embryo proper arrests; proper somites and trunk elongation lacking",
+        "measurement_time": "later culture; onset unqualified",
+        "measurement_time_unit": "source culture-day labels",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "jin2026-accepted-rendered",
+        "uri": "https://www.researchgate.net/publication/409415402_Ex_utero_3D_culture_system_illuminates_post-implantation_development_and_functions_of_the_mouse_yolk_sac",
+        "license": "CC BY-NC-ND 4.0 manuscript banner; source-specific reuse review pending",
+        "sha256": null,
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "Selected rendered accepted article text/captions only; original publisher full-manuscript bytes, images and raw biological observations unqualified.",
+        "Culture duration, embryo developmental stage and yolk-sac reference resemblance remain distinct; no continuous normal-organism trajectory inferred.",
+        "Reported function or molecular identity in support tissue does not establish recipient organ delivery or healthy later development."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "jin-yolk-sac-progress",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "organoid_or_tissue_model",
+      "developmental_interval": {
+        "label": "E3.5 entry; later yolk-sac resemblance does not date embryo proper",
+        "start": "E3.5 entry",
+        "end": "embryo ending stage unqualified",
+        "time_unit": "source embryonic stage labels",
+        "stage_source_artifact_id": "jin2026-accepted-rendered"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Mouse ex-utero yolk-sac component from blastocyst-origin cultures"
+      },
+      "assay": {
+        "name": "Selected accepted-manuscript qualitative finding",
+        "endpoint": "Support-component progression",
+        "unit": "source-reported qualitative summary",
+        "measurement_role": "morphology",
+        "functional_context": {
+          "compartment": "extraembryonic yolk-sac component",
+          "material": "yolk-sac morphology and vascular structures",
+          "process": "developmental_outcome",
+          "quantity_basis": "Qualitative component morphology; no connected flow demonstrated",
+          "assessment_context": "other",
+          "source_locator": "Results: Establishment platform, later-development paragraph; Discussion: divergent development paragraph; Fig. 1E"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Individual units, dam/litter, starting rosters, losses and cross-assay pairing unqualified. Selected tissue pools are not individual trajectories."
+      },
+      "observation": {
+        "value": "Yolk-sac morphogenesis continues despite abnormal embryo-proper progression",
+        "measurement_time": "D8-D10 source descriptions",
+        "measurement_time_unit": "source culture-day labels",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "jin2026-accepted-rendered",
+        "uri": "https://www.researchgate.net/publication/409415402_Ex_utero_3D_culture_system_illuminates_post-implantation_development_and_functions_of_the_mouse_yolk_sac",
+        "license": "CC BY-NC-ND 4.0 manuscript banner; source-specific reuse review pending",
+        "sha256": null,
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "Selected rendered accepted article text/captions only; original publisher full-manuscript bytes, images and raw biological observations unqualified.",
+        "Culture duration, embryo developmental stage and yolk-sac reference resemblance remain distinct; no continuous normal-organism trajectory inferred.",
+        "Reported function or molecular identity in support tissue does not establish recipient organ delivery or healthy later development."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "jin-selected-profile",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "organoid_or_tissue_model",
+      "developmental_interval": {
+        "label": "E3.5 entry; D10 yolk-sac versus E8.5-E10.5 tissue reference",
+        "start": "E3.5 entry",
+        "end": "embryo ending stage unqualified",
+        "time_unit": "source embryonic stage labels",
+        "stage_source_artifact_id": "jin2026-accepted-rendered"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Mouse ex-utero yolk-sac component from blastocyst-origin cultures"
+      },
+      "assay": {
+        "name": "Selected accepted-manuscript qualitative finding",
+        "endpoint": "Selected tissue transcriptomic resemblance",
+        "unit": "source-reported qualitative summary",
+        "measurement_role": "molecular_identity",
+        "functional_context": {
+          "compartment": "extraembryonic yolk-sac component",
+          "material": "cell-state profiles",
+          "process": "tissue_abundance",
+          "quantity_basis": "Expression/annotation in selected pools, not longitudinal embryo function",
+          "assessment_context": "other",
+          "source_locator": "Results: Intra- and extra-YS scRNA-seq; tissue-sampling selection note; Fig. 3"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Individual units, dam/litter, starting rosters, losses and cross-assay pairing unqualified. Selected tissue pools are not individual trajectories."
+      },
+      "observation": {
+        "value": "D10 yolk-sac profiles compared with E8.5-E10.5 references; selected expanded tissue pooled",
+        "measurement_time": "D10",
+        "measurement_time_unit": "source culture-day labels",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "jin2026-accepted-rendered",
+        "uri": "https://www.researchgate.net/publication/409415402_Ex_utero_3D_culture_system_illuminates_post-implantation_development_and_functions_of_the_mouse_yolk_sac",
+        "license": "CC BY-NC-ND 4.0 manuscript banner; source-specific reuse review pending",
+        "sha256": null,
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "Selected rendered accepted article text/captions only; original publisher full-manuscript bytes, images and raw biological observations unqualified.",
+        "Culture duration, embryo developmental stage and yolk-sac reference resemblance remain distinct; no continuous normal-organism trajectory inferred.",
+        "Culture duration is not an E13.5 embryo endpoint. Selection excludes a representative starting-cohort claim; pool members and failed units unqualified."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "jin-uptake",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "organoid_or_tissue_model",
+      "developmental_interval": {
+        "label": "E3.5 entry; component assay stage/individual linkage unqualified",
+        "start": "E3.5 entry",
+        "end": "embryo ending stage unqualified",
+        "time_unit": "source embryonic stage labels",
+        "stage_source_artifact_id": "jin2026-accepted-rendered"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Mouse ex-utero yolk-sac component from blastocyst-origin cultures"
+      },
+      "assay": {
+        "name": "Selected accepted-manuscript qualitative finding",
+        "endpoint": "Yolk-sac tracer internalization",
+        "unit": "source-reported qualitative summary",
+        "measurement_role": "function",
+        "functional_context": {
+          "compartment": "extraembryonic yolk-sac component",
+          "material": "dextran/transferrin tracer signals",
+          "process": "uptake",
+          "quantity_basis": "Fluorescent uptake and localization; not organ receipt or net nutritional flux",
+          "assessment_context": "other",
+          "source_locator": "Results: YS endoderm functions, endocytosis paragraph; Fig. 4G-H; supplementary controls cited, not inspected"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Individual units, dam/litter, starting rosters, losses and cross-assay pairing unqualified. Selected tissue pools are not individual trajectories."
+      },
+      "observation": {
+        "value": "Dextran and transferrin uptake reported with negative-control comparisons",
+        "measurement_time": "assay timing unqualified",
+        "measurement_time_unit": "source culture-day labels",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "jin2026-accepted-rendered",
+        "uri": "https://www.researchgate.net/publication/409415402_Ex_utero_3D_culture_system_illuminates_post-implantation_development_and_functions_of_the_mouse_yolk_sac",
+        "license": "CC BY-NC-ND 4.0 manuscript banner; source-specific reuse review pending",
+        "sha256": null,
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "Selected rendered accepted article text/captions only; original publisher full-manuscript bytes, images and raw biological observations unqualified.",
+        "Culture duration, embryo developmental stage and yolk-sac reference resemblance remain distinct; no continuous normal-organism trajectory inferred.",
+        "Reported function or molecular identity in support tissue does not establish recipient organ delivery or healthy later development."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "jin-lysosomal-proxy",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "organoid_or_tissue_model",
+      "developmental_interval": {
+        "label": "E3.5 entry; component assay stage unqualified",
+        "start": "E3.5 entry",
+        "end": "embryo ending stage unqualified",
+        "time_unit": "source embryonic stage labels",
+        "stage_source_artifact_id": "jin2026-accepted-rendered"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Mouse ex-utero yolk-sac component from blastocyst-origin cultures"
+      },
+      "assay": {
+        "name": "Selected accepted-manuscript qualitative finding",
+        "endpoint": "Lysosomal compartment proxy",
+        "unit": "source-reported qualitative summary",
+        "measurement_role": "molecular_identity",
+        "functional_context": {
+          "compartment": "extraembryonic yolk-sac component",
+          "material": "lysosomal stain and protein localization",
+          "process": "intracellular_processing",
+          "quantity_basis": "Acidic-compartment staining/localization; nutrient reaction-product turnover not measured here",
+          "assessment_context": "other",
+          "source_locator": "Results: YS endoderm functions, lysosomal paragraph; supplementary Fig. 5D-E cited, not inspected"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Individual units, dam/litter, starting rosters, losses and cross-assay pairing unqualified. Selected tissue pools are not individual trajectories."
+      },
+      "observation": {
+        "value": "Lysosomal staining and APOA4/LAMP1 co-localization reported",
+        "measurement_time": "assay timing unqualified",
+        "measurement_time_unit": "source culture-day labels",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "jin2026-accepted-rendered",
+        "uri": "https://www.researchgate.net/publication/409415402_Ex_utero_3D_culture_system_illuminates_post-implantation_development_and_functions_of_the_mouse_yolk_sac",
+        "license": "CC BY-NC-ND 4.0 manuscript banner; source-specific reuse review pending",
+        "sha256": null,
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "Selected rendered accepted article text/captions only; original publisher full-manuscript bytes, images and raw biological observations unqualified.",
+        "Culture duration, embryo developmental stage and yolk-sac reference resemblance remain distinct; no continuous normal-organism trajectory inferred.",
+        "Reported function or molecular identity in support tissue does not establish recipient organ delivery or healthy later development."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "jin-barrier-transcripts",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "organoid_or_tissue_model",
+      "developmental_interval": {
+        "label": "E3.5 entry; tissue reference stages E8.5-E10.5, eYS D10",
+        "start": "E3.5 entry",
+        "end": "embryo ending stage unqualified",
+        "time_unit": "source embryonic stage labels",
+        "stage_source_artifact_id": "jin2026-accepted-rendered"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Mouse ex-utero yolk-sac component from blastocyst-origin cultures"
+      },
+      "assay": {
+        "name": "Selected accepted-manuscript qualitative finding",
+        "endpoint": "Barrier-related expression annotation",
+        "unit": "source-reported qualitative summary",
+        "measurement_role": "molecular_identity",
+        "functional_context": {
+          "compartment": "extraembryonic yolk-sac component",
+          "material": "transport/detoxification transcripts",
+          "process": "tissue_abundance",
+          "quantity_basis": "Transcript enrichment; selective passage, exclusion or clearance not measured here",
+          "assessment_context": "other",
+          "source_locator": "Results: YS endoderm functions, ABC/metal-binding paragraph; Fig. 4F"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Individual units, dam/litter, starting rosters, losses and cross-assay pairing unqualified. Selected tissue pools are not individual trajectories."
+      },
+      "observation": {
+        "value": "Transporter and metal-binding expression signatures reported",
+        "measurement_time": "D10 profile context",
+        "measurement_time_unit": "source culture-day labels",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "jin2026-accepted-rendered",
+        "uri": "https://www.researchgate.net/publication/409415402_Ex_utero_3D_culture_system_illuminates_post-implantation_development_and_functions_of_the_mouse_yolk_sac",
+        "license": "CC BY-NC-ND 4.0 manuscript banner; source-specific reuse review pending",
+        "sha256": null,
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "Selected rendered accepted article text/captions only; original publisher full-manuscript bytes, images and raw biological observations unqualified.",
+        "Culture duration, embryo developmental stage and yolk-sac reference resemblance remain distinct; no continuous normal-organism trajectory inferred.",
+        "Reported function or molecular identity in support tissue does not establish recipient organ delivery or healthy later development."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "jin-coagulation-transcripts",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "organoid_or_tissue_model",
+      "developmental_interval": {
+        "label": "E3.5 entry; tissue reference stages E8.5-E10.5, eYS D10",
+        "start": "E3.5 entry",
+        "end": "embryo ending stage unqualified",
+        "time_unit": "source embryonic stage labels",
+        "stage_source_artifact_id": "jin2026-accepted-rendered"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Mouse ex-utero yolk-sac component from blastocyst-origin cultures"
+      },
+      "assay": {
+        "name": "Selected accepted-manuscript qualitative finding",
+        "endpoint": "Coagulation-related expression annotation",
+        "unit": "source-reported qualitative summary",
+        "measurement_role": "molecular_identity",
+        "functional_context": {
+          "compartment": "extraembryonic yolk-sac component",
+          "material": "coagulation transcripts",
+          "process": "tissue_abundance",
+          "quantity_basis": "Expression signature; clotting competence not established by inspected readout",
+          "assessment_context": "other",
+          "source_locator": "Results: Coagulation and angiogenesis, first paragraph; Fig. 4F"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Individual units, dam/litter, starting rosters, losses and cross-assay pairing unqualified. Selected tissue pools are not individual trajectories."
+      },
+      "observation": {
+        "value": "Coagulation-related transcript signatures reported",
+        "measurement_time": "D10 profile context",
+        "measurement_time_unit": "source culture-day labels",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "jin2026-accepted-rendered",
+        "uri": "https://www.researchgate.net/publication/409415402_Ex_utero_3D_culture_system_illuminates_post-implantation_development_and_functions_of_the_mouse_yolk_sac",
+        "license": "CC BY-NC-ND 4.0 manuscript banner; source-specific reuse review pending",
+        "sha256": null,
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "Selected rendered accepted article text/captions only; original publisher full-manuscript bytes, images and raw biological observations unqualified.",
+        "Culture duration, embryo developmental stage and yolk-sac reference resemblance remain distinct; no continuous normal-organism trajectory inferred.",
+        "Reported function or molecular identity in support tissue does not establish recipient organ delivery or healthy later development."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "jin-medium-proteins",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "organoid_or_tissue_model",
+      "developmental_interval": {
+        "label": "E3.5 entry; elapsed medium readouts, embryo stage unqualified",
+        "start": "E3.5 entry",
+        "end": "embryo ending stage unqualified",
+        "time_unit": "source embryonic stage labels",
+        "stage_source_artifact_id": "jin2026-accepted-rendered"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Mouse ex-utero yolk-sac component from blastocyst-origin cultures"
+      },
+      "assay": {
+        "name": "Selected accepted-manuscript qualitative finding",
+        "endpoint": "Released protein detected in extracellular medium",
+        "unit": "source-reported qualitative summary",
+        "measurement_role": "function",
+        "functional_context": {
+          "compartment": "extraembryonic yolk-sac component",
+          "material": "AFP; APOA/APOA1 specificity unqualified",
+          "process": "secretion",
+          "quantity_basis": "Medium concentration readout; physical units and volume/renewal accounting unqualified",
+          "assessment_context": "other",
+          "source_locator": "Results: YS endoderm functions, secretion paragraph; Fig. 5F-G; Supplementary Data 5 Figure 5 B2/B17"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Individual units, dam/litter, starting rosters, losses and cross-assay pairing unqualified. Selected tissue pools are not individual trajectories."
+      },
+      "observation": {
+        "value": "AFP and APOA1 medium increases reported; source caption/workbook label APOA",
+        "measurement_time": "D1-D10 source table labels",
+        "measurement_time_unit": "source culture-day labels",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "jin2026-accepted-rendered",
+        "uri": "https://www.researchgate.net/publication/409415402_Ex_utero_3D_culture_system_illuminates_post-implantation_development_and_functions_of_the_mouse_yolk_sac",
+        "license": "CC BY-NC-ND 4.0 manuscript banner; source-specific reuse review pending",
+        "sha256": null,
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "Selected rendered accepted article text/captions only; original publisher full-manuscript bytes, images and raw biological observations unqualified.",
+        "Culture duration, embryo developmental stage and yolk-sac reference resemblance remain distinct; no continuous normal-organism trajectory inferred.",
+        "Medium is not embryo-organ receipt. Source scalar columns have no verified longitudinal unit identity; no secretion-rate inference."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "jin-vegfa-timing",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "organoid_or_tissue_model",
+      "developmental_interval": {
+        "label": "E3.5 entry; medium timing does not establish embryo developmental stage",
+        "start": "E3.5 entry",
+        "end": "embryo ending stage unqualified",
+        "time_unit": "source embryonic stage labels",
+        "stage_source_artifact_id": "jin2026-accepted-rendered"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Mouse ex-utero yolk-sac component from blastocyst-origin cultures"
+      },
+      "assay": {
+        "name": "Selected accepted-manuscript qualitative finding",
+        "endpoint": "VEGFA medium timing source discrepancy",
+        "unit": "source-reported qualitative summary",
+        "measurement_role": "function",
+        "functional_context": {
+          "compartment": "extraembryonic yolk-sac component",
+          "material": "VEGFA protein",
+          "process": "secretion",
+          "quantity_basis": "Text versus unmodified reported mean column; no source label correction",
+          "assessment_context": "other",
+          "source_locator": "Results: Coagulation and angiogenesis, VEGFA paragraph; Fig. 5H; workbook Figure 5 A34:A44/J34:J44"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Individual units, dam/litter, starting rosters, losses and cross-assay pairing unqualified. Selected tissue pools are not individual trajectories."
+      },
+      "observation": {
+        "value": "Authors describe VEGFA medium peaks at D2 and D6; timing reconciliation remains open",
+        "measurement_time": "D0-D10 table; text D2/D6",
+        "measurement_time_unit": "source culture-day labels",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "jin2026-accepted-rendered",
+        "uri": "https://www.researchgate.net/publication/409415402_Ex_utero_3D_culture_system_illuminates_post-implantation_development_and_functions_of_the_mouse_yolk_sac",
+        "license": "CC BY-NC-ND 4.0 manuscript banner; source-specific reuse review pending",
+        "sha256": null,
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "Selected rendered accepted article text/captions only; original publisher full-manuscript bytes, images and raw biological observations unqualified.",
+        "Culture duration, embryo developmental stage and yolk-sac reference resemblance remain distinct; no continuous normal-organism trajectory inferred.",
+        "Strict adjacent interior mean maxima are an arithmetic descriptor, not secretion events. Original figure/version/time convention requires reconciliation."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "jin-colony-potential",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "organoid_or_tissue_model",
+      "developmental_interval": {
+        "label": "E3.5 entry; component D10 endpoint, embryo ending stage unqualified",
+        "start": "E3.5 entry",
+        "end": "embryo ending stage unqualified",
+        "time_unit": "source embryonic stage labels",
+        "stage_source_artifact_id": "jin2026-accepted-rendered"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Mouse ex-utero yolk-sac component from blastocyst-origin cultures"
+      },
+      "assay": {
+        "name": "Selected accepted-manuscript qualitative finding",
+        "endpoint": "Hematopoietic colony-forming potential",
+        "unit": "source-reported qualitative summary",
+        "measurement_role": "function",
+        "functional_context": {
+          "compartment": "extraembryonic yolk-sac component",
+          "material": "hematopoietic progenitor output",
+          "process": "other",
+          "quantity_basis": "Colony-forming assay potential; no circulating oxygen-delivery or lifelong lineage function",
+          "assessment_context": "other",
+          "source_locator": "Results: Endothelial and hematopoietic populations, CFU paragraph; Fig. 6G"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Individual units, dam/litter, starting rosters, losses and cross-assay pairing unqualified. Selected tissue pools are not individual trajectories."
+      },
+      "observation": {
+        "value": "Erythroid-like and myeloid-like colonies reported from eYS",
+        "measurement_time": "D10 source caption",
+        "measurement_time_unit": "source culture-day labels",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "jin2026-accepted-rendered",
+        "uri": "https://www.researchgate.net/publication/409415402_Ex_utero_3D_culture_system_illuminates_post-implantation_development_and_functions_of_the_mouse_yolk_sac",
+        "license": "CC BY-NC-ND 4.0 manuscript banner; source-specific reuse review pending",
+        "sha256": null,
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "Selected rendered accepted article text/captions only; original publisher full-manuscript bytes, images and raw biological observations unqualified.",
+        "Culture duration, embryo developmental stage and yolk-sac reference resemblance remain distinct; no continuous normal-organism trajectory inferred.",
+        "Reported function or molecular identity in support tissue does not establish recipient organ delivery or healthy later development."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "jin-paired-recipient-gap",
+      "evidence_status": "planned",
+      "species": "mouse",
+      "stage_track": "postimplantation_embryonic",
+      "developmental_interval": {
+        "label": "Embryonic interval beyond paired functional assessment unqualified",
+        "start": "E3.5 entry",
+        "end": "embryo ending stage unqualified",
+        "time_unit": "source embryonic stage labels",
+        "stage_source_artifact_id": "jin2026-accepted-rendered"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Mouse blastocyst-origin ex-utero embryo-proper assessment"
+      },
+      "assay": {
+        "name": "Selected accepted-manuscript qualitative finding",
+        "endpoint": "Linked recipient function and embryo progression after support readouts",
+        "unit": "source-reported qualitative summary",
+        "measurement_role": "durability",
+        "functional_context": {
+          "compartment": "embryo proper",
+          "material": "embryonic organ receipt and later developmental function",
+          "process": "developmental_outcome",
+          "quantity_basis": "Unreported linked longitudinal functional endpoint",
+          "assessment_context": "ex_utero_whole_embryo",
+          "source_locator": "Inspected source scope: no qualified unit-linked receipt/progression dataset across support and embryo-proper branches"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Individual units, dam/litter, starting rosters, losses and cross-assay pairing unqualified. Selected tissue pools are not individual trajectories."
+      },
+      "observation": {
+        "value": null,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "not_reported",
+        "measurement_uncertainty": null,
+        "missingness_reason": "Unit-linked recipient receipt/use and later function unavailable in inspected source scope; missingness is not an adverse endpoint."
+      },
+      "source": {
+        "artifact_id": "jin2026-accepted-rendered",
+        "uri": "https://www.researchgate.net/publication/409415402_Ex_utero_3D_culture_system_illuminates_post-implantation_development_and_functions_of_the_mouse_yolk_sac",
+        "license": "CC BY-NC-ND 4.0 manuscript banner; source-specific reuse review pending",
+        "sha256": null,
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "Selected rendered accepted article text/captions only; original publisher full-manuscript bytes, images and raw biological observations unqualified.",
+        "Culture duration, embryo developmental stage and yolk-sac reference resemblance remain distinct; no continuous normal-organism trajectory inferred.",
+        "Reported function or molecular identity in support tissue does not establish recipient organ delivery or healthy later development."
+      ]
+    }
+  ],
+  "transitions": [
+    {
+      "transition_id": "jin-support-to-recipient",
+      "from_record_ids": [
+        "jin-uptake",
+        "jin-medium-proteins",
+        "jin-colony-potential"
+      ],
+      "to_record_ids": [
+        "jin-paired-recipient-gap"
+      ],
+      "continuity_status": "not_reported",
+      "note": "Component assays, destructive/sampling branches and recipient trajectories are unlinked; no measured same-unit path."
+    }
+  ],
+  "limitations": [
+    "Agent-selected text curation is not human scientific review. Journal acceptance and local scientific review remain separate.",
+    "Rendered accepted-manuscript copy matches DOI/title and acceptance banner; copy/version integrity and original publisher full-manuscript bytes unqualified. No rendered-source hash asserted.",
+    "Publisher landing HTML and Supplementary Data 5 retrieved separately; landing page hash does not pin full manuscript. Article license CC BY-NC-ND 4.0; source-specific reuse review pending.",
+    "No quantified embryo-arrest incidence or paired support-function/progression effect is estimated. Reported YS formation percentage is not embryo-development success.",
+    "Source numeric concentration cells remain excluded from observation intake pending units, quantity/calibration, background and replication review.",
+    "No embryo culture, tissue manipulation, biological protocol, physiological setting, device assembly, clinical guidance, biological fit or ledger promotion."
+  ]
+}

@@ -1,0 +1,68 @@
+{
+  "schema_version": 1,
+  "review_status": "candidate",
+  "human_review": "pending",
+  "inspected_on": "2026-10-09",
+  "article_url": "https://doi.org/10.1038/s42003-026-10656-4",
+  "source_class": "peer_reviewed_animal",
+  "article_revision": "accepted unedited article in press, received 2025-08-13, accepted 2026-06-26, published 2026-07-13",
+  "rendered_primary_copy": {
+    "url": "https://www.researchgate.net/publication/409415402_Ex_utero_3D_culture_system_illuminates_post-implantation_development_and_functions_of_the_mouse_yolk_sac",
+    "sha256": null,
+    "version_integrity": "unqualified",
+    "selected_scope": [
+      "Results: platform, YS endoderm, coagulation/angiogenesis, CFU",
+      "Discussion: divergent development",
+      "Selection/pooling note",
+      "Figure 1 and 4-6 captions",
+      "Data availability"
+    ]
+  },
+  "snapshots": [
+    {
+      "path": "artifacts/jin-yolk-sac-2026-10-09/publisher.html",
+      "role": "landing page/supplement links, not full manuscript",
+      "bytes": 261640,
+      "sha256": "c020fd30c37147b3f81bc54c358a5dd7b3756a524bdf60684f565e63ba0575c6"
+    },
+    {
+      "path": "artifacts/jin-yolk-sac-2026-10-09/europepmc-metadata.json",
+      "role": "bibliographic metadata snapshot",
+      "bytes": 9342,
+      "sha256": "6d0d9170f36eec68644c71de96fce0a77a2cd3b6fa444a648b2e061b382af9f4"
+    },
+    {
+      "path": "artifacts/jin-yolk-sac-2026-10-09/supplementary-data-5.xlsx",
+      "role": "original read-only publisher source workbook",
+      "bytes": 19088,
+      "sha256": "b2bd434213007dfab98df41c864db53a474aa74bf382f156ef0340c44a35ac6a"
+    }
+  ],
+  "species": "mouse",
+  "start": "E3.5 blastocyst entry",
+  "stage_separation": "Culture D10 and E8.5-like yolk-sac resemblance are not an E13.5 embryo endpoint; E8.5-E10.5 tissue references are distinct cohorts.",
+  "developmental_boundary": "Reported abnormal gastrulation and embryo-proper arrest; selected component function persists. Incidence and same-unit timing unqualified.",
+  "direct_functional_readouts": [
+    "Tracer uptake",
+    "Medium protein concentration",
+    "Hematopoietic colony-forming potential"
+  ],
+  "proxies_and_annotations": [
+    "Acidic-compartment stain/protein localization",
+    "Coagulation and barrier transcript signatures",
+    "Predicted receptor-ligand interaction with localization support"
+  ],
+  "data_accession": "CRA024449",
+  "repository_file_and_sample_qualification": "not_qualified",
+  "source_review_issues": [
+    "Selected well-expanded YS pools; original unit roster and losses unqualified.",
+    "Supplementary Data 5 has Figure 2/4/5/6 sheets but no Figure 1 sheet or selected uptake/CFU quantitative panels.",
+    "Figure 5 physical concentration units, NC definition and scalar-column hierarchy unqualified.",
+    "APOA source table/caption versus APOA1 Results specificity unqualified.",
+    "VEGFA text D2/D6 versus table mean local maxima D1/D5, preserve discrepancy.",
+    "Europe PMC metadata labels non-open-access/no EPMC fulltext while publisher/copy license indicates open access; metadata discrepancy retained."
+  ],
+  "biological_assay_performed": false,
+  "biological_fit_performed": false,
+  "ledger_promotion": "none"
+}

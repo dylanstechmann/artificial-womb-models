@@ -156,6 +156,26 @@ class ObservationIntakeTests(unittest.TestCase):
         with self.assertRaisesRegex(InputError, "same reported unit"):
             validate_dataset(data)
 
+    def test_yolk_sac_candidate_does_not_promote_proxies_or_infer_embryo_age(self):
+        path = EXAMPLE.parents[1] / "config/observations/jin_2026_yolk_sac_candidate.json"
+        data = json.loads(path.read_text(encoding="utf-8"))
+        _, report = self.publish(data)
+        self.assertEqual(report["source_review_status"], "candidate")
+        self.assertEqual(report["n_observation_records"], 13)
+        self.assertEqual(report["n_continuity_not_reported"], 1)
+        self.assertEqual(report["source_interval_containment"]["n_contained"], 0)
+        rows = {row["record_id"]: row for row in data["observations"]}
+        for key in ("jin-lysosomal-proxy", "jin-barrier-transcripts", "jin-coagulation-transcripts"):
+            self.assertEqual(rows[key]["assay"]["measurement_role"], "molecular_identity")
+        self.assertEqual(rows["jin-embryo-arrest"]["assay"]["measurement_role"], "adverse_effect")
+        self.assertEqual(rows["jin-paired-recipient-gap"]["evidence_status"], "planned")
+        self.assertTrue(all(row["observation"]["value"] is None or isinstance(row["observation"]["value"], str)
+                            for row in data["observations"]))
+        self.assertTrue(all(row["independent_unit"]["id"] is None for row in data["observations"]))
+        data["transitions"][0]["continuity_status"] = "demonstrated"
+        with self.assertRaisesRegex(InputError, "same reported unit"):
+            validate_dataset(data)
+
     def test_terminal_candidate_retains_missing_source_identity_and_unknown_continuity(self):
         path = EXAMPLE.parents[1] / "config/observations/lokshtanov_2026_terminal_candidate.json"
         data = json.loads(path.read_text(encoding="utf-8"))

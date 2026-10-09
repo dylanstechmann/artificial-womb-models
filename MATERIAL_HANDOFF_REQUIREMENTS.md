@@ -109,12 +109,12 @@ and injury timing. Selective preservation of one readout must not obscure
 failure of another. Cross-context source discordance motivates a question; it
 does not by itself identify the failure in a growing support unit.
 
-A newly located [Jin et al. accepted mouse yolk-sac article (2026)](https://doi.org/10.1038/s42003-026-10656-4)
-is queued for original Results/data qualification. Only its indexed publisher
-abstract and accepted-article status were inspected. Actual developmental
-coverage, directly measured functions versus expression-based annotations,
-losses and organism-level support remain unqualified here. It contributes no
-new continuous-gestation edge.
+The [Jin et al. accepted mouse yolk-sac article (2026)](https://doi.org/10.1038/s42003-026-10656-4)
+now has [selected-text and source-workbook qualification](SUPPORT_DEVELOPMENT_DISCORDANCE.md).
+Reported component function persists alongside embryo-proper arrest. Direct
+assays, molecular proxies and expression annotations remain distinct. Source
+timing, units, starting rosters and paired recipient outcomes require further
+qualification; no continuous-gestation edge is established.
 
 The next useful analysis remains a source-qualified, unit-linked comparison of
 receipt and recipient function across a developmental boundary, with losses and
