@@ -153,6 +153,13 @@ phenotype unless the source establishes that linkage. Until then, the result
 is a candidate source/functional-evidence card, not a unit-level causal
 reanalysis or continuous-gestation result. No request was sent to authors.
 
+The [subsequent linkage audit](CREST_REANALYSIS_CONTRACT.md) recovers named
+specimen pools and shared members. `audit-crest-linkage` produces source-bound
+metadata intake; pool membership cannot establish independent n or individual
+developmental continuity. Functional values and phenotype links remain
+unresolved. The contract separates phenotype-only reproduction from paired
+identity/function analysis and includes an unsent data inquiry.
+
 ## One additional transport candidate was checked
 
 [Vachalova et al., 2024](https://doi.org/10.1016/j.biopha.2024.117399)

@@ -52,11 +52,27 @@
       "additionalProperties": false,
       "required": ["kind", "id", "parent_id"],
       "properties": {
-        "kind": { "enum": ["donor", "pregnant_animal", "embryo", "source_kidney", "organoid", "vessel_construct", "culture_batch", "other", "not_reported"] },
+        "kind": { "enum": ["donor", "pregnant_animal", "embryo", "source_kidney", "organoid", "vessel_construct", "culture_batch", "sample_pool", "other", "not_reported"] },
         "id": { "type": ["string", "null"], "maxLength": 120 },
         "parent_id": { "type": ["string", "null"], "maxLength": 120 },
-        "hierarchy_note": { "type": "string", "maxLength": 500 }
-      }
+        "hierarchy_note": { "type": "string", "maxLength": 500 },
+        "members": {
+          "type": "array", "maxItems": 100, "uniqueItems": true,
+          "description": "Optional source-declared members of a named sample_pool. Missing members do not establish disjointness; pooled metadata cannot establish individual developmental continuity.",
+          "items": {
+            "type": "object", "additionalProperties": false, "required": ["kind", "id"],
+            "properties": {
+              "kind": { "enum": ["donor", "pregnant_animal", "embryo", "source_kidney", "organoid", "vessel_construct", "culture_batch", "other"] },
+              "id": { "type": "string", "minLength": 1, "maxLength": 120 },
+              "parent_id": { "type": ["string", "null"], "maxLength": 120 }
+            }
+          }
+        }
+      },
+      "allOf": [{
+        "if": {"required": ["members"], "properties": {"members": {"minItems": 1}}},
+        "then": {"properties": {"kind": {"const": "sample_pool"}, "id": {"type": "string", "minLength": 1}}}
+      }]
     },
     "observation": {
       "type": "object",

@@ -22,7 +22,7 @@ MODEL_KINDS = {"intact_organism", "embryo_model", "organoid", "tissue_construct"
 MEASUREMENT_ROLES = {"morphology", "molecular_identity", "function", "viability", "genome_stability",
                      "adverse_effect", "durability", "environmental_condition", "other"}
 UNIT_KINDS = {"donor", "pregnant_animal", "embryo", "source_kidney", "organoid", "vessel_construct",
-              "culture_batch", "other", "not_reported"}
+              "culture_batch", "sample_pool", "other", "not_reported"}
 REPLICATE_ROLES = {"independent", "repeated_measure", "technical", "summary_only", "not_reported"}
 SOURCE_KINDS = {"peer_reviewed_animal", "peer_reviewed_human_invitro", "regulator_discussion",
                 "institution_announcement", "dataset_record", "other"}
@@ -233,14 +233,34 @@ def _validate_record(value, artifacts):
         if calibration not in artifacts:
             raise InputError("Calibration references an unknown source artifact")
 
-    unit = _object(record["independent_unit"], {"kind", "id", "parent_id"}, {"hierarchy_note"}, "independent_unit")
+    unit = _object(record["independent_unit"], {"kind", "id", "parent_id"}, {"hierarchy_note", "members"}, "independent_unit")
     _enum(unit["kind"], UNIT_KINDS, "independent-unit kind")
     for field in ("id", "parent_id"):
         _string_or_null(unit[field], f"independent_unit.{field}")
+        if unit[field] is not None:
+            unit[field] = _text(unit[field], f"independent_unit.{field}", 120)
     unit.setdefault("hierarchy_note", "")
     _text(unit["hierarchy_note"], "independent_unit.hierarchy_note", 500, empty=True)
     if unit["kind"] == "not_reported" and (unit["id"] is not None or unit["parent_id"] is not None):
         raise InputError("A not_reported unit cannot carry an asserted unit identifier")
+    pool_members = unit.setdefault("members", [])
+    if not isinstance(pool_members, list) or len(pool_members) > 100:
+        raise InputError("Pool members must list at most 100 source-reported identifiers")
+    if pool_members and (unit["kind"] != "sample_pool" or unit["id"] is None):
+        raise InputError("Pool members require a reported sample_pool identifier")
+    member_keys = set()
+    for member in pool_members:
+        _object(member, {"kind", "id"}, {"parent_id"}, "pool member")
+        _enum(member["kind"], UNIT_KINDS - {"sample_pool", "not_reported"}, "pool-member kind")
+        member["id"] = _text(member["id"], "pool-member id", 120)
+        parent = member.setdefault("parent_id", None)
+        _string_or_null(parent, "pool-member parent_id")
+        if parent is not None:
+            member["parent_id"] = _text(parent, "pool-member parent_id", 120)
+        key = (member["kind"], member["id"], member["parent_id"])
+        if key in member_keys:
+            raise InputError("Pool members must have distinct source identifiers")
+        member_keys.add(key)
 
     observation = _object(record["observation"],
                           {"value", "measurement_time", "comparator_id", "replicate_role"},
@@ -311,6 +331,8 @@ def _validate_transition(value, records):
     if len({item["species"] for item in members}) != 1:
         raise InputError("A transition cannot combine species or model species")
     if status == "demonstrated":
+        if any(item["independent_unit"]["kind"] == "sample_pool" for item in members):
+            raise InputError("A sample pool cannot establish demonstrated individual developmental continuity")
         units = {(item["independent_unit"]["kind"], item["independent_unit"]["id"],
                   item["independent_unit"]["parent_id"]) for item in members}
         artifacts = {item["source"]["artifact_id"] for item in members}
@@ -334,6 +356,28 @@ def _validate_transition(value, records):
                 item["start"] for item in (records[key]["developmental_interval"] for key in right)):
             raise InputError("Demonstrated transitions must be time ordered without overlapping reported intervals")
     return transition
+
+
+def _unit_membership_groups(records):
+    """Index declared direct units and pool members without quadratic pair expansion."""
+    groups = defaultdict(list)
+    for record in records:
+        unit = record["independent_unit"]
+        keys = {(member["kind"], member["id"], member.get("parent_id"))
+                for member in unit.get("members", [])}
+        if unit["id"] is not None:
+            keys.add((unit["kind"], unit["id"], unit["parent_id"]))
+        for key in keys:
+            context = (record["source"]["artifact_id"], record["species"], record["stage_track"],
+                       record["assay"]["name"], record["assay"]["endpoint"])
+            groups[context + key].append(record)
+    return groups
+
+
+def _reject_independent_membership_conflicts(records):
+    for items in _unit_membership_groups(records).values():
+        if len(items) > 1 and any(item["observation"]["replicate_role"] == "independent" for item in items):
+            raise InputError("Repeated rows or overlapping pool members cannot all be asserted as independent; mark repeated/technical/summary roles")
 
 
 def validate_dataset(dataset):
@@ -363,6 +407,7 @@ def validate_dataset(dataset):
         if record["record_id"] in records:
             raise InputError(f"Duplicate observation record ID: {record['record_id']}")
         records[record["record_id"]] = record
+    _reject_independent_membership_conflicts(observations)
     transitions = dataset.setdefault("transitions", [])
     if not isinstance(transitions, list) or len(transitions) > 500:
         raise InputError("transitions must contain at most 500 records")
@@ -500,24 +545,18 @@ def observation_report(dataset_path: Path, output: Path, source_root: Path | Non
     n_contained = sum(item["status"] == "contained_in_declared_scope" for item in interval_checks)
     group_fields = ("species", "stage_track", "developmental_interval", "model_system", "assay", "source")
     groups = defaultdict(list)
-    duplicate_units = defaultdict(list)
     for record in records:
         key = tuple(json_bytes(record[field]).decode("utf-8") for field in group_fields)
         groups[key].append(record)
-        unit = record["independent_unit"]
-        if unit["id"] is not None:
-            unit_key = (record["source"]["artifact_id"], record["species"], record["stage_track"],
-                        record["assay"]["name"], record["assay"]["endpoint"], unit["kind"],
-                        unit["id"], unit["parent_id"])
-            duplicate_units[unit_key].append(record)
-    independent_conflicts = []
-    for unit_key, items in duplicate_units.items():
-        if len(items) > 1 and any(item["observation"]["replicate_role"] == "independent" for item in items):
-            independent_conflicts.append({"record_ids": sorted(item["record_id"] for item in items),
-                                          "unit_id": unit_key[6], "assay": unit_key[3],
-                                          "endpoint": unit_key[4]})
-    if independent_conflicts:
-        raise InputError("Repeated rows for a source-reported unit cannot all be asserted as independent; mark repeated/technical roles")
+    membership_rows = []
+    for key, items in sorted(_unit_membership_groups(records).items(),
+                             key=lambda entry: tuple("" if item is None else item for item in entry[0])):
+        if len(items) > 1:
+            membership_rows.append({"source_artifact_id": key[0], "species": key[1],
+                "stage_track": key[2], "assay": key[3], "endpoint": key[4],
+                "unit_kind": key[5], "unit_id": key[6], "parent_id": key[7],
+                "n_records": len(items), "record_ids": ";".join(sorted(item["record_id"] for item in items)),
+                "interpretation": "Shared declared identifier within this source/assay scope; neither independent biological n nor a verified identity."})
 
     group_rows = []
     for index, (_, members) in enumerate(sorted(groups.items()), 1):
@@ -558,6 +597,11 @@ def observation_report(dataset_path: Path, output: Path, source_root: Path | Non
         warnings.append("Some independent-unit identities are not reported; record counts are not verified biological n.")
     if any(item["observation"]["replicate_role"] in {"summary_only", "not_reported"} for item in records):
         warnings.append("Some replicate roles are summary-only or not reported; no independent-unit inference is made.")
+    pool_records = [item for item in records if item["independent_unit"]["kind"] == "sample_pool"]
+    if pool_records:
+        warnings.append("Sample pools preserve reported collection identities and declared members only. Their names/member counts are not verified biological n; individual developmental continuity is not established.")
+    if membership_rows:
+        warnings.append("Some records share declared source-unit identifiers, directly or through pool membership. Shared-membership details are retained without counting records as independent units.")
     if any(item["observation"]["comparator_id"] is None for item in records):
         warnings.append("Some comparator IDs are absent; comparative effect estimation is not implied.")
     if any(artifacts[item["artifact_id"]]["sha256"] is None for item in dataset["artifacts"]):
@@ -583,6 +627,10 @@ def observation_report(dataset_path: Path, output: Path, source_root: Path | Non
         "source_interval_containment": {"n_contained": n_contained,
                                         "n_not_assessed": len(records) - n_contained,
                                         "scientific_transcription": "not_verified"},
+        "declared_unit_membership": {"n_pool_records": len(pool_records),
+            "n_pools_without_declared_members": sum(not item["independent_unit"]["members"] for item in pool_records),
+            "n_shared_identifier_keys": len(membership_rows),
+            "assessment": "declared source/assay identifiers only; membership completeness and biological identity not verified"},
         "groups": group_rows[:100], "n_groups_in_report": min(len(group_rows), 100),
         "groups_truncated": len(group_rows) > 100, "warnings": warnings,
         "limits": [
@@ -593,6 +641,7 @@ def observation_report(dataset_path: Path, output: Path, source_root: Path | Non
             "Declared source SHA-256 values are checked for format and matched between records and artifact metadata. Optional local byte checks hash only the relative files named under --source-root; source URIs are never fetched.",
             "Source files are read-only inputs and are not copied into the bundle. Hash verification records bytes observed at that time; rerun if files change.",
             "Transition status is a source-recorded assertion. Demonstrated continuity requires matching recorded unit identifiers within one source artifact.",
+            "Sample-pool members are source-recorded identifiers, not inferred specimens. Overlap with another pool or a direct unit prevents independent-replicate assertions in the same source/species/stage/assay/endpoint scope. Pool records cannot establish individual developmental continuity; missing members do not prove disjointness.",
             "Source interval containment compares curated metadata in exact recorded units. It does not verify a source transcription, infer numeric bounds from prose, or establish biological continuity.",
         ],
     }
@@ -619,6 +668,9 @@ def observation_report(dataset_path: Path, output: Path, source_root: Path | Non
     if len(group_rows) > 100:
         lines.append(f"- Showing 100 of {len(group_rows)} groups; interval_groups.csv contains the full exact-group table.")
     lines.extend(["", "## Warnings", ""] + ([f"- {item}" for item in warnings] or ["- No structural warning was emitted; this does not imply data eligibility."]))
+    lines.extend(["", "## Declared pool membership", "",
+                  f"Pool records: {len(pool_records)}; pools without declared members: {report['declared_unit_membership']['n_pools_without_declared_members']}; shared source/assay identifier keys: {len(membership_rows)}.",
+                  "See unit_members.csv and shared_unit_membership.csv. Identifier and member counts are not verified biological n. Missing members do not establish independence."])
     lines.extend(["", "## Limits", ""] + [f"- {item}" for item in report["limits"]])
     observation_rows = []
     for item in records:
@@ -632,6 +684,7 @@ def observation_report(dataset_path: Path, output: Path, source_root: Path | Non
             "assay": assay["name"], "endpoint": assay["endpoint"], "unit": assay["unit"],
             "measurement_role": assay["measurement_role"], "independent_unit_kind": unit["kind"],
             "independent_unit_id": unit["id"], "independent_unit_parent_id": unit["parent_id"],
+            "n_declared_pool_members": len(unit["members"]),
             "value": observation["value"], "measurement_time": observation["measurement_time"],
             "measurement_time_unit": observation.get("measurement_time_unit", ""),
             "comparator_id": observation["comparator_id"], "replicate_role": observation["replicate_role"],
@@ -656,6 +709,14 @@ def observation_report(dataset_path: Path, output: Path, source_root: Path | Non
         "transitions.csv": csv_bytes(["transition_id", "from_record_ids", "to_record_ids", "continuity_status", "note"], transition_rows),
         "source_files.csv": csv_bytes(["artifact_id", "relative_path", "declared_sha256", "observed_sha256",
                                         "verification_status", "bytes_hashed", "note"], source_file_rows),
+        "unit_members.csv": csv_bytes(["record_id", "source_artifact_id", "pool_id", "member_kind", "member_id", "member_parent_id"],
+            [{"record_id": item["record_id"], "source_artifact_id": item["source"]["artifact_id"],
+              "pool_id": item["independent_unit"]["id"], "member_kind": member["kind"],
+              "member_id": member["id"], "member_parent_id": member["parent_id"]}
+             for item in pool_records for member in sorted(item["independent_unit"]["members"],
+                 key=lambda member: (member["kind"], member["id"], member["parent_id"] or ""))]),
+        "shared_unit_membership.csv": csv_bytes(["source_artifact_id", "species", "stage_track", "assay", "endpoint",
+            "unit_kind", "unit_id", "parent_id", "n_records", "record_ids", "interpretation"], membership_rows),
         "source_interval_checks.csv": csv_bytes(["record_id", "stage_source_artifact_id", "status"], interval_checks),
         "source_scopes.csv": csv_bytes(["artifact_id", "species", "stage_tracks", "time_unit", "start", "end", "source_locator"],
             [{"artifact_id": item["artifact_id"], **item["developmental_scope"],

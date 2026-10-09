@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Add an offline pinned CREST pool/annotation linkage audit, source-locator outputs and candidate metadata intake; retain absent phenotype links, incomplete membership and human-review status.
+- Preserve source-declared sample-pool members in observation intake, reject overlapping independence assertions in the same source/assay scope, export membership tables and prevent pool records from establishing individual developmental continuity.
+- Define separate phenotype-only and paired identity/function reanalysis requirements and prepare an unsent source-data inquiry.
+
 - Add `transport-identifiability`: a receipt-bound structural counterexample for exchange/transfer rate swaps that preserve core-only traces, equilibrium rate-scale ambiguity and a paired-interface transient contrast. Keep all values dimensionless, no fitted parameters or biological prediction, and record coincident/unsupported cases explicitly.
 - Reuse the transport input validator for simulation and diagnostics; test exact observation ambiguities, valid stationary witness simulations, absent excitation, malformed inputs, output exclusivity and relocation.
 - Define two narrow interface-feasibility questions, inspect early implantation evidence/public metadata and an additional term-placenta dataset, and preserve missing phenotype linkage, overlapping source presentations and human review requirements.

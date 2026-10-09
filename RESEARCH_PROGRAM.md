@@ -140,6 +140,13 @@ implantation source for identity-versus-function review and preserves its
 unresolved phenotype/specimen linkage. These are concrete observation and
 review targets, not a fitted physiological model.
 
+The [CREST reanalysis contract](CREST_REANALYSIS_CONTRACT.md) adds a pinned
+source-pool audit and executable membership checks. It identifies shared
+declared members without inventing biological n or phenotype linkage.
+Phenotype-only reproduction can proceed on qualified functional data without
+assuming transcriptomic pairing; paired identity/function analysis requires
+an explicit source-established link.
+
 **Discriminator:** prediction of held-out measured concentrations/fluxes with
 error and uncertainty compared against the simpler model. Test whether distinct
 parameter combinations or model structures produce indistinguishable

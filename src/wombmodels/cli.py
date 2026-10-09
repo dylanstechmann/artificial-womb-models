@@ -14,6 +14,7 @@ from .evidence import evidence_report
 from .exchange import simulate
 from .identifiability import analyze
 from .hori_source import audit_hori_source
+from .crest_linkage import audit_crest_linkage
 from .numerical_verification import (
     verify_mechanics_accuracy,
     verify_transport_accuracy,
@@ -38,6 +39,10 @@ def main(argv=None) -> int:
     source_audit = commands.add_parser("audit-hori-source", help="Audit the pinned Hori 2024 Figure 5G workbook offline; no model fit")
     source_audit.add_argument("--workbook", type=Path, required=True)
     source_audit.add_argument("--out", type=Path, required=True)
+    crest_audit = commands.add_parser("audit-crest-linkage", help="Audit pinned early-interface sample pools and annotation labels offline; no phenotype fit")
+    crest_audit.add_argument("--sdrf", type=Path, required=True)
+    crest_audit.add_argument("--archive", type=Path, required=True)
+    crest_audit.add_argument("--out", type=Path, required=True)
     transport_diagnostic = commands.add_parser("transport-identifiability", help="Construct dimensionless core-only and equilibrium observation ambiguities; no empirical fit")
     transport_diagnostic.add_argument("--config", type=Path, required=True)
     transport_diagnostic.add_argument("--out", type=Path, required=True)
@@ -96,6 +101,8 @@ def main(argv=None) -> int:
             receipt = observation_report(args.dataset, args.out, source_root=args.source_root)
         elif args.command == "audit-hori-source":
             receipt = audit_hori_source(args.workbook, args.out)
+        elif args.command == "audit-crest-linkage":
+            receipt = audit_crest_linkage(args.sdrf, args.archive, args.out)
         elif args.command == "transport-identifiability":
             receipt = transport_identifiability(args.config, args.out)
         elif args.command == "identifiability-report":

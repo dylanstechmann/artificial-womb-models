@@ -30,6 +30,13 @@ It specifies why paired transient observations matter without assigning
 biological parameters. An early implantation source and its public data/code
 resources remain candidates awaiting phenotype linkage and human review.
 
+The [early-interface reanalysis contract](CREST_REANALYSIS_CONTRACT.md)
+recovers source-declared pools and overlapping membership, with an offline
+`audit-crest-linkage` command. Observation intake now retains pool members
+and rejects overlapping independence assertions. Pool labels cannot establish
+individual developmental continuity; actual functional values and specimen
+links remain a separate data requirement.
+
 ```powershell
 python -m venv .venv
 .venv\Scripts\python -m pip install -e .

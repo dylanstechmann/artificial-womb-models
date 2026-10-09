@@ -140,6 +140,8 @@ def reproduction_plan(kind: str, files: dict[str, bytes], metadata: dict) -> dic
             "wombmodels validate-observations --dataset <input_dataset.json> --out <new-dir>",
         "published_endpoint_source_audit":
             "wombmodels audit-hori-source --workbook <external-pinned-source.xlsx> --out <new-dir>",
+        "early_interface_source_linkage_audit":
+            "wombmodels audit-crest-linkage --sdrf <external-pinned-source.sdrf.txt> --archive <external-pinned-code.zip> --out <new-dir>",
         "dimensionless_transport_theory": "wombmodels transport-model --config <config.json> --out <new-dir>",
         "dimensionless_transport_identifiability": "wombmodels transport-identifiability --config <input_config.json> --out <new-dir>",
         "dimensionless_mechanics_theory": "wombmodels mechanics-model --config <config.json> --out <new-dir>",
@@ -154,6 +156,8 @@ def reproduction_plan(kind: str, files: dict[str, bytes], metadata: dict) -> dic
         "command": command or f"no recorded command template for bundle kind {kind}",
         "inputs": (["input_source_manifest.json", "external pinned source workbook (not bundled)"]
                    if kind == "published_endpoint_source_audit" else
+                   ["input_source_manifest.json", "external pinned SDRF and code archive (not bundled)"]
+                   if kind == "early_interface_source_linkage_audit" else
                    ["input_config.json"] if kind == "dimensionless_transport_identifiability" else
                    ["input_dataset.json"] if kind == "developmental_observation_intake"
                    else ["source_config.json"] if "source_config.json" in files else []),
@@ -165,7 +169,7 @@ def reproduction_plan(kind: str, files: dict[str, bytes], metadata: dict) -> dic
             "Matching hashes establish bundle integrity only, not numerical correctness, "
             "parameter identifiability or biological validity.",
             ("Source audit/intake preserves reported units; it does not establish measurement validity, rights, analysis eligibility or predict human gestation."
-             if kind in {"developmental_observation_intake", "published_endpoint_source_audit"} else
+             if kind in {"developmental_observation_intake", "published_endpoint_source_audit", "early_interface_source_linkage_audit"} else
              "Every value in these fixtures is dimensionless. Nothing here predicts human gestation."),
             "Verification never reruns the model. A rerun needs the recorded package version and "
             "the exact inputs listed above.",
