@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Resolve native trajectory time units through referenced X metadata; emit source-linked Y-cell lexemes/locators and a candidate observation dataset with null biological IDs, no independence claims and no developmental continuity.
+- Retain successful-perfusion selection, unknown starting/excluded attempts and unresolved tissue-subsample hierarchy in a question/qualification card and unsent data inquiry; perform no biological fit or success-rate estimate.
+
 - Recover selected embedded native Prism CSV tables from a pinned placental-perfusion DOCX supplement without running OLE programs or saved analyses. Preserve processed quantities, caption/source locators, hash ancestry and unresolved donor/subsample linkage.
 - Add a dimensionless collection-accounting diagnostic exposing concentration/inventory mismatch, sampling omission and indistinguishable residual partitions; preserve negative balances, missing tissue observations and boundary cases without biological fitting.
 

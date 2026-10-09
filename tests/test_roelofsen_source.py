@@ -11,16 +11,18 @@ import zipfile
 from pathlib import Path
 from unittest.mock import patch
 
-from wombmodels.artifacts import InputError, sha256
+from wombmodels.artifacts import InputError, read_json, sha256
 from wombmodels.bundle_verification import verify_bundle
 from wombmodels import roelofsen_source as source
+from wombmodels.observations import observation_report
+from wombmodels.roelofsen_intake import candidate_intake
 
 
 def guid(number):
     return f"{number:08X}-0000-0000-0000-000000000000"
 
 
-def native_archive(index, *, bad_token=False, bad_shape=False):
+def native_archive(index, *, bad_token=False, bad_shape=False, axis_title="Time (min)", label_format="text"):
     """Native test tables reproduce shape only; every number is invented."""
     buffer = io.BytesIO()
     csvs = {}
@@ -29,7 +31,11 @@ def native_archive(index, *, bad_token=False, bad_shape=False):
         for number, title in enumerate(titles, 1):
             identifier = guid(number)
             sets = [guid(100 + number*10 + k) for k in range(2 if index == 5 else 4)]
-            sheet = {"title": {"string": title}, "table": {"uid": identifier,
+            axis_id = guid(500 + number)
+            axis = {"format":"y_single", "title":axis_title, "attributes":["DS_ATTR_X"]} if index == 5 else {"format":label_format}
+            archive.writestr(f"data/sets/{axis_id}.json", json.dumps(axis))
+            axis_reference = {"xDataSet":axis_id, "xDataSetFormat":"y_single"} if index == 5 else {"rowTitlesDataSet":axis_id}
+            sheet = {"title": {"string": title}, "table": {"uid": identifier, **axis_reference,
                 "format": "xy" if index == 5 else "grouped", "replicatesCount": 4 if index == 5 else 6,
                 "dataSets": sets}}
             archive.writestr(f"data/sheets/{identifier}/sheet.json", json.dumps(sheet))
@@ -139,6 +145,41 @@ class NativeSourceTests(unittest.TestCase):
         with self.assertRaises(InputError):
             source._tables(buffer.getvalue(), 5)
 
+    def test_axis_unit_requires_referenced_metadata_and_tissue_labels_require_text(self):
+        for title in ("Time", "Time (h)", "Time (min) guessed"):
+            native, _ = native_archive(5, axis_title=title)
+            with self.subTest(title=title), self.assertRaises(InputError):
+                source._tables(native, 5)
+        native, _ = native_archive(6, label_format="y_single")
+        with self.assertRaises(InputError):
+            source._tables(native, 6)
+
+    def test_cell_mapping_retains_lexemes_and_never_promotes_slots_to_independent_units(self):
+        tables = []
+        for index in (5,6):
+            native, _ = native_archive(index)
+            tables.extend(source._tables(native, index))
+        cells, dataset, qualification = candidate_intake(tables, "invented.docx", "a"*64)
+        self.assertEqual(len(cells), 448)
+        self.assertEqual(len({r["record_id"] for r in cells}), 448)
+        records = {r["record_id"]:r for r in dataset["observations"]}
+        for cell in cells:
+            self.assertEqual(cell["numeric_text"], "1.2500")
+            record = records[cell["record_id"]]
+            self.assertEqual(record["observation"]["value"], 1.25)
+            self.assertEqual(record["source"]["sha256"], "a"*64)
+            self.assertIsNone(record["independent_unit"]["id"])
+            self.assertEqual(record["observation"]["replicate_role"], "not_reported")
+            self.assertIsNone(record["developmental_interval"]["start"])
+            self.assertEqual(record["observation"]["measurement_time_unit"], "min" if cell["object_index"] == 5 else "minutes")
+            self.assertEqual(record["observation"]["measurement_time"], float(cell["measurement_time_numeric_text"]))
+            self.assertIn(cell["source_locator"], record["limitations"][0])
+        self.assertEqual(dataset["transitions"], [])
+        self.assertIsNone(qualification["cohort"]["starting_attempts"])
+        self.assertIsNone(qualification["cohort"]["failed_or_excluded_attempts"])
+        self.assertEqual(qualification["cohort"]["success_fraction"], "not_estimable_from_inspected_tables")
+        self.assertFalse(qualification["model_fit_performed"])
+
     def test_pinned_publication_keeps_original_csv_and_review_distinct_from_integrity(self):
         raw, csvs = supplement()
         path, bundle = self.root/"invented.docx", self.root/"bundle"
@@ -156,6 +197,9 @@ class NativeSourceTests(unittest.TestCase):
         self.assertIn("not authenticated", report["replicate_identity"])
         manifest = json.loads((bundle/"input_source_manifest.json").read_text())
         self.assertFalse(manifest["saved_analyses_executed"])
+        dataset, _ = read_json(bundle/"input_dataset.json")
+        self.assertEqual(len(dataset["observations"]), 448)
+        self.assertEqual(dataset["artifacts"][0]["sha256"], sha256(raw))
         moved = self.root/"relocated"
         shutil.copytree(bundle, moved)
         verification = verify_bundle(moved, strict=True)
@@ -165,6 +209,18 @@ class NativeSourceTests(unittest.TestCase):
         self.assertIn("audit-roelofsen-source", plan["command"])
         self.assertIn("external pinned source supplement (not bundled)", plan["inputs"])
         self.assertFalse(any("Every value" in limit for limit in plan["limits"]))
+
+    def test_generated_candidate_intake_verifies_source_bytes_without_establishing_review(self):
+        raw, _ = supplement()
+        path, bundle, intake = self.root/"invented.docx", self.root/"bundle", self.root/"intake"
+        path.write_bytes(raw)
+        with patch.object(source, "SUPPLEMENT_SHA256", sha256(raw)):
+            source.audit_roelofsen_source(path, bundle)
+        observation_report(bundle/"input_dataset.json", intake, source_root=self.root)
+        self.assertTrue(verify_bundle(intake, strict=True)["bytes_verified"])
+        report = json.loads((intake/"observation_intake_report.json").read_text())
+        self.assertEqual(report["source_review_status"], "candidate")
+        self.assertIn("requires source-specific human review", report["analysis_eligibility"])
 
     def test_wrong_source_hash_and_bad_numeric_source_publish_nothing(self):
         path = self.root/"invented.docx"

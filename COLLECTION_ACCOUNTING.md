@@ -46,10 +46,13 @@ declaration; native slot-to-donor mapping remains unverified.
 | `word/embeddings/oleObject5.bin`, S9 | Four XY tables, each 11 rows and 9 columns: one X column and two sets of four Y slots; 352 Y values | Author-processed percentages of initial dose, with maternal/foetal set titles. Original concentrations and normalization ancestry are not recovered here. |
 | `word/embeddings/oleObject6.bin`, S10 | One grouped table, four labeled rows and 25 columns: row label and four sets of six Y slots; 96 Y values | Source labels `Placenta 1`–`Placenta 4` retained. The six slots within each compound do not establish six additional biological donors. |
 
-Source spelling, including `Antipryine`, is retained. Numeric trajectory X
-values stay unchanged without a guessed unit conversion. An elapsed window in
-a caption does not authenticate every X value's unit. Tissue normalization and
-within-row subcolumn meanings require review.
+Source spelling, including `Antipryine`, is retained. Further native metadata
+inspection resolved the trajectory unit: each XY table references an X data
+set explicitly titled `Time (min)` with the X-axis attribute. Values are retained
+in `min` without conversion. The tissue endpoint uses the caption's `180 minutes`
+and is recorded separately in `minutes`; it has no native X column. These are
+elapsed assay times, separate from donor tissue age and developmental intervals.
+Tissue normalization and within-row subcolumn meanings require review.
 
 The reader implements a bounded subset of the
 [Microsoft CFB format](https://learn.microsoft.com/en-us/openspecs/windows_protocols/ms-cfb/68530324-9d3d-4441-9ea9-66a2c8f79567):
@@ -71,8 +74,9 @@ ZIP bytes as the standard-library implementation:
 
 The independent inspector is an ignored local helper; the runtime has no
 third-party dependency. Recovery publishes selected CSVs, member/table locators,
-hash ancestry, a candidate report and receipt. It creates no analysis-eligible
-dataset and executes no fit. Downloads and recovered source tables remain in
+hash ancestry, a candidate report and receipt. It now also emits a candidate
+observation dataset, while establishing no analysis eligibility and executing
+no fit. Downloads and recovered source tables remain in
 ignored `artifacts/`; no publisher data is committed. The article declares CC BY
 4.0; source-specific reuse review remains pending. Outputs attribute the source
 and identify unchanged CSV bytes versus new metadata.
@@ -125,16 +129,27 @@ With the package installed, provide the pinned input and new destinations:
 
 ```powershell
 wombmodels audit-roelofsen-source --supplement artifacts/transport-collection-2026-10-09/roelofsen-supplement-1.docx --out artifacts/roelofsen-native-recovery
+wombmodels validate-observations --dataset artifacts/roelofsen-native-recovery/input_dataset.json --source-root artifacts/transport-collection-2026-10-09 --out artifacts/roelofsen-native-intake
 wombmodels collection-accounting --config examples/collection_accounting_fixture.json --out artifacts/collection-accounting
 wombmodels verify-bundle --bundle artifacts/roelofsen-native-recovery --strict
+wombmodels verify-bundle --bundle artifacts/roelofsen-native-intake --strict
 wombmodels verify-bundle --bundle artifacts/collection-accounting --strict
 ```
 
-Both bundles include implementation/input/output hashes and reproduction plans;
+The bundles include implementation/input/output hashes and reproduction plans;
 receipts publish last. Verification checks bytes, not scientific eligibility or
 source review. Existing destinations are rejected.
 
 ## Next qualification target
+
+The [native-data qualification card](ROELOFSEN_DATA_REQUIREMENTS.md) distinguishes
+source tracing from paired transport fitting and starting-cohort success
+estimation. `native_cells.csv` preserves 448 Y-cell locators, exact numeric
+lexemes, set IDs/titles, source row labels and slot positions. `input_dataset.json`
+retains reported quantities/times, null biological-unit identities, unreported
+replicate roles and no continuity edges. `qualification.json` explicitly retains
+unknown starting/excluded attempts. Structural validation and source-byte
+verification do not authenticate biological identity or human review.
 
 Review table/caption mapping, exact quantities and correction ancestry.
 Authenticate the donor/experiment/replicate mapping between maternal and foetal

@@ -56,6 +56,12 @@ counts and unresolved donor linkage stay explicit. `collection-accounting`
 constructs dimensionless counterexamples separating concentration, inventory,
 collection and unresolved sinks; it assigns no biological parameters.
 
+The [native-data qualification card](ROELOFSEN_DATA_REQUIREMENTS.md) now resolves
+the referenced trajectory time unit and adds a cell-level candidate intake.
+Selection of successful perfusions, starting/excluded attempts, specimen links
+and tissue subcolumns remain explicit review requirements. Observation intake
+can verify local source bytes while preserving those unresolved identities.
+
 ```powershell
 python -m venv .venv
 .venv\Scripts\python -m pip install -e .

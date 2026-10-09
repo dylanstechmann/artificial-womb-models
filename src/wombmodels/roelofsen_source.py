@@ -10,6 +10,7 @@ import zipfile
 from pathlib import Path
 
 from .artifacts import InputError, csv_bytes, decode_json, json_bytes, publish_bundle, sha256
+from .roelofsen_intake import candidate_intake
 
 SUPPLEMENT_SHA256 = "ccab1bae3d666024b35e256cf9fb421217fcbba226ea5a294182002ab0a8e108"
 ARTICLE_URL = "https://link.springer.com/article/10.1007/s00204-026-04418-8"
@@ -129,6 +130,22 @@ def _tables(native: bytes, object_index: int):
             sets = [decode_json(archive.read("data/sets/" + _uid(uid) + ".json")) for uid in table["dataSets"]]
             if len(sets) != (2 if object_index == 5 else 4) or any(s["format"] != "y_replicates" for s in sets):
                 raise InputError("Unexpected native data-set structure")
+            if object_index == 5:
+                axis_member = "data/sets/" + _uid(table["xDataSet"]) + ".json"
+                axis_raw = archive.read(axis_member)
+                axis = decode_json(axis_raw)
+                if (table["xDataSetFormat"] != "y_single" or axis["format"] != "y_single"
+                        or _title(axis["title"]) != "Time (min)" or "DS_ATTR_X" not in axis["attributes"]):
+                    raise InputError("Unexpected native trajectory time-axis metadata")
+                axis_metadata = {"axis_metadata_member": axis_member, "axis_metadata_sha256": sha256(axis_raw),
+                    "source_axis_title": _title(axis["title"]), "measurement_time_unit": "min"}
+            else:
+                label_member = "data/sets/" + _uid(table["rowTitlesDataSet"]) + ".json"
+                label_raw = archive.read(label_member)
+                if decode_json(label_raw)["format"] != "text":
+                    raise InputError("Unexpected native tissue row-label metadata")
+                axis_metadata = {"row_label_metadata_member": label_member, "row_label_metadata_sha256": sha256(label_raw),
+                    "source_axis_title": None, "measurement_time_unit": "minutes"}
             csv_member = "data/tables/" + _uid(table["uid"]) + "/data.csv"
             raw_csv = archive.read(csv_member)
             rows = list(csv.reader(io.StringIO(raw_csv.decode("utf-8"))))
@@ -143,8 +160,10 @@ def _tables(native: bytes, object_index: int):
                     if not math.isfinite(value):
                         raise InputError("Nonfinite native numeric token")
             result.append({"object_index": object_index, "sheet_member": name, "sheet_title": title,
+                **axis_metadata, "source_set_ids": list(table["dataSets"]),
                 "source_figure": "Supplementary Fig. S9" if object_index == 5 else "Supplementary Fig. S10",
                 "source_object_paragraph_locator": "word/document.xml w:p[129]" if object_index == 5 else "word/document.xml w:p[132]",
+                "source_caption_paragraph_locator": "word/document.xml w:p[130]" if object_index == 5 else "word/document.xml w:p[133]",
                 "locator_convention": "1-based document-order w:p including nested paragraphs; figure caption follows object paragraph",
                 "source_assay": "ex vivo human placental perfusion, compounds in mixture",
                 "source_quantity": "percent of initial dose in maternal/foetal circulation" if object_index == 5 else "percent of initial dose in perfused placental tissue",
@@ -185,6 +204,7 @@ def audit_roelofsen_source(supplement_path: Path, output: Path):
         filename = f"source-table-{index}.csv"
         files[filename] = table["csv_raw"]
         inventory.append({key:value for key,value in table.items() if key != "csv_raw"} | {"output_file": filename})
+    cells, dataset, qualification = candidate_intake(tables, path.name, sha256(raw))
     manifest = {"schema_version": 1, "source_url": SUPPLEMENT_URL, "source_filename": path.name,
         "sha256": sha256(raw), "size_bytes": len(raw), "objects": objects,
         "external_source_required": True, "source_modified": False, "saved_analyses_executed": False}
@@ -193,21 +213,26 @@ def audit_roelofsen_source(supplement_path: Path, output: Path):
         "trajectory_quantity": "Author-processed percent-of-initial-dose trajectories; not original concentration observations.",
         "replicate_identity": "Native column slots retained; physical donor mapping/cross-compartment pairing not authenticated.",
         "tissue_linkage": "Source Placenta labels retained; no mapping to trajectory slots or technical subsamples inferred.",
-        "analysis_eligibility": "Descriptive native source recovery; dynamic fit not qualified.",
+        "analysis_eligibility": "Candidate cell-level observation intake; dynamic fit not qualified.",
         "limits": ["Percent normalization, sampling/hydrolysis corrections, actual capacities and original instrument observations remain unqualified.",
             "Repeated slot positions do not establish matching physical donors across compounds, compartments or the tissue table.",
             "The native source spelling, including Antipryine, is retained without semantic renaming.",
             "The inspected DOCX relationship/caption maps objects 5/6 to Fig. S9/S10; reported assay intervals and replicate counts are source declarations, not authenticated donor identities.",
-            "Numeric trajectory-axis units and tissue normalization/subcolumn definitions remain unqualified; no units are silently inferred from values or elapsed-window captions.",
+            "Trajectory time unit min is explicit in referenced native Time (min) metadata; tissue elapsed time 180 minutes is caption-reported. These assay times are not developmental ages.",
+            "Tissue normalization/subcolumn definitions remain unqualified; six slots do not establish six independent biological donors.",
+            "The supplement defines successful perfusions using a transfer-based inclusion criterion; the starting/excluded attempt roster is absent from the selected tables and cannot be reconstructed from four included rows.",
             "No OLE program, embedded code, saved Prism analysis, kinetic fit or biological assay was executed.",
             "Term placental transport and choriocarcinoma-cell results remain separate from embryo development and complete gestation."]}
     lines = ["# Recovered native placental source tables", "", "AI-assisted candidate recovery; human review pending.",
         f"Recovered {len(tables)} native tables and {report['n_published_y_values']} published Y values from two embedded Prism objects.",
         "CSV source bytes are preserved exactly; slot identities are not promoted to biological unit identities.",
+        "native_cells.csv and input_dataset.json retain cell locators, numeric text and reported assay times. qualification.json retains unresolved selection, unit linkage and fit requirements.",
         "", f"[Roelofsen et al., 2026]({ARTICLE_URL}); supplementary revision downloaded 2026-10-09.",
         "Article declares CC BY 4.0; source-specific reuse review remains pending. Selected embedded CSVs were recovered without modification; metadata inventories are new.",
         "", "## Qualification", "", report["analysis_eligibility"], "", *["- "+item for item in report["limits"]]]
     files.update({"input_source_manifest.json":json_bytes(manifest), "native_table_report.json":json_bytes(report),
+        "native_cells.csv": csv_bytes(list(cells[0]), cells), "input_dataset.json": json_bytes(dataset),
+        "qualification.json": json_bytes(qualification),
         "table_inventory.csv":csv_bytes(["output_file","object_index","sheet_title","csv_member","csv_sha256","n_rows","n_columns","replicate_slots_per_set","n_y_values"],
             [{key:t[key] for key in ("output_file","object_index","sheet_title","csv_member","csv_sha256","n_rows","n_columns","replicate_slots_per_set","n_y_values")} for t in inventory]),
         "REPORT.md":("\n".join(lines)+"\n").encode()})
