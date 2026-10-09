@@ -218,6 +218,12 @@ and explicit failures are met; automated rerunning is not.*
 
 Begin the data-access audit early; fit only after the plan is frozen.
 
+The [2026-10-09 interface source qualification](SOURCE_QUALIFICATION.md)
+records a bounded Hori/Bhide file audit and executable candidate Hori endpoint
+intake. The inspected files lack the linked trajectories and independent-unit
+identities required for the dynamic benchmark. Human review and appropriate
+source reuse confirmation remain pending; M6 is not complete.
+
 - Select openly licensed measurements relevant to a stated equation, with
   accessible independent-unit IDs, units, uncertainty and instrument context.
 - Write a source/license card and applicability assessment. A developmental

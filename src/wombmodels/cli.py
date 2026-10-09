@@ -13,6 +13,7 @@ from .developmental_models import simulate_mechanics, simulate_transport
 from .evidence import evidence_report
 from .exchange import simulate
 from .identifiability import analyze
+from .hori_source import audit_hori_source
 from .numerical_verification import (
     verify_mechanics_accuracy,
     verify_transport_accuracy,
@@ -33,6 +34,9 @@ def main(argv=None) -> int:
     observations.add_argument("--source-root", type=Path,
                                help="Optional local source directory; hashes only declared relative local_path files")
     observations.add_argument("--out", type=Path, required=True)
+    source_audit = commands.add_parser("audit-hori-source", help="Audit the pinned Hori 2024 Figure 5G workbook offline; no model fit")
+    source_audit.add_argument("--workbook", type=Path, required=True)
+    source_audit.add_argument("--out", type=Path, required=True)
     exchange = commands.add_parser("simulate", help="Run a dimensionless, nonphysiologic exchange fixture")
     exchange.add_argument("--config", type=Path, required=True)
     exchange.add_argument("--out", type=Path, required=True)
@@ -86,6 +90,8 @@ def main(argv=None) -> int:
             receipt = evidence_report(args.ledger, args.out)
         elif args.command == "validate-observations":
             receipt = observation_report(args.dataset, args.out, source_root=args.source_root)
+        elif args.command == "audit-hori-source":
+            receipt = audit_hori_source(args.workbook, args.out)
         elif args.command == "identifiability-report":
             receipt = analyze(args.config, args.trajectory, args.out)
         elif args.command == "design-sweep":

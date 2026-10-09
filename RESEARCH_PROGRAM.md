@@ -76,8 +76,8 @@ source transcription, dataset qualification and human review remain separate.
 | Candidate | Why inspect it | Question or access boundary |
 | --- | --- | --- |
 | [Modeling human embryo implantation in vitro, Cell, 2026 issue](https://doi.org/10.1016/j.cell.2025.10.027) | Reports embryo/endometrial-model implantation and day-14 interface analysis | Early interface development; does not supply evidence for a completed pregnancy. Review actual units, stages, controls and exclusions. |
-| [Hori et al., 2024 placental barrier organoids](https://www.nature.com/articles/s41467-024-45279-y) | Reports selected barrier, permeability and endocrine observations and links Source Data | Audit the actual files, units, replicate hierarchy and geometry before selecting a transport model. |
-| [Bhide et al., 2026 placenta-on-chip record](https://pubmed.ncbi.nlm.nih.gov/42269672/) / [DOI](https://doi.org/10.1088/1758-5090/ae7bc8) | Candidate two-compartment glucose/urea exchange measurements | Bibliographic candidate; full data/rights/independent-unit eligibility is unresolved. |
+| [Hori et al., 2024 placental barrier organoids](https://www.nature.com/articles/s41467-024-45279-y) | Reports selected barrier, permeability and endocrine observations and links Source Data | [Agent file audit](SOURCE_QUALIFICATION.md): 48 Figure 5G Papp endpoints; descriptive extraction only. Unit-linked trajectories and human review remain absent. |
+| [Bhide et al., 2026 placenta-on-chip record](https://pubmed.ncbi.nlm.nih.gov/42269672/) / [DOI](https://doi.org/10.1088/1758-5090/ae7bc8) | Candidate two-compartment glucose/urea exchange measurements | [Inspected attachments 5/6](SOURCE_QUALIFICATION.md): summary comparisons, not raw unit trajectories; benchmark eligibility and supplemental reuse unresolved. |
 | [2026 maternal–fetal interface atlas](https://www.nature.com/articles/s41586-026-10316-x) / [author portal](https://cell.ucsf.edu/snPlacenta/) | Reference cell states and spatial context for comparison with models | Processed data are offered through the portal; raw FASTQ access is controlled under `phs004305.v1`. Sampling site and actual stage matter. This is an identity/context reference, not transport calibration. |
 | [Aguilera-Castrejon et al., 2021](https://www.nature.com/articles/s41586-021-03416-3) | Existing mouse postimplantation interval in the ledger | Preserve its actual start and end, outcome denominators and unresolved later transition. |
 | [Usuda et al., 2023](https://doi.org/10.3389/fphys.2023.1219185) | Existing example of physiological support coexisting with reduced somatic/organ growth | Organize maintenance and development as separate outcomes; inspect the eligible unit-level data and control comparability. |
@@ -123,6 +123,13 @@ dimensional model and an independent-unit split. Keep the current dimensionless
 model intact as a software test. Estimate effective transfer/clearance terms
 that the observations identify; without independently observed interface area,
 do not present permeability and area as separately recovered parameters.
+
+The [2026-10-09 source qualification](SOURCE_QUALIFICATION.md) completes a
+bounded first file audit: Hori supports a candidate descriptive endpoint
+transcription; the inspected Hori/Bhide files do not meet the independent-unit
+dynamic benchmark contract. A dimensional fit and held-out split are deferred.
+The document lists the exact missing existing-data observables and review
+requirements. This agent audit does not mark E3/M6/G1 achieved.
 
 **Discriminator:** prediction of held-out measured concentrations/fluxes with
 error and uncertainty compared against the simpler model. Test whether distinct

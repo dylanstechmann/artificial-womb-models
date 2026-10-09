@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Add an offline, pinned-workbook Hori Figure 5G source audit: preserve 48 endpoint cell locators and numeric text, exact reported units, null unit identities and candidate review status; publish descriptive partitions and a receipt without calibrating a biological model.
+- Qualify the inspected Hori source workbook and Bhide kinetic supplements for the research queue, documenting absent unit-linked trajectories, unresolved source review/rights and the deferred dimensional transport benchmark.
+
 - Add an AI-assisted functional machine concept for continuous embryo-to-birth support, with architecture alternatives, interface hypotheses, individual-unit scaling, independent outcome assessment and explicit human evidence gaps. No operating parameters or biological protocols are supplied.
 - Add optional source-linked developmental scopes to observation intake, enforcing species, stage, exact time units and numeric interval containment. Export per-record containment states and source locators; retain missing/textual bounds as unassessed.
 - Add an invented dimensionless intake example and regression tests for malformed scopes, metadata mismatches, missing observations, independence conflicts and relocated receipt verification.

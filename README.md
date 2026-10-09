@@ -12,6 +12,14 @@ The [machine concept design](SYSTEM_DESIGN.md) proposes an individual continuous
 
 ## What you can run
 
+The [interface source qualification](SOURCE_QUALIFICATION.md) audits the Hori
+2024 Figure 5G workbook and two Bhide 2026 kinetic supplements. The new
+`audit-hori-source` command extracts 48 source-located Papp endpoints into a
+candidate intake and descriptive summaries. These are published coefficients
+with their exact reported units, separate from model fixtures. The inspected
+files cannot support an independent-unit transport benchmark; missing
+trajectories, unit linkage and review requirements are recorded explicitly.
+
 Python 3.10+; the runtime has no third-party dependencies.
 
 ```powershell
