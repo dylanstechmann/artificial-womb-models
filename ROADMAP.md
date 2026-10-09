@@ -12,6 +12,83 @@ dimensionless stress cases should not postpone qualifying a real measurement
 target. New sources in that plan are candidates awaiting source review; this
 roadmap revision does not promote them into the evidence ledger.
 
+## Next research sequence — 2026-10-09
+
+AI-assisted planning after the boundary and maternal-interface source intakes;
+human scientific review remains pending. Prioritize one inspectable empirical
+result, with data qualification before biological fitting. Existing M1–M6
+software milestones remain supporting work.
+
+The primary feasibility question is whether earlier maternal-interface state
+adds information about later embryonic progression after accounting for earlier
+embryo state and actual recipient support. Current sources do not qualify that
+joint analysis. The [maternal-interface requirements](MATERNAL_INTERFACE_REQUIREMENTS.md)
+and [boundary reanalysis contract](BOUNDARY_REANALYSIS_CONTRACT.md) define its
+missing observations. Start with the data/coverage milestone below.
+
+| Order | Work package | Concrete deliverable | Acceptance / stop rule |
+| --- | --- | --- | --- |
+| 1 | Represent cohort coverage and disposition | Extend existing observation intake with optional source-linked aggregate population/denominator metadata; keep the individual phenotype matrix separate | Preserve counted entity, original cohort label, endpoint/selection definition, denominator timing and withdrawals. Missing identity stays unqualified; aggregate counts never create specimen IDs or continuous development |
+| 2 | Resolve a bounded source-mapping question | A source-located mapping/eligibility report for Hiraoka's later endpoint cohorts and Bondarenko's movement/outcome link | Authenticate recipient/embryo/experiment relationships and dispositions from inspected public records. Preserve unresolved mappings and count discrepancies. Stop each source search after its specified public records are inspected or bounded retrieval fails; author inquiry may be prepared but remains unsent |
+| 3 | Qualify one measured-data question | Freeze one source-specific question card and record a source/method review decision | Joint prediction requires individual earlier observations, later outcomes, actual support, complete disposition coverage and independent grouping. If unavailable, select only an eligible descriptive endpoint/coverage question; do not relabel it as mechanism or forecast validation |
+| 4 | Run the eligible bounded analysis | One receipt-bound result with source ancestry, exclusions/unavailable outcomes, simpler comparator where applicable and reproduction instructions | Use the frozen statistic/model and scope. Predictive evaluation keeps all observations from an embryo and shared biological/experimental group together and excludes future inputs. Report a negative, inconclusive or non-identifiable result explicitly |
+| 5 | Revise the architecture from that result | Update the physical-niche, reconstructed-living-interface and retained-maternal-tissue comparison | Name the assumption supported or contradicted, remaining observables and next developmental transition. Early attachment, markers or morphology cannot close sustained exchange, later function or human gestation gates |
+
+### First implementation package
+
+Add optional cohort-coverage metadata to the existing intake contract and its
+reports. Design it around source declarations rather than reconstructed units:
+
+- Separate embryos, recipient animals, tissue fragments, imaging subsamples and
+  assay events. Preserve the source's aggregation convention and labels.
+- Distinguish initially included, assessed, retained, shed, assay-withdrawn,
+  excluded, missing and unassessed populations. A withdrawal from longitudinal
+  assessment need not mean a biological failure or excluded collected data.
+- Bind every count/denominator and selection statement to its exact artifact
+  and locator. Preserve the original reported percentage separately from any
+  count ratio when aggregation meaning is unresolved.
+- Assess count closure only when a declared common cohort, observation window
+  and exhaustive, mutually exclusive disposition categories justify it.
+  Otherwise report the check as unassessed; shared `Exp` labels are insufficient.
+- Keep malformed inputs distinct from valid declarations with unresolved source
+  identity or accounting. Report unresolved/discrepant evidence without silently
+  repairing or dropping it.
+- Add invented software fixtures covering withdrawals, partial coverage,
+  overlapping/unqualified denominators, source-label collisions and a declared
+  complete-cohort count inconsistency. Verify provenance and output exclusivity.
+
+**Completion:** the Hiraoka candidate can retain its endpoint-specific
+withdrawal/denominator statements structurally, with the existing conditional
+count discrepancy still unresolved; the Bondarenko candidate still establishes
+zero boundary/outcome joins. Tests demonstrate that neither aggregate counts nor
+matching labels manufacture biological identity or continuity. Existing source
+bytes, original measurements and human-review status remain intact.
+
+### Bound the next public-data search
+
+For Hiraoka, inspect the publisher peer-review material and declared sequencing
+sample metadata only for explicit cohort/recipient/assay-withdrawal mappings and
+the recorded source-count questions. Do not assume molecular samples provide
+later phenotype records. For Bondarenko, inspect bounded Figure 1 archive
+metadata and selected relevant tabular members if retrieval allows it; do not
+download the large image archive merely to continue searching. Record the scope
+and outcome of each inspection.
+
+Missing source identities or measurements remain an eligibility finding. Prepare
+a precise unsent data inquiry if public records do not resolve them. Any actual
+author contact needs separate user authorization. Human source/method review is
+required before the biological fit; software/data-contract work can proceed
+while that review is pending.
+
+The first result may therefore be a reusable coverage/non-identification report.
+It must state exactly what information is missing and which claim cannot yet be
+tested. A source-qualified paired-morphology description is a separate fallback,
+with its selected population and unresolved generalization clearly retained.
+
+This sequence supplies research software and analysis requirements, without a
+biological procedure, fabrication plan or operating specification. Complete
+healthy human embryo-to-birth support remains unestablished.
+
 ## Delivered baseline
 
 - Reviewed evidence ledger with source class, species, developmental stage,
