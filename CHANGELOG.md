@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Add optional source-linked developmental scopes to observation intake, enforcing species, stage, exact time units and numeric interval containment. Export per-record containment states and source locators; retain missing/textual bounds as unassessed.
+- Add an invented dimensionless intake example and regression tests for malformed scopes, metadata mismatches, missing observations, independence conflicts and relocated receipt verification.
+- Fix observation bundle publication's undefined source revision, recognize its actual bundle kind in strict verification, and record its dataset input and rerun command in the reproduction plan.
 - Add `verify-bundle`: a standalone, standard-library verifier for a published bundle's receipt structure, file hashes and byte counts, declared parent ancestry and recorded dependencies, with bounded reads, symlink rejection and a `--strict` mode for undeclared files and unpublished bundle kinds. Archive integrity, ancestry resolution, scientific review and reproduction are reported as four separate statuses; verification never reruns a model.
 - Copy the exact source `simulate` receipt into `identifiability-report` bundles as `source_receipt.json` and declare its hash in receipt metadata, so ancestry resolves after the source directory is deleted.
 - Publish `reproduction_plan.json` in every bundle with the package version, Python version, declared dependencies, command template, inputs, complete expected file set and interpretation limits, and no absolute paths.

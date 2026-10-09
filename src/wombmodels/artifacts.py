@@ -136,6 +136,8 @@ def reproduction_plan(kind: str, files: dict[str, bytes], metadata: dict) -> dic
         "reviewed_evidence_ledger_report": "wombmodels evidence-report --ledger <evidence.json> --out <new-dir>",
         "developmental_observation_dataset_report":
             "wombmodels validate-observations --dataset <dataset.json> --out <new-dir>",
+        "developmental_observation_intake":
+            "wombmodels validate-observations --dataset <input_dataset.json> --out <new-dir>",
         "dimensionless_transport_theory": "wombmodels transport-model --config <config.json> --out <new-dir>",
         "dimensionless_mechanics_theory": "wombmodels mechanics-model --config <config.json> --out <new-dir>",
     }.get(kind)
@@ -147,7 +149,8 @@ def reproduction_plan(kind: str, files: dict[str, bytes], metadata: dict) -> dic
         "python_version": platform.python_version(),
         "declared_dependencies": ["python>=3.10 standard library only"],
         "command": command or f"no recorded command template for bundle kind {kind}",
-        "inputs": ["source_config.json"] if "source_config.json" in files else [],
+        "inputs": (["input_dataset.json"] if kind == "developmental_observation_intake"
+                   else ["source_config.json"] if "source_config.json" in files else []),
         "parent_bundle_receipt": parent,
         # The plan lists itself and the receipt: a reviewer checking a relocated
         # bundle should see the complete published file set.
@@ -155,7 +158,9 @@ def reproduction_plan(kind: str, files: dict[str, bytes], metadata: dict) -> dic
         "limits": [
             "Matching hashes establish bundle integrity only, not numerical correctness, "
             "parameter identifiability or biological validity.",
-            "Every value in these fixtures is dimensionless. Nothing here predicts human gestation.",
+            ("Observation intake preserves source-reported units; it does not establish measurement validity or predict human gestation."
+             if kind == "developmental_observation_intake" else
+             "Every value in these fixtures is dimensionless. Nothing here predicts human gestation."),
             "Verification never reruns the model. A rerun needs the recorded package version and "
             "the exact inputs listed above.",
         ],

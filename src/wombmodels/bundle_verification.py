@@ -28,6 +28,7 @@ KNOWN_BUNDLE_KINDS = frozenset({
     "synthetic_exchange_design_sweep",
     "reviewed_evidence_ledger_report",
     "developmental_observation_dataset_report",
+    "developmental_observation_intake",
     "dimensionless_transport_theory",
     "dimensionless_mechanics_theory",
     "dimensionless_transport_numerical_verification",

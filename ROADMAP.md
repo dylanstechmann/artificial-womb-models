@@ -152,6 +152,15 @@ confirmation and one qualified empirical dataset. Candidate sources stay
 unpromoted until primary-source review. Curated transition locators and unit IDs
 still need source-transcription checks and an auditable reviewer record.
 
+**Observation interval progress (2026-10-09):** source artifacts can declare an
+optional `developmental_scope` with species, stages, exact time unit, numeric
+bounds and a source locator. Records citing that stage artifact must match its
+categories and remain within its numeric interval. Textual or missing record
+bounds stay explicitly unassessed. Receipt-bound source-scope and per-record
+check tables preserve those distinctions. The new executable intake example is
+entirely invented dimensionless metadata; no empirical source has been qualified
+or promoted by this change. Source transcription and human review remain open.
+
 - Validate examples and imported metadata with the stdlib runtime, including
   source version, species/model, independent unit, stage, actual interval,
   quantity/unit, missingness and calibration status.

@@ -1,0 +1,57 @@
+{
+  "schema_version": 1,
+  "dataset_id": "synthetic-intake-example",
+  "title": "Invented dimensionless observation intake metadata",
+  "source_revision": {
+    "revision_id": "synthetic-v1", "citation": "AI-authored software fixture; no biological study or measurements.",
+    "source_kind": "other", "source_url": "https://example.org/synthetic-intake",
+    "review_status": "candidate", "reviewer": "", "reviewed_on": null, "review_note": ""
+  },
+  "artifacts": [{
+    "artifact_id": "synthetic-source", "uri": "https://example.org/synthetic-intake",
+    "license": "MIT software fixture", "sha256": null, "retrieved_on": null,
+    "developmental_scope": {
+      "species": "unspecified", "stage_tracks": ["unspecified"],
+      "time_unit": "dimensionless_fixture_time", "start": 0, "end": 4,
+      "source_locator": "Invented metadata in this example; no paper, biological interval or gestational time."
+    }
+  }],
+  "observations": [{
+    "schema_version": 1, "record_id": "synthetic-reading-1", "evidence_status": "synthetic_fixture",
+    "species": "unspecified", "stage_track": "unspecified",
+    "developmental_interval": {
+      "label": "invented fixture interval", "time_unit": "dimensionless_fixture_time",
+      "start": 0, "end": 2, "stage_source_artifact_id": "synthetic-source"
+    },
+    "model_system": {"kind": "simulation", "label": "invented metadata fixture"},
+    "assay": {"name": "invented reading", "endpoint": "abstract software stock", "unit": "dimensionless", "measurement_role": "other"},
+    "independent_unit": {"kind": "other", "id": "synthetic-unit-1", "parent_id": null},
+    "observation": {
+      "value": 0.4, "measurement_time": 2, "measurement_time_unit": "dimensionless_fixture_time",
+      "comparator_id": null, "replicate_role": "repeated_measure"
+    },
+    "source": {"artifact_id": "synthetic-source", "uri": "https://example.org/synthetic-intake", "license": "MIT software fixture", "sha256": null},
+    "limitations": ["All values and identifiers are invented software metadata, not biological observations."]
+  }, {
+    "schema_version": 1, "record_id": "synthetic-reading-2", "evidence_status": "synthetic_fixture",
+    "species": "unspecified", "stage_track": "unspecified",
+    "developmental_interval": {
+      "label": "invented later fixture interval", "time_unit": "dimensionless_fixture_time",
+      "start": 2, "end": 4, "stage_source_artifact_id": "synthetic-source"
+    },
+    "model_system": {"kind": "simulation", "label": "invented metadata fixture"},
+    "assay": {"name": "invented reading", "endpoint": "abstract software stock", "unit": "dimensionless", "measurement_role": "other"},
+    "independent_unit": {"kind": "other", "id": "synthetic-unit-1", "parent_id": null},
+    "observation": {
+      "value": null, "measurement_time": 4, "measurement_time_unit": "dimensionless_fixture_time",
+      "comparator_id": null, "replicate_role": "repeated_measure", "missingness_reason": "Invented missing reading for validator coverage."
+    },
+    "source": {"artifact_id": "synthetic-source", "uri": "https://example.org/synthetic-intake", "license": "MIT software fixture", "sha256": null},
+    "limitations": ["A missing fixture reading is not biological attrition or follow-up evidence."]
+  }],
+  "transitions": [{
+    "transition_id": "synthetic-transition", "from_record_ids": ["synthetic-reading-1"],
+    "to_record_ids": ["synthetic-reading-2"], "continuity_status": "not_reported",
+    "note": "No biological continuity is asserted by the synthetic unit labels or interval containment."
+  }]
+}

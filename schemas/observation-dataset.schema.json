@@ -36,6 +36,19 @@
           "license": {"type": "string", "minLength": 1, "maxLength": 120},
           "sha256": {"type": ["string", "null"], "pattern": "^[0-9a-f]{64}$"},
           "retrieved_on": {"type": ["string", "null"], "format": "date"},
+          "developmental_scope": {
+            "type": "object", "additionalProperties": false,
+            "description": "Optional curated scope for developmental intervals citing this artifact as their stage source. Exact species, stage and time-unit matches are required. Numeric record bounds must be contained; missing/textual bounds stay unassessed. Source transcription is not verified.",
+            "required": ["species", "stage_tracks", "time_unit", "start", "end", "source_locator"],
+            "properties": {
+              "species": {"enum": ["human", "mouse", "ovine", "rat", "chick", "other", "unspecified"]},
+              "stage_tracks": {"type": "array", "minItems": 1, "maxItems": 8, "uniqueItems": true,
+                "items": {"enum": ["preimplantation", "implantation_and_placentation", "postimplantation_embryonic", "partial_fetal_support", "transition_to_neonatal", "developmental_outcomes", "organoid_or_tissue_model", "unspecified"]}},
+              "time_unit": {"type": "string", "minLength": 1, "maxLength": 40},
+              "start": {"type": "number"}, "end": {"type": "number"},
+              "source_locator": {"type": "string", "minLength": 1, "maxLength": 1000}
+            }
+          },
           "local_path": {"type": ["string", "null"], "minLength": 1, "maxLength": 500,
                          "description": "Optional relative path beneath --source-root; runtime rejects absolute paths and dot segments."}
         }

@@ -86,8 +86,49 @@ def _number_or_reported_text(value, label):
         return
     if isinstance(value, bool) or not isinstance(value, (int, float)):
         raise InputError(f"{label} must be numeric, reported text, or null")
-    if not math.isfinite(value):
+    try:
+        finite = math.isfinite(value)
+    except OverflowError:
+        finite = False
+    if not finite:
         raise InputError(f"{label} must be finite")
+
+
+def _validate_developmental_scope(value):
+    scope = _object(value, {"species", "stage_tracks", "time_unit", "start", "end",
+                            "source_locator"}, set(), "developmental_scope")
+    _enum(scope["species"], SPECIES, "source-scope species")
+    stages = scope["stage_tracks"]
+    if (not isinstance(stages, list) or not 1 <= len(stages) <= len(STAGE_TRACKS)
+            or any(not isinstance(stage, str) or stage not in STAGE_TRACKS for stage in stages)
+            or len(set(stages)) != len(stages)):
+        raise InputError("developmental_scope.stage_tracks must list distinct known stages")
+    _text(scope["time_unit"], "developmental_scope.time_unit", 40)
+    _text(scope["source_locator"], "developmental_scope.source_locator", 1000)
+    for field in ("start", "end"):
+        if isinstance(scope[field], bool) or not isinstance(scope[field], (int, float)):
+            raise InputError("developmental_scope bounds must be finite numeric values")
+        _number_or_reported_text(scope[field], f"developmental_scope.{field}")
+    if scope["end"] < scope["start"]:
+        raise InputError("developmental_scope end precedes its start")
+    return scope
+
+
+def _check_interval_scope(record, artifacts):
+    interval = record["developmental_interval"]
+    scope = artifacts[interval["stage_source_artifact_id"]].get("developmental_scope")
+    if scope is None:
+        return "not_declared"
+    if record["species"] != scope["species"] or record["stage_track"] not in scope["stage_tracks"]:
+        raise InputError("Observation species/stage lies outside its declared source developmental_scope")
+    if interval["time_unit"] != scope["time_unit"]:
+        raise InputError("Observation interval must use the exact source-scope time unit; no conversion is performed")
+    if any(isinstance(interval[field], bool) or not isinstance(interval[field], (int, float))
+           for field in ("start", "end")):
+        return "not_numeric"
+    if interval["start"] < scope["start"] or interval["end"] > scope["end"]:
+        raise InputError("Observation interval lies outside its declared source developmental_scope bounds")
+    return "contained_in_declared_scope"
 
 
 def _validate_source_revision(value):
@@ -115,7 +156,7 @@ def _validate_source_revision(value):
 
 def _validate_artifact(value, source_ids):
     required = {"artifact_id", "uri", "license", "sha256", "retrieved_on"}
-    item = _object(value, required, {"local_path"}, "source artifact")
+    item = _object(value, required, {"local_path", "developmental_scope"}, "source artifact")
     artifact_id = _text(item["artifact_id"], "artifact_id", 96)
     if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]{1,95}", artifact_id) or artifact_id in source_ids:
         raise InputError(f"Invalid or duplicate source artifact ID: {artifact_id}")
@@ -125,6 +166,8 @@ def _validate_artifact(value, source_ids):
     if digest is not None and (not isinstance(digest, str) or not HEX64.fullmatch(digest)):
         raise InputError("Source artifact SHA-256 must be 64 lowercase hexadecimal characters or null")
     _date(item["retrieved_on"], "source artifact retrieved_on", nullable=True)
+    if "developmental_scope" in item:
+        _validate_developmental_scope(item["developmental_scope"])
     item.setdefault("local_path", None)
     if item["local_path"] is not None:
         local_path = _text(item["local_path"], "source artifact local_path", 500)
@@ -316,6 +359,7 @@ def validate_dataset(dataset):
     records = {}
     for item in observations:
         record = _validate_record(item, artifacts)
+        _check_interval_scope(record, artifacts)
         if record["record_id"] in records:
             raise InputError(f"Duplicate observation record ID: {record['record_id']}")
         records[record["record_id"]] = record
@@ -446,9 +490,14 @@ def verify_source_files(artifacts, source_root):
 def observation_report(dataset_path: Path, output: Path, source_root: Path | None = None) -> dict:
     dataset, raw = read_json(dataset_path)
     validate_dataset(dataset)
+    revision = dataset["source_revision"]
     source_verification = verify_source_files(dataset["artifacts"], source_root)
     artifacts = {item["artifact_id"]: item for item in dataset["artifacts"]}
     records = dataset["observations"]
+    interval_checks = [{"record_id": item["record_id"],
+                        "stage_source_artifact_id": item["developmental_interval"]["stage_source_artifact_id"],
+                        "status": _check_interval_scope(item, artifacts)} for item in records]
+    n_contained = sum(item["status"] == "contained_in_declared_scope" for item in interval_checks)
     group_fields = ("species", "stage_track", "developmental_interval", "model_system", "assay", "source")
     groups = defaultdict(list)
     duplicate_units = defaultdict(list)
@@ -493,6 +542,8 @@ def observation_report(dataset_path: Path, output: Path, source_root: Path | Non
 
     source_status = dataset["source_revision"]["review_status"]
     warnings = []
+    if n_contained < len(records):
+        warnings.append("Some developmental intervals have no declared numeric source scope or no numeric record bounds; their containment was not assessed.")
     if source_status == "candidate":
         warnings.append("Source revision is a candidate awaiting local human review.")
     if source_status == "locally_reviewed_included":
@@ -529,6 +580,9 @@ def observation_report(dataset_path: Path, output: Path, source_root: Path | Non
         "biological_assay_performed": False,
         "analysis_eligibility": "requires source-specific human review and a frozen analysis plan",
         "source_file_verification": verification_summary,
+        "source_interval_containment": {"n_contained": n_contained,
+                                        "n_not_assessed": len(records) - n_contained,
+                                        "scientific_transcription": "not_verified"},
         "groups": group_rows[:100], "n_groups_in_report": min(len(group_rows), 100),
         "groups_truncated": len(group_rows) > 100, "warnings": warnings,
         "limits": [
@@ -539,6 +593,7 @@ def observation_report(dataset_path: Path, output: Path, source_root: Path | Non
             "Declared source SHA-256 values are checked for format and matched between records and artifact metadata. Optional local byte checks hash only the relative files named under --source-root; source URIs are never fetched.",
             "Source files are read-only inputs and are not copied into the bundle. Hash verification records bytes observed at that time; rerun if files change.",
             "Transition status is a source-recorded assertion. Demonstrated continuity requires matching recorded unit identifiers within one source artifact.",
+            "Source interval containment compares curated metadata in exact recorded units. It does not verify a source transcription, infer numeric bounds from prose, or establish biological continuity.",
         ],
     }
     lines = ["# Developmental observation intake", "",
@@ -547,6 +602,8 @@ def observation_report(dataset_path: Path, output: Path, source_root: Path | Non
              f"Records: {len(records)} · exact comparison groups: {len(group_rows)} · transitions: {len(dataset['transitions'])}", "",
              "No biological assay was performed by this command. Source URIs are never fetched. Optional local byte checks use only files beneath --source-root and do not copy their contents into this bundle.",
              "Analysis eligibility still requires source-specific human review and a frozen analysis plan.", "",
+             "## Declared source interval containment", "",
+             f"Contained in declared numeric scope: {n_contained}/{len(records)} records; unassessed: {len(records) - n_contained}. See source_interval_checks.csv and source_scopes.csv. Scientific transcription was not verified.", "",
              "## Local source-file byte verification", "",
              f"Status: {source_verification['status']} · verified: {source_verification['n_verified']}/{source_verification['n_artifacts']} artifacts · bytes hashed: {source_verification['bytes_hashed']}",
              "The receipt covers the submitted dataset JSON and generated outputs, not the external source bytes.", ""]
@@ -599,6 +656,11 @@ def observation_report(dataset_path: Path, output: Path, source_root: Path | Non
         "transitions.csv": csv_bytes(["transition_id", "from_record_ids", "to_record_ids", "continuity_status", "note"], transition_rows),
         "source_files.csv": csv_bytes(["artifact_id", "relative_path", "declared_sha256", "observed_sha256",
                                         "verification_status", "bytes_hashed", "note"], source_file_rows),
+        "source_interval_checks.csv": csv_bytes(["record_id", "stage_source_artifact_id", "status"], interval_checks),
+        "source_scopes.csv": csv_bytes(["artifact_id", "species", "stage_tracks", "time_unit", "start", "end", "source_locator"],
+            [{"artifact_id": item["artifact_id"], **item["developmental_scope"],
+              "stage_tracks": ";".join(item["developmental_scope"]["stage_tracks"])}
+             for item in dataset["artifacts"] if "developmental_scope" in item]),
         "REPORT.md": ("\n".join(lines) + "\n").encode("utf-8"),
     }
     return publish_bundle(output, kind="developmental_observation_intake", input_raw=raw, files=files,
