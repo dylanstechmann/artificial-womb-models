@@ -23,11 +23,13 @@ bioRxiv API and the [authors' institutional abstract](https://www.janelia.org/pu
 It starts after implantation and does not establish embryo-to-birth support.
 
 The API returns version 1, posted 2026-03-18, with `published: NA`. That is the
-observed metadata, not proof that no later publication exists anywhere. Full
-text retrieval failed through the text tool; the API-listed XML request was
-rate limited. Consequently, cohort denominators, attrition, adverse outcomes,
-same-unit relationships and the actual terminal support limitation remain
-unqualified here. Do not use indexed full-text snippets to fill those gaps.
+observed metadata, not proof that no later publication exists anywhere. Original
+full-text retrieval failed and the API-listed XML request was rate limited.
+Subsequent [terminal-boundary intake](MIDGESTATION_BOUNDARY.md) inspected selected
+Results/Discussion and captions in a rendered primary manuscript copy. It retains
+late adverse findings and an author-attributed delivery explanation, with no
+observed raw-source hash. Original data, unit incidence, same-unit relationships,
+copy integrity and causal identification remain unqualified.
 
 **Design inference:** retain a bounded placental-bypass hypothesis for comparison
 with the growing biological interface. A metabolic transition that is partly
@@ -107,7 +109,7 @@ from support.
 
 ## Next feasibility milestone
 
-Qualify the preprint's full results and cohort records, then compare the two
+Qualify the preprint's original results, supplements and cohort records, then compare the two
 routes using a **function-by-interval dossier**: source species, actual starting
 state, interface retained/replaced, delivery, metabolic use, development,
 attrition and later transition. Keep destructive tissue endpoints separate from
@@ -116,6 +118,7 @@ are separate studies and must not be joined into a longer demonstrated path.
 
 The immediate unresolved question is whether a supported interval ends because
 exchange capacity, tissue metabolism, developmental interaction or another
-function fails. The inspected abstract does not answer it. Resolving that
+function fails. Additional narrative findings narrow the question but do not
+identify a unique cause. Resolving that
 boundary, with adverse outcomes and comparators, would inform which function
 Machine A actually needs next.

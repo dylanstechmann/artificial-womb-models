@@ -17,7 +17,7 @@
       "properties": {
         "revision_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{1,95}$"},
         "citation": {"type": "string", "minLength": 1, "maxLength": 2000},
-        "source_kind": {"enum": ["peer_reviewed_animal", "peer_reviewed_human_invitro", "regulator_discussion", "institution_announcement", "dataset_record", "other"]},
+        "source_kind": {"enum": ["peer_reviewed_animal", "peer_reviewed_human_invitro", "regulator_discussion", "institution_announcement", "dataset_record", "preprint", "other"]},
         "source_url": {"type": "string", "format": "uri"},
         "review_status": {"enum": ["candidate", "locally_reviewed_included", "locally_reviewed_excluded"]},
         "reviewer": {"type": "string", "maxLength": 200},

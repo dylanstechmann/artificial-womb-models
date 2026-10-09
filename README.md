@@ -39,6 +39,12 @@ source workbooks retain sample/time distinctions and a normalization
 label/formula discrepancy; biological fitting and human continuity remain
 unestablished.
 
+The [terminal-boundary intake](MIDGESTATION_BOUNDARY.md) adds a runnable candidate
+card with nine qualitative preprint findings and one missing follow-up
+requirement. It preserves late adverse effects, different starting cohorts,
+unknown unit continuity and unpinned original source bytes. Intake reports now
+retain an explicit `preprint` class independently of local review status.
+
 The [interface source qualification](SOURCE_QUALIFICATION.md) audits the Hori
 2024 Figure 5G workbook and two Bhide 2026 kinetic supplements. The new
 `audit-hori-source` command extracts 48 source-located Papp endpoints into a

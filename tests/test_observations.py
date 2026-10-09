@@ -56,6 +56,53 @@ class ObservationIntakeTests(unittest.TestCase):
         self.assertEqual(report["source_interval_containment"]["n_not_assessed"], 2)
         self.assertTrue(any("containment was not assessed" in item for item in report["warnings"]))
 
+    def test_preprint_class_and_review_state_remain_separate(self):
+        for review_state in ("candidate", "locally_reviewed_included"):
+            with self.subTest(review_state=review_state):
+                data = copy.deepcopy(self.data)
+                revision = data["source_revision"]
+                revision.update(source_kind="preprint", review_status=review_state)
+                if review_state == "locally_reviewed_included":
+                    revision.update(reviewer="Recorded fixture reviewer", reviewed_on="2026-10-09",
+                                    review_note="Invented local review metadata; no journal review or biological eligibility established.")
+                bundle, report = self.publish(data)
+                self.assertEqual(report["source_kind"], "preprint")
+                self.assertEqual(report["source_review_status"], review_state)
+                self.assertTrue(any("does not establish journal peer review" in warning
+                                    for warning in report["warnings"]))
+                self.assertFalse(report["biological_assay_performed"])
+                self.assertIn("requires source-specific human review", report["analysis_eligibility"])
+                self.assertEqual(report["n_continuity_not_reported"], 1)
+                self.assertIn("Declared source class: preprint", (bundle / "REPORT.md").read_text())
+                verified = verify_bundle(bundle, strict=True)
+                self.assertTrue(verified["bytes_verified"], verified["errors"])
+                self.assertEqual(verified["scientific_review"], "not_established_by_this_tool")
+                shutil.rmtree(bundle)
+
+    def test_unknown_source_class_still_rejected(self):
+        self.data["source_revision"]["source_kind"] = "preprint_peer_reviewed"
+        with self.assertRaisesRegex(InputError, "source kind"):
+            validate_dataset(self.data)
+
+    def test_terminal_candidate_retains_missing_source_identity_and_unknown_continuity(self):
+        path = EXAMPLE.parents[1] / "config/observations/lokshtanov_2026_terminal_candidate.json"
+        data = json.loads(path.read_text(encoding="utf-8"))
+        _, report = self.publish(data)
+        self.assertEqual(report["source_kind"], "preprint")
+        self.assertEqual(report["source_review_status"], "candidate")
+        self.assertEqual(report["n_observation_records"], 10)
+        self.assertEqual(report["n_continuity_not_reported"], 2)
+        self.assertEqual(report["source_interval_containment"]["n_contained"], 0)
+        self.assertTrue(any("no SHA-256" in warning for warning in report["warnings"]))
+        self.assertTrue(all(row["independent_unit"]["id"] is None for row in data["observations"]))
+        missing = [row for row in data["observations"] if row["observation"]["value"] is None]
+        self.assertEqual(len(missing), 1)
+        self.assertEqual(missing[0]["evidence_status"], "planned")
+        self.assertEqual(missing[0]["assay"]["measurement_role"], "durability")
+        data["transitions"][0]["continuity_status"] = "demonstrated"
+        with self.assertRaisesRegex(InputError, "same reported unit"):
+            validate_dataset(data)
+
     def test_textual_and_missing_bounds_are_not_inferred_from_prose(self):
         for bounds in (("early", "later"), (None, None), (0, None)):
             with self.subTest(bounds=bounds):

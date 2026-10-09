@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Add explicit preprint source classification to observation intake and reports, separate from local human review. Curate nine qualitative terminal-window findings and one missing follow-up requirement from selected rendered mouse manuscript passages; retain adverse effects, separate starting cohorts, unpinned source bytes and unknown continuity. Refine internal-delivery/growth requirements without diagnosing a terminal cause or adding operating parameters.
+
 - Add a bounded placental-bypass comparator and independent delivery/metabolic-use/development requirements. Pin 2026 mouse preprint metadata/abstract and a peer-reviewed compartment-metabolism reference with two read-only source workbooks; retain different sampled embryo IDs, normalization label/formula direction discrepancy and unresolved cohort/access limits without biological fitting or ledger promotion.
 
 - Refine the early exchange boundary around yolk-sac/extraembryonic functions and their developmental relay. Pin three primary-source snapshots; distinguish niche support from connected embryonic exchange and retain adverse later outcomes, conflicting source timing and species/stage limits without promoting gestation claims.

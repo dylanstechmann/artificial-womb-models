@@ -25,7 +25,7 @@ UNIT_KINDS = {"donor", "pregnant_animal", "embryo", "source_kidney", "organoid",
               "culture_batch", "sample_pool", "other", "not_reported"}
 REPLICATE_ROLES = {"independent", "repeated_measure", "technical", "summary_only", "not_reported"}
 SOURCE_KINDS = {"peer_reviewed_animal", "peer_reviewed_human_invitro", "regulator_discussion",
-                "institution_announcement", "dataset_record", "other"}
+                "institution_announcement", "dataset_record", "preprint", "other"}
 REVIEW_STATES = {"candidate", "locally_reviewed_included", "locally_reviewed_excluded"}
 HEX64 = re.compile(r"[0-9a-f]{64}")
 RECORD_ID = re.compile(r"[a-z0-9][a-z0-9._-]{2,95}")
@@ -580,7 +580,10 @@ def observation_report(dataset_path: Path, output: Path, source_root: Path | Non
         })
 
     source_status = dataset["source_revision"]["review_status"]
+    source_kind = dataset["source_revision"]["source_kind"]
     warnings = []
+    if source_kind == "preprint":
+        warnings.append("Source is declared a preprint; local review does not establish journal peer review or validate its findings.")
     if n_contained < len(records):
         warnings.append("Some developmental intervals have no declared numeric source scope or no numeric record bounds; their containment was not assessed.")
     if source_status == "candidate":
@@ -618,6 +621,7 @@ def observation_report(dataset_path: Path, output: Path, source_root: Path | Non
         "schema_version": 1, "report_kind": "developmental_observation_intake",
         "dataset_id": dataset["dataset_id"], "title": dataset["title"],
         "source_revision_id": dataset["source_revision"]["revision_id"],
+        "source_kind": source_kind,
         "source_review_status": source_status, "n_source_artifacts": len(artifacts),
         "n_observation_records": len(records), "n_exact_comparison_groups": len(group_rows),
         "n_transitions": len(dataset["transitions"]), "n_continuity_not_reported": not_reported_edges,
@@ -648,6 +652,7 @@ def observation_report(dataset_path: Path, output: Path, source_root: Path | Non
     lines = ["# Developmental observation intake", "",
              f"Dataset: {dataset['title']} (`{dataset['dataset_id']}`)",
              f"Source revision: `{dataset['source_revision']['revision_id']}` · {source_status}",
+             f"Declared source class: {source_kind}",
              f"Records: {len(records)} · exact comparison groups: {len(group_rows)} · transitions: {len(dataset['transitions'])}", "",
              "No biological assay was performed by this command. Source URIs are never fetched. Optional local byte checks use only files beneath --source-root and do not copy their contents into this bundle.",
              "Analysis eligibility still requires source-specific human review and a frozen analysis plan.", "",

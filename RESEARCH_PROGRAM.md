@@ -27,7 +27,8 @@ and explicit failure conditions. The next narrow target is source qualification
 of mechanics and progression together, alongside the
 [functional support-route comparison](FUNCTIONAL_SUPPORT_ROUTES.md). The latter
 tests a bounded placental-bypass hypothesis and separates delivery, metabolic
-use and development. Its new preprint remains abstract-qualified; the inspected
+use and development. Its new preprint has selected rendered-text qualification
+and a [terminal-boundary candidate intake](MIDGESTATION_BOUNDARY.md); the inspected
 peer-reviewed reference source data require quantity/hierarchy reconciliation
 before observation intake or fitting.
 
@@ -92,7 +93,7 @@ source transcription, dataset qualification and human review remain separate.
 | [Bhide et al., 2026 placenta-on-chip record](https://pubmed.ncbi.nlm.nih.gov/42269672/) / [DOI](https://doi.org/10.1088/1758-5090/ae7bc8) | Candidate two-compartment glucose/urea exchange measurements | [Inspected attachments 5/6](SOURCE_QUALIFICATION.md): summary comparisons, not raw unit trajectories; benchmark eligibility and supplemental reuse unresolved. |
 | [2026 maternal–fetal interface atlas](https://www.nature.com/articles/s41586-026-10316-x) / [author portal](https://cell.ucsf.edu/snPlacenta/) | Reference cell states and spatial context for comparison with models | Processed data are offered through the portal; raw FASTQ access is controlled under `phs004305.v1`. Sampling site and actual stage matter. This is an identity/context reference, not transport calibration. |
 | [Aguilera-Castrejon et al., 2021](https://www.nature.com/articles/s41586-021-03416-3) | Existing mouse postimplantation interval in the ledger | Preserve its actual start and end, outcome denominators and unresolved later transition. |
-| [Lokshtanov et al., bioRxiv v1, 2026](https://doi.org/10.64898/2026.03.17.710314) | New mouse E6.5/E7.5 to approximately E12.5 and intrinsic metabolic-transition claims | API/institutional abstract inspected; full text, cohort outcomes and terminal support limitation remain unqualified. Preprint, not a reviewed extension of the ledger. |
+| [Lokshtanov et al., bioRxiv v1, 2026](https://doi.org/10.64898/2026.03.17.710314) | New mouse interval and intrinsic metabolic-transition claims; late adverse narrative retained | API/institutional abstract and selected rendered primary passages inspected. Preserve E6.5/E7.5 and modality-specific stage comparisons; original bytes, cohort incidence, causal mechanism and human review unqualified. |
 | [Solmonson et al., Nature, 2022](https://www.nature.com/articles/s41586-022-04557-9) | In-utero compartment/organ metabolic reference and uptake-versus-development distinction | Two source workbooks inspected read-only; qualify normalization direction, isotope quantities and dam/litter/embryo hierarchy. No machine validation or fit. |
 | [Usuda et al., 2023](https://doi.org/10.3389/fphys.2023.1219185) | Existing example of physiological support coexisting with reduced somatic/organ growth | Organize maintenance and development as separate outcomes; inspect the eligible unit-level data and control comparability. |
 | [FDA committee summary, 2023](https://www.fda.gov/media/172441/download) | Evaluation context for partial fetal support, maturation, transition and follow-up | Regulator discussion; preserve its intended-use scope and source class. |

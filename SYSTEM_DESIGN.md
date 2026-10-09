@@ -132,6 +132,13 @@ metabolic use and developmental progression. Adequate tracer delivery can
 coexist with impaired metabolism and development in the inspected mouse
 reference; no external-supply correction or human operating setting follows.
 
+The [terminal-boundary intake](MIDGESTATION_BOUNDARY.md) further requires
+internal/compartment delivery evidence as growth proceeds, alongside adverse
+outcome timing. Selected mouse preprint passages report late slowing and
+terminal injury; their attributed delivery mechanism remains unqualified.
+Molecular endpoint resemblance does not close that boundary, and destructive
+tissue assessment remains a separate sampling branch from later survival.
+
 ## Machine B: support and observation station
 
 The [selective-interface exploration](SELECTIVE_INTERFACE_FEASIBILITY.md)

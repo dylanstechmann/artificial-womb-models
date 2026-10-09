@@ -1,0 +1,580 @@
+{
+  "schema_version": 1,
+  "dataset_id": "lokshtanov2026-terminal-summary-candidate",
+  "title": "Mouse terminal-interval findings from selected rendered preprint passages; agent-curated candidate",
+  "source_revision": {
+    "revision_id": "lokshtanov-v1-rendered-2026-10-09",
+    "citation": "Lokshtanov et al. (2026), Reconstituting Mouse Embryogenesis Ex Utero from Gastrulation to Fetal Development Reveals Maternally Independent Metabolic Programs. bioRxiv v1, posted 2026-03-18. DOI: 10.64898/2026.03.17.710314.",
+    "source_kind": "preprint",
+    "source_url": "https://doi.org/10.64898/2026.03.17.710314",
+    "review_status": "candidate",
+    "reviewer": "",
+    "reviewed_on": null,
+    "review_note": ""
+  },
+  "artifacts": [
+    {
+      "artifact_id": "lokshtanov-v1-rendered-manuscript",
+      "uri": "https://www.researchgate.net/publication/403370800_Reconstituting_Mouse_Embryogenesis_Ex_Utero_from_Gastrulation_to_Fetal_Development_Reveals_Maternally_Independent_Metabolic_Programs",
+      "license": "Manuscript banner: CC BY 4.0; mirror reuse/version review pending",
+      "sha256": null,
+      "retrieved_on": "2026-10-09"
+    }
+  ],
+  "observations": [
+    {
+      "schema_version": 1,
+      "record_id": "lokshtanov-late-growth",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "postimplantation_embryonic",
+      "developmental_interval": {
+        "label": "E7.5 starting cohort to approximately E12.5; source stage conventions",
+        "start": "E7.5",
+        "end": "approximately E12.5",
+        "time_unit": "source embryonic stage labels",
+        "stage_source_artifact_id": "lokshtanov-v1-rendered-manuscript"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Natural mouse embryos cultured ex utero from E7.5; reported terminal support interval"
+      },
+      "assay": {
+        "name": "Rendered preprint qualitative finding",
+        "endpoint": "Late development rate relative to in-utero controls",
+        "unit": "source-reported qualitative summary",
+        "measurement_role": "morphology",
+        "calibration_artifact_id": null
+      },
+      "independent_unit": {
+        "kind": "embryo",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Source unit/parent identifiers and linkage unavailable in inspected rendered passages; no independent-n claim."
+      },
+      "observation": {
+        "value": "Growth slows relative to in-utero controls after reported E11.5",
+        "measurement_time": "after culture day 4",
+        "measurement_time_unit": "source culture days",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "lokshtanov-v1-rendered-manuscript",
+        "uri": "https://www.researchgate.net/publication/403370800_Reconstituting_Mouse_Embryogenesis_Ex_Utero_from_Gastrulation_to_Fetal_Development_Reveals_Maternally_Independent_Metabolic_Programs",
+        "license": "Manuscript banner: CC BY 4.0; mirror reuse/version review pending",
+        "sha256": null,
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "Exact manuscript locator: Results, manuscript page 6, lines 179-183.",
+        "Selected rendered manuscript passage only; original source bytes, images and underlying observations remain unqualified.",
+        "No same-unit developmental continuity or human-stage equivalence is established."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "lokshtanov-heart-enlargement",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "postimplantation_embryonic",
+      "developmental_interval": {
+        "label": "E7.5 starting cohort to approximately E12.5; source stage conventions",
+        "start": "E7.5",
+        "end": "approximately E12.5",
+        "time_unit": "source embryonic stage labels",
+        "stage_source_artifact_id": "lokshtanov-v1-rendered-manuscript"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Natural mouse embryos cultured ex utero from E7.5; reported terminal support interval"
+      },
+      "assay": {
+        "name": "Rendered preprint qualitative finding",
+        "endpoint": "Terminal cardiac morphology",
+        "unit": "source-reported qualitative summary",
+        "measurement_role": "adverse_effect",
+        "calibration_artifact_id": null
+      },
+      "independent_unit": {
+        "kind": "embryo",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Source unit/parent identifiers and linkage unavailable in inspected rendered passages; no independent-n claim."
+      },
+      "observation": {
+        "value": "Enlarged heart reported",
+        "measurement_time": "culture day 5.5",
+        "measurement_time_unit": "source culture days",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "lokshtanov-v1-rendered-manuscript",
+        "uri": "https://www.researchgate.net/publication/403370800_Reconstituting_Mouse_Embryogenesis_Ex_Utero_from_Gastrulation_to_Fetal_Development_Reveals_Maternally_Independent_Metabolic_Programs",
+        "license": "Manuscript banner: CC BY 4.0; mirror reuse/version review pending",
+        "sha256": null,
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "Exact manuscript locator: Results, manuscript page 6, lines 184-186.",
+        "Selected rendered manuscript passage only; original source bytes, images and underlying observations remain unqualified.",
+        "No same-unit developmental continuity or human-stage equivalence is established.",
+        "Authors attribute terminal injury to inadequate internal oxygen/nutrient delivery; this intake does not establish that causal mechanism or event order."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "lokshtanov-pericardial-edema",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "postimplantation_embryonic",
+      "developmental_interval": {
+        "label": "E7.5 starting cohort to approximately E12.5; source stage conventions",
+        "start": "E7.5",
+        "end": "approximately E12.5",
+        "time_unit": "source embryonic stage labels",
+        "stage_source_artifact_id": "lokshtanov-v1-rendered-manuscript"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Natural mouse embryos cultured ex utero from E7.5; reported terminal support interval"
+      },
+      "assay": {
+        "name": "Rendered preprint qualitative finding",
+        "endpoint": "Terminal fluid/injury finding",
+        "unit": "source-reported qualitative summary",
+        "measurement_role": "adverse_effect",
+        "calibration_artifact_id": null
+      },
+      "independent_unit": {
+        "kind": "embryo",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Source unit/parent identifiers and linkage unavailable in inspected rendered passages; no independent-n claim."
+      },
+      "observation": {
+        "value": "Pericardial edema reported",
+        "measurement_time": "culture day 5.5",
+        "measurement_time_unit": "source culture days",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "lokshtanov-v1-rendered-manuscript",
+        "uri": "https://www.researchgate.net/publication/403370800_Reconstituting_Mouse_Embryogenesis_Ex_Utero_from_Gastrulation_to_Fetal_Development_Reveals_Maternally_Independent_Metabolic_Programs",
+        "license": "Manuscript banner: CC BY 4.0; mirror reuse/version review pending",
+        "sha256": null,
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "Exact manuscript locator: Results, manuscript page 6, lines 184-186.",
+        "Selected rendered manuscript passage only; original source bytes, images and underlying observations remain unqualified.",
+        "No same-unit developmental continuity or human-stage equivalence is established.",
+        "Authors attribute terminal injury to inadequate internal oxygen/nutrient delivery; this intake does not establish that causal mechanism or event order."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "lokshtanov-internal-hemorrhage",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "postimplantation_embryonic",
+      "developmental_interval": {
+        "label": "E7.5 starting cohort to approximately E12.5; source stage conventions",
+        "start": "E7.5",
+        "end": "approximately E12.5",
+        "time_unit": "source embryonic stage labels",
+        "stage_source_artifact_id": "lokshtanov-v1-rendered-manuscript"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Natural mouse embryos cultured ex utero from E7.5; reported terminal support interval"
+      },
+      "assay": {
+        "name": "Rendered preprint qualitative finding",
+        "endpoint": "Terminal vascular/injury finding",
+        "unit": "source-reported qualitative summary",
+        "measurement_role": "adverse_effect",
+        "calibration_artifact_id": null
+      },
+      "independent_unit": {
+        "kind": "embryo",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Source unit/parent identifiers and linkage unavailable in inspected rendered passages; no independent-n claim."
+      },
+      "observation": {
+        "value": "Internal hemorrhage reported",
+        "measurement_time": "culture day 5.5",
+        "measurement_time_unit": "source culture days",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "lokshtanov-v1-rendered-manuscript",
+        "uri": "https://www.researchgate.net/publication/403370800_Reconstituting_Mouse_Embryogenesis_Ex_Utero_from_Gastrulation_to_Fetal_Development_Reveals_Maternally_Independent_Metabolic_Programs",
+        "license": "Manuscript banner: CC BY 4.0; mirror reuse/version review pending",
+        "sha256": null,
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "Exact manuscript locator: Results, manuscript page 6, lines 184-186.",
+        "Selected rendered manuscript passage only; original source bytes, images and underlying observations remain unqualified.",
+        "No same-unit developmental continuity or human-stage equivalence is established.",
+        "Authors attribute terminal injury to inadequate internal oxygen/nutrient delivery; this intake does not establish that causal mechanism or event order."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "lokshtanov-internal-necrosis",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "postimplantation_embryonic",
+      "developmental_interval": {
+        "label": "E7.5 starting cohort to approximately E12.5; source stage conventions",
+        "start": "E7.5",
+        "end": "approximately E12.5",
+        "time_unit": "source embryonic stage labels",
+        "stage_source_artifact_id": "lokshtanov-v1-rendered-manuscript"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Natural mouse embryos cultured ex utero from E7.5; reported terminal support interval"
+      },
+      "assay": {
+        "name": "Rendered preprint qualitative finding",
+        "endpoint": "Terminal internal tissue injury",
+        "unit": "source-reported qualitative summary",
+        "measurement_role": "adverse_effect",
+        "calibration_artifact_id": null
+      },
+      "independent_unit": {
+        "kind": "embryo",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Source unit/parent identifiers and linkage unavailable in inspected rendered passages; no independent-n claim."
+      },
+      "observation": {
+        "value": "Internal tissue necrosis reported",
+        "measurement_time": "culture day 5.5",
+        "measurement_time_unit": "source culture days",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "lokshtanov-v1-rendered-manuscript",
+        "uri": "https://www.researchgate.net/publication/403370800_Reconstituting_Mouse_Embryogenesis_Ex_Utero_from_Gastrulation_to_Fetal_Development_Reveals_Maternally_Independent_Metabolic_Programs",
+        "license": "Manuscript banner: CC BY 4.0; mirror reuse/version review pending",
+        "sha256": null,
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "Exact manuscript locator: Results, manuscript page 6, lines 184-186.",
+        "Selected rendered manuscript passage only; original source bytes, images and underlying observations remain unqualified.",
+        "No same-unit developmental continuity or human-stage equivalence is established.",
+        "Authors attribute terminal injury to inadequate internal oxygen/nutrient delivery; this intake does not establish that causal mechanism or event order."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "lokshtanov-placental-structure",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "postimplantation_embryonic",
+      "developmental_interval": {
+        "label": "E7.5 starting cohort to approximately E12.5; source stage conventions",
+        "start": "E7.5",
+        "end": "approximately E12.5",
+        "time_unit": "source embryonic stage labels",
+        "stage_source_artifact_id": "lokshtanov-v1-rendered-manuscript"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Natural mouse embryos cultured ex utero from E7.5; reported terminal support interval"
+      },
+      "assay": {
+        "name": "Rendered preprint qualitative finding",
+        "endpoint": "Extraembryonic placental compartment structure",
+        "unit": "source-reported qualitative summary",
+        "measurement_role": "morphology",
+        "calibration_artifact_id": null
+      },
+      "independent_unit": {
+        "kind": "embryo",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Source unit/parent identifiers and linkage unavailable in inspected rendered passages; no independent-n claim."
+      },
+      "observation": {
+        "value": "Small labyrinth portion; junctional zone and decidua mostly absent",
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "lokshtanov-v1-rendered-manuscript",
+        "uri": "https://www.researchgate.net/publication/403370800_Reconstituting_Mouse_Embryogenesis_Ex_Utero_from_Gastrulation_to_Fetal_Development_Reveals_Maternally_Independent_Metabolic_Programs",
+        "license": "Manuscript banner: CC BY 4.0; mirror reuse/version review pending",
+        "sha256": null,
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "Exact manuscript locator: Results, manuscript page 8, lines 259-264; Extended Data Figure 5C cited, image not inspected.",
+        "Selected rendered manuscript passage only; original source bytes, images and underlying observations remain unqualified.",
+        "No same-unit developmental continuity or human-stage equivalence is established."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "lokshtanov-metabolic-attenuation",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "postimplantation_embryonic",
+      "developmental_interval": {
+        "label": "E10.5 starting cohort to approximately E11; source stage conventions",
+        "start": "E10.5",
+        "end": "approximately E11",
+        "time_unit": "source embryonic stage labels",
+        "stage_source_artifact_id": "lokshtanov-v1-rendered-manuscript"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Mouse ex-utero comparison arm with changed external oxygen availability; separate from terminal-injury cohort"
+      },
+      "assay": {
+        "name": "Rendered preprint qualitative finding",
+        "endpoint": "Metabolic change despite limited gross morphological findings",
+        "unit": "source-reported qualitative summary",
+        "measurement_role": "function",
+        "calibration_artifact_id": null
+      },
+      "independent_unit": {
+        "kind": "embryo",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Source unit/parent identifiers and linkage unavailable in inspected rendered passages; no independent-n claim."
+      },
+      "observation": {
+        "value": "Attenuated metabolic transition despite minimal reported morphological abnormalities",
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "lokshtanov-v1-rendered-manuscript",
+        "uri": "https://www.researchgate.net/publication/403370800_Reconstituting_Mouse_Embryogenesis_Ex_Utero_from_Gastrulation_to_Fetal_Development_Reveals_Maternally_Independent_Metabolic_Programs",
+        "license": "Manuscript banner: CC BY 4.0; mirror reuse/version review pending",
+        "sha256": null,
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "Exact manuscript locator: Discussion, manuscript page 18, lines 600-608.",
+        "Selected rendered manuscript passage only; original source bytes, images and underlying observations remain unqualified.",
+        "No same-unit developmental continuity or human-stage equivalence is established.",
+        "Discussion leaves a direct environmental effect versus a consequence of impaired developmental progression unresolved. This comparison is not joined to the terminal injury cohort."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "lokshtanov-e65-cell-states",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "postimplantation_embryonic",
+      "developmental_interval": {
+        "label": "E6.5 starting cohort to approximately E12.0; source stage conventions",
+        "start": "E6.5",
+        "end": "approximately E12.0",
+        "time_unit": "source embryonic stage labels",
+        "stage_source_artifact_id": "lokshtanov-v1-rendered-manuscript"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Natural mouse embryos cultured ex utero from E6.5; separate earlier-start cohort"
+      },
+      "assay": {
+        "name": "Rendered preprint qualitative finding",
+        "endpoint": "Cell-state resemblance and deviations in earlier-start cohort",
+        "unit": "source-reported qualitative summary",
+        "measurement_role": "molecular_identity",
+        "calibration_artifact_id": null
+      },
+      "independent_unit": {
+        "kind": "embryo",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Source unit/parent identifiers and linkage unavailable in inspected rendered passages; no independent-n claim."
+      },
+      "observation": {
+        "value": "Day-six profiles approach E12.0 controls with deviations in cell-type composition",
+        "measurement_time": "culture day 6",
+        "measurement_time_unit": "source culture days",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "lokshtanov-v1-rendered-manuscript",
+        "uri": "https://www.researchgate.net/publication/403370800_Reconstituting_Mouse_Embryogenesis_Ex_Utero_from_Gastrulation_to_Fetal_Development_Reveals_Maternally_Independent_Metabolic_Programs",
+        "license": "Manuscript banner: CC BY 4.0; mirror reuse/version review pending",
+        "sha256": null,
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "Exact manuscript locator: Results, manuscript page 9, lines 282-288; page 9-10, lines 298-305.",
+        "Selected rendered manuscript passage only; original source bytes, images and underlying observations remain unqualified.",
+        "No same-unit developmental continuity or human-stage equivalence is established."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "lokshtanov-e75-cell-states",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "postimplantation_embryonic",
+      "developmental_interval": {
+        "label": "E7.5 starting cohort to approximately E12.5; source stage conventions",
+        "start": "E7.5",
+        "end": "approximately E12.5",
+        "time_unit": "source embryonic stage labels",
+        "stage_source_artifact_id": "lokshtanov-v1-rendered-manuscript"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Natural mouse embryos cultured ex utero from E7.5; reported terminal support interval"
+      },
+      "assay": {
+        "name": "Rendered preprint qualitative finding",
+        "endpoint": "Endpoint cell-state resemblance in E7.5 starting cohort",
+        "unit": "source-reported qualitative summary",
+        "measurement_role": "molecular_identity",
+        "calibration_artifact_id": null
+      },
+      "independent_unit": {
+        "kind": "embryo",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Source unit/parent identifiers and linkage unavailable in inspected rendered passages; no independent-n claim."
+      },
+      "observation": {
+        "value": "Author-reported endpoint cell-state resemblance; selected lineage differences retained",
+        "measurement_time": "culture day 5.5",
+        "measurement_time_unit": "source culture days",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "lokshtanov-v1-rendered-manuscript",
+        "uri": "https://www.researchgate.net/publication/403370800_Reconstituting_Mouse_Embryogenesis_Ex_Utero_from_Gastrulation_to_Fetal_Development_Reveals_Maternally_Independent_Metabolic_Programs",
+        "license": "Manuscript banner: CC BY 4.0; mirror reuse/version review pending",
+        "sha256": null,
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "Exact manuscript locator: Results, manuscript page 9-10, lines 293-297 and 307-322.",
+        "Selected rendered manuscript passage only; original source bytes, images and underlying observations remain unqualified.",
+        "No same-unit developmental continuity or human-stage equivalence is established.",
+        "Destructive molecular endpoint; cell/nucleus counts do not equal independent embryos, and molecular resemblance does not establish functional equivalence or healthy later development."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "lokshtanov-post-terminal-followup",
+      "evidence_status": "planned",
+      "species": "mouse",
+      "stage_track": "postimplantation_embryonic",
+      "developmental_interval": {
+        "label": "E7.5 starting cohort to post-terminal follow-up unreported; source stage conventions",
+        "start": "E7.5",
+        "end": "post-terminal follow-up unreported",
+        "time_unit": "source embryonic stage labels",
+        "stage_source_artifact_id": "lokshtanov-v1-rendered-manuscript"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Natural mouse embryos cultured ex utero from E7.5; reported terminal support interval"
+      },
+      "assay": {
+        "name": "Future source-linked follow-up intake",
+        "endpoint": "Same-unit function beyond reported terminal interval",
+        "unit": "unreported",
+        "measurement_role": "durability",
+        "calibration_artifact_id": null
+      },
+      "independent_unit": {
+        "kind": "embryo",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Source unit/parent identifiers and linkage unavailable in inspected rendered passages; no independent-n claim."
+      },
+      "observation": {
+        "value": null,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "not_reported",
+        "measurement_uncertainty": null,
+        "missingness_reason": "No eligible same-unit post-terminal follow-up in inspected passages; missing evidence is not an adverse outcome."
+      },
+      "source": {
+        "artifact_id": "lokshtanov-v1-rendered-manuscript",
+        "uri": "https://www.researchgate.net/publication/403370800_Reconstituting_Mouse_Embryogenesis_Ex_Utero_from_Gastrulation_to_Fetal_Development_Reveals_Maternally_Independent_Metabolic_Programs",
+        "license": "Manuscript banner: CC BY 4.0; mirror reuse/version review pending",
+        "sha256": null,
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "Exact manuscript locator: Inspected Results/Discussion and Figure 1-3 captions contain no eligible same-unit post-terminal follow-up for this intake.",
+        "Selected rendered manuscript passage only; original source bytes, images and underlying observations remain unqualified.",
+        "No same-unit developmental continuity or human-stage equivalence is established."
+      ]
+    }
+  ],
+  "transitions": [
+    {
+      "transition_id": "lokshtanov-growth-to-injury",
+      "from_record_ids": [
+        "lokshtanov-late-growth"
+      ],
+      "to_record_ids": [
+        "lokshtanov-heart-enlargement",
+        "lokshtanov-pericardial-edema",
+        "lokshtanov-internal-hemorrhage",
+        "lokshtanov-internal-necrosis"
+      ],
+      "continuity_status": "not_reported",
+      "note": "Source narrative retains late slowing and terminal injury, but endpoint unit IDs/event order are unqualified; no same-unit loss rate or mechanism is inferred."
+    },
+    {
+      "transition_id": "lokshtanov-cell-states-to-later-function",
+      "from_record_ids": [
+        "lokshtanov-e75-cell-states"
+      ],
+      "to_record_ids": [
+        "lokshtanov-post-terminal-followup"
+      ],
+      "continuity_status": "not_reported",
+      "note": "Molecular tissue assessment is a destructive branch. No same-unit outcome beyond it is available here; absent follow-up is neither a demonstrated transition nor a contradicted one."
+    }
+  ],
+  "limitations": [
+    "Selected Results/Discussion and Figure captions inspected as rendered primary manuscript text hosted by ResearchGate with matching DOI/date banner. Raw mirror request returned HTTP 403; original publisher full text, methods, figures, supplements, cohort rosters and source-specific reuse remain unqualified. Agent source curation is not human scientific review.",
+    "All nonmissing values are qualitative author-reported preprint summaries, not agent measurements or reviewed calibration data.",
+    "Rendered manuscript text has no observed source-byte hash; the intake receipt pins this curated dataset and generated outputs only.",
+    "Embryo/dam/litter identities and endpoint denominators remain unqualified; record counts are not biological sample counts.",
+    "Starting E6.5 and E7.5 cohorts, culture duration and achieved developmental stage remain separate.",
+    "The author-attributed internal delivery explanation is not an independently identified terminal failure mechanism.",
+    "No tissue manipulation, culture procedure, live control action or physiological setting is supplied.",
+    "Full human gestation, normal lifelong function and reduced congenital defects remain unestablished."
+  ]
+}
