@@ -46,6 +46,14 @@ The new mouse source supports descriptive discordance only. Its concentration
 workbook has an executable audit, but missing units, hierarchy, cohort roster
 and a timing discrepancy prevent a biological fit or paired effect estimate.
 
+The [moving-boundary requirement](DYNAMIC_BOUNDARY_REQUIREMENTS.md) qualifies
+a comparative mouse implantation source and preserves separate composite
+morphology, membrane, growth and perturbation findings in executable candidate
+intake. It also recovers the prior source's aggregate counts and global batch
+replicate definition. The next discriminator is a same-embryo boundary/growth/
+outcome link; sequencing cells and segmentation training stacks cannot supply
+independent developmental units or establish adequate recipient support.
+
 ## 1. Treat the objective as a chain of biological transitions
 
 A wall-powered support system would have to preserve the functions needed at

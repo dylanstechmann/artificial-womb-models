@@ -152,6 +152,15 @@ mouse yolk-sac function persists alongside an embryo-arrest narrative; a working
 support component alone cannot certify organism-level progression. The source
 does not identify a particular physical constraint, input or control correction.
 
+The [moving-boundary requirement](DYNAMIC_BOUNDARY_REQUIREMENTS.md) adds a
+bounded comparative mouse source: early growth is coordinated with trophoblast
+and membrane displacement in a maternal-facing context. Machine A must qualify
+that changing tissue relationship alongside exchange; a fixed geometry or
+stiffness alone cannot establish it. Machine B must retain source-unit trajectories,
+inferred-versus-measured quantities and individual outcomes. The source reaches
+an early egg-cylinder endpoint, with failures retained; it supplies no human
+mechanical setting or evidence of later continuous support.
+
 ## Machine B: support and observation station
 
 The [selective-interface exploration](SELECTIVE_INTERFACE_FEASIBILITY.md)

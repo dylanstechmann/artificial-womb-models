@@ -47,8 +47,9 @@ spatial-constraint explanation remains a hypothesis.
 The [pinned source inventory](config/source_inventories/jin_yolk_sac_2026.json)
 records a publisher workbook with four sheets: Figure 2, Figure 4, Figure 5 and
 Figure 6. The selected sheets contain no Figure 1 starting roster or selected
-uptake/colony quantitative panels. Other supplements were not inspected; this
-does not establish that such data are absent everywhere.
+uptake/colony quantitative panels. That workbook audit alone does not establish
+that such data are absent elsewhere. The selected PDF follow-up below qualifies
+additional aggregate cohort and replication metadata.
 
 `audit-yolk-sac-source` retains **310 numeric source cells across 31 Figure 5
 time rows**, including source scalar columns, reported means and SDs. It checks
@@ -126,8 +127,19 @@ branches and adverse endpoints, rather than reporting support-component function
 as organism-level success. No specific external input, physical constraint or
 control action follows from this source audit.
 
-Next qualification: reconcile Figure 5 timing/units and recover the Figure 1
-starting/outcome roster plus cross-assay specimen hierarchy. CRA024449 is the
-reported sequencing accession; its file/sample inventory remains unqualified.
-Even fully resolving those source issues would not establish human continuous
-gestation or healthy lifelong outcomes.
+The [moving-boundary qualification](DYNAMIC_BOUNDARY_REQUIREMENTS.md) now recovers
+aggregate screen counts from Supplementary Table 1, post-QC cell totals from
+Table 2, and the Reporting Summary's definition of a biological replicate as
+a new blastocyst-batch experiment. These selected publisher PDFs are hashed and
+visually inspected. The global definition does not authenticate Figure 5 scalar
+columns or cross-assay pairing. The selected table gives aggregate endpoints,
+without individual identities or a link to the main eight-experiment summary.
+The inventory preserves this narrower qualification; the 13-record intake now
+declares both pinned supplements as supporting artifacts.
+
+Next qualification: reconcile Figure 5 timing/units and recover individual
+starting/outcome records plus cross-assay specimen hierarchy. CRA024449 retrieval
+failed; its file/sample inventory remains unqualified. A separate mouse
+implantation study adds comparative boundary/growth evidence, without diagnosing
+arrest here. Even fully resolving these source issues would not establish human
+continuous gestation or healthy lifelong outcomes.

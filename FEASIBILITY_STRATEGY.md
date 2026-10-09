@@ -177,3 +177,12 @@ measurement history plus a reviewed model class.
 The resulting research direction is a remodelable maternal niche and a growing
 living interface, assessed through joint support and development. Whether it
 can deliver complete human embryo-to-birth support remains an open question.
+
+The [moving-boundary qualification](DYNAMIC_BOUNDARY_REQUIREMENTS.md) now makes
+this requirement more specific. Comparative early mouse evidence connects
+embryonic growth with extraembryonic boundary movement; it does not establish
+later exchange or identify the cause of arrest in another study. Require linked
+growth, boundary and outcome trajectories before reanalysis, and independent
+support receipt/function before claiming coordination failure despite adequate
+support. Public segmentation annotations currently qualify a measurement resource,
+without supplying that joint biological endpoint.

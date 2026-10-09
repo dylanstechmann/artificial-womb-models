@@ -59,6 +59,13 @@ from observation intake. Selected mouse component assays coexist with an
 embryo-arrest narrative; same-unit function/progression and causal explanation
 remain unqualified.
 
+The [moving-boundary requirement](DYNAMIC_BOUNDARY_REQUIREMENTS.md) adds a pinned
+mouse implantation source with eight comparative findings and a missing linked
+follow-up. It separates early composite morphology from membrane presence and
+model-inferred forces, and qualifies public imaging metadata as a segmentation
+resource. Prior yolk-sac supplements now clarify aggregate cohort counts and
+batch replication without establishing individual pairing or human feasibility.
+
 The [interface source qualification](SOURCE_QUALIFICATION.md) audits the Hori
 2024 Figure 5G workbook and two Bhide 2026 kinetic supplements. The new
 `audit-hori-source` command extracts 48 source-located Papp endpoints into a

@@ -3,7 +3,7 @@
   "dataset_id": "jin2026-yolk-sac-development-candidate",
   "title": "Selected mouse yolk-sac function and embryo-proper progression findings; candidate, pairing unqualified",
   "source_revision": {
-    "revision_id": "jin2026-accepted-rendered-2026-10-09",
+    "revision_id": "jin2026-selected-supplement-2026-10-09",
     "citation": "Jin et al. (2026), Ex utero 3D culture system illuminates post-implantation development and functions of the mouse yolk sac. Communications Biology accepted article. DOI 10.1038/s42003-026-10656-4.",
     "source_kind": "peer_reviewed_animal",
     "source_url": "https://doi.org/10.1038/s42003-026-10656-4",
@@ -27,6 +27,22 @@
       "sha256": "b2bd434213007dfab98df41c864db53a474aa74bf382f156ef0340c44a35ac6a",
       "retrieved_on": "2026-10-09",
       "local_path": "artifacts/jin-yolk-sac-2026-10-09/supplementary-data-5.xlsx"
+    },
+    {
+      "artifact_id": "jin2026-supplement",
+      "uri": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs42003-026-10656-4/MediaObjects/42003_2026_10656_MOESM2_ESM.pdf",
+      "license": "Article CC BY-NC-ND 4.0; supplement-specific reuse review pending",
+      "sha256": "07949c2d33bc468c1e28bb2110477b9415a9646de708b452f920569619c35cc1",
+      "retrieved_on": "2026-10-09",
+      "local_path": "artifacts/coordination-cohort-2026-10-09/jin-supplement.pdf"
+    },
+    {
+      "artifact_id": "jin2026-reporting",
+      "uri": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs42003-026-10656-4/MediaObjects/42003_2026_10656_MOESM9_ESM.pdf",
+      "license": "Article CC BY-NC-ND 4.0; supplement-specific reuse review pending",
+      "sha256": "47f65788e2271e4b17ba780eaa8dc80bfc4b4c73de2ae8378a9d8a0fd13148ad",
+      "retrieved_on": "2026-10-09",
+      "local_path": "artifacts/coordination-cohort-2026-10-09/jin-reporting.pdf"
     }
   ],
   "observations": [
@@ -65,7 +81,7 @@
         "kind": "not_reported",
         "id": null,
         "parent_id": null,
-        "hierarchy_note": "Individual units, dam/litter, starting rosters, losses and cross-assay pairing unqualified. Selected tissue pools are not individual trajectories."
+        "hierarchy_note": "Aggregate screen counts and global batch replicate definition recovered in pinned supplements; individual units, assay/batch/litter links and losses remain unqualified. Pools are not trajectories."
       },
       "observation": {
         "value": "D4 egg-cylinder appearance compared with E6.5; approximately one-day delay reported",
@@ -85,7 +101,8 @@
       "limitations": [
         "Selected rendered accepted article text/captions only; original publisher full-manuscript bytes, images and raw biological observations unqualified.",
         "Culture duration, embryo developmental stage and yolk-sac reference resemblance remain distinct; no continuous normal-organism trajectory inferred.",
-        "Reported function or molecular identity in support tissue does not establish recipient organ delivery or healthy later development."
+        "Reported function or molecular identity in support tissue does not establish recipient organ delivery or healthy later development.",
+        "Reporting Summary p2 defines biological replicate as a new blastocyst-batch experiment; p1 marks distinct/repeated measure statement n/a. This does not authenticate scalar columns or assay pairing."
       ]
     },
     {
@@ -123,7 +140,7 @@
         "kind": "not_reported",
         "id": null,
         "parent_id": null,
-        "hierarchy_note": "Individual units, dam/litter, starting rosters, losses and cross-assay pairing unqualified. Selected tissue pools are not individual trajectories."
+        "hierarchy_note": "Aggregate screen counts and global batch replicate definition recovered in pinned supplements; individual units, assay/batch/litter links and losses remain unqualified. Pools are not trajectories."
       },
       "observation": {
         "value": "Abnormal streak intrusion and atypical mesoderm migration reported",
@@ -143,7 +160,8 @@
       "limitations": [
         "Selected rendered accepted article text/captions only; original publisher full-manuscript bytes, images and raw biological observations unqualified.",
         "Culture duration, embryo developmental stage and yolk-sac reference resemblance remain distinct; no continuous normal-organism trajectory inferred.",
-        "Authors suggest missing maternal spatial constraints; causal attribution not identified. A marker-positive streak is not normal gastrulation."
+        "Authors suggest missing maternal spatial constraints; causal attribution not identified. A marker-positive streak is not normal gastrulation.",
+        "Reporting Summary p2 defines biological replicate as a new blastocyst-batch experiment; p1 marks distinct/repeated measure statement n/a. This does not authenticate scalar columns or assay pairing."
       ]
     },
     {
@@ -181,7 +199,7 @@
         "kind": "not_reported",
         "id": null,
         "parent_id": null,
-        "hierarchy_note": "Individual units, dam/litter, starting rosters, losses and cross-assay pairing unqualified. Selected tissue pools are not individual trajectories."
+        "hierarchy_note": "Aggregate screen counts and global batch replicate definition recovered in pinned supplements; individual units, assay/batch/litter links and losses remain unqualified. Pools are not trajectories."
       },
       "observation": {
         "value": "Embryo proper arrests; proper somites and trunk elongation lacking",
@@ -201,7 +219,8 @@
       "limitations": [
         "Selected rendered accepted article text/captions only; original publisher full-manuscript bytes, images and raw biological observations unqualified.",
         "Culture duration, embryo developmental stage and yolk-sac reference resemblance remain distinct; no continuous normal-organism trajectory inferred.",
-        "Reported function or molecular identity in support tissue does not establish recipient organ delivery or healthy later development."
+        "Reported function or molecular identity in support tissue does not establish recipient organ delivery or healthy later development.",
+        "Reporting Summary p2 defines biological replicate as a new blastocyst-batch experiment; p1 marks distinct/repeated measure statement n/a. This does not authenticate scalar columns or assay pairing."
       ]
     },
     {
@@ -239,7 +258,7 @@
         "kind": "not_reported",
         "id": null,
         "parent_id": null,
-        "hierarchy_note": "Individual units, dam/litter, starting rosters, losses and cross-assay pairing unqualified. Selected tissue pools are not individual trajectories."
+        "hierarchy_note": "Aggregate screen counts and global batch replicate definition recovered in pinned supplements; individual units, assay/batch/litter links and losses remain unqualified. Pools are not trajectories."
       },
       "observation": {
         "value": "Yolk-sac morphogenesis continues despite abnormal embryo-proper progression",
@@ -259,7 +278,8 @@
       "limitations": [
         "Selected rendered accepted article text/captions only; original publisher full-manuscript bytes, images and raw biological observations unqualified.",
         "Culture duration, embryo developmental stage and yolk-sac reference resemblance remain distinct; no continuous normal-organism trajectory inferred.",
-        "Reported function or molecular identity in support tissue does not establish recipient organ delivery or healthy later development."
+        "Reported function or molecular identity in support tissue does not establish recipient organ delivery or healthy later development.",
+        "Reporting Summary p2 defines biological replicate as a new blastocyst-batch experiment; p1 marks distinct/repeated measure statement n/a. This does not authenticate scalar columns or assay pairing."
       ]
     },
     {
@@ -297,7 +317,7 @@
         "kind": "not_reported",
         "id": null,
         "parent_id": null,
-        "hierarchy_note": "Individual units, dam/litter, starting rosters, losses and cross-assay pairing unqualified. Selected tissue pools are not individual trajectories."
+        "hierarchy_note": "Aggregate screen counts and global batch replicate definition recovered in pinned supplements; individual units, assay/batch/litter links and losses remain unqualified. Pools are not trajectories."
       },
       "observation": {
         "value": "D10 yolk-sac profiles compared with E8.5-E10.5 references; selected expanded tissue pooled",
@@ -317,7 +337,8 @@
       "limitations": [
         "Selected rendered accepted article text/captions only; original publisher full-manuscript bytes, images and raw biological observations unqualified.",
         "Culture duration, embryo developmental stage and yolk-sac reference resemblance remain distinct; no continuous normal-organism trajectory inferred.",
-        "Culture duration is not an E13.5 embryo endpoint. Selection excludes a representative starting-cohort claim; pool members and failed units unqualified."
+        "Culture duration is not an E13.5 embryo endpoint. Selection excludes a representative starting-cohort claim; pool members and failed units unqualified.",
+        "Reporting Summary p2 defines biological replicate as a new blastocyst-batch experiment; p1 marks distinct/repeated measure statement n/a. This does not authenticate scalar columns or assay pairing."
       ]
     },
     {
@@ -355,7 +376,7 @@
         "kind": "not_reported",
         "id": null,
         "parent_id": null,
-        "hierarchy_note": "Individual units, dam/litter, starting rosters, losses and cross-assay pairing unqualified. Selected tissue pools are not individual trajectories."
+        "hierarchy_note": "Aggregate screen counts and global batch replicate definition recovered in pinned supplements; individual units, assay/batch/litter links and losses remain unqualified. Pools are not trajectories."
       },
       "observation": {
         "value": "Dextran and transferrin uptake reported with negative-control comparisons",
@@ -375,7 +396,8 @@
       "limitations": [
         "Selected rendered accepted article text/captions only; original publisher full-manuscript bytes, images and raw biological observations unqualified.",
         "Culture duration, embryo developmental stage and yolk-sac reference resemblance remain distinct; no continuous normal-organism trajectory inferred.",
-        "Reported function or molecular identity in support tissue does not establish recipient organ delivery or healthy later development."
+        "Reported function or molecular identity in support tissue does not establish recipient organ delivery or healthy later development.",
+        "Reporting Summary p2 defines biological replicate as a new blastocyst-batch experiment; p1 marks distinct/repeated measure statement n/a. This does not authenticate scalar columns or assay pairing."
       ]
     },
     {
@@ -413,7 +435,7 @@
         "kind": "not_reported",
         "id": null,
         "parent_id": null,
-        "hierarchy_note": "Individual units, dam/litter, starting rosters, losses and cross-assay pairing unqualified. Selected tissue pools are not individual trajectories."
+        "hierarchy_note": "Aggregate screen counts and global batch replicate definition recovered in pinned supplements; individual units, assay/batch/litter links and losses remain unqualified. Pools are not trajectories."
       },
       "observation": {
         "value": "Lysosomal staining and APOA4/LAMP1 co-localization reported",
@@ -433,7 +455,8 @@
       "limitations": [
         "Selected rendered accepted article text/captions only; original publisher full-manuscript bytes, images and raw biological observations unqualified.",
         "Culture duration, embryo developmental stage and yolk-sac reference resemblance remain distinct; no continuous normal-organism trajectory inferred.",
-        "Reported function or molecular identity in support tissue does not establish recipient organ delivery or healthy later development."
+        "Reported function or molecular identity in support tissue does not establish recipient organ delivery or healthy later development.",
+        "Reporting Summary p2 defines biological replicate as a new blastocyst-batch experiment; p1 marks distinct/repeated measure statement n/a. This does not authenticate scalar columns or assay pairing."
       ]
     },
     {
@@ -471,7 +494,7 @@
         "kind": "not_reported",
         "id": null,
         "parent_id": null,
-        "hierarchy_note": "Individual units, dam/litter, starting rosters, losses and cross-assay pairing unqualified. Selected tissue pools are not individual trajectories."
+        "hierarchy_note": "Aggregate screen counts and global batch replicate definition recovered in pinned supplements; individual units, assay/batch/litter links and losses remain unqualified. Pools are not trajectories."
       },
       "observation": {
         "value": "Transporter and metal-binding expression signatures reported",
@@ -491,7 +514,8 @@
       "limitations": [
         "Selected rendered accepted article text/captions only; original publisher full-manuscript bytes, images and raw biological observations unqualified.",
         "Culture duration, embryo developmental stage and yolk-sac reference resemblance remain distinct; no continuous normal-organism trajectory inferred.",
-        "Reported function or molecular identity in support tissue does not establish recipient organ delivery or healthy later development."
+        "Reported function or molecular identity in support tissue does not establish recipient organ delivery or healthy later development.",
+        "Reporting Summary p2 defines biological replicate as a new blastocyst-batch experiment; p1 marks distinct/repeated measure statement n/a. This does not authenticate scalar columns or assay pairing."
       ]
     },
     {
@@ -529,7 +553,7 @@
         "kind": "not_reported",
         "id": null,
         "parent_id": null,
-        "hierarchy_note": "Individual units, dam/litter, starting rosters, losses and cross-assay pairing unqualified. Selected tissue pools are not individual trajectories."
+        "hierarchy_note": "Aggregate screen counts and global batch replicate definition recovered in pinned supplements; individual units, assay/batch/litter links and losses remain unqualified. Pools are not trajectories."
       },
       "observation": {
         "value": "Coagulation-related transcript signatures reported",
@@ -549,7 +573,8 @@
       "limitations": [
         "Selected rendered accepted article text/captions only; original publisher full-manuscript bytes, images and raw biological observations unqualified.",
         "Culture duration, embryo developmental stage and yolk-sac reference resemblance remain distinct; no continuous normal-organism trajectory inferred.",
-        "Reported function or molecular identity in support tissue does not establish recipient organ delivery or healthy later development."
+        "Reported function or molecular identity in support tissue does not establish recipient organ delivery or healthy later development.",
+        "Reporting Summary p2 defines biological replicate as a new blastocyst-batch experiment; p1 marks distinct/repeated measure statement n/a. This does not authenticate scalar columns or assay pairing."
       ]
     },
     {
@@ -587,7 +612,7 @@
         "kind": "not_reported",
         "id": null,
         "parent_id": null,
-        "hierarchy_note": "Individual units, dam/litter, starting rosters, losses and cross-assay pairing unqualified. Selected tissue pools are not individual trajectories."
+        "hierarchy_note": "Aggregate screen counts and global batch replicate definition recovered in pinned supplements; individual units, assay/batch/litter links and losses remain unqualified. Pools are not trajectories."
       },
       "observation": {
         "value": "AFP and APOA1 medium increases reported; source caption/workbook label APOA",
@@ -607,7 +632,8 @@
       "limitations": [
         "Selected rendered accepted article text/captions only; original publisher full-manuscript bytes, images and raw biological observations unqualified.",
         "Culture duration, embryo developmental stage and yolk-sac reference resemblance remain distinct; no continuous normal-organism trajectory inferred.",
-        "Medium is not embryo-organ receipt. Source scalar columns have no verified longitudinal unit identity; no secretion-rate inference."
+        "Medium is not embryo-organ receipt. Source scalar columns have no verified longitudinal unit identity; no secretion-rate inference.",
+        "Reporting Summary p2 defines biological replicate as a new blastocyst-batch experiment; p1 marks distinct/repeated measure statement n/a. This does not authenticate scalar columns or assay pairing."
       ]
     },
     {
@@ -645,7 +671,7 @@
         "kind": "not_reported",
         "id": null,
         "parent_id": null,
-        "hierarchy_note": "Individual units, dam/litter, starting rosters, losses and cross-assay pairing unqualified. Selected tissue pools are not individual trajectories."
+        "hierarchy_note": "Aggregate screen counts and global batch replicate definition recovered in pinned supplements; individual units, assay/batch/litter links and losses remain unqualified. Pools are not trajectories."
       },
       "observation": {
         "value": "Authors describe VEGFA medium peaks at D2 and D6; timing reconciliation remains open",
@@ -665,7 +691,8 @@
       "limitations": [
         "Selected rendered accepted article text/captions only; original publisher full-manuscript bytes, images and raw biological observations unqualified.",
         "Culture duration, embryo developmental stage and yolk-sac reference resemblance remain distinct; no continuous normal-organism trajectory inferred.",
-        "Strict adjacent interior mean maxima are an arithmetic descriptor, not secretion events. Original figure/version/time convention requires reconciliation."
+        "Strict adjacent interior mean maxima are an arithmetic descriptor, not secretion events. Original figure/version/time convention requires reconciliation.",
+        "Reporting Summary p2 defines biological replicate as a new blastocyst-batch experiment; p1 marks distinct/repeated measure statement n/a. This does not authenticate scalar columns or assay pairing."
       ]
     },
     {
@@ -703,7 +730,7 @@
         "kind": "not_reported",
         "id": null,
         "parent_id": null,
-        "hierarchy_note": "Individual units, dam/litter, starting rosters, losses and cross-assay pairing unqualified. Selected tissue pools are not individual trajectories."
+        "hierarchy_note": "Aggregate screen counts and global batch replicate definition recovered in pinned supplements; individual units, assay/batch/litter links and losses remain unqualified. Pools are not trajectories."
       },
       "observation": {
         "value": "Erythroid-like and myeloid-like colonies reported from eYS",
@@ -723,7 +750,8 @@
       "limitations": [
         "Selected rendered accepted article text/captions only; original publisher full-manuscript bytes, images and raw biological observations unqualified.",
         "Culture duration, embryo developmental stage and yolk-sac reference resemblance remain distinct; no continuous normal-organism trajectory inferred.",
-        "Reported function or molecular identity in support tissue does not establish recipient organ delivery or healthy later development."
+        "Reported function or molecular identity in support tissue does not establish recipient organ delivery or healthy later development.",
+        "Reporting Summary p2 defines biological replicate as a new blastocyst-batch experiment; p1 marks distinct/repeated measure statement n/a. This does not authenticate scalar columns or assay pairing."
       ]
     },
     {
@@ -761,7 +789,7 @@
         "kind": "not_reported",
         "id": null,
         "parent_id": null,
-        "hierarchy_note": "Individual units, dam/litter, starting rosters, losses and cross-assay pairing unqualified. Selected tissue pools are not individual trajectories."
+        "hierarchy_note": "Aggregate screen counts and global batch replicate definition recovered in pinned supplements; individual units, assay/batch/litter links and losses remain unqualified. Pools are not trajectories."
       },
       "observation": {
         "value": null,
@@ -782,7 +810,8 @@
       "limitations": [
         "Selected rendered accepted article text/captions only; original publisher full-manuscript bytes, images and raw biological observations unqualified.",
         "Culture duration, embryo developmental stage and yolk-sac reference resemblance remain distinct; no continuous normal-organism trajectory inferred.",
-        "Reported function or molecular identity in support tissue does not establish recipient organ delivery or healthy later development."
+        "Reported function or molecular identity in support tissue does not establish recipient organ delivery or healthy later development.",
+        "Reporting Summary p2 defines biological replicate as a new blastocyst-batch experiment; p1 marks distinct/repeated measure statement n/a. This does not authenticate scalar columns or assay pairing."
       ]
     }
   ],
@@ -807,6 +836,7 @@
     "Publisher landing HTML and Supplementary Data 5 retrieved separately; landing page hash does not pin full manuscript. Article license CC BY-NC-ND 4.0; source-specific reuse review pending.",
     "No quantified embryo-arrest incidence or paired support-function/progression effect is estimated. Reported YS formation percentage is not embryo-development success.",
     "Source numeric concentration cells remain excluded from observation intake pending units, quantity/calibration, background and replication review.",
-    "No embryo culture, tissue manipulation, biological protocol, physiological setting, device assembly, clinical guidance, biological fit or ledger promotion."
+    "No embryo culture, tissue manipulation, biological protocol, physiological setting, device assembly, clinical guidance, biological fit or ledger promotion.",
+    "Selected publisher PDF cohort/replication fields now qualified and hashed; aggregate counts and a global definition do not recover same-unit function/progression. Human review remains pending."
   ]
 }

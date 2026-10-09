@@ -1,0 +1,578 @@
+{
+  "schema_version": 1,
+  "dataset_id": "bondarenko2023-coordination-candidate",
+  "title": "Bounded mouse peri-implantation boundary/growth comparisons; source-linked candidate summaries",
+  "source_revision": {
+    "revision_id": "bondarenko2023-xml-2026-10-09",
+    "citation": "Bondarenko et al. (2023). Embryo-uterine interaction coordinates mouse embryogenesis during implantation. The EMBO Journal 42, e113280. DOI 10.15252/embj.2022113280.",
+    "source_kind": "peer_reviewed_animal",
+    "source_url": "https://doi.org/10.15252/embj.2022113280",
+    "review_status": "candidate",
+    "reviewer": "",
+    "reviewed_on": null,
+    "review_note": ""
+  },
+  "artifacts": [
+    {
+      "artifact_id": "bondarenko2023-europepmc-xml",
+      "uri": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10476174/fullTextXML",
+      "license": "CC BY 4.0 article license; source-specific review pending",
+      "sha256": "92ac9a0a0af2202722718629eb1cab27cb845c2613bc3f048612f19c0b174fc5",
+      "retrieved_on": "2026-10-09",
+      "local_path": "artifacts/coordination-cohort-2026-10-09/bondarenko.xml"
+    }
+  ],
+  "observations": [
+    {
+      "schema_version": 1,
+      "record_id": "bondarenko-composite-endpoint",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "implantation_and_placentation",
+      "developmental_interval": {
+        "label": "E3.5 entry; Day 3 E5.25-like morphology; actual stage/time kept separate",
+        "start": "E3.5 entry",
+        "end": "Day 3 E5.25-like morphology",
+        "time_unit": "source stage/day labels",
+        "stage_source_artifact_id": "bondarenko2023-europepmc-xml"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Whole mouse peri-implantation embryo in source engineered uterine context"
+      },
+      "assay": {
+        "name": "Selected primary-source qualitative summary",
+        "endpoint": "Composite early developmental morphology",
+        "unit": "source-reported qualitative summary",
+        "measurement_role": "morphology",
+        "functional_context": {
+          "compartment": "embryonic and extraembryonic tissues with maternal-facing boundary",
+          "material": "developmental structure and boundary coordination",
+          "process": "developmental_outcome",
+          "quantity_basis": "Qualitative source comparison; counts remain source summaries, no unit reconstruction",
+          "assessment_context": "ex_utero_whole_embryo",
+          "source_locator": "Results sec-0003; Figure EV1E/E′, embj2022113280-fig-0001ev"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Aggregate caption counts do not recover biological IDs. Cells, time points and pooled profiles remain nested/unlinked."
+      },
+      "observation": {
+        "value": "12 of 26 meet Day 3 composite morphology criterion; pooled from three independent experiments",
+        "measurement_time": "Day 3 endpoint or source peri-implantation imaging interval",
+        "measurement_time_unit": "source culture-day and imaging labels",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "bondarenko2023-europepmc-xml",
+        "uri": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10476174/fullTextXML",
+        "license": "CC BY 4.0 article license; source-specific review pending",
+        "sha256": "92ac9a0a0af2202722718629eb1cab27cb845c2613bc3f048612f19c0b174fc5",
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "AI-assisted selected source curation is not human scientific review; original XML hash pins this retrieval, not all publisher revisions.",
+        "Mouse E3.5 entry and Day 3 E5.25-like morphology are distinct labels; source reports delay. No human or later continuous gestation inferred.",
+        "Individual starting roster, source/litter hierarchy, losses and cross-assay pairing unqualified. No biological fit, causal effect estimate or operating specification.",
+        "Composite requires egg-cylinder formation, aligned axis and Reichert membrane. Individual outcomes, exclusions and later viability unqualified."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "bondarenko-membrane-endpoint",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "implantation_and_placentation",
+      "developmental_interval": {
+        "label": "E3.5 entry; Day 3 E5.25-like morphology; actual stage/time kept separate",
+        "start": "E3.5 entry",
+        "end": "Day 3 E5.25-like morphology",
+        "time_unit": "source stage/day labels",
+        "stage_source_artifact_id": "bondarenko2023-europepmc-xml"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Whole mouse peri-implantation embryo in source engineered uterine context"
+      },
+      "assay": {
+        "name": "Selected primary-source qualitative summary",
+        "endpoint": "Reichert membrane formation",
+        "unit": "source-reported qualitative summary",
+        "measurement_role": "morphology",
+        "functional_context": {
+          "compartment": "embryonic and extraembryonic tissues with maternal-facing boundary",
+          "material": "developmental structure and boundary coordination",
+          "process": "developmental_outcome",
+          "quantity_basis": "Qualitative source comparison; counts remain source summaries, no unit reconstruction",
+          "assessment_context": "ex_utero_whole_embryo",
+          "source_locator": "Results sec-0003, paragraph 3; Figures 1I/J and EV1K"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Aggregate caption counts do not recover biological IDs. Cells, time points and pooled profiles remain nested/unlinked."
+      },
+      "observation": {
+        "value": "Reichert membrane reported in 20 of 26 embryos; distinct from the composite endpoint",
+        "measurement_time": "Day 3 endpoint or source peri-implantation imaging interval",
+        "measurement_time_unit": "source culture-day and imaging labels",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "bondarenko2023-europepmc-xml",
+        "uri": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10476174/fullTextXML",
+        "license": "CC BY 4.0 article license; source-specific review pending",
+        "sha256": "92ac9a0a0af2202722718629eb1cab27cb845c2613bc3f048612f19c0b174fc5",
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "AI-assisted selected source curation is not human scientific review; original XML hash pins this retrieval, not all publisher revisions.",
+        "Mouse E3.5 entry and Day 3 E5.25-like morphology are distinct labels; source reports delay. No human or later continuous gestation inferred.",
+        "Individual starting roster, source/litter hierarchy, losses and cross-assay pairing unqualified. No biological fit, causal effect estimate or operating specification.",
+        "Membrane presence is not the combined developmental outcome. No specimen-level table linking these endpoints was inspected."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "bondarenko-adhesion-comparison",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "implantation_and_placentation",
+      "developmental_interval": {
+        "label": "E3.5 entry; Day 3 E5.25-like morphology; actual stage/time kept separate",
+        "start": "E3.5 entry",
+        "end": "Day 3 E5.25-like morphology",
+        "time_unit": "source stage/day labels",
+        "stage_source_artifact_id": "bondarenko2023-europepmc-xml"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Whole mouse peri-implantation embryo in source engineered uterine context"
+      },
+      "assay": {
+        "name": "Selected primary-source qualitative summary",
+        "endpoint": "Development under source matrix-adhesion comparison",
+        "unit": "source-reported qualitative summary",
+        "measurement_role": "adverse_effect",
+        "functional_context": {
+          "compartment": "embryonic and extraembryonic tissues with maternal-facing boundary",
+          "material": "developmental structure and boundary coordination",
+          "process": "developmental_outcome",
+          "quantity_basis": "Qualitative source comparison; counts remain source summaries, no unit reconstruction",
+          "assessment_context": "ex_utero_whole_embryo",
+          "source_locator": "Results sec-0004, paragraph 1; Figure 3B/C, embj2022113280-fig-0003"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Aggregate caption counts do not recover biological IDs. Cells, time points and pooled profiles remain nested/unlinked."
+      },
+      "observation": {
+        "value": "Developmental efficiency decreases in the source comparison lacking matrix adhesion support",
+        "measurement_time": "Day 3 endpoint or source peri-implantation imaging interval",
+        "measurement_time_unit": "source culture-day and imaging labels",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "bondarenko2023-europepmc-xml",
+        "uri": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10476174/fullTextXML",
+        "license": "CC BY 4.0 article license; source-specific review pending",
+        "sha256": "92ac9a0a0af2202722718629eb1cab27cb845c2613bc3f048612f19c0b174fc5",
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "AI-assisted selected source curation is not human scientific review; original XML hash pins this retrieval, not all publisher revisions.",
+        "Mouse E3.5 entry and Day 3 E5.25-like morphology are distinct labels; source reports delay. No human or later continuous gestation inferred.",
+        "Individual starting roster, source/litter hierarchy, losses and cross-assay pairing unqualified. No biological fit, causal effect estimate or operating specification.",
+        "Figure 3B has five versus three experiment summaries; 3C has 19 versus 25 embryos across three replicates each. No paired row map inspected."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "bondarenko-transcript-similarity",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "implantation_and_placentation",
+      "developmental_interval": {
+        "label": "E3.5 entry; Day 3 E5.25-like morphology; actual stage/time kept separate",
+        "start": "E3.5 entry",
+        "end": "Day 3 E5.25-like morphology",
+        "time_unit": "source stage/day labels",
+        "stage_source_artifact_id": "bondarenko2023-europepmc-xml"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Pooled single-cell profiles from whole-embryo source conditions and separate in-utero references"
+      },
+      "assay": {
+        "name": "Selected primary-source qualitative summary",
+        "endpoint": "Pooled lineage transcriptional comparison",
+        "unit": "source-reported qualitative summary",
+        "measurement_role": "molecular_identity",
+        "functional_context": {
+          "compartment": "embryonic and extraembryonic tissues with maternal-facing boundary",
+          "material": "lineage transcripts",
+          "process": "other",
+          "quantity_basis": "Pooled expression similarity; molecular identity proxy, not organism function",
+          "assessment_context": "other",
+          "source_locator": "Results sec-0003, paragraph 4; Figure 2A/I, embj2022113280-fig-0002"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Aggregate caption counts do not recover biological IDs. Cells, time points and pooled profiles remain nested/unlinked."
+      },
+      "observation": {
+        "value": "Source reports lineage-related transcriptional similarity between ex-utero and in-utero groups",
+        "measurement_time": "Day 3 endpoint or source peri-implantation imaging interval",
+        "measurement_time_unit": "source culture-day and imaging labels",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "bondarenko2023-europepmc-xml",
+        "uri": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10476174/fullTextXML",
+        "license": "CC BY 4.0 article license; source-specific review pending",
+        "sha256": "92ac9a0a0af2202722718629eb1cab27cb845c2613bc3f048612f19c0b174fc5",
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "AI-assisted selected source curation is not human scientific review; original XML hash pins this retrieval, not all publisher revisions.",
+        "Mouse E3.5 entry and Day 3 E5.25-like morphology are distinct labels; source reports delay. No human or later continuous gestation inferred.",
+        "Individual starting roster, source/litter hierarchy, losses and cross-assay pairing unqualified. No biological fit, causal effect estimate or operating specification.",
+        "1,234 QC-retained cells; 6-10 embryos per condition from two replicates, eight litters total. Cells and pools are not individual outcome trajectories."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "bondarenko-shape-model",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "implantation_and_placentation",
+      "developmental_interval": {
+        "label": "E3.5 entry; Day 3 E5.25-like morphology; actual stage/time kept separate",
+        "start": "E3.5 entry",
+        "end": "Day 3 E5.25-like morphology",
+        "time_unit": "source stage/day labels",
+        "stage_source_artifact_id": "bondarenko2023-europepmc-xml"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Whole mouse peri-implantation embryo in source engineered uterine context"
+      },
+      "assay": {
+        "name": "Selected primary-source qualitative summary",
+        "endpoint": "Shape dynamics compared with source wetting model",
+        "unit": "source-reported qualitative summary",
+        "measurement_role": "other",
+        "functional_context": {
+          "compartment": "embryonic and extraembryonic tissues with maternal-facing boundary",
+          "material": "shape/volume and model-inferred interfacial tension",
+          "process": "other",
+          "quantity_basis": "Model inference compared with image measurements; no direct force readout",
+          "assessment_context": "other",
+          "source_locator": "Results sec-0005; Figure 4G-J and EV4; Appendix S4 cited, not inspected"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Aggregate caption counts do not recover biological IDs. Cells, time points and pooled profiles remain nested/unlinked."
+      },
+      "observation": {
+        "value": "Shape/volume observations agree with a model allowing increased substrate adhesion; tension is inferred",
+        "measurement_time": "Day 3 endpoint or source peri-implantation imaging interval",
+        "measurement_time_unit": "source culture-day and imaging labels",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "bondarenko2023-europepmc-xml",
+        "uri": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10476174/fullTextXML",
+        "license": "CC BY 4.0 article license; source-specific review pending",
+        "sha256": "92ac9a0a0af2202722718629eb1cab27cb845c2613bc3f048612f19c0b174fc5",
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "AI-assisted selected source curation is not human scientific review; original XML hash pins this retrieval, not all publisher revisions.",
+        "Mouse E3.5 entry and Day 3 E5.25-like morphology are distinct labels; source reports delay. No human or later continuous gestation inferred.",
+        "Individual starting roster, source/litter hierarchy, losses and cross-assay pairing unqualified. No biological fit, causal effect estimate or operating specification.",
+        "Reported leave-one-out comparison concerns shape fit. Inferred interfacial tension is not a direct force assay or uniquely identified biological cause."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "bondarenko-boundary-growth",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "implantation_and_placentation",
+      "developmental_interval": {
+        "label": "E3.5 entry; Day 3 E5.25-like morphology; actual stage/time kept separate",
+        "start": "E3.5 entry",
+        "end": "Day 3 E5.25-like morphology",
+        "time_unit": "source stage/day labels",
+        "stage_source_artifact_id": "bondarenko2023-europepmc-xml"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Whole mouse peri-implantation embryo in source engineered uterine context"
+      },
+      "assay": {
+        "name": "Selected primary-source qualitative summary",
+        "endpoint": "Embryo elongation and membrane displacement",
+        "unit": "source-reported qualitative summary",
+        "measurement_role": "morphology",
+        "functional_context": {
+          "compartment": "embryonic and extraembryonic tissues with maternal-facing boundary",
+          "material": "developmental structure and boundary coordination",
+          "process": "developmental_outcome",
+          "quantity_basis": "Qualitative source comparison; counts remain source summaries, no unit reconstruction",
+          "assessment_context": "ex_utero_whole_embryo",
+          "source_locator": "Results sec-0007; Figure 6I/J, embj2022113280-fig-0006"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Aggregate caption counts do not recover biological IDs. Cells, time points and pooled profiles remain nested/unlinked."
+      },
+      "observation": {
+        "value": "Source imaging shows coordinated elongation and membrane movement; coordination differs between geometry groups",
+        "measurement_time": "Day 3 endpoint or source peri-implantation imaging interval",
+        "measurement_time_unit": "source culture-day and imaging labels",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "bondarenko2023-europepmc-xml",
+        "uri": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10476174/fullTextXML",
+        "license": "CC BY 4.0 article license; source-specific review pending",
+        "sha256": "92ac9a0a0af2202722718629eb1cab27cb845c2613bc3f048612f19c0b174fc5",
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "AI-assisted selected source curation is not human scientific review; original XML hash pins this retrieval, not all publisher revisions.",
+        "Mouse E3.5 entry and Day 3 E5.25-like morphology are distinct labels; source reports delay. No human or later continuous gestation inferred.",
+        "Individual starting roster, source/litter hierarchy, losses and cross-assay pairing unqualified. No biological fit, causal effect estimate or operating specification.",
+        "Figure 6I/J averages two versus four independent experiments. Individual trajectories, outcome linkage and support receipt remain unqualified."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "bondarenko-rac1-phenotype",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "implantation_and_placentation",
+      "developmental_interval": {
+        "label": "E3.5 entry; Day 3 E5.25-like morphology; actual stage/time kept separate",
+        "start": "E3.5 entry",
+        "end": "Day 3 E5.25-like morphology",
+        "time_unit": "source stage/day labels",
+        "stage_source_artifact_id": "bondarenko2023-europepmc-xml"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Whole mouse peri-implantation embryo in source engineered uterine context"
+      },
+      "assay": {
+        "name": "Selected primary-source qualitative summary",
+        "endpoint": "Rac1 source comparison developmental phenotype",
+        "unit": "source-reported qualitative summary",
+        "measurement_role": "adverse_effect",
+        "functional_context": {
+          "compartment": "embryonic and extraembryonic tissues with maternal-facing boundary",
+          "material": "developmental structure and boundary coordination",
+          "process": "developmental_outcome",
+          "quantity_basis": "Qualitative source comparison; counts remain source summaries, no unit reconstruction",
+          "assessment_context": "ex_utero_whole_embryo",
+          "source_locator": "Results sec-0007, paragraph 2; Figure 6G/H; Appendix S6 cited, not inspected"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Aggregate caption counts do not recover biological IDs. Cells, time points and pooled profiles remain nested/unlinked."
+      },
+      "observation": {
+        "value": "Rac1-deficient embryos show impaired elongation/epiblast growth and additional parietal-endoderm defects",
+        "measurement_time": "Day 3 endpoint or source peri-implantation imaging interval",
+        "measurement_time_unit": "source culture-day and imaging labels",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "bondarenko2023-europepmc-xml",
+        "uri": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10476174/fullTextXML",
+        "license": "CC BY 4.0 article license; source-specific review pending",
+        "sha256": "92ac9a0a0af2202722718629eb1cab27cb845c2613bc3f048612f19c0b174fc5",
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "AI-assisted selected source curation is not human scientific review; original XML hash pins this retrieval, not all publisher revisions.",
+        "Mouse E3.5 entry and Day 3 E5.25-like morphology are distinct labels; source reports delay. No human or later continuous gestation inferred.",
+        "Individual starting roster, source/litter hierarchy, losses and cross-assay pairing unqualified. No biological fit, causal effect estimate or operating specification.",
+        "Multi-tissue phenotype prevents trophoblast-only causal interpretation. Length versus cell-count cohorts have different n and experiment counts."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "bondarenko-geometry-phenotype",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "implantation_and_placentation",
+      "developmental_interval": {
+        "label": "E3.5 entry; Day 3 E5.25-like morphology; actual stage/time kept separate",
+        "start": "E3.5 entry",
+        "end": "Day 3 E5.25-like morphology",
+        "time_unit": "source stage/day labels",
+        "stage_source_artifact_id": "bondarenko2023-europepmc-xml"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Whole mouse peri-implantation embryo in source engineered uterine context"
+      },
+      "assay": {
+        "name": "Selected primary-source qualitative summary",
+        "endpoint": "Source geometry comparison developmental morphology",
+        "unit": "source-reported qualitative summary",
+        "measurement_role": "adverse_effect",
+        "functional_context": {
+          "compartment": "embryonic and extraembryonic tissues with maternal-facing boundary",
+          "material": "developmental structure and boundary coordination",
+          "process": "developmental_outcome",
+          "quantity_basis": "Qualitative source comparison; counts remain source summaries, no unit reconstruction",
+          "assessment_context": "ex_utero_whole_embryo",
+          "source_locator": "Results sec-0007, paragraph 2; Figure 6I/J; Appendix S8/S9 cited, not inspected"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Aggregate caption counts do not recover biological IDs. Cells, time points and pooled profiles remain nested/unlinked."
+      },
+      "observation": {
+        "value": "Source geometry comparisons impair egg-cylinder morphogenesis and limit growth",
+        "measurement_time": "Day 3 endpoint or source peri-implantation imaging interval",
+        "measurement_time_unit": "source culture-day and imaging labels",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "bondarenko2023-europepmc-xml",
+        "uri": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10476174/fullTextXML",
+        "license": "CC BY 4.0 article license; source-specific review pending",
+        "sha256": "92ac9a0a0af2202722718629eb1cab27cb845c2613bc3f048612f19c0b174fc5",
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "AI-assisted selected source curation is not human scientific review; original XML hash pins this retrieval, not all publisher revisions.",
+        "Mouse E3.5 entry and Day 3 E5.25-like morphology are distinct labels; source reports delay. No human or later continuous gestation inferred.",
+        "Individual starting roster, source/litter hierarchy, losses and cross-assay pairing unqualified. No biological fit, causal effect estimate or operating specification.",
+        "No source trajectory/outcome join or support-function comparison inspected. This does not diagnose arrest in another mouse study."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "bondarenko-linked-followup-gap",
+      "evidence_status": "planned",
+      "species": "mouse",
+      "stage_track": "developmental_outcomes",
+      "developmental_interval": {
+        "label": "Linked interval beyond early assessment unqualified",
+        "start": "E3.5 entry",
+        "end": "Later functional ending stage unqualified",
+        "time_unit": "source stage/day labels",
+        "stage_source_artifact_id": "bondarenko2023-europepmc-xml"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Whole mouse peri-implantation embryo in source engineered uterine context"
+      },
+      "assay": {
+        "name": "Selected primary-source qualitative summary",
+        "endpoint": "Same-unit coordination, support receipt and later function",
+        "unit": "unreported linked endpoint",
+        "measurement_role": "durability",
+        "functional_context": {
+          "compartment": "embryonic and extraembryonic tissues with maternal-facing boundary",
+          "material": "developmental structure and boundary coordination",
+          "process": "developmental_outcome",
+          "quantity_basis": "Missing linked follow-up; no negative developmental result inferred",
+          "assessment_context": "ex_utero_whole_embryo",
+          "source_locator": "Selected Results/Discussion/data availability: no qualified linked support and later-function records"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Aggregate caption counts do not recover biological IDs. Cells, time points and pooled profiles remain nested/unlinked."
+      },
+      "observation": {
+        "value": null,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "not_reported",
+        "measurement_uncertainty": null,
+        "missingness_reason": "Same-unit coordination, independently qualified support receipt and later-function data unavailable in inspected source scope."
+      },
+      "source": {
+        "artifact_id": "bondarenko2023-europepmc-xml",
+        "uri": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10476174/fullTextXML",
+        "license": "CC BY 4.0 article license; source-specific review pending",
+        "sha256": "92ac9a0a0af2202722718629eb1cab27cb845c2613bc3f048612f19c0b174fc5",
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "AI-assisted selected source curation is not human scientific review; original XML hash pins this retrieval, not all publisher revisions.",
+        "Mouse E3.5 entry and Day 3 E5.25-like morphology are distinct labels; source reports delay. No human or later continuous gestation inferred.",
+        "Individual starting roster, source/litter hierarchy, losses and cross-assay pairing unqualified. No biological fit, causal effect estimate or operating specification.",
+        "Segmentation labels are not ground truth for developmental health or adequate support."
+      ]
+    }
+  ],
+  "transitions": [
+    {
+      "transition_id": "bondarenko-coordination-to-followup",
+      "from_record_ids": [
+        "bondarenko-boundary-growth"
+      ],
+      "to_record_ids": [
+        "bondarenko-linked-followup-gap"
+      ],
+      "continuity_status": "not_reported",
+      "note": "Source imaging and aggregate endpoints do not establish a qualified same-unit trajectory through later support/function."
+    }
+  ],
+  "limitations": [
+    "AI-assisted selected source curation is not human scientific review; original XML hash pins this retrieval, not all publisher revisions.",
+    "Mouse E3.5 entry and Day 3 E5.25-like morphology are distinct labels; source reports delay. No human or later continuous gestation inferred.",
+    "Individual starting roster, source/litter hierarchy, losses and cross-assay pairing unqualified. No biological fit, causal effect estimate or operating specification.",
+    "No ledger promotion. No culture procedure, tissue manipulation, device assembly, physiological setting or clinical guidance."
+  ]
+}

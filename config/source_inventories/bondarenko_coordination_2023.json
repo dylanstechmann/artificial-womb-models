@@ -1,0 +1,105 @@
+{
+  "schema_version": 1,
+  "review_status": "candidate",
+  "human_review": "pending",
+  "inspected_on": "2026-10-09",
+  "article_url": "https://doi.org/10.15252/embj.2022113280",
+  "source_class": "peer_reviewed_animal",
+  "article_revision": "Published 2023-07-31; Europe PMC full-text XML retrieval, publisher version correspondence not independently reviewed",
+  "species": "mouse",
+  "start": "E3.5 blastocyst",
+  "bounded_endpoint": "Day 3 E5.25-like egg cylinder; delayed early progression",
+  "snapshots": [
+    {
+      "path": "artifacts/coordination-cohort-2026-10-09/bondarenko.xml",
+      "role": "public full-text XML; selected Results/Discussion/captions inspected",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10476174/fullTextXML",
+      "bytes": 285717,
+      "sha256": "92ac9a0a0af2202722718629eb1cab27cb845c2613bc3f048612f19c0b174fc5"
+    },
+    {
+      "path": "artifacts/coordination-cohort-2026-10-09/zenodo-metadata.json",
+      "role": "repository metadata only; no archive content inspected",
+      "url": "https://zenodo.org/api/records/6546550",
+      "bytes": 4739,
+      "sha256": "13c8bae4e143cea7935b85700595af4724b88c39c057511f9e3ee1ac9046bf34"
+    }
+  ],
+  "selected_scope": [
+    "Results sec-0003 through sec-0007",
+    "Discussion sec-0008",
+    "Figures EV1E/E-prime, 1I/J, 2A/I, 3B/C, 4G-J, 6G-J",
+    "Data availability sec-0054; license"
+  ],
+  "source_summary_counts": {
+    "composite_day3": {
+      "embryos_meeting_criterion": 12,
+      "reported_denominator": 26,
+      "independent_experiments": 3,
+      "criterion": [
+        "egg-cylinder formation",
+        "axis aligned with source crypt",
+        "Reichert membrane"
+      ],
+      "locator": "Figure EV1E/E-prime; Results sec-0003"
+    },
+    "membrane_presence": {
+      "reported_count": 20,
+      "reported_denominator": 26,
+      "locator": "Results sec-0003; Figures 1I/J, EV1K"
+    },
+    "figure6_cell_counts": {
+      "WT": 17,
+      "Rac1_heterozygous": 23,
+      "Rac1_deficient": 13,
+      "experiments": 5
+    },
+    "figure6_embryo_lengths": {
+      "WT": 22,
+      "Rac1_heterozygous": 30,
+      "Rac1_deficient": 18,
+      "experiments": 7
+    },
+    "figure6_coordination_experiments": {
+      "I": 2,
+      "J": 4
+    },
+    "interpretation": "Caption/Results aggregate summaries only, not a reconstructed starting roster or independently verified n; do not join cohorts."
+  },
+  "repository": {
+    "url": "https://doi.org/10.5281/zenodo.6546550",
+    "scope": "metadata only",
+    "metadata_license": "cc-by-4.0",
+    "files": [
+      {
+        "key": "MouseEmbryos.zip",
+        "size": 3077837738,
+        "checksum": "md5:3911a408716553dbf098eaf16ca5fefe"
+      }
+    ],
+    "reported_segmentation_stacks": {
+      "nuclei_train": 22,
+      "nuclei_test_described_as_validation": 13,
+      "membrane_train": 5,
+      "membrane_validation": 1
+    },
+    "internal_datasets_described": [
+      "raw: input image",
+      "label: instance segmentation"
+    ],
+    "archive_downloaded": false,
+    "archive_byte_integrity": "not_checked",
+    "unit_time_outcome_links": "not_qualified; metadata describes segmentation annotations, not healthy development ground truth"
+  },
+  "separate_sequencing_accession": "GSE228264; file/sample inventory and phenotype join not qualified",
+  "source_review_issues": [
+    "Individual starting roster, exclusions, outcome labels and raw trajectory hierarchy not inspected.",
+    "Tension/adhesion dynamics are inferred from shape and volume; no direct force assay or physiological calibration.",
+    "Rac1 phenotype affects multiple tissues; perturbation specificity remains open.",
+    "In-vivo soft-wetting account proposed in Discussion, not demonstrated by engineered-environment fit.",
+    "No support-receipt/function evidence pairing closes the adequate-support versus coordination discriminator."
+  ],
+  "biological_assay_performed": false,
+  "biological_fit_performed": false,
+  "ledger_promotion": "none"
+}

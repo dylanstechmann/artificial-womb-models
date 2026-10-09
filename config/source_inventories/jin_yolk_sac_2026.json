@@ -36,6 +36,20 @@
       "role": "original read-only publisher source workbook",
       "bytes": 19088,
       "sha256": "b2bd434213007dfab98df41c864db53a474aa74bf382f156ef0340c44a35ac6a"
+    },
+    {
+      "path": "artifacts/coordination-cohort-2026-10-09/jin-supplement.pdf",
+      "role": "publisher Supplementary Information; Tables 1/2 pages 8/9 visually inspected",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs42003-026-10656-4/MediaObjects/42003_2026_10656_MOESM2_ESM.pdf",
+      "bytes": 7336507,
+      "sha256": "07949c2d33bc468c1e28bb2110477b9415a9646de708b452f920569619c35cc1"
+    },
+    {
+      "path": "artifacts/coordination-cohort-2026-10-09/jin-reporting.pdf",
+      "role": "publisher Reporting Summary; Statistics and study-design fields pages 1/2 visually inspected",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs42003-026-10656-4/MediaObjects/42003_2026_10656_MOESM9_ESM.pdf",
+      "bytes": 2311555,
+      "sha256": "47f65788e2271e4b17ba780eaa8dc80bfc4b4c73de2ae8378a9d8a0fd13148ad"
     }
   ],
   "species": "mouse",
@@ -55,7 +69,7 @@
   "data_accession": "CRA024449",
   "repository_file_and_sample_qualification": "not_qualified",
   "source_review_issues": [
-    "Selected well-expanded YS pools; original unit roster and losses unqualified.",
+    "Selected well-expanded YS pools. Aggregate screen counts and global batch replicate definition recovered; individual roster/losses and cross-assay pairing unqualified.",
     "Supplementary Data 5 has Figure 2/4/5/6 sheets but no Figure 1 sheet or selected uptake/CFU quantitative panels.",
     "Figure 5 physical concentration units, NC definition and scalar-column hierarchy unqualified.",
     "APOA source table/caption versus APOA1 Results specificity unqualified.",
@@ -64,5 +78,121 @@
   ],
   "biological_assay_performed": false,
   "biological_fit_performed": false,
-  "ledger_promotion": "none"
+  "ledger_promotion": "none",
+  "supplementary_cohort_qualification": {
+    "scope": "AI-assisted visual transcription of count fields only; source condition details remain external",
+    "table1_locator": "Supplementary Information PDF page 8, Supplementary Table 1; 15 data rows from top to bottom",
+    "table1_counts": [
+      {
+        "source_row": 1,
+        "total_blastocysts": 10,
+        "eYS": 0,
+        "vasculogenesis": 0
+      },
+      {
+        "source_row": 2,
+        "total_blastocysts": 15,
+        "eYS": 0,
+        "vasculogenesis": 0
+      },
+      {
+        "source_row": 3,
+        "total_blastocysts": 15,
+        "eYS": 2,
+        "vasculogenesis": 0
+      },
+      {
+        "source_row": 4,
+        "total_blastocysts": 12,
+        "eYS": 0,
+        "vasculogenesis": 0
+      },
+      {
+        "source_row": 5,
+        "total_blastocysts": 16,
+        "eYS": 0,
+        "vasculogenesis": 0
+      },
+      {
+        "source_row": 6,
+        "total_blastocysts": 9,
+        "eYS": 0,
+        "vasculogenesis": 0
+      },
+      {
+        "source_row": 7,
+        "total_blastocysts": 15,
+        "eYS": 0,
+        "vasculogenesis": 0
+      },
+      {
+        "source_row": 8,
+        "total_blastocysts": 18,
+        "eYS": 5,
+        "vasculogenesis": 2
+      },
+      {
+        "source_row": 9,
+        "total_blastocysts": 17,
+        "eYS": 6,
+        "vasculogenesis": 2
+      },
+      {
+        "source_row": 10,
+        "total_blastocysts": 15,
+        "eYS": 2,
+        "vasculogenesis": 0
+      },
+      {
+        "source_row": 11,
+        "total_blastocysts": 10,
+        "eYS": 0,
+        "vasculogenesis": 0
+      },
+      {
+        "source_row": 12,
+        "total_blastocysts": 11,
+        "eYS": 0,
+        "vasculogenesis": 0
+      },
+      {
+        "source_row": 13,
+        "total_blastocysts": 15,
+        "eYS": 6,
+        "vasculogenesis": 5
+      },
+      {
+        "source_row": 14,
+        "total_blastocysts": 20,
+        "eYS": 11,
+        "vasculogenesis": 7
+      },
+      {
+        "source_row": 15,
+        "total_blastocysts": 17,
+        "eYS": 0,
+        "vasculogenesis": 0
+      }
+    ],
+    "table1_limit": "Aggregate screening rows, not individual embryo roster; links to main Figure 1 eight-experiment formation summary and later assays unqualified. No cohorts pooled here.",
+    "table2_locator": "Supplementary Information PDF page 9, Supplementary Table 2",
+    "table2_post_qc_cells": {
+      "eYS": 6540,
+      "E8.5": 7311,
+      "E9.5": 12593,
+      "E10.5": 27324
+    },
+    "table2_limit": "Cell counts, not embryo n or qualified pool membership.",
+    "replicate_definition_locator": "Reporting Summary PDF page 2, Life sciences study design, Replication",
+    "replicate_definition": "Author declares at least three independent biological replicates for key findings; a replicate is an experiment beginning with a new blastocyst batch.",
+    "replicate_definition_limit": "Global declaration; individual Figure 5 columns, repeat-measure identities, assay-batch assignment and litter hierarchy not authenticated.",
+    "distinct_or_repeated_measure_statement": "Reporting Summary page 1 Statistics marks this item n/a, not confirmed.",
+    "exclusions": "Reporting Summary page 2 declares exclusion of single-cell sequencing data failing QC; embryo attrition/exclusions not reconstructed.",
+    "data_availability": "Reporting Summary page 2 names CRA024449 and author-available other data; no author contact made.",
+    "gsa_retrieval": {
+      "url": "https://ngdc.cncb.ac.cn/gsa/browse/CRA024449",
+      "status": "failed",
+      "reason": "Remote end closed connection without response; no sample/file qualification."
+    }
+  }
 }
