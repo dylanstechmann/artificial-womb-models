@@ -1,0 +1,164 @@
+{
+  "schema_version": 1,
+  "review_status": "candidate",
+  "human_review": "pending",
+  "inspected_on": "2026-10-09",
+  "article_url": "https://doi.org/10.1038/s41467-025-60610-x",
+  "source_class": "peer_reviewed_animal",
+  "species": "mouse",
+  "published_on": "2025-07-01",
+  "start": "E3.75",
+  "bounded_endpoint": "96h source early morphology assigned E5.5 correspondence; not chronological equivalence or later healthy support",
+  "snapshots": [
+    {
+      "path": "artifacts/uterine-interface-2026-10-09/hiraoka.xml",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12217791/fullTextXML",
+      "bytes": 219300,
+      "sha256": "7960a4efb7a314acb61bba921118de1ae49807ba9ca1e995e260171b984c7a10",
+      "role": "Public full-text XML; selected Results/captions/Discussion/data availability; methods remain external"
+    },
+    {
+      "path": "artifacts/uterine-interface-2026-10-09/supplement.pdf",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-025-60610-x/MediaObjects/41467_2025_60610_MOESM1_ESM.pdf",
+      "bytes": 4866294,
+      "sha256": "2c0da8d6c545e25f3e323fec4bbcc263a8202d80abc90e9491c452d09e71bab5",
+      "role": "Original publisher supplement; physical pages 7/8 visually inspected; page 8 table read at increased resolution"
+    },
+    {
+      "path": "artifacts/uterine-interface-2026-10-09/reporting.pdf",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-025-60610-x/MediaObjects/41467_2025_60610_MOESM12_ESM.pdf",
+      "bytes": 3320904,
+      "sha256": "962fa3b6ed2997ffa07d150c61196319622bee3701c5361e7c1238ee7c09c70c",
+      "role": "Original publisher Reporting Summary; physical page 2 study-design statements visually inspected; other procedural details not curated"
+    },
+    {
+      "path": "artifacts/uterine-interface-2026-10-09/figure5.xlsx",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-025-60610-x/MediaObjects/41467_2025_60610_MOESM14_ESM.xlsx",
+      "bytes": 16200,
+      "sha256": "6ceed8646a488132f4fe6f973abac3da1848d2258e27cecc19bee6a9a8ecd6e4",
+      "role": "Original native Figure 5 workbook; count/formula/label and note qualification; no edits/recalculation or biological effect fit"
+    },
+    {
+      "path": "artifacts/uterine-interface-2026-10-09/publisher.html",
+      "url": "https://www.nature.com/articles/s41467-025-60610-x",
+      "bytes": 588962,
+      "sha256": "c45cad5308ce1ad94db0f462a7a5bfb993e6822064d4484c28674fac08edfaba",
+      "role": "Public publisher HTML and supplement links; no source revision comparison authenticated"
+    }
+  ],
+  "selected_scope": [
+    "Results Sec3-Sec8, selected Figure 2/3/4/5 captions and Discussion Sec13; source methods remain external",
+    "Supplementary Figures 4/5, physical PDF pages 7/8 rendered and visually inspected; page 8 table additionally inspected at increased resolution",
+    "Reporting Summary physical PDF p2 Life sciences study design; p3 inspected but procedural content not curated",
+    "Native Figure 5 workbook 5F/5G/5I count and formula cells, notes and 5K headers/labels; no effect fit or workbook edits"
+  ],
+  "source_license": "CC BY-NC-ND 4.0 article statement; source-specific reuse review pending; original bytes preserved",
+  "source_summary_counts": {
+    "24h_attachment": {
+      "numerator": 343,
+      "denominator": 362,
+      "printed_percentage": "94.2%",
+      "count_ratio_rounds_one_decimal": "94.8%",
+      "aggregation_convention": "unqualified; do not repair the source label"
+    },
+    "48h_retention": {
+      "numerator": 235,
+      "denominator": 279
+    },
+    "96h_retention": {
+      "numerator": 55,
+      "denominator": 96
+    },
+    "48h_immunostained_compartments": {
+      "EPI_like": "10/24",
+      "ExE_like": "24/24",
+      "EPI_and_ExE_like": "10/24"
+    },
+    "96h_immunostained_compartments": {
+      "EPI_like": "4/22",
+      "ExE_like": "14/22",
+      "EPI_and_ExE_like": "4/22",
+      "VE_like": "3/20"
+    },
+    "locator": "Supplementary Fig. 5, physical PDF p8",
+    "interpretation": "Distinct endpoint/assay denominators; no reconstructed starting roster or within-unit trajectory. Do not pool stages or derive loss by subtraction."
+  },
+  "native_workbook_qualification": {
+    "sha256": "6ceed8646a488132f4fe6f973abac3da1848d2258e27cecc19bee6a9a8ecd6e4",
+    "plot_ratio_counts": {
+      "5F": 13,
+      "5G": 9,
+      "5I": 9
+    },
+    "direct_division_cache_checks": {
+      "matches": 31,
+      "checked": 31,
+      "tolerance_absolute_fraction": "1e-14",
+      "method": "Original XML lexical counts and cached fractions; Excel shared formulas translated relative to their native anchor; no recalculation"
+    },
+    "hierarchy": "Figure 5 caption: F/G/I plot points per recipient mouse; K invasion values per embryo. Source Exp and Embryo labels do not establish cross-panel unit/litter identities.",
+    "denominator_notes": {
+      "5G!G9": "Attached embryos used for other assays lack later assessment and are excluded from the later denominator.",
+      "5I!G9": "Initially loaded denominator excludes embryos used for other assays after attachment; experiment counts and denominators differ from 5F."
+    },
+    "label_candidate_accounting": {
+      "checked": 9,
+      "zero_residual": 8,
+      "nonzero_residual": [
+        {
+          "key": [
+            "Celecoxib",
+            "Exp3"
+          ],
+          "check_assumption": "Same source condition/experiment labels refer to the same assessed attached cohort; assumption unqualified",
+          "retained_locator": "5I!I5",
+          "shed_locator": "5G!I5",
+          "attached_locator": "5G!J5",
+          "retained_plus_shed_minus_attached": 1,
+          "status": "label_candidate_count_discrepancy",
+          "biological_linkage_established": false
+        }
+      ],
+      "interpretation": "Conditional count arithmetic only; no authenticated common cohort, repair, loss classification or causal effect"
+    },
+    "invasion_scope": "5K has 8 control and 9 comparison value cells; header Volume (1E+05 micrometers^3); quantity/calibration and recipient pairing not qualified; values not imported as biological fit data",
+    "inspection_artifact": {
+      "path": "artifacts/uterine-interface-2026-10-09/cohort-inspection.json",
+      "role": "local AI-assisted derived qualification, not original source bytes",
+      "bytes": 59696,
+      "sha256": "6b192fe53b5098acdde267d5958569da72797aef066bfe016292f2a17d68fe0a"
+    }
+  },
+  "reporting_summary": {
+    "locator": "physical PDF p2, Life sciences study design",
+    "data_exclusions_statement": "No collected data were excluded",
+    "replication_statement": "More than three replications using biologically independent samples",
+    "qualification": "Global collected-data statement does not restore embryos withdrawn for another assay to later denominators or authenticate source Exp labels. Scope of more-than-three statement needs reconciliation with figure caption examples of three."
+  },
+  "design_inference": "Qualify maternal receptivity/remodeling and embryonic progression jointly; attachment, maternal vascular appearance and transcriptional interactions cannot alone establish sustained exchange.",
+  "source_review_issues": [
+    "AI-assisted selected-source curation; human scientific review pending. No biological fit, causal estimate or operating specification.",
+    "Mouse E3.75 entry, elapsed source hours and author-assigned in-vivo resemblance remain separate; no human or later continuous gestation follows.",
+    "Starting embryos, assay withdrawals, recipient/fragment/litter identities and individual later outcomes are not reconstructed. Source counts are summaries, not authenticated biological n.",
+    "Printed 24h percentage and pooled count ratio differ; aggregation meaning unqualified.",
+    "Workbook explicitly excludes assay-withdrawn units from later denominators; recipient/embryo mapping and one label-candidate accounting discrepancy unresolved.",
+    "Invaded/assessed and immunostained subsets are distinct from initially loaded denominators.",
+    "Maternal tissue retention and vascular morphology are not a demonstration of a perfused gestational interface.",
+    "No mechanism, exact physical constraint or human operating specification is identified by source curation."
+  ],
+  "biological_assay_performed": false,
+  "biological_fit_performed": false,
+  "ledger_promotion": "none",
+  "data_availability": {
+    "locator": "XML notes-type=data-availability",
+    "scRNA_seq": [
+      "GSE279808",
+      "GSE279809"
+    ],
+    "bulk_RNA_seq": [
+      "GSE279268"
+    ],
+    "inventory_and_phenotype_join": "not_qualified",
+    "author_contact": "not_performed"
+  }
+}

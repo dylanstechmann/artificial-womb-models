@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Qualify a living mouse maternal-tissue source with pinned XML/HTML, selected rendered PDF tables and native cohort formulas. Preserve early attachment versus retention/embryonic-compartment distinctions, maternal-state proxies, adverse configuration, assay-withdrawal denominators, a printed-percent/count-ratio ambiguity and one conditional source-label count discrepancy. Add eleven candidate summaries plus a missing exchange/follow-up record and refine joint maternal-interface/progression requirements without biological fitting or ledger promotion.
+
 - Pin and qualify selected mouse appendix captions/model definitions and public segmentation repository metadata/files without executing source code. Retain selection among successful embryos, nested imaging planes, one later held-out shape mismatch, measured held-out growth input and custom uncalibrated tension scale. Extend the candidate intake to eleven summaries plus a missing follow-up; freeze distinct endpoint-association, coordination-prediction and conditional-shape reanalysis requirements without a biological fit or ledger promotion.
 
 - Add `audit-boundary-source` for a pinned native mouse Figure 6 CSV archive: preserve exact selected source bytes and reported units, recover compound-key endpoint candidates and nested displacement label pairs, retain unmatched/conflicting/missing observations and refuse boundary/outcome joins without embryo identity. Record caption/track-label reconciliation and preserve zero counts without biological interpretation; add provenance, malformed-input and identity/independence regression checks. No biological fit or gestation claim is added.

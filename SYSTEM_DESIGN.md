@@ -174,6 +174,15 @@ driven by measured growth does not independently forecast that growth, and an
 uncalibrated tension scale cannot specify physical force. Machine B must retain
 these input dependencies and unobservable quantities in its evidence record.
 
+The [maternal-interface requirement](MATERNAL_INTERFACE_REQUIREMENTS.md) adds
+a living mouse endometrial-tissue comparator. Qualify maternal receptivity and
+remodeling alongside embryo progression and recipient support. High attachment,
+maternal vascular appearance or recognizable support-cell types cannot alone
+certify the later embryo. Machine B records separate recipient/embryo identities,
+assay withdrawals, adverse configurations and endpoint-specific denominators.
+Retained maternal tissue remains a research comparator with its own support
+burden, rather than an established human gestation interface.
+
 ## Machine B: support and observation station
 
 The [selective-interface exploration](SELECTIVE_INTERFACE_FEASIBILITY.md)

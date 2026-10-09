@@ -80,6 +80,13 @@ model mismatch in one of three validation embryos, the held-out measured growth
 input and an unqualified absolute force scale. Public segmentation code metadata
 and selected files do not recover the missing embryo/outcome map.
 
+The [maternal-interface requirements](MATERNAL_INTERFACE_REQUIREMENTS.md) add
+a living mouse uterine-tissue comparator and a 12-record candidate intake.
+They separate favorable early attachment from retained embryos, assessed
+embryonic compartments and maternal-state readouts. Native source tables explain
+assay withdrawals and preserve a conditional count discrepancy; no same-unit
+exchange path, biological fit or human gestation claim is established.
+
 The [interface source qualification](SOURCE_QUALIFICATION.md) audits the Hori
 2024 Figure 5G workbook and two Bhide 2026 kinetic supplements. The new
 `audit-hori-source` command extracts 48 source-located Papp endpoints into a

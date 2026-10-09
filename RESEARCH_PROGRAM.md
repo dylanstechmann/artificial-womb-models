@@ -71,6 +71,15 @@ held-out measured growth input and an uncalibrated force scale. Qualifying these
 limits narrows the next eligible analysis without supplying the missing
 individual trajectory/outcome map or a mechanical operating specification.
 
+The [maternal-interface requirements](MATERNAL_INTERFACE_REQUIREMENTS.md) now
+qualify a separate living mouse uterine-tissue source. Attachment, later
+retention, invasion, maternal state and embryonic compartments have distinct
+observations and denominators. Native cohort notes explain assay withdrawals,
+with one source-label accounting discrepancy retained for reconciliation.
+Require joint recipient/embryo identities and actual support before asking
+whether maternal state predicts progression; donor tissue or vascular morphology
+does not itself close the sustained-exchange gate.
+
 ## 1. Treat the objective as a chain of biological transitions
 
 A wall-powered support system would have to preserve the functions needed at

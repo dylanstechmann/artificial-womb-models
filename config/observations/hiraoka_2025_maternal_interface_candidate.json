@@ -1,0 +1,787 @@
+{
+  "schema_version": 1,
+  "dataset_id": "hiraoka2025-maternal-interface-candidate",
+  "title": "Mouse living maternal-interface early outcomes; selected candidate summaries",
+  "source_revision": {
+    "revision_id": "hiraoka2025-selected-source-2026-10-09",
+    "citation": "Hiraoka et al. (2025). An ex vivo uterine system captures implantation, embryogenesis, and trophoblast invasion via maternal-embryonic signaling. Nature Communications 16, 5755. DOI 10.1038/s41467-025-60610-x.",
+    "source_kind": "peer_reviewed_animal",
+    "source_url": "https://doi.org/10.1038/s41467-025-60610-x",
+    "review_status": "candidate",
+    "reviewer": "",
+    "reviewed_on": null,
+    "review_note": ""
+  },
+  "artifacts": [
+    {
+      "artifact_id": "hiraoka2025-europepmc-xml",
+      "uri": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12217791/fullTextXML",
+      "license": "CC BY-NC-ND 4.0 article statement; source-specific reuse review pending; original bytes preserved",
+      "sha256": "7960a4efb7a314acb61bba921118de1ae49807ba9ca1e995e260171b984c7a10",
+      "retrieved_on": "2026-10-09",
+      "local_path": "artifacts/uterine-interface-2026-10-09/hiraoka.xml"
+    },
+    {
+      "artifact_id": "hiraoka2025-supplement",
+      "uri": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-025-60610-x/MediaObjects/41467_2025_60610_MOESM1_ESM.pdf",
+      "license": "CC BY-NC-ND 4.0 article statement; source-specific reuse review pending; original bytes preserved",
+      "sha256": "2c0da8d6c545e25f3e323fec4bbcc263a8202d80abc90e9491c452d09e71bab5",
+      "retrieved_on": "2026-10-09",
+      "local_path": "artifacts/uterine-interface-2026-10-09/supplement.pdf"
+    },
+    {
+      "artifact_id": "hiraoka2025-reporting",
+      "uri": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-025-60610-x/MediaObjects/41467_2025_60610_MOESM12_ESM.pdf",
+      "license": "CC BY-NC-ND 4.0 article statement; source-specific reuse review pending; original bytes preserved",
+      "sha256": "962fa3b6ed2997ffa07d150c61196319622bee3701c5361e7c1238ee7c09c70c",
+      "retrieved_on": "2026-10-09",
+      "local_path": "artifacts/uterine-interface-2026-10-09/reporting.pdf"
+    },
+    {
+      "artifact_id": "hiraoka2025-figure5-source",
+      "uri": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-025-60610-x/MediaObjects/41467_2025_60610_MOESM14_ESM.xlsx",
+      "license": "CC BY-NC-ND 4.0 article statement; source-specific reuse review pending; original bytes preserved",
+      "sha256": "6ceed8646a488132f4fe6f973abac3da1848d2258e27cecc19bee6a9a8ecd6e4",
+      "retrieved_on": "2026-10-09",
+      "local_path": "artifacts/uterine-interface-2026-10-09/figure5.xlsx"
+    },
+    {
+      "artifact_id": "hiraoka2025-publisher-html",
+      "uri": "https://www.nature.com/articles/s41467-025-60610-x",
+      "license": "CC BY-NC-ND 4.0 article statement; source-specific reuse review pending; original bytes preserved",
+      "sha256": "c45cad5308ce1ad94db0f462a7a5bfb993e6822064d4484c28674fac08edfaba",
+      "retrieved_on": "2026-10-09",
+      "local_path": "artifacts/uterine-interface-2026-10-09/publisher.html"
+    }
+  ],
+  "observations": [
+    {
+      "schema_version": 1,
+      "record_id": "hiraoka-attachment24",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "implantation_and_placentation",
+      "developmental_interval": {
+        "label": "Mouse E3.75 entry; 24h; E4.5-like source correspondence; actual time and stage resemblance separate",
+        "start": "E3.75 entry",
+        "end": "24h; E4.5-like source correspondence",
+        "time_unit": "source hours and stage labels",
+        "stage_source_artifact_id": "hiraoka2025-europepmc-xml"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Source ex-vivo mouse embryo/endometrial-tissue system; no laboratory work performed locally"
+      },
+      "assay": {
+        "name": "Selected primary-source qualitative summary",
+        "endpoint": "Early embryonic attachment to maternal tissue",
+        "unit": "source-reported qualitative summary",
+        "measurement_role": "morphology",
+        "functional_context": {
+          "compartment": "Embryo and maternal endometrial tissue",
+          "material": "Maternal-interface and embryonic state",
+          "process": "developmental_outcome",
+          "quantity_basis": "Source summary with endpoint-specific denominator; no organism-function or unit-identity reconstruction",
+          "assessment_context": "ex_utero_whole_embryo",
+          "source_locator": "Supplementary Fig. 5, physical PDF p8, attachment row; Results Sec3"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "IDs remain null. Recipient-level ratios, embryo-level invasion, maternal-tissue assays and stage-specific immunostained subsets are separate source scopes; Exp labels do not authenticate biological pairing."
+      },
+      "observation": {
+        "value": "24h attachment: 343/362; source prints 94.2%, whose aggregation convention remains unqualified",
+        "measurement_time": "24h; E4.5-like source correspondence",
+        "measurement_time_unit": "source hours and stage labels",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "hiraoka2025-supplement",
+        "uri": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-025-60610-x/MediaObjects/41467_2025_60610_MOESM1_ESM.pdf",
+        "license": "CC BY-NC-ND 4.0 article statement; source-specific reuse review pending; original bytes preserved",
+        "sha256": "2c0da8d6c545e25f3e323fec4bbcc263a8202d80abc90e9491c452d09e71bab5",
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "AI-assisted selected-source curation; human scientific review pending. No biological fit, causal estimate or operating specification.",
+        "Mouse E3.75 entry, elapsed source hours and author-assigned in-vivo resemblance remain separate; no human or later continuous gestation follows.",
+        "Starting embryos, assay withdrawals, recipient/fragment/litter identities and individual later outcomes are not reconstructed. Source counts are summaries, not authenticated biological n.",
+        "343/362 rounds to 94.8% rather than printed 94.2%; preserve both. This could reflect a different aggregation convention, not a diagnosed source error. Attachment is not healthy progression."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "hiraoka-retention48",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "implantation_and_placentation",
+      "developmental_interval": {
+        "label": "Mouse E3.75 entry; 48h; E5.25-like source correspondence; actual time and stage resemblance separate",
+        "start": "E3.75 entry",
+        "end": "48h; E5.25-like source correspondence",
+        "time_unit": "source hours and stage labels",
+        "stage_source_artifact_id": "hiraoka2025-europepmc-xml"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Source ex-vivo mouse embryo/endometrial-tissue system; no laboratory work performed locally"
+      },
+      "assay": {
+        "name": "Selected primary-source qualitative summary",
+        "endpoint": "Retention at later early assessment",
+        "unit": "source-reported qualitative summary",
+        "measurement_role": "morphology",
+        "functional_context": {
+          "compartment": "Embryo and maternal endometrial tissue",
+          "material": "Maternal-interface and embryonic state",
+          "process": "developmental_outcome",
+          "quantity_basis": "Source summary with endpoint-specific denominator; no organism-function or unit-identity reconstruction",
+          "assessment_context": "ex_utero_whole_embryo",
+          "source_locator": "Supplementary Fig. 5, physical PDF p8, 48h sustention row"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "IDs remain null. Recipient-level ratios, embryo-level invasion, maternal-tissue assays and stage-specific immunostained subsets are separate source scopes; Exp labels do not authenticate biological pairing."
+      },
+      "observation": {
+        "value": "48h retention on endometrium: 235/279; distinct loaded denominator from the 24h summary",
+        "measurement_time": "48h; E5.25-like source correspondence",
+        "measurement_time_unit": "source hours and stage labels",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "hiraoka2025-supplement",
+        "uri": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-025-60610-x/MediaObjects/41467_2025_60610_MOESM1_ESM.pdf",
+        "license": "CC BY-NC-ND 4.0 article statement; source-specific reuse review pending; original bytes preserved",
+        "sha256": "2c0da8d6c545e25f3e323fec4bbcc263a8202d80abc90e9491c452d09e71bab5",
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "AI-assisted selected-source curation; human scientific review pending. No biological fit, causal estimate or operating specification.",
+        "Mouse E3.75 entry, elapsed source hours and author-assigned in-vivo resemblance remain separate; no human or later continuous gestation follows.",
+        "Starting embryos, assay withdrawals, recipient/fragment/litter identities and individual later outcomes are not reconstructed. Source counts are summaries, not authenticated biological n.",
+        "Do not subtract the 24h and 48h aggregate counts into embryo loss; same-unit cohort membership and withdrawals are unqualified."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "hiraoka-retention96",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "implantation_and_placentation",
+      "developmental_interval": {
+        "label": "Mouse E3.75 entry; 96h; E5.5-like source correspondence; actual time and stage resemblance separate",
+        "start": "E3.75 entry",
+        "end": "96h; E5.5-like source correspondence",
+        "time_unit": "source hours and stage labels",
+        "stage_source_artifact_id": "hiraoka2025-europepmc-xml"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Source ex-vivo mouse embryo/endometrial-tissue system; no laboratory work performed locally"
+      },
+      "assay": {
+        "name": "Selected primary-source qualitative summary",
+        "endpoint": "Extended early retention",
+        "unit": "source-reported qualitative summary",
+        "measurement_role": "morphology",
+        "functional_context": {
+          "compartment": "Embryo and maternal endometrial tissue",
+          "material": "Maternal-interface and embryonic state",
+          "process": "developmental_outcome",
+          "quantity_basis": "Source summary with endpoint-specific denominator; no organism-function or unit-identity reconstruction",
+          "assessment_context": "ex_utero_whole_embryo",
+          "source_locator": "Supplementary Fig. 5, physical PDF p8, 96h sustention row"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "IDs remain null. Recipient-level ratios, embryo-level invasion, maternal-tissue assays and stage-specific immunostained subsets are separate source scopes; Exp labels do not authenticate biological pairing."
+      },
+      "observation": {
+        "value": "96h retention on endometrium: 55/96; distinct from embryonic-compartment immunostained subsets",
+        "measurement_time": "96h; E5.5-like source correspondence",
+        "measurement_time_unit": "source hours and stage labels",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "hiraoka2025-supplement",
+        "uri": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-025-60610-x/MediaObjects/41467_2025_60610_MOESM1_ESM.pdf",
+        "license": "CC BY-NC-ND 4.0 article statement; source-specific reuse review pending; original bytes preserved",
+        "sha256": "2c0da8d6c545e25f3e323fec4bbcc263a8202d80abc90e9491c452d09e71bab5",
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "AI-assisted selected-source curation; human scientific review pending. No biological fit, causal estimate or operating specification.",
+        "Mouse E3.75 entry, elapsed source hours and author-assigned in-vivo resemblance remain separate; no human or later continuous gestation follows.",
+        "Starting embryos, assay withdrawals, recipient/fragment/litter identities and individual later outcomes are not reconstructed. Source counts are summaries, not authenticated biological n.",
+        "Retained embryos are not necessarily alive, stage-appropriate or functionally healthy. No same-unit path or support-receipt assay is qualified."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "hiraoka-embryonic-compartments48",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "implantation_and_placentation",
+      "developmental_interval": {
+        "label": "Mouse E3.75 entry; 48h; E5.25-like source correspondence; actual time and stage resemblance separate",
+        "start": "E3.75 entry",
+        "end": "48h; E5.25-like source correspondence",
+        "time_unit": "source hours and stage labels",
+        "stage_source_artifact_id": "hiraoka2025-europepmc-xml"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Source ex-vivo mouse embryo/endometrial-tissue system; no laboratory work performed locally"
+      },
+      "assay": {
+        "name": "Selected primary-source qualitative summary",
+        "endpoint": "Embryonic and extraembryonic compartment morphology",
+        "unit": "source-reported qualitative summary",
+        "measurement_role": "morphology",
+        "functional_context": {
+          "compartment": "Embryo and maternal endometrial tissue",
+          "material": "Maternal-interface and embryonic state",
+          "process": "developmental_outcome",
+          "quantity_basis": "Source summary with endpoint-specific denominator; no organism-function or unit-identity reconstruction",
+          "assessment_context": "ex_utero_whole_embryo",
+          "source_locator": "Supplementary Fig. 5 p8, 48h compartment rows; Figure 2I-M; Results Sec4"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "IDs remain null. Recipient-level ratios, embryo-level invasion, maternal-tissue assays and stage-specific immunostained subsets are separate source scopes; Exp labels do not authenticate biological pairing."
+      },
+      "observation": {
+        "value": "48h immunostained subset: EPI-like 10/24; ExE-like 24/24; combined EPI/ExE-like 10/24",
+        "measurement_time": "48h; E5.25-like source correspondence",
+        "measurement_time_unit": "source hours and stage labels",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "hiraoka2025-supplement",
+        "uri": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-025-60610-x/MediaObjects/41467_2025_60610_MOESM1_ESM.pdf",
+        "license": "CC BY-NC-ND 4.0 article statement; source-specific reuse review pending; original bytes preserved",
+        "sha256": "2c0da8d6c545e25f3e323fec4bbcc263a8202d80abc90e9491c452d09e71bab5",
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "AI-assisted selected-source curation; human scientific review pending. No biological fit, causal estimate or operating specification.",
+        "Mouse E3.75 entry, elapsed source hours and author-assigned in-vivo resemblance remain separate; no human or later continuous gestation follows.",
+        "Starting embryos, assay withdrawals, recipient/fragment/litter identities and individual later outcomes are not reconstructed. Source counts are summaries, not authenticated biological n.",
+        "Morphology/marker endpoints in selected assessed subsets; identity is not function. These denominators cannot replace all initially loaded embryos."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "hiraoka-embryonic-compartments96",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "implantation_and_placentation",
+      "developmental_interval": {
+        "label": "Mouse E3.75 entry; 96h; E5.5-like source correspondence; actual time and stage resemblance separate",
+        "start": "E3.75 entry",
+        "end": "96h; E5.5-like source correspondence",
+        "time_unit": "source hours and stage labels",
+        "stage_source_artifact_id": "hiraoka2025-europepmc-xml"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Source ex-vivo mouse embryo/endometrial-tissue system; no laboratory work performed locally"
+      },
+      "assay": {
+        "name": "Selected primary-source qualitative summary",
+        "endpoint": "Later early embryonic and extraembryonic compartment morphology",
+        "unit": "source-reported qualitative summary",
+        "measurement_role": "morphology",
+        "functional_context": {
+          "compartment": "Embryo and maternal endometrial tissue",
+          "material": "Maternal-interface and embryonic state",
+          "process": "developmental_outcome",
+          "quantity_basis": "Source summary with endpoint-specific denominator; no organism-function or unit-identity reconstruction",
+          "assessment_context": "ex_utero_whole_embryo",
+          "source_locator": "Supplementary Fig. 5 p8, 96h compartment rows; Figure 2O-T; Results Sec4"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "IDs remain null. Recipient-level ratios, embryo-level invasion, maternal-tissue assays and stage-specific immunostained subsets are separate source scopes; Exp labels do not authenticate biological pairing."
+      },
+      "observation": {
+        "value": "96h immunostained subset: EPI-like 4/22; ExE-like 14/22; combined EPI/ExE-like 4/22",
+        "measurement_time": "96h; E5.5-like source correspondence",
+        "measurement_time_unit": "source hours and stage labels",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "hiraoka2025-supplement",
+        "uri": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-025-60610-x/MediaObjects/41467_2025_60610_MOESM1_ESM.pdf",
+        "license": "CC BY-NC-ND 4.0 article statement; source-specific reuse review pending; original bytes preserved",
+        "sha256": "2c0da8d6c545e25f3e323fec4bbcc263a8202d80abc90e9491c452d09e71bab5",
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "AI-assisted selected-source curation; human scientific review pending. No biological fit, causal estimate or operating specification.",
+        "Mouse E3.75 entry, elapsed source hours and author-assigned in-vivo resemblance remain separate; no human or later continuous gestation follows.",
+        "Starting embryos, assay withdrawals, recipient/fragment/litter identities and individual later outcomes are not reconstructed. Source counts are summaries, not authenticated biological n.",
+        "The low source EPI-like subset count must travel with favorable attachment/invasion findings. Different stages/subsets cannot establish within-embryo decline or continuous gestation."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "hiraoka-maternal-components",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "implantation_and_placentation",
+      "developmental_interval": {
+        "label": "Mouse E3.75 entry; 24h maternal-tissue assessment; actual time and stage resemblance separate",
+        "start": "E3.75 entry",
+        "end": "24h maternal-tissue assessment",
+        "time_unit": "source hours and stage labels",
+        "stage_source_artifact_id": "hiraoka2025-europepmc-xml"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Native mouse maternal-tissue compartment of source whole-embryo ex-vivo co-culture"
+      },
+      "assay": {
+        "name": "Selected primary-source qualitative summary",
+        "endpoint": "Maternal-tissue architecture and state",
+        "unit": "source-reported qualitative summary",
+        "measurement_role": "molecular_identity",
+        "functional_context": {
+          "compartment": "Maternal endometrial tissue",
+          "material": "Maternal architecture and cell-state markers",
+          "process": "other",
+          "quantity_basis": "Source summary with endpoint-specific denominator; no organism-function or unit-identity reconstruction",
+          "assessment_context": "other",
+          "source_locator": "Results Sec5/Sec6; Figures 3/4A-C/E; Supplementary Fig. 5 p8, 24h tissue rows"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "IDs remain null. Recipient-level ratios, embryo-level invasion, maternal-tissue assays and stage-specific immunostained subsets are separate source scopes; Exp labels do not authenticate biological pairing."
+      },
+      "observation": {
+        "value": "Source retains glandular structure, immune cells and decidual/receptivity-associated tissue markers",
+        "measurement_time": "24h maternal-tissue assessment",
+        "measurement_time_unit": "source hours and stage labels",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "hiraoka2025-europepmc-xml",
+        "uri": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12217791/fullTextXML",
+        "license": "CC BY-NC-ND 4.0 article statement; source-specific reuse review pending; original bytes preserved",
+        "sha256": "7960a4efb7a314acb61bba921118de1ae49807ba9ca1e995e260171b984c7a10",
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "AI-assisted selected-source curation; human scientific review pending. No biological fit, causal estimate or operating specification.",
+        "Mouse E3.75 entry, elapsed source hours and author-assigned in-vivo resemblance remain separate; no human or later continuous gestation follows.",
+        "Starting embryos, assay withdrawals, recipient/fragment/litter identities and individual later outcomes are not reconstructed. Source counts are summaries, not authenticated biological n.",
+        "Transcript clustering, predicted interactions and marker/architecture preservation do not directly measure every maternal function. Three-recipient caption summaries do not assign embryo units."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "hiraoka-vascular-pattern",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "implantation_and_placentation",
+      "developmental_interval": {
+        "label": "Mouse E3.75 entry; 24h maternal-tissue assessment; actual time and stage resemblance separate",
+        "start": "E3.75 entry",
+        "end": "24h maternal-tissue assessment",
+        "time_unit": "source hours and stage labels",
+        "stage_source_artifact_id": "hiraoka2025-europepmc-xml"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Native mouse maternal-tissue compartment of source whole-embryo ex-vivo co-culture"
+      },
+      "assay": {
+        "name": "Selected primary-source qualitative summary",
+        "endpoint": "Maternal vascular-pattern morphology",
+        "unit": "source-reported qualitative summary",
+        "measurement_role": "morphology",
+        "functional_context": {
+          "compartment": "Maternal endometrial tissue",
+          "material": "Maternal vascular architecture",
+          "process": "other",
+          "quantity_basis": "Source summary with endpoint-specific denominator; no organism-function or unit-identity reconstruction",
+          "assessment_context": "other",
+          "source_locator": "Results Sec6; Figure 4D; Supplementary Fig. 5 p8, vasculature row"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "IDs remain null. Recipient-level ratios, embryo-level invasion, maternal-tissue assays and stage-specific immunostained subsets are separate source scopes; Exp labels do not authenticate biological pairing."
+      },
+      "observation": {
+        "value": "Vascular structures and an avascular region near attachment are reported in source maternal tissue",
+        "measurement_time": "24h maternal-tissue assessment",
+        "measurement_time_unit": "source hours and stage labels",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "hiraoka2025-europepmc-xml",
+        "uri": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12217791/fullTextXML",
+        "license": "CC BY-NC-ND 4.0 article statement; source-specific reuse review pending; original bytes preserved",
+        "sha256": "7960a4efb7a314acb61bba921118de1ae49807ba9ca1e995e260171b984c7a10",
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "AI-assisted selected-source curation; human scientific review pending. No biological fit, causal estimate or operating specification.",
+        "Mouse E3.75 entry, elapsed source hours and author-assigned in-vivo resemblance remain separate; no human or later continuous gestation follows.",
+        "Starting embryos, assay withdrawals, recipient/fragment/litter identities and individual later outcomes are not reconstructed. Source counts are summaries, not authenticated biological n.",
+        "Vascular structure does not establish a perfused circulation, recipient exchange capacity or the transition to sustained fetal support."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "hiraoka-local-maternal-response",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "implantation_and_placentation",
+      "developmental_interval": {
+        "label": "Mouse E3.75 entry; 24h maternal-response assessment; actual time and stage resemblance separate",
+        "start": "E3.75 entry",
+        "end": "24h maternal-response assessment",
+        "time_unit": "source hours and stage labels",
+        "stage_source_artifact_id": "hiraoka2025-europepmc-xml"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Native mouse maternal-tissue compartment of source whole-embryo ex-vivo co-culture"
+      },
+      "assay": {
+        "name": "Selected primary-source qualitative summary",
+        "endpoint": "Localized maternal molecular response and artifact comparator",
+        "unit": "source-reported qualitative summary",
+        "measurement_role": "molecular_identity",
+        "functional_context": {
+          "compartment": "Maternal attached and nonattached stroma",
+          "material": "Maternal COX-2 expression",
+          "process": "other",
+          "quantity_basis": "Source summary with endpoint-specific denominator; no organism-function or unit-identity reconstruction",
+          "assessment_context": "other",
+          "source_locator": "Results Sec7; Figure 5C-E; Supplementary Fig. 5 p8, local COX-2 row"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "IDs remain null. Recipient-level ratios, embryo-level invasion, maternal-tissue assays and stage-specific immunostained subsets are separate source scopes; Exp labels do not authenticate biological pairing."
+      },
+      "observation": {
+        "value": "Localized maternal COX-2 expression near attachment; source notes weaker non-embryo-associated induction",
+        "measurement_time": "24h maternal-response assessment",
+        "measurement_time_unit": "source hours and stage labels",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "hiraoka2025-europepmc-xml",
+        "uri": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12217791/fullTextXML",
+        "license": "CC BY-NC-ND 4.0 article statement; source-specific reuse review pending; original bytes preserved",
+        "sha256": "7960a4efb7a314acb61bba921118de1ae49807ba9ca1e995e260171b984c7a10",
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "AI-assisted selected-source curation; human scientific review pending. No biological fit, causal estimate or operating specification.",
+        "Mouse E3.75 entry, elapsed source hours and author-assigned in-vivo resemblance remain separate; no human or later continuous gestation follows.",
+        "Starting embryos, assay withdrawals, recipient/fragment/litter identities and individual later outcomes are not reconstructed. Source counts are summaries, not authenticated biological n.",
+        "Expression/location is not a measured lipid flux or complete causal pathway. Device-associated inflammatory response is an author interpretation, not independently identified causality."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "hiraoka-signaling-comparison",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "implantation_and_placentation",
+      "developmental_interval": {
+        "label": "Mouse E3.75 entry; 24h/48h separate endpoints; actual time and stage resemblance separate",
+        "start": "E3.75 entry",
+        "end": "24h/48h separate endpoints",
+        "time_unit": "source hours and stage labels",
+        "stage_source_artifact_id": "hiraoka2025-europepmc-xml"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Source ex-vivo mouse embryo/endometrial-tissue system; no laboratory work performed locally"
+      },
+      "assay": {
+        "name": "Selected primary-source qualitative summary",
+        "endpoint": "Source signaling perturbation and separate early outcomes",
+        "unit": "source-reported qualitative summary",
+        "measurement_role": "adverse_effect",
+        "functional_context": {
+          "compartment": "Embryo and maternal endometrial tissue",
+          "material": "Maternal-interface and embryonic state",
+          "process": "developmental_outcome",
+          "quantity_basis": "Source summary with endpoint-specific denominator; no organism-function or unit-identity reconstruction",
+          "assessment_context": "ex_utero_whole_embryo",
+          "source_locator": "Results Sec8; Figure 5F/G/I/K and caption; native Figure 5 source workbook"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "IDs remain null. Recipient-level ratios, embryo-level invasion, maternal-tissue assays and stage-specific immunostained subsets are separate source scopes; Exp labels do not authenticate biological pairing."
+      },
+      "observation": {
+        "value": "Source COX-2 inhibition comparison reduces attachment/retention and invasion in assessed source subsets",
+        "measurement_time": "24h/48h separate endpoints",
+        "measurement_time_unit": "source hours and stage labels",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "hiraoka2025-europepmc-xml",
+        "uri": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12217791/fullTextXML",
+        "license": "CC BY-NC-ND 4.0 article statement; source-specific reuse review pending; original bytes preserved",
+        "sha256": "7960a4efb7a314acb61bba921118de1ae49807ba9ca1e995e260171b984c7a10",
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "AI-assisted selected-source curation; human scientific review pending. No biological fit, causal estimate or operating specification.",
+        "Mouse E3.75 entry, elapsed source hours and author-assigned in-vivo resemblance remain separate; no human or later continuous gestation follows.",
+        "Starting embryos, assay withdrawals, recipient/fragment/litter identities and individual later outcomes are not reconstructed. Source counts are summaries, not authenticated biological n.",
+        "Perturbation supports bounded functional involvement but does not isolate all embryo/maternal effects or identify a complete mediator. Caption ratio n is recipient-level; invasion n is embryo-level. No intervention instructions are curated."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "hiraoka-persistent-fixation-adverse",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "implantation_and_placentation",
+      "developmental_interval": {
+        "label": "Mouse E3.75 entry; 72h separate adverse branch; actual time and stage resemblance separate",
+        "start": "E3.75 entry",
+        "end": "72h separate adverse branch",
+        "time_unit": "source hours and stage labels",
+        "stage_source_artifact_id": "hiraoka2025-europepmc-xml"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Source ex-vivo mouse embryo/endometrial-tissue system; no laboratory work performed locally"
+      },
+      "assay": {
+        "name": "Selected primary-source qualitative summary",
+        "endpoint": "Adverse embryonic outcome in a separate source configuration",
+        "unit": "source-reported qualitative summary",
+        "measurement_role": "adverse_effect",
+        "functional_context": {
+          "compartment": "Embryo and maternal endometrial tissue",
+          "material": "Maternal-interface and embryonic state",
+          "process": "developmental_outcome",
+          "quantity_basis": "Source summary with endpoint-specific denominator; no organism-function or unit-identity reconstruction",
+          "assessment_context": "ex_utero_whole_embryo",
+          "source_locator": "Results Sec4 first paragraph; Supplementary Fig. 4B/C, physical PDF p7"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "IDs remain null. Recipient-level ratios, embryo-level invasion, maternal-tissue assays and stage-specific immunostained subsets are separate source scopes; Exp labels do not authenticate biological pairing."
+      },
+      "observation": {
+        "value": "Persistent-fixation source branch loses embryo morphology and is described as appearing dead by 72h",
+        "measurement_time": "72h separate adverse branch",
+        "measurement_time_unit": "source hours and stage labels",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "hiraoka2025-europepmc-xml",
+        "uri": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12217791/fullTextXML",
+        "license": "CC BY-NC-ND 4.0 article statement; source-specific reuse review pending; original bytes preserved",
+        "sha256": "7960a4efb7a314acb61bba921118de1ae49807ba9ca1e995e260171b984c7a10",
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "AI-assisted selected-source curation; human scientific review pending. No biological fit, causal estimate or operating specification.",
+        "Mouse E3.75 entry, elapsed source hours and author-assigned in-vivo resemblance remain separate; no human or later continuous gestation follows.",
+        "Starting embryos, assay withdrawals, recipient/fragment/litter identities and individual later outcomes are not reconstructed. Source counts are summaries, not authenticated biological n.",
+        "Morphological author description, not a locally verified death assay. Space, supply and other coupled changes are competing explanations; no uniquely identified force, setting or correction follows."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "hiraoka-later-denominator-selection",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "implantation_and_placentation",
+      "developmental_interval": {
+        "label": "Mouse E3.75 entry; 24h/48h endpoint-specific coverage; actual time and stage resemblance separate",
+        "start": "E3.75 entry",
+        "end": "24h/48h endpoint-specific coverage",
+        "time_unit": "source hours and stage labels",
+        "stage_source_artifact_id": "hiraoka2025-europepmc-xml"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Source ex-vivo mouse embryo/endometrial-tissue system; no laboratory work performed locally"
+      },
+      "assay": {
+        "name": "Selected primary-source qualitative summary",
+        "endpoint": "Endpoint-specific disposition and assay selection",
+        "unit": "source-reported qualitative summary",
+        "measurement_role": "other",
+        "functional_context": {
+          "compartment": "Embryo and maternal endometrial tissue",
+          "material": "Maternal-interface and embryonic state",
+          "process": "other",
+          "quantity_basis": "Source summary with endpoint-specific denominator; no organism-function or unit-identity reconstruction",
+          "assessment_context": "other",
+          "source_locator": "Figure 5 native workbook 5G!G9 and 5I!G9; plot formulas and source count blocks"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "IDs remain null. Recipient-level ratios, embryo-level invasion, maternal-tissue assays and stage-specific immunostained subsets are separate source scopes; Exp labels do not authenticate biological pairing."
+      },
+      "observation": {
+        "value": "Later Figure 5 denominators omit attached embryos used for other assays and lacking later evaluation",
+        "measurement_time": "24h/48h endpoint-specific coverage",
+        "measurement_time_unit": "source hours and stage labels",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "hiraoka2025-figure5-source",
+        "uri": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-025-60610-x/MediaObjects/41467_2025_60610_MOESM14_ESM.xlsx",
+        "license": "CC BY-NC-ND 4.0 article statement; source-specific reuse review pending; original bytes preserved",
+        "sha256": "6ceed8646a488132f4fe6f973abac3da1848d2258e27cecc19bee6a9a8ecd6e4",
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "AI-assisted selected-source curation; human scientific review pending. No biological fit, causal estimate or operating specification.",
+        "Mouse E3.75 entry, elapsed source hours and author-assigned in-vivo resemblance remain separate; no human or later continuous gestation follows.",
+        "Starting embryos, assay withdrawals, recipient/fragment/litter identities and individual later outcomes are not reconstructed. Source counts are summaries, not authenticated biological n.",
+        "Source notes distinguish assay withdrawal from assessed shedding. Matching condition/Exp3 labels gives retained 3 + shed 3 versus attached 5; identity must be authenticated before calling this a common-cohort closure failure."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "hiraoka-linked-exchange-followup-gap",
+      "evidence_status": "planned",
+      "species": "mouse",
+      "stage_track": "developmental_outcomes",
+      "developmental_interval": {
+        "label": "Linked exchange and later functional ending interval unqualified",
+        "start": "E3.75 entry",
+        "end": "Later functional ending stage unqualified",
+        "time_unit": "source hours and stage labels",
+        "stage_source_artifact_id": "hiraoka2025-europepmc-xml"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Source ex-vivo mouse embryo/endometrial-tissue system; no laboratory work performed locally"
+      },
+      "assay": {
+        "name": "Selected primary-source qualitative summary",
+        "endpoint": "Same-unit maternal state, recipient exchange and later developmental function",
+        "unit": "unreported linked endpoint",
+        "measurement_role": "durability",
+        "functional_context": {
+          "compartment": "Embryo and maternal endometrial tissue",
+          "material": "Maternal-interface and embryonic state",
+          "process": "developmental_outcome",
+          "quantity_basis": "Missing linked follow-up; no negative result inferred",
+          "assessment_context": "ex_utero_whole_embryo",
+          "source_locator": "Selected Results/Discussion and source files: no qualified same-unit exchange and later-function path"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "IDs remain null. Recipient-level ratios, embryo-level invasion, maternal-tissue assays and stage-specific immunostained subsets are separate source scopes; Exp labels do not authenticate biological pairing."
+      },
+      "observation": {
+        "value": null,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "not_reported",
+        "measurement_uncertainty": null,
+        "missingness_reason": "Linked recipient exchange/function and later developmental outcomes unavailable in inspected source scope."
+      },
+      "source": {
+        "artifact_id": "hiraoka2025-europepmc-xml",
+        "uri": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC12217791/fullTextXML",
+        "license": "CC BY-NC-ND 4.0 article statement; source-specific reuse review pending; original bytes preserved",
+        "sha256": "7960a4efb7a314acb61bba921118de1ae49807ba9ca1e995e260171b984c7a10",
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "AI-assisted selected-source curation; human scientific review pending. No biological fit, causal estimate or operating specification.",
+        "Mouse E3.75 entry, elapsed source hours and author-assigned in-vivo resemblance remain separate; no human or later continuous gestation follows.",
+        "Starting embryos, assay withdrawals, recipient/fragment/litter identities and individual later outcomes are not reconstructed. Source counts are summaries, not authenticated biological n.",
+        "Missing evidence is not proof of biological impossibility. Independent source/method review remains necessary."
+      ]
+    }
+  ],
+  "transitions": [
+    {
+      "transition_id": "hiraoka-maternal-interface-to-exchange",
+      "from_record_ids": [
+        "hiraoka-embryonic-compartments96"
+      ],
+      "to_record_ids": [
+        "hiraoka-linked-exchange-followup-gap"
+      ],
+      "continuity_status": "not_reported",
+      "note": "Retained maternal tissue, attachment and early morphology do not establish a same-unit path to sustained recipient exchange and later function."
+    }
+  ],
+  "limitations": [
+    "AI-assisted selected-source curation; human scientific review pending. No biological fit, causal estimate or operating specification.",
+    "Mouse E3.75 entry, elapsed source hours and author-assigned in-vivo resemblance remain separate; no human or later continuous gestation follows.",
+    "Starting embryos, assay withdrawals, recipient/fragment/litter identities and individual later outcomes are not reconstructed. Source counts are summaries, not authenticated biological n.",
+    "No ledger promotion. Original source bytes remain outside this candidate bundle. No tissue collection, culture protocol, device assembly, physiological setpoint or clinical guidance."
+  ]
+}
