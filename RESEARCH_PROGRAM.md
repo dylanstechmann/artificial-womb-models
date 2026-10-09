@@ -54,6 +54,14 @@ replicate definition. The next discriminator is a same-embryo boundary/growth/
 outcome link; sequencing cells and segmentation training stacks cannot supply
 independent developmental units or establish adequate recipient support.
 
+The native Figure 6 audit now recovers partial endpoint-key linkage: 53
+length/cell-count candidates and 17 length-only records. Trajectory tables lack
+the embryo key needed to join boundary movement to outcomes. Authenticate
+source identities and measurement validity before a narrower paired morphology
+analysis; retain all unmatched endpoints, the recorded zero and nested cell/
+stack/line observations. Matching a dataset code cannot close the mechanism
+question or establish complete starting-cohort coverage.
+
 ## 1. Treat the objective as a chain of biological transitions
 
 A wall-powered support system would have to preserve the functions needed at

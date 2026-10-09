@@ -3,7 +3,7 @@
   "dataset_id": "bondarenko2023-coordination-candidate",
   "title": "Bounded mouse peri-implantation boundary/growth comparisons; source-linked candidate summaries",
   "source_revision": {
-    "revision_id": "bondarenko2023-xml-2026-10-09",
+    "revision_id": "bondarenko2023-native-csv-2026-10-09",
     "citation": "Bondarenko et al. (2023). Embryo-uterine interaction coordinates mouse embryogenesis during implantation. The EMBO Journal 42, e113280. DOI 10.15252/embj.2022113280.",
     "source_kind": "peer_reviewed_animal",
     "source_url": "https://doi.org/10.15252/embj.2022113280",
@@ -20,6 +20,14 @@
       "sha256": "92ac9a0a0af2202722718629eb1cab27cb845c2613bc3f048612f19c0b174fc5",
       "retrieved_on": "2026-10-09",
       "local_path": "artifacts/coordination-cohort-2026-10-09/bondarenko.xml"
+    },
+    {
+      "artifact_id": "bondarenko2023-figure6-source",
+      "uri": "https://media.springernature.com/original/springer-static/esm/art%3A10.15252%2Fembj.2022113280/MediaObjects/44318_2023_BFEMBJ2022113280_MOESM20_ESM.zip",
+      "license": "CC BY 4.0 article statement; source-specific review pending",
+      "sha256": "36adfb6ec13b6df189c116e19ce18455f3c0b00052838657c59f0eda65784c75",
+      "retrieved_on": "2026-10-09",
+      "local_path": "artifacts/boundary-source-2026-10-09/figure6.zip"
     }
   ],
   "observations": [
@@ -58,7 +66,7 @@
         "kind": "not_reported",
         "id": null,
         "parent_id": null,
-        "hierarchy_note": "Aggregate caption counts do not recover biological IDs. Cells, time points and pooled profiles remain nested/unlinked."
+        "hierarchy_note": "Aggregate source findings; IDs remain null. Figure 6 endpoint CSVs have candidate Dataset/Embryo ID links, but displacement lacks embryo ID. Biological identity, independence and cross-branch linkage remain unqualified."
       },
       "observation": {
         "value": "12 of 26 meet Day 3 composite morphology criterion; pooled from three independent experiments",
@@ -117,7 +125,7 @@
         "kind": "not_reported",
         "id": null,
         "parent_id": null,
-        "hierarchy_note": "Aggregate caption counts do not recover biological IDs. Cells, time points and pooled profiles remain nested/unlinked."
+        "hierarchy_note": "Aggregate source findings; IDs remain null. Figure 6 endpoint CSVs have candidate Dataset/Embryo ID links, but displacement lacks embryo ID. Biological identity, independence and cross-branch linkage remain unqualified."
       },
       "observation": {
         "value": "Reichert membrane reported in 20 of 26 embryos; distinct from the composite endpoint",
@@ -176,7 +184,7 @@
         "kind": "not_reported",
         "id": null,
         "parent_id": null,
-        "hierarchy_note": "Aggregate caption counts do not recover biological IDs. Cells, time points and pooled profiles remain nested/unlinked."
+        "hierarchy_note": "Aggregate source findings; IDs remain null. Figure 6 endpoint CSVs have candidate Dataset/Embryo ID links, but displacement lacks embryo ID. Biological identity, independence and cross-branch linkage remain unqualified."
       },
       "observation": {
         "value": "Developmental efficiency decreases in the source comparison lacking matrix adhesion support",
@@ -235,7 +243,7 @@
         "kind": "not_reported",
         "id": null,
         "parent_id": null,
-        "hierarchy_note": "Aggregate caption counts do not recover biological IDs. Cells, time points and pooled profiles remain nested/unlinked."
+        "hierarchy_note": "Aggregate source findings; IDs remain null. Figure 6 endpoint CSVs have candidate Dataset/Embryo ID links, but displacement lacks embryo ID. Biological identity, independence and cross-branch linkage remain unqualified."
       },
       "observation": {
         "value": "Source reports lineage-related transcriptional similarity between ex-utero and in-utero groups",
@@ -294,7 +302,7 @@
         "kind": "not_reported",
         "id": null,
         "parent_id": null,
-        "hierarchy_note": "Aggregate caption counts do not recover biological IDs. Cells, time points and pooled profiles remain nested/unlinked."
+        "hierarchy_note": "Aggregate source findings; IDs remain null. Figure 6 endpoint CSVs have candidate Dataset/Embryo ID links, but displacement lacks embryo ID. Biological identity, independence and cross-branch linkage remain unqualified."
       },
       "observation": {
         "value": "Shape/volume observations agree with a model allowing increased substrate adhesion; tension is inferred",
@@ -353,7 +361,7 @@
         "kind": "not_reported",
         "id": null,
         "parent_id": null,
-        "hierarchy_note": "Aggregate caption counts do not recover biological IDs. Cells, time points and pooled profiles remain nested/unlinked."
+        "hierarchy_note": "Aggregate source findings; IDs remain null. Figure 6 endpoint CSVs have candidate Dataset/Embryo ID links, but displacement lacks embryo ID. Biological identity, independence and cross-branch linkage remain unqualified."
       },
       "observation": {
         "value": "Source imaging shows coordinated elongation and membrane movement; coordination differs between geometry groups",
@@ -374,7 +382,8 @@
         "AI-assisted selected source curation is not human scientific review; original XML hash pins this retrieval, not all publisher revisions.",
         "Mouse E3.5 entry and Day 3 E5.25-like morphology are distinct labels; source reports delay. No human or later continuous gestation inferred.",
         "Individual starting roster, source/litter hierarchy, losses and cross-assay pairing unqualified. No biological fit, causal effect estimate or operating specification.",
-        "Figure 6I/J averages two versus four independent experiments. Individual trajectories, outcome linkage and support receipt remain unqualified."
+        "Figure 6I/J averages two versus four independent experiments. Individual trajectories, outcome linkage and support receipt remain unqualified.",
+        "Native Figure 6I/J audit recovers 691 EPI/TE_inner pairs of measurement labels across six dataset strings. No embryo ID in displacement table; sharing dataset 221107 with endpoints cannot establish pairing."
       ]
     },
     {
@@ -412,7 +421,7 @@
         "kind": "not_reported",
         "id": null,
         "parent_id": null,
-        "hierarchy_note": "Aggregate caption counts do not recover biological IDs. Cells, time points and pooled profiles remain nested/unlinked."
+        "hierarchy_note": "Aggregate source findings; IDs remain null. Figure 6 endpoint CSVs have candidate Dataset/Embryo ID links, but displacement lacks embryo ID. Biological identity, independence and cross-branch linkage remain unqualified."
       },
       "observation": {
         "value": "Rac1-deficient embryos show impaired elongation/epiblast growth and additional parietal-endoderm defects",
@@ -433,7 +442,8 @@
         "AI-assisted selected source curation is not human scientific review; original XML hash pins this retrieval, not all publisher revisions.",
         "Mouse E3.5 entry and Day 3 E5.25-like morphology are distinct labels; source reports delay. No human or later continuous gestation inferred.",
         "Individual starting roster, source/litter hierarchy, losses and cross-assay pairing unqualified. No biological fit, causal effect estimate or operating specification.",
-        "Multi-tissue phenotype prevents trophoblast-only causal interpretation. Length versus cell-count cohorts have different n and experiment counts."
+        "Multi-tissue phenotype prevents trophoblast-only causal interpretation. Length versus cell-count cohorts have different n and experiment counts.",
+        "Native Figure 6G/H audit recovers 53 matched Dataset/Embryo ID key candidates and 17 length-only keys. Genotype labels agree for matches; source-key equality is not human-reviewed pairing. Recorded zero retained without physiological interpretation."
       ]
     },
     {
@@ -471,7 +481,7 @@
         "kind": "not_reported",
         "id": null,
         "parent_id": null,
-        "hierarchy_note": "Aggregate caption counts do not recover biological IDs. Cells, time points and pooled profiles remain nested/unlinked."
+        "hierarchy_note": "Aggregate source findings; IDs remain null. Figure 6 endpoint CSVs have candidate Dataset/Embryo ID links, but displacement lacks embryo ID. Biological identity, independence and cross-branch linkage remain unqualified."
       },
       "observation": {
         "value": "Source geometry comparisons impair egg-cylinder morphogenesis and limit growth",
@@ -492,7 +502,8 @@
         "AI-assisted selected source curation is not human scientific review; original XML hash pins this retrieval, not all publisher revisions.",
         "Mouse E3.5 entry and Day 3 E5.25-like morphology are distinct labels; source reports delay. No human or later continuous gestation inferred.",
         "Individual starting roster, source/litter hierarchy, losses and cross-assay pairing unqualified. No biological fit, causal effect estimate or operating specification.",
-        "No source trajectory/outcome join or support-function comparison inspected. This does not diagnose arrest in another mouse study."
+        "No source trajectory/outcome join or support-function comparison inspected. This does not diagnose arrest in another mouse study.",
+        "Native Figure 6I/J audit recovers 691 EPI/TE_inner pairs of measurement labels across six dataset strings. No embryo ID in displacement table; sharing dataset 221107 with endpoints cannot establish pairing."
       ]
     },
     {
@@ -530,7 +541,7 @@
         "kind": "not_reported",
         "id": null,
         "parent_id": null,
-        "hierarchy_note": "Aggregate caption counts do not recover biological IDs. Cells, time points and pooled profiles remain nested/unlinked."
+        "hierarchy_note": "Aggregate source findings; IDs remain null. Figure 6 endpoint CSVs have candidate Dataset/Embryo ID links, but displacement lacks embryo ID. Biological identity, independence and cross-branch linkage remain unqualified."
       },
       "observation": {
         "value": null,
@@ -573,6 +584,7 @@
     "AI-assisted selected source curation is not human scientific review; original XML hash pins this retrieval, not all publisher revisions.",
     "Mouse E3.5 entry and Day 3 E5.25-like morphology are distinct labels; source reports delay. No human or later continuous gestation inferred.",
     "Individual starting roster, source/litter hierarchy, losses and cross-assay pairing unqualified. No biological fit, causal effect estimate or operating specification.",
-    "No ledger promotion. No culture procedure, tissue manipulation, device assembly, physiological setting or clinical guidance."
+    "No ledger promotion. No culture procedure, tissue manipulation, device assembly, physiological setting or clinical guidance.",
+    "Pinned Figure 6 native CSV audit narrows linkage gaps without promoting same-unit continuity. Original imaging-time and post-E3.5 clocks, nested stack/line measurements, caption/track-label discrepancy and genotype endpoints remain separate."
   ]
 }

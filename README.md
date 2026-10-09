@@ -66,6 +66,13 @@ model-inferred forces, and qualifies public imaging metadata as a segmentation
 resource. Prior yolk-sac supplements now clarify aggregate cohort counts and
 batch replication without establishing individual pairing or human feasibility.
 
+`audit-boundary-source` now audits that study's native Figure 6 CSV archive:
+it recovers 53 candidate length/cell-count key pairs and retains 17 length-only
+records. Boundary trajectories lack an embryo ID, so a shared dataset code
+cannot establish a boundary/outcome join. Original units, nested labels, zeros
+and the caption/track-label discrepancy remain explicit; no biological fit is
+performed.
+
 The [interface source qualification](SOURCE_QUALIFICATION.md) audits the Hori
 2024 Figure 5G workbook and two Bhide 2026 kinetic supplements. The new
 `audit-hori-source` command extracts 48 source-located Papp endpoints into a

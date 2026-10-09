@@ -161,6 +161,11 @@ inferred-versus-measured quantities and individual outcomes. The source reaches
 an early egg-cylinder endpoint, with failures retained; it supplies no human
 mechanical setting or evidence of later continuous support.
 
+The native source audit further requires Machine B's records to distinguish
+specimen identity from dataset, image-stack, measurement-line and cell-track
+labels. Endpoint-key matches can qualify a partial comparison after review,
+while an absent embryo link keeps trajectory-to-outcome continuity unresolved.
+
 ## Machine B: support and observation station
 
 The [selective-interface exploration](SELECTIVE_INTERFACE_FEASIBILITY.md)

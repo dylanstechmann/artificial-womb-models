@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Add `audit-boundary-source` for a pinned native mouse Figure 6 CSV archive: preserve exact selected source bytes and reported units, recover compound-key endpoint candidates and nested displacement label pairs, retain unmatched/conflicting/missing observations and refuse boundary/outcome joins without embryo identity. Record caption/track-label reconciliation and preserve zero counts without biological interpretation; add provenance, malformed-input and identity/independence regression checks. No biological fit or gestation claim is added.
+
 - Qualify a pinned early mouse boundary/growth source with eight author-summary findings and a missing linked follow-up; retain distinct morphology endpoints, perturbation limits, inferred forces and source hierarchies. Inspect publisher yolk-sac PDFs to recover aggregate screening counts, post-QC cell counts and a global batch replicate definition. Refine Machine A's coordinated growth requirement without identifying an arrest cause, fitting biology or closing human gestation gates.
 
 - Add `audit-yolk-sac-source` for a pinned mouse supplementary workbook: preserve 310 scalar/summary cells, check 124 summary calculations, retain D2/D6 text versus D1/D5 table-mean timing and exclude unqualified concentrations from numeric intake. Curate selected component/progression findings and a missing paired endpoint; require support function and embryonic coordination jointly without identifying a cause or proposing operating conditions.

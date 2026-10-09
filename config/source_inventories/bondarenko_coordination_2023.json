@@ -23,13 +23,28 @@
       "url": "https://zenodo.org/api/records/6546550",
       "bytes": 4739,
       "sha256": "13c8bae4e143cea7935b85700595af4724b88c39c057511f9e3ee1ac9046bf34"
+    },
+    {
+      "path": "artifacts/boundary-source-2026-10-09/publisher.html",
+      "role": "publisher full article HTML and supplemental links, retrieved independently",
+      "url": "https://link.springer.com/article/10.15252/embj.2022113280",
+      "bytes": 635974,
+      "sha256": "f4f343bd13e3f5def109460535ca866bc3f8da5e1b206e4943ad24070f1dd640"
+    },
+    {
+      "path": "artifacts/boundary-source-2026-10-09/figure6.zip",
+      "role": "original publisher Figure 6 source archive; four native CSV members inspected",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.15252%2Fembj.2022113280/MediaObjects/44318_2023_BFEMBJ2022113280_MOESM20_ESM.zip",
+      "bytes": 6931831,
+      "sha256": "36adfb6ec13b6df189c116e19ce18455f3c0b00052838657c59f0eda65784c75"
     }
   ],
   "selected_scope": [
     "Results sec-0003 through sec-0007",
     "Discussion sec-0008",
     "Figures EV1E/E-prime, 1I/J, 2A/I, 3B/C, 4G-J, 6G-J",
-    "Data availability sec-0054; license"
+    "Data availability sec-0054; license",
+    "Publisher Figure 6 source archive: displacement, cell-track, cell-count and embryo-length native CSVs; media not inspected/executed"
   ],
   "source_summary_counts": {
     "composite_day3": {
@@ -93,7 +108,7 @@
   },
   "separate_sequencing_accession": "GSE228264; file/sample inventory and phenotype join not qualified",
   "source_review_issues": [
-    "Individual starting roster, exclusions, outcome labels and raw trajectory hierarchy not inspected.",
+    "Selected endpoint labels and measurements recovered; individual starting/disposition roster and raw-image measurement validity unqualified. Partial endpoint linkage is a source-key candidate, not authenticated biological pairing.",
     "Tension/adhesion dynamics are inferred from shape and volume; no direct force assay or physiological calibration.",
     "Rac1 phenotype affects multiple tissues; perturbation specificity remains open.",
     "In-vivo soft-wetting account proposed in Discussion, not demonstrated by engineered-environment fit.",
@@ -101,5 +116,94 @@
   ],
   "biological_assay_performed": false,
   "biological_fit_performed": false,
-  "ledger_promotion": "none"
+  "ledger_promotion": "none",
+  "native_csv_qualification": {
+    "scope": "AI-assisted source-label and numeric-field validation only; human review pending",
+    "members": [
+      {
+        "file": "displacement.csv",
+        "member": "Figure 6/Panel i and j/Displacement analysis.csv",
+        "bytes": 53286,
+        "sha256": "e816079d72f0d3239ee3c4a9d88344ea2c6e702d29814ec3157765f54e17ebeb",
+        "encoding": "utf-8-sig",
+        "rows": 1383,
+        "widths": [
+          7
+        ]
+      },
+      {
+        "file": "tracks.csv",
+        "member": "Figure 6/Panel c and d/TB migration tracks.csv",
+        "bytes": 109494,
+        "sha256": "8f94f4291dce57b2e674f74345e827b0a5d23bd804c55f2f9efd3ce957dc98bc",
+        "encoding": "utf-8-sig",
+        "rows": 2644,
+        "widths": [
+          8
+        ]
+      },
+      {
+        "file": "cell-counts.csv",
+        "member": "Figure 6/Panel h/EPI cell counts.csv",
+        "bytes": 1018,
+        "sha256": "94adaa9822788cbf2194db219dc6cf526b3da08bcb55e70b534d0fd4b74d9bf9",
+        "encoding": "utf-8-sig",
+        "rows": 54,
+        "widths": [
+          4
+        ]
+      },
+      {
+        "file": "lengths.csv",
+        "member": "Figure 6/Panel g/Embryo length quantification.csv",
+        "bytes": 1365,
+        "sha256": "cd9baf38848a1f4c7aeedb0bbe5b872c0c0cbb9e36a768bf9bbf705b79a4b747",
+        "encoding": "utf-8-sig",
+        "rows": 71,
+        "widths": [
+          4
+        ]
+      }
+    ],
+    "endpoint_key": [
+      "Dataset",
+      "Embryo ID"
+    ],
+    "endpoint_linkage_counts": {
+      "key_match_candidate": 53,
+      "length_only": 17
+    },
+    "displacement_pair_counts": {
+      "same_measurement_labels_candidate": 691
+    },
+    "displacement_labels": "Dataset, Orientation, Z stack ID, Line ID, time, EPI/TE_inner; no Embryo ID",
+    "shared_dataset_labels_with_endpoints": [
+      "221107"
+    ],
+    "boundary_to_endpoint_linkage": "not_established_missing_displacement_embryo_id",
+    "zero_cell_counts_retained": 1,
+    "zero_count_locator": "Figure 6/Panel h/EPI cell counts.csv, row 12: Dataset 211002, Embryo ID E12; recorded zero, measurement validity/meaning unqualified",
+    "cell_tracks": {
+      "caption_locator": "Figure 6C/D",
+      "caption_n": 29,
+      "interpretation": "CSV track-label count and caption n require definition/reconciliation; tracks are not embryos.",
+      "n_individual_track_labels": 28,
+      "n_original_track_labels": 22
+    },
+    "interpretation": [
+      "Compound source-key equality is a linkage candidate, not authenticated biological identity or independence.",
+      "Dataset codes are opaque source strings, not inferred dates, litter IDs or unique embryos. Sharing a code cannot join displacement to endpoints.",
+      "Stack/line/time pairs remain nested observations; no averaging, trajectory gap filling, unit conversion or inferential effect is performed.",
+      "EPI and TE_inner are original table labels. The caption's membrane interpretation, normalization and coordinate mapping require review.",
+      "Source hour/minute labels and units are preserved. Imaging-time and post-E3.5 clocks are not concatenated or assigned to a biological model.",
+      "Cell tracks have no source embryo/dataset label in this table; division/generation labels are retained without inventing lineage or independence.",
+      "Starting cohort, exclusions, failures, support receipt and later function remain unqualified. No full gestation claim follows."
+    ],
+    "audit_command": "audit-boundary-source; source archive pinned, native selected bytes retained, no effect estimation or biological model fit",
+    "figure1_source_retrieval": {
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.15252%2Fembj.2022113280/MediaObjects/44318_2023_BFEMBJ2022113280_MOESM15_ESM.zip",
+      "status": "not_retrieved_exceeds_local_64_MB_limit",
+      "starting_roster": "not_qualified"
+    }
+  }
 }

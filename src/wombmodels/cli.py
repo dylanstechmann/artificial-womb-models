@@ -20,6 +20,7 @@ from .collection_accounting import collection_accounting
 from .roelofsen_source import audit_roelofsen_source
 from .guo_source import audit_guo_source
 from .yolk_sac_source import audit_yolk_sac_source
+from .boundary_source import audit_boundary_source
 from .numerical_verification import (
     verify_mechanics_accuracy,
     verify_transport_accuracy,
@@ -64,6 +65,9 @@ def main(argv=None) -> int:
     yolk_audit = commands.add_parser("audit-yolk-sac-source", help="Audit pinned mouse yolk-sac readout cells and source timing; no unit inference or fit")
     yolk_audit.add_argument("--workbook", type=Path, required=True)
     yolk_audit.add_argument("--out", type=Path, required=True)
+    boundary_audit = commands.add_parser("audit-boundary-source", help="Audit pinned native boundary/growth source CSV linkage offline; no biological identity inference or fit")
+    boundary_audit.add_argument("--archive", type=Path, required=True)
+    boundary_audit.add_argument("--out", type=Path, required=True)
     crest_audit = commands.add_parser("audit-crest-linkage", help="Audit pinned early-interface sample pools and annotation labels offline; no phenotype fit")
     crest_audit.add_argument("--sdrf", type=Path, required=True)
     crest_audit.add_argument("--archive", type=Path, required=True)
@@ -138,6 +142,8 @@ def main(argv=None) -> int:
             receipt = audit_guo_source(args.workbook, args.out)
         elif args.command == "audit-yolk-sac-source":
             receipt = audit_yolk_sac_source(args.workbook, args.out)
+        elif args.command == "audit-boundary-source":
+            receipt = audit_boundary_source(args.archive, args.out)
         elif args.command == "audit-crest-linkage":
             receipt = audit_crest_linkage(args.sdrf, args.archive, args.out)
         elif args.command == "transport-identifiability":
