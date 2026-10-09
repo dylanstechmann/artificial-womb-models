@@ -17,6 +17,13 @@ better equipment control cannot substitute for that transition. The
 [three-machine concept](SYSTEM_DESIGN.md) remains the functional frame; this
 revision specifies the assumptions to test first.
 
+The [early exchange transition](EARLY_EXCHANGE_TRANSITION.md) now specifies
+which functions need continuity: early yolk-sac/extraembryonic provision and
+processing, emerging connected exchange, and the relay of developmental
+functions as organs develop. Require same-unit function and later outcomes.
+Inspected niche evidence includes a failed later developmental endpoint after
+early implantation; preserve that adverse finding and unresolved source timing.
+
 ## Choose the biological boundary before refining equipment
 
 | Proposed allocation | Function to preserve or supply | Unresolved question |

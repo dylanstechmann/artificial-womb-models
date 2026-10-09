@@ -24,6 +24,13 @@ support/development outcomes. New early mouse niche evidence and ovine growth
 findings refine the hybrid-interface hypothesis and its failure conditions;
 they establish no continuous human path or operating specification.
 
+The [early exchange transition](EARLY_EXCHANGE_TRANSITION.md) refines the
+biological boundary to include yolk-sac and other extraembryonic functions.
+It separates supportive niche effects, connected exchange, developmental
+function relay and durable outcomes. A pinned primary-source inventory retains
+species distinctions, adverse later findings and unresolved timing; none of
+these candidates establishes continuous human gestation.
+
 The [interface source qualification](SOURCE_QUALIFICATION.md) audits the Hori
 2024 Figure 5G workbook and two Bhide 2026 kinetic supplements. The new
 `audit-hori-source` command extracts 48 source-located Papp endpoints into a

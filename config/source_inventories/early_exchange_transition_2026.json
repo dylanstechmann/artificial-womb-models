@@ -1,0 +1,62 @@
+{
+  "schema_version": 1,
+  "review_status": "candidate",
+  "human_review": "pending",
+  "inspected_on": "2026-10-09",
+  "sources": [
+    {
+      "source_id": "goh-2023-yolk-sac-reference",
+      "article_url": "https://doi.org/10.1126/science.add7564",
+      "retrieval_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7614978/fullTextXML",
+      "source_role": "Peer-reviewed human observational tissue/multiomic reference; no ex-utero support demonstration",
+      "organism_species": "human",
+      "scope_locators": ["Abstract", "Structured abstract: Rationale", "Data and materials availability"],
+      "interval_conventions": "Abstract describes 3-8 post-conception weeks; integrated reference in Rationale describes 4-8 PCW/CS10-23. Preserve distinct source scopes and modalities pending review.",
+      "pairing_scope": "Paired sampled tissues in reference; longitudinal same-unit function relay not demonstrated",
+      "snapshot_path": "artifacts/early-exchange-transition-2026-10-09/goh-yolk-sac.xml",
+      "snapshot_bytes": 284677,
+      "snapshot_sha256": "0c643f78825adf48e6925ae0f0d843a42f02a437c5c3d835607215433bdb5c98",
+      "public_data_accessions": ["E-MTAB-10552", "E-MTAB-11673", "E-MTAB-10888", "E-MTAB-11549", "E-MTAB-11618", "E-MTAB-11613"],
+      "repository_qualification": "Paper accessions observed; two study pages reached but study bodies not loaded. File inventories, sample relationships and reuse remain unqualified.",
+      "functional_support_eligibility": "not_established_by_reference_identity"
+    },
+    {
+      "source_id": "xu-2023-vascular-niche",
+      "article_url": "https://link.springer.com/article/10.1186/s13287-023-03583-2",
+      "source_role": "Peer-reviewed mouse early-development experiment with human-origin supportive cells",
+      "organism_species": "mouse",
+      "support_cell_species": "human",
+      "source_stage_claim": "E3.5 to E7.5 in vitro; authors report inability to continue after E7.5",
+      "branch": "In-vitro early support followed by a separate return-to-uterus assessment; not continuous ex-utero gestation",
+      "early_implantation_summary": {"cell_supported_group": {"reported_implanted": 7, "reported_transferred": 15}, "comparison_group": {"reported_implanted": 0, "reported_transferred": 15}, "assessment": "Results: four days after transfer", "unit_links": "unqualified"},
+      "adverse_endpoint": "Results reports no surviving fetuses at later assessment; source timing requires reconciliation",
+      "timing_reconciliation": ["Results: cultured for 5.5 days; Discussion: 48 hours/E5.5 stage", "Results: later assessment 14 days after transfer; Figure 5 caption: 19 days"],
+      "source_locators": ["Results: developmental potential of transferred embryos", "Figure 5 caption", "Discussion", "Availability of data and materials"],
+      "snapshot_path": "artifacts/early-exchange-transition-2026-10-09/xu-vascular.html",
+      "snapshot_bytes": 533562,
+      "snapshot_sha256": "3730a67f66a998e1a665f6a632ed86ffdad57b0f1f5d824b41de97ce4faecd2f",
+      "data_access": "Available from corresponding author according to source; no inquiry sent",
+      "connected_embryonic_perfusion": "not_qualified",
+      "continuity_eligibility": "not_established"
+    },
+    {
+      "source_id": "2025-endothelial-trophoblast-component",
+      "article_url": "https://www.nature.com/articles/s42003-025-08057-0",
+      "source_role": "Peer-reviewed human trophoblast/endothelial organoid component model; baseline growth/viability context only",
+      "organism_species": "human tissue model; no supported embryo",
+      "scope_locators": ["Long-term survival and differentiation of trophoblast organoids in a vascular niche"],
+      "excluded_scope": "Infection experiments and all assay procedures excluded from this transition case",
+      "snapshot_path": "artifacts/early-exchange-transition-2026-10-09/shan-vascular-organoid.html",
+      "snapshot_bytes": 453640,
+      "snapshot_sha256": "050d64072f82e8cf613aeca03a6edfffd7de719e77085154a4ed55aab7180e83",
+      "embryonic_connection_eligibility": "not_established_by_component_model"
+    }
+  ],
+  "snapshot_hash_scope": "Observed local retrievals, not universal publisher revisions",
+  "source_specific_reuse_review": "pending",
+  "author_code_executed": false,
+  "raw_sequencing_analysis_performed": false,
+  "biological_assay_performed": false,
+  "ledger_promotion": "none",
+  "full_human_gestation_claim": "unestablished"
+}

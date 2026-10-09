@@ -116,6 +116,14 @@ Require joint support and organ/lineage development: stable circulation can
 coexist with abnormal growth in partial-support evidence. Fixed-niche,
 fixed-barrier and stage-separated designs remain research comparators.
 
+The [early exchange transition](EARLY_EXCHANGE_TRANSITION.md) makes yolk-sac
+and other extraembryonic functions explicit within this boundary. Preserve
+their changing relationships to the embryo and distinguish early provision,
+connected exchange, developmental function relay and durable development.
+Vascular niche morphology or early implantation cannot establish all four.
+The inspected early-development experiment supports mouse embryos with
+human-origin cells; it does not establish a human developmental transition.
+
 ## Machine B: support and observation station
 
 The [selective-interface exploration](SELECTIVE_INTERFACE_FEASIBILITY.md)
