@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Add optional source-linked functional contexts to observation intake, preserving compartment, material, process, quantity basis, assessment branch and locator without inferring omitted metadata or mechanisms. Pin a mouse yolk-sac primary-source XML and curate 14 candidate records retaining assay discordance, selection, adverse branches and missing organ-use follow-up; refine usable-transfer requirements without biological fitting or gestation claims.
+
 - Add explicit preprint source classification to observation intake and reports, separate from local human review. Curate nine qualitative terminal-window findings and one missing follow-up requirement from selected rendered mouse manuscript passages; retain adverse effects, separate starting cohorts, unpinned source bytes and unknown continuity. Refine internal-delivery/growth requirements without diagnosing a terminal cause or adding operating parameters.
 
 - Add a bounded placental-bypass comparator and independent delivery/metabolic-use/development requirements. Pin 2026 mouse preprint metadata/abstract and a peer-reviewed compartment-metabolism reference with two read-only source workbooks; retain different sampled embryo IDs, normalization label/formula direction discrepancy and unresolved cohort/access limits without biological fitting or ledger promotion.

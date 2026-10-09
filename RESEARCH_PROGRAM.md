@@ -32,6 +32,13 @@ and a [terminal-boundary candidate intake](MIDGESTATION_BOUNDARY.md); the inspec
 peer-reviewed reference source data require quantity/hierarchy reconciliation
 before observation intake or fitting.
 
+The [material handoff requirements](MATERIAL_HANDOFF_REQUIREMENTS.md) sharpen
+that distinction: tissue uptake and protein abundance do not establish onward
+passage or secretion. A pinned mouse reference and executable candidate intake
+retain compartment/material/readout context, selected and adverse branches,
+and missing organ-use follow-up. The next eligible question needs linked
+recipient function rather than an inferred material balance across assays.
+
 ## 1. Treat the objective as a chain of biological transitions
 
 A wall-powered support system would have to preserve the functions needed at

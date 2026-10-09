@@ -21,6 +21,12 @@ MODEL_KINDS = {"intact_organism", "embryo_model", "organoid", "tissue_construct"
                "simulation", "other"}
 MEASUREMENT_ROLES = {"morphology", "molecular_identity", "function", "viability", "genome_stability",
                      "adverse_effect", "durability", "environmental_condition", "other"}
+FUNCTIONAL_PROCESSES = {"uptake", "intracellular_processing", "passage", "secretion",
+                        "tissue_abundance", "developmental_outcome", "other", "unspecified"}
+ASSESSMENT_CONTEXTS = {"in_utero", "ex_utero_whole_embryo", "isolated_tissue",
+                       "cell_culture", "simulation", "other", "unspecified"}
+FUNCTIONAL_CONTEXT_FIELDS = ("compartment", "material", "process", "quantity_basis",
+                             "assessment_context", "source_locator")
 UNIT_KINDS = {"donor", "pregnant_animal", "embryo", "source_kidney", "organoid", "vessel_construct",
               "culture_batch", "sample_pool", "other", "not_reported"}
 REPLICATE_ROLES = {"independent", "repeated_measure", "technical", "summary_only", "not_reported"}
@@ -222,11 +228,19 @@ def _validate_record(value, artifacts):
         _string_or_null(model[field], f"model_system.{field}", 120)
 
     assay = _object(record["assay"], {"name", "endpoint", "unit", "measurement_role"},
-                    {"calibration_artifact_id"}, "assay")
+                    {"calibration_artifact_id", "functional_context"}, "assay")
     _text(assay["name"], "assay.name", 300)
     _text(assay["endpoint"], "assay.endpoint", 500)
     _text(assay["unit"], "assay.unit", 80)
     _enum(assay["measurement_role"], MEASUREMENT_ROLES, "measurement role")
+    if "functional_context" in assay:
+        context = _object(assay["functional_context"], FUNCTIONAL_CONTEXT_FIELDS, set(),
+                          "assay.functional_context")
+        for field in ("compartment", "material", "quantity_basis"):
+            _text(context[field], f"functional_context.{field}", 300)
+        _text(context["source_locator"], "functional_context.source_locator", 1000)
+        _enum(context["process"], FUNCTIONAL_PROCESSES, "functional process")
+        _enum(context["assessment_context"], ASSESSMENT_CONTEXTS, "assessment context")
     calibration = assay.setdefault("calibration_artifact_id", None)
     if calibration is not None:
         calibration = _text(calibration, "calibration_artifact_id", 96)
@@ -539,6 +553,9 @@ def observation_report(dataset_path: Path, output: Path, source_root: Path | Non
     source_verification = verify_source_files(dataset["artifacts"], source_root)
     artifacts = {item["artifact_id"]: item for item in dataset["artifacts"]}
     records = dataset["observations"]
+    context_rows = [{"record_id": item["record_id"], "source_artifact_id": item["source"]["artifact_id"],
+                     **item["assay"]["functional_context"]}
+                    for item in records if "functional_context" in item["assay"]]
     interval_checks = [{"record_id": item["record_id"],
                         "stage_source_artifact_id": item["developmental_interval"]["stage_source_artifact_id"],
                         "status": _check_interval_scope(item, artifacts)} for item in records]
@@ -582,6 +599,8 @@ def observation_report(dataset_path: Path, output: Path, source_root: Path | Non
     source_status = dataset["source_revision"]["review_status"]
     source_kind = dataset["source_revision"]["source_kind"]
     warnings = []
+    if context_rows:
+        warnings.append("Functional contexts are source-linked declarations, not verified mechanisms, fluxes or paired specimen identities. Compartment abundance does not establish passage, secretion or embryonic use.")
     if source_kind == "preprint":
         warnings.append("Source is declared a preprint; local review does not establish journal peer review or validate its findings.")
     if n_contained < len(records):
@@ -628,6 +647,9 @@ def observation_report(dataset_path: Path, output: Path, source_root: Path | Non
         "biological_assay_performed": False,
         "analysis_eligibility": "requires source-specific human review and a frozen analysis plan",
         "source_file_verification": verification_summary,
+        "functional_context": {"n_declared": len(context_rows),
+                               "n_not_declared": len(records) - len(context_rows),
+                               "scientific_transcription": "not_verified"},
         "source_interval_containment": {"n_contained": n_contained,
                                         "n_not_assessed": len(records) - n_contained,
                                         "scientific_transcription": "not_verified"},
@@ -647,6 +669,7 @@ def observation_report(dataset_path: Path, output: Path, source_root: Path | Non
             "Transition status is a source-recorded assertion. Demonstrated continuity requires matching recorded unit identifiers within one source artifact.",
             "Sample-pool members are source-recorded identifiers, not inferred specimens. Overlap with another pool or a direct unit prevents independent-replicate assertions in the same source/species/stage/assay/endpoint scope. Pool records cannot establish individual developmental continuity; missing members do not prove disjointness.",
             "Source interval containment compares curated metadata in exact recorded units. It does not verify a source transcription, infer numeric bounds from prose, or establish biological continuity.",
+            "Optional functional contexts retain observed compartment/material, reported process, quantity basis, assessment context and source locator. Absence is not filled from endpoint prose; a declaration does not identify a mechanism or establish functional sufficiency.",
         ],
     }
     lines = ["# Developmental observation intake", "",
@@ -656,6 +679,8 @@ def observation_report(dataset_path: Path, output: Path, source_root: Path | Non
              f"Records: {len(records)} · exact comparison groups: {len(group_rows)} · transitions: {len(dataset['transitions'])}", "",
              "No biological assay was performed by this command. Source URIs are never fetched. Optional local byte checks use only files beneath --source-root and do not copy their contents into this bundle.",
              "Analysis eligibility still requires source-specific human review and a frozen analysis plan.", "",
+             "## Declared functional contexts", "",
+             f"Declared: {len(context_rows)} records; not declared: {len(records) - len(context_rows)}. See functional_contexts.csv. Compartment/material and readout context are curated metadata, not verified mechanisms or specimen pairing.", "",
              "## Declared source interval containment", "",
              f"Contained in declared numeric scope: {n_contained}/{len(records)} records; unassessed: {len(records) - n_contained}. See source_interval_checks.csv and source_scopes.csv. Scientific transcription was not verified.", "",
              "## Local source-file byte verification", "",
@@ -710,6 +735,7 @@ def observation_report(dataset_path: Path, output: Path, source_root: Path | Non
         "input_dataset.json": raw,
         "observation_intake_report.json": json_bytes(report),
         "observation_records.csv": csv_bytes(list(observation_rows[0]), observation_rows),
+        "functional_contexts.csv": csv_bytes(["record_id", "source_artifact_id", *FUNCTIONAL_CONTEXT_FIELDS], context_rows),
         "interval_groups.csv": csv_bytes(list(group_rows[0]), group_rows),
         "transitions.csv": csv_bytes(["transition_id", "from_record_ids", "to_record_ids", "continuity_status", "note"], transition_rows),
         "source_files.csv": csv_bytes(["artifact_id", "relative_path", "declared_sha256", "observed_sha256",

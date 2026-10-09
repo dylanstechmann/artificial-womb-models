@@ -45,6 +45,13 @@ requirement. It preserves late adverse effects, different starting cohorts,
 unknown unit continuity and unpinned original source bytes. Intake reports now
 retain an explicit `preprint` class independently of local review status.
 
+The [material handoff requirements](MATERIAL_HANDOFF_REQUIREMENTS.md) distinguish
+uptake into support tissue from onward passage, secretion and recipient use.
+A pinned mouse source supplies a 14-record candidate intake with compartment,
+material, quantity basis and assessment context. It preserves mixed findings,
+selection and missing follow-up; the added metadata establishes no mechanism
+or continuous gestation.
+
 The [interface source qualification](SOURCE_QUALIFICATION.md) audits the Hori
 2024 Figure 5G workbook and two Bhide 2026 kinetic supplements. The new
 `audit-hori-source` command extracts 48 source-located Papp endpoints into a

@@ -139,6 +139,13 @@ terminal injury; their attributed delivery mechanism remains unqualified.
 Molecular endpoint resemblance does not close that boundary, and destructive
 tissue assessment remains a separate sampling branch from later survival.
 
+The [material handoff requirements](MATERIAL_HANDOFF_REQUIREMENTS.md) add uptake,
+processing/passage, release and recipient use as separately qualified functions.
+Mouse yolk-sac comparisons show why tissue abundance cannot alone establish
+effective onward delivery. Machine B retains the observed compartment,
+material, quantity basis and assessment branch; missing linkage prevents these
+readouts from becoming a measured chain or a diagnosis of terminal failure.
+
 ## Machine B: support and observation station
 
 The [selective-interface exploration](SELECTIVE_INTERFACE_FEASIBILITY.md)

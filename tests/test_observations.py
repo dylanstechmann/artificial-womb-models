@@ -84,6 +84,78 @@ class ObservationIntakeTests(unittest.TestCase):
         with self.assertRaisesRegex(InputError, "source kind"):
             validate_dataset(self.data)
 
+    @staticmethod
+    def context(compartment="fixture compartment"):
+        return {"compartment": compartment, "material": "invented tracer",
+                "process": "passage", "quantity_basis": "dimensionless fixture signal",
+                "assessment_context": "simulation", "source_locator": "Invented metadata only"}
+
+    def test_functional_context_export_preserves_distinct_compartments_and_integrity(self):
+        first = self.data["observations"][0]
+        second = copy.deepcopy(first)
+        second["record_id"] = "synthetic-other-compartment"
+        first["assay"]["functional_context"] = self.context("fixture tissue")
+        second["assay"]["functional_context"] = self.context("fixture receiver")
+        self.data["observations"] = [first, second]
+        self.data["transitions"] = []
+        bundle, report = self.publish()
+        self.assertEqual(report["n_exact_comparison_groups"], 2)
+        self.assertEqual(report["functional_context"], {
+            "n_declared": 2, "n_not_declared": 0, "scientific_transcription": "not_verified"})
+        with (bundle / "functional_contexts.csv").open(newline="") as stream:
+            rows = list(csv.DictReader(stream))
+        self.assertEqual([row["compartment"] for row in rows], ["fixture tissue", "fixture receiver"])
+        self.assertTrue(all(row["source_artifact_id"] == "synthetic-source" for row in rows))
+        self.assertIn("not verified mechanisms", (bundle / "REPORT.md").read_text())
+        moved = self.root / "moved-context"
+        shutil.copytree(bundle, moved)
+        self.assertTrue(verify_bundle(moved, strict=True)["bytes_verified"])
+        (moved / "functional_contexts.csv").write_text("changed context\n")
+        self.assertFalse(verify_bundle(moved, strict=True)["bytes_verified"])
+
+    def test_absent_functional_context_not_inferred_from_endpoint(self):
+        self.data["observations"][0]["assay"]["endpoint"] = "Tissue uptake and secretion"
+        bundle, report = self.publish()
+        self.assertEqual(report["functional_context"]["n_declared"], 0)
+        self.assertEqual(report["functional_context"]["n_not_declared"], 2)
+        with (bundle / "functional_contexts.csv").open(newline="") as stream:
+            self.assertEqual(list(csv.DictReader(stream)), [])
+
+    def test_functional_context_rejects_partial_unknown_and_unbounded_metadata(self):
+        bad = [None, {}, {**self.context(), "extra": "unknown"},
+               {**self.context(), "compartment": " "},
+               {**self.context(), "material": "x" * 301},
+               {**self.context(), "quantity_basis": 1},
+               {**self.context(), "source_locator": "x" * 1001},
+               {**self.context(), "process": "adequate_delivery"},
+               {**self.context(), "assessment_context": "clinical_ready"}]
+        for context in bad:
+            with self.subTest(context=context):
+                data = copy.deepcopy(self.data)
+                data["observations"][0]["assay"]["functional_context"] = context
+                with self.assertRaises(InputError):
+                    validate_dataset(data)
+
+    def test_material_handoff_candidate_keeps_context_selection_and_missingness(self):
+        path = EXAMPLE.parents[1] / "config/observations/koike_2023_material_handoff_candidate.json"
+        data = json.loads(path.read_text(encoding="utf-8"))
+        _, report = self.publish(data)
+        self.assertEqual(report["source_kind"], "peer_reviewed_animal")
+        self.assertEqual(report["source_review_status"], "candidate")
+        self.assertEqual(report["n_observation_records"], 14)
+        self.assertEqual(report["functional_context"]["n_declared"], 14)
+        self.assertEqual(report["n_continuity_not_reported"], 2)
+        self.assertTrue(all(row["independent_unit"]["id"] is None for row in data["observations"]))
+        rows = {row["record_id"]: row for row in data["observations"]}
+        self.assertEqual(rows["koike-vegf-fluid"]["assay"]["functional_context"]["assessment_context"], "in_utero")
+        self.assertEqual(rows["koike-vegf-release"]["assay"]["functional_context"]["assessment_context"], "isolated_tissue")
+        self.assertEqual(rows["koike-other-branch-arrest"]["assay"]["measurement_role"], "adverse_effect")
+        self.assertEqual(rows["koike-embryonic-use-gap"]["evidence_status"], "planned")
+        self.assertIsNone(rows["koike-embryonic-use-gap"]["observation"]["value"])
+        data["transitions"][0]["continuity_status"] = "demonstrated"
+        with self.assertRaisesRegex(InputError, "same reported unit"):
+            validate_dataset(data)
+
     def test_terminal_candidate_retains_missing_source_identity_and_unknown_continuity(self):
         path = EXAMPLE.parents[1] / "config/observations/lokshtanov_2026_terminal_candidate.json"
         data = json.loads(path.read_text(encoding="utf-8"))

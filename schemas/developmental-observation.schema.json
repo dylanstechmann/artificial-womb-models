@@ -44,7 +44,20 @@
         "endpoint": { "type": "string", "minLength": 3, "maxLength": 500 },
         "unit": { "type": "string", "minLength": 1, "maxLength": 80 },
         "measurement_role": { "enum": ["morphology", "molecular_identity", "function", "viability", "genome_stability", "adverse_effect", "durability", "environmental_condition", "other"] },
-        "calibration_artifact_id": { "type": ["string", "null"], "maxLength": 96 }
+        "calibration_artifact_id": { "type": ["string", "null"], "maxLength": 96 },
+        "functional_context": {
+          "type": "object", "additionalProperties": false,
+          "description": "Optional source-linked context for an observed compartment and material. Declarations do not verify mechanisms, flux, paired identity or functional sufficiency. Omitted context is never inferred from prose.",
+          "required": ["compartment", "material", "process", "quantity_basis", "assessment_context", "source_locator"],
+          "properties": {
+            "compartment": {"type": "string", "minLength": 1, "maxLength": 300},
+            "material": {"type": "string", "minLength": 1, "maxLength": 300},
+            "process": {"enum": ["uptake", "intracellular_processing", "passage", "secretion", "tissue_abundance", "developmental_outcome", "other", "unspecified"]},
+            "quantity_basis": {"type": "string", "minLength": 1, "maxLength": 300},
+            "assessment_context": {"enum": ["in_utero", "ex_utero_whole_embryo", "isolated_tissue", "cell_culture", "simulation", "other", "unspecified"]},
+            "source_locator": {"type": "string", "minLength": 1, "maxLength": 1000}
+          }
+        }
       }
     },
     "independent_unit": {

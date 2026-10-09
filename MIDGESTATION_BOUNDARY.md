@@ -101,3 +101,9 @@ starting/excluded/endpoint rosters, internal function, adverse findings and
 assessment timing. Reconcile E6.5/E7.5 starts and modality-specific stage matches.
 Then ask whether the observations discriminate delivery failure, tissue-use
 failure or other mechanisms before extending the computational model.
+
+The [material handoff refinement](MATERIAL_HANDOFF_REQUIREMENTS.md) now adds
+failure within support tissue as a distinct possibility: uptake may occur while
+onward passage or secretion is impaired. A separate mouse reference motivates
+compartment/material/context intake; it does not diagnose this preprint's
+terminal injury or establish that changing an input will extend support.

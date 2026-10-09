@@ -1,0 +1,46 @@
+{
+  "schema_version": 1,
+  "review_status": "candidate",
+  "human_review": "pending",
+  "inspected_on": "2026-10-09",
+  "sources": [
+    {
+      "source_id": "koike2023-material-handoff",
+      "article_url": "https://doi.org/10.1242/bio.060081",
+      "retrieval_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10629499/fullTextXML",
+      "organism_species": "mouse",
+      "source_class": "peer_reviewed_animal",
+      "scope_locators": [
+        "XML s2a paragraphs 2-3",
+        "s2c paragraph 1",
+        "s2d-e paragraph 1",
+        "s2f paragraph 2",
+        "s3 paragraph 2",
+        "Fig. 1-4 captions"
+      ],
+      "snapshot_path": "artifacts/material-handoff-2026-10-09/koike-2023.xml",
+      "snapshot_bytes": 121044,
+      "snapshot_sha256": "8b4ed49f7ac59405a2fbc04cdd4def0e055f24f616cec914208d7e0d8b201b69",
+      "scope": "Selected E8.5 assays, E7.5-start tracer branch, separate E9.5 selected tissue-origin branch; no continuous support interval",
+      "raw_assays_and_supplementary_figures": "not_inspected",
+      "unit_pairing": "unqualified",
+      "source_license": "CC BY 4.0 article license statement"
+    },
+    {
+      "source_id": "jin2026-yolk-sac-component-candidate",
+      "article_url": "https://doi.org/10.1038/s42003-026-10656-4",
+      "organism_species": "mouse",
+      "source_class": "peer_reviewed_accepted_article",
+      "publication_date": "2026-07-13",
+      "inspected_scope": "Indexed publisher abstract and accepted-article status; full article retrieval unavailable through web tool",
+      "snapshot_sha256": null,
+      "source_stage_coverage": "unqualified",
+      "functional_assays": "unqualified",
+      "followup": "Qualify original Results, actual interval, measured functions versus expression-based annotations, comparators and adverse outcomes before intake."
+    }
+  ],
+  "hash_scope": "Local Europe PMC XML retrieval only; not publisher revision authentication",
+  "biological_assay_performed": false,
+  "author_code_executed": false,
+  "ledger_promotion": "none"
+}

@@ -1,0 +1,894 @@
+{
+  "schema_version": 1,
+  "dataset_id": "koike2023-material-handoff-candidate",
+  "title": "Mouse yolk-sac uptake, processing and release findings; source-linked candidate summaries",
+  "source_revision": {
+    "revision_id": "koike2023-xml-2026-10-09",
+    "citation": "Koike, Keino-Masu, Tanimoto, Takahashi and Masu (2023). Biology Open 12, bio060081. DOI 10.1242/bio.060081.",
+    "source_kind": "peer_reviewed_animal",
+    "source_url": "https://doi.org/10.1242/bio.060081",
+    "review_status": "candidate",
+    "reviewer": "",
+    "reviewed_on": null,
+    "review_note": ""
+  },
+  "artifacts": [
+    {
+      "artifact_id": "koike2023-europepmc-xml",
+      "uri": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10629499/fullTextXML",
+      "license": "CC BY 4.0, article license statement; source-specific review pending",
+      "sha256": "8b4ed49f7ac59405a2fbc04cdd4def0e055f24f616cec914208d7e0d8b201b69",
+      "retrieved_on": "2026-10-09",
+      "local_path": "artifacts/material-handoff-2026-10-09/koike-2023.xml"
+    }
+  ],
+  "observations": [
+    {
+      "schema_version": 1,
+      "record_id": "koike-igg-tissue",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "postimplantation_embryonic",
+      "developmental_interval": {
+        "label": "E7.5 start; E8.5 comparison; source-stage assay, not continuous support interval",
+        "start": "E7.5 start; E8.5 comparison",
+        "end": "E7.5 start; E8.5 comparison",
+        "time_unit": "source embryonic stage labels",
+        "stage_source_artifact_id": "koike2023-europepmc-xml"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Mouse yolk-sac source comparison: ex_utero_whole_embryo; Enpp2-deficient versus panel control"
+      },
+      "assay": {
+        "name": "Primary article qualitative finding",
+        "endpoint": "Rat IgG detected in yolk-sac tissue",
+        "unit": "source-reported qualitative comparison",
+        "measurement_role": "function",
+        "calibration_artifact_id": null,
+        "functional_context": {
+          "compartment": "yolk-sac tissue",
+          "material": "rat IgG tracer protein",
+          "process": "uptake",
+          "quantity_basis": "Immunoblot abundance; not an uptake rate",
+          "assessment_context": "ex_utero_whole_embryo",
+          "source_locator": "XML s2a, paragraph 3; Fig. 1D, BIO060081F1; Fig. S1A cited, not inspected"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Summary only. Biological IDs, dam/litter linkage and cross-panel pairing unqualified; some fluid assays may pool specimens."
+      },
+      "observation": {
+        "value": "Approximately similar tissue IgG amounts reported",
+        "measurement_time": "E7.5 start; E8.5 comparison",
+        "measurement_time_unit": "source embryonic stage labels",
+        "comparator_id": "fig1d-source-control",
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "koike2023-europepmc-xml",
+        "uri": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10629499/fullTextXML",
+        "license": "CC BY 4.0, article license statement; source-specific review pending",
+        "sha256": "8b4ed49f7ac59405a2fbc04cdd4def0e055f24f616cec914208d7e0d8b201b69",
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "Selected Results/Discussion and captions only; raw assays, image quantification and individual linkage not inspected.",
+        "Source reports multiple affected processes; no unique failure mechanism or embryonic nutritional sufficiency follows.",
+        "Qualitative reported comparisons do not establish equivalence or absolute material flux."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "koike-igg-fluid",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "postimplantation_embryonic",
+      "developmental_interval": {
+        "label": "E7.5 start; E8.5 comparison; source-stage assay, not continuous support interval",
+        "start": "E7.5 start; E8.5 comparison",
+        "end": "E7.5 start; E8.5 comparison",
+        "time_unit": "source embryonic stage labels",
+        "stage_source_artifact_id": "koike2023-europepmc-xml"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Mouse yolk-sac source comparison: ex_utero_whole_embryo; Enpp2-deficient versus panel control"
+      },
+      "assay": {
+        "name": "Primary article qualitative finding",
+        "endpoint": "Rat IgG detected downstream of yolk-sac tissue",
+        "unit": "source-reported qualitative comparison",
+        "measurement_role": "function",
+        "calibration_artifact_id": null,
+        "functional_context": {
+          "compartment": "extraembryonic coelomic fluid",
+          "material": "rat IgG tracer protein",
+          "process": "passage",
+          "quantity_basis": "Immunoblot abundance; not flux or embryo-organ receipt",
+          "assessment_context": "ex_utero_whole_embryo",
+          "source_locator": "XML s2a, paragraph 3; Fig. 1D, BIO060081F1"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Summary only. Biological IDs, dam/litter linkage and cross-panel pairing unqualified; some fluid assays may pool specimens."
+      },
+      "observation": {
+        "value": "Lower IgG in extraembryonic coelomic fluid reported",
+        "measurement_time": "E7.5 start; E8.5 comparison",
+        "measurement_time_unit": "source embryonic stage labels",
+        "comparator_id": "fig1d-source-control",
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "koike2023-europepmc-xml",
+        "uri": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10629499/fullTextXML",
+        "license": "CC BY 4.0, article license statement; source-specific review pending",
+        "sha256": "8b4ed49f7ac59405a2fbc04cdd4def0e055f24f616cec914208d7e0d8b201b69",
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "Selected Results/Discussion and captions only; raw assays, image quantification and individual linkage not inspected.",
+        "Source reports multiple affected processes; no unique failure mechanism or embryonic nutritional sufficiency follows.",
+        "Qualitative reported comparisons do not establish equivalence or absolute material flux.",
+        "Fluid receipt is downstream of the yolk sac but does not establish receipt or use by embryonic organs."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "koike-afp-cell",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "postimplantation_embryonic",
+      "developmental_interval": {
+        "label": "E8.5; source-stage assay, not continuous support interval",
+        "start": "E8.5",
+        "end": "E8.5",
+        "time_unit": "source embryonic stage labels",
+        "stage_source_artifact_id": "koike2023-europepmc-xml"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Mouse yolk-sac source comparison: isolated_tissue; Enpp2-deficient versus panel control"
+      },
+      "assay": {
+        "name": "Primary article qualitative finding",
+        "endpoint": "AFP abundance retained within yolk-sac cells",
+        "unit": "source-reported qualitative comparison",
+        "measurement_role": "function",
+        "calibration_artifact_id": null,
+        "functional_context": {
+          "compartment": "yolk-sac cell lysate",
+          "material": "AFP protein",
+          "process": "tissue_abundance",
+          "quantity_basis": "Relative immunoblot abundance",
+          "assessment_context": "isolated_tissue",
+          "source_locator": "XML s2d, paragraph 1; Fig. 3B, BIO060081F3"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Summary only. Biological IDs, dam/litter linkage and cross-panel pairing unqualified; some fluid assays may pool specimens."
+      },
+      "observation": {
+        "value": "Similar AFP abundance in cells reported",
+        "measurement_time": "E8.5",
+        "measurement_time_unit": "source embryonic stage labels",
+        "comparator_id": "fig3b-enpp2-heterozygous",
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "koike2023-europepmc-xml",
+        "uri": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10629499/fullTextXML",
+        "license": "CC BY 4.0, article license statement; source-specific review pending",
+        "sha256": "8b4ed49f7ac59405a2fbc04cdd4def0e055f24f616cec914208d7e0d8b201b69",
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "Selected Results/Discussion and captions only; raw assays, image quantification and individual linkage not inspected.",
+        "Source reports multiple affected processes; no unique failure mechanism or embryonic nutritional sufficiency follows.",
+        "Qualitative reported comparisons do not establish equivalence or absolute material flux."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "koike-afp-release",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "postimplantation_embryonic",
+      "developmental_interval": {
+        "label": "E8.5; source-stage assay, not continuous support interval",
+        "start": "E8.5",
+        "end": "E8.5",
+        "time_unit": "source embryonic stage labels",
+        "stage_source_artifact_id": "koike2023-europepmc-xml"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Mouse yolk-sac source comparison: isolated_tissue; Enpp2-deficient versus panel control"
+      },
+      "assay": {
+        "name": "Primary article qualitative finding",
+        "endpoint": "AFP detected outside isolated yolk-sac tissue",
+        "unit": "source-reported qualitative comparison",
+        "measurement_role": "function",
+        "calibration_artifact_id": null,
+        "functional_context": {
+          "compartment": "isolated yolk-sac supernatant",
+          "material": "AFP protein",
+          "process": "secretion",
+          "quantity_basis": "Relative immunoblot abundance; not a secretion rate",
+          "assessment_context": "isolated_tissue",
+          "source_locator": "XML s2d, paragraph 1; Fig. 3B, BIO060081F3"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Summary only. Biological IDs, dam/litter linkage and cross-panel pairing unqualified; some fluid assays may pool specimens."
+      },
+      "observation": {
+        "value": "Reduced AFP in tissue supernatant reported",
+        "measurement_time": "E8.5",
+        "measurement_time_unit": "source embryonic stage labels",
+        "comparator_id": "fig3b-enpp2-heterozygous",
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "koike2023-europepmc-xml",
+        "uri": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10629499/fullTextXML",
+        "license": "CC BY 4.0, article license statement; source-specific review pending",
+        "sha256": "8b4ed49f7ac59405a2fbc04cdd4def0e055f24f616cec914208d7e0d8b201b69",
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "Selected Results/Discussion and captions only; raw assays, image quantification and individual linkage not inspected.",
+        "Source reports multiple affected processes; no unique failure mechanism or embryonic nutritional sufficiency follows.",
+        "Qualitative reported comparisons do not establish equivalence or absolute material flux."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "koike-vegf-fluid",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "postimplantation_embryonic",
+      "developmental_interval": {
+        "label": "E8.5; source-stage assay, not continuous support interval",
+        "start": "E8.5",
+        "end": "E8.5",
+        "time_unit": "source embryonic stage labels",
+        "stage_source_artifact_id": "koike2023-europepmc-xml"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Mouse yolk-sac source comparison: in_utero; Enpp2-deficient versus panel control"
+      },
+      "assay": {
+        "name": "Primary article qualitative finding",
+        "endpoint": "VEGF abundance in coelomic fluid",
+        "unit": "source-reported qualitative comparison",
+        "measurement_role": "function",
+        "calibration_artifact_id": null,
+        "functional_context": {
+          "compartment": "extraembryonic coelomic fluid",
+          "material": "VEGF protein",
+          "process": "tissue_abundance",
+          "quantity_basis": "ELISA concentration; secretion/clearance balance unresolved",
+          "assessment_context": "in_utero",
+          "source_locator": "XML s2e, paragraph 1; Fig. 4B, BIO060081F4; s3, paragraph 2"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Summary only. Biological IDs, dam/litter linkage and cross-panel pairing unqualified; some fluid assays may pool specimens."
+      },
+      "observation": {
+        "value": "Slightly lower VEGF; difference did not reach significance",
+        "measurement_time": "E8.5",
+        "measurement_time_unit": "source embryonic stage labels",
+        "comparator_id": "fig4b-enpp2-heterozygous",
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "koike2023-europepmc-xml",
+        "uri": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10629499/fullTextXML",
+        "license": "CC BY 4.0, article license statement; source-specific review pending",
+        "sha256": "8b4ed49f7ac59405a2fbc04cdd4def0e055f24f616cec914208d7e0d8b201b69",
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "Selected Results/Discussion and captions only; raw assays, image quantification and individual linkage not inspected.",
+        "Source reports multiple affected processes; no unique failure mechanism or embryonic nutritional sufficiency follows.",
+        "Qualitative reported comparisons do not establish equivalence or absolute material flux.",
+        "A nonsignificant comparison does not establish equivalence. This in-utero branch cannot be paired to isolated-tissue outputs without specimen links."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "koike-vegf-release",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "postimplantation_embryonic",
+      "developmental_interval": {
+        "label": "E8.5; source-stage assay, not continuous support interval",
+        "start": "E8.5",
+        "end": "E8.5",
+        "time_unit": "source embryonic stage labels",
+        "stage_source_artifact_id": "koike2023-europepmc-xml"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Mouse yolk-sac source comparison: isolated_tissue; Enpp2-deficient versus panel control"
+      },
+      "assay": {
+        "name": "Primary article qualitative finding",
+        "endpoint": "VEGF detected outside isolated yolk-sac tissue",
+        "unit": "source-reported qualitative comparison",
+        "measurement_role": "function",
+        "calibration_artifact_id": null,
+        "functional_context": {
+          "compartment": "isolated yolk-sac supernatant",
+          "material": "VEGF protein",
+          "process": "secretion",
+          "quantity_basis": "ELISA concentration; not absolute mass flux",
+          "assessment_context": "isolated_tissue",
+          "source_locator": "XML s2e, paragraph 1; Fig. 4D, BIO060081F4; s3, paragraph 2"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Summary only. Biological IDs, dam/litter linkage and cross-panel pairing unqualified; some fluid assays may pool specimens."
+      },
+      "observation": {
+        "value": "Lower VEGF in tissue supernatant reported",
+        "measurement_time": "E8.5",
+        "measurement_time_unit": "source embryonic stage labels",
+        "comparator_id": "fig4d-source-control",
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "koike2023-europepmc-xml",
+        "uri": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10629499/fullTextXML",
+        "license": "CC BY 4.0, article license statement; source-specific review pending",
+        "sha256": "8b4ed49f7ac59405a2fbc04cdd4def0e055f24f616cec914208d7e0d8b201b69",
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "Selected Results/Discussion and captions only; raw assays, image quantification and individual linkage not inspected.",
+        "Source reports multiple affected processes; no unique failure mechanism or embryonic nutritional sufficiency follows.",
+        "Qualitative reported comparisons do not establish equivalence or absolute material flux.",
+        "Similar source-reported yolk-sac VEGF abundance does not establish preserved secretion; specimen pairing remains unqualified."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "koike-tgfb-fluid",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "postimplantation_embryonic",
+      "developmental_interval": {
+        "label": "E8.5; source-stage assay, not continuous support interval",
+        "start": "E8.5",
+        "end": "E8.5",
+        "time_unit": "source embryonic stage labels",
+        "stage_source_artifact_id": "koike2023-europepmc-xml"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Mouse yolk-sac source comparison: in_utero; Enpp2-deficient versus panel control"
+      },
+      "assay": {
+        "name": "Primary article qualitative finding",
+        "endpoint": "TGF-beta1 abundance in coelomic fluid",
+        "unit": "source-reported qualitative comparison",
+        "measurement_role": "function",
+        "calibration_artifact_id": null,
+        "functional_context": {
+          "compartment": "extraembryonic coelomic fluid",
+          "material": "TGF-beta1 protein",
+          "process": "tissue_abundance",
+          "quantity_basis": "ELISA concentration",
+          "assessment_context": "in_utero",
+          "source_locator": "XML s2e, paragraph 1; Fig. 4A, BIO060081F4"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Summary only. Biological IDs, dam/litter linkage and cross-panel pairing unqualified; some fluid assays may pool specimens."
+      },
+      "observation": {
+        "value": "Lower TGF-beta1 in fluid reported",
+        "measurement_time": "E8.5",
+        "measurement_time_unit": "source embryonic stage labels",
+        "comparator_id": "fig4a-enpp2-heterozygous",
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "koike2023-europepmc-xml",
+        "uri": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10629499/fullTextXML",
+        "license": "CC BY 4.0, article license statement; source-specific review pending",
+        "sha256": "8b4ed49f7ac59405a2fbc04cdd4def0e055f24f616cec914208d7e0d8b201b69",
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "Selected Results/Discussion and captions only; raw assays, image quantification and individual linkage not inspected.",
+        "Source reports multiple affected processes; no unique failure mechanism or embryonic nutritional sufficiency follows.",
+        "Qualitative reported comparisons do not establish equivalence or absolute material flux."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "koike-tgfb-release",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "postimplantation_embryonic",
+      "developmental_interval": {
+        "label": "E8.5; source-stage assay, not continuous support interval",
+        "start": "E8.5",
+        "end": "E8.5",
+        "time_unit": "source embryonic stage labels",
+        "stage_source_artifact_id": "koike2023-europepmc-xml"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Mouse yolk-sac source comparison: isolated_tissue; Enpp2-deficient versus panel control"
+      },
+      "assay": {
+        "name": "Primary article qualitative finding",
+        "endpoint": "TGF-beta1 detected outside isolated yolk-sac tissue",
+        "unit": "source-reported qualitative comparison",
+        "measurement_role": "function",
+        "calibration_artifact_id": null,
+        "functional_context": {
+          "compartment": "isolated yolk-sac supernatant",
+          "material": "TGF-beta1 protein",
+          "process": "secretion",
+          "quantity_basis": "ELISA concentration; cellular protein level unmeasured",
+          "assessment_context": "isolated_tissue",
+          "source_locator": "XML s2e, paragraph 1; Fig. 4C, BIO060081F4"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Summary only. Biological IDs, dam/litter linkage and cross-panel pairing unqualified; some fluid assays may pool specimens."
+      },
+      "observation": {
+        "value": "Lower TGF-beta1 in tissue supernatant reported",
+        "measurement_time": "E8.5",
+        "measurement_time_unit": "source embryonic stage labels",
+        "comparator_id": "fig4c-source-control",
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "koike2023-europepmc-xml",
+        "uri": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10629499/fullTextXML",
+        "license": "CC BY 4.0, article license statement; source-specific review pending",
+        "sha256": "8b4ed49f7ac59405a2fbc04cdd4def0e055f24f616cec914208d7e0d8b201b69",
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "Selected Results/Discussion and captions only; raw assays, image quantification and individual linkage not inspected.",
+        "Source reports multiple affected processes; no unique failure mechanism or embryonic nutritional sufficiency follows.",
+        "Qualitative reported comparisons do not establish equivalence or absolute material flux.",
+        "Authors could not assess cellular TGF-beta1 protein by the tested immunoblots; do not infer preserved protein production from RNA."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "koike-egfr-processing",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "postimplantation_embryonic",
+      "developmental_interval": {
+        "label": "E8.5; source-stage assay, not continuous support interval",
+        "start": "E8.5",
+        "end": "E8.5",
+        "time_unit": "source embryonic stage labels",
+        "stage_source_artifact_id": "koike2023-europepmc-xml"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Mouse yolk-sac source comparison: in_utero; Enpp2-deficient versus panel control"
+      },
+      "assay": {
+        "name": "Primary article qualitative finding",
+        "endpoint": "EGFR abundance/signaling compared with receptor transcript",
+        "unit": "source-reported qualitative comparison",
+        "measurement_role": "function",
+        "calibration_artifact_id": null,
+        "functional_context": {
+          "compartment": "yolk-sac tissue",
+          "material": "EGFR protein/receptor and Egfr transcript; not nutrient substrate",
+          "process": "intracellular_processing",
+          "quantity_basis": "Relative protein/RNA and signaling readouts; degradation is author interpretation",
+          "assessment_context": "in_utero",
+          "source_locator": "XML s2c, paragraph 1; Fig. 2A-D, BIO060081F2"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Summary only. Biological IDs, dam/litter linkage and cross-panel pairing unqualified; some fluid assays may pool specimens."
+      },
+      "observation": {
+        "value": "Higher yolk-sac EGFR protein with unchanged Egfr RNA reported",
+        "measurement_time": "E8.5",
+        "measurement_time_unit": "source embryonic stage labels",
+        "comparator_id": "fig2-enpp2-wildtype",
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "koike2023-europepmc-xml",
+        "uri": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10629499/fullTextXML",
+        "license": "CC BY 4.0, article license statement; source-specific review pending",
+        "sha256": "8b4ed49f7ac59405a2fbc04cdd4def0e055f24f616cec914208d7e0d8b201b69",
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "Selected Results/Discussion and captions only; raw assays, image quantification and individual linkage not inspected.",
+        "Source reports multiple affected processes; no unique failure mechanism or embryonic nutritional sufficiency follows.",
+        "Qualitative reported comparisons do not establish equivalence or absolute material flux.",
+        "The processing interpretation concerns receptor turnover/signaling, not a measured nutrient-digestion rate."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "koike-dextran-uptake",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "postimplantation_embryonic",
+      "developmental_interval": {
+        "label": "E8.5; source-stage assay, not continuous support interval",
+        "start": "E8.5",
+        "end": "E8.5",
+        "time_unit": "source embryonic stage labels",
+        "stage_source_artifact_id": "koike2023-europepmc-xml"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Mouse yolk-sac source comparison: ex_utero_whole_embryo; Enpp2-deficient versus panel control"
+      },
+      "assay": {
+        "name": "Primary article qualitative finding",
+        "endpoint": "Dextran uptake signal in visceral endoderm",
+        "unit": "source-reported qualitative comparison",
+        "measurement_role": "function",
+        "calibration_artifact_id": null,
+        "functional_context": {
+          "compartment": "yolk-sac visceral endoderm",
+          "material": "dextran tracer",
+          "process": "uptake",
+          "quantity_basis": "Fluorescence arbitrary units; not nutritional function",
+          "assessment_context": "ex_utero_whole_embryo",
+          "source_locator": "XML s2a, paragraph 2; Fig. 1A, BIO060081F1"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Summary only. Biological IDs, dam/litter linkage and cross-panel pairing unqualified; some fluid assays may pool specimens."
+      },
+      "observation": {
+        "value": "Lower internalized dextran fluorescence reported",
+        "measurement_time": "E8.5",
+        "measurement_time_unit": "source embryonic stage labels",
+        "comparator_id": "fig1a-source-control",
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "koike2023-europepmc-xml",
+        "uri": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10629499/fullTextXML",
+        "license": "CC BY 4.0, article license statement; source-specific review pending",
+        "sha256": "8b4ed49f7ac59405a2fbc04cdd4def0e055f24f616cec914208d7e0d8b201b69",
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "Selected Results/Discussion and captions only; raw assays, image quantification and individual linkage not inspected.",
+        "Source reports multiple affected processes; no unique failure mechanism or embryonic nutritional sufficiency follows.",
+        "Qualitative reported comparisons do not establish equivalence or absolute material flux."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "koike-transferrin-uptake",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "postimplantation_embryonic",
+      "developmental_interval": {
+        "label": "E8.5; source-stage assay, not continuous support interval",
+        "start": "E8.5",
+        "end": "E8.5",
+        "time_unit": "source embryonic stage labels",
+        "stage_source_artifact_id": "koike2023-europepmc-xml"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Mouse yolk-sac source comparison: ex_utero_whole_embryo; Enpp2-deficient versus panel control"
+      },
+      "assay": {
+        "name": "Primary article qualitative finding",
+        "endpoint": "Transferrin uptake signal in visceral endoderm",
+        "unit": "source-reported qualitative comparison",
+        "measurement_role": "function",
+        "calibration_artifact_id": null,
+        "functional_context": {
+          "compartment": "yolk-sac visceral endoderm",
+          "material": "labeled transferrin tracer",
+          "process": "uptake",
+          "quantity_basis": "Fluorescence arbitrary units",
+          "assessment_context": "ex_utero_whole_embryo",
+          "source_locator": "XML s2a, paragraph 3; Fig. 1C, BIO060081F1"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Summary only. Biological IDs, dam/litter linkage and cross-panel pairing unqualified; some fluid assays may pool specimens."
+      },
+      "observation": {
+        "value": "Transferrin fluorescence comparison not significantly different",
+        "measurement_time": "E8.5",
+        "measurement_time_unit": "source embryonic stage labels",
+        "comparator_id": "fig1c-source-control",
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "koike2023-europepmc-xml",
+        "uri": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10629499/fullTextXML",
+        "license": "CC BY 4.0, article license statement; source-specific review pending",
+        "sha256": "8b4ed49f7ac59405a2fbc04cdd4def0e055f24f616cec914208d7e0d8b201b69",
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "Selected Results/Discussion and captions only; raw assays, image quantification and individual linkage not inspected.",
+        "Source reports multiple affected processes; no unique failure mechanism or embryonic nutritional sufficiency follows.",
+        "Qualitative reported comparisons do not establish equivalence or absolute material flux.",
+        "Retain assay-specific discordance with dextran; absence of significance is not equivalence or adequate onward delivery."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "koike-selected-development",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "postimplantation_embryonic",
+      "developmental_interval": {
+        "label": "E9.5; source-stage assay, not continuous support interval",
+        "start": "E9.5",
+        "end": "E9.5",
+        "time_unit": "source embryonic stage labels",
+        "stage_source_artifact_id": "koike2023-europepmc-xml"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Mouse mixed-origin tissue developmental assessment in utero; embryo identity differs across selected branches"
+      },
+      "assay": {
+        "name": "Primary article qualitative finding",
+        "endpoint": "Selected mixed-origin tissue branch developmental appearance",
+        "unit": "source-reported qualitative comparison",
+        "measurement_role": "morphology",
+        "calibration_artifact_id": null,
+        "functional_context": {
+          "compartment": "embryo proper",
+          "material": "developmental morphology",
+          "process": "developmental_outcome",
+          "quantity_basis": "Qualitative appearance in one selected case",
+          "assessment_context": "in_utero",
+          "source_locator": "XML s2f, paragraph 2; Fig. S2B-G cited, not inspected"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Summary only. Biological IDs, dam/litter linkage and cross-panel pairing unqualified; some fluid assays may pool specimens."
+      },
+      "observation": {
+        "value": "One selected embryo appeared nearly normal at E9.5; authors say one case is insufficient",
+        "measurement_time": "E9.5",
+        "measurement_time_unit": "source embryonic stage labels",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "koike2023-europepmc-xml",
+        "uri": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10629499/fullTextXML",
+        "license": "CC BY 4.0, article license statement; source-specific review pending",
+        "sha256": "8b4ed49f7ac59405a2fbc04cdd4def0e055f24f616cec914208d7e0d8b201b69",
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "Selected Results/Discussion and captions only; raw assays, image quantification and individual linkage not inspected.",
+        "Source reports multiple affected processes; no unique failure mechanism or embryonic nutritional sufficiency follows.",
+        "Qualitative reported comparisons do not establish equivalence or absolute material flux.",
+        "Selection accounting: 44 embryos collected; 13 had mixed-origin visceral endoderm; one met the specified embryo-identity condition. No gestation-completion or long-term rescue claim."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "koike-other-branch-arrest",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "postimplantation_embryonic",
+      "developmental_interval": {
+        "label": "E9.5; source-stage assay, not continuous support interval",
+        "start": "E9.5",
+        "end": "E9.5",
+        "time_unit": "source embryonic stage labels",
+        "stage_source_artifact_id": "koike2023-europepmc-xml"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Mouse mixed-origin tissue developmental assessment in utero; embryo identity differs across selected branches"
+      },
+      "assay": {
+        "name": "Primary article qualitative finding",
+        "endpoint": "Other mixed-origin tissue branch outcomes",
+        "unit": "source-reported qualitative comparison",
+        "measurement_role": "adverse_effect",
+        "calibration_artifact_id": null,
+        "functional_context": {
+          "compartment": "embryo proper",
+          "material": "developmental morphology/origin",
+          "process": "developmental_outcome",
+          "quantity_basis": "Author-reported selected-branch count, not a success rate",
+          "assessment_context": "in_utero",
+          "source_locator": "XML s2f, paragraph 2"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Summary only. Biological IDs, dam/litter linkage and cross-panel pairing unqualified; some fluid assays may pool specimens."
+      },
+      "observation": {
+        "value": "Other 12 of 13 mixed-endoderm cases had alternate embryo origin and stopped normal development",
+        "measurement_time": "E9.5",
+        "measurement_time_unit": "source embryonic stage labels",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "koike2023-europepmc-xml",
+        "uri": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10629499/fullTextXML",
+        "license": "CC BY 4.0, article license statement; source-specific review pending",
+        "sha256": "8b4ed49f7ac59405a2fbc04cdd4def0e055f24f616cec914208d7e0d8b201b69",
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "Selected Results/Discussion and captions only; raw assays, image quantification and individual linkage not inspected.",
+        "Source reports multiple affected processes; no unique failure mechanism or embryonic nutritional sufficiency follows.",
+        "Qualitative reported comparisons do not establish equivalence or absolute material flux.",
+        "Different embryo-origin branch; do not combine these 12 with the single selected case into a treatment effect or independent-n denominator."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "koike-embryonic-use-gap",
+      "evidence_status": "planned",
+      "species": "mouse",
+      "stage_track": "postimplantation_embryonic",
+      "developmental_interval": {
+        "label": "unreported beyond assay; source-stage assay, not continuous support interval",
+        "start": "unreported beyond assay",
+        "end": "unreported beyond assay",
+        "time_unit": "source embryonic stage labels",
+        "stage_source_artifact_id": "koike2023-europepmc-xml"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Missing source-linked embryonic recipient and later-function record"
+      },
+      "assay": {
+        "name": "Primary article qualitative finding",
+        "endpoint": "Linked embryonic receipt/use of the traced material",
+        "unit": "source-reported qualitative comparison",
+        "measurement_role": "durability",
+        "calibration_artifact_id": null,
+        "functional_context": {
+          "compartment": "embryonic organ/tissue recipient",
+          "material": "traced material and biologically relevant product",
+          "process": "passage",
+          "quantity_basis": "Unreported linked organ receipt/use",
+          "assessment_context": "unspecified",
+          "source_locator": "Inspected s2a and s2d-e contain no qualified linked embryonic organ receipt/use dataset"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Summary only. Biological IDs, dam/litter linkage and cross-panel pairing unqualified; some fluid assays may pool specimens."
+      },
+      "observation": {
+        "value": null,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "not_reported",
+        "measurement_uncertainty": null,
+        "missingness_reason": "No qualified unit-linked organ receipt/use plus later-function record in inspected source scope."
+      },
+      "source": {
+        "artifact_id": "koike2023-europepmc-xml",
+        "uri": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC10629499/fullTextXML",
+        "license": "CC BY 4.0, article license statement; source-specific review pending",
+        "sha256": "8b4ed49f7ac59405a2fbc04cdd4def0e055f24f616cec914208d7e0d8b201b69",
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "Selected Results/Discussion and captions only; raw assays, image quantification and individual linkage not inspected.",
+        "Source reports multiple affected processes; no unique failure mechanism or embryonic nutritional sufficiency follows.",
+        "Qualitative reported comparisons do not establish equivalence or absolute material flux."
+      ]
+    }
+  ],
+  "transitions": [
+    {
+      "transition_id": "koike-tissue-to-fluid",
+      "from_record_ids": [
+        "koike-igg-tissue"
+      ],
+      "to_record_ids": [
+        "koike-igg-fluid"
+      ],
+      "continuity_status": "not_reported",
+      "note": "Source compartment comparison suggests impaired passage; specimen identity and chronological continuity not qualified."
+    },
+    {
+      "transition_id": "koike-assay-to-organ-use",
+      "from_record_ids": [
+        "koike-igg-fluid",
+        "koike-afp-release"
+      ],
+      "to_record_ids": [
+        "koike-embryonic-use-gap"
+      ],
+      "continuity_status": "not_reported",
+      "note": "Separate materials and branches motivate a missing requirement; this is not a connected trajectory or causal chain."
+    }
+  ],
+  "limitations": [
+    "AI-assisted selected source curation, not human scientific review. Published source classification and candidate review status remain separate.",
+    "Source XML bytes are locally pinned. Selected text/captions were inspected; images, supplementary files, raw observations, assay calibration and individual identity were not audited.",
+    "Reported assay stages and in-utero, whole-embryo ex-utero and isolated-tissue branches remain separate; none establishes continuous support from E7.5 to E9.5.",
+    "Comparator IDs label source panel/group descriptions, not shared control specimen IDs. No source-derived operating conditions, manipulation procedures or experimental protocol supplied.",
+    "No parameter fit, diagnosis, biological assay, evidence-ledger promotion or human gestation claim."
+  ]
+}
