@@ -62,6 +62,15 @@ analysis; retain all unmatched endpoints, the recorded zero and nested cell/
 stack/line observations. Matching a dataset code cannot close the mechanism
 question or establish complete starting-cohort coverage.
 
+The [boundary reanalysis contract](BOUNDARY_REANALYSIS_CONTRACT.md) now keeps
+three targets distinct: paired morphology within the observed sample,
+earlier coordination predicting later progression, and conditional shape
+prediction. Selected appendix captions reveal successful-development selection
+and nested imaging planes; the model comparison retains one later mismatch,
+held-out measured growth input and an uncalibrated force scale. Qualifying these
+limits narrows the next eligible analysis without supplying the missing
+individual trajectory/outcome map or a mechanical operating specification.
+
 ## 1. Treat the objective as a chain of biological transitions
 
 A wall-powered support system would have to preserve the functions needed at

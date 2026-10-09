@@ -60,7 +60,7 @@ embryo-arrest narrative; same-unit function/progression and causal explanation
 remain unqualified.
 
 The [moving-boundary requirement](DYNAMIC_BOUNDARY_REQUIREMENTS.md) adds a pinned
-mouse implantation source with eight comparative findings and a missing linked
+mouse implantation source with eleven comparative findings and a missing linked
 follow-up. It separates early composite morphology from membrane presence and
 model-inferred forces, and qualifies public imaging metadata as a segmentation
 resource. Prior yolk-sac supplements now clarify aggregate cohort counts and
@@ -72,6 +72,13 @@ records. Boundary trajectories lack an embryo ID, so a shared dataset code
 cannot establish a boundary/outcome join. Original units, nested labels, zeros
 and the caption/track-label discrepancy remain explicit; no biological fit is
 performed.
+
+The [boundary reanalysis contract](BOUNDARY_REANALYSIS_CONTRACT.md) separates
+paired morphology, earlier coordination and conditional shape prediction.
+Inspected appendix evidence retains successful-development selection, a later
+model mismatch in one of three validation embryos, the held-out measured growth
+input and an unqualified absolute force scale. Public segmentation code metadata
+and selected files do not recover the missing embryo/outcome map.
 
 The [interface source qualification](SOURCE_QUALIFICATION.md) audits the Hori
 2024 Figure 5G workbook and two Bhide 2026 kinetic supplements. The new

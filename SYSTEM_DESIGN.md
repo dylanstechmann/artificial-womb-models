@@ -166,6 +166,14 @@ specimen identity from dataset, image-stack, measurement-line and cell-track
 labels. Endpoint-key matches can qualify a partial comparison after review,
 while an absent embryo link keeps trajectory-to-outcome continuity unresolved.
 
+The [boundary reanalysis contract](BOUNDARY_REANALYSIS_CONTRACT.md) further
+requires observation cutoffs, complete disposition coverage and coordinate
+uncertainty before earlier movement can predict later progression. Comparisons
+selected on successful development answer a narrower question. A shape model
+driven by measured growth does not independently forecast that growth, and an
+uncalibrated tension scale cannot specify physical force. Machine B must retain
+these input dependencies and unobservable quantities in its evidence record.
+
 ## Machine B: support and observation station
 
 The [selective-interface exploration](SELECTIVE_INTERFACE_FEASIBILITY.md)

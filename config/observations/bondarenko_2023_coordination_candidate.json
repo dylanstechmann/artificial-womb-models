@@ -3,7 +3,7 @@
   "dataset_id": "bondarenko2023-coordination-candidate",
   "title": "Bounded mouse peri-implantation boundary/growth comparisons; source-linked candidate summaries",
   "source_revision": {
-    "revision_id": "bondarenko2023-native-csv-2026-10-09",
+    "revision_id": "bondarenko2023-appendix-2026-10-09",
     "citation": "Bondarenko et al. (2023). Embryo-uterine interaction coordinates mouse embryogenesis during implantation. The EMBO Journal 42, e113280. DOI 10.15252/embj.2022113280.",
     "source_kind": "peer_reviewed_animal",
     "source_url": "https://doi.org/10.15252/embj.2022113280",
@@ -28,6 +28,14 @@
       "sha256": "36adfb6ec13b6df189c116e19ce18455f3c0b00052838657c59f0eda65784c75",
       "retrieved_on": "2026-10-09",
       "local_path": "artifacts/boundary-source-2026-10-09/figure6.zip"
+    },
+    {
+      "artifact_id": "bondarenko2023-appendix",
+      "uri": "https://media.springernature.com/original/springer-static/esm/art%3A10.15252%2Fembj.2022113280/MediaObjects/44318_2023_BFEMBJ2022113280_MOESM1_ESM.pdf",
+      "license": "CC BY 4.0 article statement; source-specific review pending",
+      "sha256": "99c587604ab7af2131f2264f5b6860c8fd63c88ce1099231d992d311445b82c2",
+      "retrieved_on": "2026-10-09",
+      "local_path": "artifacts/boundary-review-2026-10-09/appendix.pdf"
     }
   ],
   "observations": [
@@ -295,7 +303,7 @@
           "process": "other",
           "quantity_basis": "Model inference compared with image measurements; no direct force readout",
           "assessment_context": "other",
-          "source_locator": "Results sec-0005; Figure 4G-J and EV4; Appendix S4 cited, not inspected"
+          "source_locator": "Results sec-0005; Figure 4G-J/EV4; inspected Appendix S4 p6, Table S4 p15, Note 2.1/2.2 pp19-20 in declared appendix artifact"
         }
       },
       "independent_unit": {
@@ -305,7 +313,7 @@
         "hierarchy_note": "Aggregate source findings; IDs remain null. Figure 6 endpoint CSVs have candidate Dataset/Embryo ID links, but displacement lacks embryo ID. Biological identity, independence and cross-branch linkage remain unqualified."
       },
       "observation": {
-        "value": "Shape/volume observations agree with a model allowing increased substrate adhesion; tension is inferred",
+        "value": "Source model describes early shape changes; appendix held-out comparison includes one later mismatch among three embryos",
         "measurement_time": "Day 3 endpoint or source peri-implantation imaging interval",
         "measurement_time_unit": "source culture-day and imaging labels",
         "comparator_id": null,
@@ -323,7 +331,8 @@
         "AI-assisted selected source curation is not human scientific review; original XML hash pins this retrieval, not all publisher revisions.",
         "Mouse E3.5 entry and Day 3 E5.25-like morphology are distinct labels; source reports delay. No human or later continuous gestation inferred.",
         "Individual starting roster, source/litter hierarchy, losses and cross-assay pairing unqualified. No biological fit, causal effect estimate or operating specification.",
-        "Reported leave-one-out comparison concerns shape fit. Inferred interfacial tension is not a direct force assay or uniquely identified biological cause."
+        "Reported leave-one-out comparison concerns shape fit. Inferred interfacial tension is not a direct force assay or uniquely identified biological cause.",
+        "Custom gamma0 tension unit is not a calibrated physical force scale. Held-out measured volume derivative is an input; validation does not predict growth autonomously or from past-only observations."
       ]
     },
     {
@@ -474,7 +483,7 @@
           "process": "developmental_outcome",
           "quantity_basis": "Qualitative source comparison; counts remain source summaries, no unit reconstruction",
           "assessment_context": "ex_utero_whole_embryo",
-          "source_locator": "Results sec-0007, paragraph 2; Figure 6I/J; Appendix S8/S9 cited, not inspected"
+          "source_locator": "Results sec-0007; Figure 6I/J; inspected Appendix S8 p10 and S9 p11 in declared appendix artifact"
         }
       },
       "independent_unit": {
@@ -503,7 +512,183 @@
         "Mouse E3.5 entry and Day 3 E5.25-like morphology are distinct labels; source reports delay. No human or later continuous gestation inferred.",
         "Individual starting roster, source/litter hierarchy, losses and cross-assay pairing unqualified. No biological fit, causal effect estimate or operating specification.",
         "No source trajectory/outcome join or support-function comparison inspected. This does not diagnose arrest in another mouse study.",
-        "Native Figure 6I/J audit recovers 691 EPI/TE_inner pairs of measurement labels across six dataset strings. No embryo ID in displacement table; sharing dataset 221107 with endpoints cannot establish pairing."
+        "Native Figure 6I/J audit recovers 691 EPI/TE_inner pairs of measurement labels across six dataset strings. No embryo ID in displacement table; sharing dataset 221107 with endpoints cannot establish pairing.",
+        "Appendix S8 cell counts select successfully developed embryos (14 downward, 6 upward); starting denominator unresolved. Appendix S9 has three imaged embryos with nested planes. These branches are not joined to Figure 6G/H."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "bondarenko-heldout-shape-validation",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "implantation_and_placentation",
+      "developmental_interval": {
+        "label": "Source early post-E3.5 imaging; actual interval bounds unqualified",
+        "start": "Source imaging start unqualified",
+        "end": "Source imaging end unqualified",
+        "time_unit": "source post-E3.5 hours",
+        "stage_source_artifact_id": "bondarenko2023-appendix"
+      },
+      "model_system": {
+        "kind": "simulation",
+        "label": "Source wetting-model comparison with measured mouse-embryo geometry; no local biological fit"
+      },
+      "assay": {
+        "name": "Selected publisher appendix source summary",
+        "endpoint": "Conditional contact-angle prediction across three source embryos",
+        "unit": "source-reported qualitative summary",
+        "measurement_role": "other",
+        "functional_context": {
+          "compartment": "embryonic and extraembryonic tissues with maternal-facing boundary",
+          "material": "shape/volume and model-inferred interfacial tension",
+          "process": "other",
+          "quantity_basis": "Model inference compared with image measurements; no direct force readout",
+          "assessment_context": "other",
+          "source_locator": "Appendix Figure S4 p6; Table S4 p15; Note 2.1/2.2 pp19-20"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Source summary only; biological IDs and parent IDs remain null. Appendix branches are not linked to each other or to Figure 6 endpoint/trajectory units."
+      },
+      "observation": {
+        "value": "Two of three held-out angle curves agree within source bands; third declines faster after source hour 44",
+        "measurement_time": "Source post-E3.5 imaging window; later mismatch after source hour 44",
+        "measurement_time_unit": "source post-E3.5 hours",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "bondarenko2023-appendix",
+        "uri": "https://media.springernature.com/original/springer-static/esm/art%3A10.15252%2Fembj.2022113280/MediaObjects/44318_2023_BFEMBJ2022113280_MOESM1_ESM.pdf",
+        "license": "CC BY 4.0 article statement; source-specific review pending",
+        "sha256": "99c587604ab7af2131f2264f5b6860c8fd63c88ce1099231d992d311445b82c2",
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "AI-assisted selected appendix curation; human scientific review pending. No individual continuity, causal effect, operating specification or human gestation claim.",
+        "Leave-one-embryo-out parameters use the other two embryos; measured held-out volume derivative remains an input. This is conditional shape validation, not autonomous or past-only developmental forecasting.",
+        "Figure S4 data bars are one SEM; bands three SD of the mean; Table S4 parameter errors one SD. No pooled success rate or calibrated force follows.",
+        "Table S4 labels 210513, 210810, 210905 are not authenticated Figure 6 endpoint IDs. Model mismatch is not an adverse organism assay."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "bondarenko-selected-orientation-endpoints",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "implantation_and_placentation",
+      "developmental_interval": {
+        "label": "E3.5 entry; Day 3 E5.25-like morphology; actual stage/time kept separate",
+        "start": "E3.5 entry",
+        "end": "Day 3 E5.25-like morphology",
+        "time_unit": "source stage/day labels",
+        "stage_source_artifact_id": "bondarenko2023-appendix"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Whole mouse peri-implantation embryo in source engineered uterine context"
+      },
+      "assay": {
+        "name": "Selected publisher appendix source summary",
+        "endpoint": "Orientation cell-count comparison conditional on source development selection",
+        "unit": "source-reported qualitative summary",
+        "measurement_role": "morphology",
+        "functional_context": {
+          "compartment": "embryonic and extraembryonic tissues with maternal-facing boundary",
+          "material": "developmental structure and boundary coordination",
+          "process": "developmental_outcome",
+          "quantity_basis": "Caption-selected morphology endpoints; no complete starting roster or biological unit reconstruction",
+          "assessment_context": "ex_utero_whole_embryo",
+          "source_locator": "Appendix Figure S8 caption and panels, physical PDF p10"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Source summary only; biological IDs and parent IDs remain null. Appendix branches are not linked to each other or to Figure 6 endpoint/trajectory units."
+      },
+      "observation": {
+        "value": "Cell counts select successfully developed embryos: downward n14 from 3 replicates; upward n6 from 4",
+        "measurement_time": "Day 3 endpoint",
+        "measurement_time_unit": "source culture-day labels",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "bondarenko2023-appendix",
+        "uri": "https://media.springernature.com/original/springer-static/esm/art%3A10.15252%2Fembj.2022113280/MediaObjects/44318_2023_BFEMBJ2022113280_MOESM1_ESM.pdf",
+        "license": "CC BY 4.0 article statement; source-specific review pending",
+        "sha256": "99c587604ab7af2131f2264f5b6860c8fd63c88ce1099231d992d311445b82c2",
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "AI-assisted selected appendix curation; human scientific review pending. No individual continuity, causal effect, operating specification or human gestation claim.",
+        "Caption reports upward developmental efficiency 19% without its full starting denominator; selected n6 cannot replace that denominator. No selection-adjusted effect or group equivalence inferred.",
+        "This orientation comparison is distinct from Figure 6G/H Rac1 endpoints and Figure 6I/J displacement; no individual cross-branch pairing qualified."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "bondarenko-shallow-geometry-nesting",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "implantation_and_placentation",
+      "developmental_interval": {
+        "label": "Source shallow-geometry imaging after E3.5 recovery; ending interval unqualified",
+        "start": "E3.5 recovery",
+        "end": "Source imaging end unqualified",
+        "time_unit": "source hours:minutes",
+        "stage_source_artifact_id": "bondarenko2023-appendix"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Whole mouse peri-implantation embryo in source engineered uterine context"
+      },
+      "assay": {
+        "name": "Selected publisher appendix source summary",
+        "endpoint": "Nested embryo/boundary displacement in separate source geometry branch",
+        "unit": "source-reported qualitative summary",
+        "measurement_role": "morphology",
+        "functional_context": {
+          "compartment": "embryonic and extraembryonic tissues with maternal-facing boundary",
+          "material": "developmental structure and boundary coordination",
+          "process": "developmental_outcome",
+          "quantity_basis": "Qualitative source comparison; counts remain source summaries, no unit reconstruction",
+          "assessment_context": "ex_utero_whole_embryo",
+          "source_locator": "Appendix Figure S9 caption and panels, physical PDF p11"
+        }
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Source summary only; biological IDs and parent IDs remain null. Appendix branches are not linked to each other or to Figure 6 endpoint/trajectory units."
+      },
+      "observation": {
+        "value": "Shallow-geometry displacement summary combines several imaging planes from three imaged embryos",
+        "measurement_time": "Hours:minutes from E3.5 recovery; source imaging interval",
+        "measurement_time_unit": "source hours:minutes",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "bondarenko2023-appendix",
+        "uri": "https://media.springernature.com/original/springer-static/esm/art%3A10.15252%2Fembj.2022113280/MediaObjects/44318_2023_BFEMBJ2022113280_MOESM1_ESM.pdf",
+        "license": "CC BY 4.0 article statement; source-specific review pending",
+        "sha256": "99c587604ab7af2131f2264f5b6860c8fd63c88ce1099231d992d311445b82c2",
+        "retrieved_on": "2026-10-09"
+      },
+      "limitations": [
+        "AI-assisted selected appendix curation; human scientific review pending. No individual continuity, causal effect, operating specification or human gestation claim.",
+        "Coordinates reference the initial egg-cylinder tip. Native values and registration/segmentation uncertainty unqualified; imaging planes are nested subsamples, not independent embryos.",
+        "No endpoint or adequate-support join established; do not combine with Figure 6I/J into a larger biological n."
       ]
     },
     {

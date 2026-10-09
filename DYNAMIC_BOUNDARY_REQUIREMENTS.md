@@ -39,11 +39,25 @@ Figure 6, embryo-length and epiblast-cell-count denominators differ. Native
 source keys now permit a partial candidate join below; the full panel totals
 still cannot be treated as one paired cohort.
 
-The model's leave-one-out comparison concerns shape prediction within the
-inspected experiments. It does not establish an identified mechanical cause,
-nutritional sufficiency, a controller or a healthy-organism trajectory. The
+The inspected appendix now qualifies the leave-one-embryo-out comparison: two
+contact-angle trajectories agree within the reported three-SD bands, while a
+third decreases faster than predicted after source hour 44. The held-out
+measured volume derivative is still an input, and tension uses a custom gamma0
+scale without qualified physical force calibration. This concerns conditional
+shape prediction within three source embryos, without establishing an
+identified mechanical cause, nutritional sufficiency, a controller or a
+healthy-organism trajectory. The
 authors' proposed soft-wetting account of implantation in vivo remains a
 hypothesis beyond the demonstrated engineered context.
+
+Appendix Figure S8's orientation cell-count comparison selects successfully
+developed embryos: downward n=14 from three replicates, upward n=6 from four.
+The caption reports upward 19% efficiency without the full starting denominator.
+These selected counts cannot establish whole-cohort progression or group
+equivalence. Appendix S9 summarizes planes nested within three imaged embryos.
+These branches remain distinct from the Figure 6 Rac1 endpoint tables and
+movement records. Appendix pages 6, 10, 11, 15, 19 and 20 were rendered and
+visually inspected; model mismatch is not itself an adverse organism assay.
 
 ## What the new cohort qualification resolves
 
@@ -82,6 +96,13 @@ Only repository metadata was retrieved; the approximately 3.1 GB archive was
 not downloaded, and its internal specimen/time hierarchy remains uninspected.
 The article's GSE228264 sequencing accession is a separate resource; no
 phenotype join is established.
+
+The public segmentation code repository was also inspected at commit
+`6fe8ce046b9022c031fcfeb03cf4849ee3708426`: complete recursive tree metadata,
+README and a small threshold-segmentation script, with original bytes pinned.
+The selected files describe image segmentation and do not recover the
+trajectory-to-embryo/outcome map in this inspected scope. Other file contents,
+model weights and notebooks remain uninspected; no source code was executed.
 
 ### Native Figure 6 linkage audit
 
@@ -165,7 +186,9 @@ python -m wombmodels verify-bundle --bundle artifacts/boundary-intake-NEW --stri
 Run with the package installed or `src` on the import path and a new output
 directory. Local source hashing checks the declared XML if available; it does
 not review the biology or fetch missing external files. The boundary intake now
-also declares the pinned Figure 6 archive as supporting evidence. The updated Jin intake
+also declares the pinned Figure 6 archive and inspected publisher appendix as
+supporting evidence, with eleven author summaries and one missing follow-up.
+The updated Jin intake
 uses its existing command with a new output directory and now declares four
 artifacts, including the two pinned PDFs; the rendered manuscript stays unpinned.
 
@@ -182,6 +205,12 @@ progression and boundary coordination, with specimen/experiment hierarchy and
 adverse endpoints. Inferred force or stage must remain distinguishable from a
 measured quantity. Segmentation accuracy is a measurement prerequisite, not a
 developmental outcome.
+
+The [reanalysis contract](BOUNDARY_REANALYSIS_CONTRACT.md) freezes separate
+endpoint association, earlier-coordination prediction and conditional shape
+questions. It retains successful-development selection, shared coordinate
+error, biological group splits and the held-out growth input. The existing
+53 endpoint-key candidates answer neither the second nor the third question.
 
 **Next discriminator:** recover the source map from each displacement dataset
 to its actual embryo and endpoint, including absent/failed outcomes, before

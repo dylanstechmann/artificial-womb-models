@@ -37,6 +37,36 @@
       "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.15252%2Fembj.2022113280/MediaObjects/44318_2023_BFEMBJ2022113280_MOESM20_ESM.zip",
       "bytes": 6931831,
       "sha256": "36adfb6ec13b6df189c116e19ce18455f3c0b00052838657c59f0eda65784c75"
+    },
+    {
+      "path": "artifacts/boundary-review-2026-10-09/appendix.pdf",
+      "role": "original publisher appendix; selected pages 6, 10, 11, 15, 19, 20 rendered and visually inspected; protocols remain external",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.15252%2Fembj.2022113280/MediaObjects/44318_2023_BFEMBJ2022113280_MOESM1_ESM.pdf",
+      "bytes": 5514658,
+      "sha256": "99c587604ab7af2131f2264f5b6860c8fd63c88ce1099231d992d311445b82c2"
+    },
+    {
+      "path": "artifacts/boundary-review-2026-10-09/repository-README.md",
+      "repository_path": "README.md",
+      "url": "https://raw.githubusercontent.com/kreshuklab/mouse-embryo-seg/6fe8ce046b9022c031fcfeb03cf4849ee3708426/README.md",
+      "bytes": 5036,
+      "sha256": "c8ec18fc35ddddc8ff43f24284da7615d028570926900a765e28487517dd8611",
+      "role": "pinned public segmentation repository file, read only; no source code executed"
+    },
+    {
+      "path": "artifacts/boundary-review-2026-10-09/repository-threshold_segmentation.py",
+      "repository_path": "src/threshold_segmentation.py",
+      "url": "https://raw.githubusercontent.com/kreshuklab/mouse-embryo-seg/6fe8ce046b9022c031fcfeb03cf4849ee3708426/src/threshold_segmentation.py",
+      "bytes": 1262,
+      "sha256": "e2097bf3b079c2e090e6ccef96cc553f5b6a56c8563b51594054e89add56e1bc",
+      "role": "pinned public segmentation repository file, read only; no source code executed"
+    },
+    {
+      "path": "artifacts/boundary-review-2026-10-09/repo-tree.json",
+      "role": "complete recursive public tree metadata for the resolved commit; tree is not a content inspection of every file",
+      "url": "https://api.github.com/repos/kreshuklab/mouse-embryo-seg/git/trees/main?recursive=1",
+      "bytes": 11351,
+      "sha256": "85fc491a838d7af6d251764713854f157a20fa55db5a41c1eb729774d4675f13"
     }
   ],
   "selected_scope": [
@@ -44,7 +74,9 @@
     "Discussion sec-0008",
     "Figures EV1E/E-prime, 1I/J, 2A/I, 3B/C, 4G-J, 6G-J",
     "Data availability sec-0054; license",
-    "Publisher Figure 6 source archive: displacement, cell-track, cell-count and embryo-length native CSVs; media not inspected/executed"
+    "Publisher Figure 6 source archive: displacement, cell-track, cell-count and embryo-length native CSVs; media not inspected/executed",
+    "Appendix Figure S4 (page 6), S8 (page 10), S9 (page 11), Table S4 (page 15), Note sections 2.1/2.2 (pages 19/20)",
+    "Public segmentation repository recursive tree, pinned README and threshold segmentation script; no model weights, notebooks or source programs executed"
   ],
   "source_summary_counts": {
     "composite_day3": {
@@ -112,7 +144,9 @@
     "Tension/adhesion dynamics are inferred from shape and volume; no direct force assay or physiological calibration.",
     "Rac1 phenotype affects multiple tissues; perturbation specificity remains open.",
     "In-vivo soft-wetting account proposed in Discussion, not demonstrated by engineered-environment fit.",
-    "No support-receipt/function evidence pairing closes the adequate-support versus coordination discriminator."
+    "No support-receipt/function evidence pairing closes the adequate-support versus coordination discriminator.",
+    "Selected orientation cell-count comparison conditions on successful development; all-starting-unit effects require a complete disposition roster.",
+    "Appendix held-out shape validation has a later mismatch in one of three embryos and uses the held-out volume derivative; growth-input independence and absolute force scale remain unqualified."
   ],
   "biological_assay_performed": false,
   "biological_fit_performed": false,
@@ -205,5 +239,64 @@
       "status": "not_retrieved_exceeds_local_64_MB_limit",
       "starting_roster": "not_qualified"
     }
+  },
+  "appendix_qualification": {
+    "scope": "AI-assisted selected captions, table headings/units and model definitions; human review pending",
+    "orientation_cell_counts": {
+      "locator": "Appendix Figure S8, physical PDF page 10",
+      "selected_population": "successfully developed embryos",
+      "downward_n": 14,
+      "downward_replicates": 3,
+      "upward_n": 6,
+      "upward_replicates": 4,
+      "upward_efficiency_source_label": "19%",
+      "starting_denominator": "not supplied by this caption",
+      "interpretation": "Conditional morphology comparison; selected n cannot supply an overall development rate, equivalence or causal effect; separate from Figure 6G/H Rac1 cohorts."
+    },
+    "shallow_geometry_displacement": {
+      "locator": "Appendix Figure S9, physical PDF page 11",
+      "imaged_embryos": 3,
+      "measurement_hierarchy": "several imaging planes nested within three embryos",
+      "coordinate_reference": "initial egg-cylinder tip",
+      "clock": "hours:minutes from E3.5 recovery",
+      "native_values": "not inspected",
+      "linkage": "no endpoint join qualified; separate from Figure 6I/J"
+    },
+    "wetting_validation": {
+      "locators": [
+        "Appendix Figure S4, page 6",
+        "Appendix Table S4, page 15",
+        "Appendix Note 2.1/2.2, pages 19/20"
+      ],
+      "source_parameter_table_embryo_labels": [
+        "210513",
+        "210810",
+        "210905"
+      ],
+      "validation_scheme": "Each of three embryos held out while parameter estimates from the other two are averaged; held-out measured volume derivative remains an input",
+      "comparison": "Two contact-angle trajectories agree within reported three-SD bands. Third agrees at onset but measured angle decreases faster after source hour 44.",
+      "uncertainty_definitions": "Figure S4 data error bars: one SEM; bands: three SD of the mean; Table S4 parameter errors: one SD. Not interchanged.",
+      "absolute_force_scale": "Custom gamma0 tension unit; no physical force-scale calibration qualified",
+      "interpretation": "Cross-embryo conditional shape validation, not a past-only growth forecast or all-case agreement. Model mismatch is not itself an adverse organism outcome.",
+      "physical_parameter_values_imported": false,
+      "biological_fit_performed": false,
+      "growth_input_qualification": "Inference from Note 2.1 model/input definition and 2.2 validation procedure: validation varies held-out parameter source, without qualifying an independent or past-only prediction of measured growth input. No validation code was executed."
+    },
+    "cohort_linkage": "Appendix model, selected orientation endpoint, shallow-geometry imaging and Figure 6 native endpoint/trajectory branches remain separate; no cross-branch biological identity or continuous path established"
+  },
+  "segmentation_code_qualification": {
+    "repository": "https://github.com/kreshuklab/mouse-embryo-seg",
+    "commit": "6fe8ce046b9022c031fcfeb03cf4849ee3708426",
+    "recursive_tree_truncated": false,
+    "tree_entries": 44,
+    "content_inspected": [
+      "README.md",
+      "src/threshold_segmentation.py"
+    ],
+    "scope": "README describes image segmentation; selected script thresholds predictions and labels connected components. Tree metadata plus these two files do not qualify a trajectory-to-embryo/outcome map.",
+    "other_file_contents": "not inspected",
+    "source_code_executed": false,
+    "model_weights_downloaded": false,
+    "missing_map_status": "not recovered in inspected scope; not a claim that underlying data or all repository history lacks one"
   }
 }
