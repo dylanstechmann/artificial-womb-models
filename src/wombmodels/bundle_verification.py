@@ -33,6 +33,7 @@ KNOWN_BUNDLE_KINDS = frozenset({
     "published_endpoint_source_audit",
     "functional_readout_source_audit",
     "native_placental_source_recovery",
+    "niche_mechanics_development_source_audit",
     "early_interface_source_linkage_audit",
     "dimensionless_transport_theory",
     "dimensionless_transport_identifiability",

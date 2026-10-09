@@ -12,6 +12,12 @@ The [machine concept design](SYSTEM_DESIGN.md) proposes an individual continuous
 
 ## What you can run
 
+The [niche-source qualification](NICHE_SOURCE_QUALIFICATION.md) adds
+`audit-guo-source`: a pinned read-only audit of mouse niche mechanical/profile
+cells and developmental percentages. It separates candidate observation intake
+from unqualified mechanical quantities, specimen pairing, equivalence and causal
+claims. Source row counts remain separate from verified biological n.
+
 The [feasibility strategy](FEASIBILITY_STRATEGY.md) now prioritizes a remodelable
 maternal niche, the same-unit transition to sustained exchange, and joint
 support/development outcomes. New early mouse niche evidence and ovine growth

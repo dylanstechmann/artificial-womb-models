@@ -22,10 +22,13 @@
       "snapshot_hash_scope": "Observed local HTML, not a universal publisher revision",
       "article_license": "CC BY-NC-ND 4.0",
       "source_data_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-025-68039-y/MediaObjects/41467_2025_68039_MOESM18_ESM.xlsx",
-      "source_data_access": "Publisher link observed; binary not downloaded or inspected",
+      "source_data_access": "Downloaded and inventoried; executable audit selects Fig4A/C/D/E/F and Sup 10 I; other worksheets not fully qualified",
+      "source_data_path": "artifacts/feasibility-strategy-2026-10-09/guo-source-data.xlsx",
+      "source_data_bytes": 137918,
+      "source_data_sha256": "c84b1faf2ebe02c812af7ec73d94a10c6640a11fba677ac85947999b9dc33e8e",
       "source_data_license": "unqualified",
       "n_verified_biological_unit_links": 0,
-      "fit_eligibility": "not_qualified",
+      "fit_eligibility": "not_qualified; missing hierarchy, mechanical units/loading/normalization and original outcome denominators",
       "limits": ["Mouse early-stage result is separate from human development.", "Later placental substitution is not demonstrated.", "Perturbation specificity, unit hierarchy and attrition need review."]
     },
     {

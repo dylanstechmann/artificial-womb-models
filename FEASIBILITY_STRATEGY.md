@@ -136,10 +136,13 @@ reviewed model/data contract; unknown quantities stay unknown.
 
 ## Immediate empirical target and limits
 
-Guo's publisher Source Data workbook is identified but not downloaded or
-inspected here. The article declares CC BY-NC-ND 4.0; workbook-specific reuse
-terms remain unqualified. The narrow next target is Figure 4–6 material
-measurements linked to embryo/run hierarchy, progression and exclusions.
+Guo's publisher workbook is now inspected in the
+[niche-source qualification](NICHE_SOURCE_QUALIFICATION.md). An executable audit
+preserves selected mechanical/profile cells and candidate developmental
+percentages, while retaining unknown cross-panel unit links and denominators.
+The article declares CC BY-NC-ND 4.0; workbook-specific reuse terms remain
+unqualified. The next requirement is authenticating the material-to-embryo/run
+hierarchy, loading definitions, outcome numerators/denominators and exclusions.
 This could discriminate a fixed-stiffness niche assumption without claiming
 later support. Usuda's raw-data statement offers author-provided data; a linked
 support/growth comparison still needs unit records and comparator reconciliation.
