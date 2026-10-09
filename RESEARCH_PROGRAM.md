@@ -12,6 +12,13 @@ dimensionless examples indefinitely will not identify missing biological
 functions. Coordinate implementation with [ROADMAP.md](ROADMAP.md) and the
 [ResearchDesk research plan](https://github.com/dylanstechmann/regen-workbench/blob/main/RESEARCH_PROGRAMS.md).
 
+The [machine concept design](SYSTEM_DESIGN.md) allocates the full embryo-to-birth
+ambition to an individual continuous gestation unit, dedicated support and
+observation, and a separate neonatal transition station. Its interface and outcome
+gates remain unestablished for complete human ectogenesis. It is a functional
+research architecture; the E1–E3 evidence and data work below is needed to qualify
+any biological implementation.
+
 ## 1. Treat the objective as a chain of biological transitions
 
 A wall-powered support system would have to preserve the functions needed at

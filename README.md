@@ -8,6 +8,8 @@ The repository contains a curated stage/evidence map and an abstract exchange, b
 
 The [research program](RESEARCH_PROGRAM.md) now prioritizes a reviewed developmental-transition map, executable observation intake and one eligible placental/interface benchmark. It specifies competing explanations, data candidates, acceptance criteria and the missing observations needed before adding physiological scope. The [implementation roadmap](ROADMAP.md) retains the numerical, uncertainty and portable-verification work that supports that program.
 
+The [machine concept design](SYSTEM_DESIGN.md) proposes an individual continuous gestation unit, a dedicated support/observation station and a neonatal transition station. It specifies functional requirements, alternative interfaces, outcome assessment and research gates. Complete human embryo-to-birth support remains unestablished; the document is an AI-assisted research architecture, not a build specification or a guarantee of a healthy child.
+
 ## What you can run
 
 Python 3.10+; the runtime has no third-party dependencies.
