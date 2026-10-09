@@ -140,3 +140,9 @@ The practical next milestone is a **same-unit functional transition dossier**:
 what the early tissues do, what changes, what supplies the later function, and
 whether development is preserved across that change. This narrows the feasibility
 problem beyond early implantation or perfusion of a standalone tissue model.
+
+The subsequent [functional support-route comparison](FUNCTIONAL_SUPPORT_ROUTES.md)
+adds a bounded placental-bypass hypothesis and separates delivery from tissue
+metabolic use. Preserve required functions without assuming one anatomical
+provider must supply them throughout every interval. Same-unit development
+and route-transition evidence remain necessary for either hypothesis.

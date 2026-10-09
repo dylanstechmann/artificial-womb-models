@@ -124,6 +124,14 @@ Vascular niche morphology or early implantation cannot establish all four.
 The inspected early-development experiment supports mouse embryos with
 human-origin cells; it does not establish a human developmental transition.
 
+The [functional support routes](FUNCTIONAL_SUPPORT_ROUTES.md) retain a bounded
+placental-bypass comparator alongside the growing living interface. Qualify
+required functions for each interval instead of assuming a formed placenta
+must supply every one. Machine B must distinguish material delivery, tissue
+metabolic use and developmental progression. Adequate tracer delivery can
+coexist with impaired metabolism and development in the inspected mouse
+reference; no external-supply correction or human operating setting follows.
+
 ## Machine B: support and observation station
 
 The [selective-interface exploration](SELECTIVE_INTERFACE_FEASIBILITY.md)

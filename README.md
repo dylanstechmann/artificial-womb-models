@@ -31,6 +31,14 @@ function relay and durable outcomes. A pinned primary-source inventory retains
 species distinctions, adverse later findings and unresolved timing; none of
 these candidates establishes continuous human gestation.
 
+The [functional support routes](FUNCTIONAL_SUPPORT_ROUTES.md) compare the
+growing biological interface with a bounded placental-bypass hypothesis.
+A 2026 mouse preprint motivates that comparison; an inspected peer-reviewed
+metabolic reference separates delivery from developmental use. Published
+source workbooks retain sample/time distinctions and a normalization
+label/formula discrepancy; biological fitting and human continuity remain
+unestablished.
+
 The [interface source qualification](SOURCE_QUALIFICATION.md) audits the Hori
 2024 Figure 5G workbook and two Bhide 2026 kinetic supplements. The new
 `audit-hori-source` command extracts 48 source-located Papp endpoints into a

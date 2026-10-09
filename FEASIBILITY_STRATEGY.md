@@ -93,11 +93,19 @@ human path.
 
 ## Keep competing architectures testable
 
+The [functional support routes](FUNCTIONAL_SUPPORT_ROUTES.md) add a bounded
+placental-bypass comparator, motivated by a 2026 mouse preprint abstract. It
+tests which maternal/placental functions are necessary over a declared interval.
+The growing biological interface remains the preferred full-course hypothesis;
+neither route is established for complete human gestation. Delivery, tissue
+metabolic use and organ/lineage development need separate observations.
+
 | Alternative | Why retain it | Evidence against using it as the main architecture |
 | --- | --- | --- |
 | Fixed niche and fixed support | Simple reference for a narrow interval | Progression stalls or function changes despite matched fixed properties. |
 | Fixed artificial exchange barrier | Component reference for a qualified transport question | Matched exchange endpoints coexist with impaired development or signaling. |
 | Growing hybrid biological interface | Preserves more endogenous functions; preferred research hypothesis | Interface growth/function cannot be sustained, maternal interaction fails, or adverse outcomes exceed the comparator. |
+| Bounded placental bypass retaining relevant embryo/extraembryonic tissues | Tests functional support without assuming every maternal anatomical relationship is necessary in that interval | Delivery, metabolic use or development fails; extension or route transition loses continuity. |
 | Stage-separated units | Allows separate stage questions | Transfers fail continuity or endpoint survivors conceal transition losses. |
 
 The hybrid hypothesis does not establish that all maternal functions can be

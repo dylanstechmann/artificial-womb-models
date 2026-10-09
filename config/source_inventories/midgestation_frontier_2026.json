@@ -1,0 +1,56 @@
+{
+  "schema_version": 1,
+  "review_status": "candidate",
+  "human_review": "pending",
+  "inspected_on": "2026-10-09",
+  "sources": [
+    {
+      "source_id": "lokshtanov-2026-v1-midgestation",
+      "article_url": "https://doi.org/10.64898/2026.03.17.710314",
+      "source_class": "preprint",
+      "organism_species": "mouse",
+      "inspected_scope": "bioRxiv API metadata/abstract and author institutional abstract; full text not inspected",
+      "version": "1",
+      "posted_on": "2026-03-18",
+      "api_published_field": "NA",
+      "source_interval_claim": "E6.5/E7.5 to approximately E12.5; separate starting intervals not pooled",
+      "source_metabolic_claim": "E10.5-E11.5 transition recapitulated ex utero without direct uterine/placental cues; partially environmentally responsive",
+      "starting_state_limit": "after implantation",
+      "full_text_access": "Text-tool retrieval failed; API-listed XML request returned HTTP 429. No repeat request or indexed-snippet substitution.",
+      "unqualified": ["starting/endpoint cohort denominators", "attrition", "adverse findings", "same-unit identity", "terminal support limitation", "full dataset inventory"],
+      "ledger_promotion": "none"
+    },
+    {
+      "source_id": "solmonson-2022-compartment-metabolism",
+      "article_url": "https://www.nature.com/articles/s41586-022-04557-9",
+      "source_class": "peer_reviewed_animal",
+      "organism_species": "mouse for the inspected developmental comparisons; human clinical branch excluded from this case",
+      "model": "in-utero reference and source LIPT1-deficient comparison; no ex-utero machine validation",
+      "source_locators": ["Rapid and localized metabolism in utero", "Compartmentalized embryonic metabolism", "LIPT1 enables developmental metabolism", "Extended Data Figure 5d/e", "Data availability", "Code availability"],
+      "quantity_limit": "Isotope-label entries and derived enrichment ratios; not absolute delivered mass or flux",
+      "review_requirements": ["native numeric lexemes and isotope-correction ancestry", "precursor enrichment and tissue pool context", "time versus developmental-stage conventions", "dam/litter/embryo and technical-repeat hierarchy", "source-pair authentication", "normalization-label/formula reconciliation"],
+      "selected_workbook_findings": [
+        {"snapshot": "solmonson-source-fig2.xlsx", "sheet": "Figure 2b", "range": "A23:J32", "source_labels": {"C25": "WT47 E1 0", "I25": "WT47 E4 30"}, "decision": "different source embryo labels at these times; not a same-embryo longitudinal trajectory"},
+        {"snapshot": "solmonson-source-edfig5.xlsx", "sheet": "Extended Data 5d", "range": "B22:C23", "source_labels": {"B22": "Blood/Placenta sum", "B23": "Blood/Placenta m+6"}, "source_formulas": {"C22": "=C20/$C9", "C23": "=C19/$C8"}, "reference_locators": ["C1", "A2:B8", "C9", "C12", "A13:B19", "C20"], "decision": "inspected formula references compute placenta/blood; retain label/formula direction discrepancy"},
+        {"snapshot": "solmonson-source-edfig5.xlsx", "sheet": "Extended Data 5d", "range": "C33:C55", "decision": "candidate placenta/embryo source-pair labels; full hierarchy and developmental continuity unqualified"}
+      ],
+      "reuse_context": "Article declares CC BY 4.0; source-specific supplemental reuse review pending",
+      "author_code_url": "https://github.com/wencgu/nac",
+      "author_code_executed": false,
+      "ledger_promotion": "none"
+    }
+  ],
+  "snapshots": [
+    {"path": "artifacts/midgestation-frontier-2026-10-09/biorxiv-metadata.json", "bytes": 3836, "sha256": "17062e07ca0454c83033a092d3a461013544d3b80ec564bda315df2c27793744", "url": "https://api.biorxiv.org/details/biorxiv/10.64898/2026.03.17.710314"},
+    {"path": "artifacts/midgestation-frontier-2026-10-09/europepmc-search.json", "bytes": 1330, "sha256": "0e0f940f05a4bb1ae8e16d4494717343015d3fb5d99ea102c17e0d8af809d885", "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI%3A10.64898%2F2026.03.17.710314&format=json"},
+    {"path": "artifacts/midgestation-frontier-2026-10-09/janelia-abstract.html", "bytes": 63971, "sha256": "b4b5027b861efade3b180134276ededcfc47f5b477f6acb290741d0c24188586", "url": "https://www.janelia.org/publication/reconstituting-mouse-embryogenesis-ex-utero-from-gastrulation-to-fetal-development"},
+    {"path": "artifacts/midgestation-frontier-2026-10-09/solmonson-2022.xml", "bytes": 125988, "sha256": "43ba34e1df70dc95d0138981e3ab6e6fa66840d8d8408d86a54cea364f8f9f93", "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9007737/fullTextXML"},
+    {"path": "artifacts/midgestation-frontier-2026-10-09/solmonson-source-fig2.xlsx", "bytes": 69502, "sha256": "bdb58efd7ff814b09fa27838585dd166be7f7d12960fdc996829c580cf57feac", "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-022-04557-9/MediaObjects/41586_2022_4557_MOESM5_ESM.xlsx"},
+    {"path": "artifacts/midgestation-frontier-2026-10-09/solmonson-source-edfig5.xlsx", "bytes": 467463, "sha256": "3bb144e1aab46b649e61b06ba7b0d1a1f2d0a32eb44ff6864cbbffa537673377", "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-022-04557-9/MediaObjects/41586_2022_4557_MOESM10_ESM.xlsx"}
+  ],
+  "snapshot_hash_scope": "observed local retrievals, not universal publisher revisions",
+  "workbook_operation": "read_only; no modification or export",
+  "biological_fit_performed": false,
+  "observation_intake_promotion": "none; quantity and hierarchy qualification pending",
+  "full_human_gestation_claim": "unestablished"
+}

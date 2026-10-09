@@ -2,6 +2,8 @@
 
 ## Unreleased
 
+- Add a bounded placental-bypass comparator and independent delivery/metabolic-use/development requirements. Pin 2026 mouse preprint metadata/abstract and a peer-reviewed compartment-metabolism reference with two read-only source workbooks; retain different sampled embryo IDs, normalization label/formula direction discrepancy and unresolved cohort/access limits without biological fitting or ledger promotion.
+
 - Refine the early exchange boundary around yolk-sac/extraembryonic functions and their developmental relay. Pin three primary-source snapshots; distinguish niche support from connected embryonic exchange and retain adverse later outcomes, conflicting source timing and species/stage limits without promoting gestation claims.
 
 - Add a pinned Guo niche-source audit preserving endpoint/profile cell lexemes and candidate developmental percentages; exclude mechanically unqualified quantities from observation intake and retain missing cross-panel identity, cohort denominators and equivalence requirements.
