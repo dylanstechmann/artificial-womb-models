@@ -31,6 +31,7 @@ KNOWN_BUNDLE_KINDS = frozenset({
     "developmental_observation_intake",
     "published_endpoint_source_audit",
     "dimensionless_transport_theory",
+    "dimensionless_transport_identifiability",
     "dimensionless_mechanics_theory",
     "dimensionless_transport_numerical_verification",
     "dimensionless_transport_regime_matrix_verification",

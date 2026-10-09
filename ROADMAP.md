@@ -82,6 +82,12 @@ that cannot be mistaken for biological validation.
 Depends on M1. The current bounded profile search and local covariance are a
 baseline, not a complete identifiability study.
 
+`transport-identifiability` now exports exact core-only rate-swap and
+equilibrium scale counterexamples, their valid witness configurations and
+paired-interface contrasts. It addresses a structural observation limit in
+the existing dimensionless transport equations. It does not complete M2's
+forecast calibration or establish empirical identifiability.
+
 - Export the objective profile, search-bound hits, rank/singular-spectrum
   diagnostics and approximate interval availability with explicit reasons.
 - Freeze separate calibration and evaluation scenarios before tuning. Vary

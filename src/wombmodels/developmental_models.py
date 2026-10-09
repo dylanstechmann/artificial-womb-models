@@ -70,14 +70,14 @@ def _scope_report(model, config, assumptions, alternative, outputs, limits):
     }
 
 
-def simulate_transport(config_path: Path, output: Path) -> dict:
-    config, raw = read_json(config_path)
+def transport_parameters(config: dict) -> dict:
+    """Validate the transport fixture once for simulation and diagnostics."""
     if set(config) != {"schema_version", "fixture_notice", "context", "dimensionless_time",
                        "initial", "rates", "boundary_concentration"}:
         raise InputError("transport config has unknown or missing fields")
     if config["schema_version"] != 1 or config["fixture_notice"] != NOTICE:
         raise InputError("transport config must retain schema version 1 and the fixture declaration")
-    context = _context(config)
+    _context(config)
     duration, step, steps = _time_grid(config["dimensionless_time"])
     initial = config["initial"]
     rates = config["rates"]
@@ -93,6 +93,19 @@ def simulate_transport(config_path: Path, output: Path) -> dict:
     boundary = _number(config["boundary_concentration"], "boundary_concentration")
     if step * (exchange + transport + loss) > 1.0:
         raise InputError("Explicit integration step exceeds the positivity bound for this fixture")
+    return {"duration": duration, "step": step, "steps": steps,
+            "interface": c1, "core": c2, "exchange": exchange,
+            "transport": transport, "loss": loss, "boundary": boundary}
+
+
+def simulate_transport(config_path: Path, output: Path) -> dict:
+    config, raw = read_json(config_path)
+    values = transport_parameters(config)
+    duration, step, steps = (values[key] for key in ("duration", "step", "steps"))
+    c1, c2 = values["interface"], values["core"]
+    exchange, transport, loss = (values[key] for key in ("exchange", "transport", "loss"))
+    boundary = values["boundary"]
+    initial = config["initial"]
 
     t = 0.0
     cumulative_in = cumulative_loss = 0.0

@@ -2,6 +2,10 @@
 
 ## Unreleased
 
+- Add `transport-identifiability`: a receipt-bound structural counterexample for exchange/transfer rate swaps that preserve core-only traces, equilibrium rate-scale ambiguity and a paired-interface transient contrast. Keep all values dimensionless, no fitted parameters or biological prediction, and record coincident/unsupported cases explicitly.
+- Reuse the transport input validator for simulation and diagnostics; test exact observation ambiguities, valid stationary witness simulations, absent excitation, malformed inputs, output exclusivity and relocation.
+- Define two narrow interface-feasibility questions, inspect early implantation evidence/public metadata and an additional term-placenta dataset, and preserve missing phenotype linkage, overlapping source presentations and human review requirements.
+
 - Add an offline, pinned-workbook Hori Figure 5G source audit: preserve 48 endpoint cell locators and numeric text, exact reported units, null unit identities and candidate review status; publish descriptive partitions and a receipt without calibrating a biological model.
 - Qualify the inspected Hori source workbook and Bhide kinetic supplements for the research queue, documenting absent unit-linked trajectories, unresolved source review/rights and the deferred dimensional transport benchmark.
 

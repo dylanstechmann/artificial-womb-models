@@ -22,6 +22,14 @@ trajectories, unit linkage and review requirements are recorded explicitly.
 
 Python 3.10+; the runtime has no third-party dependencies.
 
+[Interface feasibility](INTERFACE_FEASIBILITY.md) now defines separate
+exchange-identifiability and tissue-interaction questions. The runnable
+`transport-identifiability` diagnostic exposes an exact core-only ambiguity
+and an equilibrium rate-scale ambiguity in the dimensionless equations.
+It specifies why paired transient observations matter without assigning
+biological parameters. An early implantation source and its public data/code
+resources remain candidates awaiting phenotype linkage and human review.
+
 ```powershell
 python -m venv .venv
 .venv\Scripts\python -m pip install -e .
@@ -30,6 +38,7 @@ python -m venv .venv
 .venv\Scripts\wombmodels identifiability-report --config examples/exchange_fixture.json --trajectory artifacts/exchange-v1/trajectory.csv --out artifacts/identifiability-v1
 .venv\Scripts\wombmodels design-sweep --config examples/exchange_fixture.json --out artifacts/design-sweep-v1 --replicates 8
 .venv\Scripts\wombmodels transport-model --config examples/transport_fixture.json --out artifacts/transport-v1
+.venv\Scripts\wombmodels transport-identifiability --config examples/transport_identifiability_fixture.json --out artifacts/transport-ambiguity-v1
 .venv\Scripts\wombmodels mechanics-model --config examples/mechanics_fixture.json --out artifacts/mechanics-v1
 .venv\Scripts\wombmodels validate-observations --dataset examples/observation_intake_fixture.json --out artifacts/observation-intake-v1
 .venv\Scripts\wombmodels verify-transport --config examples/transport_fixture.json --out artifacts/transport-verification-v1

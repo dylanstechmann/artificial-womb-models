@@ -131,6 +131,15 @@ dynamic benchmark contract. A dimensional fit and held-out split are deferred.
 The document lists the exact missing existing-data observables and review
 requirements. This agent audit does not mark E3/M6/G1 achieved.
 
+The [interface feasibility questions](INTERFACE_FEASIBILITY.md) add an
+explicit transport ambiguity: with zero initial states, known input and
+core-only observations, two exchange/transfer allocations can give exactly
+the same trace. `transport-identifiability` exports the witness and the
+paired-interface contrast. The same document qualifies a candidate early
+implantation source for identity-versus-function review and preserves its
+unresolved phenotype/specimen linkage. These are concrete observation and
+review targets, not a fitted physiological model.
+
 **Discriminator:** prediction of held-out measured concentrations/fluxes with
 error and uncertainty compared against the simpler model. Test whether distinct
 parameter combinations or model structures produce indistinguishable

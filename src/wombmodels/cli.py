@@ -20,6 +20,7 @@ from .numerical_verification import (
     verify_transport_matrix,
 )
 from .observations import observation_report
+from .transport_identifiability import transport_identifiability
 
 
 def main(argv=None) -> int:
@@ -37,6 +38,9 @@ def main(argv=None) -> int:
     source_audit = commands.add_parser("audit-hori-source", help="Audit the pinned Hori 2024 Figure 5G workbook offline; no model fit")
     source_audit.add_argument("--workbook", type=Path, required=True)
     source_audit.add_argument("--out", type=Path, required=True)
+    transport_diagnostic = commands.add_parser("transport-identifiability", help="Construct dimensionless core-only and equilibrium observation ambiguities; no empirical fit")
+    transport_diagnostic.add_argument("--config", type=Path, required=True)
+    transport_diagnostic.add_argument("--out", type=Path, required=True)
     exchange = commands.add_parser("simulate", help="Run a dimensionless, nonphysiologic exchange fixture")
     exchange.add_argument("--config", type=Path, required=True)
     exchange.add_argument("--out", type=Path, required=True)
@@ -92,6 +96,8 @@ def main(argv=None) -> int:
             receipt = observation_report(args.dataset, args.out, source_root=args.source_root)
         elif args.command == "audit-hori-source":
             receipt = audit_hori_source(args.workbook, args.out)
+        elif args.command == "transport-identifiability":
+            receipt = transport_identifiability(args.config, args.out)
         elif args.command == "identifiability-report":
             receipt = analyze(args.config, args.trajectory, args.out)
         elif args.command == "design-sweep":

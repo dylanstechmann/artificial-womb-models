@@ -217,6 +217,14 @@ simpler alternatives; and report missing observables if the question cannot be
 identified. A component gate can close only for its stated species/model and
 interval; that does not close the full human system gate.
 
+The [interface feasibility questions](INTERFACE_FEASIBILITY.md) now separate
+exchange identifiability from developmental tissue interaction. A runnable
+transport counterexample shows why a core trace alone can conceal different
+exchange/transfer allocations. A candidate early human implantation source
+provides signaling/outgrowth evidence and public transcriptomic resources,
+with missing phenotype linkage and source review kept explicit. Neither
+closes G1 or assigns operating parameters to this concept.
+
 For software traceability, use the existing [developmental observation
 contract](schemas/developmental-observation.schema.json), [dataset
 contract](schemas/observation-dataset.schema.json) and source-scope intake checks.

@@ -168,3 +168,9 @@ is met. The continuous early interface in design gate G1 remains open;
 neither descriptive organoid endpoints nor chip-summary comparisons
 establish implantation continuity, complete human gestation or healthy
 long-term outcomes.
+
+The subsequent [interface feasibility questions](INTERFACE_FEASIBILITY.md)
+add an early implantation source/public-data inventory, a third transport
+candidate and an executable observation-ambiguity diagnostic. Their source
+classes, actual scope, overlapping presentations and missing unit/phenotype
+linkage remain separate from this Hori/Bhide audit and from human gate results.

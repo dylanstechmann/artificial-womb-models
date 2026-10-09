@@ -141,6 +141,7 @@ def reproduction_plan(kind: str, files: dict[str, bytes], metadata: dict) -> dic
         "published_endpoint_source_audit":
             "wombmodels audit-hori-source --workbook <external-pinned-source.xlsx> --out <new-dir>",
         "dimensionless_transport_theory": "wombmodels transport-model --config <config.json> --out <new-dir>",
+        "dimensionless_transport_identifiability": "wombmodels transport-identifiability --config <input_config.json> --out <new-dir>",
         "dimensionless_mechanics_theory": "wombmodels mechanics-model --config <config.json> --out <new-dir>",
     }.get(kind)
     parent = metadata.get("parent_receipt_file")
@@ -153,6 +154,7 @@ def reproduction_plan(kind: str, files: dict[str, bytes], metadata: dict) -> dic
         "command": command or f"no recorded command template for bundle kind {kind}",
         "inputs": (["input_source_manifest.json", "external pinned source workbook (not bundled)"]
                    if kind == "published_endpoint_source_audit" else
+                   ["input_config.json"] if kind == "dimensionless_transport_identifiability" else
                    ["input_dataset.json"] if kind == "developmental_observation_intake"
                    else ["source_config.json"] if "source_config.json" in files else []),
         "parent_bundle_receipt": parent,
