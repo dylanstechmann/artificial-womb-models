@@ -1,0 +1,30 @@
+{
+  "schema_version": 1,
+  "fixture_notice": "Artificial dimensionless software fixture; no physiological calibration, biological prediction or machine-control output.",
+  "cases": [
+    {
+      "case_id": "collection_explains_disappearance",
+      "initial": {"donor_concentration": 1, "donor_volume": 10, "receiver_concentration": 0, "receiver_volume": 10},
+      "final": {"donor_concentration": 0.5, "donor_volume": 10, "receiver_concentration": 0, "receiver_volume": 10},
+      "supplied_amount": 0, "collected_amount": 5, "observed_tissue_change": null
+    },
+    {
+      "case_id": "concentration_rises_without_amount_rise",
+      "initial": {"donor_concentration": 1, "donor_volume": 10, "receiver_concentration": 1, "receiver_volume": 10},
+      "final": {"donor_concentration": 1, "donor_volume": 10, "receiver_concentration": 2, "receiver_volume": 5},
+      "supplied_amount": 0, "collected_amount": 0, "observed_tissue_change": null
+    },
+    {
+      "case_id": "unresolved_residual_partition",
+      "initial": {"donor_concentration": 1, "donor_volume": 10, "receiver_concentration": 0, "receiver_volume": 10},
+      "final": {"donor_concentration": 0.5, "donor_volume": 8, "receiver_concentration": 0.25, "receiver_volume": 8},
+      "supplied_amount": 0, "collected_amount": 0, "observed_tissue_change": null
+    },
+    {
+      "case_id": "tissue_observation_leaves_two_sinks",
+      "initial": {"donor_concentration": 1, "donor_volume": 10, "receiver_concentration": 0, "receiver_volume": 10},
+      "final": {"donor_concentration": 0.5, "donor_volume": 8, "receiver_concentration": 0.25, "receiver_volume": 8},
+      "supplied_amount": 0, "collected_amount": 0, "observed_tissue_change": 1.5
+    }
+  ]
+}

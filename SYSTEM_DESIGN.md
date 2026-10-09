@@ -238,3 +238,10 @@ contract](schemas/observation-dataset.schema.json) and source-scope intake check
 Maintain [human transition gaps](config/evidence.json), source classes, exact units,
 adverse findings and local review history separately from byte verification.
 No synthetic trace from this repository supplies a biological gate result.
+
+The [collection-accounting exploration](COLLECTION_ACCOUNTING.md) refines
+Machine B's evidence requirement: distinguish concentration, fluid inventory,
+collected analyte, tissue inventory and unresolved conversion/recovery. Native
+placental-perfusion source tables are now accessible for qualification, with
+donor links and correction ancestry still pending. This changes the data intake
+opportunity; it does not supply a human gestation gate result.

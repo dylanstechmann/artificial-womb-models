@@ -16,6 +16,8 @@ from .identifiability import analyze
 from .hori_source import audit_hori_source
 from .fattahi_source import audit_fattahi_source
 from .crest_linkage import audit_crest_linkage
+from .collection_accounting import collection_accounting
+from .roelofsen_source import audit_roelofsen_source
 from .numerical_verification import (
     verify_mechanics_accuracy,
     verify_transport_accuracy,
@@ -48,6 +50,12 @@ def main(argv=None) -> int:
     functional_audit = commands.add_parser("audit-fattahi-source", help="Audit pinned Figure 2 functional readouts offline; no pairing or model fit")
     functional_audit.add_argument("--workbook", type=Path, required=True)
     functional_audit.add_argument("--out", type=Path, required=True)
+    accounting = commands.add_parser("collection-accounting", help="Construct dimensionless concentration/inventory/collection ambiguities; no biological fit")
+    accounting.add_argument("--config", type=Path, required=True)
+    accounting.add_argument("--out", type=Path, required=True)
+    native_audit = commands.add_parser("audit-roelofsen-source", help="Recover pinned embedded native Prism CSV tables offline; no saved analysis or model fit")
+    native_audit.add_argument("--supplement", type=Path, required=True)
+    native_audit.add_argument("--out", type=Path, required=True)
     crest_audit = commands.add_parser("audit-crest-linkage", help="Audit pinned early-interface sample pools and annotation labels offline; no phenotype fit")
     crest_audit.add_argument("--sdrf", type=Path, required=True)
     crest_audit.add_argument("--archive", type=Path, required=True)
@@ -114,6 +122,10 @@ def main(argv=None) -> int:
             receipt = audit_hori_source(args.workbook, args.out)
         elif args.command == "audit-fattahi-source":
             receipt = audit_fattahi_source(args.workbook, args.out)
+        elif args.command == "collection-accounting":
+            receipt = collection_accounting(args.config, args.out)
+        elif args.command == "audit-roelofsen-source":
+            receipt = audit_roelofsen_source(args.supplement, args.out)
         elif args.command == "audit-crest-linkage":
             receipt = audit_crest_linkage(args.sdrf, args.archive, args.out)
         elif args.command == "transport-identifiability":

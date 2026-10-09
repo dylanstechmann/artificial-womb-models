@@ -172,3 +172,9 @@ hierarchy, exclusions, calibration and collection metadata. The early-
 implantation Figure 7 data requirement also remains open. Both targets can
 be pursued without treating separate assays, species or developmental
 intervals as a continuous human gestation result.
+
+[Collection accounting and native source recovery](COLLECTION_ACCOUNTING.md)
+now adds a concrete placental-perfusion trajectory/tissue candidate recovered
+from embedded Prism CSV tables. It tests collection and residual-partition
+ambiguities in a separate dimensionless fixture. Donor linkage, correction
+ancestry and model-fit eligibility remain open.

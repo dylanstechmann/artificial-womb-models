@@ -2,6 +2,9 @@
 
 ## Unreleased
 
+- Recover selected embedded native Prism CSV tables from a pinned placental-perfusion DOCX supplement without running OLE programs or saved analyses. Preserve processed quantities, caption/source locators, hash ancestry and unresolved donor/subsample linkage.
+- Add a dimensionless collection-accounting diagnostic exposing concentration/inventory mismatch, sampling omission and indistinguishable residual partitions; preserve negative balances, missing tissue observations and boundary cases without biological fitting.
+
 - Explore new stage-like and microengineered human placental-barrier sources; freeze IF-3's distinct selective-function observation requirements and refine the conceptual machine design without changing gestation claims.
 - Add a pinned offline Fattahi Figure 2 functional-readout audit retaining exact units, scalar lexemes, source conditions and unverified sample linkage; preserve glucose percentage as a receiver concentration-change readout and perform no model fit.
 

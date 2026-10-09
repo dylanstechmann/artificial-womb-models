@@ -49,6 +49,13 @@ nutrient delivery, barrier leakage, injury and endocrine readouts.
 `audit-fattahi-source` preserves published functional values and source
 locators without inferring specimen pairing or fitting a physiological model.
 
+The [collection-accounting exploration](COLLECTION_ACCOUNTING.md) recovers
+embedded native Prism CSV tables from a pinned placental-perfusion supplement
+with `audit-roelofsen-source`. Processed percentages, source-declared replicate
+counts and unresolved donor linkage stay explicit. `collection-accounting`
+constructs dimensionless counterexamples separating concentration, inventory,
+collection and unresolved sinks; it assigns no biological parameters.
+
 ```powershell
 python -m venv .venv
 .venv\Scripts\python -m pip install -e .
