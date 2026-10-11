@@ -919,7 +919,7 @@
         "T05"
       ],
       "agent_hour_cap": 4,
-      "horizon": "draft capability question from T01/T16 now; finalize after T05 review; keep unsent",
+      "horizon": "unsent role-based review packet drafted 2026-10-11; finalize after independent T05 review",
       "acceptance": "Short question, actual completed contribution, missing measurements, comparator rationale, institutional roles, oversight needs and requested reviewer decisions.",
       "decision_consequence": "Make any later owner decision to seek technical review concrete and inspectable.",
       "stop_rule": "Produce a packet only; no recipients contacted, messages sent or external commitments.",
@@ -927,9 +927,14 @@
         "T01-T05 accepted artifacts or documented insufficiency",
         "PROGRAM_PLAN.md"
       ],
-      "evidence": [],
+      "evidence": [
+        {
+          "path": "UNSENT_TECHNICAL_REVIEW_PACKET_DRAFT_2026-10-11.md",
+          "sha256": "b4b9549e1496f03873adcb379da17d083333c08757b6bc02861c284bb7ecdcc0"
+        }
+      ],
       "actual_agent_hours": null,
-      "result": null
+      "result": "Internal review packet draft records the source/claim question, bounded completed contributions, missing observations, comparator rationale, reviewer expertise and requested decisions. It is not addressed or sent; T05 remains held for independent scientific review, so T06 remains waiting_dependency and incomplete."
     },
     {
       "id": "T07",

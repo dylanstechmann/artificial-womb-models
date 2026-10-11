@@ -154,6 +154,7 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | T03 | USUDA_SOURCE_AUDIT_REPRODUCTION_2026-10-11.md | matches |
 | T04 | EARLY_SUPPORT_LINKAGE_DECISION_2026-10-11.md | matches |
 | T05 | EARLY_SUPPORT_SOURCE_CHALLENGE_2026-10-11.md | matches |
+| T06 | UNSENT_TECHNICAL_REVIEW_PACKET_DRAFT_2026-10-11.md | matches |
 | T07 | COMPUTE_CALIBRATION_T07_2026-10-11.md | matches |
 | T07 | COMPUTE_CALIBRATION_T07_MEASUREMENTS_2026-10-11.json | matches |
 | T08 | OWNED_PLATFORM_OPTIONS_2026-10-11.md | matches |
