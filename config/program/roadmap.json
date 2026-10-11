@@ -279,10 +279,15 @@
       "title": "Fresh reproducible quantitative contribution",
       "gate_id": "G1",
       "domain": "software",
-      "status": "ready",
+      "status": "complete",
       "horizon": "weeks two to four",
       "acceptance": "T03 fresh output compared with relevant stored outputs, verified receipts and malformed-input failure; biology remains separately unassessed.",
-      "evidence": []
+      "evidence": [
+        {
+          "path": "USUDA_SOURCE_AUDIT_REPRODUCTION_2026-10-11.md",
+          "sha256": "1705be87c2ae1cf480a13b7515290a3d88ba59b7b8d38942febc4c48ef4902c4"
+        }
+      ]
     },
     {
       "id": "M04",
@@ -598,6 +603,20 @@
           "sha256": "d17ec3ee6cb51a210e849c38c5d74364cc980bbc9913e78c3e73bd73d8f65b86"
         }
       ]
+    },
+    {
+      "id": "A07",
+      "title": "Usuda terminal source-audit replay",
+      "domain": "software",
+      "status": "complete",
+      "credit": "A fresh CLI replay reproduced six source-derived files byte-for-byte; original and replay receipts passed strict verification and malformed summary syntax was rejected.",
+      "boundary": "Pipeline reproducibility only; source transcription, scientific review and biological adequacy remain unestablished.",
+      "evidence": [
+        {
+          "path": "USUDA_SOURCE_AUDIT_REPRODUCTION_2026-10-11.md",
+          "sha256": "1705be87c2ae1cf480a13b7515290a3d88ba59b7b8d38942febc4c48ef4902c4"
+        }
+      ]
     }
   ],
   "uncertainties": [
@@ -793,7 +812,7 @@
       "gate_id": "G1",
       "uncertainty_id": "U02",
       "domain": "software",
-      "status": "ready",
+      "status": "complete",
       "depends_on": [
         "M01"
       ],
@@ -806,9 +825,14 @@
         "src/wombmodels/usuda_source.py",
         "artifacts/usuda-terminal-development-cycle346/source-audit/"
       ],
-      "evidence": [],
+      "evidence": [
+        {
+          "path": "USUDA_SOURCE_AUDIT_REPRODUCTION_2026-10-11.md",
+          "sha256": "1705be87c2ae1cf480a13b7515290a3d88ba59b7b8d38942febc4c48ef4902c4"
+        }
+      ],
       "actual_agent_hours": null,
-      "result": null
+      "result": "Fresh CLI rerun into a new exclusive directory reproduced all six source-derived outputs byte-for-byte; original and replay bundles pass strict receipt verification, and a malformed summary literal is rejected. This is software reproducibility evidence only; the source remains a candidate and no biological gate moves."
     },
     {
       "id": "T04",

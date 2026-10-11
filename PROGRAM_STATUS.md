@@ -51,6 +51,7 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | A04 Published CO2 equation arithmetic audit | evidence_curation | True | Source-displayed inputs reproduce the reported rounded equation targets under stated conversions. | Input provenance limitations remain; not a human physiological requirement or adequate-support threshold. |
 | A05 Existing transition/functional-role audit | evidence_curation | True | Support phases and missing animal-linked outcome boundaries have been made explicit. | No authenticated complete same-animal support-to-transition dataset or full trajectory. |
 | A06 Source/observation bundle byte verification | software | True | Published Usuda source/observation bundle receipts and stored strict verification are inspectable. | Matching bytes do not establish independent rerun, scientific acceptance or biological adequacy. |
+| A07 Usuda terminal source-audit replay | software | True | A fresh CLI replay reproduced six source-derived files byte-for-byte; original and replay receipts passed strict verification and malformed summary syntax was rejected. | Pipeline reproducibility only; source transcription, scientific review and biological adequacy remain unestablished. |
 
 ## Milestone comparison
 
@@ -58,7 +59,7 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | --- | --- | --- | --- | --- |
 | M01 Plan, register and current baseline | complete | planning | True | Stored master plan, executable evidence-linked register and status view; completed claims pinned and biological gates left open. |
 | M02 Reviewed architecture decision contract | waiting_dependency | planning | not claimed | T01 and T02 results challenged by T05; explicit predictions, limitations and next data decision. |
-| M03 Fresh reproducible quantitative contribution | ready | software | not claimed | T03 fresh output compared with relevant stored outputs, verified receipts and malformed-input failure; biology remains separately unassessed. |
+| M03 Fresh reproducible quantitative contribution | complete | software | True | T03 fresh output compared with relevant stored outputs, verified receipts and malformed-input failure; biology remains separately unassessed. |
 | M04 Unsent institutional contribution packet | waiting_dependency | planning | not claimed | T06 reviewable packet states actual contribution, missing observations, comparator rationale, institutional roles and reviewer decisions. |
 | M05 Joint early progression and support | deferred | biological | not claimed | Appropriate same-unit early progression and functional support under qualified nonhuman research, retaining every starting unit. |
 | M06 Sustained development and measured handoffs | deferred | biological | not claimed | Qualified organ/function outcomes and changing support boundaries with comparators, adverse findings and losses. |
@@ -86,7 +87,7 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | --- | --- | --- | ---: | --- |
 | T01 Architecture decision contract | G1 | no | 6 | none |
 | T02 One existing-data eligibility decision | G1 | no | 6 | none |
-| T03 Question-specific source-audit reproduction | G1 | yes | 4 | none |
+| T03 Question-specific source-audit reproduction | G1 | no | 4 | none |
 | T04 Empirical result or minimal observation contract | G2 | no | 8 | none |
 | T05 Independent source and claim challenge | G1 | no | 3 | none |
 | T06 Unsent institutional contribution packet | G1 | no | 4 | T05 |
@@ -132,8 +133,10 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | A05 | artifacts/eixarch-2023-group-outcomes-2026-10-11-cycle310/REPORT.md | matches |
 | A06 | artifacts/usuda-terminal-development-cycle346/validated-terminal/receipt.json | matches |
 | A06 | artifacts/usuda-terminal-development-cycle346/strict-verification.json | matches |
+| A07 | USUDA_SOURCE_AUDIT_REPRODUCTION_2026-10-11.md | matches |
 | M01 | PROGRAM_PLAN.md | matches |
 | M01 | src/wombmodels/program_status.py | matches |
+| M03 | USUDA_SOURCE_AUDIT_REPRODUCTION_2026-10-11.md | matches |
 | M22 | EARLY_SUPPORT_LINKAGE_DECISION_2026-10-11.md | matches |
 | T01 | EARLY_SUPPORT_LINKAGE_DECISION_2026-10-11.md | matches |
 | T02 | EARLY_SUPPORT_LINKAGE_DECISION_2026-10-11.md | matches |
@@ -145,6 +148,7 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | T02 | config/observations/koike_2023_material_handoff_candidate.json | matches |
 | T02 | config/observations/lokshtanov_2026_terminal_candidate.json | matches |
 | T02 | config/observations/song_2026_postimplantation_survival_candidate.json | matches |
+| T03 | USUDA_SOURCE_AUDIT_REPRODUCTION_2026-10-11.md | matches |
 | T04 | EARLY_SUPPORT_LINKAGE_DECISION_2026-10-11.md | matches |
 | T05 | EARLY_SUPPORT_SOURCE_CHALLENGE_2026-10-11.md | matches |
 | T08 | OWNED_PLATFORM_OPTIONS_2026-10-11.md | matches |
