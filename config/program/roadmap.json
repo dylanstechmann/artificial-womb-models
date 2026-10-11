@@ -1,0 +1,1213 @@
+{
+  "schema_version": 1,
+  "program_id": "surrogate-free-full-gestation",
+  "assessment_date": "2026-10-11",
+  "program_status": "active",
+  "objective": "Owned equipment supporting at least ten simultaneous human gestations from embryos supplied upstream without human surrogates, with ten children's births on the same defined calendar date, independently assessed development and continuing health; separately qualified AI/robot-assisted parenting, tall physical stature and strong intellectual/practical skills. Seek the earliest achievable outcome, preferably within two to three years of 2026-10-11 or sooner (2028-10-11 to 2029-10-11). Five years is a comparison scenario; ten years may be tolerable. No supported completion forecast or success guarantee is asserted; longitudinal outcomes continue after birth.",
+  "constraints": {
+    "country": null,
+    "state": null,
+    "cash_budget_next_12_months": null,
+    "first_child_date": null,
+    "owner_target_date": "2029-10-11",
+    "owner_target_kind": "preferred outer planning target; earliest achievable outcome, including sooner than two years, strongly preferred",
+    "owner_target_origin_date": "2026-10-11",
+    "owner_target_horizon_years": 3,
+    "forecast_completion_date": null,
+    "forecast_supported": false,
+    "longitudinal_outcomes_due": "At prespecified ages after birth; separate from the equipment and birth target",
+    "major_equipment_commitment": false,
+    "no_author_contact": true,
+    "no_other_person_contact_without_explicit_instruction": true,
+    "gamete_baseline": "Donor-derived embryos supplied upstream; assume at least100 available with source-defined history",
+    "synthetic_gametes": "separate deferred branch",
+    "weekly_aggregate_agent_hours_assumption": [
+      24,
+      48
+    ],
+    "account_capacity_verified": false,
+    "upstream_embryos_minimum_assumed": 100,
+    "embryo_inventory_verified": false,
+    "equipment_ownership_required": true,
+    "minimum_concurrent_gestations": 10,
+    "same_calendar_birth_date_required": true,
+    "birth_event_definition": null,
+    "common_date_timezone": null,
+    "parenting_goal": "Material AI/robot assistance, qualified by specific capability and actual-setting evidence",
+    "growth_goal": "Physically tall over development; age-specific targets not yet defined",
+    "capability_goal": "Strong intellectual and practical skills; detailed age/skill goals not yet defined",
+    "success_guarantee_requested": true,
+    "success_guarantee_supported": false,
+    "mission": "Technical achievement of owned simultaneous ectogenesis and care capabilities; political/religious argument outside scope",
+    "owner_preferred_horizon_years": [
+      2,
+      3
+    ],
+    "owner_two_year_target_date": "2028-10-11",
+    "five_year_comparison_date": "2031-10-11",
+    "potentially_tolerable_ten_year_date": "2036-10-11",
+    "ten_year_commitment_confirmed": false
+  },
+  "review": {
+    "planning_review": "Version four removes avoidable planning dependencies and prioritizes the earliest achievable outcome, preferably within two to three years or sooner. Read-only AI critical-path and existing-evidence reviews informed the changes; independent scientific review remains unestablished.",
+    "biological_review": "not_established",
+    "baseline_completion_scope": "Named planning, software and source curation artifacts only."
+  },
+  "requirements": [
+    {
+      "id": "R01",
+      "title": "No human surrogate from the declared starting boundary",
+      "gate_id": "G6",
+      "defined_at": "G0",
+      "acceptance": "Document the early embryo starting state, prior history and complete external trajectory; prior uterine gestation cannot be silently omitted."
+    },
+    {
+      "id": "R02",
+      "title": "All-start identity and disposition",
+      "gate_id": "G2",
+      "acceptance": "Maintain a complete starting roster, stable unit identity, losses and missing follow-up across observations."
+    },
+    {
+      "id": "R03",
+      "title": "Appropriate early development",
+      "gate_id": "G2",
+      "acceptance": "Stage-defined embryonic and extraembryonic progression with suitable comparators and adverse findings in the same units."
+    },
+    {
+      "id": "R04",
+      "title": "Support functions across growth",
+      "gate_id": "G2",
+      "acceptance": "Linked exchange, barrier, metabolism and signaling assessments as development proceeds; growing living interface is specific to the hybrid hypothesis."
+    },
+    {
+      "id": "R05",
+      "title": "Organ development and function",
+      "gate_id": "G3",
+      "acceptance": "Assess organ/lineage development, injury and function independently of support stability and body mass."
+    },
+    {
+      "id": "R06",
+      "title": "Compatible support changes",
+      "gate_id": "G3",
+      "acceptance": "Same-unit before/after observations, timing and losses for each changing support boundary or handoff."
+    },
+    {
+      "id": "R07",
+      "title": "Neonatal transition",
+      "gate_id": "G4",
+      "acceptance": "Defined neonatal function, additional care, adverse outcomes and observation windows for all starting units."
+    },
+    {
+      "id": "R08",
+      "title": "Reproducibility and continuing health",
+      "gate_id": "G4",
+      "acceptance": "Complete-cohort outcomes, independent replication and follow-up with residual uncertainties; no lifetime guarantee."
+    },
+    {
+      "id": "R09",
+      "title": "Qualified human translation",
+      "gate_id": "G5",
+      "acceptance": "Independent technical/clinical/platform decisions for the actual starting boundary; applicable execution dependencies handled in parallel."
+    },
+    {
+      "id": "R10",
+      "title": "Complete owned simultaneous outcome",
+      "gate_id": "G8",
+      "acceptance": "Owned equipment, at least ten concurrent gestations and ten actual common-date births with independent development/health and separately evaluated parenting/growth/skills; service-only or sequential success cannot substitute.",
+      "required_gate_ids": [
+        "G6",
+        "G7",
+        "G8",
+        "G9"
+      ]
+    },
+    {
+      "id": "R11",
+      "title": "Owned maintainable equipment",
+      "gate_id": "G7",
+      "acceptance": "Ownership/control and maintainable specifications, configuration rights, parts, qualified operation and continuing support."
+    },
+    {
+      "id": "R12",
+      "title": "At least ten simultaneous gestations",
+      "gate_id": "G8",
+      "acceptance": "Ten independent identified concurrent trajectories, resource contention/isolation/common-cause assessment and simultaneous neonatal-transition capacity."
+    },
+    {
+      "id": "R13",
+      "title": "Actual common calendar birth date",
+      "gate_id": "G8",
+      "acceptance": "Define qualifying event, calendar/timezone and timestamps; independent developmental readiness for every unit; report target misses."
+    },
+    {
+      "id": "R14",
+      "title": "At least100 upstream embryos assumed available",
+      "gate_id": "G0",
+      "acceptance": "Record the owner's upstream availability premise separately from verified stock, suitability and resulting outcomes; no procurement task inferred."
+    },
+    {
+      "id": "R15",
+      "title": "AI/robot parenting and stature/skills",
+      "gate_id": "G9",
+      "acceptance": "Task-specific care/education capability, human responsibility/fallbacks, actual-setting evaluation and longitudinal stature, intellectual/practical-skill outcomes."
+    }
+  ],
+  "gates": [
+    {
+      "id": "G0",
+      "title": "Requirements and evidence baseline",
+      "domain": "planning",
+      "status": "defined",
+      "acceptance": "Inspectable plan/register with explicit boundaries and separate software, biological and clinical credits.",
+      "hold_condition": "Missing owner timing, budget and jurisdiction remain undecided; do not infer commitments.",
+      "next_discriminator": "M01 verified baseline and staged task queue; biological capability is not credited."
+    },
+    {
+      "id": "G1",
+      "title": "Architecture and observation decision",
+      "domain": "planning",
+      "status": "not_selected",
+      "acceptance": "Reviewed comparison with falsifiable alternatives and observable distinctions, classified data eligibility and qualified limitations.",
+      "hold_condition": "No choice based on repeated documentation, proxy agreement or an unidentifiable model.",
+      "next_discriminator": "T01 comparative contract, T02 eligibility and T05 challenge."
+    },
+    {
+      "id": "G2",
+      "title": "Early progression with functional support",
+      "domain": "biological",
+      "status": "not_established",
+      "acceptance": "Joint stage-appropriate progression and functional growing support in the same nonhuman units, starting roster retained.",
+      "hold_condition": "Morphology, attachment or transport proxies alone; no authentic continuity or applicable review.",
+      "next_discriminator": "Qualified same-unit early progression/exchange observations and institutional capability."
+    },
+    {
+      "id": "G3",
+      "title": "Sustained development and compatible changes",
+      "domain": "biological",
+      "status": "not_established",
+      "acceptance": "Joint sustained function and organ development with comparator, adverse findings and measured handoff losses.",
+      "hold_condition": "Stable equipment or near-matched mass with impaired organ outcomes; disconnected intervals.",
+      "next_discriminator": "Independent developmental measures, fluid-state alternatives and support-change trajectories."
+    },
+    {
+      "id": "G4",
+      "title": "Complete external nonhuman trajectory",
+      "domain": "biological",
+      "status": "not_established",
+      "acceptance": "Embryo entry through neonatal life outside a living gestational host, complete losses/follow-up and independent replication; record any ex vivo tissues.",
+      "hold_condition": "Stitching species/stages or reporting only successful terminal cases.",
+      "next_discriminator": "Complete same-unit trajectory, neonatal function and independent cohort replication."
+    },
+    {
+      "id": "G5",
+      "title": "Human translation and qualified platform",
+      "domain": "clinical",
+      "status": "unassessed",
+      "acceptance": "Independent human-translation review, accountable execution operation, qualified platform and applicable actual intended-use requirements.",
+      "hold_condition": "Premature-infant discussion treated as full-gestation permission; absent institutional accountability.",
+      "next_discriminator": "Qualified platform and scientific/clinical review; applicable execution planning runs in parallel."
+    },
+    {
+      "id": "G6",
+      "title": "Authorized human starting-boundary evidence",
+      "domain": "clinical",
+      "status": "not_established",
+      "acceptance": "Authorized human research covering the actual embryo starting boundary, all-start outcomes and continuing follow-up.",
+      "hold_condition": "Partial fetal support relabeled complete gestation; no appropriate authorization.",
+      "next_discriminator": "Required scientific, institutional, clinical and jurisdictional decisions."
+    },
+    {
+      "id": "G7",
+      "title": "Owned platform and qualified operation",
+      "domain": "engineering",
+      "status": "not_established",
+      "acceptance": "Owned maintainable equipment, qualified operators and measurements, financial/operational continuity and independent outcome ascertainment.",
+      "hold_condition": "Ownership without dependable function; service-only access substituted for owned equipment.",
+      "next_discriminator": "G6 evidence, owned equipment/control rights and accountable qualified operation."
+    },
+    {
+      "id": "G8",
+      "title": "Ten concurrent gestations and common birth date",
+      "domain": "clinical",
+      "status": "not_established",
+      "acceptance": "At least ten simultaneous gestations and ten actual common-date births with independent developmental readiness, health assessment and shared-resource/failure qualification.",
+      "hold_condition": "Sequential success, common start times, software clock alignment or copied devices substituted for actual concurrent healthy outcomes.",
+      "next_discriminator": "G7 plus concurrent trajectory/isolation evidence, actual qualifying timestamps and each unit's readiness."
+    },
+    {
+      "id": "G9",
+      "title": "AI/robot care and longitudinal development",
+      "domain": "engineering",
+      "status": "not_established",
+      "acceptance": "Qualified assistance functions in their real setting with human responsibility/fallbacks, and independently assessed longitudinal stature/learning/skills.",
+      "hold_condition": "Task videos, simulated learners or newborn condition substituted for dependable parenting or later development.",
+      "next_discriminator": "T15 capability matrix; simulation/nonliving bench then independently reviewed task-specific real-setting evaluation."
+    }
+  ],
+  "milestones": [
+    {
+      "id": "M01",
+      "title": "Plan, register and current baseline",
+      "gate_id": "G0",
+      "domain": "planning",
+      "status": "complete",
+      "horizon": "now",
+      "acceptance": "Stored master plan, executable evidence-linked register and status view; completed claims pinned and biological gates left open.",
+      "evidence": [
+        {
+          "path": "PROGRAM_PLAN.md",
+          "sha256": "38808c26ee159f28520320e055ceb452280f06403c925ea58a3a6b9ff2045b0f"
+        },
+        {
+          "path": "src/wombmodels/program_status.py",
+          "sha256": "d0cc731606a0cd16af199350a0d722df942a14ee5f8ee3d062c204e8edc8cb84"
+        }
+      ]
+    },
+    {
+      "id": "M02",
+      "title": "Reviewed architecture decision contract",
+      "gate_id": "G1",
+      "domain": "planning",
+      "status": "waiting_dependency",
+      "horizon": "first month",
+      "acceptance": "T01 and T02 results challenged by T05; explicit predictions, limitations and next data decision.",
+      "evidence": []
+    },
+    {
+      "id": "M03",
+      "title": "Fresh reproducible quantitative contribution",
+      "gate_id": "G1",
+      "domain": "software",
+      "status": "ready",
+      "horizon": "weeks two to four",
+      "acceptance": "T03 fresh output compared with relevant stored outputs, verified receipts and malformed-input failure; biology remains separately unassessed.",
+      "evidence": []
+    },
+    {
+      "id": "M04",
+      "title": "Unsent institutional contribution packet",
+      "gate_id": "G1",
+      "domain": "planning",
+      "status": "waiting_dependency",
+      "horizon": "first month",
+      "acceptance": "T06 reviewable packet states actual contribution, missing observations, comparator rationale, institutional roles and reviewer decisions.",
+      "evidence": []
+    },
+    {
+      "id": "M05",
+      "title": "Joint early progression and support",
+      "gate_id": "G2",
+      "domain": "biological",
+      "status": "deferred",
+      "horizon": "institutional research; no promised date",
+      "acceptance": "Appropriate same-unit early progression and functional support under qualified nonhuman research, retaining every starting unit.",
+      "evidence": []
+    },
+    {
+      "id": "M06",
+      "title": "Sustained development and measured handoffs",
+      "gate_id": "G3",
+      "domain": "biological",
+      "status": "deferred",
+      "horizon": "after relevant observed interval",
+      "acceptance": "Qualified organ/function outcomes and changing support boundaries with comparators, adverse findings and losses.",
+      "evidence": []
+    },
+    {
+      "id": "M07",
+      "title": "Whole external nonhuman continuity and replication",
+      "gate_id": "G4",
+      "domain": "biological",
+      "status": "deferred",
+      "horizon": "long term; no promised date",
+      "acceptance": "Complete embryo starting boundary through neonatal transition and continuing outcomes outside a living host, independently reproduced.",
+      "evidence": []
+    },
+    {
+      "id": "M08",
+      "title": "Full intended-use translation assessment",
+      "gate_id": "G5",
+      "domain": "clinical",
+      "status": "deferred",
+      "horizon": "parallel planning; qualification conditional",
+      "acceptance": "Jurisdiction, sponsor, permissible research path, independent specialist review and platform qualification; no human-use assumption.",
+      "evidence": []
+    },
+    {
+      "id": "M09",
+      "title": "Authorized human full-boundary evidence",
+      "gate_id": "G6",
+      "domain": "clinical",
+      "status": "deferred",
+      "horizon": "only through authorized institutional program",
+      "acceptance": "Evidence for the actual starting boundary with all-start ascertainment and continuing follow-up.",
+      "evidence": []
+    },
+    {
+      "id": "M10",
+      "title": "Owned qualified platform operation",
+      "gate_id": "G7",
+      "domain": "engineering",
+      "status": "deferred",
+      "horizon": "after human capability and authorization",
+      "acceptance": "Owned equipment/control and maintainable configuration, qualified operation, continuing measurements and independent medical/outcome decisions.",
+      "evidence": []
+    },
+    {
+      "id": "M11",
+      "title": "Owner's simultaneous common-date outcome",
+      "gate_id": "G8",
+      "domain": "clinical",
+      "status": "deferred",
+      "horizon": "earliest achievable; preferred by 2028-10-11 to 2029-10-11 or sooner; forecast not established",
+      "acceptance": "At least ten concurrent gestations and ten actual common-date births satisfying independent development/health conditions; no sequential or service substitute.",
+      "evidence": []
+    },
+    {
+      "id": "M12",
+      "title": "Specialist functional allocation review",
+      "gate_id": "G1",
+      "domain": "planning",
+      "status": "deferred",
+      "horizon": "after reviewable T01; institutional review required",
+      "owner_role": "Developmental/placental biology and systems engineering",
+      "acceptance": "Reviewed A/B/C and alternative requirement-to-function matrix; every allocated or omitted function has an observable and a consequence if absent.",
+      "evidence": []
+    },
+    {
+      "id": "M13",
+      "title": "Candidate interface qualification",
+      "gate_id": "G2",
+      "domain": "biological",
+      "status": "deferred",
+      "horizon": "qualified institutional research",
+      "owner_role": "Interface biology and quantitative measurement",
+      "acceptance": "Component function and developmental progression linked in the same source-defined units; component transport/morphology alone cannot demonstrate adequacy.",
+      "evidence": []
+    },
+    {
+      "id": "M14",
+      "title": "Observation qualification",
+      "gate_id": "G2",
+      "domain": "engineering",
+      "status": "deferred",
+      "horizon": "qualified requirements; before relying on system observations",
+      "owner_role": "Metrology, imaging/data and independent methods review",
+      "acceptance": "Measurement dictionary, identity/time joins, calibration traceability, uncertainty and detection-failure evaluation with specialist-defined ranges and independent references.",
+      "evidence": []
+    },
+    {
+      "id": "M15",
+      "title": "Resource continuity and unit isolation",
+      "gate_id": "G3",
+      "domain": "engineering",
+      "status": "deferred",
+      "horizon": "after qualified M12/M13 requirements",
+      "owner_role": "Reliability and systems engineering",
+      "acceptance": "Reviewed fault/dependency register and component verification for resource continuity, containment and isolation; offline/component results remain separate from biological outcomes.",
+      "evidence": []
+    },
+    {
+      "id": "M16",
+      "title": "Integrated platform verification",
+      "gate_id": "G3",
+      "domain": "engineering",
+      "status": "deferred",
+      "horizon": "after M13-M15 and relevant developmental evidence",
+      "owner_role": "Systems integration and research operations",
+      "acceptance": "Traceable requirements/test matrix, configuration control and compatible support-change evidence with same-unit G3 outcomes; bench success alone cannot substitute for development.",
+      "evidence": []
+    },
+    {
+      "id": "M17",
+      "title": "Manufacturing and owned-operation qualification",
+      "gate_id": "G5",
+      "domain": "engineering",
+      "status": "deferred",
+      "horizon": "actual intended-use translation review",
+      "owner_role": "Quality/manufacturing, accountable sponsor and clinical operations",
+      "acceptance": "Reproducibility, maintainability, responsibility and facility-continuity qualification package with independent intended-use decisions before clinical deployment.",
+      "evidence": []
+    },
+    {
+      "id": "M18",
+      "title": "Transition and continuing outcome contract",
+      "gate_id": "G4",
+      "domain": "planning",
+      "status": "deferred",
+      "horizon": "before complete-trajectory outcome claims",
+      "owner_role": "Neonatal/pediatric expertise and outcome methods",
+      "acceptance": "All-start disposition, transition outcomes, additional-care records and continuing ascertainment; methods and windows set by qualified specialists.",
+      "evidence": []
+    },
+    {
+      "id": "M19",
+      "title": "Ten-unit resource and isolation qualification",
+      "gate_id": "G8",
+      "domain": "engineering",
+      "status": "deferred",
+      "horizon": "preparation now; physical scope after qualified requirements",
+      "acceptance": "Qualified digital/nonliving and later biological evidence for concurrency, contention, common-cause failures, unit identity and transition capacity.",
+      "owner_role": "Systems/reliability engineering and accountable research operations",
+      "evidence": []
+    },
+    {
+      "id": "M20",
+      "title": "Common-date outcome assessment",
+      "gate_id": "G8",
+      "domain": "clinical",
+      "status": "deferred",
+      "horizon": "definition now; actual human outcomes later",
+      "acceptance": "Defined qualifying event/timezone, independent readiness and actual timestamps/outcomes for ten units; misses retained.",
+      "owner_role": "Neonatal/outcome methods and independent technical review",
+      "evidence": []
+    },
+    {
+      "id": "M21",
+      "title": "AI/robot parenting and capability qualification",
+      "gate_id": "G9",
+      "domain": "engineering",
+      "status": "deferred",
+      "horizon": "parallel preparation; longitudinal outcomes later",
+      "acceptance": "Per-task assistance evidence, end-to-end failures/recovery, human responsibility/fallbacks, independent actual-setting review and observed growth/skills.",
+      "owner_role": "Robotics, human factors, pediatric and education methods",
+      "evidence": []
+    },
+    {
+      "id": "M22",
+      "title": "Executable computer/lab/bench feedback contract",
+      "gate_id": "G1",
+      "domain": "planning",
+      "status": "complete",
+      "horizon": "near term",
+      "acceptance": "Real resources/formats and missing capabilities, frozen prediction/comparator, measurement data contract, discrepancy review and redesign decision.",
+      "owner_role": "Quantitative methods, metrology and responsible laboratory capability",
+      "evidence": [
+        {
+          "path": "EARLY_SUPPORT_LINKAGE_DECISION_2026-10-11.md",
+          "sha256": "20a972defcd32fb11c44313fb04f90ca4d8f12f87edd5da4c70e24486fca12b8"
+        }
+      ]
+    },
+    {
+      "id": "M23",
+      "title": "Measured prediction-to-redesign iteration",
+      "gate_id": "G2",
+      "domain": "biological",
+      "status": "deferred",
+      "horizon": "after qualified measurements and prediction freeze",
+      "acceptance": "Applicable measured observations evaluated against earlier predictions and simpler comparator, independently reviewed, with documented allocation revision/retention/rejection.",
+      "owner_role": "Biological measurement and independent model/methods review",
+      "evidence": []
+    }
+  ],
+  "achievements": [
+    {
+      "id": "A01",
+      "title": "Functional machine concept",
+      "domain": "planning",
+      "status": "complete",
+      "credit": "Requirements and alternative functional allocations exist in an inspectable concept document.",
+      "boundary": "AI-assisted unreviewed concept; no qualified hardware implementation or biological demonstration.",
+      "evidence": [
+        {
+          "path": "SYSTEM_DESIGN.md",
+          "sha256": "d1bbfa08ce673e072f117d218e347d9109bc0458b187dedb3cc48774ca29249d"
+        }
+      ]
+    },
+    {
+      "id": "A02",
+      "title": "Partial source interval intake repair",
+      "domain": "software",
+      "status": "complete",
+      "credit": "Nullable endpoint handling preserves known source bounds and rejects outside-known-limit observations.",
+      "boundary": "Correct intake behavior does not establish source biology or developmental support.",
+      "evidence": [
+        {
+          "path": "artifacts/partial-source-interval-intake-cycle345/REPORT.md",
+          "sha256": "7dd67e8fcd9a412c18aa8586c972dc10c4b52601648a86c12baa007a39a36cf8"
+        }
+      ]
+    },
+    {
+      "id": "A03",
+      "title": "Usuda terminal source extraction",
+      "domain": "evidence_curation",
+      "status": "complete",
+      "credit": "59 numeric published group summaries and one missing cell; nine unadjusted morphology mean ratios retain body/organ discordance.",
+      "boundary": "No individual IDs, age adjustment, causal effect, full gestation or independent scientific review.",
+      "evidence": [
+        {
+          "path": "artifacts/usuda-terminal-development-cycle346/source-audit/REPORT.md",
+          "sha256": "b8217ee073033fd68528ac0e61754fc2eb19611b3ba14bac35ac4715961f6ef1"
+        },
+        {
+          "path": "artifacts/usuda-terminal-development-cycle346/source-audit/receipt.json",
+          "sha256": "cb12de0ed8dc9c52e5c309b3d946f7f37ba0cbc6600c1cd80afe7937c404a0dd"
+        }
+      ]
+    },
+    {
+      "id": "A04",
+      "title": "Published CO2 equation arithmetic audit",
+      "domain": "evidence_curation",
+      "status": "complete",
+      "credit": "Source-displayed inputs reproduce the reported rounded equation targets under stated conversions.",
+      "boundary": "Input provenance limitations remain; not a human physiological requirement or adequate-support threshold.",
+      "evidence": [
+        {
+          "path": "artifacts/schubert-amazeox-co2-equation-audit-cycle337/REPORT.md",
+          "sha256": "c237fc524fe821a38d8d8d850fd08638dc30dd9567c6e4def8004299a140e5ec"
+        }
+      ]
+    },
+    {
+      "id": "A05",
+      "title": "Existing transition/functional-role audit",
+      "domain": "evidence_curation",
+      "status": "complete",
+      "credit": "Support phases and missing animal-linked outcome boundaries have been made explicit.",
+      "boundary": "No authenticated complete same-animal support-to-transition dataset or full trajectory.",
+      "evidence": [
+        {
+          "path": "artifacts/eixarch-2023-group-outcomes-2026-10-11-cycle315/REPORT.md",
+          "sha256": "98584677417f6e3988d0e0beb3ce6a27f39fa78181741663bb56617a669d8a41"
+        },
+        {
+          "path": "artifacts/eixarch-2023-group-outcomes-2026-10-11-cycle310/REPORT.md",
+          "sha256": "3dbb61ace30b0597f9d9e33ccfa48ca921651810fffd2e7cb64974122baa94cc"
+        }
+      ]
+    },
+    {
+      "id": "A06",
+      "title": "Source/observation bundle byte verification",
+      "domain": "software",
+      "status": "complete",
+      "credit": "Published Usuda source/observation bundle receipts and stored strict verification are inspectable.",
+      "boundary": "Matching bytes do not establish independent rerun, scientific acceptance or biological adequacy.",
+      "evidence": [
+        {
+          "path": "artifacts/usuda-terminal-development-cycle346/validated-terminal/receipt.json",
+          "sha256": "49395409ca2f908ed71ca338e85e9630d89e8b2d347a1e15c30c65762ff1c24b"
+        },
+        {
+          "path": "artifacts/usuda-terminal-development-cycle346/strict-verification.json",
+          "sha256": "d17ec3ee6cb51a210e849c38c5d74364cc980bbc9913e78c3e73bd73d8f65b86"
+        }
+      ]
+    }
+  ],
+  "uncertainties": [
+    {
+      "id": "U01",
+      "title": "Architecture allocation",
+      "question": "Which functional allocations at the early exchange boundary can be distinguished by observations?",
+      "status": "Hybrid remains a lead hypothesis; the architecture is unselected because current early-stage candidates do not identify shared-unit D/M/P relationships.",
+      "next_decision": "T05 source-first challenge; retain staged and synthetic comparators until a qualified same-unit discriminator changes allocation."
+    },
+    {
+      "id": "U02",
+      "title": "Eligible data and identification",
+      "question": "Can an existing source identify the frozen quantity or claim with its hierarchy, clock and denominator?",
+      "status": "Same-unit target question is ineligible in the eight imported candidate cards; group summaries require source-specific review and rights checking.",
+      "next_decision": "T05 challenge the bounded ruling; then use T08 to choose a data-access or qualified measurement capability without repeating the same public-route screen."
+    },
+    {
+      "id": "U03",
+      "title": "Early developmental continuity",
+      "question": "Can appropriate early progression and required support be established and maintained in the same units?",
+      "status": "No qualified same-unit early progression-plus-support result; the minimum observation contract is complete as planning evidence.",
+      "next_decision": "T05 challenge the contract; T08 prepares the data/facility/staff path. G2 remains not established."
+    },
+    {
+      "id": "U04",
+      "title": "Support versus organ development",
+      "question": "Which independent measurements distinguish adequate development from support proxies, fluid state or selection?",
+      "status": "published group mismatch; individual alternatives unresolved",
+      "next_decision": "T05 challenges inference and required observations without selecting a biological intervention."
+    },
+    {
+      "id": "U05",
+      "title": "Support changes and neonatal function",
+      "question": "Are later support changes compatible with development and neonatal function across all starting units?",
+      "status": "partial precedents; linked complete trajectory unavailable",
+      "next_decision": "Institutional stage/handoff contracts before claiming complete continuity."
+    },
+    {
+      "id": "U06",
+      "title": "Institutional and permissible route",
+      "question": "Who can take responsibility for the actual research pathway and intended use in an undecided jurisdiction?",
+      "status": "unassessed; outreach not authorized",
+      "next_decision": "T06 unsent packet, T08 contribution/access/resource comparison; later owner decision."
+    },
+    {
+      "id": "U07",
+      "title": "Owned concurrent outcomes and continuity",
+      "question": "What evidence qualifies owned operation, ten concurrent healthy outcomes and continuing care?",
+      "status": "owned full-human capability and concurrent outcomes unestablished",
+      "next_decision": "G6/G7 qualification plus T13/T14/T15 and real observed outcomes."
+    },
+    {
+      "id": "U08",
+      "title": "Useful compute and resource limits",
+      "question": "Which accepted tasks benefit from agent capacity or additional hardware, and what resources are actually available?",
+      "status": "24-48 aggregate agent-hours is an unverified owner estimate",
+      "next_decision": "T07 early calibration and conditional job design; T08 spending gate."
+    },
+    {
+      "id": "U09",
+      "title": "Ownership and maintainability",
+      "question": "Which development/acquisition route delivers owned maintainable equipment and actual operational control?",
+      "status": "not selected; budget/resources undecided",
+      "next_decision": "T08 compares owner-led, component acquisition and co-development rights."
+    },
+    {
+      "id": "U10",
+      "title": "Ten-unit resource and shared failures",
+      "question": "Which shared/dedicated allocations preserve identity, continuity and isolation under concurrent demand?",
+      "status": "qualified loads and correlated failures unknown",
+      "next_decision": "T13 dependency assessment using existing bounded tools; qualified measurements later."
+    },
+    {
+      "id": "U11",
+      "title": "Common-date actual outcome",
+      "question": "Can ten units satisfy independent developmental conditions with births on the same defined date?",
+      "status": "not established; event/timezone/readiness contract undefined",
+      "next_decision": "T14 defines outcome and required timing observations; later M20 tests actual outcomes."
+    },
+    {
+      "id": "U12",
+      "title": "Care, tall stature and skills",
+      "question": "Which AI/robot tasks can be depended upon, and which longitudinal growth/learning/skill outcomes are achieved?",
+      "status": "task-specific evidence only; intended full parenting and trait outcomes unestablished",
+      "next_decision": "T15 capability/authority/failure matrix and age-specific evaluation contract."
+    },
+    {
+      "id": "U13",
+      "title": "Physical discovery feedback",
+      "question": "Which actual measurement/lab/bench resources permit a prediction-to-observation redesign iteration?",
+      "status": "Offline computer/schema replay is available; no accessible physical measurement facility, instrument feed, operating team or independent reviewer is identified in this workspace.",
+      "next_decision": "T08 turns the documented capability gap into owner-led, acquisition/licensing or co-development options; T16/M22 do not imply a biological feedback result."
+    }
+  ],
+  "tasks": [
+    {
+      "id": "T01",
+      "title": "Architecture decision contract",
+      "gate_id": "G1",
+      "uncertainty_id": "U01",
+      "domain": "planning",
+      "status": "complete",
+      "depends_on": [
+        "M01"
+      ],
+      "agent_hour_cap": 6,
+      "horizon": "draft question by 2026-10-13; reviewed planning contract by 2026-10-18, earlier if ready",
+      "acceptance": "Compare existing architecture tables and name the new discriminator. Provide distinct observations, confounds and falsifiers; at least one specified result changes an allocation decision. Reformatting old tables alone does not qualify.",
+      "decision_consequence": "Select the observation/capability that distinguishes recipient delivery, tissue use and developmental progression in the same units; support/reject/leave undecided an allocation, then freeze T02 eligibility question.",
+      "stop_rule": "At six aggregate agent-hours or reviewable draft, save result/checkpoint and unmet criteria; no completion on timeout.",
+      "inputs": [
+        "SYSTEM_DESIGN.md",
+        "FEASIBILITY_STRATEGY.md",
+        "EARLY_EXCHANGE_TRANSITION.md",
+        "FUNCTIONAL_SUPPORT_ROUTES.md",
+        "artifacts/usuda-terminal-development-cycle346/source-audit/REPORT.md"
+      ],
+      "evidence": [
+        {
+          "path": "EARLY_SUPPORT_LINKAGE_DECISION_2026-10-11.md",
+          "sha256": "20a972defcd32fb11c44313fb04f90ca4d8f12f87edd5da4c70e24486fca12b8"
+        }
+      ],
+      "actual_agent_hours": null,
+      "result": "Compared living-interface, staged-support and synthetic-replacement allocations. The same-unit D/M/P discriminator changes the immediate resource choice to source-qualified measurement; no architecture is selected."
+    },
+    {
+      "id": "T02",
+      "title": "One existing-data eligibility decision",
+      "gate_id": "G1",
+      "uncertainty_id": "U02",
+      "domain": "evidence_curation",
+      "status": "complete",
+      "depends_on": [
+        "T01"
+      ],
+      "agent_hour_cap": 6,
+      "horizon": "preflight alongside T01; final eligibility after frozen T01 question, target 2026-10-18",
+      "acceptance": "Frozen question and candidate contract; descriptive/predictive/causal eligibility with quantity, hierarchy, clock, rights and limits, or definitive bounded rejection.",
+      "decision_consequence": "Permit a specific eligible analysis or close the public route and define missing data.",
+      "stop_rule": "No repeated rejected acquisition route without changed locator/version/permission; cap six aggregate agent-hours.",
+      "inputs": [
+        "T01 artifact to be produced",
+        "SOURCE_QUALIFICATION.md",
+        "MATHIESEN_PERFUSION_QUALIFICATION_2026-10-10.md",
+        "BOUNDARY_REANALYSIS_CONTRACT.md"
+      ],
+      "evidence": [
+        {
+          "path": "EARLY_SUPPORT_LINKAGE_DECISION_2026-10-11.md",
+          "sha256": "20a972defcd32fb11c44313fb04f90ca4d8f12f87edd5da4c70e24486fca12b8"
+        },
+        {
+          "path": "config/observations/aguilera_castrejon_2021_length_source_candidate.json",
+          "sha256": "2d5890793c4d1bce1f29bbec42f1760b06ac7fd70954b06835ceb97abeae1c94"
+        },
+        {
+          "path": "config/observations/aguilera_castrejon_2021_source_data_candidate.json",
+          "sha256": "e2944323772e4fc5b79b7253459480f23664b022b4618f305f3074a2ee078af8"
+        },
+        {
+          "path": "config/observations/bondarenko_2023_coordination_candidate.json",
+          "sha256": "37307d0f87c2e77f98d5a365c3f913c35dd31f4ca2e5a6b3af67adf7e55da270"
+        },
+        {
+          "path": "config/observations/hiraoka_2025_maternal_interface_candidate.json",
+          "sha256": "d737d0f77bb0cb157d5c00b6f8fe8a4f8a2d1da73960a59cb7906365506da2a6"
+        },
+        {
+          "path": "config/observations/jin_2026_yolk_sac_candidate.json",
+          "sha256": "c8d93f108fd33261245d7f8a3ffc888abdc078be98d4f594c74f134a242e1fac"
+        },
+        {
+          "path": "config/observations/koike_2023_material_handoff_candidate.json",
+          "sha256": "09a520d7dbbaf414801e8cb1c8db1e8fcde53a1ff307ce6441c2aba633a03d34"
+        },
+        {
+          "path": "config/observations/lokshtanov_2026_terminal_candidate.json",
+          "sha256": "2e7d07f5b8cd850aba510682ff4cbf82f71df921950de66e2a2d6df3f3e81a08"
+        },
+        {
+          "path": "config/observations/song_2026_postimplantation_survival_candidate.json",
+          "sha256": "b5e51a619c19cd53d14c3fbe44214cb33757dd8226cabfc71ab4d52a4193fec6"
+        }
+      ],
+      "actual_agent_hours": null,
+      "result": "Bounded eligibility screen of eight early-stage candidate cards (947 early-stage rows): no non-null source-reported unit IDs and no explicit measurement-pair links. Group descriptions remain possible after source/rights review; same-unit prediction and causal allocation comparisons are not eligible from these inputs."
+    },
+    {
+      "id": "T03",
+      "title": "Question-specific source-audit reproduction",
+      "gate_id": "G1",
+      "uncertainty_id": "U02",
+      "domain": "software",
+      "status": "ready",
+      "depends_on": [
+        "M01"
+      ],
+      "agent_hour_cap": 4,
+      "horizon": "when a selected computational claim needs reproduction; no generic review barrier",
+      "acceptance": "Identify the decision and computation needing fresh reproduction; exclusive-dir rerun, compared data outputs, verified receipts and a relevant malformed-input failure. Skip if no decision-relevant reproduction gap exists.",
+      "decision_consequence": "Expose and repair an actual reproducibility obstacle or establish software rerun evidence only.",
+      "stop_rule": "One audit and one relevant negative case; do not add unrelated toy sweeps; save partial work at cap.",
+      "inputs": [
+        "src/wombmodels/usuda_source.py",
+        "artifacts/usuda-terminal-development-cycle346/source-audit/"
+      ],
+      "evidence": [],
+      "actual_agent_hours": null,
+      "result": null
+    },
+    {
+      "id": "T04",
+      "title": "Empirical result or minimal observation contract",
+      "gate_id": "G2",
+      "uncertainty_id": "U03",
+      "domain": "evidence_curation",
+      "status": "complete",
+      "depends_on": [
+        "T02"
+      ],
+      "agent_hour_cap": 8,
+      "horizon": "immediately after T02; first result or exact observation requirement target 2026-10-25",
+      "acceptance": "If eligible, freeze comparator/quantity/hierarchy/scoring and report mismatch; otherwise precise minimal institutional existing-data contract.",
+      "decision_consequence": "Reduce the named architectural ambiguity or enable a concrete measurement/data-access decision.",
+      "stop_rule": "No fitting ineligible data or guessing missing observations; stop at eight hours and retain unresolved conditions.",
+      "inputs": [
+        "T01 and T02 artifacts to be produced"
+      ],
+      "evidence": [
+        {
+          "path": "EARLY_SUPPORT_LINKAGE_DECISION_2026-10-11.md",
+          "sha256": "20a972defcd32fb11c44313fb04f90ca4d8f12f87edd5da4c70e24486fca12b8"
+        }
+      ],
+      "actual_agent_hours": null,
+      "result": "When the existing public candidate route is ineligible for the frozen same-unit question, the minimum source-linked cohort, unit, stage/clock, D/M/P, pairing, comparator, disposition, source and rights contract is recorded in the decision memo."
+    },
+    {
+      "id": "T05",
+      "title": "Independent source and claim challenge",
+      "gate_id": "G1",
+      "uncertainty_id": "U04",
+      "domain": "planning",
+      "status": "ready",
+      "depends_on": [
+        "T04"
+      ],
+      "agent_hour_cap": 3,
+      "horizon": "review each ready result promptly; initial T04 challenge target 2026-10-25",
+      "acceptance": "Source-first audit returning accept/revise/insufficient with exact locators; distinguish provisional AI from scientific review. Computational claims require relevant reproduction evidence; missing evidence limits acceptance of that claim, but unrelated T03 work does not delay other review.",
+      "decision_consequence": "Accept only defensible claims, revise the architecture/contract, or record insufficiency.",
+      "stop_rule": "Three aggregate agent-hours; disagreement stays explicit and cannot be voted into scientific acceptance.",
+      "inputs": [
+        "Exact T04 source bytes and criteria first",
+        "T04 interpretation second",
+        "T03 rerun evidence when relevant to the computational claim; otherwise record why not applicable"
+      ],
+      "evidence": [],
+      "actual_agent_hours": null,
+      "result": null
+    },
+    {
+      "id": "T06",
+      "title": "Unsent institutional contribution packet",
+      "gate_id": "G1",
+      "uncertainty_id": "U06",
+      "domain": "planning",
+      "status": "waiting_dependency",
+      "depends_on": [
+        "T05"
+      ],
+      "agent_hour_cap": 4,
+      "horizon": "draft capability question from T01/T16 now; finalize after T05 review; keep unsent",
+      "acceptance": "Short question, actual completed contribution, missing measurements, comparator rationale, institutional roles, oversight needs and requested reviewer decisions.",
+      "decision_consequence": "Make any later owner decision to seek technical review concrete and inspectable.",
+      "stop_rule": "Produce a packet only; no recipients contacted, messages sent or external commitments.",
+      "inputs": [
+        "T01-T05 accepted artifacts or documented insufficiency",
+        "PROGRAM_PLAN.md"
+      ],
+      "evidence": [],
+      "actual_agent_hours": null,
+      "result": null
+    },
+    {
+      "id": "T07",
+      "title": "Early compute calibration and conditional job design",
+      "gate_id": "G0",
+      "uncertainty_id": "U08",
+      "domain": "software",
+      "status": "ready",
+      "depends_on": [
+        "M01"
+      ],
+      "agent_hour_cap": 4,
+      "horizon": "collect metrics during actual first-fortnight work; no calibration exercises delaying resource work",
+      "acceptance": "Measure three to five representative completed task types; record elapsed/sum-agent hours, usage where available and acceptance. Add deterministic resume only for an eligible long job, otherwise explicitly defer scheduler.",
+      "decision_consequence": "Adjust weekly envelope and distinguish actual computational bottlenecks from missing evidence.",
+      "stop_rule": "No scheduler, GPU purchase or long run without named eligible question; checkpoint cap/partial work.",
+      "inputs": [
+        "Existing job tools and accepted task receipts",
+        "Available account/hardware usage"
+      ],
+      "evidence": [],
+      "actual_agent_hours": null,
+      "result": null
+    },
+    {
+      "id": "T08",
+      "title": "Immediate owned-platform and resource decision preparation",
+      "gate_id": "G1",
+      "uncertainty_id": "U09",
+      "domain": "planning",
+      "status": "ready",
+      "depends_on": [
+        "M01",
+        "T12"
+      ],
+      "agent_hour_cap": 4,
+      "horizon": "start alongside T01/T16 now; initial options in first week; update when qualified inputs arrive",
+      "acceptance": "Compare owner-led, acquisition/licensing and co-development with explicit ownership/control. Inventory known/missing lab, instrument, staff and funding capability; worksheet with unknown prices, future quote needs, deliverable and owner decision. Assess package dependencies, capacity, duration basis, outcome windows and rework for the preferred two-to-three-year horizon; no invented forecast. Initial preparation can finish with clearly stated unknowns, not claimed acquisition.",
+      "decision_consequence": "Present the next concrete capability/resource choice immediately; later commitments still require qualified requirements, cost information and owner authorization.",
+      "stop_rule": "No invented total development price, purchase, procurement or external engagement.",
+      "inputs": [
+        "Existing program requirements and upstream embryo premise",
+        "Available workspace capabilities and explicitly unknown physical resources",
+        "T16 feedback-resource contract as it develops",
+        "T06 reviewed claims and T07 compute measurements when relevant; neither blocks initial options",
+        "Owner budget and country presently undecided"
+      ],
+      "evidence": [],
+      "actual_agent_hours": null,
+      "result": null
+    },
+    {
+      "id": "T09",
+      "title": "Integrated portfolio and resource review",
+      "gate_id": "G1",
+      "uncertainty_id": "U01",
+      "domain": "planning",
+      "status": "waiting_dependency",
+      "depends_on": [
+        "T05",
+        "T08"
+      ],
+      "agent_hour_cap": 3,
+      "horizon": "first integrated review by 2026-11-10, then monthly; ninety-day audit 2027-01-09",
+      "acceptance": "Compare accepted results to G1/G2 and the preferred two-to-three-year horizon; choose continue/pivot/hold or a concrete resource decision. If required inputs are missing at a review date, expose the dependency without marking this task complete. Preserve all observation windows and record any target miss separately from revised forecasts.",
+      "decision_consequence": "Keep only work with plausible consequences; preserve full objective and explicit scientific gaps.",
+      "stop_rule": "Do not fill budget with held work or equate document count with feasibility.",
+      "inputs": [
+        "PROGRAM_PLAN.md",
+        "Register and accepted T01-T08 outputs"
+      ],
+      "evidence": [],
+      "actual_agent_hours": null,
+      "result": null
+    },
+    {
+      "id": "T10",
+      "title": "Additional trend-only gas abstracts",
+      "gate_id": "G1",
+      "uncertainty_id": "U02",
+      "domain": "evidence_curation",
+      "status": "held",
+      "depends_on": [],
+      "agent_hour_cap": 2,
+      "horizon": "held until genuinely changed evidence",
+      "acceptance": "Only reopen for new quantitative cells/locators that change a specified eligibility or architectural decision.",
+      "decision_consequence": "Current repeats do not change the known age/quantity/source gap.",
+      "stop_rule": "Held; no additional search solely because previous search failed.",
+      "inputs": [
+        "ROADMAP.md cycles 338-345"
+      ],
+      "evidence": [],
+      "actual_agent_hours": null,
+      "result": null
+    },
+    {
+      "id": "T11",
+      "title": "Expanded synthetic sweeps or GPU jobs",
+      "gate_id": "G1",
+      "uncertainty_id": "U08",
+      "domain": "software",
+      "status": "held",
+      "depends_on": [],
+      "agent_hour_cap": 2,
+      "horizon": "held until qualified computational need",
+      "acceptance": "New eligible model/data contract and a decision for which the extra computation supplies a discriminator.",
+      "decision_consequence": "Current toy runtime does not reduce biological uncertainty; require measured bottleneck.",
+      "stop_rule": "Held; no hardware or increased synthetic scope without data eligibility and meaningful comparator.",
+      "inputs": [
+        "Existing design-sweep bounds",
+        "T07 measurements when available"
+      ],
+      "evidence": [],
+      "actual_agent_hours": null,
+      "result": null
+    },
+    {
+      "id": "T12",
+      "title": "Owner completion requirements crosswalk",
+      "gate_id": "G0",
+      "uncertainty_id": "U09",
+      "domain": "planning",
+      "status": "complete",
+      "depends_on": [
+        "M01"
+      ],
+      "agent_hour_cap": 3,
+      "horizon": "near-term requirements/preparation; actual capability as qualified",
+      "acceptance": "Plan/register/report explicitly cover owned equipment,ten simultaneous gestations,common actual date,100+upstream premise,AI/robot parenting and stature/skills; no alternative substituted.",
+      "decision_consequence": "Correct work selection and acceptance to the owner's actual outcome.",
+      "stop_rule": "Planning completion only; preserve original baseline and unsupported-guarantee status.",
+      "inputs": [
+        "Latest owner corrections",
+        "PROGRAM_PLAN.md",
+        "scope_crosswalk.json"
+      ],
+      "evidence": [
+        {
+          "path": "artifacts/program-scope-revision-2026-10-11/scope_crosswalk.json",
+          "sha256": "0eb998b4ce47985d08e22454157277e474639edcf5f33fb95bf1afb1d1b51917"
+        },
+        {
+          "path": "PROGRAM_PLAN.md",
+          "sha256": "38808c26ee159f28520320e055ceb452280f06403c925ea58a3a6b9ff2045b0f"
+        }
+      ],
+      "actual_agent_hours": null,
+      "result": "Explicit owner scope incorporated and crosswalk recorded; no biological gate advanced."
+    },
+    {
+      "id": "T13",
+      "title": "Ten-unit resource and fault dependency assessment",
+      "gate_id": "G8",
+      "uncertainty_id": "U10",
+      "domain": "engineering",
+      "status": "ready",
+      "depends_on": [
+        "M01",
+        "T12"
+      ],
+      "agent_hour_cap": 4,
+      "horizon": "near-term requirements/preparation; actual capability as qualified",
+      "acceptance": "Compare shared/dedicated allocations, identity/configuration routing, contention/common failures and transition capacity using existing bounded tools; state unavailable loads and biological limits.",
+      "decision_consequence": "Change a resource-isolation allocation or identify a precise required measurement.",
+      "stop_rule": "One concrete topology question; no new toy expansion without a discriminator; cap four aggregate agent-hours.",
+      "inputs": [
+        "Existing bounded power/fault fixtures",
+        "SYSTEM_DESIGN.md",
+        "T01 contract when available"
+      ],
+      "evidence": [],
+      "actual_agent_hours": null,
+      "result": null
+    },
+    {
+      "id": "T14",
+      "title": "Birth-event and timing-observation contract",
+      "gate_id": "G8",
+      "uncertainty_id": "U11",
+      "domain": "planning",
+      "status": "ready",
+      "depends_on": [
+        "M01",
+        "T12"
+      ],
+      "agent_hour_cap": 3,
+      "horizon": "near-term requirements/preparation; actual capability as qualified",
+      "acceptance": "Define qualifying event, timezone/calendar and required independent readiness/timestamp observations; source-class timing variability and target misses retained.",
+      "decision_consequence": "Make the common-date requirement evaluable and identify timing data that could support or invalidate it.",
+      "stop_rule": "No scheduling/growth protocol, invented timing distribution or common-start guarantee; cap three hours.",
+      "inputs": [
+        "Existing complete/partial trajectory sources",
+        "Owner common-date requirement"
+      ],
+      "evidence": [],
+      "actual_agent_hours": null,
+      "result": null
+    },
+    {
+      "id": "T15",
+      "title": "AI/robot parenting, stature and skills matrix",
+      "gate_id": "G9",
+      "uncertainty_id": "U12",
+      "domain": "planning",
+      "status": "ready",
+      "depends_on": [
+        "M01",
+        "T12"
+      ],
+      "agent_hour_cap": 4,
+      "horizon": "near-term requirements/preparation; actual capability as qualified",
+      "acceptance": "Per-task inputs/domain/authority/failure/fallback/evidence matrix; simulation/nonliving qualification and actual-setting review; longitudinal stature and unaided retention/transfer/skills goals.",
+      "decision_consequence": "Select bounded care/education prototype or reject unsupported autonomy; identify concrete evaluation need.",
+      "stop_rule": "No task demonstration promoted to dependable parenting or trait guarantee; cap four hours.",
+      "inputs": [
+        "BEHAVIOR Robot Suite primary paper",
+        "Kestin2025 primary education study",
+        "Owner stature/skill clarification"
+      ],
+      "evidence": [],
+      "actual_agent_hours": null,
+      "result": null
+    },
+    {
+      "id": "T16",
+      "title": "First physical discovery feedback contract",
+      "gate_id": "G1",
+      "uncertainty_id": "U13",
+      "domain": "planning",
+      "status": "complete",
+      "depends_on": [
+        "M01",
+        "T12"
+      ],
+      "agent_hour_cap": 4,
+      "horizon": "start with T01/T08; observation-path draft by 2026-10-13 and initial capability decision by 2026-10-18",
+      "acceptance": "Inventory real computers,measurement formats,instruments/facilities,staff and missing resources; specify a frozen prediction/comparator, qualified data contract, replay boundary, discrepancy review and next prospective measurement question.",
+      "decision_consequence": "Identify an actual accessible path for same-unit recipient delivery, tissue use and progression observations, or the exact capability to obtain; no duplicate architecture table or transfer-only surrogate.",
+      "stop_rule": "No fabricated lab availability, retrodiction labeled blind prediction or agent-written biological operating procedures; cap four hours.",
+      "inputs": [
+        "Existing source/data qualification documents",
+        "Available workspace tools/resources",
+        "T01 uncertainty/contract when available"
+      ],
+      "evidence": [
+        {
+          "path": "EARLY_SUPPORT_LINKAGE_DECISION_2026-10-11.md",
+          "sha256": "20a972defcd32fb11c44313fb04f90ca4d8f12f87edd5da4c70e24486fca12b8"
+        }
+      ],
+      "actual_agent_hours": null,
+      "result": "Offline computer and format inventory, known versus unverified physical capability, frozen qualitative prediction/comparator, observation contract, candidate-card validator replay boundary, discrepancy response and next prospective question are recorded. No laboratory loop or biological result is claimed."
+    }
+  ],
+  "decision_log": [
+    {
+      "id": "D01",
+      "date": "2026-10-11",
+      "decision": "Replace accumulation-driven cycles with a gated decision program; T01 is the next priority. Keep public work, partial support and full-gestation claims separate.",
+      "trigger": "Owner requested a durable actionable machine-focused plan and raised redundancy concerns.",
+      "review": "Read-only AI architecture and compute reviews; corrections incorporated; qualified scientific review outstanding."
+    },
+    {
+      "id": "D02",
+      "date": "2026-10-11",
+      "decision": "Replace service/sequential access interpretation with owned equipment,ten concurrent gestations and common actual birth date; assume100+upstreamembryos; add computer↔lab/bench discovery and AI/robot parenting/stature/skills tracks.",
+      "trigger": "Owner explicit corrections, including physically tall and intellectually/practically capable children.",
+      "guarantee": "Requested100%guarantee is unsupported; define actual completion evidence without substituting partial outcomes.",
+      "review": "Read-only AI scope and technical-loop review plus bounded primary robotics/education sources; independent specialist review pending."
+    },
+    {
+      "id": "D03",
+      "date": "2026-10-11",
+      "decision": "Adopt 2031-10-11 as the owner's requested latest date for owned equipment and ten simultaneous common-date birth outcomes. Add dated decision reviews and explicit resource/duration requirements for a forecast. Preserve the complete objective and longitudinal assessment beyond birth.",
+      "trigger": "Owner requested an eventual 100% guarantee and said five years or less is reasonable.",
+      "guarantee": "Unsupported at five years or an unspecified eventual horizon; no guarantee or scientifically supported completion forecast is asserted.",
+      "review": "Read-only AI critical-path review: distinguish deadline from exact shared birthday, avoid invented discovery durations, and retain later-age outcome requirements. No biological gate changes."
+    },
+    {
+      "id": "D04",
+      "date": "2026-10-11",
+      "decision": "Prioritize earliest achievable completion, preferably within two to three years or sooner. Retain five years as comparison and ten years as potentially tolerable, not committed. Start T08 with T01/T16, remove unrelated T03 wait from T05, and use immediate/weekly decisions and a first-month integrated review. Preserve substantive evidence prerequisites.",
+      "trigger": "Owner asked whether a distant deadline encourages delay and strongly preferred two-to-three-year or earlier completion.",
+      "review": "Read-only AI dependency and existing-evidence audits; no biological capability or timing forecast established."
+    }
+  ],
+  "planning_calendar": {
+    "basis": "Owner preferences and proposed short decision targets from original 2026-10-11 start; no validated biological durations or automatic scheduled runs",
+    "near_term_targets": {
+      "2026-10-13": "T01/T16 first discriminating question and actual observation-path draft; T08 initial capability/ownership options",
+      "2026-10-18": "Reviewed T01, T02 eligibility and initial T08/T16 capability/resource assessment",
+      "2026-10-25": "T04 result or exact requirement and T05 challenge; bounded T13/T14 as capacity permits",
+      "2026-11-10": "T09 first integrated decision and useful unsent T06 packet",
+      "2027-01-09": "Ninety-day audit of actual accepted results and capabilities"
+    },
+    "outcome_horizons": {
+      "2028-10-11": "two-year preference, sooner preferred",
+      "2029-10-11": "preferred outer three-year target",
+      "2031-10-11": "five-year comparison scenario",
+      "2036-10-11": "potentially tolerable ten-year scenario, not a commitment"
+    },
+    "review_cadence": "Act on each accepted result immediately; at least weekly decisions and monthly critical-path review during active work, no annual wait",
+    "miss_policy": "Record the miss and unmet requirement; preserve original preference history and full objective. Revised forecasts remain distinct. Dates never advance gates."
+  },
+  "held_branches": [
+    "Trend-only fetal gas abstracts with unchanged numeric gap",
+    "Repeated inaccessible public-data routes without a new locator",
+    "Duplicate late-support transition dossiers",
+    "Synthetic model expansion without a named discriminator",
+    "Large raw data downloads without an eligible analysis",
+    "Hardware/platform spending before qualified requirements"
+  ],
+  "weekly_review_fields": [
+    "decisions changed",
+    "constraints accepted",
+    "assumptions challenged or rejected",
+    "real defects repaired",
+    "increased uncertainty or non-identification",
+    "reviewer objections",
+    "remaining dependencies",
+    "actual resources",
+    "time to latest accepted decision",
+    "age of oldest unresolved blocker",
+    "qualified measurement cycles actually completed",
+    "changed critical-path dependency and next resource choice"
+  ],
+  "gate_policy": "Explicit integrator declarations only. Reporting checks pinned bytes and full task dependencies, never advances biological/clinical gates or asserts a success guarantee. G4-to-G5 is program policy; preparation and applicable execution planning run in parallel. Service access or sequential results do not complete the owner target."
+}

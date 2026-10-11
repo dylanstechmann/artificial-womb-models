@@ -1,0 +1,299 @@
+{
+  "schema_version": 1,
+  "dataset_id": "song2026-human-postimplantation-survival-candidate",
+  "title": "Song et al. 2026 d.p.f. 14 morphology-defined survival group summaries; candidate intake",
+  "source_revision": {
+    "revision_id": "song2026-cell-stem-cell-33-1",
+    "citation": "Song J et al. 3D post-implantation co-culture of human embryo and endometrium. Cell Stem Cell. 2026;33(1):58-72.e7. doi:10.1016/j.stem.2025.12.002.",
+    "source_kind": "peer_reviewed_human_invitro",
+    "source_url": "https://doi.org/10.1016/j.stem.2025.12.002",
+    "review_status": "candidate",
+    "reviewer": "",
+    "reviewed_on": null,
+    "review_note": ""
+  },
+  "artifacts": [
+    {
+      "artifact_id": "song2026-article-mirror",
+      "uri": "https://blog.leowang.net/content/files/2026/01/3D-post-implantation-co-culture-of-human-embryo-an.pdf",
+      "license": "CC BY 4.0 per Crossref DOI license metadata; third-party mirror copy, publisher byte equivalence unverified",
+      "sha256": "4572ec7bed2737a050b2e29f9fbae18c5ad706fd083a36dbbc946e378fa092cc",
+      "retrieved_on": "2026-10-11"
+    }
+  ],
+  "observations": [
+    {
+      "schema_version": 1,
+      "record_id": "song2026-survival-coculture-dpf14",
+      "evidence_status": "author_reported_summary",
+      "species": "human",
+      "stage_track": "postimplantation_embryonic",
+      "developmental_interval": {
+        "label": "Author-defined survival assessment of human blastocysts",
+        "start": 5,
+        "end": 14,
+        "time_unit": "days post-fertilization",
+        "stage_source_artifact_id": "song2026-article-mirror"
+      },
+      "model_system": {
+        "kind": "embryo_model",
+        "label": "Human embryo co-cultured with endometrial organoids"
+      },
+      "assay": {
+        "name": "Morphology-defined survival assessment",
+        "endpoint": "Percentage meeting the authors' survival definition by d.p.f. 14",
+        "unit": "%",
+        "measurement_role": "viability"
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "This is a group-level rate, not an individual embryo record. The article reports 15/20; no embryo identifiers or row-level fates are provided."
+      },
+      "observation": {
+        "value": 75,
+        "measurement_time": 14,
+        "measurement_time_unit": "days post-fertilization",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "source_qualifications": [
+          {
+            "criterion_code": "survival_definition",
+            "status_code": "author_defined_morphology_composite",
+            "criterion_label": "Survival requires continued diameter expansion from d.p.f. 5 to 14 and no visible apoptosis signs; this is the authors' morphology-based endpoint, not a general health measure.",
+            "source_artifact_id": "song2026-article-mirror",
+            "source_locator": "PDF p. 21; journal e5; Methods, survival-rate definition",
+            "reference_value": null,
+            "reference_unit": ""
+          },
+          {
+            "criterion_code": "screening_denominator",
+            "status_code": "screened_count_unreported",
+            "criterion_label": "The article reports morphology-based inclusion and exclusion before analysis but does not report how many embryos were screened or excluded.",
+            "source_artifact_id": "song2026-article-mirror",
+            "source_locator": "PDF p. 20; journal e4; Human samples",
+            "reference_value": null,
+            "reference_unit": ""
+          },
+          {
+            "criterion_code": "early_termination_mapping",
+            "status_code": "primitive_streak_membership_unresolved",
+            "criterion_label": "The article allows culture termination at primitive-streak formation before d.p.f. 14 but does not map those cases to the reported numerator.",
+            "source_artifact_id": "song2026-article-mirror",
+            "source_locator": "PDF p. 20; journal e4; Ethics statement and PDF p. 3; journal p. 59; Results",
+            "reference_value": null,
+            "reference_unit": ""
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "song2026-article-mirror",
+        "uri": "https://blog.leowang.net/content/files/2026/01/3D-post-implantation-co-culture-of-human-embryo-an.pdf",
+        "license": "CC BY 4.0 per Crossref DOI license metadata; third-party mirror copy, publisher byte equivalence unverified",
+        "sha256": "4572ec7bed2737a050b2e29f9fbae18c5ad706fd083a36dbbc946e378fa092cc",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "PDF p. 3; journal p. 59; Results, survival comparison; Figure S1B caption in supplemental PDF p. 2"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "song2026-survival-sole-control-dpf14",
+      "evidence_status": "author_reported_summary",
+      "species": "human",
+      "stage_track": "postimplantation_embryonic",
+      "developmental_interval": {
+        "label": "Author-defined survival assessment of human blastocysts",
+        "start": 5,
+        "end": 14,
+        "time_unit": "days post-fertilization",
+        "stage_source_artifact_id": "song2026-article-mirror"
+      },
+      "model_system": {
+        "kind": "embryo_model",
+        "label": "Human embryo cultured without endometrial organoids; sole-embryo control"
+      },
+      "assay": {
+        "name": "Morphology-defined survival assessment",
+        "endpoint": "Percentage meeting the authors' survival definition by d.p.f. 14",
+        "unit": "%",
+        "measurement_role": "viability"
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "This is a group-level rate, not an individual embryo record. The article reports 6/16; no embryo identifiers or row-level fates are provided."
+      },
+      "observation": {
+        "value": 37.5,
+        "measurement_time": 14,
+        "measurement_time_unit": "days post-fertilization",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "source_qualifications": [
+          {
+            "criterion_code": "survival_definition",
+            "status_code": "author_defined_morphology_composite",
+            "criterion_label": "Survival requires continued diameter expansion from d.p.f. 5 to 14 and no visible apoptosis signs; this is the authors' morphology-based endpoint, not a general health measure.",
+            "source_artifact_id": "song2026-article-mirror",
+            "source_locator": "PDF p. 21; journal e5; Methods, survival-rate definition",
+            "reference_value": null,
+            "reference_unit": ""
+          },
+          {
+            "criterion_code": "screening_denominator",
+            "status_code": "screened_count_unreported",
+            "criterion_label": "The article reports morphology-based inclusion and exclusion before analysis but does not report how many embryos were screened or excluded.",
+            "source_artifact_id": "song2026-article-mirror",
+            "source_locator": "PDF p. 20; journal e4; Human samples",
+            "reference_value": null,
+            "reference_unit": ""
+          },
+          {
+            "criterion_code": "early_termination_mapping",
+            "status_code": "primitive_streak_membership_unresolved",
+            "criterion_label": "The article allows culture termination at primitive-streak formation before d.p.f. 14 but does not map those cases to the reported numerator.",
+            "source_artifact_id": "song2026-article-mirror",
+            "source_locator": "PDF p. 20; journal e4; Ethics statement and PDF p. 3; journal p. 59; Results",
+            "reference_value": null,
+            "reference_unit": ""
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "song2026-article-mirror",
+        "uri": "https://blog.leowang.net/content/files/2026/01/3D-post-implantation-co-culture-of-human-embryo-an.pdf",
+        "license": "CC BY 4.0 per Crossref DOI license metadata; third-party mirror copy, publisher byte equivalence unverified",
+        "sha256": "4572ec7bed2737a050b2e29f9fbae18c5ad706fd083a36dbbc946e378fa092cc",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "PDF p. 3; journal p. 59; Results, survival comparison; Figure S1B caption in supplemental PDF p. 2"
+    }
+  ],
+  "cohort_coverage": [
+    {
+      "coverage_id": "song2026-coculture-survival-dpf14",
+      "source_artifact_id": "song2026-article-mirror",
+      "reported_group_label": "Co-cultured human embryos",
+      "group_label_status": "reported",
+      "counted_entity_kind": "embryo",
+      "counted_entity_label": "Human blastocyst",
+      "endpoint_label": "Author-defined survival criterion by d.p.f. 14",
+      "population_frame": "The source-reported co-cultured embryo group in the d.p.f. 14 survival comparison; not the full number of donated or screened embryos.",
+      "measurement_window": "Survival definition spans d.p.f. 5 to 14; article also permits culture termination at primitive-streak formation.",
+      "selection_definition": "The article reports morphology-based selection and exclusion before analysis but does not give the total screened/excluded count. It also states that cultures ended at d.p.f. 14 or primitive-streak formation, without mapping early termination to the survival numerator.",
+      "selection_definition_source_locator": "PDF p. 20; journal e4; Human samples and Ethics statement; PDF p. 21; journal e5; Methods, survival-rate definition",
+      "denominator": {
+        "value": 20,
+        "value_status": "reported",
+        "reported_label": "Co-cultured human embryos, n=20",
+        "source_locator": "PDF p. 3; journal p. 59; Results; corroborated by supplemental PDF p. 2, Figure S1B"
+      },
+      "declarations": [
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Embryos meeting the authors' survival definition; source-reported numerator",
+          "quantity_kind": "count",
+          "value": 15,
+          "value_status": "reported",
+          "source_locator": "PDF p. 3; journal p. 59; Results, printed 75% (15/20)"
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Printed survival-rate percentage",
+          "quantity_kind": "percentage",
+          "value": "75%",
+          "value_status": "reported",
+          "source_locator": "PDF p. 3; journal p. 59; Results, printed 75% (15/20)"
+        }
+      ],
+      "selection_statements": [
+        {
+          "text": "Morphology-based inclusion/exclusion is described, but the number screened or excluded is not reported.",
+          "source_locator": "PDF p. 20; journal e4; Human samples"
+        },
+        {
+          "text": "Cultures ended at d.p.f. 14 or upon primitive-streak formation; the source does not map any earlier stopping to the survival numerator.",
+          "source_locator": "PDF p. 20; journal e4; Ethics statement; compare PDF p. 3, journal p. 59"
+        }
+      ],
+      "cohort_window_status": "unresolved",
+      "disposition_completeness": "partial",
+      "categories_mutually_exclusive": "unknown",
+      "categories_exhaustive": "unknown"
+    },
+    {
+      "coverage_id": "song2026-sole-control-survival-dpf14",
+      "source_artifact_id": "song2026-article-mirror",
+      "reported_group_label": "Sole-embryo control group",
+      "group_label_status": "reported",
+      "counted_entity_kind": "embryo",
+      "counted_entity_label": "Human blastocyst",
+      "endpoint_label": "Author-defined survival criterion by d.p.f. 14",
+      "population_frame": "The source-reported sole-embryo control group in the d.p.f. 14 survival comparison; not the full number of donated or screened embryos.",
+      "measurement_window": "Survival definition spans d.p.f. 5 to 14; article also permits culture termination at primitive-streak formation.",
+      "selection_definition": "The article reports morphology-based selection and exclusion before analysis but does not give the total screened/excluded count. It also states that cultures ended at d.p.f. 14 or primitive-streak formation, without mapping early termination to the survival numerator.",
+      "selection_definition_source_locator": "PDF p. 20; journal e4; Human samples and Ethics statement; PDF p. 21; journal e5; Methods, survival-rate definition",
+      "denominator": {
+        "value": 16,
+        "value_status": "reported",
+        "reported_label": "Sole-embryo controls, n=16",
+        "source_locator": "PDF p. 3; journal p. 59; Results; corroborated by supplemental PDF p. 2, Figure S1B"
+      },
+      "declarations": [
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Embryos meeting the authors' survival definition; source-reported numerator",
+          "quantity_kind": "count",
+          "value": 6,
+          "value_status": "reported",
+          "source_locator": "PDF p. 3; journal p. 59; Results, printed 37.5% (6/16)"
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Printed survival-rate percentage",
+          "quantity_kind": "percentage",
+          "value": "37.5%",
+          "value_status": "reported",
+          "source_locator": "PDF p. 3; journal p. 59; Results, printed 37.5% (6/16)"
+        }
+      ],
+      "selection_statements": [
+        {
+          "text": "Morphology-based inclusion/exclusion is described, but the number screened or excluded is not reported.",
+          "source_locator": "PDF p. 20; journal e4; Human samples"
+        },
+        {
+          "text": "Cultures ended at d.p.f. 14 or upon primitive-streak formation; the source does not map any earlier stopping to the survival numerator.",
+          "source_locator": "PDF p. 20; journal e4; Ethics statement; compare PDF p. 3, journal p. 59"
+        }
+      ],
+      "cohort_window_status": "unresolved",
+      "disposition_completeness": "partial",
+      "categories_mutually_exclusive": "unknown",
+      "categories_exhaustive": "unknown"
+    }
+  ],
+  "limitations": [
+    "The two percentage summaries are group-level, source-reported outcomes and are not embryo-level records.",
+    "The rate is defined by this paper's morphology criteria; it does not establish general viability, intact function, health, or later development.",
+    "The screened/excluded starting denominator is absent, and the relationship of primitive-streak-terminated cultures to the reported endpoint counts is unresolved.",
+    "The article text was recovered from a third-party mirror; publisher byte equivalence is unverified and human source review remains pending.",
+    "The paper's stated data access for HRA006892 conflicts with GSA-Human's current controlled-access metadata. Public partial metadata lists five repository individual/sample accessions and ten run-table rows representing five distinct run accessions; no crosswalk links these records to the survival groups.",
+    "The linked NGDC BioProject lists five BioSample label rows. The article separately reports stage-associated single-cell n labels of 25, 16, and 33, but the Figure 4 caption does not independently define the counted unit or map these values to repository rows.",
+    "GSA-Human limits detailed metadata download to authorized users. Controlled data files were not accessed.",
+    "A public in-memory join maps five GSA-Human sample labels to ten RNA-Seq table rows representing five distinct run accessions, all labeled Illumina NovaSeq 6000. These broad run fields do not distinguish the article's GEXSCOPE/10X and Smart-seq2 modalities or connect runs to survival outcomes.",
+    "The five distinct GSA run accessions and five experiment accessions returned no hits in the checked NCBI SRA and ENA accession routes; these bounded searches do not establish data absence.",
+    "The five GSA BioSample accession values returned no hits in the checked NCBI BioSample and ENA sample indexes; no accession strings were retained and this does not establish data absence.",
+    "Public GSA-Human experiment and run title fields contain none of the article's reported GEXSCOPE, 10X, or Smart-seq2 labels; assay-specific run mapping remains unresolved.",
+    "Five public experiment-detail pages expose none of the screened library strategy/name/layout fields or modality tokens in their visible content; this bounded screen does not establish that data are absent from other routes.",
+    "NCBI exact project/accession and ENA exact-title queries returned no counterpart in the reviewed indexes; this bounded result does not establish data absence.",
+    "The official ProteomeXchange route says PXD067943 is reserved by PRIDE for deposited data not yet publicly released or announced, while the public PRIDE accession API returns 404. Do not interpret these route results as proof that data do not exist.",
+    "No data files were accessed and no release, access, or author-contact request was made."
+  ]
+}

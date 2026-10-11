@@ -36,6 +36,22 @@
       "sha256": "99c587604ab7af2131f2264f5b6860c8fd63c88ce1099231d992d311445b82c2",
       "retrieved_on": "2026-10-09",
       "local_path": "artifacts/boundary-review-2026-10-09/appendix.pdf"
+    },
+    {
+      "artifact_id": "bondarenko2023-figure1-cell-counts",
+      "uri": "https://media.springernature.com/original/springer-static/esm/art%3A10.15252%2Fembj.2022113280/MediaObjects/44318_2023_BFEMBJ2022113280_MOESM15_ESM.zip#member=Figure%201/Panel%20f/Cell%20counts%20panel%20f.csv",
+      "license": "CC BY 4.0 article statement; source-specific review pending",
+      "sha256": "d718beb887e025aa64a45a934d7b8eb4d4ec8003cc0c49bf2dfb9efcb7f51d8e",
+      "retrieved_on": "2026-10-09",
+      "local_path": "artifacts/source-mapping-2026-10-09/bondarenko-figure1-cell-counts.csv"
+    },
+    {
+      "artifact_id": "bondarenko2023-figure1-embryo-dimensions",
+      "uri": "https://media.springernature.com/original/springer-static/esm/art%3A10.15252%2Fembj.2022113280/MediaObjects/44318_2023_BFEMBJ2022113280_MOESM15_ESM.zip#member=Figure%201/Panel%20g/Embryo%20dimensions.csv",
+      "license": "CC BY 4.0 article statement; source-specific review pending",
+      "sha256": "eddfb965459e5238196b893a0b465cb69fb6d7a34e01797d6bfebe3bd9c3d0d4",
+      "retrieved_on": "2026-10-09",
+      "local_path": "artifacts/source-mapping-2026-10-09/bondarenko-figure1-embryo-dimensions.csv"
     }
   ],
   "observations": [
@@ -770,6 +786,7 @@
     "Mouse E3.5 entry and Day 3 E5.25-like morphology are distinct labels; source reports delay. No human or later continuous gestation inferred.",
     "Individual starting roster, source/litter hierarchy, losses and cross-assay pairing unqualified. No biological fit, causal effect estimate or operating specification.",
     "No ledger promotion. No culture procedure, tissue manipulation, device assembly, physiological setting or clinical guidance.",
-    "Pinned Figure 6 native CSV audit narrows linkage gaps without promoting same-unit continuity. Original imaging-time and post-E3.5 clocks, nested stack/line measurements, caption/track-label discrepancy and genotype endpoints remain separate."
+    "Pinned Figure 6 native CSV audit narrows linkage gaps without promoting same-unit continuity. Original imaging-time and post-E3.5 clocks, nested stack/line measurements, caption/track-label discrepancy and genotype endpoints remain separate.",
+    "Bounded Figure 1 source-data CSVs are pinned as tabular artifacts. Their stage-labelled counts and dimensions have no specimen keys and do not link Figure 6 displacement rows to endpoints; the full TIFF-heavy archive was not downloaded."
   ]
 }

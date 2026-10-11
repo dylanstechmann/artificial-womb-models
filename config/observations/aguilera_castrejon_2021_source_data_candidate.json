@@ -1,0 +1,656 @@
+{
+  "schema_version": 1,
+  "dataset_id": "aguilera2021-mouse-source-data-development-efficiency-candidate",
+  "title": "Aguilera-Castrejon et al. source-workbook culture-efficiency summaries; candidate transcription",
+  "source_revision": {
+    "revision_id": "aguilera2021-source-workbooks-cycle267",
+    "citation": "Aguilera-Castrejon A, Oldak B, Shani T, et al. Ex utero mouse embryogenesis from pre-gastrulation to late organogenesis. Nature. 2021;593:119-124. doi:10.1038/s41586-021-03416-3.",
+    "source_kind": "peer_reviewed_animal",
+    "source_url": "https://www.nature.com/articles/s41586-021-03416-3",
+    "review_status": "candidate",
+    "reviewer": "",
+    "reviewed_on": null,
+    "review_note": ""
+  },
+  "artifacts": [
+    {
+      "artifact_id": "aguilera2021-e7-5-source-workbook",
+      "uri": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41586-021-03416-3/MediaObjects/41586_2021_3416_MOESM11_ESM.xlsx",
+      "license": "Publisher-hosted source-data asset; reuse terms not assessed",
+      "sha256": "0b6b05d036d251b0a2889421952ba4dc4b9f24e7e21844626457f81063000cc2",
+      "retrieved_on": "2026-10-11",
+      "local_path": "artifacts/aguilera-castrejon-source-data-2026-10-11/41586_2021_3416_MOESM11_ESM.xlsx"
+    },
+    {
+      "artifact_id": "aguilera2021-e6-5-source-workbook",
+      "uri": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41586-021-03416-3/MediaObjects/41586_2021_3416_MOESM12_ESM.xlsx",
+      "license": "Publisher-hosted source-data asset; reuse terms not assessed",
+      "sha256": "e8b010822e984c444ee1c9602580be3474f8df1f9b82cc6f0d5848b2c33d6ee5",
+      "retrieved_on": "2026-10-11",
+      "local_path": "artifacts/aguilera-castrejon-source-data-2026-10-11/41586_2021_3416_MOESM12_ESM.xlsx"
+    }
+  ],
+  "observations": [
+    {
+      "schema_version": 1,
+      "record_id": "aguilera2021-e7-5-normal-development-day1",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "postimplantation_embryonic",
+      "developmental_interval": {
+        "label": "E7.5-start cohort; +1 days ex-utero culture",
+        "start": 7.5,
+        "end": null,
+        "time_unit": "days post coitum",
+        "stage_source_artifact_id": "aguilera2021-e7-5-source-workbook"
+      },
+      "model_system": {
+        "kind": "embryo_model",
+        "label": "Mouse embryos cultured ex utero from E7.5 in the source-described system; cohort analyzed separately."
+      },
+      "assay": {
+        "name": "Publisher source-data culture-efficiency summary",
+        "endpoint": "Normally developed embryos / total embryos assessed at the sampled culture day",
+        "unit": "percent",
+        "measurement_role": "morphology"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Aggregate across 15 experiment rows with a reported +Day 1 fraction. It is not an embryo-level record and provides no same-embryo linkage across timepoints."
+      },
+      "observation": {
+        "value": 99.0,
+        "measurement_time": 1,
+        "measurement_time_unit": "days of ex-utero culture",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      },
+      "source": {
+        "artifact_id": "aguilera2021-e7-5-source-workbook",
+        "uri": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41586-021-03416-3/MediaObjects/41586_2021_3416_MOESM11_ESM.xlsx",
+        "license": "Publisher-hosted source-data asset; reuse terms not assessed",
+        "sha256": "0b6b05d036d251b0a2889421952ba4dc4b9f24e7e21844626457f81063000cc2",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Panel d!B33 (Culture efficiency aggregate; numerator/denominator and printed percentage)",
+      "limitations": [
+        "The endpoint is a source-reported morphology classification, not survival, normal physiology, live birth, or postnatal health.",
+        "The source-reported denominator is 230 at this timepoint and is not a verified whole-starting-cohort denominator; timepoint membership and individual embryo continuity are not established.",
+        "This is a separate animal model cohort and cannot be joined to other starting-stage cohorts or human evidence."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "aguilera2021-e7-5-normal-development-day2",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "postimplantation_embryonic",
+      "developmental_interval": {
+        "label": "E7.5-start cohort; +2 days ex-utero culture",
+        "start": 7.5,
+        "end": null,
+        "time_unit": "days post coitum",
+        "stage_source_artifact_id": "aguilera2021-e7-5-source-workbook"
+      },
+      "model_system": {
+        "kind": "embryo_model",
+        "label": "Mouse embryos cultured ex utero from E7.5 in the source-described system; cohort analyzed separately."
+      },
+      "assay": {
+        "name": "Publisher source-data culture-efficiency summary",
+        "endpoint": "Normally developed embryos / total embryos assessed at the sampled culture day",
+        "unit": "percent",
+        "measurement_role": "morphology"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Aggregate across 15 experiment rows with a reported +Day 2 fraction. It is not an embryo-level record and provides no same-embryo linkage across timepoints."
+      },
+      "observation": {
+        "value": 92.0,
+        "measurement_time": 2,
+        "measurement_time_unit": "days of ex-utero culture",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      },
+      "source": {
+        "artifact_id": "aguilera2021-e7-5-source-workbook",
+        "uri": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41586-021-03416-3/MediaObjects/41586_2021_3416_MOESM11_ESM.xlsx",
+        "license": "Publisher-hosted source-data asset; reuse terms not assessed",
+        "sha256": "0b6b05d036d251b0a2889421952ba4dc4b9f24e7e21844626457f81063000cc2",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Panel d!C33 (Culture efficiency aggregate; numerator/denominator and printed percentage)",
+      "limitations": [
+        "The endpoint is a source-reported morphology classification, not survival, normal physiology, live birth, or postnatal health.",
+        "The source-reported denominator is 230 at this timepoint and is not a verified whole-starting-cohort denominator; timepoint membership and individual embryo continuity are not established.",
+        "This is a separate animal model cohort and cannot be joined to other starting-stage cohorts or human evidence."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "aguilera2021-e7-5-normal-development-day3",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "postimplantation_embryonic",
+      "developmental_interval": {
+        "label": "E7.5-start cohort; +3 days ex-utero culture",
+        "start": 7.5,
+        "end": null,
+        "time_unit": "days post coitum",
+        "stage_source_artifact_id": "aguilera2021-e7-5-source-workbook"
+      },
+      "model_system": {
+        "kind": "embryo_model",
+        "label": "Mouse embryos cultured ex utero from E7.5 in the source-described system; cohort analyzed separately."
+      },
+      "assay": {
+        "name": "Publisher source-data culture-efficiency summary",
+        "endpoint": "Normally developed embryos / total embryos assessed at the sampled culture day",
+        "unit": "percent",
+        "measurement_role": "morphology"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Aggregate across 13 experiment rows with a reported +Day 3 fraction. It is not an embryo-level record and provides no same-embryo linkage across timepoints."
+      },
+      "observation": {
+        "value": 84.0,
+        "measurement_time": 3,
+        "measurement_time_unit": "days of ex-utero culture",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      },
+      "source": {
+        "artifact_id": "aguilera2021-e7-5-source-workbook",
+        "uri": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41586-021-03416-3/MediaObjects/41586_2021_3416_MOESM11_ESM.xlsx",
+        "license": "Publisher-hosted source-data asset; reuse terms not assessed",
+        "sha256": "0b6b05d036d251b0a2889421952ba4dc4b9f24e7e21844626457f81063000cc2",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Panel d!D33 (Culture efficiency aggregate; numerator/denominator and printed percentage)",
+      "limitations": [
+        "The endpoint is a source-reported morphology classification, not survival, normal physiology, live birth, or postnatal health.",
+        "The source-reported denominator is 185 at this timepoint and is not a verified whole-starting-cohort denominator; timepoint membership and individual embryo continuity are not established.",
+        "This is a separate animal model cohort and cannot be joined to other starting-stage cohorts or human evidence."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "aguilera2021-e7-5-normal-development-day4",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "postimplantation_embryonic",
+      "developmental_interval": {
+        "label": "E7.5-start cohort; +4 days ex-utero culture",
+        "start": 7.5,
+        "end": null,
+        "time_unit": "days post coitum",
+        "stage_source_artifact_id": "aguilera2021-e7-5-source-workbook"
+      },
+      "model_system": {
+        "kind": "embryo_model",
+        "label": "Mouse embryos cultured ex utero from E7.5 in the source-described system; cohort analyzed separately."
+      },
+      "assay": {
+        "name": "Publisher source-data culture-efficiency summary",
+        "endpoint": "Normally developed embryos / total embryos assessed at the sampled culture day",
+        "unit": "percent",
+        "measurement_role": "morphology"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Aggregate across 12 experiment rows with a reported +Day 4 fraction. It is not an embryo-level record and provides no same-embryo linkage across timepoints."
+      },
+      "observation": {
+        "value": 77.0,
+        "measurement_time": 4,
+        "measurement_time_unit": "days of ex-utero culture",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      },
+      "source": {
+        "artifact_id": "aguilera2021-e7-5-source-workbook",
+        "uri": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41586-021-03416-3/MediaObjects/41586_2021_3416_MOESM11_ESM.xlsx",
+        "license": "Publisher-hosted source-data asset; reuse terms not assessed",
+        "sha256": "0b6b05d036d251b0a2889421952ba4dc4b9f24e7e21844626457f81063000cc2",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Panel d!E33 (Culture efficiency aggregate; numerator/denominator and printed percentage)",
+      "limitations": [
+        "The endpoint is a source-reported morphology classification, not survival, normal physiology, live birth, or postnatal health.",
+        "The source-reported denominator is 163 at this timepoint and is not a verified whole-starting-cohort denominator; timepoint membership and individual embryo continuity are not established.",
+        "This is a separate animal model cohort and cannot be joined to other starting-stage cohorts or human evidence."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "aguilera2021-e6-5-normal-development-day1",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "postimplantation_embryonic",
+      "developmental_interval": {
+        "label": "E6.5-start cohort; +1 days ex-utero culture",
+        "start": 6.5,
+        "end": null,
+        "time_unit": "days post coitum",
+        "stage_source_artifact_id": "aguilera2021-e6-5-source-workbook"
+      },
+      "model_system": {
+        "kind": "embryo_model",
+        "label": "Mouse embryos cultured ex utero from E6.5 in the source-described system; cohort analyzed separately."
+      },
+      "assay": {
+        "name": "Publisher source-data culture-efficiency summary",
+        "endpoint": "Normally developed embryos / total embryos assessed at the sampled culture day",
+        "unit": "percent",
+        "measurement_role": "morphology"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Aggregate across 21 experiment rows with a reported +Day 1 fraction. It is not an embryo-level record and provides no same-embryo linkage across timepoints."
+      },
+      "observation": {
+        "value": 98.0,
+        "measurement_time": 1,
+        "measurement_time_unit": "days of ex-utero culture",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      },
+      "source": {
+        "artifact_id": "aguilera2021-e6-5-source-workbook",
+        "uri": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41586-021-03416-3/MediaObjects/41586_2021_3416_MOESM12_ESM.xlsx",
+        "license": "Publisher-hosted source-data asset; reuse terms not assessed",
+        "sha256": "e8b010822e984c444ee1c9602580be3474f8df1f9b82cc6f0d5848b2c33d6ee5",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Panel b!B24 (Culture efficiency aggregate; numerator/denominator and printed percentage)",
+      "limitations": [
+        "The endpoint is a source-reported morphology classification, not survival, normal physiology, live birth, or postnatal health.",
+        "The source-reported denominator is 421 at this timepoint and is not a verified whole-starting-cohort denominator; timepoint membership and individual embryo continuity are not established.",
+        "This is a separate animal model cohort and cannot be joined to other starting-stage cohorts or human evidence.",
+        "The same workbook has experiment-level percentage literals that disagree with their printed fractions at Panel b!B22 and Panel b!C21; aggregate numerator/denominator counts do sum across experiment rows. Preserve the aggregate source literal and treat row-level percentage transcription as unresolved."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "aguilera2021-e6-5-normal-development-day2",
+      "evidence_status": "author_reported_summary",
+      "species": "mouse",
+      "stage_track": "postimplantation_embryonic",
+      "developmental_interval": {
+        "label": "E6.5-start cohort; +2 days ex-utero culture",
+        "start": 6.5,
+        "end": null,
+        "time_unit": "days post coitum",
+        "stage_source_artifact_id": "aguilera2021-e6-5-source-workbook"
+      },
+      "model_system": {
+        "kind": "embryo_model",
+        "label": "Mouse embryos cultured ex utero from E6.5 in the source-described system; cohort analyzed separately."
+      },
+      "assay": {
+        "name": "Publisher source-data culture-efficiency summary",
+        "endpoint": "Normally developed embryos / total embryos assessed at the sampled culture day",
+        "unit": "percent",
+        "measurement_role": "morphology"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Aggregate across 20 experiment rows with a reported +Day 2 fraction. It is not an embryo-level record and provides no same-embryo linkage across timepoints."
+      },
+      "observation": {
+        "value": 97.0,
+        "measurement_time": 2,
+        "measurement_time_unit": "days of ex-utero culture",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      },
+      "source": {
+        "artifact_id": "aguilera2021-e6-5-source-workbook",
+        "uri": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41586-021-03416-3/MediaObjects/41586_2021_3416_MOESM12_ESM.xlsx",
+        "license": "Publisher-hosted source-data asset; reuse terms not assessed",
+        "sha256": "e8b010822e984c444ee1c9602580be3474f8df1f9b82cc6f0d5848b2c33d6ee5",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Panel b!C24 (Culture efficiency aggregate; numerator/denominator and printed percentage)",
+      "limitations": [
+        "The endpoint is a source-reported morphology classification, not survival, normal physiology, live birth, or postnatal health.",
+        "The source-reported denominator is 399 at this timepoint and is not a verified whole-starting-cohort denominator; timepoint membership and individual embryo continuity are not established.",
+        "This is a separate animal model cohort and cannot be joined to other starting-stage cohorts or human evidence.",
+        "The same workbook has experiment-level percentage literals that disagree with their printed fractions at Panel b!B22 and Panel b!C21; aggregate numerator/denominator counts do sum across experiment rows. Preserve the aggregate source literal and treat row-level percentage transcription as unresolved."
+      ]
+    }
+  ],
+  "cohort_coverage": [
+    {
+      "coverage_id": "aguilera2021-e7_5-normal-development-day1",
+      "source_artifact_id": "aguilera2021-e7-5-source-workbook",
+      "reported_group_label": "E7.5 culture-efficiency aggregate, +Day 1",
+      "group_label_status": "reported",
+      "counted_entity_kind": "embryo",
+      "counted_entity_label": "Normally developed embryos / total embryos assessed (publisher wording)",
+      "endpoint_label": "Normal-development classification at the reported culture-day assessment",
+      "population_frame": "Mouse embryos isolated at E7.5 and represented in the publisher's culture-efficiency aggregate; experiment groups are not linked at embryo level.",
+      "measurement_window": "+1 days of ex-utero culture",
+      "selection_definition": "Only experiment rows with a reported fraction for this culture day contribute to the publisher aggregate; the workbook identifies dash rows as cultures not continued for experimental requirements. The denominator is the reported assessment set at this timepoint, not all embryos started and not a verified same-embryo risk set.",
+      "selection_definition_source_locator": "Panel d!B33",
+      "denominator": {
+        "value": 230,
+        "value_status": "reported",
+        "reported_label": "227/230 – 99 %",
+        "source_locator": "Panel d!B33"
+      },
+      "declarations": [
+        {
+          "category": "assessed",
+          "scope": "within_denominator",
+          "reported_label": "227/230 – 99 %",
+          "quantity_kind": "count",
+          "value": 230,
+          "value_status": "reported",
+          "source_locator": "Panel d!B33",
+          "note": "Aggregate denominator transcribed literally; not treated as the initial cohort size."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "227 normally developed embryos",
+          "quantity_kind": "count",
+          "value": 227,
+          "value_status": "reported",
+          "source_locator": "Panel d!B33",
+          "note": "Aggregate numerator transcribed literally; no embryo identities or fates are supplied."
+        }
+      ],
+      "selection_statements": [
+        {
+          "text": "The workbook says a dash indicates cultures not continued due to experimental requirements.",
+          "source_locator": "Panel d!A35"
+        }
+      ],
+      "cohort_window_status": "source_labels_only",
+      "disposition_completeness": "partial",
+      "categories_mutually_exclusive": "unknown",
+      "categories_exhaustive": "unknown"
+    },
+    {
+      "coverage_id": "aguilera2021-e7_5-normal-development-day2",
+      "source_artifact_id": "aguilera2021-e7-5-source-workbook",
+      "reported_group_label": "E7.5 culture-efficiency aggregate, +Day 2",
+      "group_label_status": "reported",
+      "counted_entity_kind": "embryo",
+      "counted_entity_label": "Normally developed embryos / total embryos assessed (publisher wording)",
+      "endpoint_label": "Normal-development classification at the reported culture-day assessment",
+      "population_frame": "Mouse embryos isolated at E7.5 and represented in the publisher's culture-efficiency aggregate; experiment groups are not linked at embryo level.",
+      "measurement_window": "+2 days of ex-utero culture",
+      "selection_definition": "Only experiment rows with a reported fraction for this culture day contribute to the publisher aggregate; the workbook identifies dash rows as cultures not continued for experimental requirements. The denominator is the reported assessment set at this timepoint, not all embryos started and not a verified same-embryo risk set.",
+      "selection_definition_source_locator": "Panel d!C33",
+      "denominator": {
+        "value": 230,
+        "value_status": "reported",
+        "reported_label": "212/230 – 92 %",
+        "source_locator": "Panel d!C33"
+      },
+      "declarations": [
+        {
+          "category": "assessed",
+          "scope": "within_denominator",
+          "reported_label": "212/230 – 92 %",
+          "quantity_kind": "count",
+          "value": 230,
+          "value_status": "reported",
+          "source_locator": "Panel d!C33",
+          "note": "Aggregate denominator transcribed literally; not treated as the initial cohort size."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "212 normally developed embryos",
+          "quantity_kind": "count",
+          "value": 212,
+          "value_status": "reported",
+          "source_locator": "Panel d!C33",
+          "note": "Aggregate numerator transcribed literally; no embryo identities or fates are supplied."
+        }
+      ],
+      "selection_statements": [
+        {
+          "text": "The workbook says a dash indicates cultures not continued due to experimental requirements.",
+          "source_locator": "Panel d!A35"
+        }
+      ],
+      "cohort_window_status": "source_labels_only",
+      "disposition_completeness": "partial",
+      "categories_mutually_exclusive": "unknown",
+      "categories_exhaustive": "unknown"
+    },
+    {
+      "coverage_id": "aguilera2021-e7_5-normal-development-day3",
+      "source_artifact_id": "aguilera2021-e7-5-source-workbook",
+      "reported_group_label": "E7.5 culture-efficiency aggregate, +Day 3",
+      "group_label_status": "reported",
+      "counted_entity_kind": "embryo",
+      "counted_entity_label": "Normally developed embryos / total embryos assessed (publisher wording)",
+      "endpoint_label": "Normal-development classification at the reported culture-day assessment",
+      "population_frame": "Mouse embryos isolated at E7.5 and represented in the publisher's culture-efficiency aggregate; experiment groups are not linked at embryo level.",
+      "measurement_window": "+3 days of ex-utero culture",
+      "selection_definition": "Only experiment rows with a reported fraction for this culture day contribute to the publisher aggregate; the workbook identifies dash rows as cultures not continued for experimental requirements. The denominator is the reported assessment set at this timepoint, not all embryos started and not a verified same-embryo risk set.",
+      "selection_definition_source_locator": "Panel d!D33",
+      "denominator": {
+        "value": 185,
+        "value_status": "reported",
+        "reported_label": "155/185 – 84 %",
+        "source_locator": "Panel d!D33"
+      },
+      "declarations": [
+        {
+          "category": "assessed",
+          "scope": "within_denominator",
+          "reported_label": "155/185 – 84 %",
+          "quantity_kind": "count",
+          "value": 185,
+          "value_status": "reported",
+          "source_locator": "Panel d!D33",
+          "note": "Aggregate denominator transcribed literally; not treated as the initial cohort size."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "155 normally developed embryos",
+          "quantity_kind": "count",
+          "value": 155,
+          "value_status": "reported",
+          "source_locator": "Panel d!D33",
+          "note": "Aggregate numerator transcribed literally; no embryo identities or fates are supplied."
+        }
+      ],
+      "selection_statements": [
+        {
+          "text": "The workbook says a dash indicates cultures not continued due to experimental requirements.",
+          "source_locator": "Panel d!A35"
+        }
+      ],
+      "cohort_window_status": "source_labels_only",
+      "disposition_completeness": "partial",
+      "categories_mutually_exclusive": "unknown",
+      "categories_exhaustive": "unknown"
+    },
+    {
+      "coverage_id": "aguilera2021-e7_5-normal-development-day4",
+      "source_artifact_id": "aguilera2021-e7-5-source-workbook",
+      "reported_group_label": "E7.5 culture-efficiency aggregate, +Day 4",
+      "group_label_status": "reported",
+      "counted_entity_kind": "embryo",
+      "counted_entity_label": "Normally developed embryos / total embryos assessed (publisher wording)",
+      "endpoint_label": "Normal-development classification at the reported culture-day assessment",
+      "population_frame": "Mouse embryos isolated at E7.5 and represented in the publisher's culture-efficiency aggregate; experiment groups are not linked at embryo level.",
+      "measurement_window": "+4 days of ex-utero culture",
+      "selection_definition": "Only experiment rows with a reported fraction for this culture day contribute to the publisher aggregate; the workbook identifies dash rows as cultures not continued for experimental requirements. The denominator is the reported assessment set at this timepoint, not all embryos started and not a verified same-embryo risk set.",
+      "selection_definition_source_locator": "Panel d!E33",
+      "denominator": {
+        "value": 163,
+        "value_status": "reported",
+        "reported_label": "126/163 – 77 %",
+        "source_locator": "Panel d!E33"
+      },
+      "declarations": [
+        {
+          "category": "assessed",
+          "scope": "within_denominator",
+          "reported_label": "126/163 – 77 %",
+          "quantity_kind": "count",
+          "value": 163,
+          "value_status": "reported",
+          "source_locator": "Panel d!E33",
+          "note": "Aggregate denominator transcribed literally; not treated as the initial cohort size."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "126 normally developed embryos",
+          "quantity_kind": "count",
+          "value": 126,
+          "value_status": "reported",
+          "source_locator": "Panel d!E33",
+          "note": "Aggregate numerator transcribed literally; no embryo identities or fates are supplied."
+        }
+      ],
+      "selection_statements": [
+        {
+          "text": "The workbook says a dash indicates cultures not continued due to experimental requirements.",
+          "source_locator": "Panel d!A35"
+        }
+      ],
+      "cohort_window_status": "source_labels_only",
+      "disposition_completeness": "partial",
+      "categories_mutually_exclusive": "unknown",
+      "categories_exhaustive": "unknown"
+    },
+    {
+      "coverage_id": "aguilera2021-e6_5-normal-development-day1",
+      "source_artifact_id": "aguilera2021-e6-5-source-workbook",
+      "reported_group_label": "E6.5 culture-efficiency aggregate, +Day 1",
+      "group_label_status": "reported",
+      "counted_entity_kind": "embryo",
+      "counted_entity_label": "Normally developed embryos / total embryos assessed (publisher wording)",
+      "endpoint_label": "Normal-development classification at the reported culture-day assessment",
+      "population_frame": "Mouse embryos isolated at E6.5 and represented in the publisher's culture-efficiency aggregate; experiment groups are not linked at embryo level.",
+      "measurement_window": "+1 days of ex-utero culture",
+      "selection_definition": "The publisher aggregate includes experiment rows with a displayed fraction at this timepoint. The workbook reports a dash for experiment 6 at +Day 2 and does not explain the Day 2 denominator change for experiment 4; cohort membership and disposition therefore remain unresolved.",
+      "selection_definition_source_locator": "Panel b!B24",
+      "denominator": {
+        "value": 421,
+        "value_status": "reported",
+        "reported_label": "414/421 – 98 %",
+        "source_locator": "Panel b!B24"
+      },
+      "declarations": [
+        {
+          "category": "assessed",
+          "scope": "within_denominator",
+          "reported_label": "414/421 – 98 %",
+          "quantity_kind": "count",
+          "value": 421,
+          "value_status": "reported",
+          "source_locator": "Panel b!B24",
+          "note": "Aggregate denominator transcribed literally; not treated as the initial cohort size."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "414 normally developed embryos",
+          "quantity_kind": "count",
+          "value": 414,
+          "value_status": "reported",
+          "source_locator": "Panel b!B24",
+          "note": "Aggregate numerator transcribed literally; no embryo identities or fates are supplied."
+        }
+      ],
+      "selection_statements": [
+        {
+          "text": "The Day 2 cell for experiment 6 is a dash; this workbook does not state the reason.",
+          "source_locator": "Panel b!C8"
+        }
+      ],
+      "cohort_window_status": "source_labels_only",
+      "disposition_completeness": "partial",
+      "categories_mutually_exclusive": "unknown",
+      "categories_exhaustive": "unknown"
+    },
+    {
+      "coverage_id": "aguilera2021-e6_5-normal-development-day2",
+      "source_artifact_id": "aguilera2021-e6-5-source-workbook",
+      "reported_group_label": "E6.5 culture-efficiency aggregate, +Day 2",
+      "group_label_status": "reported",
+      "counted_entity_kind": "embryo",
+      "counted_entity_label": "Normally developed embryos / total embryos assessed (publisher wording)",
+      "endpoint_label": "Normal-development classification at the reported culture-day assessment",
+      "population_frame": "Mouse embryos isolated at E6.5 and represented in the publisher's culture-efficiency aggregate; experiment groups are not linked at embryo level.",
+      "measurement_window": "+2 days of ex-utero culture",
+      "selection_definition": "The publisher aggregate includes experiment rows with a displayed fraction at this timepoint. The workbook reports a dash for experiment 6 at +Day 2 and does not explain the Day 2 denominator change for experiment 4; cohort membership and disposition therefore remain unresolved.",
+      "selection_definition_source_locator": "Panel b!C24",
+      "denominator": {
+        "value": 399,
+        "value_status": "reported",
+        "reported_label": "386/399 – 97 %",
+        "source_locator": "Panel b!C24"
+      },
+      "declarations": [
+        {
+          "category": "assessed",
+          "scope": "within_denominator",
+          "reported_label": "386/399 – 97 %",
+          "quantity_kind": "count",
+          "value": 399,
+          "value_status": "reported",
+          "source_locator": "Panel b!C24",
+          "note": "Aggregate denominator transcribed literally; not treated as the initial cohort size."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "386 normally developed embryos",
+          "quantity_kind": "count",
+          "value": 386,
+          "value_status": "reported",
+          "source_locator": "Panel b!C24",
+          "note": "Aggregate numerator transcribed literally; no embryo identities or fates are supplied."
+        }
+      ],
+      "selection_statements": [
+        {
+          "text": "The Day 2 cell for experiment 6 is a dash; this workbook does not state the reason.",
+          "source_locator": "Panel b!C8"
+        },
+        {
+          "text": "Experiment 4 denominator changes from 30 at +Day 1 to 29 at +Day 2; the workbook does not explain the change.",
+          "source_locator": "Panel b!B6:C6"
+        }
+      ],
+      "cohort_window_status": "source_labels_only",
+      "disposition_completeness": "partial",
+      "categories_mutually_exclusive": "unknown",
+      "categories_exhaustive": "unknown"
+    }
+  ],
+  "limitations": [
+    "The two workbooks describe separate E7.5 and E6.5 mouse embryo cohorts. They are not longitudinally joined to one another.",
+    "Culture-efficiency denominators vary by sampled day and experiment continuation. They are not survival probabilities or verified all-start success rates.",
+    "The source labels normal development; the morphology classification does not establish sustained survival, organ function, complete gestation, live birth, or postnatal health.",
+    "Experiment-level fraction and percentage cells are preserved in a crosswalk. Two E6.5 percentage literals disagree with their own numerator/denominator pairs; aggregate counts reconcile, but the local source inconsistencies remain unresolved.",
+    "No human embryo evidence, clinical readiness, physiological operating specification, or complete human ectogenesis capability is established."
+  ]
+}
