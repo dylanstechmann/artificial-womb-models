@@ -97,7 +97,7 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | T11 Expanded synthetic sweeps or GPU jobs | G1 | no | 2 | none |
 | T12 Owner completion requirements crosswalk | G0 | no | 3 | none |
 | T13 Ten-unit resource and fault dependency assessment | G8 | no | 4 | none |
-| T14 Birth-event and timing-observation contract | G8 | yes | 3 | none |
+| T14 Birth-event and timing-observation contract | G8 | no | 3 | none |
 | T15 AI/robot parenting, stature and skills matrix | G9 | yes | 4 | none |
 | T16 First physical discovery feedback contract | G1 | no | 4 | none |
 
@@ -115,7 +115,7 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | U08 | Which accepted tasks benefit from agent capacity or additional hardware, and what resources are actually available? | The 24–48 AI-hours/week figure remains an unverified owner estimate. This work found no evidence that extra GPU or compute is the current bottleneck; physical measurement resources and independent review are unidentified in this workspace. | Collect actual use/acceptance data in T07; buy compute only if a named accepted task has a measured compute limit. |
 | U09 | Which development/acquisition route delivers owned maintainable equipment and actual operational control? | Initial route comparison complete, but ownership route is unselected; budget, jurisdiction, facility, quotes and available transfer rights remain unknown. Public fetaLife evidence describes later-fetal development, not a product availability offer. | Maintain owner-led requirements/control while keeping qualified component acquisition/licensing and co-development open; compare proposals only when scope, ownership, support and cost are documented. |
 | U10 | Which shared/dedicated allocations preserve identity, continuity and isolation under concurrent demand? | Conceptual allocation now requires one uniquely identified/contained trajectory per unit, with shared services modeled as common dependencies. Actual topology, measured loads, facility capability, fault propagation and ten-unit outcomes remain unknown. | Obtain a qualified dependency/load map and systems-reliability capability; then test identity, isolation, common-cause faults and simultaneous transition demand. Keep M15/M19 and G8 open. |
-| U11 | Can ten units satisfy independent developmental conditions with births on the same defined date? | not established; event/timezone/readiness contract undefined | T14 defines outcome and required timing observations; later M20 tests actual outcomes. |
+| U11 | Can ten units satisfy independent developmental conditions with births on the same defined date? | The measurement contract is defined, but actual birth location/timezone, readiness criteria, ten-unit operation and common-date outcome are unselected/unestablished; no source-qualified ten-unit timing distribution was identified. | Select location/reference timezone before scoring; obtain qualified independent readiness criteria and actual complete-cohort timestamps. M20/G8 remain open until actual outcomes and review. |
 | U12 | Which AI/robot tasks can be depended upon, and which longitudinal growth/learning/skill outcomes are achieved? | task-specific evidence only; intended full parenting and trait outcomes unestablished | T15 capability/authority/failure matrix and age-specific evaluation contract. |
 | U13 | Which actual measurement/lab/bench resources permit a prediction-to-observation redesign iteration? | Workspace provides offline source and software analysis only. No accessible physical measurement facility, instrument feed, qualified operator, independent reviewer or committed funding is identified here; this does not establish absence outside the workspace. | Turn a named observation requirement into a facility/staff/instrument capability specification before quote or purchase; keep computer↔physical feedback as an open prerequisite. |
 
@@ -151,6 +151,7 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | T12 | artifacts/program-scope-revision-2026-10-11/scope_crosswalk.json | matches |
 | T12 | PROGRAM_PLAN.md | matches |
 | T13 | TEN_UNIT_DEPENDENCY_ASSESSMENT_2026-10-11.md | matches |
+| T14 | COMMON_DATE_READINESS_CONTRACT_2026-10-11.md | matches |
 | T16 | EARLY_SUPPORT_LINKAGE_DECISION_2026-10-11.md | matches |
 
 For the next work cycle, read PROGRAM_PLAN.md and the original task acceptance conditions. Match each claimed result to its gate and uncertainty. Hold a branch after two cycles with no usable new information. Do not contact authors or other people. No new process or automation is started by this status command.

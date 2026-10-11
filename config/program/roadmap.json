@@ -256,7 +256,7 @@
       "evidence": [
         {
           "path": "PROGRAM_PLAN.md",
-          "sha256": "4c23d5f459acbc34a910c1bd03b43ee3457773d959ef899aa2e443099e09413e"
+          "sha256": "8ebb8926b88b83ea3ddb39fbcfd987f4282e5089e291a671ff08dc7433018cfd"
         },
         {
           "path": "src/wombmodels/program_status.py",
@@ -675,8 +675,8 @@
       "id": "U11",
       "title": "Common-date actual outcome",
       "question": "Can ten units satisfy independent developmental conditions with births on the same defined date?",
-      "status": "not established; event/timezone/readiness contract undefined",
-      "next_decision": "T14 defines outcome and required timing observations; later M20 tests actual outcomes."
+      "status": "The measurement contract is defined, but actual birth location/timezone, readiness criteria, ten-unit operation and common-date outcome are unselected/unestablished; no source-qualified ten-unit timing distribution was identified.",
+      "next_decision": "Select location/reference timezone before scoring; obtain qualified independent readiness criteria and actual complete-cohort timestamps. M20/G8 remain open until actual outcomes and review."
     },
     {
       "id": "U12",
@@ -1036,7 +1036,7 @@
         },
         {
           "path": "PROGRAM_PLAN.md",
-          "sha256": "4c23d5f459acbc34a910c1bd03b43ee3457773d959ef899aa2e443099e09413e"
+          "sha256": "8ebb8926b88b83ea3ddb39fbcfd987f4282e5089e291a671ff08dc7433018cfd"
         }
       ],
       "actual_agent_hours": null,
@@ -1078,13 +1078,13 @@
       "gate_id": "G8",
       "uncertainty_id": "U11",
       "domain": "planning",
-      "status": "ready",
+      "status": "complete",
       "depends_on": [
         "M01",
         "T12"
       ],
       "agent_hour_cap": 3,
-      "horizon": "near-term requirements/preparation; actual capability as qualified",
+      "horizon": "measurement contract completed 2026-10-11; actual zone, readiness criteria and outcome records remain inputs to M20",
       "acceptance": "Define qualifying event, timezone/calendar and required independent readiness/timestamp observations; source-class timing variability and target misses retained.",
       "decision_consequence": "Make the common-date requirement evaluable and identify timing data that could support or invalidate it.",
       "stop_rule": "No scheduling/growth protocol, invented timing distribution or common-start guarantee; cap three hours.",
@@ -1092,9 +1092,14 @@
         "Existing complete/partial trajectory sources",
         "Owner common-date requirement"
       ],
-      "evidence": [],
+      "evidence": [
+        {
+          "path": "COMMON_DATE_READINESS_CONTRACT_2026-10-11.md",
+          "sha256": "e7e1972b0cbbf7c4a5bd49a5dbf89b6138963715d13d058f53225e8d79a171dd"
+        }
+      ],
       "actual_agent_hours": null,
-      "result": null
+      "result": "Defined separate technical transition and civil birth events, a predeclared IANA-zone/timezone-version rule, independent per-unit readiness record, concurrency and all-ten scoring conditions, and miss reporting. No qualifying ten-unit human timing distribution exists in the current evidence record; actual location, criteria, event records and M20 outcomes remain unresolved."
     },
     {
       "id": "T15",
@@ -1203,6 +1208,13 @@
       "decision": "Adopt per-unit identity, record and support-boundary isolation as the candidate ten-unit requirement; classify shared services and correlated faults explicitly. Close T13 only as planning, with physical qualification and G8 outcomes still unestablished.",
       "trigger": "T13 comparison of dedicated/shared allocations and replay of the existing bounded one-unit power/fault fixture.",
       "review": "Dimensionless software replay only; no physical loads, probabilities, biological limit or ten-unit capacity established."
+    },
+    {
+      "id": "D08",
+      "date": "2026-10-11",
+      "decision": "Complete T14 as an outcome-measurement contract: distinguish technical support exit from civil birth event; use a frozen timezone and independent readiness for each unit; do not infer timing distribution or force date alignment.",
+      "trigger": "T14 acceptance requires an evaluable event/timezone/readiness record and target-miss rule for the owner’s common-date outcome.",
+      "review": "Planning only; location, legal event mapping, readiness standard and observed ten-unit outcomes remain unresolved. No biological gate advances."
     }
   ],
   "planning_calendar": {
