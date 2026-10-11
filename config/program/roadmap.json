@@ -617,6 +617,24 @@
           "sha256": "1705be87c2ae1cf480a13b7515290a3d88ba59b7b8d38942febc4c48ef4902c4"
         }
       ]
+    },
+    {
+      "id": "A08",
+      "title": "Bounded local compute calibration",
+      "domain": "software",
+      "status": "complete",
+      "credit": "Five representative completed local task types were timed; expected acceptances passed and two output bundles passed strict byte-integrity verification. The measured work totals under one second of subprocess wall time.",
+      "boundary": "Single-run local tooling timings do not measure model/account usage, sum-agent-hours, large-scale workloads or scientific validity. No GPU or scheduler need is demonstrated.",
+      "evidence": [
+        {
+          "path": "COMPUTE_CALIBRATION_T07_2026-10-11.md",
+          "sha256": "8d5f2b42ff683cb45182f8042dd7064f03f9db39d6f64d2c4d957afa1bb5200f"
+        },
+        {
+          "path": "COMPUTE_CALIBRATION_T07_MEASUREMENTS_2026-10-11.json",
+          "sha256": "6b1c8e2d8f0fefc35eb0a89215315c50a8d929b6f5163b3a0071e2690be2101d"
+        }
+      ]
     }
   ],
   "uncertainties": [
@@ -673,8 +691,8 @@
       "id": "U08",
       "title": "Useful compute and resource limits",
       "question": "Which accepted tasks benefit from agent capacity or additional hardware, and what resources are actually available?",
-      "status": "The 24–48 AI-hours/week figure remains an unverified owner estimate. This work found no evidence that extra GPU or compute is the current bottleneck; physical measurement resources and independent review are unidentified in this workspace.",
-      "next_decision": "Collect actual use/acceptance data in T07; buy compute only if a named accepted task has a measured compute limit."
+      "status": "Five local software task types took 0.154572–0.230441 seconds per process (0.967892 seconds combined). No account usage or sum-agent-hour telemetry was exposed. The owner’s 24–48 AI-hours/week remains an unverified planning estimate; physical measurement and independent-review capacity remain unidentified.",
+      "next_decision": "Keep current compute allocation. Reopen only for a named accepted workload with a measured runtime/resume need or usage data showing a real account constraint; prioritize source-linked observations, independent review and physical measurement capability."
     },
     {
       "id": "U09",
@@ -919,12 +937,12 @@
       "gate_id": "G0",
       "uncertainty_id": "U08",
       "domain": "software",
-      "status": "ready",
+      "status": "complete",
       "depends_on": [
         "M01"
       ],
       "agent_hour_cap": 4,
-      "horizon": "collect metrics during actual first-fortnight work; no calibration exercises delaying resource work",
+      "horizon": "bounded local calibration completed 2026-10-11; conditional job design deferred until a named eligible long workload exists",
       "acceptance": "Measure three to five representative completed task types; record elapsed/sum-agent hours, usage where available and acceptance. Add deterministic resume only for an eligible long job, otherwise explicitly defer scheduler.",
       "decision_consequence": "Adjust weekly envelope and distinguish actual computational bottlenecks from missing evidence.",
       "stop_rule": "No scheduler, GPU purchase or long run without named eligible question; checkpoint cap/partial work.",
@@ -932,9 +950,18 @@
         "Existing job tools and accepted task receipts",
         "Available account/hardware usage"
       ],
-      "evidence": [],
+      "evidence": [
+        {
+          "path": "COMPUTE_CALIBRATION_T07_2026-10-11.md",
+          "sha256": "8d5f2b42ff683cb45182f8042dd7064f03f9db39d6f64d2c4d957afa1bb5200f"
+        },
+        {
+          "path": "COMPUTE_CALIBRATION_T07_MEASUREMENTS_2026-10-11.json",
+          "sha256": "6b1c8e2d8f0fefc35eb0a89215315c50a8d929b6f5163b3a0071e2690be2101d"
+        }
+      ],
       "actual_agent_hours": null,
-      "result": null
+      "result": "Five representative local task types completed in 0.967892 seconds combined subprocess wall time (0.154572–0.230441 seconds each); all expected outputs and malformed-input behavior were accepted, and both bundles passed strict byte-integrity verification. ChatGPT/Codex usage and sum-agent-hours were unavailable and remain unestimated. No measured local compute bottleneck; scheduler, GPU and long job deferred pending a named eligible workload. No biological or hardware capability is established."
     },
     {
       "id": "T08",

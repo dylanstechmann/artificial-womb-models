@@ -1,0 +1,94 @@
+{
+  "schema_version": 1,
+  "measurement_scope": "local subprocess end-to-end wall time; excludes LLM reasoning/account usage and does not represent biological time",
+  "python": "3.11.15",
+  "platform": "Windows-10-10.0.26200-SP0",
+  "logical_cpu_count": 16,
+  "model_or_account_usage_telemetry": "not exposed to this local process",
+  "accelerator_telemetry": "not inspected; workloads are small CPU-oriented evidence tooling",
+  "tasks": [
+    {
+      "task": "usuda_source_audit",
+      "elapsed_wall_seconds": 0.166086,
+      "exit_code": 0,
+      "command": [
+        "python (workspace .venv)",
+        "-m",
+        "wombmodels.usuda_source",
+        "--source",
+        "artifacts/usuda-2023-case-linkage-2026-10-10/PMC10484719.fullTextXML.xml",
+        "--out",
+        "artifacts/compute-calibration-t07-cycle348/usuda-rerun"
+      ],
+      "stdout": "",
+      "stderr": "",
+      "acceptance": "passed; source-audit bundle was created in a fresh exclusive output directory (this calibration did not compare it to a prior replay)"
+    },
+    {
+      "task": "program_status_render",
+      "elapsed_wall_seconds": 0.206344,
+      "exit_code": 0,
+      "command": [
+        "python (workspace .venv)",
+        "-m",
+        "wombmodels.program_status",
+        "--register",
+        "config/program/roadmap.json",
+        "--root",
+        ".",
+        "--out",
+        "artifacts/compute-calibration-t07-cycle348/program-status"
+      ],
+      "stdout": "",
+      "stderr": "",
+      "acceptance": "passed; program-status bundle was created in a fresh exclusive output directory"
+    },
+    {
+      "task": "usuda_bundle_strict_verification",
+      "elapsed_wall_seconds": 0.210449,
+      "exit_code": 0,
+      "command": [
+        "python (workspace .venv)",
+        "-c",
+        "import json,sys; from pathlib import Path; from wombmodels.bundle_verification import verify_bundle; r=verify_bundle(Path(sys.argv[1]), strict=True); print(json.dumps({k:r[k] for k in (\"bytes_verified\",\"ancestry_resolved\",\"scientific_review\",\"reproduction\",\"errors\",\"warnings\")})); raise SystemExit(0 if r[\"bytes_verified\"] and not r[\"errors\"] else 2)",
+        "artifacts/compute-calibration-t07-cycle348/usuda-rerun"
+      ],
+      "stdout": "{\"bytes_verified\": true, \"ancestry_resolved\": \"no_parent_declared\", \"scientific_review\": \"not_established_by_this_tool\", \"reproduction\": \"not_attempted\", \"errors\": [], \"warnings\": []}",
+      "stderr": "",
+      "acceptance": "passed; strict byte-integrity verifier returned bytes_verified=true, no errors, no warnings; scientific review not established and reproduction not attempted"
+    },
+    {
+      "task": "program_status_strict_verification",
+      "elapsed_wall_seconds": 0.230441,
+      "exit_code": 0,
+      "command": [
+        "python (workspace .venv)",
+        "-c",
+        "import json,sys; from pathlib import Path; from wombmodels.bundle_verification import verify_bundle; r=verify_bundle(Path(sys.argv[1]), strict=True); print(json.dumps({k:r[k] for k in (\"bytes_verified\",\"ancestry_resolved\",\"scientific_review\",\"reproduction\",\"errors\",\"warnings\")})); raise SystemExit(0 if r[\"bytes_verified\"] and not r[\"errors\"] else 2)",
+        "artifacts/compute-calibration-t07-cycle348/program-status"
+      ],
+      "stdout": "{\"bytes_verified\": true, \"ancestry_resolved\": \"no_parent_declared\", \"scientific_review\": \"not_established_by_this_tool\", \"reproduction\": \"not_attempted\", \"errors\": [], \"warnings\": []}",
+      "stderr": "",
+      "acceptance": "passed; strict byte-integrity verifier returned bytes_verified=true, no errors, no warnings; scientific review not established and reproduction not attempted"
+    },
+    {
+      "task": "malformed_summary_rejection",
+      "elapsed_wall_seconds": 0.154572,
+      "exit_code": 0,
+      "command": [
+        "python (workspace .venv)",
+        "-c",
+        "from wombmodels.artifacts import InputError; from wombmodels.usuda_source import _summary;\ntry: _summary(\"NaN ± 1\")\nexcept InputError: print(\"rejected as expected\")\nelse: raise SystemExit(\"accepted malformed summary\")"
+      ],
+      "stdout": "rejected as expected",
+      "stderr": "",
+      "acceptance": "passed; malformed nonfinite summary literal raised InputError as expected"
+    }
+  ],
+  "sum_subprocess_wall_seconds": 0.967892,
+  "inputs": {
+    "usuda_source_sha256": "553bb25875e95db787249c60bab779dc05aebb32f341dce27b3f1c7405430e0a",
+    "program_status_register_sha256": "ff0e53a86af376394e56df39e368a0ac7a57e5cc714da249437752397b878dc0"
+  },
+  "reproducibility_note": "Commands were timed once in separate local Python processes from the project root. Paths in this published record are project-relative; Python executable is represented generically."
+}

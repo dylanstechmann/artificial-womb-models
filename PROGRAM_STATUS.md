@@ -52,6 +52,7 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | A05 Existing transition/functional-role audit | evidence_curation | True | Support phases and missing animal-linked outcome boundaries have been made explicit. | No authenticated complete same-animal support-to-transition dataset or full trajectory. |
 | A06 Source/observation bundle byte verification | software | True | Published Usuda source/observation bundle receipts and stored strict verification are inspectable. | Matching bytes do not establish independent rerun, scientific acceptance or biological adequacy. |
 | A07 Usuda terminal source-audit replay | software | True | A fresh CLI replay reproduced six source-derived files byte-for-byte; original and replay receipts passed strict verification and malformed summary syntax was rejected. | Pipeline reproducibility only; source transcription, scientific review and biological adequacy remain unestablished. |
+| A08 Bounded local compute calibration | software | True | Five representative completed local task types were timed; expected acceptances passed and two output bundles passed strict byte-integrity verification. The measured work totals under one second of subprocess wall time. | Single-run local tooling timings do not measure model/account usage, sum-agent-hours, large-scale workloads or scientific validity. No GPU or scheduler need is demonstrated. |
 
 ## Milestone comparison
 
@@ -91,7 +92,7 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | T04 Empirical result or minimal observation contract | G2 | no | 8 | none |
 | T05 Independent source and claim challenge | G1 | no | 3 | none |
 | T06 Unsent institutional contribution packet | G1 | no | 4 | T05 |
-| T07 Early compute calibration and conditional job design | G0 | yes | 4 | none |
+| T07 Early compute calibration and conditional job design | G0 | no | 4 | none |
 | T08 Immediate owned-platform and resource decision preparation | G1 | no | 4 | none |
 | T09 Integrated portfolio and resource review | G1 | no | 3 | T05 |
 | T10 Additional trend-only gas abstracts | G1 | no | 2 | none |
@@ -113,7 +114,7 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | U05 | Are later support changes compatible with development and neonatal function across all starting units? | partial precedents; linked complete trajectory unavailable | Institutional stage/handoff contracts before claiming complete continuity. |
 | U06 | Who can take responsibility for the actual research pathway and intended use in an undecided jurisdiction? | Jurisdiction, facility and accountable research institution remain unknown; no outreach or commitment has occurred. | After location and funding constraints are chosen, compare qualified facilities and responsibility routes; keep any packet unsent until explicitly directed. |
 | U07 | What evidence qualifies owned operation, ten concurrent healthy outcomes and continuing care? | owned full-human capability and concurrent outcomes unestablished | Continue T14/T15, G6/G7 qualification and actual complete-cohort evidence; T13 closed only its bounded planning assessment, not ten-unit qualification. |
-| U08 | Which accepted tasks benefit from agent capacity or additional hardware, and what resources are actually available? | The 24–48 AI-hours/week figure remains an unverified owner estimate. This work found no evidence that extra GPU or compute is the current bottleneck; physical measurement resources and independent review are unidentified in this workspace. | Collect actual use/acceptance data in T07; buy compute only if a named accepted task has a measured compute limit. |
+| U08 | Which accepted tasks benefit from agent capacity or additional hardware, and what resources are actually available? | Five local software task types took 0.154572–0.230441 seconds per process (0.967892 seconds combined). No account usage or sum-agent-hour telemetry was exposed. The owner’s 24–48 AI-hours/week remains an unverified planning estimate; physical measurement and independent-review capacity remain unidentified. | Keep current compute allocation. Reopen only for a named accepted workload with a measured runtime/resume need or usage data showing a real account constraint; prioritize source-linked observations, independent review and physical measurement capability. |
 | U09 | Which development/acquisition route delivers owned maintainable equipment and actual operational control? | Initial route comparison complete, but ownership route is unselected; budget, jurisdiction, facility, quotes and available transfer rights remain unknown. Public fetaLife evidence describes later-fetal development, not a product availability offer. | Maintain owner-led requirements/control while keeping qualified component acquisition/licensing and co-development open; compare proposals only when scope, ownership, support and cost are documented. |
 | U10 | Which shared/dedicated allocations preserve identity, continuity and isolation under concurrent demand? | Conceptual allocation now requires one uniquely identified/contained trajectory per unit, with shared services modeled as common dependencies. Actual topology, measured loads, facility capability, fault propagation and ten-unit outcomes remain unknown. | Obtain a qualified dependency/load map and systems-reliability capability; then test identity, isolation, common-cause faults and simultaneous transition demand. Keep M15/M19 and G8 open. |
 | U11 | Can ten units satisfy independent developmental conditions with births on the same defined date? | The measurement contract is defined, but actual birth location/timezone, readiness criteria, ten-unit operation and common-date outcome are unselected/unestablished; no source-qualified ten-unit timing distribution was identified. | Select location/reference timezone before scoring; obtain qualified independent readiness criteria and actual complete-cohort timestamps. M20/G8 remain open until actual outcomes and review. |
@@ -134,6 +135,8 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | A06 | artifacts/usuda-terminal-development-cycle346/validated-terminal/receipt.json | matches |
 | A06 | artifacts/usuda-terminal-development-cycle346/strict-verification.json | matches |
 | A07 | USUDA_SOURCE_AUDIT_REPRODUCTION_2026-10-11.md | matches |
+| A08 | COMPUTE_CALIBRATION_T07_2026-10-11.md | matches |
+| A08 | COMPUTE_CALIBRATION_T07_MEASUREMENTS_2026-10-11.json | matches |
 | M01 | PROGRAM_PLAN.md | matches |
 | M01 | src/wombmodels/program_status.py | matches |
 | M03 | USUDA_SOURCE_AUDIT_REPRODUCTION_2026-10-11.md | matches |
@@ -151,6 +154,8 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | T03 | USUDA_SOURCE_AUDIT_REPRODUCTION_2026-10-11.md | matches |
 | T04 | EARLY_SUPPORT_LINKAGE_DECISION_2026-10-11.md | matches |
 | T05 | EARLY_SUPPORT_SOURCE_CHALLENGE_2026-10-11.md | matches |
+| T07 | COMPUTE_CALIBRATION_T07_2026-10-11.md | matches |
+| T07 | COMPUTE_CALIBRATION_T07_MEASUREMENTS_2026-10-11.json | matches |
 | T08 | OWNED_PLATFORM_OPTIONS_2026-10-11.md | matches |
 | T12 | artifacts/program-scope-revision-2026-10-11/scope_crosswalk.json | matches |
 | T12 | PROGRAM_PLAN.md | matches |
