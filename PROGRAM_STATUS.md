@@ -88,11 +88,11 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | T02 One existing-data eligibility decision | G1 | no | 6 | none |
 | T03 Question-specific source-audit reproduction | G1 | yes | 4 | none |
 | T04 Empirical result or minimal observation contract | G2 | no | 8 | none |
-| T05 Independent source and claim challenge | G1 | yes | 3 | none |
+| T05 Independent source and claim challenge | G1 | no | 3 | none |
 | T06 Unsent institutional contribution packet | G1 | no | 4 | T05 |
 | T07 Early compute calibration and conditional job design | G0 | yes | 4 | none |
-| T08 Immediate owned-platform and resource decision preparation | G1 | yes | 4 | none |
-| T09 Integrated portfolio and resource review | G1 | no | 3 | T05;T08 |
+| T08 Immediate owned-platform and resource decision preparation | G1 | no | 4 | none |
+| T09 Integrated portfolio and resource review | G1 | no | 3 | T05 |
 | T10 Additional trend-only gas abstracts | G1 | no | 2 | none |
 | T11 Expanded synthetic sweeps or GPU jobs | G1 | no | 2 | none |
 | T12 Owner completion requirements crosswalk | G0 | no | 3 | none |
@@ -105,19 +105,19 @@ This view checks pinned local evidence and task dependencies. It never advances 
 
 | ID | Question | Current evidence state | Next decision |
 | --- | --- | --- | --- |
-| U01 | Which functional allocations at the early exchange boundary can be distinguished by observations? | Hybrid remains a lead hypothesis; the architecture is unselected because current early-stage candidates do not identify shared-unit D/M/P relationships. | T05 source-first challenge; retain staged and synthetic comparators until a qualified same-unit discriminator changes allocation. |
-| U02 | Can an existing source identify the frozen quantity or claim with its hierarchy, clock and denominator? | Same-unit target question is ineligible in the eight imported candidate cards; group summaries require source-specific review and rights checking. | T05 challenge the bounded ruling; then use T08 to choose a data-access or qualified measurement capability without repeating the same public-route screen. |
-| U03 | Can appropriate early progression and required support be established and maintained in the same units? | No qualified same-unit early progression-plus-support result; the minimum observation contract is complete as planning evidence. | T05 challenge the contract; T08 prepares the data/facility/staff path. G2 remains not established. |
-| U04 | Which independent measurements distinguish adequate development from support proxies, fluid state or selection? | published group mismatch; individual alternatives unresolved | T05 challenges inference and required observations without selecting a biological intervention. |
+| U01 | Which functional allocations at the early exchange boundary can be distinguished by observations? | Architecture remains unselected. The provisional source challenge found no qualified same-unit early-stage D/M/P chain; its independent-review task remains held. | Keep staged and synthetic comparators; resume T05 only with a genuinely independent source/claim reviewer or materially new source-linked evidence. No author contact. |
+| U02 | Can an existing source identify the frozen quantity or claim with its hierarchy, clock and denominator? | The eight imported candidate cards cannot answer the same-unit target; this is a frozen local metadata result, not an exhaustive source census. Group summaries still require source/rights review. | Reopen only on a new qualifying locator, dataset/version or independent challenge; use the data contract to specify the exact missing records. |
+| U03 | Can appropriate early progression and required support be established and maintained in the same units? | No qualified same-unit early progression-plus-support result. The observation contract remains a planning requirement; the Song co-culture is an early comparator, not a full external trajectory. | Seek eligible source-linked measurements through a qualified capability route; do not move G2 without evidence. |
+| U04 | Which independent measurements distinguish adequate development from support proxies, fluid state or selection? | Source challenge revised LIPT1 to an endpoint-separation example: tracer uptake/transfer coexists with downstream metabolic/developmental defects at the study level, but not a continuous same-embryo D/M/P chain. Independent review pending. | Keep D, M and P distinct; obtain independent review without author contact or wait for materially new data. |
 | U05 | Are later support changes compatible with development and neonatal function across all starting units? | partial precedents; linked complete trajectory unavailable | Institutional stage/handoff contracts before claiming complete continuity. |
-| U06 | Who can take responsibility for the actual research pathway and intended use in an undecided jurisdiction? | unassessed; outreach not authorized | T06 unsent packet, T08 contribution/access/resource comparison; later owner decision. |
+| U06 | Who can take responsibility for the actual research pathway and intended use in an undecided jurisdiction? | Jurisdiction, facility and accountable research institution remain unknown; no outreach or commitment has occurred. | After location and funding constraints are chosen, compare qualified facilities and responsibility routes; keep any packet unsent until explicitly directed. |
 | U07 | What evidence qualifies owned operation, ten concurrent healthy outcomes and continuing care? | owned full-human capability and concurrent outcomes unestablished | G6/G7 qualification plus T13/T14/T15 and real observed outcomes. |
-| U08 | Which accepted tasks benefit from agent capacity or additional hardware, and what resources are actually available? | 24-48 aggregate agent-hours is an unverified owner estimate | T07 early calibration and conditional job design; T08 spending gate. |
-| U09 | Which development/acquisition route delivers owned maintainable equipment and actual operational control? | not selected; budget/resources undecided | T08 compares owner-led, component acquisition and co-development rights. |
+| U08 | Which accepted tasks benefit from agent capacity or additional hardware, and what resources are actually available? | The 24–48 AI-hours/week figure remains an unverified owner estimate. This work found no evidence that extra GPU or compute is the current bottleneck; physical measurement resources and independent review are unidentified in this workspace. | Collect actual use/acceptance data in T07; buy compute only if a named accepted task has a measured compute limit. |
+| U09 | Which development/acquisition route delivers owned maintainable equipment and actual operational control? | Initial route comparison complete, but ownership route is unselected; budget, jurisdiction, facility, quotes and available transfer rights remain unknown. Public fetaLife evidence describes later-fetal development, not a product availability offer. | Maintain owner-led requirements/control while keeping qualified component acquisition/licensing and co-development open; compare proposals only when scope, ownership, support and cost are documented. |
 | U10 | Which shared/dedicated allocations preserve identity, continuity and isolation under concurrent demand? | qualified loads and correlated failures unknown | T13 dependency assessment using existing bounded tools; qualified measurements later. |
 | U11 | Can ten units satisfy independent developmental conditions with births on the same defined date? | not established; event/timezone/readiness contract undefined | T14 defines outcome and required timing observations; later M20 tests actual outcomes. |
 | U12 | Which AI/robot tasks can be depended upon, and which longitudinal growth/learning/skill outcomes are achieved? | task-specific evidence only; intended full parenting and trait outcomes unestablished | T15 capability/authority/failure matrix and age-specific evaluation contract. |
-| U13 | Which actual measurement/lab/bench resources permit a prediction-to-observation redesign iteration? | Offline computer/schema replay is available; no accessible physical measurement facility, instrument feed, operating team or independent reviewer is identified in this workspace. | T08 turns the documented capability gap into owner-led, acquisition/licensing or co-development options; T16/M22 do not imply a biological feedback result. |
+| U13 | Which actual measurement/lab/bench resources permit a prediction-to-observation redesign iteration? | Workspace provides offline source and software analysis only. No accessible physical measurement facility, instrument feed, qualified operator, independent reviewer or committed funding is identified here; this does not establish absence outside the workspace. | Turn a named observation requirement into a facility/staff/instrument capability specification before quote or purchase; keep computer↔physical feedback as an open prerequisite. |
 
 ## Evidence integrity
 
@@ -146,6 +146,8 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | T02 | config/observations/lokshtanov_2026_terminal_candidate.json | matches |
 | T02 | config/observations/song_2026_postimplantation_survival_candidate.json | matches |
 | T04 | EARLY_SUPPORT_LINKAGE_DECISION_2026-10-11.md | matches |
+| T05 | EARLY_SUPPORT_SOURCE_CHALLENGE_2026-10-11.md | matches |
+| T08 | OWNED_PLATFORM_OPTIONS_2026-10-11.md | matches |
 | T12 | artifacts/program-scope-revision-2026-10-11/scope_crosswalk.json | matches |
 | T12 | PROGRAM_PLAN.md | matches |
 | T16 | EARLY_SUPPORT_LINKAGE_DECISION_2026-10-11.md | matches |
