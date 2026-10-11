@@ -256,7 +256,7 @@
       "evidence": [
         {
           "path": "PROGRAM_PLAN.md",
-          "sha256": "c59df3295ec53afb863c7f9beb0ea95c6454c0f81306d53d9b8c47d5c5f49bde"
+          "sha256": "4c23d5f459acbc34a910c1bd03b43ee3457773d959ef899aa2e443099e09413e"
         },
         {
           "path": "src/wombmodels/program_status.py",
@@ -648,7 +648,7 @@
       "title": "Owned concurrent outcomes and continuity",
       "question": "What evidence qualifies owned operation, ten concurrent healthy outcomes and continuing care?",
       "status": "owned full-human capability and concurrent outcomes unestablished",
-      "next_decision": "G6/G7 qualification plus T13/T14/T15 and real observed outcomes."
+      "next_decision": "Continue T14/T15, G6/G7 qualification and actual complete-cohort evidence; T13 closed only its bounded planning assessment, not ten-unit qualification."
     },
     {
       "id": "U08",
@@ -668,8 +668,8 @@
       "id": "U10",
       "title": "Ten-unit resource and shared failures",
       "question": "Which shared/dedicated allocations preserve identity, continuity and isolation under concurrent demand?",
-      "status": "qualified loads and correlated failures unknown",
-      "next_decision": "T13 dependency assessment using existing bounded tools; qualified measurements later."
+      "status": "Conceptual allocation now requires one uniquely identified/contained trajectory per unit, with shared services modeled as common dependencies. Actual topology, measured loads, facility capability, fault propagation and ten-unit outcomes remain unknown.",
+      "next_decision": "Obtain a qualified dependency/load map and systems-reliability capability; then test identity, isolation, common-cause faults and simultaneous transition demand. Keep M15/M19 and G8 open."
     },
     {
       "id": "U11",
@@ -1036,7 +1036,7 @@
         },
         {
           "path": "PROGRAM_PLAN.md",
-          "sha256": "c59df3295ec53afb863c7f9beb0ea95c6454c0f81306d53d9b8c47d5c5f49bde"
+          "sha256": "4c23d5f459acbc34a910c1bd03b43ee3457773d959ef899aa2e443099e09413e"
         }
       ],
       "actual_agent_hours": null,
@@ -1048,13 +1048,13 @@
       "gate_id": "G8",
       "uncertainty_id": "U10",
       "domain": "engineering",
-      "status": "ready",
+      "status": "complete",
       "depends_on": [
         "M01",
         "T12"
       ],
       "agent_hour_cap": 4,
-      "horizon": "near-term requirements/preparation; actual capability as qualified",
+      "horizon": "bounded engineering planning assessment completed 2026-10-11; reopen after qualified load/topology inputs or material design changes",
       "acceptance": "Compare shared/dedicated allocations, identity/configuration routing, contention/common failures and transition capacity using existing bounded tools; state unavailable loads and biological limits.",
       "decision_consequence": "Change a resource-isolation allocation or identify a precise required measurement.",
       "stop_rule": "One concrete topology question; no new toy expansion without a discriminator; cap four aggregate agent-hours.",
@@ -1063,9 +1063,14 @@
         "SYSTEM_DESIGN.md",
         "T01 contract when available"
       ],
-      "evidence": [],
+      "evidence": [
+        {
+          "path": "TEN_UNIT_DEPENDENCY_ASSESSMENT_2026-10-11.md",
+          "sha256": "fceb63fe95e797a30336bd6eebddc7149f7c566b2df141cd859976c3c7832708"
+        }
+      ],
       "actual_agent_hours": null,
-      "result": null
+      "result": "Planning only: selected per-unit identity/support boundaries as the candidate allocation; shared services remain explicit correlated dependencies requiring qualification. Replayed the existing one-unit dimensionless fault fixture; it cannot establish ten-unit capacity, physical reliability, biological limits or G8 outcomes. M15/M19 remain deferred."
     },
     {
       "id": "T14",
@@ -1191,6 +1196,13 @@
       "decision": "Complete initial T08 route preparation with owner-led requirements/control as baseline and acquisition/licensing or co-development as optional subsystem routes; make no purchase or route selection from unpriced, unqualified evidence.",
       "trigger": "Owner prioritizes owned equipment and earliest achievable progress; T08 initial options acceptance permits unknown prices and capabilities to remain explicit.",
       "review": "No quote, external engagement, facility commitment, equipment acquisition or completion forecast exists."
+    },
+    {
+      "id": "D07",
+      "date": "2026-10-11",
+      "decision": "Adopt per-unit identity, record and support-boundary isolation as the candidate ten-unit requirement; classify shared services and correlated faults explicitly. Close T13 only as planning, with physical qualification and G8 outcomes still unestablished.",
+      "trigger": "T13 comparison of dedicated/shared allocations and replay of the existing bounded one-unit power/fault fixture.",
+      "review": "Dimensionless software replay only; no physical loads, probabilities, biological limit or ten-unit capacity established."
     }
   ],
   "planning_calendar": {
