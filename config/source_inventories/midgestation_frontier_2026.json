@@ -1,30 +1,140 @@
 {
   "schema_version": 1,
-  "review_status": "candidate",
+  "review_status": "candidate source qualification; human scientific review pending",
   "human_review": "pending",
-  "inspected_on": "2026-10-09",
+  "inspected_on": "2026-10-11",
   "sources": [
     {
       "source_id": "lokshtanov-2026-v1-midgestation",
       "article_url": "https://doi.org/10.64898/2026.03.17.710314",
       "source_class": "preprint",
       "organism_species": "mouse",
-      "inspected_scope": "Initial API/institutional abstract inspection followed by selected Results, Discussion and captions from a rendered primary manuscript copy hosted by ResearchGate; original publisher text, methods, figures and supplements remain unqualified",
+      "inspected_scope": "Direct official bioRxiv v1 and supplement PDFs pinned locally; text-checked Abstract, Results, Discussion, Methods and Extended Data figure captions. Main Figure 1D/2D emb and n labels were visually transcribed; exact per-experiment outcome numerators and raw source data remain unqualified. The manuscript is explicitly marked not certified by peer review. Extended Data Figure 3D and 3G denominator labels were visually transcribed in Cycle 272; Figure 3D n-unit semantics remain undefined in its caption, while Figure 3G caption defines n as independent experiments.",
       "version": "1",
       "posted_on": "2026-03-18",
       "api_published_field": "NA",
       "source_interval_claim": "E6.5/E7.5 to approximately E12.5; separate starting intervals not pooled",
-      "source_metabolic_claim": "E10.5-E11.5 transition recapitulated ex utero without direct uterine/placental cues; partially environmentally responsive",
+      "source_metabolic_claim": "The abstract reports that the E10.5-E11.5 midgestational metabolic switch is recapitulated ex utero without direct uterine/placental cues; oxygen modulates its extent but is insufficient to induce it prematurely.",
+      "claim_scope_qualification": "Maternal/placental independence applies to the reported metabolic transition, not to every developmental function or to complete support. The source describes a small labyrinth portion and does not establish absence of all placental tissue.",
       "starting_state_limit": "after implantation",
-      "full_text_access": "Original text-tool retrieval failed and API-listed XML returned HTTP 429. Follow-up read selected rendered manuscript passages through the web tool; anonymous raw mirror request returned HTTP 403. No repeat request, raw-source hash or indexed-snippet substitution.",
+      "full_text_access": "Official static v1 PDF route succeeded on 2026-10-11; the web page reader itself returned 403 earlier. The direct official PDF is pinned and SHA-256 verified. This was ordinary access to a public publisher asset; no author contact or access-control workaround.",
       "rendered_copy_url": "https://www.researchgate.net/publication/403370800_Reconstituting_Mouse_Embryogenesis_Ex_Utero_from_Gastrulation_to_Fetal_Development_Reveals_Maternally_Independent_Metabolic_Programs",
       "rendered_copy_identity": "Matching DOI and 2026-03-18 v1 banner observed; copy authenticity and version integrity remain unqualified",
       "candidate_intake_path": "config/observations/lokshtanov_2026_terminal_candidate.json",
-      "terminal_findings_scope": "Qualitative narrative: late slowing, cardiac enlargement, pericardial edema, internal hemorrhage and necrosis. Exact unit incidence, event order and causal mechanism unqualified.",
-      "mechanism_status": "Author-attributed internal oxygen/nutrient delivery deficit; not independently identified here",
+      "terminal_findings_scope": "Qualitative author summaries directly checked against the official PDF: slower growth after E11.5; day-5.5 enlarged heart, pericardial edema, internal hemorrhage and internal-tissue necrosis. Exact unit incidence/event order remains unqualified.",
+      "mechanism_status": "Authors attribute terminal injury to inadequate oxygen/nutrient delivery to internal body regions; causal identification is not independently established.",
       "partial_placental_tissue": "Results lines 259-264 reports a small labyrinth portion with mostly absent junctional zone/decidua; selected placental bypass does not mean absence of all placental tissue",
-      "unqualified": ["starting/endpoint cohort denominators", "unit-linked attrition/adverse incidence", "same-unit identity", "terminal mechanism identification", "full dataset inventory", "original source bytes", "methods/figures/supplements", "copy authenticity and source-specific reuse"],
-      "ledger_promotion": "none"
+      "unqualified": [
+        "per-experiment normal-morphology numerator for each displayed denominator and underlying point percentages",
+        "unit-linked starting roster, attrition and adverse-event incidence",
+        "same-unit identity across destructive sampling and culture days",
+        "causal identification of the terminal injury",
+        "complete source-data inventory and exact public accession linkage",
+        "independent scientific review and journal peer-review status"
+      ],
+      "ledger_promotion": "none",
+      "primary_pdf_url": "https://www.biorxiv.org/content/10.64898/2026.03.17.710314v1.full.pdf",
+      "primary_pdf_path": "artifacts/mouse-ex-utero-frontier-2026-10-11/Lokshtanov_2026_bioRxiv_v1.pdf",
+      "primary_pdf_bytes": 12164920,
+      "primary_pdf_sha256": "55b9c2ceb31fd693a3d41e5b8b4ee83278dafb6f57de33fe2534bd48380a3e39",
+      "previous_rendered_copy_url": "https://www.researchgate.net/publication/403370800_Reconstituting_Mouse_Embryogenesis_Ex_Utero_from_Gastrulation_to_Fetal_Development_Reveals_Maternally_Independent_Metabolic_Programs",
+      "previous_rendered_copy_note": "Earlier selected copy had a matching DOI/date banner, but it is superseded as the intake source by the directly retrieved official PDF; no equivalence is inferred.",
+      "supplementary_asset_url": "https://www.biorxiv.org/content/biorxiv/early/2026/03/18/2026.03.17.710314/DC1/embed/media-1.pdf?download=true",
+      "supplementary_asset_path": "artifacts/mouse-ex-utero-frontier-2026-10-11/Lokshtanov_2026_bioRxiv_Supplement_v1.pdf",
+      "supplementary_asset_bytes": 25390341,
+      "supplementary_asset_sha256": "331dfd87f2708eb6a42896b305889abd85f3e8f76d21c1f68c287801d7d125e9",
+      "exact_denominator_transcription": "Cycle 271 visually transcribed all 46 reported emb/n label pairs from Figure 1D (E7.5 start) and Figure 2D (E6.5 start), preserving two no-bar platform/day states as not reported. Crosswalk: artifacts/mouse-ex-utero-frontier-2026-10-11/figure-1d-2d-denominator-crosswalk-cycle271.csv. Cycle 272 added 42 visually transcribed Extended Data Figure 3D/3G emb/n label pairs (36 strain/serum rows plus six independent-laboratory OxyStreamer rows); see artifacts/mouse-ex-utero-frontier-2026-10-11/extended-data-fig3d-g-strain-replication-cycle272.csv.",
+      "plot_interpretation": "emb is total embryos assessed; n is independent experiments; plotted percentages are experiment-level percentages summarized mean ± SEM. No numerator counts were transcribed and no pooled ratio or cross-day cohort closure is inferred.",
+      "supplement_route_screen": "The official supplementary-material tab links one PDF; its text exposes extended-data figures/captions, not a separate source-data workbook/table at this route. It references supplemental videos; no videos were downloaded or inspected. This is a bounded page-route result, not evidence of dataset absence.",
+      "strain_replication_crosswalk": {
+        "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/extended-data-fig3d-g-strain-replication-cycle272.csv",
+        "rows": 42,
+        "sha256": "3dae5f18d56ab2e4c6234f7b7ecd9eee803b06533c0ee203bed4bb5aa446c519",
+        "supplement_sha256": "331dfd87f2708eb6a42896b305889abd85f3e8f76d21c1f68c287801d7d125e9",
+        "caption_semantics": {
+          "fig3d": "The caption reports genotype/serum context but does not define the unit for n or separately define the denominator frame.",
+          "fig3g": "Caption defines emb as total embryos evaluated and n as independent experiments; identifies independent laboratory at EPFL, while panel label says LaManno lab OxyStreamer."
+        },
+        "normal_embryo_numerators_transcribed": false,
+        "pooled_rates_calculated": false,
+        "cross_day_identity_inferred": false
+      },
+      "strain_replication_scope": "Figure 3D compares six strain/serum panel conditions across six culture days; the CD1 × CD1 HAS/HCS comparison is reported as without evident differences in the caption. Figure 3G shows CD1 × CD1 at the LaManno lab OxyStreamer platform in an independent laboratory identified as EPFL. Figure 4D serum comparison has not been merged or reconciled with Figure 3D.",
+      "figure4d_serum_comparison": {
+        "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/extended-data-fig4d-serum-stage-cycle273.csv",
+        "sha256": "da9151cd772a3566fa472538a430cf87ca196e8e6f61f7d2b8feba6e5dd532f5",
+        "rows": 12,
+        "pdf_panel_page": 8,
+        "caption_pdf_page": 9,
+        "starting_cohort": "E6.5, according to primary Results lines 220-223",
+        "conditions": "HAS and HCS at culture days +1 through +6; caption names CD1 × CD1 or CD1 × B6D2F1 embryos but panel does not allocate plotted bars to genotype separately",
+        "n_semantics": "independent experiments, per Figure 4D caption",
+        "embryo_denominators_reported": false,
+        "qualitative_result": "Primary Results reports higher proper-development percentage with HCS after three culture days for E6.5 starts; it contrasts this with no evident serum difference in E7.5 starts. Separate cohort context resolves the apparent cross-panel mismatch.",
+        "numerators_or_raw_points_transcribed": false,
+        "pooled_rates_calculated": false,
+        "crosswalk_scope": "n labels only; not embryo denominator or risk-set reconstruction",
+        "candidate_record_id": "lokshtanov-e65-serum-stage-comparison",
+        "receipt_path": "artifacts/mouse-ex-utero-frontier-2026-10-11/serum-stage-qualification-cycle273.json",
+        "receipt_sha256": "edf627e38233e7c9bd6aee2130b1f2c425b8637c86e5d0b2261443168dda41f9",
+        "candidate_input_sha256": "212eadd990c6cc5016f93510e6a33a07b33dfc6d29831db210c742527f56f656"
+      },
+      "serum_stage_qualification": "Extended Data Figure 3D no-evident-difference statement concerns E7.5-start culture; Figure 4D and the primary Results comparison concern E6.5-start culture, with higher HCS proper-development percentage after three culture days. This is a stage-specific source report, not a contradiction or a pooled serum effect.",
+      "public_data_route_screen": {
+        "receipt_path": "artifacts/mouse-ex-utero-frontier-2026-10-11/public-data-route-screen-cycle274.json",
+        "receipt_sha256": "852d5ac5b050b90014d8e5e0c8584fca01e6278dd12b4fbf68076e46feaa571c",
+        "scope": "Official bioRxiv full-text/data/supplement tabs; bounded NCBI GEO GDS, BioProject and DataCite related-DOI queries.",
+        "publisher_outcome": "The full-text HTML exposes no explicit data-availability statement or machine-readable accession in the inspected markup. The official data tab returns the same single supplementary PDF; the supplement tab links that PDF only.",
+        "repository_outcome": "NCBI GDS author search returned 11 records whose titles/dates do not match the 2026 preprint; exact-title and DOI searches returned zero in GDS/BioProject, and the bounded DataCite related-identifier query returned zero.",
+        "interpretation_limit": "No separately linked Figure 4D source table or matching dataset was located in these routes. This does not establish global absence or exhaust all repositories.",
+        "candidate_sha256": "d7c690b1d9f101064a2f4322cfb71c0f8c251c49b3b16eaeb8c96a91b546ce72",
+        "validated": true,
+        "author_contacted": false
+      },
+      "publication_version_screen": {
+        "receipt_path": "artifacts/mouse-ex-utero-frontier-2026-10-11/publication-version-check-cycle275.json",
+        "receipt_sha256": "a71b111c3eac880b3410aacae808e9f6c6676e5286c0c04250c80ead4c613000",
+        "bioRxiv_versions": [
+          1
+        ],
+        "crossref_work_type": "posted-content",
+        "pubmed_exact_title_hits": 0,
+        "europepmc_exact_doi_hits": 0,
+        "orcid_matching_work_type": "preprint",
+        "later_journal_version_located": false,
+        "bounded_limit": "No matching version appeared in checked records; retitled or incompletely indexed publication is not ruled out."
+      },
+      "public_data_route_screen_cycle276": {
+        "receipt": "artifacts/mouse-ex-utero-frontier-2026-10-11/public-data-route-screen-cycle276.json",
+        "receipt_sha256": "0e8d56b41716cedc4371d72a75a54c3e1b48d6493e45073e074f2e678bbcf99d",
+        "candidate_sha256": "85ef274a9318f2be41fea85b1613eb5d3b2d265ce2f4db0d6e8bc212ee13e9dd",
+        "biostudies_exact_doi_hits": 0,
+        "biostudies_exact_title_hits": 0,
+        "biostudies_broad_unrelated_hits": 4,
+        "metabolights_doi_title_author_results": [
+          0,
+          0,
+          0
+        ],
+        "matching_accession_located": false,
+        "author_contacted": false
+      },
+      "public_data_route_screen_cycle277": {
+        "receipt": "artifacts/mouse-ex-utero-frontier-2026-10-11/public-data-route-screen-cycle277.json",
+        "receipt_sha256": "ee723355ea7de4de84672bcf61e540a28486ef53316b43f07bd3700efa169445",
+        "candidate_sha256": "11ac5a239c83be310d1f55b9c0519b1fa6aed9cf9bffb23780a949df5495ee9f",
+        "exact_dataset_record_located": false,
+        "institutional_fulltext_pointer_located": true,
+        "institutional_fulltext_verified": false,
+        "author_contacted": false
+      },
+      "public_data_route_screen_cycle278": {
+        "receipt": "artifacts/mouse-ex-utero-frontier-2026-10-11/public-data-route-screen-cycle278.json",
+        "receipt_sha256": "86cdcd0592507d337b49ebde981d163a1b5c1d5a82f8e7d5d8baf25acf074f61",
+        "candidate_sha256": "2e7d07f5b8cd850aba510682ff4cbf82f71df921950de66e2a2d6df3f3e81a08",
+        "metabolomics_workbench_target_record_located": false,
+        "author_contacted": false
+      }
     },
     {
       "source_id": "solmonson-2022-compartment-metabolism",
@@ -32,13 +142,62 @@
       "source_class": "peer_reviewed_animal",
       "organism_species": "mouse for the inspected developmental comparisons; human clinical branch excluded from this case",
       "model": "in-utero reference and source LIPT1-deficient comparison; no ex-utero machine validation",
-      "source_locators": ["Rapid and localized metabolism in utero", "Compartmentalized embryonic metabolism", "LIPT1 enables developmental metabolism", "Extended Data Figure 5d/e", "Data availability", "Code availability"],
+      "source_locators": [
+        "Rapid and localized metabolism in utero",
+        "Compartmentalized embryonic metabolism",
+        "LIPT1 enables developmental metabolism",
+        "Extended Data Figure 5d/e",
+        "Data availability",
+        "Code availability"
+      ],
       "quantity_limit": "Isotope-label entries and derived enrichment ratios; not absolute delivered mass or flux",
-      "review_requirements": ["native numeric lexemes and isotope-correction ancestry", "precursor enrichment and tissue pool context", "time versus developmental-stage conventions", "dam/litter/embryo and technical-repeat hierarchy", "source-pair authentication", "normalization-label/formula reconciliation"],
+      "review_requirements": [
+        "native numeric lexemes and isotope-correction ancestry",
+        "precursor enrichment and tissue pool context",
+        "time versus developmental-stage conventions",
+        "dam/litter/embryo and technical-repeat hierarchy",
+        "source-pair authentication",
+        "normalization-label/formula reconciliation"
+      ],
       "selected_workbook_findings": [
-        {"snapshot": "solmonson-source-fig2.xlsx", "sheet": "Figure 2b", "range": "A23:J32", "source_labels": {"C25": "WT47 E1 0", "I25": "WT47 E4 30"}, "decision": "different source embryo labels at these times; not a same-embryo longitudinal trajectory"},
-        {"snapshot": "solmonson-source-edfig5.xlsx", "sheet": "Extended Data 5d", "range": "B22:C23", "source_labels": {"B22": "Blood/Placenta sum", "B23": "Blood/Placenta m+6"}, "source_formulas": {"C22": "=C20/$C9", "C23": "=C19/$C8"}, "reference_locators": ["C1", "A2:B8", "C9", "C12", "A13:B19", "C20"], "decision": "inspected formula references compute placenta/blood; retain label/formula direction discrepancy"},
-        {"snapshot": "solmonson-source-edfig5.xlsx", "sheet": "Extended Data 5d", "range": "C33:C55", "decision": "candidate placenta/embryo source-pair labels; full hierarchy and developmental continuity unqualified"}
+        {
+          "snapshot": "solmonson-source-fig2.xlsx",
+          "sheet": "Figure 2b",
+          "range": "A23:J32",
+          "source_labels": {
+            "C25": "WT47 E1 0",
+            "I25": "WT47 E4 30"
+          },
+          "decision": "different source embryo labels at these times; not a same-embryo longitudinal trajectory"
+        },
+        {
+          "snapshot": "solmonson-source-edfig5.xlsx",
+          "sheet": "Extended Data 5d",
+          "range": "B22:C23",
+          "source_labels": {
+            "B22": "Blood/Placenta sum",
+            "B23": "Blood/Placenta m+6"
+          },
+          "source_formulas": {
+            "C22": "=C20/$C9",
+            "C23": "=C19/$C8"
+          },
+          "reference_locators": [
+            "C1",
+            "A2:B8",
+            "C9",
+            "C12",
+            "A13:B19",
+            "C20"
+          ],
+          "decision": "inspected formula references compute placenta/blood; retain label/formula direction discrepancy"
+        },
+        {
+          "snapshot": "solmonson-source-edfig5.xlsx",
+          "sheet": "Extended Data 5d",
+          "range": "C33:C55",
+          "decision": "candidate placenta/embryo source-pair labels; full hierarchy and developmental continuity unqualified"
+        }
       ],
       "reuse_context": "Article declares CC BY 4.0; source-specific supplemental reuse review pending",
       "author_code_url": "https://github.com/wencgu/nac",
@@ -46,17 +205,656 @@
       "ledger_promotion": "none"
     }
   ],
+  "public_repository_screen": {
+    "screened_on": "2026-10-11",
+    "target": "Locate public data directly linked to Lokshtanov et al. bioRxiv v1; no author contact.",
+    "previous_screen_receipt": "artifacts/mouse-ex-utero-frontier-2026-10-11/public-data-route-screen-cycle274.json",
+    "cycle276_receipt": "artifacts/mouse-ex-utero-frontier-2026-10-11/public-data-route-screen-cycle276.json",
+    "cycle276_receipt_sha256": "0e8d56b41716cedc4371d72a75a54c3e1b48d6493e45073e074f2e678bbcf99d",
+    "queries": [
+      {
+        "service": "EMBL-EBI BioStudies API",
+        "query": "exact DOI; exact title; broad author AND embryo; broad title terms",
+        "results": "Exact DOI/title zero. Two broad searches returned four older records; none matches title/DOI.",
+        "crosswalk": "artifacts/mouse-ex-utero-frontier-2026-10-11/biostudies-broad-query-crosswalk-cycle276.csv"
+      },
+      {
+        "service": "EMBL-EBI MetaboLights public study index",
+        "query": "exact DOI; exact title; author name",
+        "results": "Zero results for all three query terms."
+      }
+    ],
+    "interpretation_limit": "Bounded public-index search only. No target-linked accession/source-data file located; unrelated search hits disambiguated. Not proof of repository-wide or global absence."
+  },
   "snapshots": [
-    {"path": "artifacts/midgestation-frontier-2026-10-09/biorxiv-metadata.json", "bytes": 3836, "sha256": "17062e07ca0454c83033a092d3a461013544d3b80ec564bda315df2c27793744", "url": "https://api.biorxiv.org/details/biorxiv/10.64898/2026.03.17.710314"},
-    {"path": "artifacts/midgestation-frontier-2026-10-09/europepmc-search.json", "bytes": 1330, "sha256": "0e0f940f05a4bb1ae8e16d4494717343015d3fb5d99ea102c17e0d8af809d885", "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI%3A10.64898%2F2026.03.17.710314&format=json"},
-    {"path": "artifacts/midgestation-frontier-2026-10-09/janelia-abstract.html", "bytes": 63971, "sha256": "b4b5027b861efade3b180134276ededcfc47f5b477f6acb290741d0c24188586", "url": "https://www.janelia.org/publication/reconstituting-mouse-embryogenesis-ex-utero-from-gastrulation-to-fetal-development"},
-    {"path": "artifacts/midgestation-frontier-2026-10-09/solmonson-2022.xml", "bytes": 125988, "sha256": "43ba34e1df70dc95d0138981e3ab6e6fa66840d8d8408d86a54cea364f8f9f93", "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9007737/fullTextXML"},
-    {"path": "artifacts/midgestation-frontier-2026-10-09/solmonson-source-fig2.xlsx", "bytes": 69502, "sha256": "bdb58efd7ff814b09fa27838585dd166be7f7d12960fdc996829c580cf57feac", "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-022-04557-9/MediaObjects/41586_2022_4557_MOESM5_ESM.xlsx"},
-    {"path": "artifacts/midgestation-frontier-2026-10-09/solmonson-source-edfig5.xlsx", "bytes": 467463, "sha256": "3bb144e1aab46b649e61b06ba7b0d1a1f2d0a32eb44ff6864cbbffa537673377", "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-022-04557-9/MediaObjects/41586_2022_4557_MOESM10_ESM.xlsx"}
+    {
+      "path": "artifacts/midgestation-frontier-2026-10-09/biorxiv-metadata.json",
+      "bytes": 3836,
+      "sha256": "17062e07ca0454c83033a092d3a461013544d3b80ec564bda315df2c27793744",
+      "url": "https://api.biorxiv.org/details/biorxiv/10.64898/2026.03.17.710314"
+    },
+    {
+      "path": "artifacts/midgestation-frontier-2026-10-09/europepmc-search.json",
+      "bytes": 1330,
+      "sha256": "0e0f940f05a4bb1ae8e16d4494717343015d3fb5d99ea102c17e0d8af809d885",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=DOI%3A10.64898%2F2026.03.17.710314&format=json"
+    },
+    {
+      "path": "artifacts/midgestation-frontier-2026-10-09/janelia-abstract.html",
+      "bytes": 63971,
+      "sha256": "b4b5027b861efade3b180134276ededcfc47f5b477f6acb290741d0c24188586",
+      "url": "https://www.janelia.org/publication/reconstituting-mouse-embryogenesis-ex-utero-from-gastrulation-to-fetal-development"
+    },
+    {
+      "path": "artifacts/midgestation-frontier-2026-10-09/solmonson-2022.xml",
+      "bytes": 125988,
+      "sha256": "43ba34e1df70dc95d0138981e3ab6e6fa66840d8d8408d86a54cea364f8f9f93",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC9007737/fullTextXML"
+    },
+    {
+      "path": "artifacts/midgestation-frontier-2026-10-09/solmonson-source-fig2.xlsx",
+      "bytes": 69502,
+      "sha256": "bdb58efd7ff814b09fa27838585dd166be7f7d12960fdc996829c580cf57feac",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-022-04557-9/MediaObjects/41586_2022_4557_MOESM5_ESM.xlsx"
+    },
+    {
+      "path": "artifacts/midgestation-frontier-2026-10-09/solmonson-source-edfig5.xlsx",
+      "bytes": 467463,
+      "sha256": "3bb144e1aab46b649e61b06ba7b0d1a1f2d0a32eb44ff6864cbbffa537673377",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-022-04557-9/MediaObjects/41586_2022_4557_MOESM10_ESM.xlsx"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/Lokshtanov_2026_bioRxiv_v1.pdf",
+      "bytes": 12164920,
+      "sha256": "55b9c2ceb31fd693a3d41e5b8b4ee83278dafb6f57de33fe2534bd48380a3e39",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.03.17.710314v1.full.pdf"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/primary-pdf-qualification-cycle270.json",
+      "bytes": 4928,
+      "sha256": "8b8d14ad5d81fb850f29f98cdc930938efd31370bd184cba6c0d50eeec20829a",
+      "url": "https://doi.org/10.64898/2026.03.17.710314"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/Lokshtanov_2026_bioRxiv_Supplement_v1.pdf",
+      "bytes": 25390341,
+      "sha256": "331dfd87f2708eb6a42896b305889abd85f3e8f76d21c1f68c287801d7d125e9",
+      "url": "https://www.biorxiv.org/content/biorxiv/early/2026/03/18/2026.03.17.710314/DC1/embed/media-1.pdf?download=true"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/figure-1d-2d-denominator-crosswalk-cycle271.csv",
+      "bytes": 19698,
+      "sha256": "a4c3d7185a8bd21eff0c9baa5b5a981527f0c330dee53c43cd7d814c94b86e5e",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.03.17.710314v1.full.pdf"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/denominator-coverage-cycle271.json",
+      "bytes": 5735,
+      "sha256": "4181c3e6ee66f36b678fac56f430d94654df6c5eccebdd5ee6febb7e9246ab05",
+      "url": "https://doi.org/10.64898/2026.03.17.710314"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/extended-data-fig3d-g-strain-replication-cycle272.csv",
+      "bytes": 15524,
+      "sha256": "3dae5f18d56ab2e4c6234f7b7ecd9eee803b06533c0ee203bed4bb5aa446c519",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.03.17.710314v1.supplementary-material"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/strain-replication-cycle272.json",
+      "bytes": 4986,
+      "sha256": "f4230824e37ae3f1841f17b923d1273501b43495d502ccfd5e74214e92d957ee",
+      "url": "https://doi.org/10.64898/2026.03.17.710314"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/extended-data-fig4d-serum-stage-cycle273.csv",
+      "bytes": 6263,
+      "sha256": "da9151cd772a3566fa472538a430cf87ca196e8e6f61f7d2b8feba6e5dd532f5",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.03.17.710314v1.supplementary-material"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/serum-stage-qualification-cycle273.json",
+      "bytes": 5283,
+      "sha256": "edf627e38233e7c9bd6aee2130b1f2c425b8637c86e5d0b2261443168dda41f9",
+      "url": "https://doi.org/10.64898/2026.03.17.710314"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/serum-stage-qualification-cycle273.json",
+      "bytes": 5283,
+      "sha256": "edf627e38233e7c9bd6aee2130b1f2c425b8637c86e5d0b2261443168dda41f9",
+      "url": "https://doi.org/10.64898/2026.03.17.710314"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/biorxiv-full-text-cycle274.html",
+      "bytes": 546369,
+      "sha256": "6617f72316a8d4d20d3ae72b70a3668f01d77cf9eee4da64ac48e37526f1a3fb",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.03.17.710314v1.full"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/biorxiv-data-tab-cycle274.json",
+      "bytes": 5885,
+      "sha256": "5ae627e6984f7006d85bd503c27174939b629a9b7e243e7a330e4208ba347416",
+      "url": "https://www.biorxiv.org/panels_ajax_tab/biorxiv_tab_data/node:5322369/1"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/biorxiv-supplement-tab-cycle274.html",
+      "bytes": 199519,
+      "sha256": "535ffc9de350ded08e4be2555f335a9cb31083f8c70dab1d6815af192d4ea808",
+      "url": "https://www.biorxiv.org/content/10.64898/2026.03.17.710314v1.supplementary-material"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/ncbi-gds-author-search-cycle274.json",
+      "bytes": 415,
+      "sha256": "bccc3dc544ea88d64303d87d22eb0d307b36ac2f6e2f59b0c3c25139b9891794",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=gds&term=Lokshtanov%5BAuthor%5D&retmode=json&retmax=100"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/ncbi-gds-author-results-esummary-cycle274.json",
+      "bytes": 38198,
+      "sha256": "70cfc2b793c07a7d8d57769daaeac6a71a4c3f0c8a7ec20d51dae7602bf64e4f",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=gds&id=<author-query-results>&retmode=json"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/ncbi-gds-exact-title-search-cycle274.json",
+      "bytes": 373,
+      "sha256": "ab8ac2ffed3ff049854faaaf17b999ca4a57ae83c104a97badecf1da7b83d560",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=gds&term=%22Reconstituting%20Mouse%20Embryogenesis%20Ex%20Utero%22%5BTitle%5D&retmode=json&retmax=100"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/ncbi-bioproject-doi-search-cycle274.json",
+      "bytes": 396,
+      "sha256": "c7bd0f8dffe4e3e9bf845470a65a111d943c0f9f73162737c72a75f0c77d8316",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=bioproject&term=10.64898%2F2026.03.17.710314%5BAll%20Fields%5D&retmode=json&retmax=100"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/ncbi-gds-doi-search-cycle274.json",
+      "bytes": 396,
+      "sha256": "c7bd0f8dffe4e3e9bf845470a65a111d943c0f9f73162737c72a75f0c77d8316",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=gds&term=10.64898%2F2026.03.17.710314%5BAll%20Fields%5D&retmode=json&retmax=100"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/ncbi-bioproject-author-embryo-search-cycle274.json",
+      "bytes": 373,
+      "sha256": "26d104fb81cef2fff7703bf4967201294da6effa3dff9ae4c44957193555b488",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=bioproject&term=Lokshtanov%20AND%20embryo&retmode=json&retmax=100"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/datacite-related-doi-search-cycle274.json",
+      "bytes": 204,
+      "sha256": "66f8767796637a7a0c031709b085e4892ec5b4cd0922be664d2de86dfe09c03c",
+      "url": "https://api.datacite.org/dois?query=relatedIdentifiers.relatedIdentifier%3A10.64898%2F2026.03.17.710314&page%5Bsize%5D=100"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/ncbi-gds-author-search-crosswalk-cycle274.csv",
+      "bytes": 2734,
+      "sha256": "9b2aaca712d53cc0cf9ddc0a688d101143ada5d36fc9a2d4363432276e073662",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=gds&id=<author-query-results>&retmode=json"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/public-data-route-screen-cycle274.json",
+      "bytes": 8136,
+      "sha256": "852d5ac5b050b90014d8e5e0c8584fca01e6278dd12b4fbf68076e46feaa571c",
+      "url": "https://doi.org/10.64898/2026.03.17.710314"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/biorxiv-doi-history-cycle275.json",
+      "bytes": 3839,
+      "sha256": "0f2488178086d5f391bf47763c0204edea198416ecb7f950207cfe3524d39f83",
+      "url": "https://api.biorxiv.org/details/biorxiv/10.64898/2026.03.17.710314"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/crossref-exact-doi-cycle275.json",
+      "bytes": 26671,
+      "sha256": "11b7158672d07998db2bd88a8504fc2510b251b6bc33aac861d941cf51c66bec",
+      "url": "https://api.crossref.org/works/10.64898/2026.03.17.710314"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/crossref-title-author-cycle275.json",
+      "bytes": 137773,
+      "sha256": "56cda67675c7ffe75be2745d5072d8b2088de29442f747be6a8c07dc18b4ac9e",
+      "url": "https://api.crossref.org/works?query.bibliographic=Reconstituting%20Mouse%20Embryogenesis%20Ex%20Utero%20from%20Gastrulation%20to%20Fetal%20Development%20Reveals%20Maternally%20Independent%20Metabolic%20Programs&query.author=Lokshtanov&rows=20"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/pubmed-exact-title-cycle275.json",
+      "bytes": 549,
+      "sha256": "76edab40aeb0c76b1ddb46df55568f3c610a3248021d7d2e4f2b8668d7edcca7",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=%22Reconstituting%20Mouse%20Embryogenesis%20Ex%20Utero%20from%20Gastrulation%20to%20Fetal%20Development%20Reveals%20Maternally%20Independent%20Metabolic%20Programs%22%5BTitle%5D&retmode=json&retmax=100"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/pubmed-author-title-2026-cycle275.json",
+      "bytes": 826,
+      "sha256": "0b410aa21e715b4bd13759f584bc4a562c7f5142e003424b565c428622217957",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pubmed&term=Lokshtanov%5BAuthor%5D%20AND%20%28ex%20utero%20OR%20embryogenesis%29%20AND%202026%5Bdp%5D&retmode=json&retmax=100"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/pubmed-result-41889975-cycle275.json",
+      "bytes": 2669,
+      "sha256": "625a0d2f2ba6eecf303de4fe355e4f74126918aa093d0302b6824ccfa35548fe",
+      "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=pubmed&id=41889975&retmode=json"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/europepmc-exact-doi-cycle275.json",
+      "bytes": 199,
+      "sha256": "a37cf68dc4a175adedf74f1875c9e4ddef8fd2c9f8808a934db436038fd4c855",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID%3A10.64898%2F2026.03.17.710314&format=json"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/europepmc-author-title-2026-cycle275.json",
+      "bytes": 278,
+      "sha256": "4a48525650508cd40b4ecd9bf7edb62fe37273eeac5e7dd20076e0cf0eb45d86",
+      "url": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=AUTH_LAST%3ALokshtanov%20AND%20TITLE%3A%22Reconstituting%20Mouse%20Embryogenesis%22%20AND%20FIRST_PDATE%3A%5B2026-01-01%20TO%202026-12-31%5D&format=json"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/orcid-works-cycle275.json",
+      "bytes": 60511,
+      "sha256": "74d91e3032268f2179c6b93c64202311ad473a22da568a76273359280f16498f",
+      "url": "https://pub.orcid.org/v3.0/0000-0002-6248-1001/works"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/publication-version-check-cycle275.json",
+      "bytes": 10638,
+      "sha256": "1455fc0d148caf09d0762cc7315eb3d635e40267cbbc912d89a23c2d3a12bac1",
+      "url": "https://doi.org/10.64898/2026.03.17.710314"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/biostudies-author-embryo-crosswalk-cycle276.csv",
+      "bytes": 1015,
+      "sha256": "a43f2ad31062f4fdf05c522cb16e501a08edf01e2416ea183bec667fc97c3015",
+      "url": "https://www.ebi.ac.uk/metabolights/ws3/public/v2/public-study-index"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/biostudies-author-embryo-search-cycle276.json",
+      "bytes": 2672,
+      "sha256": "00b6a8a7d80bb59978d67c71bde5a275ab220570fdb54e637ce6f973f73070bb",
+      "url": "https://www.ebi.ac.uk/biostudies/api/v1/search?query=Lokshtanov+AND+embryo&pageSize=100"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/biostudies-broad-query-crosswalk-cycle276.csv",
+      "bytes": 1714,
+      "sha256": "cef88d6e7ebdf6073d7a1a5ca7b87ab838cb5e84608a6715bdf28e1fe5ff1805",
+      "url": "https://www.ebi.ac.uk/biostudies/api/v1/search"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/biostudies-doi-search-cycle276.json",
+      "bytes": 759,
+      "sha256": "eb69d825de7632d17d0eb837b17c1112d414582fcc8947d3d0f3e346ad331662",
+      "url": "https://www.ebi.ac.uk/biostudies/api/v1/search?query=%2210.64898%2F2026.03.17.710314%22&pageSize=100"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/biostudies-title-search-cycle276.json",
+      "bytes": 832,
+      "sha256": "b3343184097ba9ad4ba1f49f976d8805c9b997167311176bf885482482c59653",
+      "url": "https://www.ebi.ac.uk/biostudies/api/v1/search?query=%22Reconstituting+Mouse+Embryogenesis+Outside+the+Womb%22&pageSize=100"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/biostudies-title-terms-search-cycle276.json",
+      "bytes": 7121,
+      "sha256": "9e960fe39295cf1e5d0c597b08ad2e687bf10a38dc46e2951c1f58a2cf17c71b",
+      "url": "https://www.ebi.ac.uk/biostudies/api/v1/search?query=Reconstituting+AND+Mouse+AND+Embryogenesis&pageSize=100"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/metabolights-author-search-cycle276.json",
+      "bytes": 872,
+      "sha256": "75784bc494891d26e582a3efd71a892a4526e947ad9e12555f4207d8c08ea28f",
+      "url": "https://www.ebi.ac.uk/metabolights/ws3/public/v2/public-study-index/advanced-search?include_all_ids=true"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/metabolights-doi-search-cycle276.json",
+      "bytes": 888,
+      "sha256": "9cf5ef79bdc8d3c731c0485e76c38e09a5eb41643947ad4afd7976c8ededdab5",
+      "url": "https://www.ebi.ac.uk/metabolights/ws3/public/v2/public-study-index/advanced-search?include_all_ids=true"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/metabolights-public-fields-cycle276.json",
+      "bytes": 40099,
+      "sha256": "9173de17b8eab6fc06b77924b7cd8a428210c04b31d8bc6ffff487a449ce57cc",
+      "url": "https://www.ebi.ac.uk/metabolights/ws3/public/v2/public-study-index/advanced-search/fields"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/metabolights-title-search-cycle276.json",
+      "bytes": 913,
+      "sha256": "5421479a9e1323a01a95b1ecc1ee6aaa3428bb6be067fee4ae94ed515b1aa222",
+      "url": "https://www.ebi.ac.uk/metabolights/ws3/public/v2/public-study-index/advanced-search?include_all_ids=true"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/public-data-route-screen-cycle276.json",
+      "bytes": 10745,
+      "sha256": "0e8d56b41716cedc4371d72a75a54c3e1b48d6493e45073e074f2e678bbcf99d",
+      "url": "https://www.ebi.ac.uk/biostudies/api/v1/search"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/epfl-infoscience-bitstream-route-cycle277.json",
+      "bytes": 331,
+      "sha256": "b8db6f156542d2804bbcf59afaf33797733d8e942003bdf6b1a48953118c6e49",
+      "url": "https://infoscience.epfl.ch/bitstreams/fbb14da5-fbe3-421a-b122-baabf5a85dd0/download"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/epfl-infoscience-record-route-cycle277.json",
+      "bytes": 289,
+      "sha256": "24841b8f3591706730e3e7c5d34716f06bb7c47a3faebb1daed95234e56b8c4d",
+      "url": "https://infoscience.epfl.ch/records/262248"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/figshare-author-search-cycle277.json",
+      "bytes": 268,
+      "sha256": "7dae1f1c0bf631c1c72774f3888e24b7861e23947bec3839862b816a465f5af4",
+      "url": "https://api.figshare.com/v2/articles/search"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/figshare-doi-search-cycle277.json",
+      "bytes": 277,
+      "sha256": "4e9533edf345af425e99cd6fe5d5b15a830037375426a66143c6cee3340c46e7",
+      "url": "https://api.figshare.com/v2/articles/search"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/figshare-title-search-crosswalk-cycle277.csv",
+      "bytes": 3152,
+      "sha256": "55dd5d0f8aba11efbdd76ea48014ee89d3b535fcce334ea652b3eb415846a851",
+      "url": ""
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/figshare-title-search-cycle277.json",
+      "bytes": 7483,
+      "sha256": "b93672e4cce593de40cba0b38d1ec8878134776803f116c08c92826fc04267bc",
+      "url": "https://api.figshare.com/v2/articles/search"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/github-author-repository-search-cycle277.json",
+      "bytes": 410,
+      "sha256": "373bb2bce1fc5fdda070c4e3d23f0f40cb9720cdde07fac01fd24f98e2401ba2",
+      "url": "https://api.github.com/search/repositories?q=Lokshtanov+embryo&per_page=100"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/github-title-repository-search-cycle277.json",
+      "bytes": 454,
+      "sha256": "fad145142cf33f57805592b4374372e980fb28cbafd87062cab0f7e3bf44a897",
+      "url": "https://api.github.com/search/repositories?q=%22Reconstituting+Mouse+Embryogenesis%22&per_page=100"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/openaire-dataset-doi-search-cycle277.json",
+      "bytes": 881,
+      "sha256": "91a82ea3634fe670ced4cc45366414e1ee73778a486e3e0973646ccff8bc9750",
+      "url": "https://api.openaire.eu/search/datasets?doi=10.64898%2F2026.03.17.710314&format=json"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/openaire-publication-doi-search-cycle277.json",
+      "bytes": 59666,
+      "sha256": "d4a77b80edbdb5f5b6563ad7d16616981ba63d0a0476a95225c8aa0794b62d49",
+      "url": "https://api.openaire.eu/search/publications?doi=10.64898%2F2026.03.17.710314&format=json"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/zenodo-author-search-cycle277.json",
+      "bytes": 981,
+      "sha256": "58b65a003461e0413f5360bfd803121df86c15a948f7c004e19db7279ffb9206",
+      "url": "https://zenodo.org/api/records?q=Lokshtanov+AND+embryo&size=25"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/zenodo-doi-search-cycle277.json",
+      "bytes": 377,
+      "sha256": "f8049331c3b82edb2006d26fe3b4bf3331bb43730550a611ab5df87252cd984f",
+      "url": "https://zenodo.org/api/records?q=10.64898/2026.03.17.710314&size=25"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/zenodo-title-search-cycle277.json",
+      "bytes": 1036,
+      "sha256": "94049351f28a55811a972cf5d56e8c65d0a01d794979d9c289b6aa9f13ec07f8",
+      "url": "https://zenodo.org/api/records?q=%22Reconstituting+Mouse+Embryogenesis%22&size=25"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/public-data-route-screen-cycle277.json",
+      "bytes": 6331,
+      "sha256": "ee723355ea7de4de84672bcf61e540a28486ef53316b43f07bd3700efa169445",
+      "url": "https://api.openaire.eu/search/publications?doi=10.64898%2F2026.03.17.710314&format=json"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/metabolomics-workbench-author-aguilera-cycle278.json",
+      "bytes": 198,
+      "sha256": "da37ded3c7c29bea953bfd59c99fcb286e2f595d418551e1911394b3bf0241df",
+      "url": "https://www.metabolomicsworkbench.org/rest/study/last_name/Aguilera/summary"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/metabolomics-workbench-author-lokshtanov-cycle278.json",
+      "bytes": 200,
+      "sha256": "874586a1292e185dcc7918920ba752cb4bab7c1877031b8ce74c7fc13c387269",
+      "url": "https://www.metabolomicsworkbench.org/rest/study/last_name/Lokshtanov/summary"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/metabolomics-workbench-author-maza-cycle278.json",
+      "bytes": 194,
+      "sha256": "031b1d026257dd9b06da2ba18f9568709c03ea854de1ccd042e1968849e64d7b",
+      "url": "https://www.metabolomicsworkbench.org/rest/study/last_name/Maza/summary"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/metabolomics-workbench-author-solmonson-cycle278.json",
+      "bytes": 199,
+      "sha256": "ecf1e37a1a962a8421387448d1428aa0b0aae09c9962ca13cc63c78a0a85d232",
+      "url": "https://www.metabolomicsworkbench.org/rest/study/last_name/Solmonson/summary"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/metabolomics-workbench-broad-title-crosswalk-cycle278.csv",
+      "bytes": 2343,
+      "sha256": "10513b3a39a713c038a3e4eccce69b92d0ed8d851cab91df3497d15468597213",
+      "url": ""
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/metabolomics-workbench-title-broad-mouse-embryo-cycle278.json",
+      "bytes": 5406,
+      "sha256": "1fa06274cb2df8094702090ab2a54616819085a00f95bf42fa7297ec69667bc5",
+      "url": "https://www.metabolomicsworkbench.org/rest/study/study_title/mouse%20embryo/summary"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/metabolomics-workbench-title-core-cycle278.json",
+      "bytes": 230,
+      "sha256": "a668c959d1e0cccf70009ce00912fe111914b5be9a9a79fee4ebf7a37334e9d5",
+      "url": "https://www.metabolomicsworkbench.org/rest/study/study_title/Reconstituting%20Mouse%20Embryogenesis/summary"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/metabolomics-workbench-title-ex-utero-cycle278.json",
+      "bytes": 202,
+      "sha256": "190cd5f20f1a684c0641a682f3147dbcca50e14eb059b085e64f54773fecd66e",
+      "url": "https://www.metabolomicsworkbench.org/rest/study/study_title/ex%20utero/summary"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/metabolomics-workbench-title-full-cycle278.json",
+      "bytes": 352,
+      "sha256": "04636932d1a91118ae184d94a125b8d1c70457a4fc14940ab7e160c35a614235",
+      "url": "https://www.metabolomicsworkbench.org/rest/study/study_title/Reconstituting%20Mouse%20Embryogenesis%20Ex%20Utero%20from%20Gastrulation%20to%20Fetal%20Development%20Reveals%20Maternally%20Independent%20Metabolic%20Programs/summary"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/metabolomics-workbench-title-gastrulation-cycle278.json",
+      "bytes": 204,
+      "sha256": "213d6cba3c988eb20d7f51b50be4dbb1364e8294c2c369d6e0890267567aff28",
+      "url": "https://www.metabolomicsworkbench.org/rest/study/study_title/gastrulation/summary"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/metabolomics-workbench-title-metabolic-program-cycle278.json",
+      "bytes": 239,
+      "sha256": "1c256a0bb3bf2dc40f6bd2972ef7a5409a09bb0be8927dba118081930888451d",
+      "url": "https://www.metabolomicsworkbench.org/rest/study/study_title/maternally%20independent%20metabolic%20programs/summary"
+    },
+    {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/public-data-route-screen-cycle278.json",
+      "bytes": 7096,
+      "sha256": "86cdcd0592507d337b49ebde981d163a1b5c1d5a82f8e7d5d8baf25acf074f61",
+      "url": "https://www.metabolomicsworkbench.org/tools/MWRestAPIv1.2.pdf"
+    }
   ],
   "snapshot_hash_scope": "observed local retrievals, not universal publisher revisions",
   "workbook_operation": "read_only; no modification or export",
   "biological_fit_performed": false,
   "observation_intake_promotion": "none; quantity and hierarchy qualification pending",
-  "full_human_gestation_claim": "unestablished"
+  "full_human_gestation_claim": "unestablished",
+  "primary_source_pdf_review": {
+    "reviewed_on": "2026-10-11",
+    "source_url": "https://www.biorxiv.org/content/10.64898/2026.03.17.710314v1.full.pdf",
+    "version": "bioRxiv v1, posted 2026-03-18",
+    "peer_review_status": "The PDF states the manuscript was not certified by peer review.",
+    "local_path": "artifacts/mouse-ex-utero-frontier-2026-10-11/Lokshtanov_2026_bioRxiv_v1.pdf",
+    "bytes": 12164920,
+    "sha256": "55b9c2ceb31fd693a3d41e5b8b4ee83278dafb6f57de33fe2534bd48380a3e39",
+    "pdf_pages": 37,
+    "text_reviewed_pages": [
+      2,
+      5,
+      6,
+      7,
+      8,
+      9,
+      18,
+      22,
+      23
+    ],
+    "verified_scope": [
+      {
+        "claim": "The E7.5-start cohort was cultured from E7.5 to a maximum reported morphology of approximately E12.5 after 5.5 culture days; about 48-49 somites and Theiler stage 20.",
+        "locator": "Results, printed lines 171-179; PDF page 6."
+      },
+      {
+        "claim": "Embryos retaining an intact yolk sac did not develop beyond culture day 5. The additional ~12 hours used opened yolk sac tissue while preserving umbilical vascular continuity.",
+        "locator": "Results, printed lines 153-159; PDF page 5."
+      },
+      {
+        "claim": "The authors report approximately 10-20% proper morphological development at 5.5 culture days across mouse strains; Figure 1D states that embryo and independent-experiment denominators are plotted, but exact values were not transcribed here.",
+        "locator": "Results, printed lines 171-186; Figure 1 caption, PDF page 22, lines 681-684."
+      },
+      {
+        "claim": "At day 5.5 the authors report enlarged heart, pericardial edema, internal hemorrhage and necrosis of internal tissues, with their oxygen/nutrient explanation preserved as an author-attributed mechanism.",
+        "locator": "Results, printed lines 181-186; PDF page 6."
+      },
+      {
+        "claim": "The separate E6.5-start cohort reached approximately E11.75 after six culture days; the final day was reported at 12-18% proper morphology, with a 4-6 somite developmental delay. It is not pooled with E7.5-start embryos.",
+        "locator": "Results, printed lines 207-229; PDF page 7."
+      },
+      {
+        "claim": "The paper reports ex-vivo ovarian development from isolated cultured-embryo gonads to secondary follicles, but not a whole cultured embryo live birth or same-animal postnatal follow-up.",
+        "locator": "Results, printed lines 265-274; PDF pages 8-9."
+      }
+    ],
+    "limits": [
+      "Morphological normality is the paper-defined scoring outcome, not a comprehensive healthy-output or later-life assessment.",
+      "The reported stage extension beyond day 5 involves opening yolk sac tissue; continuity is vascularly maintained but the intact-yolk-sac configuration is not.",
+      "Metabolic maternal/placental independence does not establish independence of all developmental support functions.",
+      "The preprint and mouse data do not establish human ectogenesis or complete gestation.",
+      "Exact per-experiment normal embryo numerators, raw percentages/source tables and unit-linked attrition remain unreported in the inspected figure labels; the 46 denominator pairs only describe assessment coverage by timepoint/platform."
+    ],
+    "candidate_intake": "config/observations/lokshtanov_2026_terminal_candidate.json",
+    "review_status": "candidate; local human review pending",
+    "ledger_promotion": "none",
+    "candidate_input_sha256": "685c1754f7be3e300c54fd25c8cf7956256f68e9ae3733d2d7a99f654c059388",
+    "candidate_record_count": 12,
+    "validation": "validate-observations passed; primary PDF and supplement hashes verified; human review pending",
+    "figures_visually_reviewed": [
+      "Figure 1D, printed PDF page 21",
+      "Figure 2D, printed PDF page 23"
+    ],
+    "exact_denominator_crosswalk": {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/figure-1d-2d-denominator-crosswalk-cycle271.csv",
+      "reported_pairs": 46,
+      "unshown_platform_day_pairs": 2,
+      "normal_embryo_numerators_added": false,
+      "pooled_rates_calculated": false
+    },
+    "supplemental_pdf": {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/Lokshtanov_2026_bioRxiv_Supplement_v1.pdf",
+      "url": "https://www.biorxiv.org/content/biorxiv/early/2026/03/18/2026.03.17.710314/DC1/embed/media-1.pdf?download=true",
+      "bytes": 25390341,
+      "sha256": "331dfd87f2708eb6a42896b305889abd85f3e8f76d21c1f68c287801d7d125e9",
+      "pages": 37,
+      "route_result": "Official supplementary tab links the PDF; text/captions inspected; no separate source-data table was found in this route."
+    },
+    "cohort_coverage_record_count": 88,
+    "latest_candidate_input_sha256": "6d628c248929e0f5de0c47c18173d73667dcb2ce2dae70c4c6e2490a9c2db128",
+    "strain_replication_crosswalk": {
+      "path": "artifacts/mouse-ex-utero-frontier-2026-10-11/extended-data-fig3d-g-strain-replication-cycle272.csv",
+      "rows": 42,
+      "supplement_pdf_page": 6,
+      "caption_pdf_page": 7,
+      "fig3d_rows": 36,
+      "fig3g_rows": 6,
+      "source_data_numerators_added": false
+    },
+    "strain_replication_review": {
+      "receipt": "artifacts/mouse-ex-utero-frontier-2026-10-11/strain-replication-cycle272.json",
+      "receipt_sha256": "f4230824e37ae3f1841f17b923d1273501b43495d502ccfd5e74214e92d957ee",
+      "crosswalk_path": "artifacts/mouse-ex-utero-frontier-2026-10-11/extended-data-fig3d-g-strain-replication-cycle272.csv",
+      "crosswalk_sha256": "3dae5f18d56ab2e4c6234f7b7ecd9eee803b06533c0ee203bed4bb5aa446c519",
+      "rows": 42,
+      "fig3d_rows": 36,
+      "fig3g_rows": 6,
+      "candidate_input_sha256": "9fdca5f56f8d6b5580bfbe318c5ecea09a4a34f4c1eab715db22ad9d6c100d69",
+      "source_file_verification_status": "complete"
+    },
+    "serum_stage_qualification": {
+      "record_id": "lokshtanov-e65-serum-stage-comparison",
+      "figure4d_crosswalk": "artifacts/mouse-ex-utero-frontier-2026-10-11/extended-data-fig4d-serum-stage-cycle273.csv",
+      "crosswalk_sha256": "da9151cd772a3566fa472538a430cf87ca196e8e6f61f7d2b8feba6e5dd532f5",
+      "receipt": "artifacts/mouse-ex-utero-frontier-2026-10-11/serum-stage-qualification-cycle273.json",
+      "receipt_sha256": "edf627e38233e7c9bd6aee2130b1f2c425b8637c86e5d0b2261443168dda41f9",
+      "candidate_input_sha256": "212eadd990c6cc5016f93510e6a33a07b33dfc6d29831db210c742527f56f656",
+      "candidate_record_count": 12,
+      "embryo_denominators_added": false
+    },
+    "public_data_route_screen": {
+      "receipt": "artifacts/mouse-ex-utero-frontier-2026-10-11/public-data-route-screen-cycle274.json",
+      "sha256": "852d5ac5b050b90014d8e5e0c8584fca01e6278dd12b4fbf68076e46feaa571c",
+      "candidate_input_sha256": "d7c690b1d9f101064a2f4322cfb71c0f8c251c49b3b16eaeb8c96a91b546ce72",
+      "qualitative_observations": 12,
+      "cohort_coverage_records": 88,
+      "source_files_verified": 2,
+      "matching_figure4d_source_file_located": false
+    },
+    "publication_version_screen": {
+      "receipt": "artifacts/mouse-ex-utero-frontier-2026-10-11/publication-version-check-cycle275.json",
+      "sha256": "1455fc0d148caf09d0762cc7315eb3d635e40267cbbc912d89a23c2d3a12bac1",
+      "candidate_input_sha256": "685c1754f7be3e300c54fd25c8cf7956256f68e9ae3733d2d7a99f654c059388",
+      "bioRxiv_version_count": 1,
+      "crossref_type": "posted-content",
+      "journal_version_match_located": false,
+      "receipt_sha256": "1455fc0d148caf09d0762cc7315eb3d635e40267cbbc912d89a23c2d3a12bac1"
+    }
+  },
+  "public_repository_screen_cycle277": {
+    "receipt_path": "artifacts/mouse-ex-utero-frontier-2026-10-11/public-data-route-screen-cycle277.json",
+    "receipt_sha256": "ee723355ea7de4de84672bcf61e540a28486ef53316b43f07bd3700efa169445",
+    "scope": "Bounded Zenodo, Figshare, GitHub repository-search and OpenAIRE queries; exact DOI follows to EPFL Infoscience.",
+    "results": {
+      "zenodo_exact_doi": "HTTP 500; not a zero",
+      "zenodo_title_author": 0,
+      "figshare_doi_author": 0,
+      "figshare_broad_title_hits": 5,
+      "figshare_target_matches": 0,
+      "github_repository_title_author_hits": 0,
+      "openaire_exact_doi_dataset_records": 0,
+      "openaire_exact_doi_publication_records": 1,
+      "epfl_direct_record_http_status": 429,
+      "epfl_direct_bitstream_http_status": 429,
+      "epfl_bitstream_verified": false
+    },
+    "interpretation_limit": "The exact-DOI OpenAIRE publication record points to an EPFL full-text URL, but the link could not be retrieved/verified. No target-linked source-data record was verified; these bounded index outcomes do not establish global absence.",
+    "candidate_sha256": "11ac5a239c83be310d1f55b9c0519b1fa6aed9cf9bffb23780a949df5495ee9f",
+    "validation_status": "passed",
+    "author_contacted": false
+  },
+  "public_repository_screen_cycle278": {
+    "receipt_path": "artifacts/mouse-ex-utero-frontier-2026-10-11/public-data-route-screen-cycle278.json",
+    "receipt_sha256": "86cdcd0592507d337b49ebde981d163a1b5c1d5a82f8e7d5d8baf25acf074f61",
+    "scope": "Metabolomics Workbench official REST API; searches limited to documented study_title and last_name inputs.",
+    "title_author_query_results": {
+      "study_title:Reconstituting Mouse Embryogenesis Ex Utero from Gastrulation to Fetal Development Reveals Maternally Independent Metabolic Programs": 0,
+      "study_title:Reconstituting Mouse Embryogenesis": 0,
+      "study_title:ex utero": 0,
+      "study_title:gastrulation": 0,
+      "study_title:maternally independent metabolic programs": 0,
+      "last_name:Lokshtanov": 0,
+      "last_name:Aguilera": 0,
+      "last_name:Solmonson": 0,
+      "last_name:Maza": 0,
+      "study_title:mouse embryo": 7
+    },
+    "broad_mouse_embryo_unrelated_records": 7,
+    "target_dataset_located": false,
+    "doi_filter_supported": false,
+    "candidate_sha256": "2e7d07f5b8cd850aba510682ff4cbf82f71df921950de66e2a2d6df3f3e81a08",
+    "validation_status": "passed",
+    "author_contacted": false
+  }
 }

@@ -1,0 +1,451 @@
+{
+  "schema_version": 1,
+  "dataset_id": "weiner1992-uv-gas-and-pressure-trends-candidate",
+  "title": "Weiner et al. 1992 abstract-level umbilical venous gas and pressure gestational trends; candidate transcription",
+  "source_revision": {
+    "revision_id": "weiner1992-pubmed-and-ovid-abstract-cycle345",
+    "citation": "Weiner CP, Sipes SL, Wenstrom K. The effect of fetal age upon normal fetal laboratory values and venous pressure. Obstet Gynecol. 1992;79(5 Pt 1):713-718. PMID:1565354.",
+    "source_kind": "peer_reviewed_human_invivo",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/1565354/",
+    "review_status": "candidate",
+    "reviewer": "",
+    "reviewed_on": null,
+    "review_note": ""
+  },
+  "artifacts": [
+    {
+      "artifact_id": "weiner1992-pubmed-abstract",
+      "uri": "https://pubmed.ncbi.nlm.nih.gov/1565354/",
+      "license": "PubMed bibliographic record and abstract; reuse terms for article not confirmed",
+      "sha256": "d8350ba8d6fbeef620a679d4f4fa6e39464e60ef4f43582af2b8842f637bd3f8",
+      "retrieved_on": "2026-10-11",
+      "source_resolution": {
+        "version_type": "repository_record",
+        "version_identifier": "PMID 1565354; Obstet Gynecol. 79(5 Pt 1), 713-718 (1992)",
+        "access_status": "metadata_only",
+        "oa_subset_status": "not_applicable",
+        "reuse_status": "not_confirmed",
+        "license_expression": null,
+        "checked_on": "2026-10-11",
+        "evidence_locator": "Pinned NCBI E-utilities XML and PubMed abstract.",
+        "note": "The abstract reports cohort context and gestational directions, but no numeric age-specific table or coefficients."
+      },
+      "local_path": "artifacts/weiner-1992-reference-window-cycle344/sources/pubmed-efetch-pmid1565354.xml",
+      "developmental_scope": {
+        "species": "human",
+        "stage_tracks": [
+          "unspecified"
+        ],
+        "time_unit": "gestational weeks (cohort span only)",
+        "start": 18,
+        "end": null,
+        "source_locator": "Primary abstract: norms were constructed from 18 weeks until term; the numerical ending week is not reported. This is cohort context, not an observation-specific interval."
+      }
+    },
+    {
+      "artifact_id": "weiner1992-ovid-article-page",
+      "uri": "https://www.ovid.com/jnls/greenjournal/fulltext/00006250-199205000-00016~the-effect-of-fetal-age-upon-normal-fetal-laboratory-values",
+      "license": "Publisher abstract page; article PDF reuse terms not confirmed",
+      "sha256": "fa489d19fb649cba8dc40504c31ac3a63f35a49d17e1ca13bf6372b9850f621d",
+      "retrieved_on": "2026-10-11",
+      "source_resolution": {
+        "version_type": "published_version",
+        "version_identifier": "Ovid accession 00006250-199205000-00016; Original Article: PDF Only",
+        "access_status": "restricted",
+        "oa_subset_status": "not_applicable",
+        "reuse_status": "not_confirmed",
+        "license_expression": null,
+        "checked_on": "2026-10-11",
+        "evidence_locator": "Pinned Ovid HTML response; publisher page labels the original article PDF only. The PDF endpoint responded with HTML (text/html), not a PDF file.",
+        "note": "The public page exposes abstract and metadata. No article tables or full-text PDF were retrieved."
+      },
+      "local_path": "artifacts/weiner-1992-reference-window-cycle344/sources/ovid-publisher-page-pmid1565354.html",
+      "developmental_scope": {
+        "species": "human",
+        "stage_tracks": [
+          "unspecified"
+        ],
+        "time_unit": "gestational weeks (cohort span only)",
+        "start": 18,
+        "end": null,
+        "source_locator": "Primary abstract: norms were constructed from 18 weeks until term; the numerical ending week is not reported. This is cohort context, not an observation-specific interval."
+      }
+    }
+  ],
+  "observations": [
+    {
+      "schema_version": 1,
+      "record_id": "weiner1992-uv-pco2-trend",
+      "evidence_status": "author_reported_summary",
+      "species": "human",
+      "stage_track": "unspecified",
+      "developmental_interval": {
+        "label": "Group trend from 18 weeks until term; no numeric age-specific values in abstract",
+        "start": null,
+        "end": null,
+        "time_unit": "gestational weeks (cohort span only)",
+        "stage_source_artifact_id": "weiner1992-pubmed-abstract"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Human fetuses referred for maternal alloimmunization or maternal infection, undergoing umbilical venipuncture and found unaffected; not an unselected population cohort."
+      },
+      "assay": {
+        "name": "Umbilical venous blood gas or pressure measurement; detailed analytical method not reported in abstract",
+        "endpoint": "Umbilical venous carbon dioxide partial pressure (pCO2)",
+        "unit": "not reported in abstract",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "The abstract reports 80 unaffected referred fetuses in the normative cohort but does not provide endpoint-specific sample counts, age-bin counts, or individual identifiers."
+      },
+      "observation": {
+        "value": "The abstract reports that Umbilical venous pCO2 increased with advancing gestational age.",
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null,
+        "measurement_conditions": [
+          {
+            "name": "cohort_size",
+            "value": 80,
+            "unit": "unaffected fetuses in the referred normative cohort; not endpoint-specific n",
+            "source_locator": "PubMed abstract, Results."
+          },
+          {
+            "name": "gestational_span",
+            "value": "18 weeks until term",
+            "unit": "gestational age; exact term endpoint not stated",
+            "source_locator": "PubMed abstract, Results."
+          },
+          {
+            "name": "referral_frame",
+            "value": "Referred because of maternal alloimmunization or maternal infection; subsequently found unaffected",
+            "unit": "",
+            "source_locator": "PubMed abstract, Results."
+          },
+          {
+            "name": "sampling_method",
+            "value": "Umbilical venipuncture",
+            "unit": "",
+            "source_locator": "PubMed abstract, Results."
+          },
+          {
+            "name": "specimen",
+            "value": "Umbilical venous blood / umbilical vein measurement",
+            "unit": "",
+            "source_locator": "PubMed abstract, Results."
+          },
+          {
+            "name": "age_specific_statistics",
+            "value": "Abstract gives direction and significance only; numeric age-specific norms, coefficients and age-bin counts are not exposed",
+            "unit": "",
+            "source_locator": "PubMed abstract, Results."
+          }
+        ],
+        "source_qualifications": [
+          {
+            "criterion_code": "abstract_measurement_status",
+            "status_code": "measured",
+            "criterion_label": "Whether the endpoint is directly measured or calculated according to the abstract",
+            "source_artifact_id": "weiner1992-pubmed-abstract",
+            "source_locator": "PubMed abstract, Results; endpoint-specific measurement status not further detailed.",
+            "reference_value": null,
+            "reference_unit": ""
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "weiner1992-pubmed-abstract",
+        "uri": "https://pubmed.ncbi.nlm.nih.gov/1565354/",
+        "license": "PubMed bibliographic record and abstract; reuse terms for article not confirmed",
+        "sha256": "d8350ba8d6fbeef620a679d4f4fa6e39464e60ef4f43582af2b8842f637bd3f8",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "PubMed abstract, Results; publisher abstract page cross-checked.",
+      "limitations": [
+        "The abstract says norms were constructed from 18 weeks until term, but gives no numeric age-specific values, coefficients, confidence limits, age-bin counts, or endpoint-specific n.",
+        "The 80 fetuses were referred because of maternal alloimmunization or infection and were then found unaffected; this is not an unselected healthy-pregnancy cohort.",
+        "The 50 additional abnormal fetuses in the abstract formed a separate maternal-fetal serum enzyme cohort; they are not part of these umbilical venous gas/pressure trend records.",
+        "The source-reported trends are not 24- or 28-week values, physiological requirements, operating setpoints, or safety thresholds.",
+        "The Ovid page exposes an abstract and labels the original article PDF only; no table or full-text PDF was retrieved, and reuse terms remain unconfirmed."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "weiner1992-uv-po2-trend",
+      "evidence_status": "author_reported_summary",
+      "species": "human",
+      "stage_track": "unspecified",
+      "developmental_interval": {
+        "label": "Group trend from 18 weeks until term; no numeric age-specific values in abstract",
+        "start": null,
+        "end": null,
+        "time_unit": "gestational weeks (cohort span only)",
+        "stage_source_artifact_id": "weiner1992-pubmed-abstract"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Human fetuses referred for maternal alloimmunization or maternal infection, undergoing umbilical venipuncture and found unaffected; not an unselected population cohort."
+      },
+      "assay": {
+        "name": "Umbilical venous blood gas or pressure measurement; detailed analytical method not reported in abstract",
+        "endpoint": "Umbilical venous oxygen partial pressure (pO2)",
+        "unit": "not reported in abstract",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "The abstract reports 80 unaffected referred fetuses in the normative cohort but does not provide endpoint-specific sample counts, age-bin counts, or individual identifiers."
+      },
+      "observation": {
+        "value": "The abstract reports that Umbilical venous pO2 decreased with advancing gestational age.",
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null,
+        "measurement_conditions": [
+          {
+            "name": "cohort_size",
+            "value": 80,
+            "unit": "unaffected fetuses in the referred normative cohort; not endpoint-specific n",
+            "source_locator": "PubMed abstract, Results."
+          },
+          {
+            "name": "gestational_span",
+            "value": "18 weeks until term",
+            "unit": "gestational age; exact term endpoint not stated",
+            "source_locator": "PubMed abstract, Results."
+          },
+          {
+            "name": "referral_frame",
+            "value": "Referred because of maternal alloimmunization or maternal infection; subsequently found unaffected",
+            "unit": "",
+            "source_locator": "PubMed abstract, Results."
+          },
+          {
+            "name": "sampling_method",
+            "value": "Umbilical venipuncture",
+            "unit": "",
+            "source_locator": "PubMed abstract, Results."
+          },
+          {
+            "name": "specimen",
+            "value": "Umbilical venous blood / umbilical vein measurement",
+            "unit": "",
+            "source_locator": "PubMed abstract, Results."
+          },
+          {
+            "name": "age_specific_statistics",
+            "value": "Abstract gives direction and significance only; numeric age-specific norms, coefficients and age-bin counts are not exposed",
+            "unit": "",
+            "source_locator": "PubMed abstract, Results."
+          }
+        ],
+        "source_qualifications": [
+          {
+            "criterion_code": "abstract_measurement_status",
+            "status_code": "measured",
+            "criterion_label": "Whether the endpoint is directly measured or calculated according to the abstract",
+            "source_artifact_id": "weiner1992-pubmed-abstract",
+            "source_locator": "PubMed abstract, Results; endpoint-specific measurement status not further detailed.",
+            "reference_value": null,
+            "reference_unit": ""
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "weiner1992-pubmed-abstract",
+        "uri": "https://pubmed.ncbi.nlm.nih.gov/1565354/",
+        "license": "PubMed bibliographic record and abstract; reuse terms for article not confirmed",
+        "sha256": "d8350ba8d6fbeef620a679d4f4fa6e39464e60ef4f43582af2b8842f637bd3f8",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "PubMed abstract, Results; publisher abstract page cross-checked.",
+      "limitations": [
+        "The abstract says norms were constructed from 18 weeks until term, but gives no numeric age-specific values, coefficients, confidence limits, age-bin counts, or endpoint-specific n.",
+        "The 80 fetuses were referred because of maternal alloimmunization or infection and were then found unaffected; this is not an unselected healthy-pregnancy cohort.",
+        "The 50 additional abnormal fetuses in the abstract formed a separate maternal-fetal serum enzyme cohort; they are not part of these umbilical venous gas/pressure trend records.",
+        "The source-reported trends are not 24- or 28-week values, physiological requirements, operating setpoints, or safety thresholds.",
+        "The Ovid page exposes an abstract and labels the original article PDF only; no table or full-text PDF was retrieved, and reuse terms remain unconfirmed."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "weiner1992-uv-pressure-trend",
+      "evidence_status": "author_reported_summary",
+      "species": "human",
+      "stage_track": "unspecified",
+      "developmental_interval": {
+        "label": "Group trend from 18 weeks until term; no numeric age-specific values in abstract",
+        "start": null,
+        "end": null,
+        "time_unit": "gestational weeks (cohort span only)",
+        "stage_source_artifact_id": "weiner1992-pubmed-abstract"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Human fetuses referred for maternal alloimmunization or maternal infection, undergoing umbilical venipuncture and found unaffected; not an unselected population cohort."
+      },
+      "assay": {
+        "name": "Umbilical venous blood gas or pressure measurement; detailed analytical method not reported in abstract",
+        "endpoint": "Umbilical vein pressure",
+        "unit": "not reported in abstract",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "The abstract reports 80 unaffected referred fetuses in the normative cohort but does not provide endpoint-specific sample counts, age-bin counts, or individual identifiers."
+      },
+      "observation": {
+        "value": "The abstract reports that Umbilical vein pressure increased progressively with gestational age.",
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null,
+        "measurement_conditions": [
+          {
+            "name": "cohort_size",
+            "value": 80,
+            "unit": "unaffected fetuses in the referred normative cohort; not endpoint-specific n",
+            "source_locator": "PubMed abstract, Results."
+          },
+          {
+            "name": "gestational_span",
+            "value": "18 weeks until term",
+            "unit": "gestational age; exact term endpoint not stated",
+            "source_locator": "PubMed abstract, Results."
+          },
+          {
+            "name": "referral_frame",
+            "value": "Referred because of maternal alloimmunization or maternal infection; subsequently found unaffected",
+            "unit": "",
+            "source_locator": "PubMed abstract, Results."
+          },
+          {
+            "name": "sampling_method",
+            "value": "Umbilical venipuncture",
+            "unit": "",
+            "source_locator": "PubMed abstract, Results."
+          },
+          {
+            "name": "specimen",
+            "value": "Umbilical venous blood / umbilical vein measurement",
+            "unit": "",
+            "source_locator": "PubMed abstract, Results."
+          },
+          {
+            "name": "age_specific_statistics",
+            "value": "Abstract gives direction and significance only; numeric age-specific norms, coefficients and age-bin counts are not exposed",
+            "unit": "",
+            "source_locator": "PubMed abstract, Results."
+          }
+        ],
+        "source_qualifications": [
+          {
+            "criterion_code": "abstract_measurement_status",
+            "status_code": "measured",
+            "criterion_label": "Whether the endpoint is directly measured or calculated according to the abstract",
+            "source_artifact_id": "weiner1992-pubmed-abstract",
+            "source_locator": "PubMed abstract, Results; endpoint-specific measurement status not further detailed.",
+            "reference_value": null,
+            "reference_unit": ""
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "weiner1992-pubmed-abstract",
+        "uri": "https://pubmed.ncbi.nlm.nih.gov/1565354/",
+        "license": "PubMed bibliographic record and abstract; reuse terms for article not confirmed",
+        "sha256": "d8350ba8d6fbeef620a679d4f4fa6e39464e60ef4f43582af2b8842f637bd3f8",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "PubMed abstract, Results; publisher abstract page cross-checked.",
+      "limitations": [
+        "The abstract says norms were constructed from 18 weeks until term, but gives no numeric age-specific values, coefficients, confidence limits, age-bin counts, or endpoint-specific n.",
+        "The 80 fetuses were referred because of maternal alloimmunization or infection and were then found unaffected; this is not an unselected healthy-pregnancy cohort.",
+        "The 50 additional abnormal fetuses in the abstract formed a separate maternal-fetal serum enzyme cohort; they are not part of these umbilical venous gas/pressure trend records.",
+        "The source-reported trends are not 24- or 28-week values, physiological requirements, operating setpoints, or safety thresholds.",
+        "The Ovid page exposes an abstract and labels the original article PDF only; no table or full-text PDF was retrieved, and reuse terms remain unconfirmed."
+      ]
+    }
+  ],
+  "transitions": [],
+  "measurement_pairs": [],
+  "cohort_coverage": [
+    {
+      "coverage_id": "weiner1992-uv-normative-referred-cohort",
+      "source_artifact_id": "weiner1992-pubmed-abstract",
+      "reported_group_label": "80 fetuses referred because of maternal alloimmunization or maternal infection; found unaffected",
+      "group_label_status": "reported",
+      "counted_entity_kind": "fetus",
+      "counted_entity_label": "Unaffected fetuses in the referred cohort; not endpoint-specific n",
+      "endpoint_label": "Gestational trends in umbilical venous pCO2, pO2 and umbilical vein pressure",
+      "population_frame": "Human fetuses referred for maternal alloimmunization or maternal infection, undergoing umbilical venipuncture and subsequently found unaffected; norms reported from 18 weeks until term.",
+      "measurement_window": "Normative curves span 18 weeks until term; abstract gives no age-bin counts or endpoint-specific sample counts.",
+      "selection_definition": "The abstract reports maternal alloimmunization or infection referral and unaffected status after evaluation; detailed inclusion criteria and missingness are not stated.",
+      "selection_definition_source_locator": "PubMed abstract, Results.",
+      "denominator": {
+        "value": 80,
+        "value_status": "reported",
+        "reported_label": "80 unaffected fetuses in the referred normative cohort; not endpoint-specific",
+        "source_locator": "PubMed abstract, Results."
+      },
+      "declarations": [
+        {
+          "category": "other",
+          "scope": "unresolved",
+          "reported_label": "Unaffected fetuses in referred normative cohort",
+          "quantity_kind": "count",
+          "value": 80,
+          "value_status": "reported",
+          "source_locator": "PubMed abstract, Results."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "unresolved",
+          "reported_label": "Three source-reported gestational trends; no numeric age-specific cells or endpoint n",
+          "quantity_kind": "other",
+          "value": "umbilical venous pCO2 increases; pO2 decreases; umbilical vein pressure increases",
+          "value_status": "reported",
+          "source_locator": "PubMed abstract, Results."
+        }
+      ],
+      "selection_statements": [
+        {
+          "text": "The 80-fetus reference cohort was referred because of maternal alloimmunization or infection and was found unaffected; it is not an unselected population sample.",
+          "source_locator": "PubMed abstract, Results."
+        },
+        {
+          "text": "The abstract states that norms were constructed from 18 weeks until term and reports directions/significance, but not the numeric age-specific table or regression coefficients.",
+          "source_locator": "PubMed abstract, Results."
+        },
+        {
+          "text": "An additional 50 abnormal fetuses were used for paired maternal-fetal serum enzyme analyses; this separate group is excluded from the 80-fetus gas/pressure cohort.",
+          "source_locator": "PubMed abstract, Results."
+        }
+      ],
+      "cohort_window_status": "source_labels_only",
+      "disposition_completeness": "unknown",
+      "categories_mutually_exclusive": "unknown",
+      "categories_exhaustive": "unknown"
+    }
+  ],
+  "limitations": [
+    "The abstract gives no numeric age-specific pCO2, pO2 or pressure values, regression coefficients, confidence limits, age-bin counts or endpoint-specific denominators.",
+    "The 80-fetus cohort was referred for maternal alloimmunization or infection and found unaffected; selection limits generalization to unselected normal pregnancy.",
+    "An additional 50 abnormal fetuses formed a separate serum-enzyme analysis cohort and are not merged into this gas/pressure cohort.",
+    "The candidate contains qualitative trend statements only and does not define a biological support requirement, operating setpoint, safety envelope, or healthy-outcome prediction.",
+    "Publisher page marks the primary article PDF only; tables and reuse terms were not recovered. No author was contacted."
+  ]
+}

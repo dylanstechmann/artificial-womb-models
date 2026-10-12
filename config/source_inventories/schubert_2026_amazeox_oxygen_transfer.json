@@ -1,0 +1,76 @@
+{
+  "cycle": 325,
+  "title": "A-Maze-Ox oxygen-transfer operating-point source inventory",
+  "source": {
+    "citation": "Schubert F, Heyer J, Lunemann M, Arens J, Steinseifer U, Jansen SV, Schoberer M. A-Maze-Ox: a novel gas-exchange-area-adjustable oxygenator for extremely preterm infants—design and proof of concept. Pediatric Research. 2026. doi:10.1038/s41390-025-04740-4.",
+    "doi": "10.1038/s41390-025-04740-4",
+    "version": "Published version of record, 2026-01-17",
+    "uri": "https://www.nature.com/articles/s41390-025-04740-4",
+    "license": "CC BY 4.0",
+    "local_source_sha256": null,
+    "data_availability": "The article says datasets generated or analyzed are available from the corresponding author on request. No request was made and no raw data were retrieved.",
+    "author_contacted": false
+  },
+  "experiment_scope": {
+    "design": "Single in-vitro proof-of-concept test; no statistical analysis.",
+    "material": "Abattoir porcine blood, ISO 7199 conditioning; no human subjects.",
+    "sampling": "At each of five operating points, 2 mL samples were taken before and after the oxygenator; sampling was repeated after 6 min. Measured values from both samples were averaged and gas-transfer efficiency calculated.",
+    "source_locator": "Methods > Experimental setup; Experimental setup and data analysis",
+    "unit_limit": "One test, five operating points; no independent biological n, per-run identifiers or variance estimates."
+  },
+  "reported_operating_points": [
+    {
+      "mode": "SC",
+      "blood_flow_mL_min": 50,
+      "oxygen_transfer_mL_O2_L_blood": 39.095,
+      "source_literal": "39.095 mL O2/L blood",
+      "source_locator": "Results > Blood gas values and Oxygen transfer performance"
+    },
+    {
+      "mode": "SC",
+      "blood_flow_mL_min": 100,
+      "oxygen_transfer_mL_O2_L_blood": 17.44,
+      "source_literal": "17.44 mL O2/L blood",
+      "source_locator": "Results > Blood gas values and Oxygen transfer performance"
+    },
+    {
+      "mode": "SC",
+      "blood_flow_mL_min": 125,
+      "oxygen_transfer_mL_O2_L_blood": 19.3,
+      "source_literal": "19.30 mL O2/L blood",
+      "source_locator": "Results > Blood gas values and Oxygen transfer performance"
+    },
+    {
+      "mode": "DC",
+      "blood_flow_mL_min": 125,
+      "oxygen_transfer_mL_O2_L_blood": 30.32,
+      "source_literal": "30.32 mL O2/L blood",
+      "source_locator": "Results > Blood gas values and Oxygen transfer performance"
+    },
+    {
+      "mode": "DC",
+      "blood_flow_mL_min": 150,
+      "oxygen_transfer_mL_O2_L_blood": 30.69,
+      "source_literal": "30.69 mL O2/L blood",
+      "source_locator": "Results > Blood gas values and Oxygen transfer performance"
+    }
+  ],
+  "reported_targets": [
+    {
+      "target_ga_weeks": 24,
+      "oxygen_transfer_mL_O2_L_blood": 55.96,
+      "source_locator": "Results > Blood gas values and Oxygen transfer performance"
+    },
+    {
+      "target_ga_weeks": 28,
+      "oxygen_transfer_mL_O2_L_blood": 59.19,
+      "source_locator": "Results > Blood gas values and Oxygen transfer performance"
+    }
+  ],
+  "reported_assessment": "The article states neither oxygen-transfer target was achieved; its discussion identifies oxygen-transfer and pressure-drop performance as requiring improvement.",
+  "candidate_file": "config/observations/schubert_2026_amazeox_oxygen_transfer_candidate.json",
+  "candidate_records": 5,
+  "measurement_pairs_created": 0,
+  "developmental_outcomes_created": 0,
+  "source_review_status": "candidate"
+}

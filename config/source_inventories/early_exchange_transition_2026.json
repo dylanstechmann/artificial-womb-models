@@ -10,15 +10,1381 @@
       "retrieval_url": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC7614978/fullTextXML",
       "source_role": "Peer-reviewed human observational tissue/multiomic reference; no ex-utero support demonstration",
       "organism_species": "human",
-      "scope_locators": ["Abstract", "Structured abstract: Rationale", "Data and materials availability"],
+      "scope_locators": [
+        "Abstract",
+        "Structured abstract: Rationale",
+        "Data and materials availability"
+      ],
       "interval_conventions": "Abstract describes 3-8 post-conception weeks; integrated reference in Rationale describes 4-8 PCW/CS10-23. Preserve distinct source scopes and modalities pending review.",
-      "pairing_scope": "Paired sampled tissues in reference; longitudinal same-unit function relay not demonstrated",
+      "pairing_scope": "E-MTAB-10552 maps source-labeled tissue strata within F61/F79/F80 at CS18. E-MTAB-10888 includes yolk-sac records labeled F79 at CS18 and F80 at CS15; exact sample, BioSample and run IDs do not overlap E-MTAB-10552, and its F80 stage label conflicts with CS18 there. E-MTAB-11673 maps yolk-sac/stalk samples to female F158 at CS17. Its matched coronal accession is now identified as the ENA project submitted under E-MTAB-11911 (PRJEB53919; ERP138734). Public sample metadata show 48 sample/run records across 12 coronal-section labels (four records per section), all labeled F158, female and CS17; these are metadata records from one source-labeled embryo, not 48 embryos or demonstrated independent replicates. E-MTAB-11549/11618/11613 are CITE-seq yolk-sac/liver records with other source-individual labels. Source labels and file/run relationships do not establish cell-level pairing, longitudinal developmental continuity, directional transport, or a machine-supported function relay.",
       "snapshot_path": "artifacts/early-exchange-transition-2026-10-09/goh-yolk-sac.xml",
       "snapshot_bytes": 284677,
       "snapshot_sha256": "0c643f78825adf48e6925ae0f0d843a42f02a437c5c3d835607215433bdb5c98",
-      "public_data_accessions": ["E-MTAB-10552", "E-MTAB-11673", "E-MTAB-10888", "E-MTAB-11549", "E-MTAB-11618", "E-MTAB-11613"],
-      "repository_qualification": "Paper accessions observed; two study pages reached but study bodies not loaded. File inventories, sample relationships and reuse remain unqualified.",
-      "functional_support_eligibility": "not_established_by_reference_identity"
+      "public_data_accessions": [
+        "E-MTAB-10552",
+        "E-MTAB-11673",
+        "E-MTAB-10888",
+        "E-MTAB-11549",
+        "E-MTAB-11618",
+        "E-MTAB-11613"
+      ],
+      "repository_qualification": "Official BioStudies API/SDRF metadata are mapped for all six accessions listed by the paper. Full sample crosswalks cover E-MTAB-10552 (22 records), E-MTAB-11673 (6 records in 18 file rows), and E-MTAB-10888 (142 records in 284 paired-end file rows); a sample-level CITE-seq crosswalk covers E-MTAB-11549 (2 ENA samples/96 runs/288 rows), E-MTAB-11618 (3/144/430), and E-MTAB-11613 (6/288/864). The last three BioStudies descriptions report 2, 3 and 6 biological replicates respectively; these source claims are kept separate from sample, run and file-row counts. The E-MTAB-11673 matched coronal-section accession is identified through the reciprocal public description and ENA/NCBI metadata as E-MTAB-11911 (PRJEB53919; ERP138734). Its 48 ENA sample/BioSample/run records resolve to 12 section labels, four records per section, all F158/female/CS17. No raw reads or processed expression matrices were downloaded or analyzed. BioStudies exact-term search results alone did not surface the matched project; a missing search hit is not evidence of absence. The matched project file screen maps 48 runs to 144 submitted FASTQ files (I1/R1/R2), but the requested ENA analysis-file report is empty; although the project description says combined CellRanger count matrices are attached, no direct matrix manifest or per-section partition was identified. A 2026 bioRxiv preprint independently lists E-MTAB-11911 for F158 raw FASTQ/count data while reporting that its accessions and portal are private pending publication; current ENA run metadata is public, but no count-matrix file listing was found, so processed-data access is unresolved.",
+      "functional_support_eligibility": "not_established_by_reference_identity",
+      "repository_intake": {
+        "accession": "E-MTAB-10552",
+        "study_title": "The role of the yolk sac in human fetal development and identification of a hepatocyte-like cell in the human yolk sac",
+        "study_type": "RNA-seq of coding RNA from single cells",
+        "organism": "Homo sapiens",
+        "api_endpoint": "https://www.ebi.ac.uk/biostudies/api/v1/studies/E-MTAB-10552",
+        "info_endpoint": "https://www.ebi.ac.uk/biostudies/api/v1/studies/E-MTAB-10552/info",
+        "sample_metadata_source": "E-MTAB-10552.sdrf.txt (Sample and Data Relationship Format)",
+        "sample_metadata_rows": 22,
+        "unique_source_names": 22,
+        "unique_ena_sample_ids": 22,
+        "unique_biosample_ids": 22,
+        "unique_ena_run_ids": 22,
+        "individual_labels": {
+          "F61": 10,
+          "F79": 7,
+          "F80": 5
+        },
+        "embryo_stage_rows": {
+          "Carnegie stage 18": 22
+        },
+        "sex_rows": {
+          "male": 22
+        },
+        "organism_part_rows": {
+          "liver": 4,
+          "yolk sac": 18
+        },
+        "sampling_site_rows": {
+          "liver": 4,
+          "membrane": 15,
+          "vitelline blood vessel": 3
+        },
+        "immunophenotype_rows": {
+          "CD45+": 9,
+          "CD45-": 12,
+          "Hep": 1
+        },
+        "file_inventory": {
+          "total_files": 75,
+          "raw_data_files": 66,
+          "processed_data_files": 7,
+          "mage_tab_files": 2,
+          "downloaded_for_this_intake": [
+            "API study metadata JSON",
+            "API info JSON",
+            "SDRF metadata text"
+          ],
+          "raw_sequence_or_processed_expression_files_downloaded": false
+        },
+        "local_crosswalk": {
+          "path": "config/source_inventories/goh_2023_emtab10552_sdrf_crosswalk.csv",
+          "rows": 22,
+          "bytes": 4038,
+          "sha256": "b94572eeb35584dea9a67a3327e87eb73b831171545332f62ecf3bac0dfca128"
+        },
+        "retrieval_snapshots": [
+          {
+            "path": "artifacts/early-exchange-transition-2026-10-09/E-MTAB-10552-biostudies-api.json",
+            "bytes": 52130,
+            "sha256": "c4c7bb4f4951a99853a6922526965d37b5cd49c0e8c3b4b1dbf40785cdd1f562",
+            "url": "https://www.ebi.ac.uk/biostudies/api/v1/studies/E-MTAB-10552"
+          },
+          {
+            "path": "artifacts/early-exchange-transition-2026-10-09/E-MTAB-10552-biostudies-info.json",
+            "bytes": 1328,
+            "sha256": "e0317b91fa63915bc5881ada1ac4ec614a174892aa80eb5da1ee9599622a5583",
+            "url": "https://www.ebi.ac.uk/biostudies/api/v1/studies/E-MTAB-10552/info"
+          },
+          {
+            "path": "artifacts/early-exchange-transition-2026-10-09/E-MTAB-10552.sdrf.txt",
+            "bytes": 28136,
+            "sha256": "21900150ce39eaec7db21c3a2b64c7e9ec4cce839bedd62bb1b8ef6205b5fe19",
+            "url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/552/E-MTAB-10552/Files/E-MTAB-10552.sdrf.txt"
+          }
+        ],
+        "interpretation_limits": [
+          "The 22 SDRF rows are library/sample/run records, not 22 independent embryos; three source-labeled individuals are the top-level grouping visible in this file.",
+          "All rows are labeled Carnegie stage 18; study-level design metadata includes a time-series term, but the SDRF rows do not describe a longitudinal embryo time series.",
+          "Group counts are source sample rows and sorted tissue/immunophenotype strata; cell counts and per-run expression values were not inspected.",
+          "No functional transfer, vascular connection, developmental preservation, or ex-utero support outcome is measured in this repository crosswalk."
+        ]
+      },
+      "additional_accession_intakes": [
+        {
+          "accession": "E-MTAB-11673",
+          "study_title": "Human fetal yolk sac scRNA-seq data (sample ID: F158 for Haniffa Lab; 16099 for HDBR)",
+          "study_type": "RNA-seq of coding RNA from single cells",
+          "organism": "Homo sapiens",
+          "linked_ena_project": "ERP137250",
+          "sdrf_file_rows": 18,
+          "unique_sample_records": 6,
+          "sample_file_row_convention": "Each of six unique sample/ENA_SAMPLE/ENA_RUN records occurs in three SDRF rows, one for each submitted index, read 1 and read 2 file; do not count the 18 file rows as 18 samples.",
+          "unique_source_names": 6,
+          "unique_ena_sample_ids": 6,
+          "unique_biosample_ids": 6,
+          "unique_ena_run_ids": 6,
+          "individual_labels": {
+            "F158": 6
+          },
+          "embryo_stage_rows": {
+            "Carnegie stage 17": 6
+          },
+          "sex_rows": {
+            "female": 6
+          },
+          "sampling_site_rows": {
+            "yolk sac": 4,
+            "yolk sac stalk": 2
+          },
+          "linked_coronal_section_accession": "E-MTAB-11911 (ENA project PRJEB53919; study ERP138734), identified from the reciprocal project description and source-labeled public sample metadata.",
+          "reported_analysis_exclusion": "The BioStudies study description says yolk-sac lane WS_wEMB12142156 was excluded from downstream analysis due to a low fraction of reads in cells after CellRanger QC. This was preserved as a source statement; processed count matrices were not downloaded or checked for the exclusion.",
+          "file_inventory": {
+            "total_files": 9,
+            "additional_data_files": 1,
+            "processed_data_files": 6,
+            "mage_tab_files": 2,
+            "raw_data_files_in_biostudies_sections": 0,
+            "linked_ena_raw_data_access_inspected": false,
+            "downloaded_for_this_intake": [
+              "API study metadata JSON",
+              "API info JSON",
+              "SDRF metadata text"
+            ]
+          },
+          "local_crosswalk": {
+            "path": "config/source_inventories/goh_2023_emtab11673_sample_crosswalk.csv",
+            "rows": 6,
+            "sdrf_file_rows": 18,
+            "bytes": 2176,
+            "sha256": "1a1c1a11c3022f268123ac6bc0c7555de2b634bf6858a452c3aebb5ae4a6f69f"
+          },
+          "retrieval_snapshots": [
+            {
+              "path": "artifacts/early-exchange-transition-2026-10-09/E-MTAB-11673-biostudies-api.json",
+              "bytes": 15337,
+              "sha256": "1b322d84c008aa220be26c502517afb9830d227007a3640fe7511e8701cea24d",
+              "url": "https://www.ebi.ac.uk/biostudies/api/v1/studies/E-MTAB-11673"
+            },
+            {
+              "path": "artifacts/early-exchange-transition-2026-10-09/E-MTAB-11673-biostudies-info.json",
+              "bytes": 1233,
+              "sha256": "9be319279161a0a8255ff58ed901ef5278646fb2a65d38a19568c44df6ed62a5",
+              "url": "https://www.ebi.ac.uk/biostudies/api/v1/studies/E-MTAB-11673/info"
+            },
+            {
+              "path": "artifacts/early-exchange-transition-2026-10-09/E-MTAB-11673.sdrf.txt",
+              "bytes": 15748,
+              "sha256": "22f2b3a2f3ce55e651efd309fb62c4baa71241d5dac3439f17a4ca30a60fdbfc",
+              "url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/673/E-MTAB-11673/Files/E-MTAB-11673.sdrf.txt"
+            }
+          ],
+          "interpretation_limits": "Six unique source sample and run records come from one source-labeled individual; multiple tissue rows are not independent embryos. The 18 SDRF data rows are repeated FASTQ file relationships (index, R1, R2), not 18 independent libraries. The original six-sample intake did not link the separately matched coronal accession; later reciprocal ENA/NCBI metadata identifies it as E-MTAB-11911 (PRJEB53919; ERP138734). This establishes accession-level linkage to the same source-labeled embryo, not cell-level pairing. The stated low-read lane exclusion is not independently checked against processed count matrices. No raw reads, processed matrices, cell counts, expression values, or functional transport measurements were analyzed.",
+          "coronal_section_crosswalk_path": "config/source_inventories/goh_2023_emtab11911_coronal_sample_crosswalk.csv"
+        },
+        {
+          "accession": "E-MTAB-10888",
+          "study_title": "The role of the yolk sac in human fetal development and identification of a hepatocyte-like cell in the human yolk sac (SS2)",
+          "study_type": "RNA-seq of coding RNA from single cells",
+          "organism": "Homo sapiens",
+          "sdrf_file_rows": 284,
+          "unique_sample_records": 142,
+          "sample_file_row_convention": "Each unique source/sample/BioSample/run record occurs twice in SDRF, once for each paired-end R1 and R2 submitted FASTQ file; do not count 284 file rows as 284 samples.",
+          "unique_source_names": 142,
+          "unique_ena_sample_ids": 142,
+          "unique_biosample_ids": 142,
+          "unique_ena_run_ids": 142,
+          "individual_labels": {
+            "F79": 71,
+            "F80": 71
+          },
+          "embryo_stage_rows": {
+            "Carnegie stage 18": 71,
+            "Carnegie stage 15": 71
+          },
+          "embryo_stage_by_individual": {
+            "F79": {
+              "Carnegie stage 18": 71
+            },
+            "F80": {
+              "Carnegie stage 15": 71
+            }
+          },
+          "sex_rows": {
+            "male": 142
+          },
+          "organism_part_rows": {
+            "yolk sac": 142
+          },
+          "library_source_rows": {
+            "TRANSCRIPTOMIC SINGLE CELL": 142
+          },
+          "library_layout_rows": {
+            "PAIRED": 142
+          },
+          "linked_accession_comparison": {
+            "E-MTAB-10552": {
+              "shared_individual_labels": [
+                "F79",
+                "F80"
+              ],
+              "shared_ena_sample_ids": 0,
+              "shared_biosample_ids": 0,
+              "shared_ena_runs": 0,
+              "F80_stage_label_in_this_accession": "Carnegie stage 15",
+              "F80_stage_label_in_E-MTAB-10552": "Carnegie stage 18"
+            },
+            "E-MTAB-11673": {
+              "shared_individual_labels": [],
+              "shared_ena_sample_ids": 0,
+              "shared_biosample_ids": 0,
+              "shared_ena_runs": 0
+            },
+            "interpretation": "Shared donor/source labels do not establish the same tissue specimen or paired cells. The F80 stage discrepancy remains unresolved; the raw reads and expression values were not analyzed."
+          },
+          "matched_coronal_section_assessment": "E-MTAB-11673 says a matched coronal-section accession exists but does not name it. E-MTAB-10888 describes F79/F80 yolk-sac records, not F158, and is not the match; separate ENA/NCBI metadata identifies the coronal project as E-MTAB-11911 (PRJEB53919; ERP138734).",
+          "file_inventory": {
+            "total_files": 5,
+            "additional_data_files": 0,
+            "processed_data_files": 3,
+            "mage_tab_files": 2,
+            "raw_data_files_in_biostudies_sections": 0,
+            "linked_ena_raw_data_access_inspected": false,
+            "downloaded_for_this_intake": [
+              "API study metadata JSON",
+              "API info JSON",
+              "SDRF metadata text"
+            ]
+          },
+          "local_crosswalk": {
+            "path": "config/source_inventories/goh_2023_emtab10888_sample_crosswalk.csv",
+            "rows": 142,
+            "sdrf_file_rows": 284,
+            "bytes": 83839,
+            "sha256": "b342a30343e6fb88970bc9893c0927b948cd83a2342d26f15782ecd535bb1e78"
+          },
+          "retrieval_snapshots": [
+            {
+              "path": "artifacts/early-exchange-transition-2026-10-11/E-MTAB-10888-biostudies-api.json",
+              "bytes": 14062,
+              "sha256": "d93e19e00292ca1972e0a0ad1bebb94a4a456bf37334751033518261d98dcb5d",
+              "url": "https://www.ebi.ac.uk/biostudies/api/v1/studies/E-MTAB-10888"
+            },
+            {
+              "path": "artifacts/early-exchange-transition-2026-10-11/E-MTAB-10888-biostudies-info.json",
+              "bytes": 1195,
+              "sha256": "fffb94a754cea529e7f97514b697817e0a8346632160f9e31e5fdda6f2e1b621",
+              "url": "https://www.ebi.ac.uk/biostudies/api/v1/studies/E-MTAB-10888/info"
+            },
+            {
+              "path": "artifacts/early-exchange-transition-2026-10-11/E-MTAB-10888.sdrf.txt",
+              "bytes": 300678,
+              "sha256": "27c566eb8c2297f717831e29556f30efa08597aef4d846ff8f05b7504d1559a5",
+              "url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/888/E-MTAB-10888/Files/E-MTAB-10888.sdrf.txt"
+            }
+          ],
+          "interpretation_limits": [
+            "The 142 unique records are sample/run metadata from two source-labeled individuals, not 142 independent embryos.",
+            "Each sample/run is listed in two paired-end FASTQ file rows; the 284 SDRF rows are not 284 samples.",
+            "All records describe yolk-sac material; no coronal-section sample or F158 label is present in this SDRF.",
+            "F80 is labeled CS15 here and CS18 in E-MTAB-10552. No sample, BioSample or run IDs overlap across those accessions; specimen pairing and the cause of the stage discrepancy remain unverified.",
+            "Raw FASTQ URIs are recorded in SDRF, but raw reads and processed expression files were not downloaded or analyzed; the linked ENA raw-file access was not inspected.",
+            "No transport, perfusion, embryo support, functional relay, or longitudinal outcome is measured by this repository metadata crosswalk."
+          ]
+        }
+      ],
+      "interpretation_limits": [
+        "The six accession crosswalks describe source-labeled sample/library/run structure, not independent embryo n; repeated cells, tissue strata, sequencing files, or runs do not create biological replication.",
+        "E-MTAB-10552, E-MTAB-11673 and E-MTAB-10888 are cross-sectional tissue references with source-reported stage labels; none is a longitudinal same-embryo support sequence.",
+        "The source label F80 is CS18 in E-MTAB-10552 and CS15 in E-MTAB-10888. Exact sample, BioSample and run IDs are distinct; specimen pairing and the stage discrepancy remain unresolved.",
+        "The CITE-seq descriptions for E-MTAB-11549/11618/11613 report 2/3/6 biological replicates, while their SDRFs contain 2/3/6 ENA_SAMPLE records expanded across 528 runs and 1,582 file rows in total. Do not infer embryo n from that correspondence or from pooled individual-label strings.",
+        "E-MTAB-11618 sample ERS11465100 has two fewer index1 rows than its 48 runs (46 index1, 48 read1 and 48 read2); preserve this SDRF asymmetry without imputing files.",
+        "The matched F158 coronal project was not among the remaining three accessions listed by the paper; a separate public ENA/NCBI metadata search later identified E-MTAB-11911 (PRJEB53919; ERP138734).",
+        "No raw sequencing data, processed expression matrices, cell counts, biological assay or functional transport result were inspected.",
+        "BioStudies exact-term searches did not surface the matched ENA project, but reciprocal ENA project descriptions and public sample metadata later identified E-MTAB-11911 (PRJEB53919); absence from those search results is not evidence of global absence.",
+        "The resolved coronal project has 48 public sample/BioSample/run records distributed across 12 section labels (four records per section); all carry the same F158/female/CS17 source metadata. This is one source-labeled embryo, and the four records per section are not assumed to be biological replicates.",
+        "The PRJEB53919 project description states that CellRanger filtered count-matrix files are attached and combines data across all 10x lanes; the inspected ENA project XML and run/analysis file reports expose 144 FASTQ files but no matrix filenames or section-level matrix links. Do not interpret an empty ENA analysis report as proof that no supplementary matrix files exist.",
+        "The 2026 HDCA bioRxiv v2 independently associates E-MTAB-11911 with embryo F158 raw FASTQ/counts but states those data accessions and its portal are private pending publication. Current ENA run metadata is public; this version/accession-status discrepancy does not establish that processed count matrices are accessible."
+      ],
+      "remaining_accession_intakes": [
+        {
+          "accession": "E-MTAB-11549",
+          "study_title": "Human embryonic yolk sac CITE-seq data",
+          "study_type": "RNA-seq of coding RNA from single cells",
+          "organism": "Homo sapiens",
+          "sdrf_file_rows": 288,
+          "unique_ena_sample_records": 2,
+          "unique_biosample_ids": 2,
+          "unique_ena_runs": 96,
+          "unique_ena_experiments": 4,
+          "lane_file_row_convention": "Each unique ENA_SAMPLE/BioSample record maps to 48 ENA runs and predominantly 48 triplets of index1, read1 and read2 FASTQ file rows. This is file/run structure, not an embryo count.",
+          "individual_source_label_counts": {
+            "F102_F110": 2
+          },
+          "embryo_stage_label_counts": {
+            "Carnegie stage 16 to 19": 2
+          },
+          "developmental_stage_label_counts": {
+            "embryo stage": 2
+          },
+          "sex_label_counts": {
+            "female": 2
+          },
+          "organism_part_counts": {
+            "yolk sac": 2
+          },
+          "immunophenotype_counts": {
+            "CD34-positive": 1,
+            "CD34-negative": 1
+          },
+          "read_index_pattern_counts": {
+            "{\"index1\":48,\"read1\":48,\"read2\":48}": 2
+          },
+          "f158_text_in_api_or_sdrf": false,
+          "coronal_text_in_api_or_sdrf": false,
+          "file_inventory": {
+            "total_files": 9,
+            "additional_data_files": 1,
+            "processed_data_files": 6,
+            "mage_tab_files": 2,
+            "raw_data_files_in_biostudies_sections": 0,
+            "linked_ena_raw_data_access_inspected": false,
+            "downloaded_for_this_intake": [
+              "API study metadata JSON",
+              "API info JSON",
+              "SDRF metadata text"
+            ]
+          },
+          "local_crosswalk": {
+            "path": "config/source_inventories/goh_2023_remaining_citeseq_sample_crosswalk.csv",
+            "rows": 11,
+            "bytes": 12021,
+            "sha256": "f676fe9b00550cb45d72b01f4eb0b8c92f994e331a57b0bb82386ac1bec16b1b"
+          },
+          "retrieval_snapshots": [
+            {
+              "path": "artifacts/early-exchange-transition-2026-10-11/E-MTAB-11549-biostudies-api.json",
+              "bytes": 13758,
+              "sha256": "0f393e6f121970db8258e19059a0a653d3a2689cfcba041c89f53fa62d3acbcb",
+              "url": "https://www.ebi.ac.uk/biostudies/api/v1/studies/E-MTAB-11549"
+            },
+            {
+              "path": "artifacts/early-exchange-transition-2026-10-11/E-MTAB-11549-biostudies-info.json",
+              "bytes": 1233,
+              "sha256": "c0e025c9b62789614dfd709d3d0a54e74b2aa8c148cc79b2c711ed8573062caa",
+              "url": "https://www.ebi.ac.uk/biostudies/api/v1/studies/E-MTAB-11549/info"
+            },
+            {
+              "path": "artifacts/early-exchange-transition-2026-10-11/E-MTAB-11549.sdrf.txt",
+              "bytes": 500837,
+              "sha256": "cb44a8327a729633873da21e89a1f567ba21455bac777d50947d047f6f2b2a93",
+              "url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/549/E-MTAB-11549/Files/E-MTAB-11549.sdrf.txt"
+            }
+          ],
+          "interpretation_limits": [
+            "BioStudies description separately reports the biological-replicate claim; do not infer embryo n from ENA samples, 48 runs per sample, FASTQ rows, or grouped individual labels.",
+            "The SDRF source-individual, age, stage and sex fields sometimes contain lists applying to pooled sample records; preserve the strings and do not assign values to individual cells or embryos.",
+            "No F158 or coronal text appears in this accession API metadata or SDRF. This bounded text screen does not rule out a matched coronal accession outside the six accessions listed in the paper.",
+            "The SDRF contains FASTQ URIs, but raw FASTQ and processed expression files were not downloaded or analyzed."
+          ],
+          "description_replicate_claim": "two biological replicates"
+        },
+        {
+          "accession": "E-MTAB-11618",
+          "study_title": "Human embryonic liver CITE-seq data",
+          "study_type": "RNA-seq of coding RNA from single cells",
+          "organism": "Homo sapiens",
+          "sdrf_file_rows": 430,
+          "unique_ena_sample_records": 3,
+          "unique_biosample_ids": 3,
+          "unique_ena_runs": 144,
+          "unique_ena_experiments": 6,
+          "lane_file_row_convention": "Each unique ENA_SAMPLE/BioSample record maps to 48 ENA runs and predominantly 48 triplets of index1, read1 and read2 FASTQ file rows. This is file/run structure, not an embryo count.",
+          "individual_source_label_counts": {
+            "F102, F110, F108": 2,
+            "F102, F108": 1
+          },
+          "embryo_stage_label_counts": {
+            "Carnegie stage 19, Carnegie stage 16, 11 weeks post conception": 2,
+            "Carnegie stage 19, 11 weeks post conception": 1
+          },
+          "developmental_stage_label_counts": {
+            "embryo stage": 3
+          },
+          "sex_label_counts": {
+            "female": 3
+          },
+          "organism_part_counts": {
+            "liver": 3
+          },
+          "immunophenotype_counts": {
+            "CD34-positive": 1,
+            "CD34-negative": 2
+          },
+          "read_index_pattern_counts": {
+            "{\"index1\":48,\"read1\":48,\"read2\":48}": 2,
+            "{\"index1\":46,\"read1\":48,\"read2\":48}": 1
+          },
+          "f158_text_in_api_or_sdrf": false,
+          "coronal_text_in_api_or_sdrf": false,
+          "file_inventory": {
+            "total_files": 9,
+            "additional_data_files": 1,
+            "processed_data_files": 6,
+            "mage_tab_files": 2,
+            "raw_data_files_in_biostudies_sections": 0,
+            "linked_ena_raw_data_access_inspected": false,
+            "downloaded_for_this_intake": [
+              "API study metadata JSON",
+              "API info JSON",
+              "SDRF metadata text"
+            ]
+          },
+          "local_crosswalk": {
+            "path": "config/source_inventories/goh_2023_remaining_citeseq_sample_crosswalk.csv",
+            "rows": 11,
+            "bytes": 12021,
+            "sha256": "f676fe9b00550cb45d72b01f4eb0b8c92f994e331a57b0bb82386ac1bec16b1b"
+          },
+          "retrieval_snapshots": [
+            {
+              "path": "artifacts/early-exchange-transition-2026-10-11/E-MTAB-11618-biostudies-api.json",
+              "bytes": 15331,
+              "sha256": "d68044ef4711fd51c5f1f8f01aaec404e8dad1113ac04a7e0e28b28fe5c830e7",
+              "url": "https://www.ebi.ac.uk/biostudies/api/v1/studies/E-MTAB-11618"
+            },
+            {
+              "path": "artifacts/early-exchange-transition-2026-10-11/E-MTAB-11618-biostudies-info.json",
+              "bytes": 1233,
+              "sha256": "34ba2f6766e32268afabe0f98b1047065abb35741702ecd508956be676ea54b6",
+              "url": "https://www.ebi.ac.uk/biostudies/api/v1/studies/E-MTAB-11618/info"
+            },
+            {
+              "path": "artifacts/early-exchange-transition-2026-10-11/E-MTAB-11618.sdrf.txt",
+              "bytes": 529292,
+              "sha256": "2a08631463b7c426d583a94cdcfdb6f82c0b48194dfbf4181438f2a7d1890e78",
+              "url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/618/E-MTAB-11618/Files/E-MTAB-11618.sdrf.txt"
+            }
+          ],
+          "interpretation_limits": [
+            "BioStudies description separately reports the biological-replicate claim; do not infer embryo n from ENA samples, 48 runs per sample, FASTQ rows, or grouped individual labels.",
+            "The SDRF source-individual, age, stage and sex fields sometimes contain lists applying to pooled sample records; preserve the strings and do not assign values to individual cells or embryos.",
+            "No F158 or coronal text appears in this accession API metadata or SDRF. This bounded text screen does not rule out a matched coronal accession outside the six accessions listed in the paper.",
+            "The SDRF contains FASTQ URIs, but raw FASTQ and processed expression files were not downloaded or analyzed."
+          ],
+          "description_replicate_claim": "three biological replicates"
+        },
+        {
+          "accession": "E-MTAB-11613",
+          "study_title": "Human fetal liver CITE-seq data",
+          "study_type": "RNA-seq of coding RNA from single cells",
+          "organism": "Homo sapiens",
+          "sdrf_file_rows": 864,
+          "unique_ena_sample_records": 6,
+          "unique_biosample_ids": 6,
+          "unique_ena_runs": 288,
+          "unique_ena_experiments": 12,
+          "lane_file_row_convention": "Each unique ENA_SAMPLE/BioSample record maps to 48 ENA runs and predominantly 48 triplets of index1, read1 and read2 FASTQ file rows. This is file/run structure, not an embryo count.",
+          "individual_source_label_counts": {
+            "F94, F96, F109": 2,
+            "F90, F103, F107": 4
+          },
+          "embryo_stage_label_counts": {
+            "(blank)": 6
+          },
+          "developmental_stage_label_counts": {
+            "late embryonic stage": 6
+          },
+          "sex_label_counts": {
+            "male, female, male": 2,
+            "female, female, male": 4
+          },
+          "organism_part_counts": {
+            "liver": 6
+          },
+          "immunophenotype_counts": {
+            "CD34-negative": 3,
+            "unsorted": 3
+          },
+          "read_index_pattern_counts": {
+            "{\"index1\":48,\"read1\":48,\"read2\":48}": 6
+          },
+          "f158_text_in_api_or_sdrf": false,
+          "coronal_text_in_api_or_sdrf": false,
+          "file_inventory": {
+            "total_files": 8,
+            "additional_data_files": 0,
+            "processed_data_files": 6,
+            "mage_tab_files": 2,
+            "raw_data_files_in_biostudies_sections": 0,
+            "linked_ena_raw_data_access_inspected": false,
+            "downloaded_for_this_intake": [
+              "API study metadata JSON",
+              "API info JSON",
+              "SDRF metadata text"
+            ]
+          },
+          "local_crosswalk": {
+            "path": "config/source_inventories/goh_2023_remaining_citeseq_sample_crosswalk.csv",
+            "rows": 11,
+            "bytes": 12021,
+            "sha256": "f676fe9b00550cb45d72b01f4eb0b8c92f994e331a57b0bb82386ac1bec16b1b"
+          },
+          "retrieval_snapshots": [
+            {
+              "path": "artifacts/early-exchange-transition-2026-10-11/E-MTAB-11613-biostudies-api.json",
+              "bytes": 15557,
+              "sha256": "a58d0fe03ebc10096074a33f6ce91a4ef376862c01d6954ecc242e91fedb342f",
+              "url": "https://www.ebi.ac.uk/biostudies/api/v1/studies/E-MTAB-11613"
+            },
+            {
+              "path": "artifacts/early-exchange-transition-2026-10-11/E-MTAB-11613-biostudies-info.json",
+              "bytes": 1195,
+              "sha256": "6e00613ee0f276ce22bae9a6b643a1ff8b83c79ad4bf12249eb073804399a43a",
+              "url": "https://www.ebi.ac.uk/biostudies/api/v1/studies/E-MTAB-11613/info"
+            },
+            {
+              "path": "artifacts/early-exchange-transition-2026-10-11/E-MTAB-11613.sdrf.txt",
+              "bytes": 1046421,
+              "sha256": "265fb47d2f6079b96981231e7434bc7af4e93aab9faf8460e3b675db9c97f8ec",
+              "url": "https://ftp.ebi.ac.uk/biostudies/fire/E-MTAB-/613/E-MTAB-11613/Files/E-MTAB-11613.sdrf.txt"
+            }
+          ],
+          "interpretation_limits": [
+            "BioStudies description separately reports the biological-replicate claim; do not infer embryo n from ENA samples, 48 runs per sample, FASTQ rows, or grouped individual labels.",
+            "The SDRF source-individual, age, stage and sex fields sometimes contain lists applying to pooled sample records; preserve the strings and do not assign values to individual cells or embryos.",
+            "No F158 or coronal text appears in this accession API metadata or SDRF. This bounded text screen does not rule out a matched coronal accession outside the six accessions listed in the paper.",
+            "The SDRF contains FASTQ URIs, but raw FASTQ and processed expression files were not downloaded or analyzed."
+          ],
+          "description_replicate_claim": "six biological replicates"
+        }
+      ],
+      "remaining_accession_screen": {
+        "screen_date": "2026-10-11",
+        "target": "Identify the matched coronal-section accession mentioned by E-MTAB-11673 for source label F158.",
+        "method": "Retrieve official BioStudies API, info and SDRF metadata for the three remaining accessions listed in Goh et al.; screen API/SDRF text case-insensitively for F158 and coronal; group rows by ENA_SAMPLE while separately counting runs and read-file rows.",
+        "result": "E-MTAB-11549, E-MTAB-11618 and E-MTAB-11613 describe yolk-sac or liver CITE-seq datasets with source-individual labels other than F158. Neither F158 nor coronal appears in their API/SDRF text. This screen did not find the matched coronal accession within those three accessions; a separate public ENA/NCBI search later identified E-MTAB-11911 (PRJEB53919; ERP138734).",
+        "aggregate_counts": {
+          "unique_ena_sample_records": 11,
+          "unique_ena_runs": 528,
+          "sdrf_file_rows": 1582
+        },
+        "local_crosswalk": {
+          "path": "config/source_inventories/goh_2023_remaining_citeseq_sample_crosswalk.csv",
+          "rows": 11,
+          "bytes": 12021,
+          "sha256": "f676fe9b00550cb45d72b01f4eb0b8c92f994e331a57b0bb82386ac1bec16b1b"
+        }
+      },
+      "supplementary_table_s6_screen": {
+        "review_date": "2026-10-11",
+        "target": "Check the publisher-linked Supplementary Table S6 for a source-located identity of the matched F158 coronal-section dataset.",
+        "supplementary_filename": "EMS185071-supplement-Table_S6.xlsx",
+        "supplementary_file_url": "https://pmc.ncbi.nlm.nih.gov/articles/instance/7614978/bin/EMS185071-supplement-Table_S6.xlsx",
+        "bioc_api_url": "https://www.ncbi.nlm.nih.gov/research/bionlp/RESTful/supplmat.cgi/BioC_xml/PMC7614978/28",
+        "table_title": "External datasets",
+        "nonempty_dataset_rows": 51,
+        "empty_serialized_rows_excluded": 948,
+        "yolk_sac_rows": 3,
+        "screen_terms": [
+          "F158",
+          "16099",
+          "coronal"
+        ],
+        "term_matches_in_table": {
+          "F158": 0,
+          "16099": 0,
+          "coronal": 0
+        },
+        "candidate_brain_atlas_row": {
+          "source_data_row_number": 20,
+          "dataset_label": "Fetal Brain",
+          "reported_replicates_and_cells": "n=26, k=1,665,937",
+          "reported_stage_age": "3-6 PCW",
+          "sequencing_type": "10x",
+          "lab_field": "http://linnarssonlab.org/",
+          "candidate_public_study_accession": "EGAS00001004107",
+          "candidate_basis": "The reported 1,665,937-cell total and Linnarsson lab link match the author lab's developing-human-brain dataset. The row does not identify F158, HDBR sample 16099, or a specific coronal specimen.",
+          "age_scope_check": "Table S6 reports 3-6 PCW; the primary atlas abstract reports 5-14 post-conceptional weeks. Preserve this discrepancy; do not harmonize the age labels."
+        },
+        "result": "Table S6 is an external-dataset catalog, not a sample-level crosswalk. It includes three yolk-sac entries and no F158, 16099, or coronal label. Table S6 itself does not identify the matched section; the accession was later resolved from the reciprocal ENA project description as E-MTAB-11911 (PRJEB53919). The fetal-brain row remains only a candidate source lead.",
+        "csv_extract_path": "config/source_inventories/goh_2023_supplement_table_s6_external_datasets.csv",
+        "csv_extract_bytes": 8906,
+        "csv_extract_sha256": "7d2d1d09915fbd5628da7a279eb277679f62fcadbb10072820803912da148923",
+        "snapshots": [
+          {
+            "path": "artifacts/early-exchange-transition-2026-10-11/goh_pmc7614978_supplement_list_bioc.xml",
+            "bytes": 14097,
+            "sha256": "92b0866e809f6d02340c37dd4358265a00e121911f46b7e44e5cc87b99e385b9",
+            "url": "https://www.ncbi.nlm.nih.gov/research/bionlp/RESTful/supplmat.cgi/bioc_xml/PMC7614978/list"
+          },
+          {
+            "path": "artifacts/early-exchange-transition-2026-10-11/goh_pmc7614978_table_s6_bioc.xml",
+            "bytes": 39685,
+            "sha256": "50e18fce01ff9c0cac3b2fd65677ed97631230b6d001836619fc2443f5391db1",
+            "url": "https://www.ncbi.nlm.nih.gov/research/bionlp/RESTful/supplmat.cgi/BioC_xml/PMC7614978/28"
+          }
+        ]
+      },
+      "candidate_brain_atlas_public_metadata_screen": {
+        "review_date": "2026-10-11",
+        "candidate_study_accession": "EGAS00001004107",
+        "candidate_reason": "The Table S6 Fetal Brain row reports n=26 and 1,665,937 cells and points to the Linnarsson lab; the lab's public data README links its developing-human-brain data to this EGA study.",
+        "public_sample_metadata_only": true,
+        "dataset_sample_records": [
+          {
+            "accession": "EGAD00001006049",
+            "sample_record_count": 379,
+            "api_head_total_count": 379,
+            "unique_subject_id_values": 25
+          },
+          {
+            "accession": "EGAD50000001295",
+            "sample_record_count": 69,
+            "api_head_total_count": 69,
+            "unique_subject_id_values": 6
+          }
+        ],
+        "unique_subject_id_values_across_datasets": 29,
+        "exact_text_screen": {
+          "fields": [
+            "title",
+            "description",
+            "subject_id",
+            "accession_id"
+          ],
+          "terms": [
+            "F158",
+            "16099",
+            "coronal"
+          ],
+          "sample_records_with_any_exact_term": 0
+        },
+        "six_week_brain_like_metadata": {
+          "sample_record_count": 15,
+          "unique_subject_id_values": 2,
+          "qualification": "The stage and broad brain-region descriptions make these records a candidate screen only; no public sample crosswalk identifies F158/HDBR 16099 or a coronal-section specimen."
+        },
+        "sample_table_workbook_review": {
+          "filename": "human_dev_science.adf1226_table_s1.xlsx",
+          "author_repository_url": "https://github.com/linnarsson-lab/developing-human-brain",
+          "download_url": "https://www.dropbox.com/scl/fi/1bkbmewgha67oo4g0n626/human_dev_science.adf1226_table_s1.xlsx?rlkey=zae4qt5hvp7r5rhzhowupt3c4&st=s2rv4l81&dl=1",
+          "source_workbook_rows": 408,
+          "distinct_sample_id_labels": 406,
+          "distinct_specimen_labels": 28,
+          "exact_sample_id_ega_title_join": {
+            "matched_source_rows": 396,
+            "matched_distinct_sample_ids": 394,
+            "source_rows_without_exact_ega_title_match": 12,
+            "ega_sample_records_without_table_s1_match": 54,
+            "matched_specimen_subject_id_disagreements": 0
+          },
+          "duplicate_sample_id_groups": [
+            {
+              "sample_id": "10X109_1",
+              "workbook_row_numbers": [
+                42,
+                45
+              ],
+              "rows_identical": true
+            },
+            {
+              "sample_id": "10X109_7",
+              "workbook_row_numbers": [
+                46,
+                47
+              ],
+              "rows_identical": true
+            }
+          ],
+          "same_age_brain_candidate_rows": [
+            {
+              "specimen": "BRC2073",
+              "sample_ids": [
+                "10X109_4",
+                "10X109_5"
+              ],
+              "reported_age": 6.6,
+              "reported_week": 6,
+              "dissected_region": "Dorsal midbrain",
+              "source": "Cambridge",
+              "ega_sample_accessions": [
+                "EGAN00002408476",
+                "EGAN00002408477"
+              ],
+              "f158_16099_linkage": "not established"
+            }
+          ],
+          "exact_text_screen": {
+            "terms": [
+              "F158",
+              "16099",
+              "coronal"
+            ],
+            "matching_rows": 0
+          },
+          "csv_crosswalk_path": "config/source_inventories/goh_2023_braun_brain_table_s1_ega_crosswalk.csv",
+          "csv_crosswalk_rows": 408,
+          "csv_crosswalk_bytes": 63404,
+          "csv_crosswalk_sha256": "8dc3660b9d7cd95e1200c2e3507305581912b93595a3ae165f6393d9890a7dff",
+          "workbook_snapshot": {
+            "path": "artifacts/early-exchange-transition-2026-10-11/human_dev_science_adf1226_table_s1.xlsx",
+            "bytes": 42949,
+            "sha256": "4a690b808da4ef32e27c4626b2bfab45627c8c931cd138faea2d441f52bb8ff9"
+          }
+        },
+        "result": "An exact sample-ID join confirms that Table S1 belongs to the candidate EGA brain study, with 394 distinct table sample IDs linked to EGA titles and matching specimen/subject labels. The workbook preserves two duplicated sample-ID rows and 12 table rows with no exact EGA title; the EGA API has 54 sample records absent from Table S1. Two BRC2073 dorsal-midbrain records at 6.6 weeks are age/region candidates only. Neither Table S1 nor the EGA metadata links BRC2073 or another specimen to F158/HDBR 16099. Table S6 n=26 and Table S1's 28 specimen labels remain unreconciled. The matched coronal accession was separately identified as E-MTAB-11911 (PRJEB53919).",
+        "limitations": [
+          "Only public EGA study, dataset and sample metadata were retrieved; no EGA data files, controlled-access records, or expression matrices were accessed.",
+          "A missing F158/16099/coronal string in public metadata does not rule out a linked record under another alias.",
+          "No author contact was made."
+        ],
+        "snapshots": [
+          {
+            "path": "artifacts/early-exchange-transition-2026-10-11/ega-egas00001004107-study.json",
+            "bytes": 454,
+            "sha256": "7b28b5efce0ed4efd7ddd72cd5f5e7ba5003bfbff7071d08c674582ea314067e",
+            "url": "https://metadata.ega-archive.org/studies/EGAS00001004107"
+          },
+          {
+            "path": "artifacts/early-exchange-transition-2026-10-11/ega-egas00001004107-datasets.json",
+            "bytes": 2107,
+            "sha256": "850e4ed2d673ac24ec214f4d07921d0589602cf3866c5b75212bf35578babef4",
+            "url": "https://metadata.ega-archive.org/studies/EGAS00001004107/datasets"
+          },
+          {
+            "path": "artifacts/early-exchange-transition-2026-10-11/ega-egad00001006049-samples.json",
+            "bytes": 63067,
+            "sha256": "a1e76d6d128068a356db31fdb56f23ec5b0e070bb55219225a06b4297b8037f2",
+            "url": "https://metadata.ega-archive.org/datasets/EGAD00001006049/samples?limit=1000"
+          },
+          {
+            "path": "artifacts/early-exchange-transition-2026-10-11/ega-egad50000001295-samples.json",
+            "bytes": 11325,
+            "sha256": "e45ac4e2bd6eed81913ba05a223c77cf45d1f80ea97cbf77f9624e7527e8b462",
+            "url": "https://metadata.ega-archive.org/datasets/EGAD50000001295/samples?limit=1000"
+          }
+        ]
+      },
+      "coronal_section_accession_search": {
+        "search_date": "2026-10-11",
+        "target": "Find the matched coronal-section accession for source-labeled F158/HDBR sample 16099, mentioned without an accession number in E-MTAB-11673.",
+        "method": "Search the official BioStudies API across all collections and the ArrayExpress collection for F158, 16099, and the exact phrase \"coronal section\". Retrieve ENA Browser API XML for the known E-MTAB-11673 project and its six sample/run pairs. After exact search did not surface the matched dataset, inspect the official NCBI BioProject record PRJEB53919 and its ENA project/sample metadata; compare the reciprocal project descriptions and sample-level individual, stage, sex, and sampling-site attributes.",
+        "query_results": [
+          {
+            "scope": "all BioStudies",
+            "query": "F158",
+            "total_hits": 16,
+            "is_total_hits_exact": true,
+            "returned_hits": 16,
+            "E-MTAB-11673_hits": 1
+          },
+          {
+            "scope": "all BioStudies",
+            "query": "16099",
+            "total_hits": 39,
+            "is_total_hits_exact": true,
+            "returned_hits": 39,
+            "E-MTAB-11673_hits": 1
+          },
+          {
+            "scope": "all BioStudies",
+            "query": "\"coronal section\"",
+            "total_hits": 27,
+            "is_total_hits_exact": true,
+            "returned_hits": 27,
+            "E-MTAB-11673_hits": 1
+          },
+          {
+            "scope": "ArrayExpress collection",
+            "query": "F158",
+            "total_hits": 3,
+            "is_total_hits_exact": true,
+            "returned_hits": 3,
+            "E-MTAB-11673_hits": 1
+          },
+          {
+            "scope": "ArrayExpress collection",
+            "query": "16099",
+            "total_hits": 5,
+            "is_total_hits_exact": true,
+            "returned_hits": 5,
+            "E-MTAB-11673_hits": 1
+          },
+          {
+            "scope": "ArrayExpress collection",
+            "query": "\"coronal section\"",
+            "total_hits": 9,
+            "is_total_hits_exact": true,
+            "returned_hits": 9,
+            "E-MTAB-11673_hits": 1
+          }
+        ],
+        "result": "The matched coronal-section accession is identified as E-MTAB-11911, ENA project PRJEB53919 (secondary study ERP138734). Reciprocal public descriptions identify the same F158/HDBR 16099 embryo and the yolk-sac/coronal accession relationship. Public metadata map 48 unique ENA sample/BioSample/experiment/run records to 12 coronal section labels, four records per section, all source-labeled F158, female, Carnegie stage 17. The ENA run-file report maps each run to three submitted FASTQ files (I1/R1/R2), 144 files total. The project description reports combined CellRanger count-matrix files, but the queried ENA analysis-file report has no rows and the project XML exposes no matrix filename or per-section matrix manifest. This is a metadata/file-index screen only; no sequence or matrix files were downloaded, and no global absence claim is made. A 2026 bioRxiv v2 preprint independently lists E-MTAB-11911 as the F158 scRNA-seq raw FASTQ/count accession, but states its data and portal are private pending publication. Current ENA metadata exposes raw run/file listings but no matrix file manifest, creating an archive/status discrepancy; count-matrix access remains unverified.",
+        "identified_matched_coronal_accession": "E-MTAB-11911 (ENA project PRJEB53919; study ERP138734)",
+        "ena_search_qualification": "ENA Portal API global sample/search-field calls returned HTTP 500 and unfielded read_run searches returned HTTP 400; the project-level filereport attempt also returned HTTP 500. Direct ENA Browser XML lookup by known project/sample/run accession succeeded and confirms only the six already mapped yolk-sac records. These limited direct lookups do not identify another accession; do not infer global absence from ENA search failures.",
+        "linked_ena_project": {
+          "biosudies_accession": "E-MTAB-11673",
+          "ena_secondary_accession": "ERP137250",
+          "ena_primary_accession": "PRJEB52523",
+          "sample_records_verified": 6,
+          "run_records_verified": 6,
+          "crosswalk_path": "config/source_inventories/goh_2023_emtab11673_sample_crosswalk.csv"
+        },
+        "search_snapshots": [
+          {
+            "path": "artifacts/early-exchange-transition-2026-10-11/biostudies-search-all-F158.json",
+            "bytes": 10580,
+            "sha256": "70e6e1a7b70ad1f77047e88bca8512078582cf430e5e649b4716399eaafc5944",
+            "url": "https://www.ebi.ac.uk/biostudies/api/v1/search?query=F158&pageSize=100"
+          },
+          {
+            "path": "artifacts/early-exchange-transition-2026-10-11/biostudies-search-all-16099.json",
+            "bytes": 23703,
+            "sha256": "44fba8c0b15477edf08ddad8c729a37da72a59e82018f8a67782e5e372d646f7",
+            "url": "https://www.ebi.ac.uk/biostudies/api/v1/search?query=16099&pageSize=100"
+          },
+          {
+            "path": "artifacts/early-exchange-transition-2026-10-11/biostudies-search-all-coronal-section.json",
+            "bytes": 17124,
+            "sha256": "a4970ba5f9f08923eaefcfcb156e98aa731582751719d72ca35c7e4cf2c872d5",
+            "url": "https://www.ebi.ac.uk/biostudies/api/v1/search?query=%22coronal+section%22&pageSize=100"
+          },
+          {
+            "path": "artifacts/early-exchange-transition-2026-10-11/biostudies-search-ArrayExpress-F158.json",
+            "bytes": 1960,
+            "sha256": "f3568adabd9da9c0a075802877816f48d25e9b9353f229d9e823b91de5d0dee0",
+            "url": "https://www.ebi.ac.uk/biostudies/api/v1/ArrayExpress/search?query=F158&pageSize=100"
+          },
+          {
+            "path": "artifacts/early-exchange-transition-2026-10-11/biostudies-search-ArrayExpress-16099.json",
+            "bytes": 2978,
+            "sha256": "9d05dc8b21eab061f5ba82e588db966116ef381a69ab4bb433969bbddf70e0a0",
+            "url": "https://www.ebi.ac.uk/biostudies/api/v1/ArrayExpress/search?query=16099&pageSize=100"
+          },
+          {
+            "path": "artifacts/early-exchange-transition-2026-10-11/biostudies-search-ArrayExpress-coronal-section.json",
+            "bytes": 5852,
+            "sha256": "fff82fbfe6b61c0b8b5b0aa986c37d736d59549437d72a5261a3b6804001d8ad",
+            "url": "https://www.ebi.ac.uk/biostudies/api/v1/ArrayExpress/search?query=%22coronal+section%22&pageSize=100"
+          }
+        ],
+        "ena_browser_snapshots": [
+          {
+            "path": "artifacts/early-exchange-transition-2026-10-11/ERP137250-ena-browser.xml",
+            "bytes": 3532,
+            "sha256": "73c4309a6144a788de4ae20339cf30214d7f75bf6f8de2cde3010d027538db39",
+            "url": "https://www.ebi.ac.uk/ena/browser/api/xml/ERP137250"
+          },
+          {
+            "path": "artifacts/early-exchange-transition-2026-10-11/ERS11881168-ena-browser.xml",
+            "bytes": 4170,
+            "sha256": "568075ea716a9587ea08ba542fba7693acfdce45e46929fa4f9b3b7f9c7472da",
+            "url": "https://www.ebi.ac.uk/ena/browser/api/xml/ERS11881168"
+          },
+          {
+            "path": "artifacts/early-exchange-transition-2026-10-11/ERS11881169-ena-browser.xml",
+            "bytes": 4170,
+            "sha256": "5f811346efc42f66d357d86b94d9345a39abee7534caa88b28ebf5140152856a",
+            "url": "https://www.ebi.ac.uk/ena/browser/api/xml/ERS11881169"
+          },
+          {
+            "path": "artifacts/early-exchange-transition-2026-10-11/ERS11881170-ena-browser.xml",
+            "bytes": 4170,
+            "sha256": "e717a152bde276aa741a677fed4e0e850283997aba08819df7b33e70df41f6c0",
+            "url": "https://www.ebi.ac.uk/ena/browser/api/xml/ERS11881170"
+          },
+          {
+            "path": "artifacts/early-exchange-transition-2026-10-11/ERS11881171-ena-browser.xml",
+            "bytes": 4170,
+            "sha256": "1e21a83845ac62c8d3fff7ca977619a7f24fa7e8cc5ed90b88d24d4737310d65",
+            "url": "https://www.ebi.ac.uk/ena/browser/api/xml/ERS11881171"
+          },
+          {
+            "path": "artifacts/early-exchange-transition-2026-10-11/ERS11881172-ena-browser.xml",
+            "bytes": 4176,
+            "sha256": "694d6124f71d6c28684b1acce150b7a935f87f788aa33efb190bc0e1c2308777",
+            "url": "https://www.ebi.ac.uk/ena/browser/api/xml/ERS11881172"
+          },
+          {
+            "path": "artifacts/early-exchange-transition-2026-10-11/ERS11881173-ena-browser.xml",
+            "bytes": 4176,
+            "sha256": "a514b78580a8b6bdfad950aa2692e462a9fd97b932b84cd2458bb394d3e0dce1",
+            "url": "https://www.ebi.ac.uk/ena/browser/api/xml/ERS11881173"
+          },
+          {
+            "path": "artifacts/early-exchange-transition-2026-10-11/ERR9661455-ena-browser.xml",
+            "bytes": 3093,
+            "sha256": "5715d2f56c226103db736878ad0a9f3480af66dcc257e88d01140b0ec3c773ad",
+            "url": "https://www.ebi.ac.uk/ena/browser/api/xml/ERR9661455"
+          },
+          {
+            "path": "artifacts/early-exchange-transition-2026-10-11/ERR9661456-ena-browser.xml",
+            "bytes": 3093,
+            "sha256": "31d773a9bbad2189e089f4a0b686ea61738b83e5790d70327bb9d827359409af",
+            "url": "https://www.ebi.ac.uk/ena/browser/api/xml/ERR9661456"
+          },
+          {
+            "path": "artifacts/early-exchange-transition-2026-10-11/ERR9661457-ena-browser.xml",
+            "bytes": 3093,
+            "sha256": "a251ec8e20ba1df623681120af231e14e5fec5cde7ac4dbf590eba8525130f66",
+            "url": "https://www.ebi.ac.uk/ena/browser/api/xml/ERR9661457"
+          },
+          {
+            "path": "artifacts/early-exchange-transition-2026-10-11/ERR9661458-ena-browser.xml",
+            "bytes": 3093,
+            "sha256": "f0d8071e932949ab645ab2bfcc48a876a832f97dccda26f230263a148189b76a",
+            "url": "https://www.ebi.ac.uk/ena/browser/api/xml/ERR9661458"
+          },
+          {
+            "path": "artifacts/early-exchange-transition-2026-10-11/ERR9661459-ena-browser.xml",
+            "bytes": 3093,
+            "sha256": "0efa5dd682ec756b607b774ea0c7080e9c1d0313c2a9391952682dc1f936ff68",
+            "url": "https://www.ebi.ac.uk/ena/browser/api/xml/ERR9661459"
+          },
+          {
+            "path": "artifacts/early-exchange-transition-2026-10-11/ERR9661460-ena-browser.xml",
+            "bytes": 3093,
+            "sha256": "7113689c914e8d6f1f56d00e6dc9db9651cfe8a8e27ca3b29c774e5b8192387e",
+            "url": "https://www.ebi.ac.uk/ena/browser/api/xml/ERR9661460"
+          }
+        ],
+        "files_downloaded": [
+          "BioStudies search-result JSON metadata snapshots",
+          "ENA Browser API project/sample/run XML metadata snapshots"
+        ],
+        "raw_fastq_or_processed_expression_downloaded": false,
+        "limitations": [
+          "BioStudies search indexes public metadata; a missing hit does not prove a separately deposited, unindexed, or externally hosted dataset does not exist.",
+          "The ENA Portal API search attempts were not usable for a broad negative conclusion; direct ENA XML requests were limited to known E-MTAB-11673 project/sample/run identifiers.",
+          "No author contact was made."
+        ],
+        "matched_accession_confirmation": {
+          "arrayexpress_submitter_alias": "E-MTAB-11911",
+          "ena_primary_accession": "PRJEB53919",
+          "ena_secondary_accession": "ERP138734",
+          "title": "Single cell RNA sequencing data from a complete human fetal embryo at carnegie stage 17 (sample ID: F158 for Haniffa Lab; 16099 for HDBR)",
+          "reciprocal_link_evidence": [
+            "E-MTAB-11673 description states it contains the yolk sac and yolk-sac-stalk data from the embryo and that a matched accession contains the coronal-section data.",
+            "PRJEB53919 description gives the same F158/16099 embryo title, describes 12 coronal sections, and states that a matched accession contains the yolk sac and yolk-sac-stalk data."
+          ],
+          "public_sample_metadata": {
+            "sra_esearch_count": 48,
+            "unique_experiments": 48,
+            "unique_ena_samples": 48,
+            "unique_biosamples": 48,
+            "unique_runs": 48,
+            "individual_labels": {
+              "F158": 48
+            },
+            "sex_labels": {
+              "female": 48
+            },
+            "embryo_stage_labels": {
+              "Carnegie stage 17": 48
+            },
+            "section_label_count": 12,
+            "sample_run_records_per_section": 4,
+            "source_embryo_scope": "one source-labeled embryo; the four records per section are repository sample/run records and are not treated as independent biological replicates",
+            "crosswalk_path": "config/source_inventories/goh_2023_emtab11911_coronal_sample_crosswalk.csv",
+            "crosswalk_rows": 48,
+            "crosswalk_bytes": 14682,
+            "crosswalk_sha256": "b5fa8aec0030afc103262fb81846a57f0059a844d5e1a9de9506ddaeb9dd928f"
+          },
+          "retrieval_snapshots": [
+            {
+              "path": "artifacts/early-exchange-transition-2026-10-11/PRJEB53919-ena-browser.xml",
+              "bytes": 3197,
+              "sha256": "5d653420570fd39025216627426208288dfca7e77e4f2a90592cf50c01e55b58",
+              "url": "https://www.ebi.ac.uk/ena/browser/api/xml/PRJEB53919"
+            },
+            {
+              "path": "artifacts/early-exchange-transition-2026-10-11/PRJEB53919-sra-esearch.json",
+              "bytes": 820,
+              "sha256": "9d1367d223a3119b67056723bf6f423b645eb8c574ecda93d0726bd77dd81160",
+              "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=sra&term=PRJEB53919&retmax=100&retmode=json"
+            },
+            {
+              "path": "artifacts/early-exchange-transition-2026-10-11/PRJEB53919-sra-esummary.json",
+              "bytes": 112078,
+              "sha256": "c71a2a1c619693049eb626ef7d4a8e4fcbd61dad30c0de7297410547f9b8feee",
+              "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=sra&id=37898132,37898128,37898121,37898118,37898099,37898094,37897914,37897907,37897901,37897897,37897882,37897881,37897874,37897864,37897862,37897855,37897840,37897839,37897834,37897829,37897820,37897817,37897814,37897807,37897799,37897796,37897792,37897756,37897755,37897754,37897736,37897732,37897725,37897711,37897701,37897698,37897697,37897686,37897681,37897678,37897662,37897661,37897646,37897645,37897642,37897634,37897623,37897593&retmode=json",
+              "uid_count": 48
+            },
+            {
+              "path": "artifacts/early-exchange-transition-2026-10-11/SAMEA110188865-ena-browser.xml",
+              "bytes": 3730,
+              "sha256": "ed8c0bd9cb24a80808a01a4be66def3ed4a00439655cfe1db2d4b0c171b7f95b",
+              "url": "https://www.ebi.ac.uk/ena/browser/api/xml/SAMEA110188865"
+            }
+          ],
+          "per_sample_metadata_snapshots": "Each of the 48 crosswalk rows contains the local ENA Browser XML snapshot path, bytes, and SHA-256 for its BioSample accession.",
+          "public_file_availability_screen": {
+            "review_date": "2026-10-11",
+            "target": "Determine whether the matched project publicly indexes per-section processed count matrices separately from its run-level FASTQ files.",
+            "project_description_claim": "The public BioProject/ENA description says F158 feature/barcode/matrix files are attached to the accession as CellRanger filtered count matrices, with data combined from all 10x lanes in the accession. The description does not enumerate the filenames or state whether section-level labels are retained in separate matrix files.",
+            "ena_read_run_file_report": {
+              "row_count": 48,
+              "unique_run_count": 48,
+              "submitted_file_count": 144,
+              "submitted_format_counts": {
+                "FASTQ": 144
+              },
+              "files_per_run": 3,
+              "file_roles": {
+                "I1": 48,
+                "R1": 48,
+                "R2": 48
+              },
+              "file_rows_per_section": 12,
+              "qualification": "The 48-run FASTQ manifest joins to the sample crosswalk and is metadata only; no files were downloaded."
+            },
+            "ena_analysis_file_report": {
+              "returned_analysis_rows": 0,
+              "requested_fields": [
+                "accession",
+                "study_accession",
+                "submitted_ftp",
+                "submitted_md5",
+                "submitted_bytes"
+              ],
+              "qualification": "The queried ENA analysis-file report returned only its header. This does not rule out project-level supplementary files or matrices hosted through another file route."
+            },
+            "matrix_manifest_status": "The project description claims combined count-matrix files, but their filenames, direct links, and per-section partitioning were not exposed by the project XML or the queried ENA file reports. Matrix availability is described but not independently verified from a file manifest.",
+            "fastq_manifest_path": "config/source_inventories/goh_2023_emtab11911_coronal_fastq_manifest.csv",
+            "fastq_manifest_rows": 144,
+            "fastq_manifest_bytes": 39710,
+            "fastq_manifest_sha256": "e654b125bf6ac718853552d617b8d84107b36a04096d0a1fe4aba4863f0a54b7",
+            "snapshots": [
+              {
+                "path": "artifacts/early-exchange-transition-2026-10-11/PRJEB53919-bioproject-esummary.json",
+                "bytes": 2461,
+                "sha256": "0917e47bba583a4bac797b6b7c0eee9634c6583f06d1d146e0a8e6b4bba6b649",
+                "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=bioproject&id=1243821&retmode=json"
+              },
+              {
+                "path": "artifacts/early-exchange-transition-2026-10-11/PRJEB53919-bioproject-efetch.xml",
+                "bytes": 2827,
+                "sha256": "dc6f71c1ad072162da7ca9bfdb9375aabc58c64f816fdd0cea3e6be6b3a5a77c",
+                "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=bioproject&id=1243821&retmode=xml"
+              },
+              {
+                "path": "artifacts/early-exchange-transition-2026-10-11/PRJEB53919-read_run-file-report.tsv",
+                "bytes": 20083,
+                "sha256": "a8c8562adf0890e694a3763504fe1e69435d04869f66e86fa073f2eff669fee3",
+                "url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB53919&result=read_run&fields=run_accession,submitted_ftp,submitted_md5,submitted_bytes,submitted_format&format=tsv&limit=0"
+              },
+              {
+                "path": "artifacts/early-exchange-transition-2026-10-11/PRJEB53919-analysis-file-report.tsv",
+                "bytes": 70,
+                "sha256": "0668734e1dd74491bc57e745e1fd1192d22b89eed6952b26365c8224e0031b1a",
+                "url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJEB53919&result=analysis&fields=accession,study_accession,submitted_ftp,submitted_md5,submitted_bytes&format=tsv&limit=0"
+              }
+            ]
+          }
+        },
+        "contemporary_atlas_preprint_crosscheck": {
+          "review_date": "2026-10-11",
+          "source_type": "bioRxiv preprint; not treated as peer-reviewed evidence",
+          "title": "An integrated single cell and spatial omics atlas of human prenatal development",
+          "doi": "10.64898/2026.03.30.714220",
+          "version": "v2",
+          "article_url": "https://www.biorxiv.org/content/10.64898/2026.03.30.714220v2.full",
+          "cross_reference_result": "The v2 preprint lists E-MTAB-11911 as the scRNA-seq raw FASTQ and count-data accession for whole embryo F158. ENA project PRJEB53919 uses E-MTAB-11911 as its submitter alias and carries the same F158/HDBR 16099 embryo title, confirming that the preprint and project refer to the same accession.",
+          "preprint_data_availability_claim": "The retrieved v2 text says all listed whole-embryo data accessions are currently private pending publication; it lists E-MTAB-11911 for F158 raw FASTQ and counts and says an atlas portal will provide raw/processed matrices and metadata but is currently password protected.",
+          "current_repository_comparison": "As of 2026-10-11, the public ENA/NCBI raw-read records and the BioStudies study-detail endpoint show different access states. E-MTAB-11504 resolves to public ENA project PRJEB51328 / ERP135952 with 45 public SRA run records; ENA sample metadata maps these records to all 12 F137 coronal labels, with one record for section one and four for each remaining section. NCBI RunInfo provides 45 run-level archive records but not FASTQ file links; ENA filereport requests timed out for both the study and one run. E-MTAB-11911 resolves to public PRJEB53919 / ERP138734 with 48 public sample/run records and 144 FASTQs; its description likewise says F158 filtered matrices are attached. In contrast, anonymous BioStudies API requests for all six accessions named by the preprint returned HTTP 403 with 'Study not accessible'. This is consistent with the preprint referring to inaccessible ArrayExpress/BioStudies and BioImage Archive study packages while linked ENA raw-read metadata is public, but the endpoint does not expose the cause or release state. Exact matrix download links and per-section matrix partitioning were not independently verified. Exact-term SRA searches returning no E-MTAB-11520 or E-MTAB-14785 matches and a rate-limited E-MTAB-16757 search do not establish cross-archive privacy.",
+          "public_archive_crosscheck": {
+            "review_date": "2026-10-11",
+            "f137_public_project": {
+              "preprint_accession": "E-MTAB-11504",
+              "ena_primary_accession": "PRJEB51328",
+              "ena_secondary_accession": "ERP135952",
+              "ena_project_xml_url": "https://www.ebi.ac.uk/ena/browser/api/xml/ERP135952",
+              "project_title": "Single cell RNA sequencing data from a complete human embryo at carnegie stage 16 (sample ID: F137 for Haniffa Lab; 15702 for HDBR)",
+              "project_xml_snapshot": {
+                "path": "artifacts/early-exchange-transition-2026-10-11/hdca-erp135952-ena-browser.xml",
+                "bytes": 3192,
+                "sha256": "1f48a617b9a02101cee4e00c8ab3e0abfc6c4576b539a7fada163045688a0c80"
+              },
+              "project_description_claim": "The public ENA project XML uses E-MTAB-11504 as the submitter alias and describes attached F137 features/barcodes/matrix CellRanger filtered-count files combined across 10x lanes. The description is not a verified file-link inventory.",
+              "ncbi_sra_search": {
+                "query": "E-MTAB-11504[All Fields]",
+                "search_count": 45,
+                "summarized_record_count": 45,
+                "unique_study_accession": "ERP135952",
+                "all_run_records_public": true,
+                "esearch_snapshot": {
+                  "path": "artifacts/early-exchange-transition-2026-10-11/hdca-e-mtab-11504-sra-esearch.json",
+                  "bytes": 791,
+                  "sha256": "11b214d7d4b81afb817e5030c710525f0bfc0a100122600893e0c7d86746fcfa"
+                },
+                "esummary_snapshot": {
+                  "path": "artifacts/early-exchange-transition-2026-10-11/hdca-e-mtab-11504-sra-esummary.json",
+                  "bytes": 101031,
+                  "sha256": "d2d7dc4c58cf249d6d7842df79b8b213d17ff3644843c149e8f50db6e6f16f9a"
+                }
+              },
+              "sample_crosswalk": {
+                "path": "config/source_inventories/goh_2023_emtab11504_f137_sample_crosswalk.csv",
+                "row_count": 45,
+                "unique_biosample_count": 45,
+                "unique_run_count": 45,
+                "all_run_records_public": true,
+                "individuals": [
+                  "F137"
+                ],
+                "sexes": [
+                  "female"
+                ],
+                "embryo_stages": [
+                  "carnegie stage 16"
+                ],
+                "section_sample_counts": {
+                  "section one": 1,
+                  "section two": 4,
+                  "section three": 4,
+                  "section four": 4,
+                  "section five": 4,
+                  "section six": 4,
+                  "section seven": 4,
+                  "section eight": 4,
+                  "section nine": 4,
+                  "section ten": 4,
+                  "section eleven": 4,
+                  "section twelve": 4
+                },
+                "crosswalk_bytes": 18370,
+                "crosswalk_sha256": "1869213ade1dfa946947c6cb6c24fb819c6b8350b98a213979d723e3d5945264",
+                "per_sample_metadata_snapshots": "Each row stores the direct ENA Browser XML snapshot path, size, and SHA-256 for its BioSample.",
+                "lane_exclusion_note": "The project description names WS_wEMB10202360 as excluded from downstream analysis for low mean read count. ENA sample metadata maps it to section seven and the public archive run remains in this metadata crosswalk; the exclusion is retained as a source claim, not reinterpreted."
+              },
+              "runinfo_manifest": {
+                "metadata_source": "NCBI EFetch SRA RunInfo; run-level metadata only, not FASTQ file metadata",
+                "request_template": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=<UIDs from pinned ESearch>&rettype=runinfo&retmode=text",
+                "snapshot": {
+                  "path": "artifacts/early-exchange-transition-2026-10-11/hdca-e-mtab-11504-sra-runinfo.csv",
+                  "bytes": 23964,
+                  "sha256": "76c10080fced07a917aecd1b3e1f8bd8797aa9a03b9d6786e36a62b11684d29d",
+                  "row_count": 45
+                },
+                "joined_manifest": {
+                  "path": "config/source_inventories/goh_2023_emtab11504_f137_runinfo_manifest.csv",
+                  "bytes": 17875,
+                  "sha256": "1790aad21850d2039584ad7710a101d1bc4fb0611845065f3937cb8d81756ff8",
+                  "row_count": 45,
+                  "all_run_consent_values_public": true
+                },
+                "excluded_lane_run": {
+                  "library_name": "WS_wEMB10202360_p",
+                  "run_accession": "ERR9034751",
+                  "sampling_site": "section seven",
+                  "spots": 133294,
+                  "bases": 16928338,
+                  "median_spots_in_other_44_runs": 513393835,
+                  "fraction_of_other_run_median_spots": 0.00026,
+                  "qualification": "Its public run-level spot count is about 0.026% of the median among the other 44 runs, compatible with but not an independent definition of the project's low-read exclusion note. This is technical sequencing metadata, not an embryo outcome or biological replicate."
+                },
+                "ena_fastq_file_report_probe": {
+                  "study_accession": "ERP135952",
+                  "single_run_accession": "ERR9034771",
+                  "timeouts_seconds": [
+                    25,
+                    30
+                  ],
+                  "fastq_manifest_created": false,
+                  "qualification": "This records the earlier timed-out probe only. A later project-level query using ENA submitted-file fields succeeded and is documented in fastq_manifest below."
+                }
+              },
+              "fastq_manifest": {
+                "metadata_source": "ENA Portal read_run filereport submitted-file metadata; filenames, declared byte sizes and MD5 strings only",
+                "request_url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=ERP135952&result=read_run&fields=run_accession,submitted_ftp,submitted_md5,submitted_bytes,submitted_format&format=tsv&download=false",
+                "snapshot": {
+                  "path": "artifacts/early-exchange-transition-2026-10-11/ERP135952-read_run-submitted-file-report-cycle188.tsv",
+                  "http_status": 200,
+                  "bytes": 18865,
+                  "sha256": "c508da24df499c6b6cb7620ce8c766b05bf10fe8bdedb49e697963ba589c1c12",
+                  "run_rows": 45,
+                  "unique_run_accessions": 45
+                },
+                "joined_manifest": {
+                  "path": "config/source_inventories/goh_2023_emtab11504_f137_fastq_manifest.csv",
+                  "bytes": 37012,
+                  "sha256": "f5e46f2717e8589782be8eb99d2e1c82300a6b0c6e26c1835c46188c1f24d38e",
+                  "file_rows": 135,
+                  "unique_run_accessions": 45,
+                  "role_counts": {
+                    "I1": 45,
+                    "R1": 45,
+                    "R2": 45
+                  },
+                  "runs_match_sample_crosswalk": true
+                },
+                "content_downloaded": false,
+                "qualification": "All 45 public run accessions in the ENA report match the F137 sample crosswalk, with three declared FASTQs per run. The file-level manifest is archive metadata; no FASTQ contents were downloaded or checksums recomputed."
+              }
+            },
+            "other_preprint_accession_sra_screen": [
+              {
+                "accession": "E-MTAB-11520",
+                "preprint_label": "F147 scRNA-seq raw FASTQ and counts",
+                "http_status": 200,
+                "exact_term_search_count": 0,
+                "qualification": "NCBI SRA exact-term search only; this does not establish cross-archive privacy or processed-file availability."
+              },
+              {
+                "accession": "E-MTAB-16757",
+                "preprint_label": "F137/F147/F158 multiome raw FASTQ and counts",
+                "http_status": 429,
+                "exact_term_search_count": null,
+                "qualification": "Rate-limited response; no availability conclusion."
+              },
+              {
+                "accession": "E-MTAB-14785",
+                "preprint_label": "SOB26 Visium raw FASTQs, counts and images",
+                "http_status": 200,
+                "exact_term_search_count": 0,
+                "qualification": "NCBI SRA exact-term search only; this does not establish cross-archive privacy or processed-file availability."
+              }
+            ],
+            "biostudies_api_check": {
+              "endpoint_template": "https://www.ebi.ac.uk/biostudies/api/v1/studies/{accession}",
+              "http_status": 403,
+              "response_body": "{\"errorMessage\":\"Study not accessible\"}",
+              "accessions_checked": [
+                "E-MTAB-11504",
+                "E-MTAB-11520",
+                "E-MTAB-11911",
+                "E-MTAB-16757",
+                "E-MTAB-14785",
+                "S-BIAD2878"
+              ],
+              "anonymous_access_probe_snapshot": {
+                "path": "artifacts/early-exchange-transition-2026-10-11/hdca-biostudies-anonymous-access-probe.json",
+                "bytes": 1490,
+                "sha256": "e5668f20a800ec448a59d53044eb2716088890d95487f8ab4ec1f400ab908414"
+              },
+              "access_guidance_url": "https://www.ebi.ac.uk/biostudies/RH3R/help",
+              "qualification": "The response denies anonymous study-detail access for all six IDs. Official BioStudies guidance says non-public studies may require credentials; the API response itself does not distinguish embargo from other access states. Public ENA run records are a separate archive route and do not establish that the corresponding BioStudies package or its processed files are public. No credentials were used."
+            },
+            "technical_run_coverage_comparison": {
+              "review_date": "2026-10-11",
+              "method": "Join NCBI SRA EFetch RunInfo spot/base metadata and ENA submitted-file FASTQ metadata to the F137 and F158 sample/run crosswalks, then summarize records by section. No sequencing files were downloaded.",
+              "f158_runinfo_snapshot": {
+                "path": "artifacts/early-exchange-transition-2026-10-11/hdca-prjeb53919-sra-runinfo.csv",
+                "bytes": 25491,
+                "sha256": "5858fbb047108a64c23f41306f7711468c872c696a83d20b234eea2cbeffce02",
+                "row_count": 48
+              },
+              "f158_runinfo_manifest": {
+                "path": "config/source_inventories/goh_2023_emtab11911_f158_runinfo_manifest.csv",
+                "bytes": 18009,
+                "sha256": "b61d48ce213a1f88bc78b9677a72b18bfab9264db86864410773c6887ee3ba85",
+                "row_count": 48,
+                "all_run_consent_values_public": true
+              },
+              "section_comparison": {
+                "path": "config/source_inventories/goh_2023_f137_f158_coronal_run_coverage_comparison.csv",
+                "bytes": 4485,
+                "sha256": "07ec97ec543f29c984b4150c3a07b8c8f324b394ab5fd1077d5096eaedb28bcb",
+                "row_count": 12,
+                "qualification": "Both embryos now have section-mapped run and declared FASTQ-file metadata. ENA file sizes do not validate file content or read quality; the F158 zero RunInfo counter discrepancy remains unresolved. These are two source-labeled embryos, not a biological replication comparison."
+              },
+              "run_file_crosscheck": {
+                "path": "config/source_inventories/goh_2023_f137_f158_run_file_crosscheck.csv",
+                "bytes": 16739,
+                "sha256": "079e1604656eec3c63e759e23ae1bfe545718d51525eb6aba820b44a3bcfd81c",
+                "row_count": 93,
+                "runs_by_individual": {
+                  "F137": 45,
+                  "F158": 48
+                },
+                "declared_fastq_files_by_individual": {
+                  "F137": 135,
+                  "F158": 144
+                },
+                "all_runs_have_one_each_of_I1_R1_R2": true,
+                "runinfo_zero_or_blank_spot_or_base_rows": 1,
+                "only_zero_or_blank_stat_run": "ERR9882663",
+                "qualification": "One row per public run joins RunInfo summary fields to the ENA-declared file count, roles and bytes. Files are metadata declarations; except for the three noted HTTP HEAD checks on ERR9882663, endpoint reachability was not tested run-by-run. No sequence content was downloaded or analyzed."
+              },
+              "f158_zero_runinfo_stats_with_ena_files": {
+                "run_accession": "ERR9882663",
+                "biosample_accession": "SAMEA110188842",
+                "sample_title": "WS_wEMB12142105",
+                "sampling_site": "section one",
+                "runinfo_spots": 0,
+                "runinfo_bases": 0,
+                "runinfo_size_mb": 0,
+                "runinfo_download_path_present": false,
+                "ena_fastq_file_count": 3,
+                "ena_fastq_roles": [
+                  "I1",
+                  "R1",
+                  "R2"
+                ],
+                "ena_fastq_bytes_total": 181630756773,
+        "file_manifest_path": "config/source_inventories/goh_2023_emtab11911_coronal_fastq_manifest.csv",
+        "reconciliation_snapshot": {
+          "path": "artifacts/early-exchange-transition-2026-10-11/ERR9882663-run-metadata-reconciliation-2026-10-11.json",
+          "bytes": 6003,
+          "sha256": "efe38f4eb080dd21a27e22c1abbafc88eab03e2392ddec3bc2bd89d533c36019"
+        },
+        "official_record_comparison": "NCBI EFetch RunInfo and ENA Browser XML both report zero spot/base summary fields. NCBI SRA package XML and ENA submitted-file reports at both run and project level list the same three FASTQs with matching declared sizes and MD5 strings.",
+        "head_check": {
+          "http_status_each_file": 200,
+          "content_length_matches_declared_bytes": true,
+          "file_count": 3,
+          "method": "HTTP HEAD to each public ENA FTP path over HTTPS; response headers only"
+        },
+        "qualification": "The public FASTQ objects returned HTTP 200 with Content-Length matching the NCBI/ENA-declared file sizes on 2026-10-11. This establishes that the files were served at metadata level at retrieval time, but does not validate compressed contents, recompute checksums, establish read quality, or resolve why RunInfo and ENA Browser run counters remain zero. Do not interpret the zero summary as absence of sequencing data."
+              }
+            },
+            "ena_analysis_file_route_probe_cycle190": {
+              "review_date": "2026-10-11",
+              "receipt": {
+                "path": "artifacts/early-exchange-transition-2026-10-11/goh-f137-f158-ena-analysis-file-route-probe-cycle190.json",
+                "bytes": 3648,
+                "sha256": "5a7d11f50ce4b14b55e74b370ed2ea716fdce3c2a59b3ab44897ca3a77533cd7"
+              },
+              "ena_documentation_url": "https://ena-docs.readthedocs.io/en/latest/retrieval/programmatic-access/file-reports.html",
+              "f158_analysis_report_rows": 0,
+              "f137_analysis_report_status": "HTTP 500 / request timeout; no report rows returned",
+              "qualification": "ENA documents result=analysis as its analysis-file report. The F158 report returned only a header. F137 report requests failed, and the alternate ENA search endpoint returned the same generic HTTP 500 page for both projects. This probe does not establish that matrices are absent or unavailable through another route; matrix availability remains unresolved."
+            },
+            "sequence_or_count_matrix_files_downloaded": false
+          },
+          "portal_route_check": {
+            "url": "https://cellatlas.io/studies/hdca/",
+            "http_status": 200,
+            "response": "1,426-byte JavaScript app shell only; no dataset/file manifest was visible in the retrieved HTML.",
+            "saved_snapshot": {
+              "path": "artifacts/early-exchange-transition-2026-10-11/hdca-cellatlas-portal.html",
+              "bytes": 1426,
+              "sha256": "f95579cb189273c8b286f0e8c4299e12ef529f48d27b3f5c1616f65ee2dbbe5f"
+            }
+          },
+          "supplementary_page_route_check": {
+            "url": "https://www.biorxiv.org/content/10.64898/2026.03.30.714220v2.supplementary-material",
+            "http_status": 429,
+            "qualification": "The rate-limited supplementary-page response did not expose a file inventory. This is not evidence that the supplement is unavailable."
+          },
+          "saved_article_snapshot": {
+            "path": "artifacts/early-exchange-transition-2026-10-11/hdca-biorxiv-v2-full.html",
+            "bytes": 892394,
+            "sha256": "7fdeb5d85d97a6675f8a05b41af4d81edc523f59ed5e1193dab9bdf06f99e3b1"
+          },
+          "sequence_or_count_matrix_files_downloaded": false,
+          "authentication_or_access_control_bypassed": false,
+          "limitations": [
+            "The source is a preprint. Its private-access statement may describe the BioStudies/ArrayExpress or BioImage Archive package even though linked ENA raw-read records for F137 and F158 are public; the API denial does not reveal whether the records are embargoed or otherwise restricted.",
+            "No processed matrix or raw sequence file was accessed.",
+            "A public project/sample/run listing does not establish that section-specific count matrices are currently downloadable."
+          ]
+        }
+      }
     },
     {
       "source_id": "xu-2023-vascular-niche",
@@ -28,10 +1394,29 @@
       "support_cell_species": "human",
       "source_stage_claim": "E3.5 to E7.5 in vitro; authors report inability to continue after E7.5",
       "branch": "In-vitro early support followed by a separate return-to-uterus assessment; not continuous ex-utero gestation",
-      "early_implantation_summary": {"cell_supported_group": {"reported_implanted": 7, "reported_transferred": 15}, "comparison_group": {"reported_implanted": 0, "reported_transferred": 15}, "assessment": "Results: four days after transfer", "unit_links": "unqualified"},
+      "early_implantation_summary": {
+        "cell_supported_group": {
+          "reported_implanted": 7,
+          "reported_transferred": 15
+        },
+        "comparison_group": {
+          "reported_implanted": 0,
+          "reported_transferred": 15
+        },
+        "assessment": "Results: four days after transfer",
+        "unit_links": "unqualified"
+      },
       "adverse_endpoint": "Results reports no surviving fetuses at later assessment; source timing requires reconciliation",
-      "timing_reconciliation": ["Results: cultured for 5.5 days; Discussion: 48 hours/E5.5 stage", "Results: later assessment 14 days after transfer; Figure 5 caption: 19 days"],
-      "source_locators": ["Results: developmental potential of transferred embryos", "Figure 5 caption", "Discussion", "Availability of data and materials"],
+      "timing_reconciliation": [
+        "Results: cultured for 5.5 days; Discussion: 48 hours/E5.5 stage",
+        "Results: later assessment 14 days after transfer; Figure 5 caption: 19 days"
+      ],
+      "source_locators": [
+        "Results: developmental potential of transferred embryos",
+        "Figure 5 caption",
+        "Discussion",
+        "Availability of data and materials"
+      ],
       "snapshot_path": "artifacts/early-exchange-transition-2026-10-09/xu-vascular.html",
       "snapshot_bytes": 533562,
       "snapshot_sha256": "3730a67f66a998e1a665f6a632ed86ffdad57b0f1f5d824b41de97ce4faecd2f",
@@ -44,7 +1429,9 @@
       "article_url": "https://www.nature.com/articles/s42003-025-08057-0",
       "source_role": "Peer-reviewed human trophoblast/endothelial organoid component model; baseline growth/viability context only",
       "organism_species": "human tissue model; no supported embryo",
-      "scope_locators": ["Long-term survival and differentiation of trophoblast organoids in a vascular niche"],
+      "scope_locators": [
+        "Long-term survival and differentiation of trophoblast organoids in a vascular niche"
+      ],
       "excluded_scope": "Infection experiments and all assay procedures excluded from this transition case",
       "snapshot_path": "artifacts/early-exchange-transition-2026-10-09/shan-vascular-organoid.html",
       "snapshot_bytes": 453640,

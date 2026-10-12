@@ -1,0 +1,533 @@
+{
+  "schema_version": 1,
+  "dataset_id": "eixarch2026-ep09-20-il6-candidate",
+  "title": "Sanchez-Loeza et al. 2026 EP09.20 IL-6 dynamics during FLI support (candidate transcription)",
+  "source_revision": {
+    "revision_id": "ep09-20-poster-visual-intake-2026-10-11",
+    "citation": "Sanchez-Loeza A, et al. EP09.20: IL-6 dynamics during fetal liquid incubator support in preterm sheep. Ultrasound in Obstetrics & Gynecology. 2026;68:256. doi:10.1002/uog.70305_729.",
+    "source_kind": "other",
+    "source_url": "https://epostersonline.com/isuog2026/poster/531",
+    "review_status": "candidate",
+    "reviewer": "",
+    "reviewed_on": null,
+    "review_note": ""
+  },
+  "artifacts": [
+    {
+      "artifact_id": "eixarch2026-ep09-20-poster",
+      "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.213077e.NORMAL.pdf?v=1",
+      "license": "Public conference poster; reuse license not stated",
+      "sha256": "d4e60a3474d50f825b8d31d5b6cc0034661c4a8113352305718a2fb5f9ae95a0",
+      "retrieved_on": "2026-10-11",
+      "local_path": "artifacts/eixarch-2023-group-outcomes-2026-10-11-cycle303/ep09-20-poster-source.pdf"
+    }
+  ],
+  "observations": [
+    {
+      "schema_version": 1,
+      "record_id": "ep09-20-albumin-heparin-profile",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "FLI support IL-6 sampling profile",
+        "start": 0,
+        "end": 144,
+        "time_unit": "hours after cannulation",
+        "stage_source_artifact_id": "eixarch2026-ep09-20-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep maintained in FLI; source unit IDs not reported"
+      },
+      "assay": {
+        "name": "Poster median and interquartile-range line plot",
+        "endpoint": "Serum IL-6 profile; albumin and heparin coating group",
+        "unit": "pg/mL (qualitative plot-shape transcription; no point values digitized)",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level poster summary for albumin and heparin (n=6); individual animal IDs and timepoint-specific sample sizes are not reported."
+      },
+      "observation": {
+        "value": "Median curve peaks at 6 h, then declines overall through 144 h; exact values not printed.",
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": "Poster labels the plotted summary Median ± IQR; exact medians, quartiles, and timepoint-specific n are not printed.",
+        "source_qualifications": [
+          {
+            "criterion_code": "numeric_curve_values",
+            "status_code": "not_printed",
+            "criterion_label": "The poster presents a median±IQR graph without numeric point labels; no exact concentration values were transcribed.",
+            "source_artifact_id": "eixarch2026-ep09-20-poster",
+            "source_locator": "Poster PDF p. 1, Results > IL-6 profile during FLI support by different coating groups; plotted curve albumin and heparin (n=6)",
+            "reference_value": null,
+            "reference_unit": ""
+          },
+          {
+            "criterion_code": "timepoint_sample_size",
+            "status_code": "not_reported",
+            "criterion_label": "The poster reports group totals but not n at each serum-sampling time.",
+            "source_artifact_id": "eixarch2026-ep09-20-poster",
+            "source_locator": "Poster PDF p. 1, Methods > serum collection at 0, 6, 24, 48, 72, and 144 h",
+            "reference_value": null,
+            "reference_unit": ""
+          },
+          {
+            "criterion_code": "plot_axis_transform",
+            "status_code": "not_specified",
+            "criterion_label": "The displayed y-axis tick spacing is nonuniform; no axis transform is named, so plotted values were not digitized.",
+            "source_artifact_id": "eixarch2026-ep09-20-poster",
+            "source_locator": "Poster PDF p. 1, Results > IL-6 profile during FLI support by different coating groups; IL-6 vertical axis",
+            "reference_value": null,
+            "reference_unit": ""
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "eixarch2026-ep09-20-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.213077e.NORMAL.pdf?v=1",
+        "license": "Public conference poster; reuse license not stated",
+        "sha256": "d4e60a3474d50f825b8d31d5b6cc0034661c4a8113352305718a2fb5f9ae95a0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Poster PDF p. 1, Results > IL-6 profile during FLI support by different coating groups; legend n=6"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ep09-20-albumin-based-profile",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "FLI support IL-6 sampling profile",
+        "start": 0,
+        "end": 144,
+        "time_unit": "hours after cannulation",
+        "stage_source_artifact_id": "eixarch2026-ep09-20-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep maintained in FLI; source unit IDs not reported"
+      },
+      "assay": {
+        "name": "Poster median and interquartile-range line plot",
+        "endpoint": "Serum IL-6 profile; albumin-based coating group",
+        "unit": "pg/mL (qualitative plot-shape transcription; no point values digitized)",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level poster summary for albumin-based (n=7); individual animal IDs and timepoint-specific sample sizes are not reported."
+      },
+      "observation": {
+        "value": "Median curve peaks at 6 h, then declines through 144 h; exact values not printed.",
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": "Poster labels the plotted summary Median ± IQR; exact medians, quartiles, and timepoint-specific n are not printed.",
+        "source_qualifications": [
+          {
+            "criterion_code": "numeric_curve_values",
+            "status_code": "not_printed",
+            "criterion_label": "The poster presents a median±IQR graph without numeric point labels; no exact concentration values were transcribed.",
+            "source_artifact_id": "eixarch2026-ep09-20-poster",
+            "source_locator": "Poster PDF p. 1, Results > IL-6 profile during FLI support by different coating groups; plotted curve albumin-based (n=7)",
+            "reference_value": null,
+            "reference_unit": ""
+          },
+          {
+            "criterion_code": "timepoint_sample_size",
+            "status_code": "not_reported",
+            "criterion_label": "The poster reports group totals but not n at each serum-sampling time.",
+            "source_artifact_id": "eixarch2026-ep09-20-poster",
+            "source_locator": "Poster PDF p. 1, Methods > serum collection at 0, 6, 24, 48, 72, and 144 h",
+            "reference_value": null,
+            "reference_unit": ""
+          },
+          {
+            "criterion_code": "plot_axis_transform",
+            "status_code": "not_specified",
+            "criterion_label": "The displayed y-axis tick spacing is nonuniform; no axis transform is named, so plotted values were not digitized.",
+            "source_artifact_id": "eixarch2026-ep09-20-poster",
+            "source_locator": "Poster PDF p. 1, Results > IL-6 profile during FLI support by different coating groups; IL-6 vertical axis",
+            "reference_value": null,
+            "reference_unit": ""
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "eixarch2026-ep09-20-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.213077e.NORMAL.pdf?v=1",
+        "license": "Public conference poster; reuse license not stated",
+        "sha256": "d4e60a3474d50f825b8d31d5b6cc0034661c4a8113352305718a2fb5f9ae95a0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Poster PDF p. 1, Results > IL-6 profile during FLI support by different coating groups; legend n=7"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ep09-20-pmea-profile",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "FLI support IL-6 sampling profile",
+        "start": 0,
+        "end": 144,
+        "time_unit": "hours after cannulation",
+        "stage_source_artifact_id": "eixarch2026-ep09-20-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep maintained in FLI; source unit IDs not reported"
+      },
+      "assay": {
+        "name": "Poster median and interquartile-range line plot",
+        "endpoint": "Serum IL-6 profile; PMEA coating group",
+        "unit": "pg/mL (qualitative plot-shape transcription; no point values digitized)",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level poster summary for PMEA (n=7); individual animal IDs and timepoint-specific sample sizes are not reported."
+      },
+      "observation": {
+        "value": "Median curve peaks at 6 h, declines overall, with a small rise at 72 h; exact values not printed.",
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": "Poster labels the plotted summary Median ± IQR; exact medians, quartiles, and timepoint-specific n are not printed.",
+        "source_qualifications": [
+          {
+            "criterion_code": "numeric_curve_values",
+            "status_code": "not_printed",
+            "criterion_label": "The poster presents a median±IQR graph without numeric point labels; no exact concentration values were transcribed.",
+            "source_artifact_id": "eixarch2026-ep09-20-poster",
+            "source_locator": "Poster PDF p. 1, Results > IL-6 profile during FLI support by different coating groups; plotted curve PMEA (n=7)",
+            "reference_value": null,
+            "reference_unit": ""
+          },
+          {
+            "criterion_code": "timepoint_sample_size",
+            "status_code": "not_reported",
+            "criterion_label": "The poster reports group totals but not n at each serum-sampling time.",
+            "source_artifact_id": "eixarch2026-ep09-20-poster",
+            "source_locator": "Poster PDF p. 1, Methods > serum collection at 0, 6, 24, 48, 72, and 144 h",
+            "reference_value": null,
+            "reference_unit": ""
+          },
+          {
+            "criterion_code": "plot_axis_transform",
+            "status_code": "not_specified",
+            "criterion_label": "The displayed y-axis tick spacing is nonuniform; no axis transform is named, so plotted values were not digitized.",
+            "source_artifact_id": "eixarch2026-ep09-20-poster",
+            "source_locator": "Poster PDF p. 1, Results > IL-6 profile during FLI support by different coating groups; IL-6 vertical axis",
+            "reference_value": null,
+            "reference_unit": ""
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "eixarch2026-ep09-20-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.213077e.NORMAL.pdf?v=1",
+        "license": "Public conference poster; reuse license not stated",
+        "sha256": "d4e60a3474d50f825b8d31d5b6cc0034661c4a8113352305718a2fb5f9ae95a0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Poster PDF p. 1, Results > IL-6 profile during FLI support by different coating groups; legend n=7"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ep09-20-transient-inflammation-conclusion",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "FLI support; systemic inflammation profile",
+        "start": 0,
+        "end": 144,
+        "time_unit": "hours after cannulation",
+        "stage_source_artifact_id": "eixarch2026-ep09-20-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep maintained in FLI; total study-model n=20"
+      },
+      "assay": {
+        "name": "Poster conclusion",
+        "endpoint": "Author interpretation of serum IL-6 profile",
+        "unit": "qualitative conclusion",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Cohort-level conclusion across the poster study frame; no individual IDs or timepoint-specific n."
+      },
+      "observation": {
+        "value": "Transient IL-6 activation attenuates over time (authors’ conclusion).",
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      },
+      "source": {
+        "artifact_id": "eixarch2026-ep09-20-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.213077e.NORMAL.pdf?v=1",
+        "license": "Public conference poster; reuse license not stated",
+        "sha256": "d4e60a3474d50f825b8d31d5b6cc0034661c4a8113352305718a2fb5f9ae95a0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Poster PDF p. 1, Conclusion"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ep09-20-pmea-lower-level-trend",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "FLI support; coating-group comparison",
+        "start": 0,
+        "end": 144,
+        "time_unit": "hours after cannulation",
+        "stage_source_artifact_id": "eixarch2026-ep09-20-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep in three coating groups; total study-model n=20"
+      },
+      "assay": {
+        "name": "Poster conclusion",
+        "endpoint": "IL-6 trend by extracorporeal-circuit coating",
+        "unit": "qualitative comparison",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level comparison; no per-animal values or inferential statistic supplied."
+      },
+      "observation": {
+        "value": "Authors report a trend toward lower IL-6 with PMEA; effect size and test not reported.",
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      },
+      "source": {
+        "artifact_id": "eixarch2026-ep09-20-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.213077e.NORMAL.pdf?v=1",
+        "license": "Public conference poster; reuse license not stated",
+        "sha256": "d4e60a3474d50f825b8d31d5b6cc0034661c4a8113352305718a2fb5f9ae95a0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Poster PDF p. 1, Conclusion"
+    }
+  ],
+  "cohort_coverage": [
+    {
+      "coverage_id": "ep09-20-study-frame-n20",
+      "source_artifact_id": "eixarch2026-ep09-20-poster",
+      "reported_group_label": "20 preterm sheep; FLI support at least 6 days (n=20)",
+      "group_label_status": "reported",
+      "counted_entity_kind": "fetus",
+      "counted_entity_label": "Preterm fetal sheep in source-reported FLI support group",
+      "endpoint_label": "Study-model denominator for the IL-6 poster",
+      "population_frame": "Preterm sheep 109–132 gestational days transferred to FLI and maintained for ≥6 days.",
+      "measurement_window": "Serum IL-6 at cannulation (0) and 6, 24, 48, 72, and 144 h; FLI support for at least 6 days.",
+      "selection_definition": "The poster includes 20 sheep maintained on FLI for at least six days. The number of all FLI starts or earlier unsuccessful transfers is not reported. Coating group sizes are source-reported.",
+      "selection_definition_source_locator": "Poster PDF p. 1, Methods > study population and FLI duration",
+      "denominator": {
+        "value": 20,
+        "value_status": "reported",
+        "reported_label": "20 preterm sheep; FLI support at least 6 days (n=20)",
+        "source_locator": "Poster PDF p. 1, Methods > study population and FLI duration"
+      },
+      "declarations": [
+        {
+          "category": "initially_included",
+          "scope": "within_denominator",
+          "reported_label": "20 preterm sheep; FLI support at least 6 days (n=20)",
+          "quantity_kind": "count",
+          "value": 20,
+          "value_status": "reported",
+          "source_locator": "Poster PDF p. 1, Methods > study population and FLI duration",
+          "note": "Reported study/group n; not an all-FLI-start denominator and not timepoint-specific IL-6 n."
+        }
+      ],
+      "selection_statements": [
+        {
+          "text": "Group sizes describe the n=20 study frame selected for at least six days of FLI support; no all-start denominator is given.",
+          "source_locator": "Poster PDF p. 1, Methods > study population and FLI duration"
+        },
+        {
+          "text": "The poster does not report n at each serum sampling time or linked animal-level trajectories.",
+          "source_locator": "Poster PDF p. 1, Methods > serum collection and Results figure"
+        }
+      ],
+      "cohort_window_status": "source_labels_only",
+      "disposition_completeness": "unknown",
+      "categories_mutually_exclusive": "unknown",
+      "categories_exhaustive": "unknown"
+    },
+    {
+      "coverage_id": "ep09-20-albumin-heparin-n6",
+      "source_artifact_id": "eixarch2026-ep09-20-poster",
+      "reported_group_label": "Albumin and heparin coating group (n=6)",
+      "group_label_status": "reported",
+      "counted_entity_kind": "fetus",
+      "counted_entity_label": "Preterm fetal sheep in source-reported FLI support group",
+      "endpoint_label": "IL-6 profile by coating group",
+      "population_frame": "Subset of the reported n=20 study-model cohort.",
+      "measurement_window": "Serum IL-6 at cannulation (0) and 6, 24, 48, 72, and 144 h; FLI support for at least 6 days.",
+      "selection_definition": "The poster includes 20 sheep maintained on FLI for at least six days. The number of all FLI starts or earlier unsuccessful transfers is not reported. Coating group sizes are source-reported.",
+      "selection_definition_source_locator": "Poster PDF p. 1, Methods > EC coating groups; Results figure legend",
+      "denominator": {
+        "value": 6,
+        "value_status": "reported",
+        "reported_label": "Albumin and heparin coating group (n=6)",
+        "source_locator": "Poster PDF p. 1, Methods > EC coating groups; Results figure legend"
+      },
+      "declarations": [
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Albumin and heparin coating group (n=6)",
+          "quantity_kind": "count",
+          "value": 6,
+          "value_status": "reported",
+          "source_locator": "Poster PDF p. 1, Methods > EC coating groups; Results figure legend",
+          "note": "Reported study/group n; not an all-FLI-start denominator and not timepoint-specific IL-6 n."
+        }
+      ],
+      "selection_statements": [
+        {
+          "text": "Group sizes describe the n=20 study frame selected for at least six days of FLI support; no all-start denominator is given.",
+          "source_locator": "Poster PDF p. 1, Methods > EC coating groups; Results figure legend"
+        },
+        {
+          "text": "The poster does not report n at each serum sampling time or linked animal-level trajectories.",
+          "source_locator": "Poster PDF p. 1, Methods > serum collection and Results figure"
+        }
+      ],
+      "cohort_window_status": "source_labels_only",
+      "disposition_completeness": "unknown",
+      "categories_mutually_exclusive": "unknown",
+      "categories_exhaustive": "unknown"
+    },
+    {
+      "coverage_id": "ep09-20-albumin-based-n7",
+      "source_artifact_id": "eixarch2026-ep09-20-poster",
+      "reported_group_label": "Albumin-based coating group (n=7)",
+      "group_label_status": "reported",
+      "counted_entity_kind": "fetus",
+      "counted_entity_label": "Preterm fetal sheep in source-reported FLI support group",
+      "endpoint_label": "IL-6 profile by coating group",
+      "population_frame": "Subset of the reported n=20 study-model cohort.",
+      "measurement_window": "Serum IL-6 at cannulation (0) and 6, 24, 48, 72, and 144 h; FLI support for at least 6 days.",
+      "selection_definition": "The poster includes 20 sheep maintained on FLI for at least six days. The number of all FLI starts or earlier unsuccessful transfers is not reported. Coating group sizes are source-reported.",
+      "selection_definition_source_locator": "Poster PDF p. 1, Methods > EC coating groups; Results figure legend",
+      "denominator": {
+        "value": 7,
+        "value_status": "reported",
+        "reported_label": "Albumin-based coating group (n=7)",
+        "source_locator": "Poster PDF p. 1, Methods > EC coating groups; Results figure legend"
+      },
+      "declarations": [
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Albumin-based coating group (n=7)",
+          "quantity_kind": "count",
+          "value": 7,
+          "value_status": "reported",
+          "source_locator": "Poster PDF p. 1, Methods > EC coating groups; Results figure legend",
+          "note": "Reported study/group n; not an all-FLI-start denominator and not timepoint-specific IL-6 n."
+        }
+      ],
+      "selection_statements": [
+        {
+          "text": "Group sizes describe the n=20 study frame selected for at least six days of FLI support; no all-start denominator is given.",
+          "source_locator": "Poster PDF p. 1, Methods > EC coating groups; Results figure legend"
+        },
+        {
+          "text": "The poster does not report n at each serum sampling time or linked animal-level trajectories.",
+          "source_locator": "Poster PDF p. 1, Methods > serum collection and Results figure"
+        }
+      ],
+      "cohort_window_status": "source_labels_only",
+      "disposition_completeness": "unknown",
+      "categories_mutually_exclusive": "unknown",
+      "categories_exhaustive": "unknown"
+    },
+    {
+      "coverage_id": "ep09-20-pmea-n7",
+      "source_artifact_id": "eixarch2026-ep09-20-poster",
+      "reported_group_label": "PMEA coating group (n=7)",
+      "group_label_status": "reported",
+      "counted_entity_kind": "fetus",
+      "counted_entity_label": "Preterm fetal sheep in source-reported FLI support group",
+      "endpoint_label": "IL-6 profile by coating group",
+      "population_frame": "Subset of the reported n=20 study-model cohort.",
+      "measurement_window": "Serum IL-6 at cannulation (0) and 6, 24, 48, 72, and 144 h; FLI support for at least 6 days.",
+      "selection_definition": "The poster includes 20 sheep maintained on FLI for at least six days. The number of all FLI starts or earlier unsuccessful transfers is not reported. Coating group sizes are source-reported.",
+      "selection_definition_source_locator": "Poster PDF p. 1, Methods > EC coating groups; Results figure legend",
+      "denominator": {
+        "value": 7,
+        "value_status": "reported",
+        "reported_label": "PMEA coating group (n=7)",
+        "source_locator": "Poster PDF p. 1, Methods > EC coating groups; Results figure legend"
+      },
+      "declarations": [
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "PMEA coating group (n=7)",
+          "quantity_kind": "count",
+          "value": 7,
+          "value_status": "reported",
+          "source_locator": "Poster PDF p. 1, Methods > EC coating groups; Results figure legend",
+          "note": "Reported study/group n; not an all-FLI-start denominator and not timepoint-specific IL-6 n."
+        }
+      ],
+      "selection_statements": [
+        {
+          "text": "Group sizes describe the n=20 study frame selected for at least six days of FLI support; no all-start denominator is given.",
+          "source_locator": "Poster PDF p. 1, Methods > EC coating groups; Results figure legend"
+        },
+        {
+          "text": "The poster does not report n at each serum sampling time or linked animal-level trajectories.",
+          "source_locator": "Poster PDF p. 1, Methods > serum collection and Results figure"
+        }
+      ],
+      "cohort_window_status": "source_labels_only",
+      "disposition_completeness": "unknown",
+      "categories_mutually_exclusive": "unknown",
+      "categories_exhaustive": "unknown"
+    }
+  ],
+  "limitations": [
+    "Conference poster evidence; candidate transcription, not a peer-reviewed full-cohort report or raw-data release.",
+    "The 20 sheep were maintained on FLI for at least 6 days; the denominator of all FLI starts and unsuccessful early transfers is not reported.",
+    "Coating group sizes are n=6, n=7, and n=7; the poster does not report sample size at each IL-6 timepoint or per-animal trajectories.",
+    "The plot states Median ± IQR, but exact median and quartile values are not printed; the displayed y-axis has nonuniform tick spacing and no stated transform. No concentration points were digitized.",
+    "The poster reports a PMEA trend toward lower IL-6 but gives no p-value, effect estimate, or uncertainty for the coating comparison; do not interpret this as a confirmed effect.",
+    "No transition-to-neonatal or post-support functional outcomes are reported in this poster.",
+    "This 20-animal poster may overlap the separate 29-animal EP09.31 support cohort and four EP09.22 transition cases; no animal/experiment crosswalk or study dates are reported, so do not pool counts or assume independent replication."
+  ]
+}

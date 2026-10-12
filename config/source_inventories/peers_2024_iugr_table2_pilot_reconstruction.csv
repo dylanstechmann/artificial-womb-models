@@ -1,0 +1,8 @@
+source_table_row,n,source_row_precision,source_published_mean,source_published_sem,reconstructed_mean_from_displayed_rows,reconstructed_sem_from_displayed_rows,mean_check_status,sem_check_status,interpretation
+Age at cannulation (days),3,whole day,106.7,0.88,106.666667,0.881917,within_displayed_precision,reproduced_to_published_precision,Mean and sample SEM reproduce to the displayed precision.
+Weight at cannulation (kg),3,0.01 kg,0.8,0.026,0.760000,0.026458,within_displayed_precision,reproduced_to_published_precision,The displayed-row mean 0.76 rounds to the published one-decimal mean 0.8; the SEM reproduces.
+Age at necropsy (days),3,whole day,120.7,3.8,120.666667,3.844188,within_displayed_precision,reproduced_to_published_precision,"The displayed ages 128, 115, and 119 days produce a sample SEM of 3.844, which rounds to the published 3.8; source precision is preserved."
+Weight at necropsy (kg),3,0.001 kg,1.4,0.19,1.384000,0.189198,within_displayed_precision,reproduced_to_published_precision,The displayed-row mean 1.384 rounds to the published one-decimal mean 1.4; sample SEM 0.189 rounds to 0.19.
+Length of the run (days),3,whole day,14,4.58,14.000000,4.582576,exact,reproduced_to_published_precision,Mean and sample SEM reproduce. This small IUGR pilot is not part of the primary group comparisons.
+Growth rate(g/kg/J),3,mixed displayed precision; g/kg/J,49.9,5.73,49.870000,5.725839,within_displayed_precision,reproduced_to_published_precision,Mean and sample SEM reproduce to the displayed precision.
+Number of transfusions,3,integer count,0.7,0.67,0.666667,0.666667,within_displayed_precision,reproduced_to_published_precision,"Mean and sample SEM reproduce; count is care exposure, not an injury score."

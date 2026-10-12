@@ -1,0 +1,90 @@
+{
+  "cycle": 328,
+  "title": "A-Maze-Ox oxygen-target derivation and internal-consistency audit",
+  "source_doi": "10.1038/s41390-025-04740-4",
+  "source_url": "https://www.nature.com/articles/s41390-025-04740-4",
+  "source_version": "Published version of record, 2026-01-17",
+  "candidate_file": "config/observations/schubert_2026_amazeox_target_audited_candidate.json",
+  "source_hash": null,
+  "source_status": "candidate",
+  "target_derivation_basis_as_described_by_article": {
+    "blood_gases_and_pH": "Article Table 1 cites reference 35 for UA/UV pO2, sO2, pCO2 and pH.",
+    "hemoglobin_and_hematocrit": "GA-specific Hb/Hct values cited to reference 41.",
+    "calculation_equations": "O2 and CO2 transfer computed with equations cited to Khadka et al., reference 42 (Table 1 footnote c).",
+    "flow_for_transfer_rates": "OTR/CTR calculated from transfer per blood volume and GA-dependent mean UV flow cited to reference 22 (Table 1 footnote d).",
+    "source_locator": "Materials and methods > Physiological requirements > Blood-gas values; Table 1 and its footnotes.",
+    "independent_recalculation": "not performed; the article references were preserved but their underlying source files/equations were not locally pinned."
+  },
+  "derived_inputs_reported_in_table1": {
+    "24_week": {
+      "mean_UV_flow_mL_min": 66.6,
+      "UA_pO2_mmHg": 19,
+      "UV_pO2_mmHg": 31,
+      "UA_sO2_percent": 38,
+      "UV_sO2_percent": 72,
+      "UA_pCO2_mmHg": 51,
+      "UV_pCO2_mmHg": 42,
+      "Hb_g_dL": "12.2 ± 1.6",
+      "Hct_percent": "38.59 ± 3.94",
+      "UA_pH": 7.29,
+      "UV_pH": 7.35,
+      "OT_target_table_mL_O2_L_blood": 55.82,
+      "OTR_table_mL_O2_min": 3.72
+    },
+    "28_week": {
+      "mean_UV_flow_mL_min": 110.4,
+      "Hb_g_dL": "12.91 ± 1.38",
+      "Hct_percent": "40.88 ± 4.4",
+      "OT_target_table_mL_O2_L_blood": 59.04,
+      "OTR_table_mL_O2_min": 6.52
+    }
+  },
+  "oxygen_target_discrepancy": [
+    {
+      "reference_age_weeks": 24,
+      "table1_OT_mL_O2_L_blood": 55.82,
+      "results_and_discussion_OT_mL_O2_L_blood": 55.96,
+      "absolute_difference_mL_O2_L_blood": 0.14
+    },
+    {
+      "reference_age_weeks": 28,
+      "table1_OT_mL_O2_L_blood": 59.04,
+      "results_and_discussion_OT_mL_O2_L_blood": 59.19,
+      "absolute_difference_mL_O2_L_blood": 0.15
+    }
+  ],
+  "arithmetic_check": {
+    "table_values_times_mean_UV_flow_mL_O2_min": {
+      "24_week": 3.717612,
+      "28_week": 6.518016
+    },
+    "table_reported_OTR_mL_O2_min": {
+      "24_week": 3.72,
+      "28_week": 6.52
+    },
+    "results_text_target_times_mean_UV_flow_mL_O2_min": {
+      "24_week": 3.726936,
+      "28_week": 6.534576
+    },
+    "interpretation": "The table OT values multiplied by the listed UV flows round to the printed table OTR values. Using the Results/Discussion OT values yields slightly different rates. The article does not explain the small OT target discrepancy; both remain source-reported and unresolved."
+  },
+  "comparison_implication": {
+    "maximum_measured_OT_mL_O2_L_blood": 30.69,
+    "maximum_measured_OT_record": "amazeox-o2-transfer-dc-150",
+    "percent_of_table_targets_calculated": {
+      "24_week": 54.98,
+      "28_week": 51.98
+    },
+    "percent_of_results_text_targets_calculated": {
+      "24_week": 54.84,
+      "28_week": 51.85
+    },
+    "classification": "The measured maximum is below both versions of both targets; the source disagreement does not change that qualitative comparison."
+  },
+  "article_test_limit": "The oxygen-transfer measurements came from one in-vitro proof-of-concept test using abattoir porcine blood and ISO 7199 conditioning; the authors say no statistical analysis was performed.",
+  "candidate_records": 7,
+  "source_qualifications_added": 20,
+  "author_contacted": false,
+  "measurement_pairs_created": 0,
+  "developmental_outcomes_created": 0
+}

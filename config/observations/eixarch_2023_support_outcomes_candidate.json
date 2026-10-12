@@ -1,0 +1,3014 @@
+{
+  "schema_version": 1,
+  "dataset_id": "eixarch2023-ap-group-outcomes-candidate",
+  "title": "Eixarch et al. 2023 artificial-placenta group outcomes, support, physiology, and transition-context summaries; candidate transcription",
+  "source_revision": {
+    "revision_id": "eixarch2023-table1-cell-crosswalk-2026-10-11-cycle293",
+    "citation": "Eixarch E, Illa M, Fucho R, et al. An Artificial Placenta Experimental System in Sheep: Critical Issues for Successful Transition and Survival up to One Week. Biomedicines. 2023;11(3):702. doi:10.3390/biomedicines11030702.",
+    "source_kind": "peer_reviewed_animal",
+    "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+    "review_status": "candidate",
+    "reviewer": "",
+    "reviewed_on": null,
+    "review_note": ""
+  },
+  "artifacts": [
+    {
+      "artifact_id": "eixarch2023-ap-paper",
+      "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+      "license": "CC BY 4.0 (PMC article front matter)",
+      "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+      "retrieved_on": "2026-10-11",
+      "local_path": "artifacts/eixarch-2023-group-outcomes-2026-10-11-cycle286/eixarch2023-pmc10044909-efetch.xml"
+    },
+    {
+      "artifact_id": "eixarch2023-publisher-pdf",
+      "uri": "https://mdpi-res.com/d_attachment/biomedicines/biomedicines-11-00702/article_deploy/biomedicines-11-00702-with-cover.pdf?version=1680090205",
+      "license": "CC BY 4.0 (publisher PDF front matter)",
+      "sha256": "fb319535585d2bb2818ac16eeb964771df0045fc2a14ba0b9b017eef000dd395",
+      "retrieved_on": "2026-10-11",
+      "local_path": "artifacts/eixarch-2023-group-outcomes-2026-10-11-cycle287/eixarch2023-publisher-version.pdf"
+    }
+  ],
+  "observations": [
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-1-3h-attainment",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Planned 1-3 h artificial-placenta survival-goal group; per-animal goal assignment not reported",
+        "start": 1,
+        "end": 3,
+        "time_unit": "source hours; group target window",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published group outcome",
+        "endpoint": "Experiments reaching their assigned survival goal",
+        "unit": "percent of source-reported group",
+        "measurement_role": "durability"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group summary for n=8 fetal sheep; no per-animal identifiers or individual goal assignments are reported."
+      },
+      "observation": {
+        "value": 25,
+        "measurement_time": null,
+        "measurement_time_unit": "group-specific planned survival-goal window; individual target not reported",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Abstract > Methods (group n and planned goal); Abstract > Results (goal-attainment rate)"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-1-3h-cannulation-complications",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Cannulation procedure in the planned 1-3 h artificial-placenta survival-goal group",
+        "time_unit": "procedure time not reported",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published group outcome",
+        "endpoint": "Cannulation complications",
+        "unit": "percent of source-reported group",
+        "measurement_role": "adverse_effect"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group summary for n=8 fetal sheep; no per-animal identifiers or complication rows are supplied here."
+      },
+      "observation": {
+        "value": 75,
+        "measurement_time": null,
+        "measurement_time_unit": "cannulation procedure; exact times not reported",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Abstract > Results (cannulation-complication rate by group)"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-4-24h-attainment",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Planned 4-24 h artificial-placenta survival-goal group; per-animal goal assignment not reported",
+        "start": 4,
+        "end": 24,
+        "time_unit": "source hours; group target window",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published group outcome",
+        "endpoint": "Experiments reaching their assigned survival goal",
+        "unit": "percent of source-reported group",
+        "measurement_role": "durability"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group summary for n=10 fetal sheep; no per-animal identifiers or individual goal assignments are reported."
+      },
+      "observation": {
+        "value": 70,
+        "measurement_time": null,
+        "measurement_time_unit": "group-specific planned survival-goal window; individual target not reported",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Abstract > Methods (group n and planned goal); Abstract > Results (goal-attainment rate)"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-4-24h-cannulation-complications",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Cannulation procedure in the planned 4-24 h artificial-placenta survival-goal group",
+        "time_unit": "procedure time not reported",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published group outcome",
+        "endpoint": "Cannulation complications",
+        "unit": "percent of source-reported group",
+        "measurement_role": "adverse_effect"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group summary for n=10 fetal sheep; no per-animal identifiers or complication rows are supplied here."
+      },
+      "observation": {
+        "value": 50,
+        "measurement_time": null,
+        "measurement_time_unit": "cannulation procedure; exact times not reported",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Abstract > Results (cannulation-complication rate by group)"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-48-168h-attainment",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Planned 48-168 h artificial-placenta survival-goal group; actual assigned goal per fetus not reported",
+        "start": 48,
+        "end": 168,
+        "time_unit": "source hours; broad group target window",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published group outcome",
+        "endpoint": "Experiments reaching their assigned survival goal",
+        "unit": "percent of source-reported group",
+        "measurement_role": "durability"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group summary for n=10 fetal sheep; individual assignments within the 48-168 h target band are not reported."
+      },
+      "observation": {
+        "value": 80,
+        "measurement_time": null,
+        "measurement_time_unit": "group-specific planned survival-goal window; individual target not reported",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Abstract > Methods (group n and planned goal); Abstract > Results (goal-attainment rate)"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-48-168h-cannulation-complications",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Cannulation procedure in the planned 48-168 h artificial-placenta survival-goal group",
+        "time_unit": "procedure time not reported",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published group outcome",
+        "endpoint": "Cannulation complications",
+        "unit": "percent of source-reported group",
+        "measurement_role": "adverse_effect"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group summary for n=10 fetal sheep; no per-animal identifiers or complication rows are supplied here."
+      },
+      "observation": {
+        "value": 0,
+        "measurement_time": null,
+        "measurement_time_unit": "cannulation procedure; exact times not reported",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Abstract > Results (cannulation-complication rate by group)"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-1-3h-total-support-duration",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Planned 1-3 h artificial-placenta survival-goal group; reported mean observed total support duration",
+        "start": 1,
+        "end": 3,
+        "time_unit": "source hours; group target window",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published Table 1 group summary",
+        "endpoint": "Mean total survival time in AP system (reported as mean ± SEM)",
+        "unit": "hours",
+        "measurement_role": "durability"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Table 1 group-level summary for n=8 fetal sheep; individual support durations and identifiers are not listed."
+      },
+      "observation": {
+        "value": 1.48,
+        "measurement_time": null,
+        "measurement_time_unit": "total observed AP-system support duration; source hours",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": 0.78
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, row 'Total survival time in AP system (hours)'; §2.2.6 (continuous variables reported as means ± SEM)"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-4-24h-total-support-duration",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Planned 4-24 h artificial-placenta survival-goal group; reported mean observed total support duration",
+        "start": 4,
+        "end": 24,
+        "time_unit": "source hours; group target window",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published Table 1 group summary",
+        "endpoint": "Mean total survival time in AP system (reported as mean ± SEM)",
+        "unit": "hours",
+        "measurement_role": "durability"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Table 1 group-level summary for n=10 fetal sheep; individual support durations and identifiers are not listed."
+      },
+      "observation": {
+        "value": 11,
+        "measurement_time": null,
+        "measurement_time_unit": "total observed AP-system support duration; source hours",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": 3.42
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, row 'Total survival time in AP system (hours)'; §2.2.6 (continuous variables reported as means ± SEM)"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-48-168h-total-support-duration",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Planned 48-168 h artificial-placenta survival-goal group; reported mean observed total support duration",
+        "start": 48,
+        "end": 168,
+        "time_unit": "source hours; group target window",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published Table 1 group summary",
+        "endpoint": "Mean total survival time in AP system (reported as mean ± SEM)",
+        "unit": "hours",
+        "measurement_role": "durability"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Table 1 group-level summary for n=10 fetal sheep; individual support durations and identifiers are not listed."
+      },
+      "observation": {
+        "value": 72.6,
+        "measurement_time": null,
+        "measurement_time_unit": "total observed AP-system support duration; source hours",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": 12.9
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, row 'Total survival time in AP system (hours)'; §2.2.6 (continuous variables reported as means ± SEM)"
+    },
+    {
+      "schema_version": 1,
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Planned 48-168 h artificial-placenta survival-goal group; group-level adverse outcomes",
+        "start": 48,
+        "end": 168,
+        "time_unit": "source hours; group target window",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group summary for n=10 fetal sheep; individual identities and cross-outcome mappings are not reported."
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Section 3 Results, 48-168 h group (four of ten with complications after the first day); Table 1, 'Complications after 24 h survival #' 4 (40%) (footnote: only in fetuses with >24 h survival)",
+      "record_id": "eixarch2023-goal-48-168h-postday1-complications",
+      "assay": {
+        "name": "Published group outcome",
+        "endpoint": "Fetal sheep with complications after the first day of AP support",
+        "unit": "fetal sheep",
+        "measurement_role": "adverse_effect"
+      },
+      "observation": {
+        "value": 4,
+        "measurement_time": null,
+        "measurement_time_unit": "after first day of AP support; exact event times not reported",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      }
+    },
+    {
+      "schema_version": 1,
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Planned 48-168 h artificial-placenta survival-goal group; group-level adverse outcomes",
+        "start": 48,
+        "end": 168,
+        "time_unit": "source hours; group target window",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group summary for n=10 fetal sheep; individual identities and cross-outcome mappings are not reported."
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Section 3 Results, 48-168 h group (complications after first day; fetal hydrops at experiment end)",
+      "record_id": "eixarch2023-goal-48-168h-terminal-hydrops",
+      "assay": {
+        "name": "Published group outcome",
+        "endpoint": "Fetal sheep with hydrops observed at experiment end",
+        "unit": "fetal sheep",
+        "measurement_role": "adverse_effect"
+      },
+      "observation": {
+        "value": 3,
+        "measurement_time": "experiment end",
+        "measurement_time_unit": "individual support duration varies; exact times not reported",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      }
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-1-3h-30min-ph",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Planned 1-3 h artificial-placenta survival-goal group; measurement at 30 min after connection",
+        "start": 1,
+        "end": 3,
+        "time_unit": "source hours; group target window",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published Table 1 group summary",
+        "endpoint": "pH 30 min after connection",
+        "unit": "pH",
+        "measurement_role": "function"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level summary under the source column n=8; row-specific assessment n is not separately stated, and exact per-fetus 30-minute values are not listed."
+      },
+      "observation": {
+        "value": 7.2,
+        "measurement_time": 30,
+        "measurement_time_unit": "minutes after AP system connection",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": 0.06
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, row 'pH 30 min after connection'; Section 2.2.6 (continuous variables reported as means ± SEM)"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-1-3h-30min-flow",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Planned 1-3 h artificial-placenta survival-goal group; measurement at 30 min after connection",
+        "start": 1,
+        "end": 3,
+        "time_unit": "source hours; group target window",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published Table 1 group summary",
+        "endpoint": "Circuit flow 30 min after connection",
+        "unit": "mL/kg/min",
+        "measurement_role": "function"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level summary under the source column n=8; row-specific assessment n is not separately stated, and exact per-fetus 30-minute values are not listed."
+      },
+      "observation": {
+        "value": 45,
+        "measurement_time": 30,
+        "measurement_time_unit": "minutes after AP system connection",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": 24
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, row 'Circuit flow 30 min after connection'; Section 2.2.6 (continuous variables reported as means ± SEM)"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-4-24h-30min-ph",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Planned 4-24 h artificial-placenta survival-goal group; measurement at 30 min after connection",
+        "start": 4,
+        "end": 24,
+        "time_unit": "source hours; group target window",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published Table 1 group summary",
+        "endpoint": "pH 30 min after connection",
+        "unit": "pH",
+        "measurement_role": "function"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level summary under the source column n=10; row-specific assessment n is not separately stated, and exact per-fetus 30-minute values are not listed."
+      },
+      "observation": {
+        "value": 7.31,
+        "measurement_time": 30,
+        "measurement_time_unit": "minutes after AP system connection",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": 0.04
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, row 'pH 30 min after connection'; Section 2.2.6 (continuous variables reported as means ± SEM)"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-4-24h-30min-flow",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Planned 4-24 h artificial-placenta survival-goal group; measurement at 30 min after connection",
+        "start": 4,
+        "end": 24,
+        "time_unit": "source hours; group target window",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published Table 1 group summary",
+        "endpoint": "Circuit flow 30 min after connection",
+        "unit": "mL/kg/min",
+        "measurement_role": "function"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level summary under the source column n=10; row-specific assessment n is not separately stated, and exact per-fetus 30-minute values are not listed."
+      },
+      "observation": {
+        "value": 138,
+        "measurement_time": 30,
+        "measurement_time_unit": "minutes after AP system connection",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": 23
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, row 'Circuit flow 30 min after connection'; Section 2.2.6 (continuous variables reported as means ± SEM)"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-48-168h-30min-ph",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Planned 48-168 h artificial-placenta survival-goal group; measurement at 30 min after connection",
+        "start": 48,
+        "end": 168,
+        "time_unit": "source hours; group target window",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published Table 1 group summary",
+        "endpoint": "pH 30 min after connection",
+        "unit": "pH",
+        "measurement_role": "function"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level summary under the source column n=10; row-specific assessment n is not separately stated, and exact per-fetus 30-minute values are not listed."
+      },
+      "observation": {
+        "value": 7.33,
+        "measurement_time": 30,
+        "measurement_time_unit": "minutes after AP system connection",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": 0.02
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, row 'pH 30 min after connection'; Section 2.2.6 (continuous variables reported as means ± SEM)"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-48-168h-30min-flow",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Planned 48-168 h artificial-placenta survival-goal group; measurement at 30 min after connection",
+        "start": 48,
+        "end": 168,
+        "time_unit": "source hours; group target window",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published Table 1 group summary",
+        "endpoint": "Circuit flow 30 min after connection",
+        "unit": "mL/kg/min",
+        "measurement_role": "function"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level summary under the source column n=10; row-specific assessment n is not separately stated, and exact per-fetus 30-minute values are not listed."
+      },
+      "observation": {
+        "value": 196,
+        "measurement_time": 30,
+        "measurement_time_unit": "minutes after AP system connection",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": 13
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, row 'Circuit flow 30 min after connection' (48-168 h entry marked **; footnote: p<0.05 vs 1-3 h); Section 2.2.6 (continuous variables reported as means ± SEM)"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-1-3h-whole-experiment-ph",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Planned 1-3 h artificial-placenta survival-goal group; whole-experiment summary",
+        "start": 1,
+        "end": 3,
+        "time_unit": "source hours; group target window",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published Table 1 group summary",
+        "endpoint": "pH whole experiment",
+        "unit": "pH",
+        "measurement_role": "function"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level summary under the source column n=8; Figure 3 describes per-animal whole-experiment means, but exact individual values and a separate row-specific assessment n are not provided."
+      },
+      "observation": {
+        "value": 7.22,
+        "measurement_time": "whole experiment",
+        "measurement_time_unit": "whole-experiment summary; experiment-specific support duration varies",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": 0.07
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, row 'pH whole experiment'; Figure 3 caption (per-animal means over the whole experiment); Section 2.2.6"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-1-3h-whole-experiment-lactate",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Planned 1-3 h artificial-placenta survival-goal group; whole-experiment summary",
+        "start": 1,
+        "end": 3,
+        "time_unit": "source hours; group target window",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published Table 1 group summary",
+        "endpoint": "Lactate whole experiment",
+        "unit": "mmol/L",
+        "measurement_role": "function"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level summary under the source column n=8; Figure 3 describes per-animal whole-experiment means, but exact individual values and a separate row-specific assessment n are not provided."
+      },
+      "observation": {
+        "value": 6.2,
+        "measurement_time": "whole experiment",
+        "measurement_time_unit": "whole-experiment summary; experiment-specific support duration varies",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": 1.22
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, row 'Lactate whole experiment (mmol/L)'; Figure 3 caption (per-animal means over the whole experiment); Section 2.2.6"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-1-3h-whole-experiment-heart-rate",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Planned 1-3 h artificial-placenta survival-goal group; whole-experiment summary",
+        "start": 1,
+        "end": 3,
+        "time_unit": "source hours; group target window",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published Table 1 group summary",
+        "endpoint": "Heart rate whole experiment",
+        "unit": "bpm",
+        "measurement_role": "function"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level summary under the source column n=8; Figure 3 describes per-animal whole-experiment means, but exact individual values and a separate row-specific assessment n are not provided."
+      },
+      "observation": {
+        "value": 222,
+        "measurement_time": "whole experiment",
+        "measurement_time_unit": "whole-experiment summary; experiment-specific support duration varies",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": 11
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, row 'Heart rate whole experiment (bpm)'; Figure 3 caption (per-animal means over the whole experiment); Section 2.2.6"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-1-3h-whole-experiment-circuit-flow",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Planned 1-3 h artificial-placenta survival-goal group; whole-experiment summary",
+        "start": 1,
+        "end": 3,
+        "time_unit": "source hours; group target window",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published Table 1 group summary",
+        "endpoint": "Circuit flow whole experiment",
+        "unit": "mL/kg/min",
+        "measurement_role": "function"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level summary under the source column n=8; Figure 3 describes per-animal whole-experiment means, but exact individual values and a separate row-specific assessment n are not provided."
+      },
+      "observation": {
+        "value": 124,
+        "measurement_time": "whole experiment",
+        "measurement_time_unit": "whole-experiment summary; experiment-specific support duration varies",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": 12
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, row 'Circuit flow whole experiment (mL/kg/min)'; Figure 3 caption (per-animal means over the whole experiment); Section 2.2.6"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-4-24h-whole-experiment-ph",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Planned 4-24 h artificial-placenta survival-goal group; whole-experiment summary",
+        "start": 4,
+        "end": 24,
+        "time_unit": "source hours; group target window",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published Table 1 group summary",
+        "endpoint": "pH whole experiment",
+        "unit": "pH",
+        "measurement_role": "function"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level summary under the source column n=10; Figure 3 describes per-animal whole-experiment means, but exact individual values and a separate row-specific assessment n are not provided."
+      },
+      "observation": {
+        "value": 7.29,
+        "measurement_time": "whole experiment",
+        "measurement_time_unit": "whole-experiment summary; experiment-specific support duration varies",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": 0.03
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, row 'pH whole experiment'; Figure 3 caption (per-animal means over the whole experiment); Section 2.2.6"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-4-24h-whole-experiment-lactate",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Planned 4-24 h artificial-placenta survival-goal group; whole-experiment summary",
+        "start": 4,
+        "end": 24,
+        "time_unit": "source hours; group target window",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published Table 1 group summary",
+        "endpoint": "Lactate whole experiment",
+        "unit": "mmol/L",
+        "measurement_role": "function"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level summary under the source column n=10; Figure 3 describes per-animal whole-experiment means, but exact individual values and a separate row-specific assessment n are not provided."
+      },
+      "observation": {
+        "value": 3.82,
+        "measurement_time": "whole experiment",
+        "measurement_time_unit": "whole-experiment summary; experiment-specific support duration varies",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": 0.78
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, row 'Lactate whole experiment (mmol/L)'; Figure 3 caption (per-animal means over the whole experiment); Section 2.2.6"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-4-24h-whole-experiment-heart-rate",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Planned 4-24 h artificial-placenta survival-goal group; whole-experiment summary",
+        "start": 4,
+        "end": 24,
+        "time_unit": "source hours; group target window",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published Table 1 group summary",
+        "endpoint": "Heart rate whole experiment",
+        "unit": "bpm",
+        "measurement_role": "function"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level summary under the source column n=10; Figure 3 describes per-animal whole-experiment means, but exact individual values and a separate row-specific assessment n are not provided."
+      },
+      "observation": {
+        "value": 186,
+        "measurement_time": "whole experiment",
+        "measurement_time_unit": "whole-experiment summary; experiment-specific support duration varies",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": 9
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, row 'Heart rate whole experiment (bpm)'; Figure 3 caption (per-animal means over the whole experiment); Section 2.2.6"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-4-24h-whole-experiment-circuit-flow",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Planned 4-24 h artificial-placenta survival-goal group; whole-experiment summary",
+        "start": 4,
+        "end": 24,
+        "time_unit": "source hours; group target window",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published Table 1 group summary",
+        "endpoint": "Circuit flow whole experiment",
+        "unit": "mL/kg/min",
+        "measurement_role": "function"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level summary under the source column n=10; Figure 3 describes per-animal whole-experiment means, but exact individual values and a separate row-specific assessment n are not provided."
+      },
+      "observation": {
+        "value": 115,
+        "measurement_time": "whole experiment",
+        "measurement_time_unit": "whole-experiment summary; experiment-specific support duration varies",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": 11
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, row 'Circuit flow whole experiment (mL/kg/min)'; Figure 3 caption (per-animal means over the whole experiment); Section 2.2.6"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-48-168h-whole-experiment-ph",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Planned 48-168 h artificial-placenta survival-goal group; whole-experiment summary",
+        "start": 48,
+        "end": 168,
+        "time_unit": "source hours; group target window",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published Table 1 group summary",
+        "endpoint": "pH whole experiment",
+        "unit": "pH",
+        "measurement_role": "function"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level summary under the source column n=10; Figure 3 describes per-animal whole-experiment means, but exact individual values and a separate row-specific assessment n are not provided."
+      },
+      "observation": {
+        "value": 7.35,
+        "measurement_time": "whole experiment",
+        "measurement_time_unit": "whole-experiment summary; experiment-specific support duration varies",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": 0.01
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, row 'pH whole experiment'; Figure 3 caption (per-animal means over the whole experiment); Section 2.2.6"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-48-168h-whole-experiment-lactate",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Planned 48-168 h artificial-placenta survival-goal group; whole-experiment summary",
+        "start": 48,
+        "end": 168,
+        "time_unit": "source hours; group target window",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published Table 1 group summary",
+        "endpoint": "Lactate whole experiment",
+        "unit": "mmol/L",
+        "measurement_role": "function"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level summary under the source column n=10; Figure 3 describes per-animal whole-experiment means, but exact individual values and a separate row-specific assessment n are not provided."
+      },
+      "observation": {
+        "value": 2.5,
+        "measurement_time": "whole experiment",
+        "measurement_time_unit": "whole-experiment summary; experiment-specific support duration varies",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": 0.38
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, row 'Lactate whole experiment (mmol/L)'; Figure 3 caption (per-animal means over the whole experiment); Section 2.2.6 (48-168 h entry marked **; footnote: p<0.05 vs 1-3 h)"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-48-168h-whole-experiment-heart-rate",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Planned 48-168 h artificial-placenta survival-goal group; whole-experiment summary",
+        "start": 48,
+        "end": 168,
+        "time_unit": "source hours; group target window",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published Table 1 group summary",
+        "endpoint": "Heart rate whole experiment",
+        "unit": "bpm",
+        "measurement_role": "function"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level summary under the source column n=10; Figure 3 describes per-animal whole-experiment means, but exact individual values and a separate row-specific assessment n are not provided."
+      },
+      "observation": {
+        "value": 177,
+        "measurement_time": "whole experiment",
+        "measurement_time_unit": "whole-experiment summary; experiment-specific support duration varies",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": 5
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, row 'Heart rate whole experiment (bpm)'; Figure 3 caption (per-animal means over the whole experiment); Section 2.2.6"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-48-168h-whole-experiment-circuit-flow",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Planned 48-168 h artificial-placenta survival-goal group; whole-experiment summary",
+        "start": 48,
+        "end": 168,
+        "time_unit": "source hours; group target window",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published Table 1 group summary",
+        "endpoint": "Circuit flow whole experiment",
+        "unit": "mL/kg/min",
+        "measurement_role": "function"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level summary under the source column n=10; Figure 3 describes per-animal whole-experiment means, but exact individual values and a separate row-specific assessment n are not provided."
+      },
+      "observation": {
+        "value": 161,
+        "measurement_time": "whole experiment",
+        "measurement_time_unit": "whole-experiment summary; experiment-specific support duration varies",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": 8
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, row 'Circuit flow whole experiment (mL/kg/min)'; Figure 3 caption (per-animal means over the whole experiment); Section 2.2.6"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-1-3h-exit-surgery-duration",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Planned 1-3 h artificial-placenta survival-goal group; transition context",
+        "start": 1,
+        "end": 3,
+        "time_unit": "source hours; group target window",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published Table 1 group summary",
+        "endpoint": "Duration EXIT surgery",
+        "unit": "min",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level summary under the source column n=8; individual values and a separate row-specific assessment n are not provided."
+      },
+      "observation": {
+        "value": 33.5,
+        "measurement_time": null,
+        "measurement_time_unit": "duration of EXIT surgery; exact per-fetus times not reported",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": 3.3
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, row 'Duration EXIT surgery'; Section 2.2.6 (continuous values reported as means ± SEM)"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-1-3h-cannulation-duration",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Planned 1-3 h artificial-placenta survival-goal group; transition context",
+        "start": 1,
+        "end": 3,
+        "time_unit": "source hours; group target window",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published Table 1 group summary",
+        "endpoint": "Duration of cannulation",
+        "unit": "min",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level summary under the source column n=8; individual values and a separate row-specific assessment n are not provided."
+      },
+      "observation": {
+        "value": 8.04,
+        "measurement_time": null,
+        "measurement_time_unit": "cannulation procedure duration; exact per-fetus times not reported",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": 2.95
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, row 'Duration of cannulation'; Section 2.2.6 (continuous values reported as means ± SEM)"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-1-3h-preconnection-heart-rate",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Planned 1-3 h artificial-placenta survival-goal group; transition context",
+        "start": 1,
+        "end": 3,
+        "time_unit": "source hours; group target window",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published Table 1 group summary",
+        "endpoint": "Heart rate before connection",
+        "unit": "bpm",
+        "measurement_role": "function"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level summary under the source column n=8; individual values and a separate row-specific assessment n are not provided."
+      },
+      "observation": {
+        "value": 182,
+        "measurement_time": "before AP system connection",
+        "measurement_time_unit": "pre-connection point; exact measurement interval not reported",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": 18
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, row 'Heart rate before connection'; Section 2.2.6 (continuous values reported as means ± SEM)"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-4-24h-exit-surgery-duration",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Planned 4-24 h artificial-placenta survival-goal group; transition context",
+        "start": 4,
+        "end": 24,
+        "time_unit": "source hours; group target window",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published Table 1 group summary",
+        "endpoint": "Duration EXIT surgery",
+        "unit": "min",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level summary under the source column n=10; individual values and a separate row-specific assessment n are not provided."
+      },
+      "observation": {
+        "value": 44.1,
+        "measurement_time": null,
+        "measurement_time_unit": "duration of EXIT surgery; exact per-fetus times not reported",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": 5.1
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, row 'Duration EXIT surgery'; Section 2.2.6 (continuous values reported as means ± SEM)"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-4-24h-cannulation-duration",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Planned 4-24 h artificial-placenta survival-goal group; transition context",
+        "start": 4,
+        "end": 24,
+        "time_unit": "source hours; group target window",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published Table 1 group summary",
+        "endpoint": "Duration of cannulation",
+        "unit": "min",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level summary under the source column n=10; individual values and a separate row-specific assessment n are not provided."
+      },
+      "observation": {
+        "value": 8.11,
+        "measurement_time": null,
+        "measurement_time_unit": "cannulation procedure duration; exact per-fetus times not reported",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": 0.93
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, row 'Duration of cannulation'; Section 2.2.6 (continuous values reported as means ± SEM)"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-4-24h-preconnection-heart-rate",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Planned 4-24 h artificial-placenta survival-goal group; transition context",
+        "start": 4,
+        "end": 24,
+        "time_unit": "source hours; group target window",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published Table 1 group summary",
+        "endpoint": "Heart rate before connection",
+        "unit": "bpm",
+        "measurement_role": "function"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level summary under the source column n=10; individual values and a separate row-specific assessment n are not provided."
+      },
+      "observation": {
+        "value": 168,
+        "measurement_time": "before AP system connection",
+        "measurement_time_unit": "pre-connection point; exact measurement interval not reported",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": 10
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, row 'Heart rate before connection'; Section 2.2.6 (continuous values reported as means ± SEM)"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-48-168h-exit-surgery-duration",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Planned 48-168 h artificial-placenta survival-goal group; transition context",
+        "start": 48,
+        "end": 168,
+        "time_unit": "source hours; group target window",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published Table 1 group summary",
+        "endpoint": "Duration EXIT surgery",
+        "unit": "min",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level summary under the source column n=10; individual values and a separate row-specific assessment n are not provided."
+      },
+      "observation": {
+        "value": 34.3,
+        "measurement_time": null,
+        "measurement_time_unit": "duration of EXIT surgery; exact per-fetus times not reported",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": 5.1
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, row 'Duration EXIT surgery'; Section 2.2.6 (continuous values reported as means ± SEM)"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-48-168h-cannulation-duration",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Planned 48-168 h artificial-placenta survival-goal group; transition context",
+        "start": 48,
+        "end": 168,
+        "time_unit": "source hours; group target window",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published Table 1 group summary",
+        "endpoint": "Duration of cannulation",
+        "unit": "min",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level summary under the source column n=10; individual values and a separate row-specific assessment n are not provided."
+      },
+      "observation": {
+        "value": 6.89,
+        "measurement_time": null,
+        "measurement_time_unit": "cannulation procedure duration; exact per-fetus times not reported",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": 0.4
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, row 'Duration of cannulation'; Section 2.2.6 (continuous values reported as means ± SEM)"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-48-168h-preconnection-heart-rate",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Planned 48-168 h artificial-placenta survival-goal group; transition context",
+        "start": 48,
+        "end": 168,
+        "time_unit": "source hours; group target window",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published Table 1 group summary",
+        "endpoint": "Heart rate before connection",
+        "unit": "bpm",
+        "measurement_role": "function"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level summary under the source column n=10; individual values and a separate row-specific assessment n are not provided."
+      },
+      "observation": {
+        "value": 143,
+        "measurement_time": "before AP system connection",
+        "measurement_time_unit": "pre-connection point; exact measurement interval not reported",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": 6
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, row 'Heart rate before connection'; Section 2.2.6 (continuous values reported as means ± SEM)"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-1-3h-30min-heart-rate",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Planned 1-3 h artificial-placenta survival-goal group; measurement at 30 min after connection",
+        "start": 1,
+        "end": 3,
+        "time_unit": "source hours; group target window",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published Table 1 group summary",
+        "endpoint": "Heart rate 30 min after connection",
+        "unit": "bpm",
+        "measurement_role": "function"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level summary under the source column n=8; row-specific assessment n is not separately stated, and exact per-fetus 30-minute values are not listed."
+      },
+      "observation": {
+        "value": 134,
+        "measurement_time": 30,
+        "measurement_time_unit": "minutes after AP system connection",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": 33
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, row 'Heart rate 30 min after connection'; Section 2.2.6 (continuous values reported as means ± SEM)"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-4-24h-30min-heart-rate",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Planned 4-24 h artificial-placenta survival-goal group; measurement at 30 min after connection",
+        "start": 4,
+        "end": 24,
+        "time_unit": "source hours; group target window",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published Table 1 group summary",
+        "endpoint": "Heart rate 30 min after connection",
+        "unit": "bpm",
+        "measurement_role": "function"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level summary under the source column n=10; row-specific assessment n is not separately stated, and exact per-fetus 30-minute values are not listed."
+      },
+      "observation": {
+        "value": 205,
+        "measurement_time": 30,
+        "measurement_time_unit": "minutes after AP system connection",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": 8
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, row 'Heart rate 30 min after connection'; Section 2.2.6 (continuous values reported as means ± SEM)"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-48-168h-30min-heart-rate",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Planned 48-168 h artificial-placenta survival-goal group; measurement at 30 min after connection",
+        "start": 48,
+        "end": 168,
+        "time_unit": "source hours; group target window",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published Table 1 group summary",
+        "endpoint": "Heart rate 30 min after connection",
+        "unit": "bpm",
+        "measurement_role": "function"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level summary under the source column n=10; row-specific assessment n is not separately stated, and exact per-fetus 30-minute values are not listed."
+      },
+      "observation": {
+        "value": 182,
+        "measurement_time": 30,
+        "measurement_time_unit": "minutes after AP system connection",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": 8
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, row 'Heart rate 30 min after connection'; Section 2.2.6 (continuous values reported as means ± SEM)"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-1-3h-cannulation-technique-direct-cut-down",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Planned 1-3 h artificial-placenta survival-goal group; cannulation process category",
+        "start": 1,
+        "end": 3,
+        "time_unit": "source hours; group target window",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published Table 1 process summary",
+        "endpoint": "Cannulation technique used: Direct cut-down",
+        "unit": "fetal sheep",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level count under the source column n=8; per-fetus technique assignments and identifiers are not supplied."
+      },
+      "observation": {
+        "value": 6,
+        "measurement_time": null,
+        "measurement_time_unit": "cannulation procedure; group technique category",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, Cannulation technique used > Direct cut-down"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-1-3h-cannulation-technique-sequential-technique",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Planned 1-3 h artificial-placenta survival-goal group; cannulation process category",
+        "start": 1,
+        "end": 3,
+        "time_unit": "source hours; group target window",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published Table 1 process summary",
+        "endpoint": "Cannulation technique used: Sequential technique",
+        "unit": "fetal sheep",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level count under the source column n=8; per-fetus technique assignments and identifiers are not supplied."
+      },
+      "observation": {
+        "value": 2,
+        "measurement_time": null,
+        "measurement_time_unit": "cannulation procedure; group technique category",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, Cannulation technique used > Sequential technique"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-1-3h-cannulation-technique-st-vasospasm-prevention",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Planned 1-3 h artificial-placenta survival-goal group; cannulation process category",
+        "start": 1,
+        "end": 3,
+        "time_unit": "source hours; group target window",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published Table 1 process summary",
+        "endpoint": "Cannulation technique used: ST + vasospasm prevention",
+        "unit": "fetal sheep",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level count under the source column n=8; per-fetus technique assignments and identifiers are not supplied."
+      },
+      "observation": {
+        "value": 0,
+        "measurement_time": null,
+        "measurement_time_unit": "cannulation procedure; group technique category",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, Cannulation technique used > ST + vasospasm prevention"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-4-24h-cannulation-technique-direct-cut-down",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Planned 4-24 h artificial-placenta survival-goal group; cannulation process category",
+        "start": 4,
+        "end": 24,
+        "time_unit": "source hours; group target window",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published Table 1 process summary",
+        "endpoint": "Cannulation technique used: Direct cut-down",
+        "unit": "fetal sheep",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level count under the source column n=10; per-fetus technique assignments and identifiers are not supplied."
+      },
+      "observation": {
+        "value": 0,
+        "measurement_time": null,
+        "measurement_time_unit": "cannulation procedure; group technique category",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, Cannulation technique used > Direct cut-down"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-4-24h-cannulation-technique-sequential-technique",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Planned 4-24 h artificial-placenta survival-goal group; cannulation process category",
+        "start": 4,
+        "end": 24,
+        "time_unit": "source hours; group target window",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published Table 1 process summary",
+        "endpoint": "Cannulation technique used: Sequential technique",
+        "unit": "fetal sheep",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level count under the source column n=10; per-fetus technique assignments and identifiers are not supplied."
+      },
+      "observation": {
+        "value": 5,
+        "measurement_time": null,
+        "measurement_time_unit": "cannulation procedure; group technique category",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, Cannulation technique used > Sequential technique"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-4-24h-cannulation-technique-st-vasospasm-prevention",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Planned 4-24 h artificial-placenta survival-goal group; cannulation process category",
+        "start": 4,
+        "end": 24,
+        "time_unit": "source hours; group target window",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published Table 1 process summary",
+        "endpoint": "Cannulation technique used: ST + vasospasm prevention",
+        "unit": "fetal sheep",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level count under the source column n=10; per-fetus technique assignments and identifiers are not supplied."
+      },
+      "observation": {
+        "value": 5,
+        "measurement_time": null,
+        "measurement_time_unit": "cannulation procedure; group technique category",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, Cannulation technique used > ST + vasospasm prevention"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-48-168h-cannulation-technique-direct-cut-down",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Planned 48-168 h artificial-placenta survival-goal group; cannulation process category",
+        "start": 48,
+        "end": 168,
+        "time_unit": "source hours; group target window",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published Table 1 process summary",
+        "endpoint": "Cannulation technique used: Direct cut-down",
+        "unit": "fetal sheep",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level count under the source column n=10; per-fetus technique assignments and identifiers are not supplied."
+      },
+      "observation": {
+        "value": 0,
+        "measurement_time": null,
+        "measurement_time_unit": "cannulation procedure; group technique category",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, Cannulation technique used > Direct cut-down"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-48-168h-cannulation-technique-sequential-technique",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Planned 48-168 h artificial-placenta survival-goal group; cannulation process category",
+        "start": 48,
+        "end": 168,
+        "time_unit": "source hours; group target window",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published Table 1 process summary",
+        "endpoint": "Cannulation technique used: Sequential technique",
+        "unit": "fetal sheep",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level count under the source column n=10; per-fetus technique assignments and identifiers are not supplied."
+      },
+      "observation": {
+        "value": 0,
+        "measurement_time": null,
+        "measurement_time_unit": "cannulation procedure; group technique category",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, Cannulation technique used > Sequential technique"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2023-goal-48-168h-cannulation-technique-st-vasospasm-prevention",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Planned 48-168 h artificial-placenta survival-goal group; cannulation process category",
+        "start": 48,
+        "end": 168,
+        "time_unit": "source hours; group target window",
+        "stage_source_artifact_id": "eixarch2023-ap-paper"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep transferred to the Barcelona artificial-placenta system"
+      },
+      "assay": {
+        "name": "Published Table 1 process summary",
+        "endpoint": "Cannulation technique used: ST + vasospasm prevention",
+        "unit": "fetal sheep",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level count under the source column n=10; per-fetus technique assignments and identifiers are not supplied."
+      },
+      "observation": {
+        "value": 10,
+        "measurement_time": null,
+        "measurement_time_unit": "cannulation procedure; group technique category",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      },
+      "source": {
+        "artifact_id": "eixarch2023-ap-paper",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC10044909/",
+        "license": "CC BY 4.0 (PMC article front matter)",
+        "sha256": "109cd7d7c5eba6cdc15394c65d0169991bb44c8ea71012eedbd6b9288a2f33c0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, Cannulation technique used > ST + vasospasm prevention"
+    }
+  ],
+  "cohort_coverage": [
+    {
+      "coverage_id": "eixarch2023-goal-1-3h-coverage",
+      "source_artifact_id": "eixarch2023-ap-paper",
+      "reported_group_label": "1-3 h survival-goal group",
+      "group_label_status": "reported",
+      "counted_entity_kind": "fetus",
+      "counted_entity_label": "Fetal sheep in the source-reported group; goal-attainment results are phrased as experiments",
+      "endpoint_label": "Group-level survival-goal attainment, cannulation-complication rate, and mean total support duration, pH and circuit flow at 30 minutes after connection, whole-experiment pH, lactate, heart rate, and circuit flow, EXIT-surgery duration, cannulation duration, and pre-connection heart rate, heart rate at 30 minutes after connection, cannulation technique counts by group",
+      "population_frame": "Eight fetal sheep transferred to the artificial-placenta system in the first planned-goal group.",
+      "measurement_window": "Cannulation procedure, reported group mean total AP-system support duration, and planned 1-3 source-hour goal range.",
+      "selection_definition": "First of three consecutive study groups in which planned AP survival goals increased. The group range does not reveal each fetus's assigned exact goal.",
+      "selection_definition_source_locator": "Abstract > Methods; §2 Materials and Methods",
+      "denominator": {
+        "value": 8,
+        "value_status": "reported",
+        "reported_label": "n=8 fetal sheep",
+        "source_locator": "Abstract > Methods"
+      },
+      "declarations": [
+        {
+          "category": "initially_included",
+          "scope": "within_denominator",
+          "reported_label": "Fetal sheep in the 1-3 h group",
+          "quantity_kind": "count",
+          "value": 8,
+          "value_status": "reported",
+          "source_locator": "Abstract > Methods"
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Experiments reaching their assigned survival goal",
+          "quantity_kind": "percentage",
+          "value": "25%",
+          "value_status": "reported",
+          "source_locator": "Abstract > Results",
+          "note": "Group rate only; no individual identities or exact assigned goals are reported."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Cannulation complications",
+          "quantity_kind": "percentage",
+          "value": "75%",
+          "value_status": "reported",
+          "source_locator": "Abstract > Results",
+          "note": "Group rate only; no case-level complication mapping is added."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Mean total survival time in AP system (mean ± SEM)",
+          "quantity_kind": "other",
+          "value": "1.48 ± 0.78 h (mean ± SEM)",
+          "value_status": "reported",
+          "source_locator": "Table 1, row 'Total survival time in AP system (hours)'; §2.2.6",
+          "note": "Group-level mean and SEM; individual durations are not reported. The planned-goal band is not an individual duration."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "pH 30 min after connection (mean ± SEM)",
+          "quantity_kind": "other",
+          "value": "7.2 ± 0.06 pH (mean ± SEM)",
+          "value_status": "reported",
+          "source_locator": "Table 1, row 'pH 30 min after connection'; Section 2.2.6",
+          "note": "Source group n is in the Table 1 column header; a measure-specific assessment n is not separately stated."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Circuit flow 30 min after connection (mean ± SEM)",
+          "quantity_kind": "other",
+          "value": "45 ± 24 mL/kg/min (mean ± SEM)",
+          "value_status": "reported",
+          "source_locator": "Table 1, row 'Circuit flow 30 min after connection'; Section 2.2.6",
+          "note": "Source group n is in the Table 1 column header; a measure-specific assessment n is not separately stated."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "pH whole experiment (mean ± SEM)",
+          "quantity_kind": "other",
+          "value": "7.22 ± 0.07 pH (mean ± SEM)",
+          "value_status": "reported",
+          "source_locator": "Table 1, row 'pH whole experiment'; Figure 3 caption; Section 2.2.6",
+          "note": "Table 1 reports a group summary; Figure 3 describes the underlying point values as per-animal whole-experiment means. Exact values per animal and a row-specific assessment n are not provided."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Lactate whole experiment (mean ± SEM)",
+          "quantity_kind": "other",
+          "value": "6.2 ± 1.22 mmol/L (mean ± SEM)",
+          "value_status": "reported",
+          "source_locator": "Table 1, row 'Lactate whole experiment (mmol/L)'; Figure 3 caption; Section 2.2.6",
+          "note": "Table 1 reports a group summary; Figure 3 describes the underlying point values as per-animal whole-experiment means. Exact values per animal and a row-specific assessment n are not provided."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Heart rate whole experiment (mean ± SEM)",
+          "quantity_kind": "other",
+          "value": "222 ± 11 bpm (mean ± SEM)",
+          "value_status": "reported",
+          "source_locator": "Table 1, row 'Heart rate whole experiment (bpm)'; Figure 3 caption; Section 2.2.6",
+          "note": "Table 1 reports a group summary; Figure 3 describes the underlying point values as per-animal whole-experiment means. Exact values per animal and a row-specific assessment n are not provided."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Circuit flow whole experiment (mean ± SEM)",
+          "quantity_kind": "other",
+          "value": "124 ± 12 mL/kg/min (mean ± SEM)",
+          "value_status": "reported",
+          "source_locator": "Table 1, row 'Circuit flow whole experiment (mL/kg/min)'; Figure 3 caption; Section 2.2.6",
+          "note": "Table 1 reports a group summary; Figure 3 describes the underlying point values as per-animal whole-experiment means. Exact values per animal and a row-specific assessment n are not provided."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Duration EXIT surgery (mean ± SEM)",
+          "quantity_kind": "other",
+          "value": "33.5 ± 3.3 min (mean ± SEM)",
+          "value_status": "reported",
+          "source_locator": "Table 1, row 'Duration EXIT surgery'; Section 2.2.6",
+          "note": "Group-level mean and SEM; Table 1 does not report exact individual values or a separate row-specific assessment n."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Duration of cannulation (mean ± SEM)",
+          "quantity_kind": "other",
+          "value": "8.04 ± 2.95 min (mean ± SEM)",
+          "value_status": "reported",
+          "source_locator": "Table 1, row 'Duration of cannulation'; Section 2.2.6",
+          "note": "Group-level mean and SEM; Table 1 does not report exact individual values or a separate row-specific assessment n."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Heart rate before connection (mean ± SEM)",
+          "quantity_kind": "other",
+          "value": "182 ± 18 bpm (mean ± SEM)",
+          "value_status": "reported",
+          "source_locator": "Table 1, row 'Heart rate before connection'; Section 2.2.6",
+          "note": "Group-level mean and SEM; Table 1 does not report exact individual values or a separate row-specific assessment n."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Heart rate 30 min after connection (mean ± SEM)",
+          "quantity_kind": "other",
+          "value": "134 ± 33 bpm (mean ± SEM)",
+          "value_status": "reported",
+          "source_locator": "Table 1, row 'Heart rate 30 min after connection'; Section 2.2.6",
+          "note": "Source group n is in the Table 1 column header; a measure-specific assessment n is not separately stated."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Cannulation technique used: Direct cut-down",
+          "quantity_kind": "count",
+          "value": 6,
+          "value_status": "reported",
+          "source_locator": "Table 1, Cannulation technique used > Direct cut-down",
+          "note": "Table 1 source cell: 6 (75%). Count and printed percentage retained; individual assignments are not reported."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Cannulation technique used: Sequential technique",
+          "quantity_kind": "count",
+          "value": 2,
+          "value_status": "reported",
+          "source_locator": "Table 1, Cannulation technique used > Sequential technique",
+          "note": "Table 1 source cell: 2 (25%). Count and printed percentage retained; individual assignments are not reported."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Cannulation technique used: ST + vasospasm prevention",
+          "quantity_kind": "count",
+          "value": 0,
+          "value_status": "reported",
+          "source_locator": "Table 1, Cannulation technique used > ST + vasospasm prevention",
+          "note": "Table 1 source cell: 0. Count and printed percentage retained; individual assignments are not reported."
+        }
+      ],
+      "selection_statements": [
+        {
+          "text": "The paper's survival-goal group range is not an individual per-fetus duration or exact goal assignment.",
+          "source_locator": "Abstract > Methods"
+        },
+        {
+          "text": "The Table 1 support-duration mean and SEM are group summaries; individual durations are not reported, and the planned-goal interval does not identify each fetus's actual duration.",
+          "source_locator": "Table 1; §2.2.6"
+        },
+        {
+          "text": "The 30-minute pH, heart-rate, and circuit-flow values are group summaries; Table 1 does not separately state the number assessed for each measure or provide exact per-fetus 30-minute readings.",
+          "source_locator": "Table 1; Section 2.2.6"
+        },
+        {
+          "text": "Whole-experiment group summaries are not longitudinal trajectories; experiment duration varies by planned goal, exact per-animal values are not provided, and the table does not state row-specific assessment n.",
+          "source_locator": "Table 1; Figure 3 caption"
+        },
+        {
+          "text": "EXIT-surgery duration, cannulation duration, and pre-connection heart rate are group summaries; the table does not give exact per-fetus values or row-specific assessment n.",
+          "source_locator": "Table 1; Section 2.2.6"
+        },
+        {
+          "text": "Cannulation technique counts are group-level process summaries; no individual technique assignments are supplied, and the table does not state that the listed categories form a complete mutually exclusive partition.",
+          "source_locator": "Table 1, Cannulation technique used"
+        }
+      ],
+      "cohort_window_status": "source_reported_common",
+      "disposition_completeness": "unknown",
+      "categories_mutually_exclusive": "unknown",
+      "categories_exhaustive": "unknown"
+    },
+    {
+      "coverage_id": "eixarch2023-goal-4-24h-coverage",
+      "source_artifact_id": "eixarch2023-ap-paper",
+      "reported_group_label": "4-24 h survival-goal group",
+      "group_label_status": "reported",
+      "counted_entity_kind": "fetus",
+      "counted_entity_label": "Fetal sheep in the source-reported group; goal-attainment results are phrased as experiments",
+      "endpoint_label": "Group-level survival-goal attainment, cannulation-complication rate, and mean total support duration, pH and circuit flow at 30 minutes after connection, whole-experiment pH, lactate, heart rate, and circuit flow, EXIT-surgery duration, cannulation duration, and pre-connection heart rate, heart rate at 30 minutes after connection, cannulation technique counts by group",
+      "population_frame": "Ten fetal sheep transferred to the artificial-placenta system in the second planned-goal group.",
+      "measurement_window": "Cannulation procedure, reported group mean total AP-system support duration, and planned 4-24 source-hour goal range.",
+      "selection_definition": "Second of three consecutive study groups in which planned AP survival goals increased. The group range does not reveal each fetus's assigned exact goal.",
+      "selection_definition_source_locator": "Abstract > Methods; §2 Materials and Methods",
+      "denominator": {
+        "value": 10,
+        "value_status": "reported",
+        "reported_label": "n=10 fetal sheep",
+        "source_locator": "Abstract > Methods"
+      },
+      "declarations": [
+        {
+          "category": "initially_included",
+          "scope": "within_denominator",
+          "reported_label": "Fetal sheep in the 4-24 h group",
+          "quantity_kind": "count",
+          "value": 10,
+          "value_status": "reported",
+          "source_locator": "Abstract > Methods"
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Experiments reaching their assigned survival goal",
+          "quantity_kind": "percentage",
+          "value": "70%",
+          "value_status": "reported",
+          "source_locator": "Abstract > Results",
+          "note": "Group rate only; no individual identities or exact assigned goals are reported."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Cannulation complications",
+          "quantity_kind": "percentage",
+          "value": "50%",
+          "value_status": "reported",
+          "source_locator": "Abstract > Results",
+          "note": "Group rate only; no case-level complication mapping is added."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Mean total survival time in AP system (mean ± SEM)",
+          "quantity_kind": "other",
+          "value": "11 ± 3.42 h (mean ± SEM)",
+          "value_status": "reported",
+          "source_locator": "Table 1, row 'Total survival time in AP system (hours)'; §2.2.6",
+          "note": "Group-level mean and SEM; individual durations are not reported. The planned-goal band is not an individual duration."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "pH 30 min after connection (mean ± SEM)",
+          "quantity_kind": "other",
+          "value": "7.31 ± 0.04 pH (mean ± SEM)",
+          "value_status": "reported",
+          "source_locator": "Table 1, row 'pH 30 min after connection'; Section 2.2.6",
+          "note": "Source group n is in the Table 1 column header; a measure-specific assessment n is not separately stated."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Circuit flow 30 min after connection (mean ± SEM)",
+          "quantity_kind": "other",
+          "value": "138 ± 23 mL/kg/min (mean ± SEM)",
+          "value_status": "reported",
+          "source_locator": "Table 1, row 'Circuit flow 30 min after connection'; Section 2.2.6",
+          "note": "Source group n is in the Table 1 column header; a measure-specific assessment n is not separately stated."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "pH whole experiment (mean ± SEM)",
+          "quantity_kind": "other",
+          "value": "7.29 ± 0.03 pH (mean ± SEM)",
+          "value_status": "reported",
+          "source_locator": "Table 1, row 'pH whole experiment'; Figure 3 caption; Section 2.2.6",
+          "note": "Table 1 reports a group summary; Figure 3 describes the underlying point values as per-animal whole-experiment means. Exact values per animal and a row-specific assessment n are not provided."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Lactate whole experiment (mean ± SEM)",
+          "quantity_kind": "other",
+          "value": "3.82 ± 0.78 mmol/L (mean ± SEM)",
+          "value_status": "reported",
+          "source_locator": "Table 1, row 'Lactate whole experiment (mmol/L)'; Figure 3 caption; Section 2.2.6",
+          "note": "Table 1 reports a group summary; Figure 3 describes the underlying point values as per-animal whole-experiment means. Exact values per animal and a row-specific assessment n are not provided."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Heart rate whole experiment (mean ± SEM)",
+          "quantity_kind": "other",
+          "value": "186 ± 9 bpm (mean ± SEM)",
+          "value_status": "reported",
+          "source_locator": "Table 1, row 'Heart rate whole experiment (bpm)'; Figure 3 caption; Section 2.2.6",
+          "note": "Table 1 reports a group summary; Figure 3 describes the underlying point values as per-animal whole-experiment means. Exact values per animal and a row-specific assessment n are not provided."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Circuit flow whole experiment (mean ± SEM)",
+          "quantity_kind": "other",
+          "value": "115 ± 11 mL/kg/min (mean ± SEM)",
+          "value_status": "reported",
+          "source_locator": "Table 1, row 'Circuit flow whole experiment (mL/kg/min)'; Figure 3 caption; Section 2.2.6",
+          "note": "Table 1 reports a group summary; Figure 3 describes the underlying point values as per-animal whole-experiment means. Exact values per animal and a row-specific assessment n are not provided."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Duration EXIT surgery (mean ± SEM)",
+          "quantity_kind": "other",
+          "value": "44.1 ± 5.1 min (mean ± SEM)",
+          "value_status": "reported",
+          "source_locator": "Table 1, row 'Duration EXIT surgery'; Section 2.2.6",
+          "note": "Group-level mean and SEM; Table 1 does not report exact individual values or a separate row-specific assessment n."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Duration of cannulation (mean ± SEM)",
+          "quantity_kind": "other",
+          "value": "8.11 ± 0.93 min (mean ± SEM)",
+          "value_status": "reported",
+          "source_locator": "Table 1, row 'Duration of cannulation'; Section 2.2.6",
+          "note": "Group-level mean and SEM; Table 1 does not report exact individual values or a separate row-specific assessment n."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Heart rate before connection (mean ± SEM)",
+          "quantity_kind": "other",
+          "value": "168 ± 10 bpm (mean ± SEM)",
+          "value_status": "reported",
+          "source_locator": "Table 1, row 'Heart rate before connection'; Section 2.2.6",
+          "note": "Group-level mean and SEM; Table 1 does not report exact individual values or a separate row-specific assessment n."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Heart rate 30 min after connection (mean ± SEM)",
+          "quantity_kind": "other",
+          "value": "205 ± 8 bpm (mean ± SEM)",
+          "value_status": "reported",
+          "source_locator": "Table 1, row 'Heart rate 30 min after connection'; Section 2.2.6",
+          "note": "Source group n is in the Table 1 column header; a measure-specific assessment n is not separately stated."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Cannulation technique used: Direct cut-down",
+          "quantity_kind": "count",
+          "value": 0,
+          "value_status": "reported",
+          "source_locator": "Table 1, Cannulation technique used > Direct cut-down",
+          "note": "Table 1 source cell: 0. Count and printed percentage retained; individual assignments are not reported."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Cannulation technique used: Sequential technique",
+          "quantity_kind": "count",
+          "value": 5,
+          "value_status": "reported",
+          "source_locator": "Table 1, Cannulation technique used > Sequential technique",
+          "note": "Table 1 source cell: 5 (50%). Count and printed percentage retained; individual assignments are not reported."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Cannulation technique used: ST + vasospasm prevention",
+          "quantity_kind": "count",
+          "value": 5,
+          "value_status": "reported",
+          "source_locator": "Table 1, Cannulation technique used > ST + vasospasm prevention",
+          "note": "Table 1 source cell: 5 (50%). Count and printed percentage retained; individual assignments are not reported."
+        }
+      ],
+      "selection_statements": [
+        {
+          "text": "The paper's survival-goal group range is not an individual per-fetus duration or exact goal assignment.",
+          "source_locator": "Abstract > Methods"
+        },
+        {
+          "text": "The Table 1 support-duration mean and SEM are group summaries; individual durations are not reported, and the planned-goal interval does not identify each fetus's actual duration.",
+          "source_locator": "Table 1; §2.2.6"
+        },
+        {
+          "text": "The 30-minute pH, heart-rate, and circuit-flow values are group summaries; Table 1 does not separately state the number assessed for each measure or provide exact per-fetus 30-minute readings.",
+          "source_locator": "Table 1; Section 2.2.6"
+        },
+        {
+          "text": "Whole-experiment group summaries are not longitudinal trajectories; experiment duration varies by planned goal, exact per-animal values are not provided, and the table does not state row-specific assessment n.",
+          "source_locator": "Table 1; Figure 3 caption"
+        },
+        {
+          "text": "EXIT-surgery duration, cannulation duration, and pre-connection heart rate are group summaries; the table does not give exact per-fetus values or row-specific assessment n.",
+          "source_locator": "Table 1; Section 2.2.6"
+        },
+        {
+          "text": "Cannulation technique counts are group-level process summaries; no individual technique assignments are supplied, and the table does not state that the listed categories form a complete mutually exclusive partition.",
+          "source_locator": "Table 1, Cannulation technique used"
+        }
+      ],
+      "cohort_window_status": "source_reported_common",
+      "disposition_completeness": "unknown",
+      "categories_mutually_exclusive": "unknown",
+      "categories_exhaustive": "unknown"
+    },
+    {
+      "coverage_id": "eixarch2023-goal-48-168h-coverage",
+      "source_artifact_id": "eixarch2023-ap-paper",
+      "reported_group_label": "48-168 h survival-goal group",
+      "group_label_status": "reported",
+      "counted_entity_kind": "fetus",
+      "counted_entity_label": "Fetal sheep in the source-reported group; goal-attainment results are phrased as experiments",
+      "endpoint_label": "Group-level survival-goal attainment, cannulation-complication rate, mean total support duration, post-day-1 complications, and terminal hydrops, pH and circuit flow at 30 minutes after connection, whole-experiment pH, lactate, heart rate, and circuit flow, EXIT-surgery duration, cannulation duration, and pre-connection heart rate, heart rate at 30 minutes after connection, cannulation technique counts by group",
+      "population_frame": "Ten fetal sheep transferred to the artificial-placenta system in the third planned-goal group.",
+      "measurement_window": "Cannulation procedure, reported group mean total AP-system support duration, complications after the first support day, terminal hydrops observation, and planned 48-168 source-hour goal range.",
+      "selection_definition": "Third of three consecutive study groups in which planned AP survival goals increased. The group range does not reveal each fetus's assigned exact goal.",
+      "selection_definition_source_locator": "Abstract > Methods; §2 Materials and Methods",
+      "denominator": {
+        "value": 10,
+        "value_status": "reported",
+        "reported_label": "n=10 fetal sheep",
+        "source_locator": "Abstract > Methods"
+      },
+      "declarations": [
+        {
+          "category": "initially_included",
+          "scope": "within_denominator",
+          "reported_label": "Fetal sheep in the 48-168 h group",
+          "quantity_kind": "count",
+          "value": 10,
+          "value_status": "reported",
+          "source_locator": "Abstract > Methods"
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Experiments reaching their assigned survival goal",
+          "quantity_kind": "percentage",
+          "value": "80%",
+          "value_status": "reported",
+          "source_locator": "Abstract > Results",
+          "note": "This is the broad group rate, not an 80% rate reaching 168 h; individual goal assignments are not reported."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Cannulation complications",
+          "quantity_kind": "percentage",
+          "value": "0%",
+          "value_status": "reported",
+          "source_locator": "Abstract > Results",
+          "note": "Group rate only; no case-level complication mapping is added."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Mean total survival time in AP system (mean ± SEM)",
+          "quantity_kind": "other",
+          "value": "72.6 ± 12.9 h (mean ± SEM)",
+          "value_status": "reported",
+          "source_locator": "Table 1, row 'Total survival time in AP system (hours)'; §2.2.6",
+          "note": "Group-level mean and SEM; individual durations are not reported. The planned-goal band is not an individual duration."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Fetal sheep with complications after the first day of AP support",
+          "quantity_kind": "count",
+          "value": 4,
+          "value_status": "reported",
+          "source_locator": "Section 3 Results, 48-168 h group (complications after first day; fetal hydrops at experiment end)",
+          "note": "The Results identify two flow-interrupting cannulation accidents and two sepsis cases; individual identities and overlap with terminal hydrops are not reported."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Fetal sheep with hydrops at experiment end",
+          "quantity_kind": "count",
+          "value": 3,
+          "value_status": "reported",
+          "source_locator": "Section 3 Results, 48-168 h group (complications after first day; fetal hydrops at experiment end)",
+          "note": "Group-level count; individual identities and overlap with the after-day-one complication group are not reported."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "pH 30 min after connection (mean ± SEM)",
+          "quantity_kind": "other",
+          "value": "7.33 ± 0.02 pH (mean ± SEM)",
+          "value_status": "reported",
+          "source_locator": "Table 1, row 'pH 30 min after connection'; Section 2.2.6",
+          "note": "Source group n is in the Table 1 column header; a measure-specific assessment n is not separately stated."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Circuit flow 30 min after connection (mean ± SEM)",
+          "quantity_kind": "other",
+          "value": "196 ± 13 mL/kg/min (mean ± SEM)",
+          "value_status": "reported",
+          "source_locator": "Table 1, row 'Circuit flow 30 min after connection'; Section 2.2.6",
+          "note": "Source group n is in the Table 1 column header; a measure-specific assessment n is not separately stated. The source value has **; the table footnote defines this as p<0.05 versus the 1-3 h group. The test is not recalculated."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "pH whole experiment (mean ± SEM)",
+          "quantity_kind": "other",
+          "value": "7.35 ± 0.01 pH (mean ± SEM)",
+          "value_status": "reported",
+          "source_locator": "Table 1, row 'pH whole experiment'; Figure 3 caption; Section 2.2.6",
+          "note": "Table 1 reports a group summary; Figure 3 describes the underlying point values as per-animal whole-experiment means. Exact values per animal and a row-specific assessment n are not provided."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Lactate whole experiment (mean ± SEM)",
+          "quantity_kind": "other",
+          "value": "2.5 ± 0.38 mmol/L (mean ± SEM)",
+          "value_status": "reported",
+          "source_locator": "Table 1, row 'Lactate whole experiment (mmol/L)'; Figure 3 caption; Section 2.2.6",
+          "note": "Table 1 reports a group summary; Figure 3 describes the underlying point values as per-animal whole-experiment means. Exact values per animal and a row-specific assessment n are not provided. The 48-168 h entry is marked **; the footnote defines this as p<0.05 versus the 1-3 h group. The test is not recalculated."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Heart rate whole experiment (mean ± SEM)",
+          "quantity_kind": "other",
+          "value": "177 ± 5 bpm (mean ± SEM)",
+          "value_status": "reported",
+          "source_locator": "Table 1, row 'Heart rate whole experiment (bpm)'; Figure 3 caption; Section 2.2.6",
+          "note": "Table 1 reports a group summary; Figure 3 describes the underlying point values as per-animal whole-experiment means. Exact values per animal and a row-specific assessment n are not provided."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Circuit flow whole experiment (mean ± SEM)",
+          "quantity_kind": "other",
+          "value": "161 ± 8 mL/kg/min (mean ± SEM)",
+          "value_status": "reported",
+          "source_locator": "Table 1, row 'Circuit flow whole experiment (mL/kg/min)'; Figure 3 caption; Section 2.2.6",
+          "note": "Table 1 reports a group summary; Figure 3 describes the underlying point values as per-animal whole-experiment means. Exact values per animal and a row-specific assessment n are not provided."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Duration EXIT surgery (mean ± SEM)",
+          "quantity_kind": "other",
+          "value": "34.3 ± 5.1 min (mean ± SEM)",
+          "value_status": "reported",
+          "source_locator": "Table 1, row 'Duration EXIT surgery'; Section 2.2.6",
+          "note": "Group-level mean and SEM; Table 1 does not report exact individual values or a separate row-specific assessment n."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Duration of cannulation (mean ± SEM)",
+          "quantity_kind": "other",
+          "value": "6.89 ± 0.4 min (mean ± SEM)",
+          "value_status": "reported",
+          "source_locator": "Table 1, row 'Duration of cannulation'; Section 2.2.6",
+          "note": "Group-level mean and SEM; Table 1 does not report exact individual values or a separate row-specific assessment n."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Heart rate before connection (mean ± SEM)",
+          "quantity_kind": "other",
+          "value": "143 ± 6 bpm (mean ± SEM)",
+          "value_status": "reported",
+          "source_locator": "Table 1, row 'Heart rate before connection'; Section 2.2.6",
+          "note": "Group-level mean and SEM; Table 1 does not report exact individual values or a separate row-specific assessment n."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Heart rate 30 min after connection (mean ± SEM)",
+          "quantity_kind": "other",
+          "value": "182 ± 8 bpm (mean ± SEM)",
+          "value_status": "reported",
+          "source_locator": "Table 1, row 'Heart rate 30 min after connection'; Section 2.2.6",
+          "note": "Source group n is in the Table 1 column header; a measure-specific assessment n is not separately stated."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Cannulation technique used: Direct cut-down",
+          "quantity_kind": "count",
+          "value": 0,
+          "value_status": "reported",
+          "source_locator": "Table 1, Cannulation technique used > Direct cut-down",
+          "note": "Table 1 source cell: 0. Count and printed percentage retained; individual assignments are not reported."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Cannulation technique used: Sequential technique",
+          "quantity_kind": "count",
+          "value": 0,
+          "value_status": "reported",
+          "source_locator": "Table 1, Cannulation technique used > Sequential technique",
+          "note": "Table 1 source cell: 0. Count and printed percentage retained; individual assignments are not reported."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Cannulation technique used: ST + vasospasm prevention",
+          "quantity_kind": "count",
+          "value": 10,
+          "value_status": "reported",
+          "source_locator": "Table 1, Cannulation technique used > ST + vasospasm prevention",
+          "note": "Table 1 source cell: 10 (100%). Count and printed percentage retained; individual assignments are not reported."
+        }
+      ],
+      "selection_statements": [
+        {
+          "text": "The paper reports a 48-168 h group target but does not supply each fetus's goal assignment; 80% therefore cannot be relabeled as the fraction reaching 168 h.",
+          "source_locator": "Abstract > Methods; Abstract > Results"
+        },
+        {
+          "text": "The Table 1 support-duration mean and SEM are group summaries; individual durations are not reported, and the planned-goal interval does not identify each fetus's actual duration.",
+          "source_locator": "Table 1; §2.2.6"
+        },
+        {
+          "text": "The after-day-one complication count and terminal hydrops count are separate reported outcomes and may overlap; no individual mapping is supplied.",
+          "source_locator": "Section 3 Results, 48-168 h group (complications after first day; fetal hydrops at experiment end)"
+        },
+        {
+          "text": "The 30-minute pH, heart-rate, and circuit-flow values are group summaries; Table 1 does not separately state the number assessed for each measure or provide exact per-fetus 30-minute readings.",
+          "source_locator": "Table 1; Section 2.2.6"
+        },
+        {
+          "text": "Whole-experiment group summaries are not longitudinal trajectories; experiment duration varies by planned goal, exact per-animal values are not provided, and the table does not state row-specific assessment n.",
+          "source_locator": "Table 1; Figure 3 caption"
+        },
+        {
+          "text": "EXIT-surgery duration, cannulation duration, and pre-connection heart rate are group summaries; the table does not give exact per-fetus values or row-specific assessment n.",
+          "source_locator": "Table 1; Section 2.2.6"
+        },
+        {
+          "text": "Cannulation technique counts are group-level process summaries; no individual technique assignments are supplied, and the table does not state that the listed categories form a complete mutually exclusive partition.",
+          "source_locator": "Table 1, Cannulation technique used"
+        }
+      ],
+      "cohort_window_status": "source_reported_common",
+      "disposition_completeness": "unknown",
+      "categories_mutually_exclusive": "unknown",
+      "categories_exhaustive": "unknown"
+    }
+  ],
+  "limitations": [
+    "The six group outcome rates were transcribed from the primary article abstract; human scientific review is pending.",
+    "These are group-level percentages from a progressive learning-curve study; the 2022 conference abstract and 2025 conference cohort remain separate because no public animal crosswalk was located.",
+    "The three planned survival-goal ranges do not reveal an exact assigned goal for each fetus. In particular, the 80% result for the 48-168 h group is not an 80% seven-day survival rate.",
+    "The source reports group n and percentages but supplies no individual identifiers, individual outcomes, or linked longitudinal data in this intake.",
+    "The study describes transfer from uterus into artificial-placenta support and euthanasia after assigned goals; it does not report post-support neonatal transition or long-term developmental health.",
+    "Published Table 1 rows for bubbles in the circuit and vasospasm have a separate unresolved percentage-denominator mismatch; those complication rows are not represented by the abstract-level cannulation percentages here.",
+    "Cycle 286 pins the official PMC full-text XML (CC BY 4.0). The article surface has no supplementary-material element, and its Data Availability Statement reads “Not applicable.” Figure 3 identifies plotted dots as per-animal whole-experiment means but supplies no exact-value table or persistent animal IDs; this bounded article-surface check does not establish global data absence.",
+    "Cycle 287 visually reviewed Figure 3 in the publisher PDF (printed p. 6). The points are unlabeled and some overlap; no approximate point values were transcribed because the chart does not support a reliable point-to-value extraction. The visual review adds no biological observations.",
+    "Cycle 288 rechecked the Table 1 complication percentages against the group header and Methods/Results/Discussion. The 1 (14.3%) and 4 (57.1%) cells imply denominator seven mathematically, but the paper does not define that seven-fetus risk set; printed cells remain unchanged and no animal assignments are inferred.",
+    "Cycle 289 queried public DataCite, Zenodo, Figshare, and OSF metadata routes. No Eixarch 2023 dataset/supplement was identified among returned results; Figshare exact/author searches were broad capped result sets, two Figshare topical records were different studies, and Zenodo exact-DOI returned HTTP 500. This bounded screen does not establish global data absence; no candidate values changed.",
+    "Cycle 290 checked the PubMed record and exact-DOI/article-title searches plus Crossref relation/update metadata for a correction, erratum, or retraction. No linked correction was identified in those bounded metadata routes. The MDPI article-notes page returned HTTP 403 and could not be checked; the Table 1 denominator discrepancy remains unresolved, and no candidate observations changed.",
+    "Cycle 291 visually checked Table 1 in the publisher PDF (printed p. 5): bubbles is printed 1 (14.3%), vasospasm 4 (57.1%), and neither cell carries a specific footnote marker. The generic n (%) note does not define the implied denominator; the # note is attached only to the separate after-24-hour complications row. The discrepancy remains unresolved and candidate values were not changed.",
+    "Cycle 292 used Crossref’s documented reverse updates filter for DOI 10.3390/biomedicines11030702; zero update-linked records were returned. This is bounded to Crossref-deposited relations and does not prove absence of a correction. The publisher notes route remains unavailable, so the Table 1 denominator discrepancy remains unresolved; no candidate values changed.",
+    "Cycle 293 crosswalks all 60 printed Table 1 cell positions against the pinned publisher PDF. Forty-two direct table observations match group coverage declarations; three surgical-complication cells cross-check existing abstract summaries; five specific-complication values remain source-inventory-only because their row-specific assessment denominator is unresolved; one later-complication cell links to the existing Results count. Seven printed dashes and two N/A cells are retained as distinct states. No observation values changed."
+  ]
+}

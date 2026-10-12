@@ -1,0 +1,153 @@
+{
+  "schema_version": 1,
+  "review_status": "candidate",
+  "human_review": "pending",
+  "inspected_on": "2026-10-11",
+  "article": {
+    "title": "Modeling human embryo implantation in vitro",
+    "citation": "Molè M et al. Cell. 2026;189:87–105.e14. doi:10.1016/j.cell.2025.10.027.",
+    "doi": "10.1016/j.cell.2025.10.027",
+    "url": "https://doi.org/10.1016/j.cell.2025.10.027",
+    "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/41443191/",
+    "source_kind": "peer_reviewed_human_in_vitro",
+    "species": "Homo sapiens",
+    "model_name": "CREST human implantation/endometrial-interface model",
+    "source_pdf_license": "CC BY 4.0",
+    "source_pdf_sha256_review_copy": "941dd7b0a217cb5daabb88c83fc899dcd713cd7db8bc9c63232e95c4c8152f85"
+  },
+  "reported_scope": {
+    "model_question": "Reconstruct an early receptive endometrial interface to study human blastocyst implantation and early post-implantation development.",
+    "interface_components_reported": [
+      "luminal endometrial epithelium",
+      "glandular endometrial compartment",
+      "stromal compartment"
+    ],
+    "embryo_start_stage": "surplus human blastocysts at 5–6 days post-fertilization",
+    "reported_embryo_endpoint": "up to 14 days post-fertilization in the described UK/Spain experiments",
+    "whole_paper_human_embryo_count": 248,
+    "whole_paper_count_qualification": "The article gives 248 embryos used across the study; it is not a denominator for a single 14-day outcome or scRNA-seq comparison.",
+    "selection_and_exclusions": "Only recovered blastocysts that had fully expanded were advanced to scaffolds. Embryos degenerating before the target stage were excluded; the count and endpoint-specific attrition are not reported in the reviewed source.",
+    "reported_scRNA_site_count": 17,
+    "scRNA_site_count_qualification": "The article reports 17 day-14 implantation sites processed for scRNA-seq. The public submission contains seven sample groups; the 17-to-7 site/sample mapping is not present in the submitted metadata."
+  },
+  "sample_intake": {
+    "biostudies_accession": "E-MTAB-13629",
+    "ena_submission_accession": "ERP156726",
+    "ena_project_accession": "PRJEB71939",
+    "ena_sample_group_count": 7,
+    "source_metadata_group_counts": {
+      "EEC1": 3,
+      "EEC5+EEC4": 4
+    },
+    "ena_run_count": 15,
+    "sdrf_fastq_file_row_count": 60,
+    "fastq_rows_per_run": 4,
+    "metadata_only_fastq_head_probe": {
+      "status": "60 of 60 returned HTTP 200",
+      "content_downloaded": false,
+      "checksum_recomputed": false,
+      "interpretation": "Availability/declared file size only; not content or checksum validation."
+    },
+    "ena_read_run_report": {
+      "row_count": 15,
+      "fastq_ftp_nonblank_rows": 0,
+      "fastq_md5_nonblank_rows": 0,
+      "fastq_bytes_nonblank_rows": 0,
+      "qualification": "The report exposes run metadata but its file fields are blank. SDRF-listed paths are separately HEAD-checked; do not infer files are absent from the ENA report fields alone."
+    },
+    "sample_crosswalk_path": "config/source_inventories/crest_2026_emtab13629_sample_crosswalk.csv",
+    "fastq_manifest_path": "artifacts/early-interface-model-2026-10-11/emtab13629_fastq_manifest_head_checked_cycle191.csv",
+    "sdrf_path": "artifacts/early-interface-model-2026-10-11/E-MTAB-13629.sdrf.txt",
+    "independent_unit_qualification": "The assay submission contains seven source sample groups and combined source labels; individual implantation sites, embryos, cell counts, sequencing runs and FASTQ files must not be treated as interchangeable independent units. The 17-site-to-seven-group mapping and a validated per-embryo outcome table are unavailable.",
+    "biostudies_summary_path": "artifacts/early-interface-model-2026-10-11/E-MTAB-13629-biostudies-summary.json"
+  },
+  "processed_data": {
+    "doi": "10.5281/zenodo.17930156",
+    "url": "https://zenodo.org/records/17930156",
+    "license": "MIT",
+    "record_title": "Processed data for CREST analysis",
+    "files": [
+      {
+        "name": "CREST_aligned_to_human_rhesus_marmoset.rds",
+        "bytes": 374120061,
+        "md5": "9f8a66599c19140845ed376adfcd2dba"
+      },
+      {
+        "name": "CREST_anotated.rds",
+        "bytes": 941621766,
+        "md5": "7a73bd764406160bb41da71d909184e2"
+      },
+      {
+        "name": "CREST_trophoblast_aligned.rds",
+        "bytes": 143616249,
+        "md5": "eb436ecadd839464758b7fb7f850b6cd"
+      },
+      {
+        "name": "CREST_epithelia.rds",
+        "bytes": 1566710686,
+        "md5": "918b26a02691151017e82232a4834379"
+      }
+    ],
+    "downloaded": false
+  },
+  "code_release": {
+    "doi": "10.5281/zenodo.17955321",
+    "url": "https://zenodo.org/records/17955321",
+    "license": "CC BY 4.0",
+    "record_title": "Rugg-Gunn-Lab/CREST: Publication release v1.0",
+    "version": "v1.0",
+    "file_count": 1,
+    "archive_persisted_locally": false,
+    "archive_md5": "da52808caefe0b253ab35365005287f3",
+    "archive_sha256": "f7af5da0b98f050c98f037698b02297e79571592f4a936ff9368f3a47c0e96b9",
+    "scripts_executed": false,
+    "code_review_receipt_path": "artifacts/early-interface-model-2026-10-11/crest-code-release-analysis-cycle192.json",
+    "archive_retrieved_in_memory": true
+  },
+  "observation_intake": {
+    "observation_records_promoted": 0,
+    "reason_not_promoted": "This cycle verified source and data routing and built the unit crosswalk, but did not analyze the processed RDS matrices or transcribe source-located per-embryo outcome values. The article-reported 17 sites do not map one-to-one to seven submitted sample groups; do not promote sample, run, file or cell counts as developmental outcomes. Static review of the code release found cell-level annotations/batch labels but no link to the seven ENA sample groups or 17 implantation sites; the inspected cell-type comparison does not provide a per-sample/embryo replication term."
+  },
+  "feasibility_boundary": {
+    "supports": "A source-linked, human early implantation-interface research platform with reported trophoblast and early conceptus/endometrial features through a day-14 endpoint.",
+    "does_not_establish": [
+      "placental perfusion or maternal-to-fetal transport",
+      "continuous support beyond early post-implantation development",
+      "complete gestation",
+      "birth or neonatal transition",
+      "postnatal health",
+      "surrogacy replacement",
+      "reduced congenital-defect incidence"
+    ],
+    "authors_contacted": false,
+    "limitations_reported_by_article": [
+      "The model does not recreate the full complexity of endometrium.",
+      "The model lacks immune and vascular compartments.",
+      "The model is not straightforwardly adapted to high-throughput screening."
+    ],
+    "model_use": "Early human implantation/interface evidence only; not a complete artificial-womb machine specification or a transport-model calibration target."
+  },
+  "source_manifest_path": "artifacts/early-interface-model-2026-10-11/SOURCE.json",
+  "code_release_static_review": {
+    "cell_metadata_rows": 15673,
+    "distinct_source_batch_labels": 6,
+    "explicit_ena_sample_or_implantation_site_id_in_cell_csv": false,
+    "figureS5G_test": "Cell-level epithelial-versus-stromal FindMarkers comparison using MAST; no per-sample/embryo replicate term is shown in this inspected script.",
+    "cell_metadata_qc_field_anomaly": "The nCount_RNA column is constant at SeuratProject for all 15,673 rows; do not interpret it as a count without validation.",
+    "processed_rds_downloaded": false,
+    "code_executed": false,
+    "observation_promotion": 0
+  },
+  "supplement_screen": {
+    "publisher_asset_uri": "https://ars.els-cdn.com/content/image/1-s2.0-S0092867425012322-mmc1.pdf",
+    "review_receipt_path": "artifacts/early-interface-model-2026-10-11/crest-supplement-screen-cycle193.json",
+    "reviewed_pages": 2,
+    "identified_table": "Table S1, Human Endometrial Biopsies (page 2)",
+    "site_to_sample_mapping_found": false,
+    "qualification": "The inspected publisher-hosted MMC1 PDF provides a table of endometrial biopsies but no implantation-site IDs or crosswalk to the seven E-MTAB-13629 sample groups. The result is bounded to this PDF.",
+    "sample_or_donor_values_transcribed": false,
+    "protocol_detail_persisted": false,
+    "authors_contacted": false,
+    "observation_promotion": 0
+  }
+}

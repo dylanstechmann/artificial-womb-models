@@ -1,0 +1,208 @@
+{
+  "schema_version": 1,
+  "review_status": "candidate",
+  "human_review": "pending",
+  "inspected_on": "2026-10-11",
+  "article": {
+    "title": "3D post-implantation co-culture of human embryo and endometrium",
+    "citation": "Song J et al. Cell Stem Cell. 2026;33(1):58-72.e7. doi:10.1016/j.stem.2025.12.002.",
+    "doi": "10.1016/j.stem.2025.12.002",
+    "pmid": "41443195",
+    "url": "https://doi.org/10.1016/j.stem.2025.12.002",
+    "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/41443195/",
+    "source_kind": "peer_reviewed_human_postimplantation_interface_model",
+    "source_review_depth": "Publisher/PubMed abstract, publisher supplemental workbook cell audit, supplemental-figure caption screen, and relevant full-article passages from a third-party mirror; mirror provenance remains unverified"
+  },
+  "reported_scope": {
+    "model_question": "Model reciprocal human embryo-endometrial communication during implantation and early post-implantation development.",
+    "model_components_reported_in_abstract": [
+      "human embryos",
+      "endometrial organoids"
+    ],
+    "reported_embryo_endpoint": "up to day 14 post-fertilization",
+    "later_developmental_interval_reported": false,
+    "abstract_claims": [
+      "The abstract reports yolk-sac formation, primordial germ-cell specification and trophoblast maturation through the described day-14 endpoint.",
+      "The abstract reports day-9 extravillous trophoblast emergence associated with the endometrial niche.",
+      "The abstract reports that disruption of maternal signals, including hCG signaling blockade, impairs embryonic progression."
+    ],
+    "survival_comparison_reported_in_article": "At d.p.f. 14, 15/20 (75%) co-cultured embryos and 6/16 (37.5%) sole-embryo controls met the authors' morphology-based survival definition.",
+    "survival_definition": "Continued diameter expansion from d.p.f. 5 to 14 and no visible apoptosis signs by daily light microscopy; this is an author-defined morphology endpoint, not a general health measure.",
+    "survival_population_qualifications": [
+      "The article describes morphology-based inclusion/exclusion but gives no total number screened or excluded.",
+      "The article says cultures ended at d.p.f. 14 or primitive-streak formation but does not map earlier termination to the reported survival numerator."
+    ],
+    "assay_specific_denominator_verified": false,
+    "survival_group_denominators_reported": true,
+    "survival_screened_cohort_denominator_verified": false,
+    "per_embryo_outcome_table_verified": false,
+    "post_day14_outcomes_verified": false
+  },
+  "data_routes": {
+    "publisher_open_access_label": true,
+    "publisher_license": "CC BY 4.0",
+    "publisher_source_data_workbook_uri": "https://ars.els-cdn.com/content/image/1-s2.0-S1934590925004369-mmc2.xlsx",
+    "publisher_source_data_workbook_review_receipt": "artifacts/postimplantation-coculture-2026-10-11/song-postimplantation-source-route-screen-cycle195.json",
+    "workbook_structure": "Three visible sheets, one populated. Sheet1 has four populated blocks: a 35-cell cluster-proportion matrix (A1:F8), a 35-cell cluster-count matrix (A11:F18), a 28-cell stage count/printed-percent summary (D22:G28), and an 8-cell consolidated embryo Epi/TE summary (B32:E32 and B35:E35). No row-per-embryo records or embryo/site identifiers.",
+    "workbook_structure_correction": "The Cycle 195 screen described the populated sheet as a single 35-row cluster-by-five-label table. The Cycle 203 cell-level review identified three additional populated count/summary blocks; the earlier receipt remains unchanged as a historical record.",
+    "publisher_workbook_cell_extract": "artifacts/postimplantation-coculture-2026-10-11/song-mmc2-source-cell-extract-cycle203.csv",
+    "publisher_workbook_cell_audit": "artifacts/postimplantation-coculture-2026-10-11/song-mmc2-cell-audit-cycle203.json",
+    "publisher_supplement_pdf": {
+      "uri": "https://ars.els-cdn.com/content/image/1-s2.0-S1934590925004369-mmc1.pdf",
+      "metadata_probe_status": 200,
+      "declared_bytes": 6273387,
+      "downloaded_or_reviewed": true,
+      "sha256": "7adcd9a76efcf8eb496bda24c2f1d634aae300bacba96a8bf21d31d1b3ee62b1",
+      "review_receipt": "artifacts/postimplantation-coculture-2026-10-11/song-mmc1-caption-outcome-screen-cycle204.json",
+      "page_count": 14,
+      "source_pdf_persisted_under_artifacts": false
+    },
+    "article_fulltext_mirror_review": {
+      "uri": "https://blog.leowang.net/content/files/2026/01/3D-post-implantation-co-culture-of-human-embryo-an.pdf",
+      "review_receipt": "artifacts/postimplantation-coculture-2026-10-11/song-article-data-access-and-survival-cycle205.json",
+      "bytes": 18613564,
+      "sha256": "4572ec7bed2737a050b2e29f9fbae18c5ad706fd083a36dbbc946e378fa092cc",
+      "page_count": 23,
+      "host_class": "third_party_mirror",
+      "publisher_byte_equivalence_verified": false,
+      "publisher_fulltext_routes_accessible": false,
+      "source_pdf_persisted_under_artifacts": false
+    },
+    "pmc_fulltext_route_screen": {
+      "checked_on": "2026-10-11",
+      "ncbi_pmc_id_conversion": {
+        "uri": "https://www.ncbi.nlm.nih.gov/pmc/utils/idconv/v1.0/?ids=41443195&format=json",
+        "http_status": 200,
+        "requested_pmid": "41443195",
+        "record_status": "error",
+        "record_message": "Identifier not found in PMC",
+        "response_sha256": "d149e768104696f14768730708155772b1137771cb82d59694b8ea8313070178"
+      },
+      "europe_pmc_record": {
+        "uri": "https://www.ebi.ac.uk/europepmc/webservices/rest/search?query=EXT_ID:41443195&format=json&resulttype=core",
+        "http_status": 200,
+        "pmcid": null,
+        "in_europe_pmc_full_text": "N",
+        "in_pmc": "N",
+        "open_access_flag": "N",
+        "full_text_url_availability": "Subscription required",
+        "has_pdf_flag": "N",
+        "response_sha256": "214e346a0a06e0d8be939f04c6318cbedc8c89cc347e9ba89dd22759d3f8074d"
+      },
+      "receipt": "artifacts/postimplantation-coculture-2026-10-11/song-pmc-fulltext-route-screen-cycle258.json",
+      "interpretation": "The queried NCBI PMC and Europe PMC routes did not provide a full-text record for this PMID. This route-specific result does not prove that no other public or controlled copy exists.",
+      "third_party_mirror_equivalence_verified": false
+    },
+    "publisher_fulltext_route_probe": {
+      "checked_on": "2026-10-11",
+      "official_sciencedirect_record": "https://www.sciencedirect.com/science/article/pii/S1934590925004369",
+      "publisher_listing_reports_open_access": true,
+      "publisher_license": "CC BY 4.0",
+      "article_page_web_open_status": 403,
+      "head_probes": [
+        {
+          "uri": "https://www.cell.com/cell-stem-cell/fulltext/S1934-5909(25)00436-9",
+          "status": 403
+        },
+        {
+          "uri": "https://www.cell.com/cell-stem-cell/pdf/S1934-5909(25)00436-9.pdf",
+          "status": 403
+        },
+        {
+          "uri": "https://www.sciencedirect.com/science/article/pii/S1934590925004369/pdfft?isDTMRedir=true&download=true",
+          "status": 403
+        }
+      ],
+      "publisher_article_body_obtained": false,
+      "third_party_mirror_equivalence_verified": false,
+      "interpretation": "The publisher listing describes the article as open access, but the tested publisher routes returned 403 from this environment. This is a route-specific access result, not evidence that the article is not publicly accessible elsewhere."
+    },
+    "biostudies_exact_doi_hits": 0,
+    "geo_pubmed_id_hits": 0,
+    "geo_title_candidate": "GSE263528",
+    "geo_title_candidate_linked_to_article": false,
+    "geo_candidate_qualification": "The GEO record has no PubMed relation. The apparent Zhang X initial match resolves to different full names in NCBI metadata (Xinbao Zhang in GEO; Xinwen Zhang in the Song paper). The article's data-availability section names GSA-Human HRA006892 for single-cell RNA-seq, but no crosswalk links that accession to GSE263528. No exact full-name match was found; keep the GEO candidate unjoined pending direct provenance.",
+    "pubmed_to_geo_elink_hits": 0,
+    "pubmed_to_sra_elink_hits": 0,
+    "publisher_data_availability_section_reviewed": true,
+    "article_data_availability_review_receipt": "artifacts/postimplantation-coculture-2026-10-11/song-article-data-access-and-survival-cycle205.json",
+    "article_declared_data_accessions": {
+      "single_cell_rna_seq": "GSA-Human HRA006892",
+      "proteomics": "PRIDE PXD067943",
+      "microscopy": "lead-contact request, no request made",
+      "code": "no original code or algorithms reported"
+    },
+    "repository_access_conflicts": {
+      "HRA006892": "Article says publicly available as of publication; the current GSA-Human page labels the record controlled access (released 2026-07-31). Its public page exposes partial metadata: five repository individual/sample accessions and ten run-table rows representing five distinct run accessions across five samples/experiments. The page says detailed metadata download is limited to authorized users. These rows are not linked to the article's survival cohorts.",
+      "PXD067943": "The official ProteomeXchange route says the accession is reserved by PRIDE for a deposited dataset not yet publicly released or announced; its public route returns HTTP 404. The direct PRIDE public project API also returns 404 while known-project controls succeed. This conflicts with the article's publication-time availability wording and does not establish data absence."
+    },
+    "proteomecentral_release_status_review_receipt": "artifacts/postimplantation-coculture-2026-10-11/song-proteomecentral-release-status-cycle206.json",
+    "gsa_human_public_metadata_review_receipt": "artifacts/postimplantation-coculture-2026-10-11/song-gsa-human-public-metadata-screen-cycle207.json",
+    "gsa_human_bioproject_crosslink": {
+      "accession": "PRJCA024289",
+      "title_matches_article": true,
+      "public_biosample_records": 5,
+      "source_label_counts": {"D14WE": 1, "d.p.f.12": 1, "d.p.f.14": 2, "d.p.f.9": 1},
+      "ncbi_bioproject_exact_accession_hits": 0,
+      "ncbi_sra_exact_accession_hits": 0,
+      "ncbi_biosample_exact_accession_hits": 0,
+      "ena_sample_exact_accession_hits": 0,
+      "ena_exact_title_run_hits": 0,
+      "sample_to_survival_cohort_crosswalk": false,
+      "receipt": "artifacts/postimplantation-coculture-2026-10-11/song-bioproject-crosslink-screen-cycle208.json"
+    },
+    "gsa_biosample_mirror_check_receipt": "artifacts/postimplantation-coculture-2026-10-11/song-gsa-biosample-mirror-check-cycle214.json",
+    "scrna_assay_repository_reconciliation_receipt": "artifacts/postimplantation-coculture-2026-10-11/song-scrna-assay-n-and-repository-reconciliation-cycle209.json",
+    "scrna_article_stage_n_labels": [
+      {"stage_label": "d.p.f. 9", "reported_n": 25, "counted_unit_status": "not_independently_defined_in_caption"},
+      {"stage_label": "d.p.f. 12", "reported_n": 16, "counted_unit_status": "not_independently_defined_in_caption"},
+      {"stage_label": "d.p.f. 14", "reported_n": 33, "counted_unit_status": "not_independently_defined_in_caption"}
+    ],
+    "scrna_stage_n_to_biosample_crosswalk_verified": false,
+    "scrna_stage_n_to_survival_group_crosswalk_verified": false,
+    "gsa_sample_run_aggregate_join": {
+      "sample_count": 5,
+      "run_row_count": 10,
+      "unique_run_accession_count": 5,
+      "run_rows_per_unique_run_accession": 2,
+      "run_rows_by_source_label": {"d.p.f.9": 2, "d.p.f.12": 2, "d.p.f.14": 4, "D14WE": 2},
+      "strategy_counts": {"RNA-Seq": 10},
+      "platform_counts": {"Illumina NovaSeq 6000": 10},
+      "article_library_modality_crosswalk_verified": false,
+      "survival_group_crosswalk_verified": false,
+      "assay_title_token_screen_receipt": "artifacts/postimplantation-coculture-2026-10-11/song-gsa-title-modality-token-screen-cycle211.json",
+      "article_modality_tokens_in_public_experiment_or_run_titles": 0,
+      "experiment_detail_field_screen_receipt": "artifacts/postimplantation-coculture-2026-10-11/song-gsa-experiment-detail-field-screen-cycle212.json",
+      "visible_library_detail_fields_on_experiment_pages": 0,
+      "receipt": "artifacts/postimplantation-coculture-2026-10-11/song-gsa-sample-run-aggregate-join-cycle210.json"
+    },
+    "gsa_accession_mirror_check_receipt": "artifacts/postimplantation-coculture-2026-10-11/song-gsa-accession-mirror-check-cycle213.json",
+    "article_to_repository_linkage_receipt": "artifacts/postimplantation-coculture-2026-10-11/song-article-to-repository-linkage-cycle197.json",
+    "route_scope_qualification": "The queried repository routes do not establish that data are absent from other public or restricted routes."
+  },
+  "observation_intake": {
+    "observation_records_promoted": 0,
+    "reason_not_promoted": "Two group-level survival percentages are preserved in a candidate summary intake with source-reported numerators and denominators. No individual embryo rows are promoted: embryo identities and fates are absent, the screened/excluded denominator is unreported, and primitive-streak early stopping is not mapped to the survival numerator. The source is a third-party article mirror pending human review; the exact PMID checks did not locate PMC full text, and publisher-byte equivalence remains unverified. The workbook also retains one printed stage-percentage conflict and an unexplained Epi/TE denominator split.",
+    "row_level_source_values_transcribed": true,
+    "workbook_cell_values_transcribed": true,
+    "supplement_caption_level_sample_sizes_transcribed": true,
+    "individual_embryo_outcome_values_transcribed": false,
+    "supplement_graph_values_digitized": false,
+    "candidate_summary_observation_records": 2,
+    "aggregate_cohort_coverage_records": 2,
+    "candidate_intake_path": "config/observations/song_2026_postimplantation_survival_candidate.json",
+    "source_cell_values_transcribed": 106,
+    "biological_observation_records_promoted": 0
+  },
+  "feasibility_boundary": {
+    "supports": "Candidate human early-interface evidence through d.p.f. 14, including a group-level morphology-defined survival comparison; screened-population and early-termination mappings remain unresolved.",
+    "does_not_establish": [
+      "placental exchange support",
+      "continuous support beyond day 14",
+      "complete gestation",
+      "birth or neonatal transition",
+      "postnatal health"
+    ],
+    "authors_contacted": false
+  }
+}

@@ -1,0 +1,743 @@
+{
+  "schema_version": 1,
+  "dataset_id": "eixarch2026-ep09-40-hpa-candidate",
+  "title": "Illa et al. 2026 EP09.40 fetal HPA and steroid dynamics during FLI support (candidate transcription)",
+  "source_revision": {
+    "revision_id": "ep09-40-poster-visual-intake-2026-10-11",
+    "citation": "Illa M, et al. EP09.40: Hypothalamic-pituitary-adrenal axis dynamics in fetal lambs during fetal liquid incubator support. Ultrasound in Obstetrics & Gynecology. 2026;68:261-262. doi:10.1002/uog.70305_746.",
+    "source_kind": "other",
+    "source_url": "https://epostersonline.com/isuog2026/poster/510",
+    "review_status": "candidate",
+    "reviewer": "",
+    "reviewed_on": null,
+    "review_note": ""
+  },
+  "artifacts": [
+    {
+      "artifact_id": "eixarch2026-ep09-40-poster",
+      "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.1fe077e.NORMAL.pdf?v=1",
+      "license": "Public conference poster; reuse license not stated",
+      "sha256": "b854436de4c42cfa8b01ecf5be0d50756ea75b03b579519bda04e6400a12f09e",
+      "retrieved_on": "2026-10-11",
+      "local_path": "artifacts/eixarch-2023-group-outcomes-2026-10-11-cycle304/ep09-40-poster-source.pdf"
+    }
+  ],
+  "observations": [
+    {
+      "schema_version": 1,
+      "record_id": "ep09-40-acth-0h",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "FLI support in preterm lambs at 115-125 gestational days",
+        "start": 0,
+        "end": 72,
+        "time_unit": "poster hours from PRE (0 h)",
+        "stage_source_artifact_id": "eixarch2026-ep09-40-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal lambs, 115-125 gestational days; poster cohort n=16; individual IDs not reported"
+      },
+      "assay": {
+        "name": "ELISA",
+        "endpoint": "ACTH",
+        "unit": "pg/mL",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level poster median; n=16 is the figure cohort label, but per-timepoint n and individual fetus identifiers are not reported."
+      },
+      "observation": {
+        "value": 47.2,
+        "measurement_time": 0,
+        "measurement_time_unit": "poster hours from PRE (0 h)",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": "IQR [25.5, 180.8]; LME time-term p < 0.001, adjusted for GA/sex; not a pairwise 0-vs-72 h test.",
+        "summary_statistic": {
+          "kind": "median_iqr",
+          "lower_quartile": 25.5,
+          "upper_quartile": 180.8,
+          "reported_sample_size": null,
+          "sample_size_scope": "Figure cohort n=16 over 72 h; timepoint-specific analyzable n is not separately stated.",
+          "sample_size_source_locator": "Poster PDF p. 1, Results heading; Methods > Study model",
+          "source_literal": "Median [IQR]"
+        }
+      },
+      "source": {
+        "artifact_id": "eixarch2026-ep09-40-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.1fe077e.NORMAL.pdf?v=1",
+        "license": "Public conference poster; reuse license not stated",
+        "sha256": "b854436de4c42cfa8b01ecf5be0d50756ea75b03b579519bda04e6400a12f09e",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Poster PDF p. 1, Results > ACTH panel, 0 h median [IQR] below plot"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ep09-40-acth-72h",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "FLI support in preterm lambs at 115-125 gestational days",
+        "start": 0,
+        "end": 72,
+                "time_unit": "poster hours from PRE (0 h)",
+        "stage_source_artifact_id": "eixarch2026-ep09-40-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal lambs, 115-125 gestational days; poster cohort n=16; individual IDs not reported"
+      },
+      "assay": {
+        "name": "ELISA",
+        "endpoint": "ACTH",
+        "unit": "pg/mL",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level poster median; n=16 is the figure cohort label, but per-timepoint n and individual fetus identifiers are not reported."
+      },
+      "observation": {
+        "value": 29.4,
+        "measurement_time": 72,
+                "measurement_time_unit": "poster hours from PRE (0 h)",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": "IQR [19.4, 43.1]; LME time-term p < 0.001, adjusted for GA/sex; not a pairwise 0-vs-72 h test.",
+        "summary_statistic": {
+          "kind": "median_iqr",
+          "lower_quartile": 19.4,
+          "upper_quartile": 43.1,
+          "reported_sample_size": null,
+          "sample_size_scope": "Figure cohort n=16 over 72 h; timepoint-specific analyzable n is not separately stated.",
+          "sample_size_source_locator": "Poster PDF p. 1, Results heading; Methods > Study model",
+          "source_literal": "Median [IQR]"
+        }
+      },
+      "source": {
+        "artifact_id": "eixarch2026-ep09-40-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.1fe077e.NORMAL.pdf?v=1",
+        "license": "Public conference poster; reuse license not stated",
+        "sha256": "b854436de4c42cfa8b01ecf5be0d50756ea75b03b579519bda04e6400a12f09e",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Poster PDF p. 1, Results > ACTH panel, 72 h median [IQR] below plot"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ep09-40-corticosterone-0h",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "FLI support in preterm lambs at 115-125 gestational days",
+        "start": 0,
+        "end": 72,
+        "time_unit": "poster hours from PRE (0 h)",
+        "stage_source_artifact_id": "eixarch2026-ep09-40-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal lambs, 115-125 gestational days; poster cohort n=16; individual IDs not reported"
+      },
+      "assay": {
+        "name": "LC-MS/MS steroid panel",
+        "endpoint": "Corticosterone",
+        "unit": "ng/mL",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level poster median; n=16 is the figure cohort label, but per-timepoint n and individual fetus identifiers are not reported."
+      },
+      "observation": {
+        "value": 0.42,
+        "measurement_time": 0,
+        "measurement_time_unit": "poster hours from PRE (0 h)",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": "IQR [0.21, 0.59]; LME time-term p = 0.5 (ns), adjusted for GA/sex; not a pairwise 0-vs-72 h test.",
+        "summary_statistic": {
+          "kind": "median_iqr",
+          "lower_quartile": 0.21,
+          "upper_quartile": 0.59,
+          "reported_sample_size": null,
+          "sample_size_scope": "Figure cohort n=16 over 72 h; timepoint-specific analyzable n is not separately stated.",
+          "sample_size_source_locator": "Poster PDF p. 1, Results heading; Methods > Study model",
+          "source_literal": "Median [IQR]"
+        }
+      },
+      "source": {
+        "artifact_id": "eixarch2026-ep09-40-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.1fe077e.NORMAL.pdf?v=1",
+        "license": "Public conference poster; reuse license not stated",
+        "sha256": "b854436de4c42cfa8b01ecf5be0d50756ea75b03b579519bda04e6400a12f09e",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Poster PDF p. 1, Results > Corticosterone panel, 0 h median [IQR] below plot"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ep09-40-corticosterone-72h",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "FLI support in preterm lambs at 115-125 gestational days",
+        "start": 0,
+        "end": 72,
+        "time_unit": "poster hours from PRE (0 h)",
+        "stage_source_artifact_id": "eixarch2026-ep09-40-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal lambs, 115-125 gestational days; poster cohort n=16; individual IDs not reported"
+      },
+      "assay": {
+        "name": "LC-MS/MS steroid panel",
+        "endpoint": "Corticosterone",
+        "unit": "ng/mL",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level poster median; n=16 is the figure cohort label, but per-timepoint n and individual fetus identifiers are not reported."
+      },
+      "observation": {
+        "value": 0.67,
+        "measurement_time": 72,
+        "measurement_time_unit": "poster hours from PRE (0 h)",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": "IQR [0.29, 1.08]; LME time-term p = 0.5 (ns), adjusted for GA/sex; not a pairwise 0-vs-72 h test.",
+        "summary_statistic": {
+          "kind": "median_iqr",
+          "lower_quartile": 0.29,
+          "upper_quartile": 1.08,
+          "reported_sample_size": null,
+          "sample_size_scope": "Figure cohort n=16 over 72 h; timepoint-specific analyzable n is not separately stated.",
+          "sample_size_source_locator": "Poster PDF p. 1, Results heading; Methods > Study model",
+          "source_literal": "Median [IQR]"
+        }
+      },
+      "source": {
+        "artifact_id": "eixarch2026-ep09-40-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.1fe077e.NORMAL.pdf?v=1",
+        "license": "Public conference poster; reuse license not stated",
+        "sha256": "b854436de4c42cfa8b01ecf5be0d50756ea75b03b579519bda04e6400a12f09e",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Poster PDF p. 1, Results > Corticosterone panel, 72 h median [IQR] below plot"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ep09-40-cortisol-0h",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "FLI support in preterm lambs at 115-125 gestational days",
+        "start": 0,
+        "end": 72,
+        "time_unit": "poster hours from PRE (0 h)",
+        "stage_source_artifact_id": "eixarch2026-ep09-40-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal lambs, 115-125 gestational days; poster cohort n=16; individual IDs not reported"
+      },
+      "assay": {
+        "name": "LC-MS/MS steroid panel",
+        "endpoint": "Cortisol",
+        "unit": "ng/mL",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level poster median; n=16 is the figure cohort label, but per-timepoint n and individual fetus identifiers are not reported."
+      },
+      "observation": {
+        "value": 4.9,
+        "measurement_time": 0,
+        "measurement_time_unit": "poster hours from PRE (0 h)",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": "IQR [3.4, 6.8]; LME time-term p = 0.007, adjusted for GA/sex; not a pairwise 0-vs-72 h test.",
+        "summary_statistic": {
+          "kind": "median_iqr",
+          "lower_quartile": 3.4,
+          "upper_quartile": 6.8,
+          "reported_sample_size": null,
+          "sample_size_scope": "Figure cohort n=16 over 72 h; timepoint-specific analyzable n is not separately stated.",
+          "sample_size_source_locator": "Poster PDF p. 1, Results heading; Methods > Study model",
+          "source_literal": "Median [IQR]"
+        }
+      },
+      "source": {
+        "artifact_id": "eixarch2026-ep09-40-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.1fe077e.NORMAL.pdf?v=1",
+        "license": "Public conference poster; reuse license not stated",
+        "sha256": "b854436de4c42cfa8b01ecf5be0d50756ea75b03b579519bda04e6400a12f09e",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Poster PDF p. 1, Results > Cortisol panel, 0 h median [IQR] below plot"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ep09-40-cortisol-72h",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "FLI support in preterm lambs at 115-125 gestational days",
+        "start": 0,
+        "end": 72,
+        "time_unit": "poster hours from PRE (0 h)",
+        "stage_source_artifact_id": "eixarch2026-ep09-40-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal lambs, 115-125 gestational days; poster cohort n=16; individual IDs not reported"
+      },
+      "assay": {
+        "name": "LC-MS/MS steroid panel",
+        "endpoint": "Cortisol",
+        "unit": "ng/mL",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level poster median; n=16 is the figure cohort label, but per-timepoint n and individual fetus identifiers are not reported."
+      },
+      "observation": {
+        "value": 2.1,
+        "measurement_time": 72,
+        "measurement_time_unit": "poster hours from PRE (0 h)",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": "IQR [1.7, 3.4]; LME time-term p = 0.007, adjusted for GA/sex; not a pairwise 0-vs-72 h test.",
+        "summary_statistic": {
+          "kind": "median_iqr",
+          "lower_quartile": 1.7,
+          "upper_quartile": 3.4,
+          "reported_sample_size": null,
+          "sample_size_scope": "Figure cohort n=16 over 72 h; timepoint-specific analyzable n is not separately stated.",
+          "sample_size_source_locator": "Poster PDF p. 1, Results heading; Methods > Study model",
+          "source_literal": "Median [IQR]"
+        }
+      },
+      "source": {
+        "artifact_id": "eixarch2026-ep09-40-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.1fe077e.NORMAL.pdf?v=1",
+        "license": "Public conference poster; reuse license not stated",
+        "sha256": "b854436de4c42cfa8b01ecf5be0d50756ea75b03b579519bda04e6400a12f09e",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Poster PDF p. 1, Results > Cortisol panel, 72 h median [IQR] below plot"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ep09-40-cortisone-0h",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "FLI support in preterm lambs at 115-125 gestational days",
+        "start": 0,
+        "end": 72,
+        "time_unit": "poster hours from PRE (0 h)",
+        "stage_source_artifact_id": "eixarch2026-ep09-40-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal lambs, 115-125 gestational days; poster cohort n=16; individual IDs not reported"
+      },
+      "assay": {
+        "name": "LC-MS/MS steroid panel",
+        "endpoint": "Cortisone",
+        "unit": "ng/mL",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level poster median; n=16 is the figure cohort label, but per-timepoint n and individual fetus identifiers are not reported."
+      },
+      "observation": {
+        "value": 7.3,
+        "measurement_time": 0,
+        "measurement_time_unit": "poster hours from PRE (0 h)",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": "IQR [4.2, 9.1]; LME time-term p < 0.001, adjusted for GA/sex; not a pairwise 0-vs-72 h test.",
+        "summary_statistic": {
+          "kind": "median_iqr",
+          "lower_quartile": 4.2,
+          "upper_quartile": 9.1,
+          "reported_sample_size": null,
+          "sample_size_scope": "Figure cohort n=16 over 72 h; timepoint-specific analyzable n is not separately stated.",
+          "sample_size_source_locator": "Poster PDF p. 1, Results heading; Methods > Study model",
+          "source_literal": "Median [IQR]"
+        }
+      },
+      "source": {
+        "artifact_id": "eixarch2026-ep09-40-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.1fe077e.NORMAL.pdf?v=1",
+        "license": "Public conference poster; reuse license not stated",
+        "sha256": "b854436de4c42cfa8b01ecf5be0d50756ea75b03b579519bda04e6400a12f09e",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Poster PDF p. 1, Results > Cortisone panel, 0 h median [IQR] below plot"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ep09-40-cortisone-72h",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "FLI support in preterm lambs at 115-125 gestational days",
+        "start": 0,
+        "end": 72,
+        "time_unit": "poster hours from PRE (0 h)",
+        "stage_source_artifact_id": "eixarch2026-ep09-40-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal lambs, 115-125 gestational days; poster cohort n=16; individual IDs not reported"
+      },
+      "assay": {
+        "name": "LC-MS/MS steroid panel",
+        "endpoint": "Cortisone",
+        "unit": "ng/mL",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level poster median; n=16 is the figure cohort label, but per-timepoint n and individual fetus identifiers are not reported."
+      },
+      "observation": {
+        "value": 1.1,
+        "measurement_time": 72,
+        "measurement_time_unit": "poster hours from PRE (0 h)",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": "IQR [0.35, 1.21]; LME time-term p < 0.001, adjusted for GA/sex; not a pairwise 0-vs-72 h test.",
+        "summary_statistic": {
+          "kind": "median_iqr",
+          "lower_quartile": 0.35,
+          "upper_quartile": 1.21,
+          "reported_sample_size": null,
+          "sample_size_scope": "Figure cohort n=16 over 72 h; timepoint-specific analyzable n is not separately stated.",
+          "sample_size_source_locator": "Poster PDF p. 1, Results heading; Methods > Study model",
+          "source_literal": "Median [IQR]"
+        }
+      },
+      "source": {
+        "artifact_id": "eixarch2026-ep09-40-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.1fe077e.NORMAL.pdf?v=1",
+        "license": "Public conference poster; reuse license not stated",
+        "sha256": "b854436de4c42cfa8b01ecf5be0d50756ea75b03b579519bda04e6400a12f09e",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Poster PDF p. 1, Results > Cortisone panel, 72 h median [IQR] below plot"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ep09-40-cortol-0h",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "FLI support in preterm lambs at 115-125 gestational days",
+        "start": 0,
+        "end": 72,
+        "time_unit": "poster hours from PRE (0 h)",
+        "stage_source_artifact_id": "eixarch2026-ep09-40-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal lambs, 115-125 gestational days; poster cohort n=16; individual IDs not reported"
+      },
+      "assay": {
+        "name": "LC-MS/MS steroid panel",
+        "endpoint": "Cortol (poster label)",
+        "unit": "ng/mL",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level poster median; n=16 is the figure cohort label, but per-timepoint n and individual fetus identifiers are not reported."
+      },
+      "observation": {
+        "value": 1.4,
+        "measurement_time": 0,
+        "measurement_time_unit": "poster hours from PRE (0 h)",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": "IQR [0.77, 2.21]; LME time-term p < 0.001, adjusted for GA/sex; not a pairwise 0-vs-72 h test.",
+        "summary_statistic": {
+          "kind": "median_iqr",
+          "lower_quartile": 0.77,
+          "upper_quartile": 2.21,
+          "reported_sample_size": null,
+          "sample_size_scope": "Figure cohort n=16 over 72 h; timepoint-specific analyzable n is not separately stated.",
+          "sample_size_source_locator": "Poster PDF p. 1, Results heading; Methods > Study model",
+          "source_literal": "Median [IQR]"
+        }
+      },
+      "source": {
+        "artifact_id": "eixarch2026-ep09-40-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.1fe077e.NORMAL.pdf?v=1",
+        "license": "Public conference poster; reuse license not stated",
+        "sha256": "b854436de4c42cfa8b01ecf5be0d50756ea75b03b579519bda04e6400a12f09e",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Poster PDF p. 1, Results > Cortol panel, 0 h median [IQR] below plot"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ep09-40-cortol-72h",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "FLI support in preterm lambs at 115-125 gestational days",
+        "start": 0,
+        "end": 72,
+        "time_unit": "poster hours from PRE (0 h)",
+        "stage_source_artifact_id": "eixarch2026-ep09-40-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal lambs, 115-125 gestational days; poster cohort n=16; individual IDs not reported"
+      },
+      "assay": {
+        "name": "LC-MS/MS steroid panel",
+        "endpoint": "Cortol (poster label)",
+        "unit": "ng/mL",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level poster median; n=16 is the figure cohort label, but per-timepoint n and individual fetus identifiers are not reported."
+      },
+      "observation": {
+        "value": 0.11,
+        "measurement_time": 72,
+        "measurement_time_unit": "poster hours from PRE (0 h)",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": "IQR [0.08, 0.21]; LME time-term p < 0.001, adjusted for GA/sex; not a pairwise 0-vs-72 h test.",
+        "summary_statistic": {
+          "kind": "median_iqr",
+          "lower_quartile": 0.08,
+          "upper_quartile": 0.21,
+          "reported_sample_size": null,
+          "sample_size_scope": "Figure cohort n=16 over 72 h; timepoint-specific analyzable n is not separately stated.",
+          "sample_size_source_locator": "Poster PDF p. 1, Results heading; Methods > Study model",
+          "source_literal": "Median [IQR]"
+        }
+      },
+      "source": {
+        "artifact_id": "eixarch2026-ep09-40-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.1fe077e.NORMAL.pdf?v=1",
+        "license": "Public conference poster; reuse license not stated",
+        "sha256": "b854436de4c42cfa8b01ecf5be0d50756ea75b03b579519bda04e6400a12f09e",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Poster PDF p. 1, Results > Cortol panel, 72 h median [IQR] below plot"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ep09-40-progesterone-0h",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "FLI support in preterm lambs at 115-125 gestational days",
+        "start": 0,
+        "end": 72,
+        "time_unit": "poster hours from PRE (0 h)",
+        "stage_source_artifact_id": "eixarch2026-ep09-40-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal lambs, 115-125 gestational days; poster cohort n=16; individual IDs not reported"
+      },
+      "assay": {
+        "name": "LC-MS/MS steroid panel",
+        "endpoint": "Progesterone",
+        "unit": "ng/mL",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level poster median; n=16 is the figure cohort label, but per-timepoint n and individual fetus identifiers are not reported."
+      },
+      "observation": {
+        "value": 1.35,
+        "measurement_time": 0,
+        "measurement_time_unit": "poster hours from PRE (0 h)",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": "IQR [1.26, 2.18]; LME time-term p < 0.001, adjusted for GA/sex; not a pairwise 0-vs-72 h test.",
+        "summary_statistic": {
+          "kind": "median_iqr",
+          "lower_quartile": 1.26,
+          "upper_quartile": 2.18,
+          "reported_sample_size": null,
+          "sample_size_scope": "Figure cohort n=16 over 72 h; timepoint-specific analyzable n is not separately stated.",
+          "sample_size_source_locator": "Poster PDF p. 1, Results heading; Methods > Study model",
+          "source_literal": "Median [IQR]"
+        }
+      },
+      "source": {
+        "artifact_id": "eixarch2026-ep09-40-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.1fe077e.NORMAL.pdf?v=1",
+        "license": "Public conference poster; reuse license not stated",
+        "sha256": "b854436de4c42cfa8b01ecf5be0d50756ea75b03b579519bda04e6400a12f09e",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Poster PDF p. 1, Results > Progesterone panel, 0 h median [IQR] below plot"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ep09-40-progesterone-72h",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "FLI support in preterm lambs at 115-125 gestational days",
+        "start": 0,
+        "end": 72,
+        "time_unit": "poster hours from PRE (0 h)",
+        "stage_source_artifact_id": "eixarch2026-ep09-40-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal lambs, 115-125 gestational days; poster cohort n=16; individual IDs not reported"
+      },
+      "assay": {
+        "name": "LC-MS/MS steroid panel",
+        "endpoint": "Progesterone",
+        "unit": "ng/mL",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level poster median; n=16 is the figure cohort label, but per-timepoint n and individual fetus identifiers are not reported."
+      },
+      "observation": {
+        "value": 0.06,
+        "measurement_time": 72,
+        "measurement_time_unit": "poster hours from PRE (0 h)",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": "IQR [0.04, 0.11]; LME time-term p < 0.001, adjusted for GA/sex; not a pairwise 0-vs-72 h test.",
+        "summary_statistic": {
+          "kind": "median_iqr",
+          "lower_quartile": 0.04,
+          "upper_quartile": 0.11,
+          "reported_sample_size": null,
+          "sample_size_scope": "Figure cohort n=16 over 72 h; timepoint-specific analyzable n is not separately stated.",
+          "sample_size_source_locator": "Poster PDF p. 1, Results heading; Methods > Study model",
+          "source_literal": "Median [IQR]"
+        }
+      },
+      "source": {
+        "artifact_id": "eixarch2026-ep09-40-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.1fe077e.NORMAL.pdf?v=1",
+        "license": "Public conference poster; reuse license not stated",
+        "sha256": "b854436de4c42cfa8b01ecf5be0d50756ea75b03b579519bda04e6400a12f09e",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Poster PDF p. 1, Results > Progesterone panel, 72 h median [IQR] below plot"
+    }
+  ],
+  "cohort_coverage": [
+    {
+      "coverage_id": "ep09-40-72h-fli-cohort-n16",
+      "source_artifact_id": "eixarch2026-ep09-40-poster",
+      "reported_group_label": "Preterm fetal lambs, 115-125 gestational days; FLI support at least 72 hours (n=16)",
+      "group_label_status": "reported",
+      "counted_entity_kind": "fetus",
+      "counted_entity_label": "Preterm fetal lamb in poster-reported HPA/steroid study cohort",
+      "endpoint_label": "Serial ACTH and steroid panel during FLI support",
+      "population_frame": "Preterm fetal lambs at 115-125 gestational days reported in the study-model figure; group n=16.",
+      "measurement_window": "Baseline (0 h) through 72 h of FLI support; serial blood sampling every 6 h is shown.",
+      "selection_definition": "Poster shows a preterm lamb fetus group at 115-125 gestational days (n=16), with FLI support for at least 72 hours. The number of all FLI starts and timepoint-specific analyzable n are not reported.",
+      "selection_definition_source_locator": "Poster PDF p. 1, Methods > Study model and blood sampling; Results heading",
+      "denominator": {
+        "value": 16,
+        "value_status": "reported",
+        "reported_label": "Median [IQR] over 72 hours of FLI support (n=16)",
+        "source_locator": "Poster PDF p. 1, Results heading; Methods > Study model"
+      },
+      "declarations": [
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Median [IQR] over 72 hours of FLI support (n=16)",
+          "quantity_kind": "count",
+          "value": 16,
+          "value_status": "reported",
+          "source_locator": "Poster PDF p. 1, Results heading; Methods > Study model",
+          "note": "Poster-level cohort n only; per-timepoint n and all-start denominator are not given."
+        }
+      ],
+      "selection_statements": [
+        {
+          "text": "The plotted cohort is labeled n=16, gestational age 115-125 days, and FLI support at least 72 hours.",
+          "source_locator": "Poster PDF p. 1, Methods > Study model; Results heading"
+        },
+        {
+          "text": "Serial blood sampling is illustrated every 6 hours; timepoint-specific sample sizes and individual trajectories are not provided.",
+          "source_locator": "Poster PDF p. 1, Methods > Blood sampling; Results plots"
+        }
+      ],
+      "cohort_window_status": "source_labels_only",
+      "disposition_completeness": "unknown",
+      "categories_mutually_exclusive": "unknown",
+      "categories_exhaustive": "unknown"
+    }
+  ],
+  "limitations": [
+    "Conference poster candidate intake; not a peer-reviewed full report or raw-data release.",
+    "The poster labels a 16-lamb cohort at 115-125 gestational days with FLI support for at least 72 hours; the all-start denominator and per-timepoint n are not reported.",
+    "Only group-level medians and IQRs at baseline and 72 hours are printed; no individual values, unit IDs, or complete longitudinal trajectories are available.",
+    "The poster describes linear mixed-effects models with time continuous and adjusted for gestational age and sex; the displayed p-values are retained as time-model results, not pairwise baseline-versus-72-hour tests.",
+    "The fifth steroid-panel label is printed as Cortol; the poster does not define the analyte further in the text extraction. Preserve the label as printed.",
+    "No post-support neonatal transition or developmental follow-up outcome is reported in this poster.",
+    "EP09.40 may overlap EP09.20, EP09.31, or EP09.22, but no shared animal/experiment key or study dates establish identity. Do not pool counts or treat reports as independent replications."
+  ]
+}

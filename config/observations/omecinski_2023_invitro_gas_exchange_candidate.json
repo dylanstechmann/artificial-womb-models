@@ -1,0 +1,354 @@
+{
+  "schema_version": 1,
+  "dataset_id": "omecinski2023-preemieox-invitro-gas-exchange-candidate",
+  "title": "Omecinski et al. 2023 in-vitro artificial-placenta oxygenator gas-exchange summary; candidate transcription",
+  "source_revision": {
+    "revision_id": "omecinski2023-pmc9897463-gas-exchange-cycle320",
+    "citation": "Omecinski KS, Frankowski BJ, Federspiel WJ. Design and In Vitro Evaluation of an Artificial Placenta Made From Hollow Fiber Membranes. ASAIO J. 2023;69(2):e86-e92. doi:10.1097/MAT.0000000000001862.",
+    "source_kind": "other",
+    "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9897463/",
+    "review_status": "candidate",
+    "reviewer": "",
+    "reviewed_on": null,
+    "review_note": ""
+  },
+  "artifacts": [
+    {
+      "artifact_id": "omecinski2023-preemieox-article",
+      "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9897463/",
+      "license": "Reuse terms not confirmed; see source_resolution",
+      "sha256": null,
+      "retrieved_on": "2026-10-11",
+      "source_resolution": {
+        "version_type": "author_manuscript",
+        "version_identifier": "PMC9897463.1; NIHMS1848709 (current PMC version)",
+        "access_status": "full_text_free_to_read",
+        "oa_subset_status": "not_included",
+        "reuse_status": "not_confirmed",
+        "license_expression": null,
+        "checked_on": "2026-10-11",
+        "evidence_locator": "PMC article banner and identifiers; PMC ID Converter API response with versions=yes; NCBI E-utilities PMC open access[filter] query returned count 0; PMC Copyright Notice linked from the article record.",
+        "note": "PMC labels the archived text an author manuscript and identifies the final-edited ASAIO Journal version separately. The public full text is readable, but the record is not returned by the PMC Open Access filter. The inspected article route exposed only the general PMC Copyright Notice, not an item-specific license expression. A publisher-page request was blocked (403), so reuse rights remain unconfirmed; no license is inferred from access or secondary metadata."
+      }
+    }
+  ],
+  "observations": [
+    {
+      "schema_version": 1,
+      "record_id": "omecinski2023-preemieox-vco2-aggregate",
+      "evidence_status": "author_reported_summary",
+      "species": "other",
+      "stage_track": "unspecified",
+      "developmental_interval": {
+        "label": "In-vitro benchtop device test; developmental stage not applicable",
+        "start": null,
+        "end": null,
+        "time_unit": "not applicable",
+        "stage_source_artifact_id": "omecinski2023-preemieox-article"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Benchtop artificial-placenta oxygenator test using adult bovine blood; no embryo or fetal development assessed",
+        "batch_id": null,
+        "laboratory_id": null
+      },
+      "assay": {
+        "name": "In-vitro gas-exchange test",
+        "endpoint": "Carbon-dioxide removal rate (vCO2)",
+        "unit": "mL/min",
+        "measurement_role": "function",
+        "functional_evidence_class": "direct_function_measurement"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "The paper reports n=9 gas-exchange test samples in one aggregate summary; it does not provide run IDs or establish nine independent biological units."
+      },
+      "observation": {
+        "value": 12.7,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null,
+        "summary_statistic": {
+          "kind": "reported_plus_minus",
+          "estimate": 12.7,
+          "plus_minus": 0.9,
+          "plus_minus_type": "not_reported",
+          "reported_sample_size": 9,
+          "sample_size_scope": "Nine benchtop gas-exchange test samples pooled across the reported sweep-gas conditions; not an asserted biological n or a set of individual records.",
+          "sample_size_source_locator": "Methods > In Vitro Gas Exchange (three samples per tested condition); Results > In Vitro Gas Exchange (n=9 aggregate)",
+          "source_literal": "12.7 ± 0.9 mL/min"
+        }
+      },
+      "source": {
+        "artifact_id": "omecinski2023-preemieox-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9897463/",
+        "license": "Reuse terms not confirmed; see source_resolution",
+        "sha256": null,
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Results > In Vitro Gas Exchange; mean vCO2 averaged over all tested sweep-gas conditions (n=9)",
+      "limitations": [
+        "This is an in-vitro device-performance summary using adult bovine blood, not a fetal-support or developmental outcome.",
+        "The article reports the mean vCO2 with a ± quantity but does not identify that quantity as SD, SE or another error type; it does not expose per-run inlet/outlet values or run identifiers in the inspected public route.",
+        "The reported n counts gas-exchange test samples and is not asserted as an independent biological sample size.",
+        "Source bytes are not locally pinned, and article reuse terms have not been confirmed; candidate remains pending human source review.",
+        "Free-to-read full text and PMC OA-subset membership are recorded separately from copyright/reuse permission; no article license is inferred."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "omecinski2023-preemieox-blood-flow-context",
+      "evidence_status": "author_reported_summary",
+      "species": "other",
+      "stage_track": "unspecified",
+      "developmental_interval": {
+        "label": "In-vitro benchtop device test; developmental stage not applicable",
+        "start": null,
+        "end": null,
+        "time_unit": "not applicable",
+        "stage_source_artifact_id": "omecinski2023-preemieox-article"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Benchtop artificial-placenta oxygenator test using adult bovine blood; no embryo or fetal development assessed",
+        "batch_id": null,
+        "laboratory_id": null
+      },
+      "assay": {
+        "name": "Blood-flow measurement during in-vitro gas-exchange test",
+        "endpoint": "Blood flow rate",
+        "unit": "mL/min",
+        "measurement_role": "environmental_condition"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "The Results sentence reports n=9 for the gas-exchange samples and co-reports this mean blood flow rate; no run IDs or flow-to-vCO2 pairing are provided. This is not an independent biological n."
+      },
+      "observation": {
+        "value": 163,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null,
+        "summary_statistic": {
+          "kind": "reported_plus_minus",
+          "estimate": 163,
+          "plus_minus": 2,
+          "plus_minus_type": "not_reported",
+          "reported_sample_size": 9,
+          "sample_size_scope": "The Results sentence reports n=9 for the gas-exchange test samples and co-reports the mean blood flow rate; samples are not asserted to be independent biological units or individually identified.",
+          "sample_size_source_locator": "Results > In Vitro Gas Exchange; final reported summary sentence, n=9",
+          "source_literal": "163 ± 2 mL/min"
+        }
+      },
+      "source": {
+        "artifact_id": "omecinski2023-preemieox-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9897463/",
+        "license": "Reuse terms not confirmed; see source_resolution",
+        "sha256": null,
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Results > In Vitro Gas Exchange; blood flow rate 163 ± 2 mL/min co-reported with vCO2 summary and n=9",
+      "limitations": [
+        "This is reported test-flow context for a benchtop device using adult bovine blood, not fetal circulation or a developmental result.",
+        "The aggregate flow summary is not paired to individual vCO2 records; no run-level measurements or shared-unit links are inferred.",
+        "The n=9 denominator is retained as the source's gas-exchange sample count, not biological independent n."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "omecinski2023-preemieox-oxygen-saturation-summary",
+      "evidence_status": "author_reported_summary",
+      "species": "other",
+      "stage_track": "unspecified",
+      "developmental_interval": {
+        "label": "In-vitro benchtop device test; developmental stage not applicable",
+        "start": null,
+        "end": null,
+        "time_unit": "not applicable",
+        "stage_source_artifact_id": "omecinski2023-preemieox-article"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Benchtop artificial-placenta oxygenator test using adult bovine blood; no embryo or fetal development assessed",
+        "batch_id": null,
+        "laboratory_id": null
+      },
+      "assay": {
+        "name": "Hemoglobin oxygen saturation in in-vitro gas-exchange test",
+        "endpoint": "Hemoglobin oxygen saturation (SO2)",
+        "unit": "%",
+        "measurement_role": "function",
+        "functional_evidence_class": "direct_function_measurement"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "The Results section says this saturation result applies in all three cases but does not state the denominator for 99.4 ± 0.4 or identify individual runs."
+      },
+      "observation": {
+        "value": 99.4,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null,
+        "summary_statistic": {
+          "kind": "reported_plus_minus",
+          "estimate": 99.4,
+          "plus_minus": 0.4,
+          "plus_minus_type": "not_reported",
+          "reported_sample_size": null,
+          "sample_size_scope": "The article says hemoglobin was completely saturated in all three cases, but does not state the denominator for 99.4 ± 0.4 or connect it to n=9; no sample count is assigned.",
+          "sample_size_source_locator": "Results > In Vitro Gas Exchange; final sentence on SO2 and all three cases",
+          "source_literal": "SO2 = 99.4 ± 0.4"
+        }
+      },
+      "source": {
+        "artifact_id": "omecinski2023-preemieox-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9897463/",
+        "license": "Reuse terms not confirmed; see source_resolution",
+        "sha256": null,
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Results > In Vitro Gas Exchange; SO2 = 99.4 ± 0.4 reported for all three cases",
+      "limitations": [
+        "The plus-minus quantity type and denominator are not reported; the summary is preserved literally without treating the three cases as n=3 or inheriting n=9.",
+        "No individual run, blood-gas pair, or developmental outcome is available from this group summary.",
+        "This is an in-vitro hemoglobin saturation result using adult bovine blood, not fetal circulation or a healthy-development outcome."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "omecinski2023-preemieox-resistance-summary",
+      "evidence_status": "author_reported_summary",
+      "species": "other",
+      "stage_track": "unspecified",
+      "developmental_interval": {
+        "label": "Benchtop fluid-column test; developmental stage not applicable",
+        "start": null,
+        "end": null,
+        "time_unit": "not applicable",
+        "stage_source_artifact_id": "omecinski2023-preemieox-article"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Benchtop fluid-resistance apparatus using fetal-blood-analogue liquid; no embryo, fetus, or blood circulation tested",
+        "batch_id": null,
+        "laboratory_id": null
+      },
+      "assay": {
+        "name": "Fluid-column resistance test",
+        "endpoint": "Oxygenator hydraulic resistance",
+        "unit": "mmHg/L/min",
+        "measurement_role": "function",
+        "functional_evidence_class": "direct_function_measurement"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "The Methods say the fluid-resistance protocol was performed in triplicate; individual test-run IDs and values are not reported. The three tests are not biological units."
+      },
+      "observation": {
+        "value": 51,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null,
+        "summary_statistic": {
+          "kind": "reported_plus_minus",
+          "estimate": 51,
+          "plus_minus": 0,
+          "plus_minus_type": "not_reported",
+          "reported_sample_size": 3,
+          "sample_size_scope": "Fluid-column resistance protocol performed in triplicate; non-biological apparatus tests, with no individual run values supplied.",
+          "sample_size_source_locator": "Methods > Resistance apparatus and measurement; protocol performed in triplicate",
+          "source_literal": "51 ± 0 mmHg/L/min"
+        }
+      },
+      "source": {
+        "artifact_id": "omecinski2023-preemieox-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9897463/",
+        "license": "Reuse terms not confirmed; see source_resolution",
+        "sha256": null,
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Results > Resistance apparatus and measurement; resistance 51 ± 0 across all tested fluid-column height changes",
+      "limitations": [
+        "The ± term is not identified as SD, SE, or another error type; no spread interpretation is inferred.",
+        "The triplicate method count is a test-procedure denominator, not a biological n, and per-run results are not exposed.",
+        "This is a fluid-analogue resistance test, not resistance measured in fetal circulation."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "omecinski2023-preemieox-priming-volume",
+      "evidence_status": "author_reported_summary",
+      "species": "other",
+      "stage_track": "unspecified",
+      "developmental_interval": {
+        "label": "Benchtop oxygenator device characterization; developmental stage not applicable",
+        "start": null,
+        "end": null,
+        "time_unit": "not applicable",
+        "stage_source_artifact_id": "omecinski2023-preemieox-article"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Preemie-Ox oxygenator device characterization; no embryo or fetal development assessed",
+        "batch_id": null,
+        "laboratory_id": null
+      },
+      "assay": {
+        "name": "Device priming-volume characterization",
+        "endpoint": "Total device priming volume",
+        "unit": "mL",
+        "measurement_role": "function",
+        "functional_evidence_class": "direct_function_measurement"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "The paper reports a single device-characteristic value and no replicate count or device/run identifier."
+      },
+      "observation": {
+        "value": 15,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "not_reported",
+        "measurement_uncertainty": null
+      },
+      "source": {
+        "artifact_id": "omecinski2023-preemieox-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9897463/",
+        "license": "Reuse terms not confirmed; see source_resolution",
+        "sha256": null,
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Results > Resistance apparatus and measurement; total priming volume of device was 15 mL",
+      "limitations": [
+        "No replicate count or uncertainty is reported for this device-characteristic value.",
+        "This is a bench device specification, not a fetal-support or developmental outcome."
+      ]
+    }
+  ],
+  "limitations": [
+    "This candidate records an in-vitro apparatus result only; it does not establish oxygen/nutrient exchange in a fetal circulation or healthy development.",
+    "No per-run measurements, same-sample pairings, or independent biological n are inferred from the aggregate summaries; plus-minus terms remain source-neutral unless their type is identified.",
+    "The source-byte hash and reuse terms remain unresolved pending review.",
+    "The official PMC identifier service resolves the archived version to PMC9897463.1 / NIHMS1848709; this is distinct from the final-edited journal version cited by DOI.",
+    "The article is free to read on PMC but was not returned by the PMC open-access filter at the checked date. The page exposes only the general PMC Copyright Notice; its item-specific reuse license remains unconfirmed."
+  ]
+}

@@ -1,0 +1,23 @@
+Source Name,Comment[ENA_SAMPLE],Comment[BioSD_SAMPLE],Characteristics[developmental stage],Characteristics[embryo stage],Characteristics[sex],Characteristics[individual],Characteristics[organism part],Characteristics[sampling site],Characteristics[immunophenotype],Material Type,Assay Name,Comment[ENA_EXPERIMENT],Comment[ENA_RUN],Derived Array Data File
+FCAImmP7862084,ERS6921425,SAMEA9196793,embryo stage,carnegie stage 18,male,F61,liver,liver,CD45+,cell,FCAImmP7862084,ERX5690869,ERR6051983,
+FCAImmP7862085,ERS6921426,SAMEA9196803,embryo stage,carnegie stage 18,male,F61,liver,liver,CD45+,cell,FCAImmP7862085,ERX5690870,ERR6051984,
+FCAImmP7862086,ERS6921427,SAMEA9196805,embryo stage,carnegie stage 18,male,F61,liver,liver,CD45-,cell,FCAImmP7862086,ERX5690871,ERR6051985,
+FCAImmP7862087,ERS6921428,SAMEA9196801,embryo stage,carnegie stage 18,male,F61,liver,liver,Hep,cell,FCAImmP7862087,ERX5690872,ERR6051986,
+FCAImmP7862088,ERS6921429,SAMEA9196804,embryo stage,carnegie stage 18,male,F61,yolk sac,membrane,CD45+,cell,FCAImmP7862088,ERX5690873,ERR6051987,YS_10x_core_metadata.csv
+FCAImmP7862089,ERS6921430,SAMEA9196794,embryo stage,carnegie stage 18,male,F61,yolk sac,membrane,CD45+,cell,FCAImmP7862089,ERX5690874,ERR6051988,YS_10x_core_metadata.csv
+FCAImmP7862090,ERS6921431,SAMEA9196797,embryo stage,carnegie stage 18,male,F61,yolk sac,membrane,CD45+,cell,FCAImmP7862090,ERX5690875,ERR6051989,YS_10x_core_metadata.csv
+FCAImmP7862091,ERS6921432,SAMEA9196795,embryo stage,carnegie stage 18,male,F61,yolk sac,membrane,CD45-,cell,FCAImmP7862091,ERX5690876,ERR6051990,YS_10x_core_metadata.csv
+FCAImmP7862092,ERS6921433,SAMEA9196798,embryo stage,carnegie stage 18,male,F61,yolk sac,membrane,CD45-,cell,FCAImmP7862092,ERX5690877,ERR6051991,YS_10x_core_metadata.csv
+FCAImmP7862093,ERS6921434,SAMEA9196802,embryo stage,carnegie stage 18,male,F61,yolk sac,membrane,CD45-,cell,FCAImmP7862093,ERX5690878,ERR6051992,YS_10x_core_metadata.csv
+FCAImmP8096686,ERS6921435,SAMEA9196799,embryo stage,carnegie stage 18,male,F79,yolk sac,vitelline blood vessel,CD45+,cell,FCAImmP8096686,ERX5690879,ERR6051993,YS_10x_core_metadata.csv
+FCAImmP8096687,ERS6921436,SAMEA9196796,embryo stage,carnegie stage 18,male,F79,yolk sac,vitelline blood vessel,CD45-,cell,FCAImmP8096687,ERX5690880,ERR6051994,YS_10x_core_metadata.csv
+FCAImmP8096688,ERS6921437,SAMEA9196800,embryo stage,carnegie stage 18,male,F79,yolk sac,membrane,CD45+,cell,FCAImmP8096688,ERX5690881,ERR6051995,YS_10x_core_metadata.csv
+FCAImmP8096689,ERS6921438,SAMEA9196806,embryo stage,carnegie stage 18,male,F79,yolk sac,membrane,CD45-,cell,FCAImmP8096689,ERX5690882,ERR6051996,YS_10x_core_metadata.csv
+FCAImmP8096690,ERS6921439,SAMEA9196807,embryo stage,carnegie stage 18,male,F79,yolk sac,membrane,CD45-,cell,FCAImmP8096690,ERX5690883,ERR6051997,YS_10x_core_metadata.csv
+FCAImmP8096691,ERS6921440,SAMEA9196808,embryo stage,carnegie stage 18,male,F79,yolk sac,membrane,CD45-,cell,FCAImmP8096691,ERX5690884,ERR6051998,YS_10x_core_metadata.csv
+FCAImmP8096692,ERS6921441,SAMEA9196810,embryo stage,carnegie stage 18,male,F80,yolk sac,membrane,CD45+,cell,FCAImmP8096692,ERX5690885,ERR6051999,YS_10x_core_metadata.csv
+FCAImmP8096693,ERS6921442,SAMEA9196809,embryo stage,carnegie stage 18,male,F80,yolk sac,membrane,CD45+,cell,FCAImmP8096693,ERX5690886,ERR6052000,YS_10x_core_metadata.csv
+FCAImmP8096694,ERS6921443,SAMEA9196811,embryo stage,carnegie stage 18,male,F80,yolk sac,membrane,CD45-,cell,FCAImmP8096694,ERX5690887,ERR6052001,YS_10x_core_metadata.csv
+FCAImmP8096695,ERS6921444,SAMEA9196814,embryo stage,carnegie stage 18,male,F80,yolk sac,membrane,CD45-,cell,FCAImmP8096695,ERX5690888,ERR6052002,YS_10x_core_metadata.csv
+FCAImmP8096696,ERS6921445,SAMEA9196813,embryo stage,carnegie stage 18,male,F80,yolk sac,membrane,CD45-,cell,FCAImmP8096696,ERX5690889,ERR6052003,YS_10x_core_metadata.csv
+FCAImmP8102304,ERS6921446,SAMEA9196812,embryo stage,carnegie stage 18,male,F79,yolk sac,vitelline blood vessel,CD45-,cell,FCAImmP8102304,ERX5690890,ERR6052004,YS_10x_core_metadata.csv

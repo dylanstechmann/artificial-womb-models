@@ -1,0 +1,218 @@
+{
+  "schema_version": 1,
+  "source_id": "holm-2017-in-vivo-term-amino-acids",
+  "record_type": "aggregate_in_vivo_reference",
+  "created_on": "2026-10-10",
+  "review_status": "candidate_public_aggregate_only",
+  "human_review": "pending",
+  "citation": "Holm MB et al. Uptake and release of amino acids in the fetal-placental unit in human pregnancies. PLoS ONE. 2017;12(10):e0185760. doi:10.1371/journal.pone.0185760.",
+  "source_urls": {
+    "primary_article": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0185760",
+    "version_of_record_pdf": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0185760&type=printable",
+    "article_xml": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pmc&id=5628923&retmode=xml",
+    "supporting_information_s1": "https://doi.org/10.1371/journal.pone.0185760.s001",
+    "original_data_doi_v1": "https://doi.org/10.18712/NSD-NSD2489-V1",
+    "repository_current_record": "https://surveybanken.sikt.no/study/NSD2489/1"
+  },
+  "version_of_record_pdf_visual_review": {
+    "reviewed_on": "2026-10-11",
+    "sha256": "df8543b72afc6aff3dcff3fa06b7af91da1be64937675a64f719a685f00ee56b",
+    "bytes": 3255321,
+    "pdf_page_index": 7,
+    "printed_page": "7/15",
+    "locator": "Table 2, Alanine row, Uterine vein column",
+    "literal_seen": "255 [2, 294]",
+    "disposition": "The lower-quartile glyph is visibly a printed digit 2. Retain the literal as published; whether it is an authoring or production error remains unresolved.",
+    "local_pdf_retained": false
+  },
+  "version_of_record_pdf_table2_text_reconciliation": {
+    "reviewed_on": "2026-10-11",
+    "source_pdf_sha256": "df8543b72afc6aff3dcff3fa06b7af91da1be64937675a64f719a685f00ee56b",
+    "pdf_page_index": 6,
+    "printed_page": "7/15",
+    "extractor": "pypdf 6.10.0",
+    "method": "Extract Table 2's ordered median/Q1/Q3 numeric groups from the publisher PDF text layer and compare with the XML-derived aggregate CSV; normalize whitespace and compare exact Decimal values.",
+    "pdf_summary_cells_extracted": 76,
+    "ledger_summary_cells": 76,
+    "ordered_exact_numeric_matches": 76,
+    "mismatches": 0,
+    "limitations": "This is a PDF text-layer cross-check against the XML-derived ledger, not participant-level validation or an independent statistical recalculation. The flagged cell's printed glyph was separately checked in the rendered page image."
+  },
+  "version_of_record_pdf_table3_text_reconciliation": {
+    "reviewed_on": "2026-10-11",
+    "source_pdf_sha256": "df8543b72afc6aff3dcff3fa06b7af91da1be64937675a64f719a685f00ee56b",
+    "pdf_page_index": 7,
+    "printed_page": "8/15",
+    "extractor": "pypdf 6.10.0; pdfplumber 0.11.9 for cell font metadata",
+    "method": "Extract the ordered Table 3 median/Q1/Q3 groups and immediately following printed p-value literals from the publisher PDF text layer; compare to the XML-derived paired-difference CSV, normalizing whitespace and comparing exact Decimal values and p-value strings.",
+    "pdf_summary_cells_extracted": 76,
+    "ledger_summary_cells": 76,
+    "ordered_summary_and_p_value_matches": 76,
+    "mismatches": 0,
+    "bold_markers_cross_checked": true,
+    "bold_marker_method": "For each of the 76 summary-cell bounding boxes, classify embedded font Helvetica-Bold as bold and Helvetica as regular; compare with the XML-derived ledger marker.",
+    "bold_marker_cells_checked": 76,
+    "bold_marker_matches": 76,
+    "bold_marker_mismatches": 0,
+    "limitations": "Font metadata corroborates the table's printed bold style but does not independently reproduce the FDR procedure. XML-derived bold/FDR markers remain preserved as the intake source; no p-values or FDR results were recalculated."
+  },
+  "version_of_record_pdf_header_and_denominator_reconciliation": {
+    "reviewed_on": "2026-10-11",
+    "source_pdf_sha256": "df8543b72afc6aff3dcff3fa06b7af91da1be64937675a64f719a685f00ee56b",
+    "extractor": "pypdf 6.10.0",
+    "table2": {
+      "pdf_page_index": 6,
+      "printed_page": "7/15",
+      "column_order": ["Radial artery", "Uterine vein", "Umbilical vein", "Umbilical artery"],
+      "unit": "μmol/L",
+      "pdf_N_row": [168, 177, 177, 162],
+      "ledger_N_row": [168, 177, 177, 162],
+      "headers_units_and_N_match": true,
+      "N_scope": "vessel-header N, not asserted analyte-specific or paired"
+    },
+    "table3": {
+      "pdf_page_index": 7,
+      "printed_page": "8/15",
+      "circulation_order": ["Uteroplacental", "Umbilical"],
+      "unit": "μmol/L",
+      "pdf_n_row": [166, 160],
+      "ledger_n_row": [166, 160],
+      "headers_units_and_n_match": true,
+      "n_scope": "one source-reported N per circulation, not asserted analyte-specific"
+    },
+    "participant_level_data_accessed": false
+  },
+  "evidence_class": {
+    "measurement_modality": "cross_sectional_in_vivo_human_vessel_sampling_at_term",
+    "not_ex_vivo_perfusion": true,
+    "study_population": "179 healthy women with uncomplicated singleton term pregnancies",
+    "sampling_context": "planned cesarean delivery; maternal radial artery and uterine vein, fetal umbilical vein and artery",
+    "assay": "LC-MS/MS for 19 amino acids",
+    "analysis_unit": "individual in repository metadata; no participant-level file ingested"
+  },
+  "aggregate_table_intake": {
+    "path": "config/source_inventories/holm_2017_table2_aggregate_source_cells.csv",
+    "sha256": "b35f681c8a49a23720e6c99c05f3393cfba18f1a0668bff5182b4dcaf566b27c",
+    "row_count": 76,
+    "source_table": "Table 2: Amino acid concentrations on the maternal and fetal sides of the placenta",
+    "row_unit": "one aggregate analyte-by-vessel table cell",
+    "fields": [
+      "amino_acid_class",
+      "amino_acid",
+      "vessel",
+      "vessel_N_as_reported",
+      "concentration_unit",
+      "median_as_published",
+      "q1_as_published",
+      "q3_as_published",
+      "summary_cell_literal",
+      "source_table_cell_locator"
+    ],
+    "concentration_unit": "μmol/L",
+    "vessel_N_as_reported": {
+      "radial_artery": 168,
+      "uterine_vein": 177,
+      "umbilical_vein": 177,
+      "umbilical_artery": 162
+    },
+    "sample_size_note": "N is transcribed from the Table 2 vessel header row. It is not asserted to be an analyte-specific or paired comparison denominator.",
+    "source_cell_review_flags": [
+      {
+        "analyte": "Alanine",
+        "vessel": "Uterine vein",
+        "source_cell_locator": "Table 2 tr[14] td[3]",
+        "literal": "255 [2, 294]",
+        "status": "unusual lower-quartile source literal preserved without correction",
+        "publisher_pdf_text_cross_check": "The public PLOS version-of-record PDF text extraction repeats the same literal. This does not establish whether the printed glyph itself is a typo."
+      }
+    ],
+    "individual_observations": false
+  },
+  "candidate_observation_intake": {
+    "path": "config/observations/holm_2017_term_amino_acid_concentrations_candidate.json",
+    "sha256": "929446df9cf70d12f169747ad89e9d26ccad0c595beb00427c742001e252e172",
+    "record_count": 76,
+    "representation": "author-reported median with typed Q1/Q3, source literal, vessel-level N and N scope",
+    "review_status": "candidate",
+    "validator": "src/wombmodels/holm_source.py::audit_holm_table2_candidate",
+    "receipt": "artifacts/observation-intake-2026-10-11/holm-table2-typed-summary-intake-cycle251.json"
+  },
+  "paired_difference_table_intake": {
+    "path": "config/source_inventories/holm_2017_table3_paired_difference_summaries.csv",
+    "sha256": "9547e0a465d62122b59644e1384025837923f80ca6858d0424f411d46363bfbb",
+    "row_count": 76,
+    "source_table": "Table 3: Crude and adjusted uteroplacental arteriovenous and umbilical venoarterial concentration differences with p-values",
+    "row_unit": "one aggregate analyte-by-circulation-by-adjustment table cell",
+    "fields": [
+      "amino_acid_class",
+      "amino_acid",
+      "circulation_side",
+      "summary_type",
+      "sample_N_as_reported",
+      "difference_unit",
+      "median_difference_as_published",
+      "q1_as_published",
+      "q3_as_published",
+      "p_value_as_published",
+      "summary_cell_marked_bold",
+      "summary_cell_locator",
+      "p_value_cell_locator"
+    ],
+    "sample_N_by_circulation_as_reported": {
+      "uteroplacental": 166,
+      "umbilical": 160
+    },
+    "sample_size_note": "Table 3 reports one N per circulation. It is retained as printed and not asserted to be analyte-specific.",
+    "interpretation_note": "The table footnote defines bold differences as significant after FDR correction and says adjusted p-values for significant results are reported in the text. Printed p-values and bold status are preserved; no statistical result was recomputed.",
+    "individual_observations": false
+  },
+  "candidate_paired_difference_intake": {
+    "path": "config/observations/holm_2017_term_amino_acid_differences_candidate.json",
+    "sha256": "bcb2a8f7f3e9df20a72b917e8cd03f6772481fbb81d610b6c049f2e2c2618017",
+    "record_count": 76,
+    "representation": "author-reported median difference with typed Q1/Q3, exact source literal, printed p-value and source bold/FDR marker",
+    "review_status": "candidate",
+    "validator": "src/wombmodels/holm_source.py::audit_holm_table3_candidate",
+    "receipt": "artifacts/observation-intake-2026-10-11/holm-table3-paired-differences-cycle252.json"
+  },
+  "descriptive_consistency_audit": {
+    "table": "Table 3 water-adjusted umbilical venoarterial differences",
+    "analyte_count": 19,
+    "positive_median_count": 17,
+    "negative_median_count": 2,
+    "source_bolded_fdr_significant_positive_count": 14,
+    "source_bolded_fdr_significant_negative_count": 1,
+    "negative_bolded_analyte": "Glutamic acid",
+    "positive_nonbold_medians": [
+      "Methionine",
+      "Threonine",
+      "Glycine"
+    ],
+    "negative_nonbold_median": "Serine",
+    "consistency_note": "Matches the article text's 14 positive differences and negative glutamic-acid difference after water-transfer adjustment and FDR reporting. Counts are descriptive checks of published medians and source formatting, not a recalculation of the statistical analysis."
+  },
+  "availability_by_field": {
+    "vessel_concentrations": "group medians and quartiles publicly available in Table 2 and transcribed in the aggregate CSV",
+    "paired_arteriovenous_differences": "aggregate crude and water-adjusted summaries publicly available in Table 3 and transcribed in the paired-difference CSV",
+    "correlations": "summary results in S1 Table",
+    "participant_level_values": "linked NSD record; latest V2 metadata restricts provision to agreement with principal investigator upon order; not accessed",
+    "blood_flow": "not present in inspected article tables or supplement",
+    "developmental_outcomes": "outside study scope"
+  },
+  "access_review": {
+    "article_data_statement_points_to": "NSD-NSD2489-V1",
+    "repository_version_lookup": {
+      "v1_exists": true,
+      "v1_has_higher_version": true,
+      "latest_version": 2,
+      "latest_version_date": "2024-07-22",
+      "latest_record_case_quantity": 179
+    },
+    "latest_record_restriction": "Sikt can provide data in agreement with the principal investigator upon order.",
+    "participant_data_requested_or_downloaded": false,
+    "author_contacted": false
+  },
+  "scope_limit": "Term human in-vivo amino-acid concentration reference only. Concentration differences are not fluxes without blood-flow data. The source does not establish ex-vivo perfusion performance, earlier-stage exchange, embryo support, continuous gestation, artificial-environment birth, or later health.",
+  "next_action": "Retain only the public aggregate summary cells. Keep the restricted participant dataset out of intake and do not combine this in-vivo source with ex-vivo perfusion trajectories.",
+  "author_contacted": false
+}

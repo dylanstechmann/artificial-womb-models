@@ -1,0 +1,2055 @@
+{
+  "schema_version": 1,
+  "dataset_id": "assali1960-fetal-oxygen-uptake-candidate",
+  "title": "Source-numbered fetal oxygen-consumption rows from Assali et al. Table II; candidate transcription",
+  "source_revision": {
+    "revision_id": "assali1960-table-ii-cycle335",
+    "citation": "Assali NS, Rauramo L, Peltonen T. Measurement of uterine blood flow and uterine metabolism. VIII. Uterine and fetal blood flow and oxygen consumption in early human pregnancy. Am J Obstet Gynecol. 1960;79:86-98. DOI: 10.1016/0002-9378(60)90367-7. PMID: 13794853.",
+    "source_kind": "peer_reviewed_human_invivo",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/13794853/",
+    "review_status": "candidate",
+    "reviewer": "",
+    "reviewed_on": null,
+    "review_note": ""
+  },
+  "artifacts": [
+    {
+      "artifact_id": "assali1960-table-ii-scan",
+      "uri": "https://archive.org/download/sim_american-journal-of-obstetrics-and-gynecology_1960-01_79_1/page/n193_w1400.jpg",
+      "license": "Reuse terms not confirmed; see source_resolution",
+      "sha256": "a0837059a8d4cb5f6196ccf41d6a5f583352af90fd69324929f49a706b2b4757",
+      "retrieved_on": "2026-10-11",
+      "source_resolution": {
+        "version_type": "published_version",
+        "version_identifier": "January 1960 issue, vol. 79, no. 1; Assali et al., pp. 86-98",
+        "access_status": "full_text_free_to_read",
+        "oa_subset_status": "not_checked",
+        "reuse_status": "not_confirmed",
+        "license_expression": null,
+        "checked_on": "2026-10-11",
+        "evidence_locator": "Printed p. 92, Table II; scanned page image leaf 193.",
+        "note": "The scan is publicly readable on Internet Archive. The scanned issue bears a 1960 copyright notice; no reuse license or public-domain status was confirmed. Public access is not treated as reuse permission."
+      },
+      "local_path": "artifacts\\schubert-amazeox-assali-source-recovery-2026-cycle335\\sources\\assali1960_print_page_92_leaf_193.jpg"
+    },
+    {
+      "artifact_id": "assali1960-methods-scan",
+      "uri": "https://archive.org/download/sim_american-journal-of-obstetrics-and-gynecology_1960-01_79_1/page/n188_w1400.jpg",
+      "license": "Reuse terms not confirmed; see source_resolution",
+      "sha256": "b76b445b30fbb1f6e40e2313020f50b00de20336c8e310bb187dd55f53e090d2",
+      "retrieved_on": "2026-10-11",
+      "source_resolution": {
+        "version_type": "published_version",
+        "version_identifier": "January 1960 issue, vol. 79, no. 1; Assali et al., pp. 86-98",
+        "access_status": "full_text_free_to_read",
+        "oa_subset_status": "not_checked",
+        "reuse_status": "not_confirmed",
+        "license_expression": null,
+        "checked_on": "2026-10-11",
+        "evidence_locator": "Printed p. 87, Material and methods; scanned page image leaf 188.",
+        "note": "The scan is publicly readable on Internet Archive. The scanned issue bears a 1960 copyright notice; no reuse license or public-domain status was confirmed. Public access is not treated as reuse permission."
+      },
+      "local_path": "artifacts\\schubert-amazeox-assali-source-recovery-2026-cycle335\\sources\\assali1960_print_page_87_leaf_188.jpg"
+    },
+    {
+      "artifact_id": "assali1960-caveat-scan",
+      "uri": "https://archive.org/download/sim_american-journal-of-obstetrics-and-gynecology_1960-01_79_1/page/n196_w1400.jpg",
+      "license": "Reuse terms not confirmed; see source_resolution",
+      "sha256": "785e9c873b68c38bda9d58ab7d1daa813359b526197567e2a5a5a3caec4a8f56",
+      "retrieved_on": "2026-10-11",
+      "source_resolution": {
+        "version_type": "published_version",
+        "version_identifier": "January 1960 issue, vol. 79, no. 1; Assali et al., pp. 86-98",
+        "access_status": "full_text_free_to_read",
+        "oa_subset_status": "not_checked",
+        "reuse_status": "not_confirmed",
+        "license_expression": null,
+        "checked_on": "2026-10-11",
+        "evidence_locator": "Printed p. 95, limitations and reported uptake range; scanned page image leaf 196.",
+        "note": "The scan is publicly readable on Internet Archive. The scanned issue bears a 1960 copyright notice; no reuse license or public-domain status was confirmed. Public access is not treated as reuse permission."
+      },
+      "local_path": "artifacts\\schubert-amazeox-assali-source-recovery-2026-cycle335\\sources\\assali1960_print_page_95_leaf_196.jpg"
+    },
+    {
+      "artifact_id": "assali1960-title-scan",
+      "uri": "https://archive.org/download/sim_american-journal-of-obstetrics-and-gynecology_1960-01_79_1/page/n187_w1400.jpg",
+      "license": "Reuse terms not confirmed; see source_resolution",
+      "sha256": "4def9f7e4d5a86379ae26416041a854610a6cb22131998f2ccff3dbaf7cf9193",
+      "retrieved_on": "2026-10-11",
+      "source_resolution": {
+        "version_type": "published_version",
+        "version_identifier": "January 1960 issue, vol. 79, no. 1; Assali et al., pp. 86-98",
+        "access_status": "full_text_free_to_read",
+        "oa_subset_status": "not_checked",
+        "reuse_status": "not_confirmed",
+        "license_expression": null,
+        "checked_on": "2026-10-11",
+        "evidence_locator": "Printed p. 86, article title; scanned page image leaf 187.",
+        "note": "The scan is publicly readable on Internet Archive. The scanned issue bears a 1960 copyright notice; no reuse license or public-domain status was confirmed. Public access is not treated as reuse permission."
+      },
+      "local_path": "artifacts\\schubert-amazeox-assali-source-recovery-2026-cycle335\\sources\\assali1960_print_page_86_leaf_187.jpg"
+    },
+    {
+      "artifact_id": "assali1960-pubmed-record",
+      "uri": "https://pubmed.ncbi.nlm.nih.gov/13794853/",
+      "license": "Metadata record; article reuse terms not confirmed",
+      "sha256": "51d870c661360d64bf19a809ce342f10b4c00e3c20750ace156f64e6fe9ee950",
+      "retrieved_on": "2026-10-11",
+      "source_resolution": {
+        "version_type": "repository_record",
+        "version_identifier": "PMID 13794853; DOI 10.1016/0002-9378(60)90367-7",
+        "access_status": "metadata_only",
+        "oa_subset_status": "not_applicable",
+        "reuse_status": "not_confirmed",
+        "license_expression": null,
+        "checked_on": "2026-10-11",
+        "evidence_locator": "PubMed record; local E-utilities XML copy.",
+        "note": "Bibliographic metadata only; PubMed XML has no abstract or full article. This hash does not hash the journal article."
+      },
+      "local_path": "artifacts\\schubert-amazeox-assali-source-recovery-2026-cycle335\\sources\\pubmed_13794853.xml"
+    },
+    {
+      "artifact_id": "assali1960-archive-item-record",
+      "uri": "https://archive.org/details/sim_american-journal-of-obstetrics-and-gynecology_1960-01_79_1",
+      "license": "Reuse terms not confirmed; see source_resolution",
+      "sha256": "9685a4cb3da1a67f74885154358f3a96604424c34d37adc1dfa1047e20d170e3",
+      "retrieved_on": "2026-10-11",
+      "source_resolution": {
+        "version_type": "repository_record",
+        "version_identifier": "sim_american-journal-of-obstetrics-and-gynecology_1960-01_79_1",
+        "access_status": "metadata_only",
+        "oa_subset_status": "not_checked",
+        "reuse_status": "not_confirmed",
+        "license_expression": null,
+        "checked_on": "2026-10-11",
+        "evidence_locator": "Filtered Internet Archive metadata; rights_field and licenseurl are null.",
+        "note": "The item describes an issue digitized from an earlier scan. Its metadata has no rights or license URL. Full text is accessible, but reuse terms remain unconfirmed."
+      },
+      "local_path": "artifacts\\schubert-amazeox-assali-source-recovery-2026-cycle335\\sources\\internet_archive_route.json"
+    }
+  ],
+  "observations": [
+    {
+      "schema_version": 1,
+      "record_id": "assali1960-p4-o2-uptake-total",
+      "evidence_status": "measured",
+      "species": "human",
+      "stage_track": "unspecified",
+      "developmental_interval": {
+        "label": "14 weeks gestation; case observed during hysterotomy study",
+        "start": 14,
+        "end": 14,
+        "time_unit": "weeks gestation",
+        "stage_source_artifact_id": "assali1960-table-ii-scan"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Human fetus studied during therapeutic-abortion hysterotomy with umbilical-cord blood-flow and blood-gas measurements; authors caution these measurements are approximate and not true basal-state in utero."
+      },
+      "assay": {
+        "name": "Umbilical flow and oxygen-content Fick estimate",
+        "endpoint": "Total fetal oxygen consumption reported by the authors",
+        "unit": "mL O2/min",
+        "measurement_role": "function",
+        "functional_evidence_class": "direct_function_measurement",
+        "functional_context": {
+          "compartment": "Fetus",
+          "material": "Umbilical vein and umbilical artery blood",
+          "process": "uptake",
+          "quantity_basis": "absolute total; author-reported Table II value, rounded as printed",
+          "assessment_context": "other",
+          "source_locator": "Printed p. 92, Table II, patient 4; printed p. 95 explains vessel mapping and approximate-value caveat."
+        }
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "table-ii-patient-4",
+        "parent_id": "table-ii-patient-4-pregnancy",
+        "hierarchy_note": "Table II patient number is a local case label. It is not a globally stable identifier and does not support longitudinal or cross-study linkage."
+      },
+      "observation": {
+        "value": 0.3,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent",
+        "measurement_uncertainty": null,
+        "measurement_conditions": [
+          {
+            "name": "gestational_age",
+            "value": 14,
+            "unit": "weeks",
+            "source_locator": "Printed p. 92, Table II, patient 4; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "fetal_weight",
+            "value": 100,
+            "unit": "g",
+            "source_locator": "Printed p. 92, Table II, patient 4; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_flow",
+            "value": 11.0,
+            "unit": "mL/min",
+            "source_locator": "Printed p. 92, Table II, patient 4; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_flow_normalized",
+            "value": 11.0,
+            "unit": "mL/100g/min",
+            "source_locator": "Printed p. 92, Table II, patient 4; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_oxygen_saturation",
+            "value": 55,
+            "unit": "%",
+            "source_locator": "Printed p. 92, Table II, patient 4; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_artery_oxygen_saturation",
+            "value": 40,
+            "unit": "%",
+            "source_locator": "Printed p. 92, Table II, patient 4; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "oxygen_capacity",
+            "value": 17.5,
+            "unit": "mL O2/100mL blood",
+            "source_locator": "Printed p. 92, Table II, patient 4; p. 95 specifies the arterial/venous column anatomical mapping."
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "assali1960-table-ii-scan",
+        "uri": "https://archive.org/download/sim_american-journal-of-obstetrics-and-gynecology_1960-01_79_1/page/n193_w1400.jpg",
+        "license": "Reuse terms not confirmed; see source_resolution",
+        "sha256": "a0837059a8d4cb5f6196ccf41d6a5f583352af90fd69324929f49a706b2b4757",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Printed p. 92, Table II, patient 4; total oxygen-consumption column.",
+      "limitations": [
+        "This is one source-numbered case from Table II, not a group mean or normative value; Table II lists eight oxygen-uptake values among 12 retained patients.",
+        "The authors state that umbilical flow and especially oxygen saturation and fetal oxygen consumption are approximate because vessel spasm complicated measurements; they are not true basal-state in-utero values (printed p. 95).",
+        "The study involved therapeutic-abortion hysterotomy, anesthesia and surgical manipulation; extrapolation to an undisturbed pregnancy or device requirement is unsupported.",
+        "The article reports 32 patients entered, 20 deleted and 12 retained; patient numbers are source-local labels and do not establish any cross-study identity."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "assali1960-p4-o2-uptake-normalized",
+      "evidence_status": "measured",
+      "species": "human",
+      "stage_track": "unspecified",
+      "developmental_interval": {
+        "label": "14 weeks gestation; case observed during hysterotomy study",
+        "start": 14,
+        "end": 14,
+        "time_unit": "weeks gestation",
+        "stage_source_artifact_id": "assali1960-table-ii-scan"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Human fetus studied during therapeutic-abortion hysterotomy with umbilical-cord blood-flow and blood-gas measurements; authors caution these measurements are approximate and not true basal-state in utero."
+      },
+      "assay": {
+        "name": "Umbilical flow and oxygen-content Fick estimate",
+        "endpoint": "Fetal oxygen consumption per 100 g reported by the authors",
+        "unit": "mL O2/100g/min",
+        "measurement_role": "function",
+        "functional_evidence_class": "direct_function_measurement",
+        "functional_context": {
+          "compartment": "Fetus",
+          "material": "Umbilical vein and umbilical artery blood",
+          "process": "uptake",
+          "quantity_basis": "mass-normalized; author-reported Table II value, rounded as printed",
+          "assessment_context": "other",
+          "source_locator": "Printed p. 92, Table II, patient 4; printed p. 95 explains vessel mapping and approximate-value caveat."
+        }
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "table-ii-patient-4",
+        "parent_id": "table-ii-patient-4-pregnancy",
+        "hierarchy_note": "Table II patient number is a local case label. It is not a globally stable identifier and does not support longitudinal or cross-study linkage."
+      },
+      "observation": {
+        "value": 0.3,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent",
+        "measurement_uncertainty": null,
+        "measurement_conditions": [
+          {
+            "name": "gestational_age",
+            "value": 14,
+            "unit": "weeks",
+            "source_locator": "Printed p. 92, Table II, patient 4; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "fetal_weight",
+            "value": 100,
+            "unit": "g",
+            "source_locator": "Printed p. 92, Table II, patient 4; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_flow",
+            "value": 11.0,
+            "unit": "mL/min",
+            "source_locator": "Printed p. 92, Table II, patient 4; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_flow_normalized",
+            "value": 11.0,
+            "unit": "mL/100g/min",
+            "source_locator": "Printed p. 92, Table II, patient 4; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_oxygen_saturation",
+            "value": 55,
+            "unit": "%",
+            "source_locator": "Printed p. 92, Table II, patient 4; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_artery_oxygen_saturation",
+            "value": 40,
+            "unit": "%",
+            "source_locator": "Printed p. 92, Table II, patient 4; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "oxygen_capacity",
+            "value": 17.5,
+            "unit": "mL O2/100mL blood",
+            "source_locator": "Printed p. 92, Table II, patient 4; p. 95 specifies the arterial/venous column anatomical mapping."
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "assali1960-table-ii-scan",
+        "uri": "https://archive.org/download/sim_american-journal-of-obstetrics-and-gynecology_1960-01_79_1/page/n193_w1400.jpg",
+        "license": "Reuse terms not confirmed; see source_resolution",
+        "sha256": "a0837059a8d4cb5f6196ccf41d6a5f583352af90fd69324929f49a706b2b4757",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Printed p. 92, Table II, patient 4; normalized oxygen-consumption column.",
+      "limitations": [
+        "This is one source-numbered case from Table II, not a group mean or normative value; Table II lists eight oxygen-uptake values among 12 retained patients.",
+        "The authors state that umbilical flow and especially oxygen saturation and fetal oxygen consumption are approximate because vessel spasm complicated measurements; they are not true basal-state in-utero values (printed p. 95).",
+        "The study involved therapeutic-abortion hysterotomy, anesthesia and surgical manipulation; extrapolation to an undisturbed pregnancy or device requirement is unsupported.",
+        "The article reports 32 patients entered, 20 deleted and 12 retained; patient numbers are source-local labels and do not establish any cross-study identity."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "assali1960-p5-o2-uptake-total",
+      "evidence_status": "measured",
+      "species": "human",
+      "stage_track": "unspecified",
+      "developmental_interval": {
+        "label": "15 weeks gestation; case observed during hysterotomy study",
+        "start": 15,
+        "end": 15,
+        "time_unit": "weeks gestation",
+        "stage_source_artifact_id": "assali1960-table-ii-scan"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Human fetus studied during therapeutic-abortion hysterotomy with umbilical-cord blood-flow and blood-gas measurements; authors caution these measurements are approximate and not true basal-state in utero."
+      },
+      "assay": {
+        "name": "Umbilical flow and oxygen-content Fick estimate",
+        "endpoint": "Total fetal oxygen consumption reported by the authors",
+        "unit": "mL O2/min",
+        "measurement_role": "function",
+        "functional_evidence_class": "direct_function_measurement",
+        "functional_context": {
+          "compartment": "Fetus",
+          "material": "Umbilical vein and umbilical artery blood",
+          "process": "uptake",
+          "quantity_basis": "absolute total; author-reported Table II value, rounded as printed",
+          "assessment_context": "other",
+          "source_locator": "Printed p. 92, Table II, patient 5; printed p. 95 explains vessel mapping and approximate-value caveat."
+        }
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "table-ii-patient-5",
+        "parent_id": "table-ii-patient-5-pregnancy",
+        "hierarchy_note": "Table II patient number is a local case label. It is not a globally stable identifier and does not support longitudinal or cross-study linkage."
+      },
+      "observation": {
+        "value": 0.4,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent",
+        "measurement_uncertainty": null,
+        "measurement_conditions": [
+          {
+            "name": "gestational_age",
+            "value": 15,
+            "unit": "weeks",
+            "source_locator": "Printed p. 92, Table II, patient 5; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "fetal_weight",
+            "value": 120,
+            "unit": "g",
+            "source_locator": "Printed p. 92, Table II, patient 5; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_flow",
+            "value": 15.0,
+            "unit": "mL/min",
+            "source_locator": "Printed p. 92, Table II, patient 5; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_flow_normalized",
+            "value": 12.5,
+            "unit": "mL/100g/min",
+            "source_locator": "Printed p. 92, Table II, patient 5; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_oxygen_saturation",
+            "value": 52,
+            "unit": "%",
+            "source_locator": "Printed p. 92, Table II, patient 5; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_artery_oxygen_saturation",
+            "value": 37,
+            "unit": "%",
+            "source_locator": "Printed p. 92, Table II, patient 5; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "oxygen_capacity",
+            "value": 15.8,
+            "unit": "mL O2/100mL blood",
+            "source_locator": "Printed p. 92, Table II, patient 5; p. 95 specifies the arterial/venous column anatomical mapping."
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "assali1960-table-ii-scan",
+        "uri": "https://archive.org/download/sim_american-journal-of-obstetrics-and-gynecology_1960-01_79_1/page/n193_w1400.jpg",
+        "license": "Reuse terms not confirmed; see source_resolution",
+        "sha256": "a0837059a8d4cb5f6196ccf41d6a5f583352af90fd69324929f49a706b2b4757",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Printed p. 92, Table II, patient 5; total oxygen-consumption column.",
+      "limitations": [
+        "This is one source-numbered case from Table II, not a group mean or normative value; Table II lists eight oxygen-uptake values among 12 retained patients.",
+        "The authors state that umbilical flow and especially oxygen saturation and fetal oxygen consumption are approximate because vessel spasm complicated measurements; they are not true basal-state in-utero values (printed p. 95).",
+        "The study involved therapeutic-abortion hysterotomy, anesthesia and surgical manipulation; extrapolation to an undisturbed pregnancy or device requirement is unsupported.",
+        "The article reports 32 patients entered, 20 deleted and 12 retained; patient numbers are source-local labels and do not establish any cross-study identity."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "assali1960-p5-o2-uptake-normalized",
+      "evidence_status": "measured",
+      "species": "human",
+      "stage_track": "unspecified",
+      "developmental_interval": {
+        "label": "15 weeks gestation; case observed during hysterotomy study",
+        "start": 15,
+        "end": 15,
+        "time_unit": "weeks gestation",
+        "stage_source_artifact_id": "assali1960-table-ii-scan"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Human fetus studied during therapeutic-abortion hysterotomy with umbilical-cord blood-flow and blood-gas measurements; authors caution these measurements are approximate and not true basal-state in utero."
+      },
+      "assay": {
+        "name": "Umbilical flow and oxygen-content Fick estimate",
+        "endpoint": "Fetal oxygen consumption per 100 g reported by the authors",
+        "unit": "mL O2/100g/min",
+        "measurement_role": "function",
+        "functional_evidence_class": "direct_function_measurement",
+        "functional_context": {
+          "compartment": "Fetus",
+          "material": "Umbilical vein and umbilical artery blood",
+          "process": "uptake",
+          "quantity_basis": "mass-normalized; author-reported Table II value, rounded as printed",
+          "assessment_context": "other",
+          "source_locator": "Printed p. 92, Table II, patient 5; printed p. 95 explains vessel mapping and approximate-value caveat."
+        }
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "table-ii-patient-5",
+        "parent_id": "table-ii-patient-5-pregnancy",
+        "hierarchy_note": "Table II patient number is a local case label. It is not a globally stable identifier and does not support longitudinal or cross-study linkage."
+      },
+      "observation": {
+        "value": 0.33,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent",
+        "measurement_uncertainty": null,
+        "measurement_conditions": [
+          {
+            "name": "gestational_age",
+            "value": 15,
+            "unit": "weeks",
+            "source_locator": "Printed p. 92, Table II, patient 5; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "fetal_weight",
+            "value": 120,
+            "unit": "g",
+            "source_locator": "Printed p. 92, Table II, patient 5; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_flow",
+            "value": 15.0,
+            "unit": "mL/min",
+            "source_locator": "Printed p. 92, Table II, patient 5; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_flow_normalized",
+            "value": 12.5,
+            "unit": "mL/100g/min",
+            "source_locator": "Printed p. 92, Table II, patient 5; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_oxygen_saturation",
+            "value": 52,
+            "unit": "%",
+            "source_locator": "Printed p. 92, Table II, patient 5; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_artery_oxygen_saturation",
+            "value": 37,
+            "unit": "%",
+            "source_locator": "Printed p. 92, Table II, patient 5; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "oxygen_capacity",
+            "value": 15.8,
+            "unit": "mL O2/100mL blood",
+            "source_locator": "Printed p. 92, Table II, patient 5; p. 95 specifies the arterial/venous column anatomical mapping."
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "assali1960-table-ii-scan",
+        "uri": "https://archive.org/download/sim_american-journal-of-obstetrics-and-gynecology_1960-01_79_1/page/n193_w1400.jpg",
+        "license": "Reuse terms not confirmed; see source_resolution",
+        "sha256": "a0837059a8d4cb5f6196ccf41d6a5f583352af90fd69324929f49a706b2b4757",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Printed p. 92, Table II, patient 5; normalized oxygen-consumption column.",
+      "limitations": [
+        "This is one source-numbered case from Table II, not a group mean or normative value; Table II lists eight oxygen-uptake values among 12 retained patients.",
+        "The authors state that umbilical flow and especially oxygen saturation and fetal oxygen consumption are approximate because vessel spasm complicated measurements; they are not true basal-state in-utero values (printed p. 95).",
+        "The study involved therapeutic-abortion hysterotomy, anesthesia and surgical manipulation; extrapolation to an undisturbed pregnancy or device requirement is unsupported.",
+        "The article reports 32 patients entered, 20 deleted and 12 retained; patient numbers are source-local labels and do not establish any cross-study identity."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "assali1960-p7-o2-uptake-total",
+      "evidence_status": "measured",
+      "species": "human",
+      "stage_track": "unspecified",
+      "developmental_interval": {
+        "label": "16 weeks gestation; case observed during hysterotomy study",
+        "start": 16,
+        "end": 16,
+        "time_unit": "weeks gestation",
+        "stage_source_artifact_id": "assali1960-table-ii-scan"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Human fetus studied during therapeutic-abortion hysterotomy with umbilical-cord blood-flow and blood-gas measurements; authors caution these measurements are approximate and not true basal-state in utero."
+      },
+      "assay": {
+        "name": "Umbilical flow and oxygen-content Fick estimate",
+        "endpoint": "Total fetal oxygen consumption reported by the authors",
+        "unit": "mL O2/min",
+        "measurement_role": "function",
+        "functional_evidence_class": "direct_function_measurement",
+        "functional_context": {
+          "compartment": "Fetus",
+          "material": "Umbilical vein and umbilical artery blood",
+          "process": "uptake",
+          "quantity_basis": "absolute total; author-reported Table II value, rounded as printed",
+          "assessment_context": "other",
+          "source_locator": "Printed p. 92, Table II, patient 7; printed p. 95 explains vessel mapping and approximate-value caveat."
+        }
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "table-ii-patient-7",
+        "parent_id": "table-ii-patient-7-pregnancy",
+        "hierarchy_note": "Table II patient number is a local case label. It is not a globally stable identifier and does not support longitudinal or cross-study linkage."
+      },
+      "observation": {
+        "value": 0.3,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent",
+        "measurement_uncertainty": null,
+        "measurement_conditions": [
+          {
+            "name": "gestational_age",
+            "value": 16,
+            "unit": "weeks",
+            "source_locator": "Printed p. 92, Table II, patient 7; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "fetal_weight",
+            "value": 108,
+            "unit": "g",
+            "source_locator": "Printed p. 92, Table II, patient 7; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_flow",
+            "value": 12.0,
+            "unit": "mL/min",
+            "source_locator": "Printed p. 92, Table II, patient 7; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_flow_normalized",
+            "value": 11.1,
+            "unit": "mL/100g/min",
+            "source_locator": "Printed p. 92, Table II, patient 7; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_oxygen_saturation",
+            "value": 57,
+            "unit": "%",
+            "source_locator": "Printed p. 92, Table II, patient 7; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_artery_oxygen_saturation",
+            "value": 42,
+            "unit": "%",
+            "source_locator": "Printed p. 92, Table II, patient 7; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "oxygen_capacity",
+            "value": 18.2,
+            "unit": "mL O2/100mL blood",
+            "source_locator": "Printed p. 92, Table II, patient 7; p. 95 specifies the arterial/venous column anatomical mapping."
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "assali1960-table-ii-scan",
+        "uri": "https://archive.org/download/sim_american-journal-of-obstetrics-and-gynecology_1960-01_79_1/page/n193_w1400.jpg",
+        "license": "Reuse terms not confirmed; see source_resolution",
+        "sha256": "a0837059a8d4cb5f6196ccf41d6a5f583352af90fd69324929f49a706b2b4757",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Printed p. 92, Table II, patient 7; total oxygen-consumption column.",
+      "limitations": [
+        "This is one source-numbered case from Table II, not a group mean or normative value; Table II lists eight oxygen-uptake values among 12 retained patients.",
+        "The authors state that umbilical flow and especially oxygen saturation and fetal oxygen consumption are approximate because vessel spasm complicated measurements; they are not true basal-state in-utero values (printed p. 95).",
+        "The study involved therapeutic-abortion hysterotomy, anesthesia and surgical manipulation; extrapolation to an undisturbed pregnancy or device requirement is unsupported.",
+        "The article reports 32 patients entered, 20 deleted and 12 retained; patient numbers are source-local labels and do not establish any cross-study identity."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "assali1960-p7-o2-uptake-normalized",
+      "evidence_status": "measured",
+      "species": "human",
+      "stage_track": "unspecified",
+      "developmental_interval": {
+        "label": "16 weeks gestation; case observed during hysterotomy study",
+        "start": 16,
+        "end": 16,
+        "time_unit": "weeks gestation",
+        "stage_source_artifact_id": "assali1960-table-ii-scan"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Human fetus studied during therapeutic-abortion hysterotomy with umbilical-cord blood-flow and blood-gas measurements; authors caution these measurements are approximate and not true basal-state in utero."
+      },
+      "assay": {
+        "name": "Umbilical flow and oxygen-content Fick estimate",
+        "endpoint": "Fetal oxygen consumption per 100 g reported by the authors",
+        "unit": "mL O2/100g/min",
+        "measurement_role": "function",
+        "functional_evidence_class": "direct_function_measurement",
+        "functional_context": {
+          "compartment": "Fetus",
+          "material": "Umbilical vein and umbilical artery blood",
+          "process": "uptake",
+          "quantity_basis": "mass-normalized; author-reported Table II value, rounded as printed",
+          "assessment_context": "other",
+          "source_locator": "Printed p. 92, Table II, patient 7; printed p. 95 explains vessel mapping and approximate-value caveat."
+        }
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "table-ii-patient-7",
+        "parent_id": "table-ii-patient-7-pregnancy",
+        "hierarchy_note": "Table II patient number is a local case label. It is not a globally stable identifier and does not support longitudinal or cross-study linkage."
+      },
+      "observation": {
+        "value": 0.28,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent",
+        "measurement_uncertainty": null,
+        "measurement_conditions": [
+          {
+            "name": "gestational_age",
+            "value": 16,
+            "unit": "weeks",
+            "source_locator": "Printed p. 92, Table II, patient 7; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "fetal_weight",
+            "value": 108,
+            "unit": "g",
+            "source_locator": "Printed p. 92, Table II, patient 7; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_flow",
+            "value": 12.0,
+            "unit": "mL/min",
+            "source_locator": "Printed p. 92, Table II, patient 7; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_flow_normalized",
+            "value": 11.1,
+            "unit": "mL/100g/min",
+            "source_locator": "Printed p. 92, Table II, patient 7; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_oxygen_saturation",
+            "value": 57,
+            "unit": "%",
+            "source_locator": "Printed p. 92, Table II, patient 7; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_artery_oxygen_saturation",
+            "value": 42,
+            "unit": "%",
+            "source_locator": "Printed p. 92, Table II, patient 7; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "oxygen_capacity",
+            "value": 18.2,
+            "unit": "mL O2/100mL blood",
+            "source_locator": "Printed p. 92, Table II, patient 7; p. 95 specifies the arterial/venous column anatomical mapping."
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "assali1960-table-ii-scan",
+        "uri": "https://archive.org/download/sim_american-journal-of-obstetrics-and-gynecology_1960-01_79_1/page/n193_w1400.jpg",
+        "license": "Reuse terms not confirmed; see source_resolution",
+        "sha256": "a0837059a8d4cb5f6196ccf41d6a5f583352af90fd69324929f49a706b2b4757",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Printed p. 92, Table II, patient 7; normalized oxygen-consumption column.",
+      "limitations": [
+        "This is one source-numbered case from Table II, not a group mean or normative value; Table II lists eight oxygen-uptake values among 12 retained patients.",
+        "The authors state that umbilical flow and especially oxygen saturation and fetal oxygen consumption are approximate because vessel spasm complicated measurements; they are not true basal-state in-utero values (printed p. 95).",
+        "The study involved therapeutic-abortion hysterotomy, anesthesia and surgical manipulation; extrapolation to an undisturbed pregnancy or device requirement is unsupported.",
+        "The article reports 32 patients entered, 20 deleted and 12 retained; patient numbers are source-local labels and do not establish any cross-study identity."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "assali1960-p8-o2-uptake-total",
+      "evidence_status": "measured",
+      "species": "human",
+      "stage_track": "unspecified",
+      "developmental_interval": {
+        "label": "16 weeks gestation; case observed during hysterotomy study",
+        "start": 16,
+        "end": 16,
+        "time_unit": "weeks gestation",
+        "stage_source_artifact_id": "assali1960-table-ii-scan"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Human fetus studied during therapeutic-abortion hysterotomy with umbilical-cord blood-flow and blood-gas measurements; authors caution these measurements are approximate and not true basal-state in utero."
+      },
+      "assay": {
+        "name": "Umbilical flow and oxygen-content Fick estimate",
+        "endpoint": "Total fetal oxygen consumption reported by the authors",
+        "unit": "mL O2/min",
+        "measurement_role": "function",
+        "functional_evidence_class": "direct_function_measurement",
+        "functional_context": {
+          "compartment": "Fetus",
+          "material": "Umbilical vein and umbilical artery blood",
+          "process": "uptake",
+          "quantity_basis": "absolute total; author-reported Table II value, rounded as printed",
+          "assessment_context": "other",
+          "source_locator": "Printed p. 92, Table II, patient 8; printed p. 95 explains vessel mapping and approximate-value caveat."
+        }
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "table-ii-patient-8",
+        "parent_id": "table-ii-patient-8-pregnancy",
+        "hierarchy_note": "Table II patient number is a local case label. It is not a globally stable identifier and does not support longitudinal or cross-study linkage."
+      },
+      "observation": {
+        "value": 0.7,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent",
+        "measurement_uncertainty": null,
+        "measurement_conditions": [
+          {
+            "name": "gestational_age",
+            "value": 16,
+            "unit": "weeks",
+            "source_locator": "Printed p. 92, Table II, patient 8; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "fetal_weight",
+            "value": 200,
+            "unit": "g",
+            "source_locator": "Printed p. 92, Table II, patient 8; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_flow",
+            "value": 22.0,
+            "unit": "mL/min",
+            "source_locator": "Printed p. 92, Table II, patient 8; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_flow_normalized",
+            "value": 11.0,
+            "unit": "mL/100g/min",
+            "source_locator": "Printed p. 92, Table II, patient 8; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_oxygen_saturation",
+            "value": 55,
+            "unit": "%",
+            "source_locator": "Printed p. 92, Table II, patient 8; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_artery_oxygen_saturation",
+            "value": 40,
+            "unit": "%",
+            "source_locator": "Printed p. 92, Table II, patient 8; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "oxygen_capacity",
+            "value": 21.0,
+            "unit": "mL O2/100mL blood",
+            "source_locator": "Printed p. 92, Table II, patient 8; p. 95 specifies the arterial/venous column anatomical mapping."
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "assali1960-table-ii-scan",
+        "uri": "https://archive.org/download/sim_american-journal-of-obstetrics-and-gynecology_1960-01_79_1/page/n193_w1400.jpg",
+        "license": "Reuse terms not confirmed; see source_resolution",
+        "sha256": "a0837059a8d4cb5f6196ccf41d6a5f583352af90fd69324929f49a706b2b4757",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Printed p. 92, Table II, patient 8; total oxygen-consumption column.",
+      "limitations": [
+        "This is one source-numbered case from Table II, not a group mean or normative value; Table II lists eight oxygen-uptake values among 12 retained patients.",
+        "The authors state that umbilical flow and especially oxygen saturation and fetal oxygen consumption are approximate because vessel spasm complicated measurements; they are not true basal-state in-utero values (printed p. 95).",
+        "The study involved therapeutic-abortion hysterotomy, anesthesia and surgical manipulation; extrapolation to an undisturbed pregnancy or device requirement is unsupported.",
+        "The article reports 32 patients entered, 20 deleted and 12 retained; patient numbers are source-local labels and do not establish any cross-study identity."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "assali1960-p8-o2-uptake-normalized",
+      "evidence_status": "measured",
+      "species": "human",
+      "stage_track": "unspecified",
+      "developmental_interval": {
+        "label": "16 weeks gestation; case observed during hysterotomy study",
+        "start": 16,
+        "end": 16,
+        "time_unit": "weeks gestation",
+        "stage_source_artifact_id": "assali1960-table-ii-scan"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Human fetus studied during therapeutic-abortion hysterotomy with umbilical-cord blood-flow and blood-gas measurements; authors caution these measurements are approximate and not true basal-state in utero."
+      },
+      "assay": {
+        "name": "Umbilical flow and oxygen-content Fick estimate",
+        "endpoint": "Fetal oxygen consumption per 100 g reported by the authors",
+        "unit": "mL O2/100g/min",
+        "measurement_role": "function",
+        "functional_evidence_class": "direct_function_measurement",
+        "functional_context": {
+          "compartment": "Fetus",
+          "material": "Umbilical vein and umbilical artery blood",
+          "process": "uptake",
+          "quantity_basis": "mass-normalized; author-reported Table II value, rounded as printed",
+          "assessment_context": "other",
+          "source_locator": "Printed p. 92, Table II, patient 8; printed p. 95 explains vessel mapping and approximate-value caveat."
+        }
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "table-ii-patient-8",
+        "parent_id": "table-ii-patient-8-pregnancy",
+        "hierarchy_note": "Table II patient number is a local case label. It is not a globally stable identifier and does not support longitudinal or cross-study linkage."
+      },
+      "observation": {
+        "value": 0.35,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent",
+        "measurement_uncertainty": null,
+        "measurement_conditions": [
+          {
+            "name": "gestational_age",
+            "value": 16,
+            "unit": "weeks",
+            "source_locator": "Printed p. 92, Table II, patient 8; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "fetal_weight",
+            "value": 200,
+            "unit": "g",
+            "source_locator": "Printed p. 92, Table II, patient 8; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_flow",
+            "value": 22.0,
+            "unit": "mL/min",
+            "source_locator": "Printed p. 92, Table II, patient 8; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_flow_normalized",
+            "value": 11.0,
+            "unit": "mL/100g/min",
+            "source_locator": "Printed p. 92, Table II, patient 8; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_oxygen_saturation",
+            "value": 55,
+            "unit": "%",
+            "source_locator": "Printed p. 92, Table II, patient 8; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_artery_oxygen_saturation",
+            "value": 40,
+            "unit": "%",
+            "source_locator": "Printed p. 92, Table II, patient 8; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "oxygen_capacity",
+            "value": 21.0,
+            "unit": "mL O2/100mL blood",
+            "source_locator": "Printed p. 92, Table II, patient 8; p. 95 specifies the arterial/venous column anatomical mapping."
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "assali1960-table-ii-scan",
+        "uri": "https://archive.org/download/sim_american-journal-of-obstetrics-and-gynecology_1960-01_79_1/page/n193_w1400.jpg",
+        "license": "Reuse terms not confirmed; see source_resolution",
+        "sha256": "a0837059a8d4cb5f6196ccf41d6a5f583352af90fd69324929f49a706b2b4757",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Printed p. 92, Table II, patient 8; normalized oxygen-consumption column.",
+      "limitations": [
+        "This is one source-numbered case from Table II, not a group mean or normative value; Table II lists eight oxygen-uptake values among 12 retained patients.",
+        "The authors state that umbilical flow and especially oxygen saturation and fetal oxygen consumption are approximate because vessel spasm complicated measurements; they are not true basal-state in-utero values (printed p. 95).",
+        "The study involved therapeutic-abortion hysterotomy, anesthesia and surgical manipulation; extrapolation to an undisturbed pregnancy or device requirement is unsupported.",
+        "The article reports 32 patients entered, 20 deleted and 12 retained; patient numbers are source-local labels and do not establish any cross-study identity."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "assali1960-p9-o2-uptake-total",
+      "evidence_status": "measured",
+      "species": "human",
+      "stage_track": "unspecified",
+      "developmental_interval": {
+        "label": "17 weeks gestation; case observed during hysterotomy study",
+        "start": 17,
+        "end": 17,
+        "time_unit": "weeks gestation",
+        "stage_source_artifact_id": "assali1960-table-ii-scan"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Human fetus studied during therapeutic-abortion hysterotomy with umbilical-cord blood-flow and blood-gas measurements; authors caution these measurements are approximate and not true basal-state in utero."
+      },
+      "assay": {
+        "name": "Umbilical flow and oxygen-content Fick estimate",
+        "endpoint": "Total fetal oxygen consumption reported by the authors",
+        "unit": "mL O2/min",
+        "measurement_role": "function",
+        "functional_evidence_class": "direct_function_measurement",
+        "functional_context": {
+          "compartment": "Fetus",
+          "material": "Umbilical vein and umbilical artery blood",
+          "process": "uptake",
+          "quantity_basis": "absolute total; author-reported Table II value, rounded as printed",
+          "assessment_context": "other",
+          "source_locator": "Printed p. 92, Table II, patient 9; printed p. 95 explains vessel mapping and approximate-value caveat."
+        }
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "table-ii-patient-9",
+        "parent_id": "table-ii-patient-9-pregnancy",
+        "hierarchy_note": "Table II patient number is a local case label. It is not a globally stable identifier and does not support longitudinal or cross-study linkage."
+      },
+      "observation": {
+        "value": 0.7,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent",
+        "measurement_uncertainty": null,
+        "measurement_conditions": [
+          {
+            "name": "gestational_age",
+            "value": 17,
+            "unit": "weeks",
+            "source_locator": "Printed p. 92, Table II, patient 9; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "fetal_weight",
+            "value": 250,
+            "unit": "g",
+            "source_locator": "Printed p. 92, Table II, patient 9; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_flow",
+            "value": 28.0,
+            "unit": "mL/min",
+            "source_locator": "Printed p. 92, Table II, patient 9; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_flow_normalized",
+            "value": 12.2,
+            "unit": "mL/100g/min",
+            "source_locator": "Printed p. 92, Table II, patient 9; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_oxygen_saturation",
+            "value": 60,
+            "unit": "%",
+            "source_locator": "Printed p. 92, Table II, patient 9; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_artery_oxygen_saturation",
+            "value": 45,
+            "unit": "%",
+            "source_locator": "Printed p. 92, Table II, patient 9; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "oxygen_capacity",
+            "value": 17.0,
+            "unit": "mL O2/100mL blood",
+            "source_locator": "Printed p. 92, Table II, patient 9; p. 95 specifies the arterial/venous column anatomical mapping."
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "assali1960-table-ii-scan",
+        "uri": "https://archive.org/download/sim_american-journal-of-obstetrics-and-gynecology_1960-01_79_1/page/n193_w1400.jpg",
+        "license": "Reuse terms not confirmed; see source_resolution",
+        "sha256": "a0837059a8d4cb5f6196ccf41d6a5f583352af90fd69324929f49a706b2b4757",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Printed p. 92, Table II, patient 9; total oxygen-consumption column.",
+      "limitations": [
+        "This is one source-numbered case from Table II, not a group mean or normative value; Table II lists eight oxygen-uptake values among 12 retained patients.",
+        "The authors state that umbilical flow and especially oxygen saturation and fetal oxygen consumption are approximate because vessel spasm complicated measurements; they are not true basal-state in-utero values (printed p. 95).",
+        "The study involved therapeutic-abortion hysterotomy, anesthesia and surgical manipulation; extrapolation to an undisturbed pregnancy or device requirement is unsupported.",
+        "The article reports 32 patients entered, 20 deleted and 12 retained; patient numbers are source-local labels and do not establish any cross-study identity."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "assali1960-p9-o2-uptake-normalized",
+      "evidence_status": "measured",
+      "species": "human",
+      "stage_track": "unspecified",
+      "developmental_interval": {
+        "label": "17 weeks gestation; case observed during hysterotomy study",
+        "start": 17,
+        "end": 17,
+        "time_unit": "weeks gestation",
+        "stage_source_artifact_id": "assali1960-table-ii-scan"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Human fetus studied during therapeutic-abortion hysterotomy with umbilical-cord blood-flow and blood-gas measurements; authors caution these measurements are approximate and not true basal-state in utero."
+      },
+      "assay": {
+        "name": "Umbilical flow and oxygen-content Fick estimate",
+        "endpoint": "Fetal oxygen consumption per 100 g reported by the authors",
+        "unit": "mL O2/100g/min",
+        "measurement_role": "function",
+        "functional_evidence_class": "direct_function_measurement",
+        "functional_context": {
+          "compartment": "Fetus",
+          "material": "Umbilical vein and umbilical artery blood",
+          "process": "uptake",
+          "quantity_basis": "mass-normalized; author-reported Table II value, rounded as printed",
+          "assessment_context": "other",
+          "source_locator": "Printed p. 92, Table II, patient 9; printed p. 95 explains vessel mapping and approximate-value caveat."
+        }
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "table-ii-patient-9",
+        "parent_id": "table-ii-patient-9-pregnancy",
+        "hierarchy_note": "Table II patient number is a local case label. It is not a globally stable identifier and does not support longitudinal or cross-study linkage."
+      },
+      "observation": {
+        "value": 0.28,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent",
+        "measurement_uncertainty": null,
+        "measurement_conditions": [
+          {
+            "name": "gestational_age",
+            "value": 17,
+            "unit": "weeks",
+            "source_locator": "Printed p. 92, Table II, patient 9; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "fetal_weight",
+            "value": 250,
+            "unit": "g",
+            "source_locator": "Printed p. 92, Table II, patient 9; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_flow",
+            "value": 28.0,
+            "unit": "mL/min",
+            "source_locator": "Printed p. 92, Table II, patient 9; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_flow_normalized",
+            "value": 12.2,
+            "unit": "mL/100g/min",
+            "source_locator": "Printed p. 92, Table II, patient 9; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_oxygen_saturation",
+            "value": 60,
+            "unit": "%",
+            "source_locator": "Printed p. 92, Table II, patient 9; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_artery_oxygen_saturation",
+            "value": 45,
+            "unit": "%",
+            "source_locator": "Printed p. 92, Table II, patient 9; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "oxygen_capacity",
+            "value": 17.0,
+            "unit": "mL O2/100mL blood",
+            "source_locator": "Printed p. 92, Table II, patient 9; p. 95 specifies the arterial/venous column anatomical mapping."
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "assali1960-table-ii-scan",
+        "uri": "https://archive.org/download/sim_american-journal-of-obstetrics-and-gynecology_1960-01_79_1/page/n193_w1400.jpg",
+        "license": "Reuse terms not confirmed; see source_resolution",
+        "sha256": "a0837059a8d4cb5f6196ccf41d6a5f583352af90fd69324929f49a706b2b4757",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Printed p. 92, Table II, patient 9; normalized oxygen-consumption column.",
+      "limitations": [
+        "This is one source-numbered case from Table II, not a group mean or normative value; Table II lists eight oxygen-uptake values among 12 retained patients.",
+        "The authors state that umbilical flow and especially oxygen saturation and fetal oxygen consumption are approximate because vessel spasm complicated measurements; they are not true basal-state in-utero values (printed p. 95).",
+        "The study involved therapeutic-abortion hysterotomy, anesthesia and surgical manipulation; extrapolation to an undisturbed pregnancy or device requirement is unsupported.",
+        "The article reports 32 patients entered, 20 deleted and 12 retained; patient numbers are source-local labels and do not establish any cross-study identity."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "assali1960-p10-o2-uptake-total",
+      "evidence_status": "measured",
+      "species": "human",
+      "stage_track": "unspecified",
+      "developmental_interval": {
+        "label": "19 weeks gestation; case observed during hysterotomy study",
+        "start": 19,
+        "end": 19,
+        "time_unit": "weeks gestation",
+        "stage_source_artifact_id": "assali1960-table-ii-scan"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Human fetus studied during therapeutic-abortion hysterotomy with umbilical-cord blood-flow and blood-gas measurements; authors caution these measurements are approximate and not true basal-state in utero."
+      },
+      "assay": {
+        "name": "Umbilical flow and oxygen-content Fick estimate",
+        "endpoint": "Total fetal oxygen consumption reported by the authors",
+        "unit": "mL O2/min",
+        "measurement_role": "function",
+        "functional_evidence_class": "direct_function_measurement",
+        "functional_context": {
+          "compartment": "Fetus",
+          "material": "Umbilical vein and umbilical artery blood",
+          "process": "uptake",
+          "quantity_basis": "absolute total; author-reported Table II value, rounded as printed",
+          "assessment_context": "other",
+          "source_locator": "Printed p. 92, Table II, patient 10; printed p. 95 explains vessel mapping and approximate-value caveat."
+        }
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "table-ii-patient-10",
+        "parent_id": "table-ii-patient-10-pregnancy",
+        "hierarchy_note": "Table II patient number is a local case label. It is not a globally stable identifier and does not support longitudinal or cross-study linkage."
+      },
+      "observation": {
+        "value": 1.2,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent",
+        "measurement_uncertainty": null,
+        "measurement_conditions": [
+          {
+            "name": "gestational_age",
+            "value": 19,
+            "unit": "weeks",
+            "source_locator": "Printed p. 92, Table II, patient 10; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "fetal_weight",
+            "value": 290,
+            "unit": "g",
+            "source_locator": "Printed p. 92, Table II, patient 10; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_flow",
+            "value": 30.0,
+            "unit": "mL/min",
+            "source_locator": "Printed p. 92, Table II, patient 10; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_flow_normalized",
+            "value": 10.3,
+            "unit": "mL/100g/min",
+            "source_locator": "Printed p. 92, Table II, patient 10; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_oxygen_saturation",
+            "value": 58,
+            "unit": "%",
+            "source_locator": "Printed p. 92, Table II, patient 10; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_artery_oxygen_saturation",
+            "value": 35,
+            "unit": "%",
+            "source_locator": "Printed p. 92, Table II, patient 10; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "oxygen_capacity",
+            "value": 17.5,
+            "unit": "mL O2/100mL blood",
+            "source_locator": "Printed p. 92, Table II, patient 10; p. 95 specifies the arterial/venous column anatomical mapping."
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "assali1960-table-ii-scan",
+        "uri": "https://archive.org/download/sim_american-journal-of-obstetrics-and-gynecology_1960-01_79_1/page/n193_w1400.jpg",
+        "license": "Reuse terms not confirmed; see source_resolution",
+        "sha256": "a0837059a8d4cb5f6196ccf41d6a5f583352af90fd69324929f49a706b2b4757",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Printed p. 92, Table II, patient 10; total oxygen-consumption column.",
+      "limitations": [
+        "This is one source-numbered case from Table II, not a group mean or normative value; Table II lists eight oxygen-uptake values among 12 retained patients.",
+        "The authors state that umbilical flow and especially oxygen saturation and fetal oxygen consumption are approximate because vessel spasm complicated measurements; they are not true basal-state in-utero values (printed p. 95).",
+        "The study involved therapeutic-abortion hysterotomy, anesthesia and surgical manipulation; extrapolation to an undisturbed pregnancy or device requirement is unsupported.",
+        "The article reports 32 patients entered, 20 deleted and 12 retained; patient numbers are source-local labels and do not establish any cross-study identity."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "assali1960-p10-o2-uptake-normalized",
+      "evidence_status": "measured",
+      "species": "human",
+      "stage_track": "unspecified",
+      "developmental_interval": {
+        "label": "19 weeks gestation; case observed during hysterotomy study",
+        "start": 19,
+        "end": 19,
+        "time_unit": "weeks gestation",
+        "stage_source_artifact_id": "assali1960-table-ii-scan"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Human fetus studied during therapeutic-abortion hysterotomy with umbilical-cord blood-flow and blood-gas measurements; authors caution these measurements are approximate and not true basal-state in utero."
+      },
+      "assay": {
+        "name": "Umbilical flow and oxygen-content Fick estimate",
+        "endpoint": "Fetal oxygen consumption per 100 g reported by the authors",
+        "unit": "mL O2/100g/min",
+        "measurement_role": "function",
+        "functional_evidence_class": "direct_function_measurement",
+        "functional_context": {
+          "compartment": "Fetus",
+          "material": "Umbilical vein and umbilical artery blood",
+          "process": "uptake",
+          "quantity_basis": "mass-normalized; author-reported Table II value, rounded as printed",
+          "assessment_context": "other",
+          "source_locator": "Printed p. 92, Table II, patient 10; printed p. 95 explains vessel mapping and approximate-value caveat."
+        }
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "table-ii-patient-10",
+        "parent_id": "table-ii-patient-10-pregnancy",
+        "hierarchy_note": "Table II patient number is a local case label. It is not a globally stable identifier and does not support longitudinal or cross-study linkage."
+      },
+      "observation": {
+        "value": 0.41,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent",
+        "measurement_uncertainty": null,
+        "measurement_conditions": [
+          {
+            "name": "gestational_age",
+            "value": 19,
+            "unit": "weeks",
+            "source_locator": "Printed p. 92, Table II, patient 10; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "fetal_weight",
+            "value": 290,
+            "unit": "g",
+            "source_locator": "Printed p. 92, Table II, patient 10; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_flow",
+            "value": 30.0,
+            "unit": "mL/min",
+            "source_locator": "Printed p. 92, Table II, patient 10; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_flow_normalized",
+            "value": 10.3,
+            "unit": "mL/100g/min",
+            "source_locator": "Printed p. 92, Table II, patient 10; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_oxygen_saturation",
+            "value": 58,
+            "unit": "%",
+            "source_locator": "Printed p. 92, Table II, patient 10; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_artery_oxygen_saturation",
+            "value": 35,
+            "unit": "%",
+            "source_locator": "Printed p. 92, Table II, patient 10; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "oxygen_capacity",
+            "value": 17.5,
+            "unit": "mL O2/100mL blood",
+            "source_locator": "Printed p. 92, Table II, patient 10; p. 95 specifies the arterial/venous column anatomical mapping."
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "assali1960-table-ii-scan",
+        "uri": "https://archive.org/download/sim_american-journal-of-obstetrics-and-gynecology_1960-01_79_1/page/n193_w1400.jpg",
+        "license": "Reuse terms not confirmed; see source_resolution",
+        "sha256": "a0837059a8d4cb5f6196ccf41d6a5f583352af90fd69324929f49a706b2b4757",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Printed p. 92, Table II, patient 10; normalized oxygen-consumption column.",
+      "limitations": [
+        "This is one source-numbered case from Table II, not a group mean or normative value; Table II lists eight oxygen-uptake values among 12 retained patients.",
+        "The authors state that umbilical flow and especially oxygen saturation and fetal oxygen consumption are approximate because vessel spasm complicated measurements; they are not true basal-state in-utero values (printed p. 95).",
+        "The study involved therapeutic-abortion hysterotomy, anesthesia and surgical manipulation; extrapolation to an undisturbed pregnancy or device requirement is unsupported.",
+        "The article reports 32 patients entered, 20 deleted and 12 retained; patient numbers are source-local labels and do not establish any cross-study identity."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "assali1960-p11-o2-uptake-total",
+      "evidence_status": "measured",
+      "species": "human",
+      "stage_track": "unspecified",
+      "developmental_interval": {
+        "label": "24 weeks gestation; case observed during hysterotomy study",
+        "start": 24,
+        "end": 24,
+        "time_unit": "weeks gestation",
+        "stage_source_artifact_id": "assali1960-table-ii-scan"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Human fetus studied during therapeutic-abortion hysterotomy with umbilical-cord blood-flow and blood-gas measurements; authors caution these measurements are approximate and not true basal-state in utero."
+      },
+      "assay": {
+        "name": "Umbilical flow and oxygen-content Fick estimate",
+        "endpoint": "Total fetal oxygen consumption reported by the authors",
+        "unit": "mL O2/min",
+        "measurement_role": "function",
+        "functional_evidence_class": "direct_function_measurement",
+        "functional_context": {
+          "compartment": "Fetus",
+          "material": "Umbilical vein and umbilical artery blood",
+          "process": "uptake",
+          "quantity_basis": "absolute total; author-reported Table II value, rounded as printed",
+          "assessment_context": "other",
+          "source_locator": "Printed p. 92, Table II, patient 11; printed p. 95 explains vessel mapping and approximate-value caveat."
+        }
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "table-ii-patient-11",
+        "parent_id": "table-ii-patient-11-pregnancy",
+        "hierarchy_note": "Table II patient number is a local case label. It is not a globally stable identifier and does not support longitudinal or cross-study linkage."
+      },
+      "observation": {
+        "value": 2.3,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent",
+        "measurement_uncertainty": null,
+        "measurement_conditions": [
+          {
+            "name": "gestational_age",
+            "value": 24,
+            "unit": "weeks",
+            "source_locator": "Printed p. 92, Table II, patient 11; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "fetal_weight",
+            "value": 500,
+            "unit": "g",
+            "source_locator": "Printed p. 92, Table II, patient 11; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_flow",
+            "value": 60.0,
+            "unit": "mL/min",
+            "source_locator": "Printed p. 92, Table II, patient 11; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_flow_normalized",
+            "value": 12.0,
+            "unit": "mL/100g/min",
+            "source_locator": "Printed p. 92, Table II, patient 11; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_oxygen_saturation",
+            "value": 61,
+            "unit": "%",
+            "source_locator": "Printed p. 92, Table II, patient 11; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_artery_oxygen_saturation",
+            "value": 42,
+            "unit": "%",
+            "source_locator": "Printed p. 92, Table II, patient 11; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "oxygen_capacity",
+            "value": 19.8,
+            "unit": "mL O2/100mL blood",
+            "source_locator": "Printed p. 92, Table II, patient 11; p. 95 specifies the arterial/venous column anatomical mapping."
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "assali1960-table-ii-scan",
+        "uri": "https://archive.org/download/sim_american-journal-of-obstetrics-and-gynecology_1960-01_79_1/page/n193_w1400.jpg",
+        "license": "Reuse terms not confirmed; see source_resolution",
+        "sha256": "a0837059a8d4cb5f6196ccf41d6a5f583352af90fd69324929f49a706b2b4757",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Printed p. 92, Table II, patient 11; total oxygen-consumption column.",
+      "limitations": [
+        "This is one source-numbered case from Table II, not a group mean or normative value; Table II lists eight oxygen-uptake values among 12 retained patients.",
+        "The authors state that umbilical flow and especially oxygen saturation and fetal oxygen consumption are approximate because vessel spasm complicated measurements; they are not true basal-state in-utero values (printed p. 95).",
+        "The study involved therapeutic-abortion hysterotomy, anesthesia and surgical manipulation; extrapolation to an undisturbed pregnancy or device requirement is unsupported.",
+        "The article reports 32 patients entered, 20 deleted and 12 retained; patient numbers are source-local labels and do not establish any cross-study identity."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "assali1960-p11-o2-uptake-normalized",
+      "evidence_status": "measured",
+      "species": "human",
+      "stage_track": "unspecified",
+      "developmental_interval": {
+        "label": "24 weeks gestation; case observed during hysterotomy study",
+        "start": 24,
+        "end": 24,
+        "time_unit": "weeks gestation",
+        "stage_source_artifact_id": "assali1960-table-ii-scan"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Human fetus studied during therapeutic-abortion hysterotomy with umbilical-cord blood-flow and blood-gas measurements; authors caution these measurements are approximate and not true basal-state in utero."
+      },
+      "assay": {
+        "name": "Umbilical flow and oxygen-content Fick estimate",
+        "endpoint": "Fetal oxygen consumption per 100 g reported by the authors",
+        "unit": "mL O2/100g/min",
+        "measurement_role": "function",
+        "functional_evidence_class": "direct_function_measurement",
+        "functional_context": {
+          "compartment": "Fetus",
+          "material": "Umbilical vein and umbilical artery blood",
+          "process": "uptake",
+          "quantity_basis": "mass-normalized; author-reported Table II value, rounded as printed",
+          "assessment_context": "other",
+          "source_locator": "Printed p. 92, Table II, patient 11; printed p. 95 explains vessel mapping and approximate-value caveat."
+        }
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "table-ii-patient-11",
+        "parent_id": "table-ii-patient-11-pregnancy",
+        "hierarchy_note": "Table II patient number is a local case label. It is not a globally stable identifier and does not support longitudinal or cross-study linkage."
+      },
+      "observation": {
+        "value": 0.46,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent",
+        "measurement_uncertainty": null,
+        "measurement_conditions": [
+          {
+            "name": "gestational_age",
+            "value": 24,
+            "unit": "weeks",
+            "source_locator": "Printed p. 92, Table II, patient 11; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "fetal_weight",
+            "value": 500,
+            "unit": "g",
+            "source_locator": "Printed p. 92, Table II, patient 11; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_flow",
+            "value": 60.0,
+            "unit": "mL/min",
+            "source_locator": "Printed p. 92, Table II, patient 11; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_flow_normalized",
+            "value": 12.0,
+            "unit": "mL/100g/min",
+            "source_locator": "Printed p. 92, Table II, patient 11; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_oxygen_saturation",
+            "value": 61,
+            "unit": "%",
+            "source_locator": "Printed p. 92, Table II, patient 11; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_artery_oxygen_saturation",
+            "value": 42,
+            "unit": "%",
+            "source_locator": "Printed p. 92, Table II, patient 11; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "oxygen_capacity",
+            "value": 19.8,
+            "unit": "mL O2/100mL blood",
+            "source_locator": "Printed p. 92, Table II, patient 11; p. 95 specifies the arterial/venous column anatomical mapping."
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "assali1960-table-ii-scan",
+        "uri": "https://archive.org/download/sim_american-journal-of-obstetrics-and-gynecology_1960-01_79_1/page/n193_w1400.jpg",
+        "license": "Reuse terms not confirmed; see source_resolution",
+        "sha256": "a0837059a8d4cb5f6196ccf41d6a5f583352af90fd69324929f49a706b2b4757",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Printed p. 92, Table II, patient 11; normalized oxygen-consumption column.",
+      "limitations": [
+        "This is one source-numbered case from Table II, not a group mean or normative value; Table II lists eight oxygen-uptake values among 12 retained patients.",
+        "The authors state that umbilical flow and especially oxygen saturation and fetal oxygen consumption are approximate because vessel spasm complicated measurements; they are not true basal-state in-utero values (printed p. 95).",
+        "The study involved therapeutic-abortion hysterotomy, anesthesia and surgical manipulation; extrapolation to an undisturbed pregnancy or device requirement is unsupported.",
+        "The article reports 32 patients entered, 20 deleted and 12 retained; patient numbers are source-local labels and do not establish any cross-study identity."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "assali1960-p12-o2-uptake-total",
+      "evidence_status": "measured",
+      "species": "human",
+      "stage_track": "unspecified",
+      "developmental_interval": {
+        "label": "28 weeks gestation; case observed during hysterotomy study",
+        "start": 28,
+        "end": 28,
+        "time_unit": "weeks gestation",
+        "stage_source_artifact_id": "assali1960-table-ii-scan"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Human fetus studied during therapeutic-abortion hysterotomy with umbilical-cord blood-flow and blood-gas measurements; authors caution these measurements are approximate and not true basal-state in utero."
+      },
+      "assay": {
+        "name": "Umbilical flow and oxygen-content Fick estimate",
+        "endpoint": "Total fetal oxygen consumption reported by the authors",
+        "unit": "mL O2/min",
+        "measurement_role": "function",
+        "functional_evidence_class": "direct_function_measurement",
+        "functional_context": {
+          "compartment": "Fetus",
+          "material": "Umbilical vein and umbilical artery blood",
+          "process": "uptake",
+          "quantity_basis": "absolute total; author-reported Table II value, rounded as printed",
+          "assessment_context": "other",
+          "source_locator": "Printed p. 92, Table II, patient 12; printed p. 95 explains vessel mapping and approximate-value caveat."
+        }
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "table-ii-patient-12",
+        "parent_id": "table-ii-patient-12-pregnancy",
+        "hierarchy_note": "Table II patient number is a local case label. It is not a globally stable identifier and does not support longitudinal or cross-study linkage."
+      },
+      "observation": {
+        "value": 3.5,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent",
+        "measurement_uncertainty": null,
+        "measurement_conditions": [
+          {
+            "name": "gestational_age",
+            "value": 28,
+            "unit": "weeks",
+            "source_locator": "Printed p. 92, Table II, patient 12; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "fetal_weight",
+            "value": 650,
+            "unit": "g",
+            "source_locator": "Printed p. 92, Table II, patient 12; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_flow",
+            "value": 80.0,
+            "unit": "mL/min",
+            "source_locator": "Printed p. 92, Table II, patient 12; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_flow_normalized",
+            "value": 12.3,
+            "unit": "mL/100g/min",
+            "source_locator": "Printed p. 92, Table II, patient 12; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_oxygen_saturation",
+            "value": 65,
+            "unit": "%",
+            "source_locator": "Printed p. 92, Table II, patient 12; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_artery_oxygen_saturation",
+            "value": 45,
+            "unit": "%",
+            "source_locator": "Printed p. 92, Table II, patient 12; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "oxygen_capacity",
+            "value": 22.0,
+            "unit": "mL O2/100mL blood",
+            "source_locator": "Printed p. 92, Table II, patient 12; p. 95 specifies the arterial/venous column anatomical mapping."
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "assali1960-table-ii-scan",
+        "uri": "https://archive.org/download/sim_american-journal-of-obstetrics-and-gynecology_1960-01_79_1/page/n193_w1400.jpg",
+        "license": "Reuse terms not confirmed; see source_resolution",
+        "sha256": "a0837059a8d4cb5f6196ccf41d6a5f583352af90fd69324929f49a706b2b4757",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Printed p. 92, Table II, patient 12; total oxygen-consumption column.",
+      "limitations": [
+        "This is one source-numbered case from Table II, not a group mean or normative value; Table II lists eight oxygen-uptake values among 12 retained patients.",
+        "The authors state that umbilical flow and especially oxygen saturation and fetal oxygen consumption are approximate because vessel spasm complicated measurements; they are not true basal-state in-utero values (printed p. 95).",
+        "The study involved therapeutic-abortion hysterotomy, anesthesia and surgical manipulation; extrapolation to an undisturbed pregnancy or device requirement is unsupported.",
+        "The article reports 32 patients entered, 20 deleted and 12 retained; patient numbers are source-local labels and do not establish any cross-study identity."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "assali1960-p12-o2-uptake-normalized",
+      "evidence_status": "measured",
+      "species": "human",
+      "stage_track": "unspecified",
+      "developmental_interval": {
+        "label": "28 weeks gestation; case observed during hysterotomy study",
+        "start": 28,
+        "end": 28,
+        "time_unit": "weeks gestation",
+        "stage_source_artifact_id": "assali1960-table-ii-scan"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Human fetus studied during therapeutic-abortion hysterotomy with umbilical-cord blood-flow and blood-gas measurements; authors caution these measurements are approximate and not true basal-state in utero."
+      },
+      "assay": {
+        "name": "Umbilical flow and oxygen-content Fick estimate",
+        "endpoint": "Fetal oxygen consumption per 100 g reported by the authors",
+        "unit": "mL O2/100g/min",
+        "measurement_role": "function",
+        "functional_evidence_class": "direct_function_measurement",
+        "functional_context": {
+          "compartment": "Fetus",
+          "material": "Umbilical vein and umbilical artery blood",
+          "process": "uptake",
+          "quantity_basis": "mass-normalized; author-reported Table II value, rounded as printed",
+          "assessment_context": "other",
+          "source_locator": "Printed p. 92, Table II, patient 12; printed p. 95 explains vessel mapping and approximate-value caveat."
+        }
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "table-ii-patient-12",
+        "parent_id": "table-ii-patient-12-pregnancy",
+        "hierarchy_note": "Table II patient number is a local case label. It is not a globally stable identifier and does not support longitudinal or cross-study linkage."
+      },
+      "observation": {
+        "value": 0.54,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent",
+        "measurement_uncertainty": null,
+        "measurement_conditions": [
+          {
+            "name": "gestational_age",
+            "value": 28,
+            "unit": "weeks",
+            "source_locator": "Printed p. 92, Table II, patient 12; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "fetal_weight",
+            "value": 650,
+            "unit": "g",
+            "source_locator": "Printed p. 92, Table II, patient 12; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_flow",
+            "value": 80.0,
+            "unit": "mL/min",
+            "source_locator": "Printed p. 92, Table II, patient 12; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_flow_normalized",
+            "value": 12.3,
+            "unit": "mL/100g/min",
+            "source_locator": "Printed p. 92, Table II, patient 12; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_vein_oxygen_saturation",
+            "value": 65,
+            "unit": "%",
+            "source_locator": "Printed p. 92, Table II, patient 12; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "umbilical_artery_oxygen_saturation",
+            "value": 45,
+            "unit": "%",
+            "source_locator": "Printed p. 92, Table II, patient 12; p. 95 specifies the arterial/venous column anatomical mapping."
+          },
+          {
+            "name": "oxygen_capacity",
+            "value": 22.0,
+            "unit": "mL O2/100mL blood",
+            "source_locator": "Printed p. 92, Table II, patient 12; p. 95 specifies the arterial/venous column anatomical mapping."
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "assali1960-table-ii-scan",
+        "uri": "https://archive.org/download/sim_american-journal-of-obstetrics-and-gynecology_1960-01_79_1/page/n193_w1400.jpg",
+        "license": "Reuse terms not confirmed; see source_resolution",
+        "sha256": "a0837059a8d4cb5f6196ccf41d6a5f583352af90fd69324929f49a706b2b4757",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Printed p. 92, Table II, patient 12; normalized oxygen-consumption column.",
+      "limitations": [
+        "This is one source-numbered case from Table II, not a group mean or normative value; Table II lists eight oxygen-uptake values among 12 retained patients.",
+        "The authors state that umbilical flow and especially oxygen saturation and fetal oxygen consumption are approximate because vessel spasm complicated measurements; they are not true basal-state in-utero values (printed p. 95).",
+        "The study involved therapeutic-abortion hysterotomy, anesthesia and surgical manipulation; extrapolation to an undisturbed pregnancy or device requirement is unsupported.",
+        "The article reports 32 patients entered, 20 deleted and 12 retained; patient numbers are source-local labels and do not establish any cross-study identity."
+      ]
+    }
+  ],
+  "cohort_coverage": [
+    {
+      "coverage_id": "assali1960-uptake-table-ii-coverage",
+      "source_artifact_id": "assali1960-methods-scan",
+      "reported_group_label": "32 pregnant patients undergoing therapeutic-abortion hysterotomy",
+      "group_label_status": "reported",
+      "counted_entity_kind": "other",
+      "counted_entity_label": "Pregnant patients; fetal uptake is reported for a subset and Table II uses patient-local case numbers",
+      "endpoint_label": "Fetal oxygen-consumption values reported in Table II",
+      "population_frame": "32 pregnant patients studied by hysterotomy between 9 and 28 weeks gestation; 20 were deleted and 12 remained.",
+      "measurement_window": "Single surgical study session during hysterotomy; gestational week shown in Table II.",
+      "selection_definition": "Twenty of 32 patients were deleted because of excessive blood loss during uterine-vessel dissection or difficulty obtaining anaerobic uterine and umbilical blood samples. The remaining 12 had fairly adequate uterine data and some fetal data. Eight Table II rows report fetal oxygen consumption; four rows have no uptake value printed.",
+      "selection_definition_source_locator": "Printed p. 87, Material and methods; printed p. 92, Table II.",
+      "denominator": {
+        "value": 12,
+        "value_status": "reported",
+        "reported_label": "12 remaining patients after 20 of 32 were deleted",
+        "source_locator": "Printed p. 87, Material and methods."
+      },
+      "declarations": [
+        {
+          "category": "initially_included",
+          "scope": "outside_denominator",
+          "reported_label": "Patients undergoing hysterotomy study",
+          "quantity_kind": "count",
+          "value": 32,
+          "value_status": "reported",
+          "source_locator": "Printed p. 87, Material and methods."
+        },
+        {
+          "category": "excluded",
+          "scope": "outside_denominator",
+          "reported_label": "Deleted due to excessive blood loss or inability to obtain anaerobic samples",
+          "quantity_kind": "count",
+          "value": 20,
+          "value_status": "reported",
+          "source_locator": "Printed p. 87, Material and methods.",
+          "note": "The source gives two reasons but no reason-specific counts."
+        },
+        {
+          "category": "retained",
+          "scope": "within_denominator",
+          "reported_label": "Remaining patients with fairly adequate uterine data and some fetal data",
+          "quantity_kind": "count",
+          "value": 12,
+          "value_status": "reported",
+          "source_locator": "Printed p. 87, Material and methods."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Table II cases with a printed total and mass-normalized fetal oxygen-consumption value",
+          "quantity_kind": "count",
+          "value": 8,
+          "value_status": "reported",
+          "source_locator": "Printed p. 92, Table II; patients 4, 5, 7, 8, 9, 10, 11 and 12."
+        },
+        {
+          "category": "missing",
+          "scope": "within_denominator",
+          "reported_label": "Retained Table II rows with no oxygen-consumption value printed",
+          "quantity_kind": "count",
+          "value": 4,
+          "value_status": "reported",
+          "source_locator": "Printed p. 92, Table II; patients 1, 2, 3 and 6.",
+          "note": "The table leaves uptake cells blank; the inspected article does not say whether each blank reflects assay failure, missing samples or another reason."
+        }
+      ],
+      "selection_statements": [
+        {
+          "text": "The reported denominator is 12 retained patients, not 32 and not 8. Only eight retained Table II rows display a fetal oxygen-consumption result.",
+          "source_locator": "Printed p. 87, Material and methods; printed p. 92, Table II."
+        },
+        {
+          "text": "Blank oxygen-consumption cells for patients 1, 2, 3 and 6 are not zero values; the cause of each blank is not identified in the inspected source.",
+          "source_locator": "Printed p. 92, Table II."
+        },
+        {
+          "text": "The study is selected surgical evidence during therapeutic abortion, and the authors caution against interpreting its estimates as true basal-state in-utero measurements.",
+          "source_locator": "Printed p. 87, Material and methods; printed p. 95, discussion."
+        }
+      ],
+      "cohort_window_status": "source_labels_only",
+      "disposition_completeness": "partial",
+      "categories_mutually_exclusive": "unknown",
+      "categories_exhaustive": "unknown"
+    }
+  ],
+  "measurement_pairs": [
+    {
+      "pair_id": "assali1960-p4-o2-uptake-bases",
+      "pair_type": "other_source_defined",
+      "linkage_basis": "source_explicit",
+      "source_artifact_id": "assali1960-table-ii-scan",
+      "members": [
+        {
+          "record_id": "assali1960-p4-o2-uptake-total",
+          "role": "reported absolute total oxygen consumption"
+        },
+        {
+          "record_id": "assali1960-p4-o2-uptake-normalized",
+          "role": "reported oxygen consumption normalized per 100 g"
+        }
+      ],
+      "source_locator": "Printed p. 92, Table II, patient 4, total and per-100-g columns.",
+      "note": "The source presents both values in one numbered case row. They are different reported bases of the same case, not independent observations; no exact measurement time or cross-study identity is inferred."
+    },
+    {
+      "pair_id": "assali1960-p5-o2-uptake-bases",
+      "pair_type": "other_source_defined",
+      "linkage_basis": "source_explicit",
+      "source_artifact_id": "assali1960-table-ii-scan",
+      "members": [
+        {
+          "record_id": "assali1960-p5-o2-uptake-total",
+          "role": "reported absolute total oxygen consumption"
+        },
+        {
+          "record_id": "assali1960-p5-o2-uptake-normalized",
+          "role": "reported oxygen consumption normalized per 100 g"
+        }
+      ],
+      "source_locator": "Printed p. 92, Table II, patient 5, total and per-100-g columns.",
+      "note": "The source presents both values in one numbered case row. They are different reported bases of the same case, not independent observations; no exact measurement time or cross-study identity is inferred."
+    },
+    {
+      "pair_id": "assali1960-p7-o2-uptake-bases",
+      "pair_type": "other_source_defined",
+      "linkage_basis": "source_explicit",
+      "source_artifact_id": "assali1960-table-ii-scan",
+      "members": [
+        {
+          "record_id": "assali1960-p7-o2-uptake-total",
+          "role": "reported absolute total oxygen consumption"
+        },
+        {
+          "record_id": "assali1960-p7-o2-uptake-normalized",
+          "role": "reported oxygen consumption normalized per 100 g"
+        }
+      ],
+      "source_locator": "Printed p. 92, Table II, patient 7, total and per-100-g columns.",
+      "note": "The source presents both values in one numbered case row. They are different reported bases of the same case, not independent observations; no exact measurement time or cross-study identity is inferred."
+    },
+    {
+      "pair_id": "assali1960-p8-o2-uptake-bases",
+      "pair_type": "other_source_defined",
+      "linkage_basis": "source_explicit",
+      "source_artifact_id": "assali1960-table-ii-scan",
+      "members": [
+        {
+          "record_id": "assali1960-p8-o2-uptake-total",
+          "role": "reported absolute total oxygen consumption"
+        },
+        {
+          "record_id": "assali1960-p8-o2-uptake-normalized",
+          "role": "reported oxygen consumption normalized per 100 g"
+        }
+      ],
+      "source_locator": "Printed p. 92, Table II, patient 8, total and per-100-g columns.",
+      "note": "The source presents both values in one numbered case row. They are different reported bases of the same case, not independent observations; no exact measurement time or cross-study identity is inferred."
+    },
+    {
+      "pair_id": "assali1960-p9-o2-uptake-bases",
+      "pair_type": "other_source_defined",
+      "linkage_basis": "source_explicit",
+      "source_artifact_id": "assali1960-table-ii-scan",
+      "members": [
+        {
+          "record_id": "assali1960-p9-o2-uptake-total",
+          "role": "reported absolute total oxygen consumption"
+        },
+        {
+          "record_id": "assali1960-p9-o2-uptake-normalized",
+          "role": "reported oxygen consumption normalized per 100 g"
+        }
+      ],
+      "source_locator": "Printed p. 92, Table II, patient 9, total and per-100-g columns.",
+      "note": "The source presents both values in one numbered case row. They are different reported bases of the same case, not independent observations; no exact measurement time or cross-study identity is inferred."
+    },
+    {
+      "pair_id": "assali1960-p10-o2-uptake-bases",
+      "pair_type": "other_source_defined",
+      "linkage_basis": "source_explicit",
+      "source_artifact_id": "assali1960-table-ii-scan",
+      "members": [
+        {
+          "record_id": "assali1960-p10-o2-uptake-total",
+          "role": "reported absolute total oxygen consumption"
+        },
+        {
+          "record_id": "assali1960-p10-o2-uptake-normalized",
+          "role": "reported oxygen consumption normalized per 100 g"
+        }
+      ],
+      "source_locator": "Printed p. 92, Table II, patient 10, total and per-100-g columns.",
+      "note": "The source presents both values in one numbered case row. They are different reported bases of the same case, not independent observations; no exact measurement time or cross-study identity is inferred."
+    },
+    {
+      "pair_id": "assali1960-p11-o2-uptake-bases",
+      "pair_type": "other_source_defined",
+      "linkage_basis": "source_explicit",
+      "source_artifact_id": "assali1960-table-ii-scan",
+      "members": [
+        {
+          "record_id": "assali1960-p11-o2-uptake-total",
+          "role": "reported absolute total oxygen consumption"
+        },
+        {
+          "record_id": "assali1960-p11-o2-uptake-normalized",
+          "role": "reported oxygen consumption normalized per 100 g"
+        }
+      ],
+      "source_locator": "Printed p. 92, Table II, patient 11, total and per-100-g columns.",
+      "note": "The source presents both values in one numbered case row. They are different reported bases of the same case, not independent observations; no exact measurement time or cross-study identity is inferred."
+    },
+    {
+      "pair_id": "assali1960-p12-o2-uptake-bases",
+      "pair_type": "other_source_defined",
+      "linkage_basis": "source_explicit",
+      "source_artifact_id": "assali1960-table-ii-scan",
+      "members": [
+        {
+          "record_id": "assali1960-p12-o2-uptake-total",
+          "role": "reported absolute total oxygen consumption"
+        },
+        {
+          "record_id": "assali1960-p12-o2-uptake-normalized",
+          "role": "reported oxygen consumption normalized per 100 g"
+        }
+      ],
+      "source_locator": "Printed p. 92, Table II, patient 12, total and per-100-g columns.",
+      "note": "The source presents both values in one numbered case row. They are different reported bases of the same case, not independent observations; no exact measurement time or cross-study identity is inferred."
+    }
+  ],
+  "limitations": [
+    "This is a small historical surgical cohort in pregnancies undergoing therapeutic-abortion hysterotomy, not an undisturbed-pregnancy reference cohort.",
+    "The authors describe umbilical flow and especially oxygen saturation and fetal oxygen consumption as approximate due to vessel spasm; they state these are not true basal-state in-utero values.",
+    "Only 8 of 12 retained Table II rows have uptake values; the blank reason is not reported for the other four.",
+    "Values are source-numbered individual cases with rounding and no uncertainty estimates, not gestational-age group means or validated ranges.",
+    "Reuse rights for the scanned journal pages were not confirmed; Internet Archive provides public reading access only.",
+    "No evidence here defines a healthy fetal oxygen margin, critical delivery threshold or device specification."
+  ]
+}

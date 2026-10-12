@@ -1,0 +1,31 @@
+{
+  "cycle": 319,
+  "assessment_path": "artifacts/artificial-placenta-gas-pairability-2026-10-11-cycle319/gas-exchange-pairability-cycle319.json",
+  "table_path": "artifacts/artificial-placenta-gas-pairability-2026-10-11-cycle319/gas-exchange-pairability-cycle319.csv",
+  "report_path": "artifacts/artificial-placenta-gas-pairability-2026-10-11-cycle319/REPORT.md",
+  "sources": {
+    "reoma_2009": {
+      "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11660002/",
+      "doi": "10.1016/j.jpedsurg.2008.10.009",
+      "public_route_status": "official PMC indexed text visible in search results; direct page open challenged",
+      "reported_inlet_outlet_sampling_route": true,
+      "numeric_paired_result_rows_identified": false,
+      "source_bytes_pinned": false
+    },
+    "omecinski_2023": {
+      "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9897463/",
+      "doi": "10.1097/MAT.0000000000001862",
+      "public_route_status": "official PMC full-text page inspected",
+      "reported_inlet_outlet_sampling_route": true,
+      "aggregate_device_performance_reported": true,
+      "per_sample_paired_result_rows_identified": false,
+      "data_availability_section_found_on_inspected_page": false,
+      "supplement_link_found_on_inspected_page": false
+    }
+  },
+  "eligible_pair_sets_identified": 0,
+  "candidate_observations_added": 0,
+  "candidate_values_changed": false,
+  "author_contacted": false,
+  "claim_scope": "Inspected public article routes only; underlying data may exist elsewhere."
+}

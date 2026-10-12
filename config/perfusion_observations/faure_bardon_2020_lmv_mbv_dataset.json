@@ -1,0 +1,202 @@
+{
+  "schema_version": 1,
+  "dataset_id": "faure-bardon-2020-letermovir-maribavir-perfusion-candidate",
+  "title": "Faure Bardon et al. 2020 open-circuit term-cotyledon letermovir, maribavir, and antipyrine observations",
+  "intake_status": "candidate",
+  "source_review_status": "pending",
+  "citation": "Faure Bardon V, Peytavin G, Lê MP, Guilleminot T, Elefant E, Stirnemann J, Leruez-Ville M, Ville Y. Placental transfer of Letermovir & Maribavir in the ex vivo human cotyledon perfusion model. PLoS ONE. 2020;15(4):e0232140. doi:10.1371/journal.pone.0232140.",
+  "primary_article_uri": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0232140",
+  "supplement_uri": "https://doi.org/10.1371/journal.pone.0232140.s001",
+  "publisher_file_uri": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0232140.s001&type=supplementary",
+  "license": "Creative Commons Attribution License (CC BY), as stated by the publisher article.",
+  "retrieved_on": "2026-10-10",
+  "source_artifact": {
+    "artifact_id": "faure-bardon-2020-supplement-s1",
+    "local_path": "artifacts/perfusion-intake-2026-10-10/faure_bardon_2020_letermovir_maribavir_S1.xlsx",
+    "sha256": "8c360f9ac01d64950e17793c57f6d17943b69ab40a423282c7ad1cae095f6fc2",
+    "worksheet": "Feuil1",
+    "table": "S1 Data"
+  },
+  "observation_file": {
+    "path": "config/perfusion_observations/faure_bardon_2020_lmv_mbv_s1_source_cells.csv",
+    "sha256": "52fed857993c51f8cc32d34cc390bb2039d1ccb872fbc4df127d20368702a2aa",
+    "rows": 912,
+    "unique_record_ids": 912,
+    "reported_value_rows": 896,
+    "source_blank_rows": 16,
+    "unit_level_formula_cells_with_cached_results": 304
+  },
+  "observation_frame": {
+    "record_unit": "One published worksheet cell for one analyte, measurement, placenta label, and perfusion timepoint. Repeated values remain linked by the workbook’s source label and study-drug group.",
+    "study_drug_groups": {
+      "letermovir": {
+        "attempted_perfusions_reported_by_article": 10,
+        "validated_perfusions_reported_by_article": 5,
+        "source_labeled_series_in_s1": 5,
+        "labels": [
+          "Placenta 1",
+          "Placenta 2",
+          "Placenta 3",
+          "Placenta 4",
+          "Placenta 5"
+        ]
+      },
+      "maribavir": {
+        "attempted_perfusions_reported_by_article": 8,
+        "validated_perfusions_reported_by_article": 3,
+        "source_labeled_series_in_s1": 3,
+        "labels": [
+          "Placenta 1",
+          "Placenta 2",
+          "Placenta 3"
+        ]
+      }
+    },
+    "reported_timepoints_min": [
+      0,
+      5,
+      10,
+      15,
+      20,
+      25,
+      30,
+      35,
+      40,
+      45,
+      50,
+      55,
+      60,
+      65,
+      70,
+      75,
+      80,
+      85,
+      90
+    ],
+    "timepoint_count_per_source_label": 19,
+    "source_label_caution": "Placenta labels are table identifiers, not donor IDs. The inspected source supplies no donor identity key; do not assert personal identities, cross-study links, or independence beyond the source-reported perfusion labels."
+  },
+  "measured_fields": [
+    {
+      "name": "fetal_concentration",
+      "quantity": "concentration",
+      "compartment_or_comparison": "fetal circulation",
+      "unit": "mg/L",
+      "source_header": "FC"
+    },
+    {
+      "name": "maternal_concentration",
+      "quantity": "concentration",
+      "compartment_or_comparison": "maternal compartment",
+      "unit": "mg/L",
+      "source_header": "MC"
+    },
+    {
+      "name": "fetal_to_maternal_ratio",
+      "quantity": "ratio",
+      "compartment_or_comparison": "fetal-to-maternal concentration ratio",
+      "unit": "1 (dimensionless fraction)",
+      "source_header": "FTR",
+      "source_formula": "FC / MC where shown in the source; preserve direct values, formulas, and cached results independently."
+    }
+  ],
+  "included_analytes": [
+    "letermovir",
+    "maribavir",
+    "antipyrine (validation marker, linked to its study-drug group and placenta label)"
+  ],
+  "missingness": {
+    "source_blank_pattern": "All fetal-concentration cells at 0 min are blank for the eight labels in both the study-drug and antipyrine sections (16 blank scalar rows). Blanks remain blank. Any source FTR formula/cache at 0 min remains a ratio record and does not fill a concentration cell.",
+    "other_blank_scalar_rows": 0
+  },
+  "formula_and_cache_provenance": {
+    "method": "The original XLSX is pinned unmodified. Each CSV row stores the exact source cell value lexeme; ordinary formulas and shared-formula group metadata are retained, and formula cells retain the embedded cached-result lexeme. No formula was recalculated to populate the CSV.",
+    "unit_level_formula_cells_with_cached_results": 304,
+    "validation": "Cycle 233 bounded raw-XML audit matched all 912 mapped values and complete ordinary/shared formula metadata and caches. It found 304 formula cells in the mapped source rows, including 259 shared-formula followers without local formula text; all group identifiers/ranges/master cells and cached values are now retained. Paired source FTR values were checked against FC/MC. Summary formulas remain separately documented."
+  },
+  "summary_table_review": {
+    "status": "unresolved source-scope discrepancy; candidate remains pending human review",
+    "article_reports": {
+      "letermovir_validated_perfusions": 5,
+      "maribavir_validated_perfusions": 3
+    },
+    "maribavir": "The workbook has three visible source labels; 224 populated group-summary cells across the active-drug and antipyrine tables reproduce from those three labels.",
+    "letermovir": "The workbook has five visible source labels, but group mean/SD entries use only Placenta 1–4. All source formula references inspected point to those four labels; 224 populated group-summary values reproduce from Placenta 1–4. Including all five visible labels changes 220 of those 224 summary values.",
+    "handling": "Retain all five raw letermovir series and the original workbook summary formulas/values. Do not infer validation or exclude a source label, and do not recompute an alternative aggregate. See Cycle 234 receipt.",
+    "primary_article_crosscheck": {
+      "validated_counts_and_locator": "PLOS Results reports 5 of 10 LMV and 3 of 8 MBV perfusions validated; mean antipyrine FTR values are 31±2% and 21±1%.",
+      "published_table3_denominator": "Table 3 gives group means±SD but no printed group n or label-to-summary crosswalk.",
+      "resolved_status": "unresolved; the primary article does not identify which S1 labels contribute to the five validated LMV procedures."
+    },
+    "cycle234_receipt": "artifacts/perfusion-intake-2026-10-10/faure-bardon-summary-label-check-cycle234.json",
+    "cycle235_peer_review_receipt": "artifacts/perfusion-intake-2026-10-10/faure-bardon-peer-review-history-cycle235.json",
+    "cycle236_pointwise_antipyrine_diagnostic": {
+      "steady_state_onset_min": 30,
+      "source_cells": ["U30", "X30", "AA30", "AD30", "AG30"],
+      "over_20_percent_labels": ["Placenta 1", "Placenta 2", "Placenta 4", "Placenta 5"],
+      "below_or_equal_20_percent_labels": ["Placenta 3"],
+      "summary_formula_scope": ["Placenta 1", "Placenta 2", "Placenta 3", "Placenta 4"],
+      "interpretation": "Pointwise diagnostic only; the article does not specify that the 30-minute row alone determines per-run validation. It does not resolve the label mismatch.",
+      "receipt": "artifacts/perfusion-intake-2026-10-10/faure-bardon-antipyrine-label-diagnostic-cycle236.json"
+    },
+    "cycle238_chart_crosscheck": {
+      "chart2_lmv_means": {"fetal": "Feuil1!$AH$4:$AH$22", "maternal": "Feuil1!$AJ$4:$AJ$22"},
+      "chart2_lmv_standard_deviations": {"fetal": "Feuil1!$AI$4:$AI$22", "maternal": "Feuil1!$AK$4:$AK$22"},
+      "summary_formula_scope": ["Placenta 1", "Placenta 2", "Placenta 3", "Placenta 4"],
+      "label5_plotted_as_individual_series": false,
+      "interpretation": "Chart reproduces the same four-label summary; it supplies no independent label crosswalk.",
+      "receipt": "artifacts/perfusion-intake-2026-10-10/faure-bardon-chart-summary-scope-cycle238.json"
+    },
+    "cycle239_workbook_structure_screen": {
+      "worksheet_state": "default visible",
+      "hidden_columns_affecting_label5_or_summary": [],
+      "defined_names": [],
+      "autofilter_ranges": [],
+      "finding": "No hidden-state or range metadata explains the four-label formula scope; author intent remains unknown.",
+      "receipt": "artifacts/perfusion-intake-2026-10-10/faure-bardon-workbook-visibility-screen-cycle239.json"
+    }
+  },
+  "source_quality_notes": [
+    "The source contains an antipyrine maternal concentration of 113 mg/L at Z40 (Letermovir group, Placenta 3, 80 min). Preserve it exactly; do not exclude or correct it before source review.",
+    "The workbook includes summary columns and charts; the CSV is a source-cell intake of individual-label FC, MC, and FTR entries only. Summary values remain available in the pinned workbook and are documented in summary_table_review."
+  ],
+  "article_context": "The article describes open-circuit term-cotyledon perfusions, maternal/fetal sampling every 5 minutes over 90 minutes, antipyrine as a validation marker, and an antipyrine FTR >20% criterion. It reports 10 letermovir perfusions with 5 validated and 8 maribavir perfusions with 3 validated. S1 Data has active-drug and antipyrine FC/MC/FTR source-label trajectories plus summary columns. The inspected files do not provide numeric reservoir-volume or sample-removal histories, individual recovery/mass-balance rows, or individual tissue-concentration observations.",
+  "eligibility": {
+    "eligible_for": "Source-linked descriptive term-placenta concentration and source-ratio trajectories, pending human transcription review and resolution or explicit retention of the letermovir summary-label discrepancy.",
+    "not_eligible_for": [
+      "amount or mass-balance calculation",
+      "individual recovery estimates",
+      "net flux or dimensional transfer-parameter fitting",
+      "nutrient-delivery sufficiency",
+      "embryo development, gestation, birth, or health outcome inference"
+    ],
+    "missing_records": [
+      "timepoint-specific maternal/fetal reservoir volumes",
+      "sample-removal amounts and volume-loss correction",
+      "individual recovery totals",
+      "donor identifiers and an explicit validated-label crosswalk",
+      "individual tissue accumulation measurements"
+    ]
+  },
+  "scope_limits": [
+    "This is ex vivo term-placenta transfer evidence, not embryo growth or an artificial-womb performance result.",
+    "Placenta labels are source identifiers, not personal identities; no same-donor relationship to another study is established.",
+    "Do not pool with the distinct 2016 Schalkwijk, 2019 Mandelbrot, 2021 Le, 2022 Bukkems, or 2020 Mathiesen datasets.",
+    "Source transcription and scientific review remain pending; no author was contacted."
+  ],
+  "author_contacted": false,
+  "independent_source_reconciliation": {
+    "cycle232_finding": "All 912 raw value lexemes and 288 paired nonblank FTR calculations matched, but 259 shared-formula followers were missing from CSV formula/cache provenance.",
+    "cycle233_correction": "Added explicit ordinary/shared formula type, shared group/index/range/master-cell fields, and cached values for all 304 mapped formulas.",
+    "cycle233_receipt": "artifacts/perfusion-intake-2026-10-10/faure-bardon-s1-formula-provenance-cycle233.json",
+    "status": "all 912 mapped values and formula/cache metadata now match the pinned XLSX; 0 mismatches",
+    "ratio_check": "288 paired FC/MC/FTR records recompute within absolute tolerance 1e-5; 0 mismatches",
+    "eligibility_effect": "supports descriptive concentration/ratio trajectories only; pending human review and volume/removal, recovery, donor-key and letermovir-summary limitations remain"
+  },
+  "formula_provenance_counts": {
+    "mapped_formula_cells_with_cached_values": 304,
+    "ordinary_formula_cells": 23,
+    "shared_formula_cells": 281,
+    "shared_formula_followers_without_local_expression_text": 259
+  }
+}

@@ -1,0 +1,116 @@
+{
+  "schema_version": 1,
+  "dataset_id": "eliesen-2024-tofacitinib-perfusion-candidate",
+  "title": "Eliesen et al. 2024 ex vivo term-placenta tofacitinib concentration observations",
+  "intake_status": "candidate",
+  "source_review_status": "pending",
+  "citation": "Eliesen GAM, Fransen M, van Hove H, van den Broek PHH, Greupink R. Placental transfer of tofacitinib in the ex vivo dual-side human placenta perfusion model. Current Research in Toxicology. 2024;6:100149. doi:10.1016/j.crtox.2024.100149.",
+  "primary_article_uri": "https://www.sciencedirect.com/science/article/pii/S2666027X24000021",
+  "supplement_uri": "https://ars.els-cdn.com/content/image/1-s2.0-S2666027X24000021-mmc1.docx",
+  "license": "CC BY 4.0, as stated by the article",
+  "retrieved_on": "2026-10-10",
+  "source_artifact": {
+    "artifact_id": "eliesen2024-supplement",
+    "local_path": "artifacts/perfusion-intake-2026-10-10/eliesen_2024_supplement_mmc1.docx",
+    "sha256": "81b3249d8f4321c432488292aa0c78e923ab4379d0efc35a284e72700157a702",
+    "table": "Supplementary Table S3"
+  },
+  "observation_file": {
+    "path": "config/perfusion_observations/eliesen_2024_tofacitinib_table_s3.csv",
+    "sha256": "af94ff75dc6ec65a77a1aefab11a99b612582a63f75b3105720d81169b77b305",
+    "rows": 70,
+    "reported_numeric_rows": 69,
+    "not_assessed_rows": 1
+  },
+  "source_reconciliation": {
+    "status": "automated_source_cell_reconciliation_passed",
+    "receipt": "artifacts/perfusion-intake-2026-10-10/eliesen-table-s3-source-reconciliation-cycle243.json",
+    "validator": "src/wombmodels/eliesen_source.py::audit_eliesen_table_s3",
+    "source_table_cells_reconciled": 70,
+    "numeric_values_reconciled": 69,
+    "not_assessed_values_preserved": 1,
+    "source_values_are_literal_docx_text": true,
+    "human_source_review_complete": false
+  },
+  "group_summary_diagnostic": {
+    "status": "maternal_endpoint_matches; fetal_endpoint_discrepancy_unresolved",
+    "derived_summary_file": "config/perfusion_observations/eliesen_2024_tofacitinib_table_s3_derived_summary_cycle244.csv",
+    "derived_summary_sha256": "4d6fbcb2bebbe78bfe6d041fbff199100545e85c320e2016bdd8a94cf438a7b8",
+    "derived_rows": 20,
+    "receipt": "artifacts/perfusion-intake-2026-10-10/eliesen-table-s3-group-summary-cycle244.json",
+    "intake_note": "ELIESEN_2024_TOFACITINIB_GROUP_SUMMARY_CHECK_2026-10-11.md",
+    "method": "Arithmetic mean and sample SD of the three placenta-labeled source values at each of ten times, by maternal/fetal compartment; control series excluded because its replicate count is unspecified.",
+    "article_reports_at_180_min": {
+      "maternal_mean_nM": 35.6,
+      "maternal_sd_nM": 5.5,
+      "fetal_mean_nM": 24.8,
+      "fetal_sd_nM": 4.7,
+      "source_locator": "Primary article Results, tofacitinib paragraph; Fig. 2 caption says mean ± SD, n=3"
+    },
+    "table_s3_derived_at_180_min": {
+      "maternal_mean_nM": 35.633333,
+      "maternal_sample_sd_nM": 5.518454,
+      "fetal_mean_nM": 25.0,
+      "fetal_sample_sd_nM": 4.950758
+    },
+    "interpretation": "The maternal endpoint reproduces the article's rounded summary. The fetal endpoint does not: displayed Table S3 values derive to 25.0 ± 5.0 nM, while the Results report 24.8 ± 4.7 nM. Preserve both source records; do not correct or replace either pending human review.",
+    "figure_digitized": false
+  },
+  "table_s2_mapping_control": {
+    "status": "antipyrine_endpoint_reconciles_after_rounding",
+    "receipt": "artifacts/perfusion-intake-2026-10-10/eliesen-antipyrine-s2-endpoint-control-cycle245.json",
+    "purpose": "Independent column-mapping diagnostic using the companion antipyrine table in the same DOCX.",
+    "rows_imported_to_tofacitinib_intake": 0,
+    "does_not_resolve_table_s3_discrepancy": true
+  },
+  "public_dataset_route_screen": {
+    "status": "bounded_metadata_routes_checked_no_related_dataset_record_found",
+    "receipt": "artifacts/perfusion-comparability-2026-10-11/eliesen-public-dataset-route-screen-cycle246.json",
+    "crossref_relation_object": {},
+    "datacite_related_identifier_records": 0,
+    "publisher_data_availability": "Data will be made available on request.",
+    "author_contacted": false,
+    "not_a_global_absence_claim": true
+  },
+  "observed_quantity": {
+    "analyte": "tofacitinib",
+    "quantity": "concentration",
+    "concentration_unit": "nM",
+    "time_unit": "min",
+    "time_is": "elapsed ex vivo perfusion assay time; not gestational age or developmental time",
+    "compartments": ["maternal reservoir", "fetal reservoir", "no-placenta system control; compartment not specified in the table"],
+    "reported_timepoints": [0, 1, 5, 15, 30, 60, 90, 120, 150, 180]
+  },
+  "source_units": {
+    "experimental_perfusion_labels": ["Placenta 1", "Placenta 2", "Placenta 3"],
+    "source_statement": "The article reports three successful cotyledon perfusions from different donors. Supplement Table S3 labels the series only as Placenta 1–3; no personal donor identifiers are included.",
+    "repeated_measure_structure": "Each placenta-labeled series contains maternal and fetal concentrations at the ten reported timepoints. Treat repeated rows within a placenta label as one source unit.",
+    "control_series": "The no-placenta system-control concentration series has nine numeric values and one N/A at 1 minute. Its replicate count is not stated in the table; do not treat it as a fourth placenta or infer an independent-run count."
+  },
+  "missingness": {
+    "source_marked_value": "N/A",
+    "locator": "Supplementary Table S3, No placenta in system, 1 min",
+    "recording": "Preserved as not_assessed with an empty numeric field; never converted to zero."
+  },
+  "eligibility": {
+    "eligible_for": "Source-linked descriptive concentration trajectories, subject to human source/transcription review.",
+    "not_eligible_for": [
+      "Run-level amount or mass-balance calculation",
+      "Net flux or dimensional transfer-parameter fitting",
+      "Developmental outcome or complete-gestation inference"
+    ],
+    "missing_records": [
+      "Numerical run-by-time maternal and fetal reservoir volumes",
+      "Sample-volume/removal history",
+      "Individual-run recovery totals"
+    ],
+    "article_context": "The article says remaining perfusate volumes were estimated at sample times and reports group-level recovery summaries. The inspected article and Supplementary Tables S1–S3 do not provide numerical per-run volume/removal histories or individual recovery rows. Data availability is stated as available on request; no author contact was made."
+  },
+  "scope_limits": [
+    "This is an ex vivo term-placenta transfer observation, not embryo development or an artificial-womb performance result.",
+    "The three placenta labels are source labels for repeated measurements, not personal identities.",
+    "Do not pool these values with another perfusion study or infer nutrient delivery, embryo health, gestation, birth, or later outcomes.",
+    "Source transcription and scientific review remain pending."
+  ],
+  "author_contacted": false
+}

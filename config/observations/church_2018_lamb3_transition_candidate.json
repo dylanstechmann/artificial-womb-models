@@ -1,0 +1,1961 @@
+{
+  "schema_version": 1,
+  "dataset_id": "church2018-ap-lamb3-transition-candidate",
+  "title": "Church et al. 2018 AP transition cohort, Table 1 case rows; candidate transcription",
+  "source_revision": {
+    "revision_id": "church2018-table1-intake-2026-10-11-cycle285",
+    "citation": "Church JT, et al. The Artificial Placenta: Continued Lung Development During Extracorporeal Support in a Preterm Lamb Model. Journal of Pediatric Surgery. 2018;53(10):1896-1903. doi:10.1016/j.jpedsurg.2018.06.001.",
+    "source_kind": "peer_reviewed_animal",
+    "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6151273/",
+    "review_status": "candidate",
+    "reviewer": "",
+    "reviewed_on": null,
+    "review_note": ""
+  },
+  "artifacts": [
+    {
+      "artifact_id": "church2018-article",
+      "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6151273/",
+      "license": "PMC full text; XML states text-mining availability; broader reuse terms not assessed",
+      "sha256": "b6e94bfed6c6a3eaeec041bec74ba83a33ff38804955c99f9d1b9c1c392ef9b0",
+      "retrieved_on": "2026-10-11",
+      "local_path": "artifacts/fetal-ovine-transition-2026-10-11-cycle285/church2018-pmc6151273-efetch.xml"
+    }
+  ],
+  "observations": [
+    {
+      "schema_version": 1,
+      "record_id": "church2018-ap-lamb1-ap-duration",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 1 AP Lamb 1, AP support duration",
+        "start": 0,
+        "end": 231,
+        "time_unit": "hours since AP-support start (derived)",
+        "stage_source_artifact_id": "church2018-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm lamb supported on artificial placenta and transitioned toward mechanical ventilation"
+      },
+      "assay": {
+        "name": "Table 1 source-row transcription",
+        "endpoint": "AP support duration",
+        "unit": "hours",
+        "measurement_role": "durability"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "AP Lamb 1",
+        "parent_id": "church_2018_ap_transition_group",
+        "hierarchy_note": "Table 1 row label only; no persistent identifier across studies is reported."
+      },
+      "observation": {
+        "value": 231,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "church2018-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6151273/",
+        "license": "PMC full text; XML states text-mining availability; broader reuse terms not assessed",
+        "sha256": "b6e94bfed6c6a3eaeec041bec74ba83a33ff38804955c99f9d1b9c1c392ef9b0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, AP Lamb 1 row, Support Times (hours), AP column",
+      "limitations": [
+        "Table 1 source labels AP Lamb 1–5; no persistent identifier links these rows to another study or dataset.",
+        "Table-row outcomes are not assigned exact event timestamps. The table does not support ordering each narrative event against the reported phase-duration endpoint.",
+        "The paper reports terminal lung assessment/autopsy and no long-term post-support developmental follow-up; these records do not establish healthy development.",
+        "Elapsed-hour interval bounds are computed cumulatively from the Table 1 phase durations in this same row and the sequential phase order stated in §3.1; they are not absolute timestamps."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "church2018-ap-lamb1-ap-mv-duration",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "transition_to_neonatal",
+      "developmental_interval": {
+        "label": "Table 1 AP Lamb 1, AP + MV support duration",
+        "start": 231,
+        "end": 322,
+        "time_unit": "hours since AP-support start (derived)",
+        "stage_source_artifact_id": "church2018-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm lamb supported on artificial placenta and transitioned toward mechanical ventilation"
+      },
+      "assay": {
+        "name": "Table 1 source-row transcription",
+        "endpoint": "AP + MV support duration",
+        "unit": "hours",
+        "measurement_role": "durability"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "AP Lamb 1",
+        "parent_id": "church_2018_ap_transition_group",
+        "hierarchy_note": "Table 1 row label only; no persistent identifier across studies is reported."
+      },
+      "observation": {
+        "value": 91,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "church2018-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6151273/",
+        "license": "PMC full text; XML states text-mining availability; broader reuse terms not assessed",
+        "sha256": "b6e94bfed6c6a3eaeec041bec74ba83a33ff38804955c99f9d1b9c1c392ef9b0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, AP Lamb 1 row, Support Times (hours), AP + MV column",
+      "limitations": [
+        "Table 1 source labels AP Lamb 1–5; no persistent identifier links these rows to another study or dataset.",
+        "Table-row outcomes are not assigned exact event timestamps. The table does not support ordering each narrative event against the reported phase-duration endpoint.",
+        "The paper reports terminal lung assessment/autopsy and no long-term post-support developmental follow-up; these records do not establish healthy development.",
+        "Elapsed-hour interval bounds are computed cumulatively from the Table 1 phase durations in this same row and the sequential phase order stated in §3.1; they are not absolute timestamps."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "church2018-ap-lamb1-mv-alone-duration",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "transition_to_neonatal",
+      "developmental_interval": {
+        "label": "Table 1 AP Lamb 1, MV alone support duration",
+        "start": 322,
+        "end": 329,
+        "time_unit": "hours since AP-support start (derived)",
+        "stage_source_artifact_id": "church2018-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm lamb supported on artificial placenta and transitioned toward mechanical ventilation"
+      },
+      "assay": {
+        "name": "Table 1 source-row transcription",
+        "endpoint": "MV alone support duration",
+        "unit": "hours",
+        "measurement_role": "durability"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "AP Lamb 1",
+        "parent_id": "church_2018_ap_transition_group",
+        "hierarchy_note": "Table 1 row label only; no persistent identifier across studies is reported."
+      },
+      "observation": {
+        "value": 7,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "church2018-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6151273/",
+        "license": "PMC full text; XML states text-mining availability; broader reuse terms not assessed",
+        "sha256": "b6e94bfed6c6a3eaeec041bec74ba83a33ff38804955c99f9d1b9c1c392ef9b0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, AP Lamb 1 row, Support Times (hours), MV alone column",
+      "limitations": [
+        "Table 1 source labels AP Lamb 1–5; no persistent identifier links these rows to another study or dataset.",
+        "Table-row outcomes are not assigned exact event timestamps. The table does not support ordering each narrative event against the reported phase-duration endpoint.",
+        "The paper reports terminal lung assessment/autopsy and no long-term post-support developmental follow-up; these records do not establish healthy development.",
+        "Elapsed-hour interval bounds are computed cumulatively from the Table 1 phase durations in this same row and the sequential phase order stated in §3.1; they are not absolute timestamps."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "church2018-ap-lamb1-airway-strategy",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 1 AP Lamb 1, airway strategy",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported table item",
+        "stage_source_artifact_id": "church2018-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm lamb supported on artificial placenta and transitioned toward mechanical ventilation"
+      },
+      "assay": {
+        "name": "Table 1 source-row transcription",
+        "endpoint": "Airway management strategy during AP support",
+        "unit": "source-reported category",
+        "measurement_role": "environmental_condition"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "AP Lamb 1",
+        "parent_id": "church_2018_ap_transition_group",
+        "hierarchy_note": "Table 1 row label only; no persistent identifier across studies is reported."
+      },
+      "observation": {
+        "value": "LR",
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "church2018-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6151273/",
+        "license": "PMC full text; XML states text-mining availability; broader reuse terms not assessed",
+        "sha256": "b6e94bfed6c6a3eaeec041bec74ba83a33ff38804955c99f9d1b9c1c392ef9b0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, AP Lamb 1 row, Airway column; footnote a defines the source abbreviation",
+      "limitations": [
+        "Table 1 source labels AP Lamb 1–5; no persistent identifier links these rows to another study or dataset.",
+        "Table-row outcomes are not assigned exact event timestamps. The table does not support ordering each narrative event against the reported phase-duration endpoint.",
+        "The paper reports terminal lung assessment/autopsy and no long-term post-support developmental follow-up; these records do not establish healthy development."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "church2018-ap-lamb1-ductus-day9",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 1 AP Lamb 1, ductus status on Day 9",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported table item",
+        "stage_source_artifact_id": "church2018-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm lamb supported on artificial placenta and transitioned toward mechanical ventilation"
+      },
+      "assay": {
+        "name": "Table 1 source-row transcription",
+        "endpoint": "Ductus arteriosus status on Day 9 of support",
+        "unit": "source-reported category",
+        "measurement_role": "function"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "AP Lamb 1",
+        "parent_id": "church_2018_ap_transition_group",
+        "hierarchy_note": "Table 1 row label only; no persistent identifier across studies is reported."
+      },
+      "observation": {
+        "value": "Patent",
+        "measurement_time": 9,
+        "measurement_time_unit": "days of support (as labeled by source)",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "church2018-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6151273/",
+        "license": "PMC full text; XML states text-mining availability; broader reuse terms not assessed",
+        "sha256": "b6e94bfed6c6a3eaeec041bec74ba83a33ff38804955c99f9d1b9c1c392ef9b0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, AP Lamb 1 row, Ductus (Day 9) column; §3.1 states assessment preceded mechanical ventilation",
+      "limitations": [
+        "Table 1 source labels AP Lamb 1–5; no persistent identifier links these rows to another study or dataset.",
+        "Table-row outcomes are not assigned exact event timestamps. The table does not support ordering each narrative event against the reported phase-duration endpoint.",
+        "The paper reports terminal lung assessment/autopsy and no long-term post-support developmental follow-up; these records do not establish healthy development."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "church2018-ap-lamb1-ap-complication",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 1 AP Lamb 1, complication during AP support",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported table item",
+        "stage_source_artifact_id": "church2018-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm lamb supported on artificial placenta and transitioned toward mechanical ventilation"
+      },
+      "assay": {
+        "name": "Table 1 source-row transcription",
+        "endpoint": "Complication during AP support, source-table narrative",
+        "unit": "source-reported narrative",
+        "measurement_role": "adverse_effect"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "AP Lamb 1",
+        "parent_id": "church_2018_ap_transition_group",
+        "hierarchy_note": "Table 1 row label only; no persistent identifier across studies is reported."
+      },
+      "observation": {
+        "value": "Heat exchanger malfunction causing hypothermic arrest → CPR with ROSC",
+        "measurement_time": "during AP support",
+        "measurement_time_unit": "source column phase label; exact event time not reported",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "church2018-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6151273/",
+        "license": "PMC full text; XML states text-mining availability; broader reuse terms not assessed",
+        "sha256": "b6e94bfed6c6a3eaeec041bec74ba83a33ff38804955c99f9d1b9c1c392ef9b0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, AP Lamb 1 row, Complications during AP Support column",
+      "limitations": [
+        "Table 1 source labels AP Lamb 1–5; no persistent identifier links these rows to another study or dataset.",
+        "Table-row outcomes are not assigned exact event timestamps. The table does not support ordering each narrative event against the reported phase-duration endpoint.",
+        "The paper reports terminal lung assessment/autopsy and no long-term post-support developmental follow-up; these records do not establish healthy development."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "church2018-ap-lamb1-outcome",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "transition_to_neonatal",
+      "developmental_interval": {
+        "label": "Table 1 AP Lamb 1, reported outcome",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported table item",
+        "stage_source_artifact_id": "church2018-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm lamb supported on artificial placenta and transitioned toward mechanical ventilation"
+      },
+      "assay": {
+        "name": "Table 1 source-row transcription",
+        "endpoint": "Table 1 outcome narrative",
+        "unit": "source-reported narrative",
+        "measurement_role": "adverse_effect"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "AP Lamb 1",
+        "parent_id": "church_2018_ap_transition_group",
+        "hierarchy_note": "Table 1 row label only; no persistent identifier across studies is reported."
+      },
+      "observation": {
+        "value": "Fatal hemorrhage due to perforated umbilical vein",
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "church2018-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6151273/",
+        "license": "PMC full text; XML states text-mining availability; broader reuse terms not assessed",
+        "sha256": "b6e94bfed6c6a3eaeec041bec74ba83a33ff38804955c99f9d1b9c1c392ef9b0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, AP Lamb 1 row, Outcome column; event timestamp not reported",
+      "limitations": [
+        "Table 1 source labels AP Lamb 1–5; no persistent identifier links these rows to another study or dataset.",
+        "Table-row outcomes are not assigned exact event timestamps. The table does not support ordering each narrative event against the reported phase-duration endpoint.",
+        "The paper reports terminal lung assessment/autopsy and no long-term post-support developmental follow-up; these records do not establish healthy development."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "church2018-ap-lamb2-ap-duration",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 1 AP Lamb 2, AP support duration",
+        "start": 0,
+        "end": 222,
+        "time_unit": "hours since AP-support start (derived)",
+        "stage_source_artifact_id": "church2018-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm lamb supported on artificial placenta and transitioned toward mechanical ventilation"
+      },
+      "assay": {
+        "name": "Table 1 source-row transcription",
+        "endpoint": "AP support duration",
+        "unit": "hours",
+        "measurement_role": "durability"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "AP Lamb 2",
+        "parent_id": "church_2018_ap_transition_group",
+        "hierarchy_note": "Table 1 row label only; no persistent identifier across studies is reported."
+      },
+      "observation": {
+        "value": 222,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "church2018-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6151273/",
+        "license": "PMC full text; XML states text-mining availability; broader reuse terms not assessed",
+        "sha256": "b6e94bfed6c6a3eaeec041bec74ba83a33ff38804955c99f9d1b9c1c392ef9b0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, AP Lamb 2 row, Support Times (hours), AP column",
+      "limitations": [
+        "Table 1 source labels AP Lamb 1–5; no persistent identifier links these rows to another study or dataset.",
+        "Table-row outcomes are not assigned exact event timestamps. The table does not support ordering each narrative event against the reported phase-duration endpoint.",
+        "The paper reports terminal lung assessment/autopsy and no long-term post-support developmental follow-up; these records do not establish healthy development.",
+        "Elapsed-hour interval bounds are computed cumulatively from the Table 1 phase durations in this same row and the sequential phase order stated in §3.1; they are not absolute timestamps."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "church2018-ap-lamb2-ap-mv-duration",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "transition_to_neonatal",
+      "developmental_interval": {
+        "label": "Table 1 AP Lamb 2, AP + MV support duration",
+        "start": 222,
+        "end": 239,
+        "time_unit": "hours since AP-support start (derived)",
+        "stage_source_artifact_id": "church2018-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm lamb supported on artificial placenta and transitioned toward mechanical ventilation"
+      },
+      "assay": {
+        "name": "Table 1 source-row transcription",
+        "endpoint": "AP + MV support duration",
+        "unit": "hours",
+        "measurement_role": "durability"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "AP Lamb 2",
+        "parent_id": "church_2018_ap_transition_group",
+        "hierarchy_note": "Table 1 row label only; no persistent identifier across studies is reported."
+      },
+      "observation": {
+        "value": 17,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "church2018-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6151273/",
+        "license": "PMC full text; XML states text-mining availability; broader reuse terms not assessed",
+        "sha256": "b6e94bfed6c6a3eaeec041bec74ba83a33ff38804955c99f9d1b9c1c392ef9b0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, AP Lamb 2 row, Support Times (hours), AP + MV column",
+      "limitations": [
+        "Table 1 source labels AP Lamb 1–5; no persistent identifier links these rows to another study or dataset.",
+        "Table-row outcomes are not assigned exact event timestamps. The table does not support ordering each narrative event against the reported phase-duration endpoint.",
+        "The paper reports terminal lung assessment/autopsy and no long-term post-support developmental follow-up; these records do not establish healthy development.",
+        "Elapsed-hour interval bounds are computed cumulatively from the Table 1 phase durations in this same row and the sequential phase order stated in §3.1; they are not absolute timestamps."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "church2018-ap-lamb2-mv-alone-duration",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "transition_to_neonatal",
+      "developmental_interval": {
+        "label": "Table 1 AP Lamb 2, MV alone support duration",
+        "start": 239,
+        "end": 252,
+        "time_unit": "hours since AP-support start (derived)",
+        "stage_source_artifact_id": "church2018-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm lamb supported on artificial placenta and transitioned toward mechanical ventilation"
+      },
+      "assay": {
+        "name": "Table 1 source-row transcription",
+        "endpoint": "MV alone support duration",
+        "unit": "hours",
+        "measurement_role": "durability"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "AP Lamb 2",
+        "parent_id": "church_2018_ap_transition_group",
+        "hierarchy_note": "Table 1 row label only; no persistent identifier across studies is reported."
+      },
+      "observation": {
+        "value": 13,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "church2018-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6151273/",
+        "license": "PMC full text; XML states text-mining availability; broader reuse terms not assessed",
+        "sha256": "b6e94bfed6c6a3eaeec041bec74ba83a33ff38804955c99f9d1b9c1c392ef9b0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, AP Lamb 2 row, Support Times (hours), MV alone column",
+      "limitations": [
+        "Table 1 source labels AP Lamb 1–5; no persistent identifier links these rows to another study or dataset.",
+        "Table-row outcomes are not assigned exact event timestamps. The table does not support ordering each narrative event against the reported phase-duration endpoint.",
+        "The paper reports terminal lung assessment/autopsy and no long-term post-support developmental follow-up; these records do not establish healthy development.",
+        "Elapsed-hour interval bounds are computed cumulatively from the Table 1 phase durations in this same row and the sequential phase order stated in §3.1; they are not absolute timestamps."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "church2018-ap-lamb2-airway-strategy",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 1 AP Lamb 2, airway strategy",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported table item",
+        "stage_source_artifact_id": "church2018-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm lamb supported on artificial placenta and transitioned toward mechanical ventilation"
+      },
+      "assay": {
+        "name": "Table 1 source-row transcription",
+        "endpoint": "Airway management strategy during AP support",
+        "unit": "source-reported category",
+        "measurement_role": "environmental_condition"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "AP Lamb 2",
+        "parent_id": "church_2018_ap_transition_group",
+        "hierarchy_note": "Table 1 row label only; no persistent identifier across studies is reported."
+      },
+      "observation": {
+        "value": "LR",
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "church2018-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6151273/",
+        "license": "PMC full text; XML states text-mining availability; broader reuse terms not assessed",
+        "sha256": "b6e94bfed6c6a3eaeec041bec74ba83a33ff38804955c99f9d1b9c1c392ef9b0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, AP Lamb 2 row, Airway column; footnote a defines the source abbreviation",
+      "limitations": [
+        "Table 1 source labels AP Lamb 1–5; no persistent identifier links these rows to another study or dataset.",
+        "Table-row outcomes are not assigned exact event timestamps. The table does not support ordering each narrative event against the reported phase-duration endpoint.",
+        "The paper reports terminal lung assessment/autopsy and no long-term post-support developmental follow-up; these records do not establish healthy development."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "church2018-ap-lamb2-ductus-day9",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 1 AP Lamb 2, ductus status on Day 9",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported table item",
+        "stage_source_artifact_id": "church2018-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm lamb supported on artificial placenta and transitioned toward mechanical ventilation"
+      },
+      "assay": {
+        "name": "Table 1 source-row transcription",
+        "endpoint": "Ductus arteriosus status on Day 9 of support",
+        "unit": "source-reported category",
+        "measurement_role": "function"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "AP Lamb 2",
+        "parent_id": "church_2018_ap_transition_group",
+        "hierarchy_note": "Table 1 row label only; no persistent identifier across studies is reported."
+      },
+      "observation": {
+        "value": "Patent",
+        "measurement_time": 9,
+        "measurement_time_unit": "days of support (as labeled by source)",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "church2018-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6151273/",
+        "license": "PMC full text; XML states text-mining availability; broader reuse terms not assessed",
+        "sha256": "b6e94bfed6c6a3eaeec041bec74ba83a33ff38804955c99f9d1b9c1c392ef9b0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, AP Lamb 2 row, Ductus (Day 9) column; §3.1 states assessment preceded mechanical ventilation",
+      "limitations": [
+        "Table 1 source labels AP Lamb 1–5; no persistent identifier links these rows to another study or dataset.",
+        "Table-row outcomes are not assigned exact event timestamps. The table does not support ordering each narrative event against the reported phase-duration endpoint.",
+        "The paper reports terminal lung assessment/autopsy and no long-term post-support developmental follow-up; these records do not establish healthy development."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "church2018-ap-lamb2-ap-complication",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 1 AP Lamb 2, complication during AP support",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported table item",
+        "stage_source_artifact_id": "church2018-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm lamb supported on artificial placenta and transitioned toward mechanical ventilation"
+      },
+      "assay": {
+        "name": "Table 1 source-row transcription",
+        "endpoint": "Complication during AP support, source-table narrative",
+        "unit": "source-reported narrative",
+        "measurement_role": "adverse_effect"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "AP Lamb 2",
+        "parent_id": "church_2018_ap_transition_group",
+        "hierarchy_note": "Table 1 row label only; no persistent identifier across studies is reported."
+      },
+      "observation": {
+        "value": "None",
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "church2018-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6151273/",
+        "license": "PMC full text; XML states text-mining availability; broader reuse terms not assessed",
+        "sha256": "b6e94bfed6c6a3eaeec041bec74ba83a33ff38804955c99f9d1b9c1c392ef9b0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, AP Lamb 2 row, Complications during AP Support column",
+      "limitations": [
+        "Table 1 source labels AP Lamb 1–5; no persistent identifier links these rows to another study or dataset.",
+        "Table-row outcomes are not assigned exact event timestamps. The table does not support ordering each narrative event against the reported phase-duration endpoint.",
+        "The paper reports terminal lung assessment/autopsy and no long-term post-support developmental follow-up; these records do not establish healthy development.",
+        "“None” is the source table entry; it is not a claim that no other unlisted event occurred."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "church2018-ap-lamb2-outcome",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "transition_to_neonatal",
+      "developmental_interval": {
+        "label": "Table 1 AP Lamb 2, reported outcome",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported table item",
+        "stage_source_artifact_id": "church2018-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm lamb supported on artificial placenta and transitioned toward mechanical ventilation"
+      },
+      "assay": {
+        "name": "Table 1 source-row transcription",
+        "endpoint": "Table 1 outcome narrative",
+        "unit": "source-reported narrative",
+        "measurement_role": "adverse_effect"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "AP Lamb 2",
+        "parent_id": "church_2018_ap_transition_group",
+        "hierarchy_note": "Table 1 row label only; no persistent identifier across studies is reported."
+      },
+      "observation": {
+        "value": "Agitation on ventilator → dyssynchrony and cardiac arrest",
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "church2018-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6151273/",
+        "license": "PMC full text; XML states text-mining availability; broader reuse terms not assessed",
+        "sha256": "b6e94bfed6c6a3eaeec041bec74ba83a33ff38804955c99f9d1b9c1c392ef9b0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, AP Lamb 2 row, Outcome column; event timestamp not reported",
+      "limitations": [
+        "Table 1 source labels AP Lamb 1–5; no persistent identifier links these rows to another study or dataset.",
+        "Table-row outcomes are not assigned exact event timestamps. The table does not support ordering each narrative event against the reported phase-duration endpoint.",
+        "The paper reports terminal lung assessment/autopsy and no long-term post-support developmental follow-up; these records do not establish healthy development."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "church2018-ap-lamb3-ap-duration",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 1 AP Lamb 3, AP support duration",
+        "start": 0,
+        "end": 240,
+        "time_unit": "hours since AP-support start (derived)",
+        "stage_source_artifact_id": "church2018-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm lamb supported on artificial placenta and transitioned toward mechanical ventilation"
+      },
+      "assay": {
+        "name": "Table 1 source-row transcription",
+        "endpoint": "AP support duration",
+        "unit": "hours",
+        "measurement_role": "durability"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "AP Lamb 3",
+        "parent_id": "church_2018_ap_transition_group",
+        "hierarchy_note": "Table 1 row label only; no persistent identifier across studies is reported."
+      },
+      "observation": {
+        "value": 240,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "church2018-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6151273/",
+        "license": "PMC full text; XML states text-mining availability; broader reuse terms not assessed",
+        "sha256": "b6e94bfed6c6a3eaeec041bec74ba83a33ff38804955c99f9d1b9c1c392ef9b0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, AP Lamb 3 row, Support Times (hours), AP column",
+      "limitations": [
+        "Table 1 source labels AP Lamb 1–5; no persistent identifier links these rows to another study or dataset.",
+        "Table-row outcomes are not assigned exact event timestamps. The table does not support ordering each narrative event against the reported phase-duration endpoint.",
+        "The paper reports terminal lung assessment/autopsy and no long-term post-support developmental follow-up; these records do not establish healthy development.",
+        "Elapsed-hour interval bounds are computed cumulatively from the Table 1 phase durations in this same row and the sequential phase order stated in §3.1; they are not absolute timestamps."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "church2018-ap-lamb3-ap-mv-duration",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "transition_to_neonatal",
+      "developmental_interval": {
+        "label": "Table 1 AP Lamb 3, AP + MV support duration",
+        "start": 240,
+        "end": 265,
+        "time_unit": "hours since AP-support start (derived)",
+        "stage_source_artifact_id": "church2018-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm lamb supported on artificial placenta and transitioned toward mechanical ventilation"
+      },
+      "assay": {
+        "name": "Table 1 source-row transcription",
+        "endpoint": "AP + MV support duration",
+        "unit": "hours",
+        "measurement_role": "durability"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "AP Lamb 3",
+        "parent_id": "church_2018_ap_transition_group",
+        "hierarchy_note": "Table 1 row label only; no persistent identifier across studies is reported."
+      },
+      "observation": {
+        "value": 25,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "church2018-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6151273/",
+        "license": "PMC full text; XML states text-mining availability; broader reuse terms not assessed",
+        "sha256": "b6e94bfed6c6a3eaeec041bec74ba83a33ff38804955c99f9d1b9c1c392ef9b0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, AP Lamb 3 row, Support Times (hours), AP + MV column",
+      "limitations": [
+        "Table 1 source labels AP Lamb 1–5; no persistent identifier links these rows to another study or dataset.",
+        "Table-row outcomes are not assigned exact event timestamps. The table does not support ordering each narrative event against the reported phase-duration endpoint.",
+        "The paper reports terminal lung assessment/autopsy and no long-term post-support developmental follow-up; these records do not establish healthy development.",
+        "Elapsed-hour interval bounds are computed cumulatively from the Table 1 phase durations in this same row and the sequential phase order stated in §3.1; they are not absolute timestamps."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "church2018-ap-lamb3-mv-alone-duration",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "transition_to_neonatal",
+      "developmental_interval": {
+        "label": "Table 1 AP Lamb 3, MV alone support duration",
+        "start": 265,
+        "end": 291,
+        "time_unit": "hours since AP-support start (derived)",
+        "stage_source_artifact_id": "church2018-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm lamb supported on artificial placenta and transitioned toward mechanical ventilation"
+      },
+      "assay": {
+        "name": "Table 1 source-row transcription",
+        "endpoint": "MV alone support duration",
+        "unit": "hours",
+        "measurement_role": "durability"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "AP Lamb 3",
+        "parent_id": "church_2018_ap_transition_group",
+        "hierarchy_note": "Table 1 row label only; no persistent identifier across studies is reported."
+      },
+      "observation": {
+        "value": 26,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "church2018-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6151273/",
+        "license": "PMC full text; XML states text-mining availability; broader reuse terms not assessed",
+        "sha256": "b6e94bfed6c6a3eaeec041bec74ba83a33ff38804955c99f9d1b9c1c392ef9b0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, AP Lamb 3 row, Support Times (hours), MV alone column",
+      "limitations": [
+        "Table 1 source labels AP Lamb 1–5; no persistent identifier links these rows to another study or dataset.",
+        "Table-row outcomes are not assigned exact event timestamps. The table does not support ordering each narrative event against the reported phase-duration endpoint.",
+        "The paper reports terminal lung assessment/autopsy and no long-term post-support developmental follow-up; these records do not establish healthy development.",
+        "Elapsed-hour interval bounds are computed cumulatively from the Table 1 phase durations in this same row and the sequential phase order stated in §3.1; they are not absolute timestamps."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "church2018-ap-lamb3-airway-strategy",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 1 AP Lamb 3, airway strategy",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported table item",
+        "stage_source_artifact_id": "church2018-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm lamb supported on artificial placenta and transitioned toward mechanical ventilation"
+      },
+      "assay": {
+        "name": "Table 1 source-row transcription",
+        "endpoint": "Airway management strategy during AP support",
+        "unit": "source-reported category",
+        "measurement_role": "environmental_condition"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "AP Lamb 3",
+        "parent_id": "church_2018_ap_transition_group",
+        "hierarchy_note": "Table 1 row label only; no persistent identifier across studies is reported."
+      },
+      "observation": {
+        "value": "LR",
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "church2018-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6151273/",
+        "license": "PMC full text; XML states text-mining availability; broader reuse terms not assessed",
+        "sha256": "b6e94bfed6c6a3eaeec041bec74ba83a33ff38804955c99f9d1b9c1c392ef9b0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, AP Lamb 3 row, Airway column; footnote a defines the source abbreviation",
+      "limitations": [
+        "Table 1 source labels AP Lamb 1–5; no persistent identifier links these rows to another study or dataset.",
+        "Table-row outcomes are not assigned exact event timestamps. The table does not support ordering each narrative event against the reported phase-duration endpoint.",
+        "The paper reports terminal lung assessment/autopsy and no long-term post-support developmental follow-up; these records do not establish healthy development."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "church2018-ap-lamb3-ductus-day9",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 1 AP Lamb 3, ductus status on Day 9",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported table item",
+        "stage_source_artifact_id": "church2018-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm lamb supported on artificial placenta and transitioned toward mechanical ventilation"
+      },
+      "assay": {
+        "name": "Table 1 source-row transcription",
+        "endpoint": "Ductus arteriosus status on Day 9 of support",
+        "unit": "source-reported category",
+        "measurement_role": "function"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "AP Lamb 3",
+        "parent_id": "church_2018_ap_transition_group",
+        "hierarchy_note": "Table 1 row label only; no persistent identifier across studies is reported."
+      },
+      "observation": {
+        "value": "Closed",
+        "measurement_time": 9,
+        "measurement_time_unit": "days of support (as labeled by source)",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "church2018-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6151273/",
+        "license": "PMC full text; XML states text-mining availability; broader reuse terms not assessed",
+        "sha256": "b6e94bfed6c6a3eaeec041bec74ba83a33ff38804955c99f9d1b9c1c392ef9b0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, AP Lamb 3 row, Ductus (Day 9) column; §3.1 states assessment preceded mechanical ventilation",
+      "limitations": [
+        "Table 1 source labels AP Lamb 1–5; no persistent identifier links these rows to another study or dataset.",
+        "Table-row outcomes are not assigned exact event timestamps. The table does not support ordering each narrative event against the reported phase-duration endpoint.",
+        "The paper reports terminal lung assessment/autopsy and no long-term post-support developmental follow-up; these records do not establish healthy development."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "church2018-ap-lamb3-ap-complication",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 1 AP Lamb 3, complication during AP support",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported table item",
+        "stage_source_artifact_id": "church2018-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm lamb supported on artificial placenta and transitioned toward mechanical ventilation"
+      },
+      "assay": {
+        "name": "Table 1 source-row transcription",
+        "endpoint": "Complication during AP support, source-table narrative",
+        "unit": "source-reported narrative",
+        "measurement_role": "adverse_effect"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "AP Lamb 3",
+        "parent_id": "church_2018_ap_transition_group",
+        "hierarchy_note": "Table 1 row label only; no persistent identifier across studies is reported."
+      },
+      "observation": {
+        "value": "Hypernatremia",
+        "measurement_time": "during AP support",
+        "measurement_time_unit": "source column phase label; exact event time not reported",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "church2018-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6151273/",
+        "license": "PMC full text; XML states text-mining availability; broader reuse terms not assessed",
+        "sha256": "b6e94bfed6c6a3eaeec041bec74ba83a33ff38804955c99f9d1b9c1c392ef9b0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, AP Lamb 3 row, Complications during AP Support column",
+      "limitations": [
+        "Table 1 source labels AP Lamb 1–5; no persistent identifier links these rows to another study or dataset.",
+        "Table-row outcomes are not assigned exact event timestamps. The table does not support ordering each narrative event against the reported phase-duration endpoint.",
+        "The paper reports terminal lung assessment/autopsy and no long-term post-support developmental follow-up; these records do not establish healthy development."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "church2018-ap-lamb3-outcome",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "transition_to_neonatal",
+      "developmental_interval": {
+        "label": "Table 1 AP Lamb 3, reported outcome",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported table item",
+        "stage_source_artifact_id": "church2018-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm lamb supported on artificial placenta and transitioned toward mechanical ventilation"
+      },
+      "assay": {
+        "name": "Table 1 source-row transcription",
+        "endpoint": "Table 1 outcome narrative",
+        "unit": "source-reported narrative",
+        "measurement_role": "adverse_effect"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "AP Lamb 3",
+        "parent_id": "church_2018_ap_transition_group",
+        "hierarchy_note": "Table 1 row label only; no persistent identifier across studies is reported."
+      },
+      "observation": {
+        "value": "Mucus plugging in ETT → acute respiratory failure",
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "church2018-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6151273/",
+        "license": "PMC full text; XML states text-mining availability; broader reuse terms not assessed",
+        "sha256": "b6e94bfed6c6a3eaeec041bec74ba83a33ff38804955c99f9d1b9c1c392ef9b0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, AP Lamb 3 row, Outcome column; event timestamp not reported",
+      "limitations": [
+        "Table 1 source labels AP Lamb 1–5; no persistent identifier links these rows to another study or dataset.",
+        "Table-row outcomes are not assigned exact event timestamps. The table does not support ordering each narrative event against the reported phase-duration endpoint.",
+        "The paper reports terminal lung assessment/autopsy and no long-term post-support developmental follow-up; these records do not establish healthy development."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "church2018-ap-lamb4-ap-duration",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 1 AP Lamb 4, AP support duration",
+        "start": 0,
+        "end": 242,
+        "time_unit": "hours since AP-support start (derived)",
+        "stage_source_artifact_id": "church2018-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm lamb supported on artificial placenta and transitioned toward mechanical ventilation"
+      },
+      "assay": {
+        "name": "Table 1 source-row transcription",
+        "endpoint": "AP support duration",
+        "unit": "hours",
+        "measurement_role": "durability"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "AP Lamb 4",
+        "parent_id": "church_2018_ap_transition_group",
+        "hierarchy_note": "Table 1 row label only; no persistent identifier across studies is reported."
+      },
+      "observation": {
+        "value": 242,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "church2018-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6151273/",
+        "license": "PMC full text; XML states text-mining availability; broader reuse terms not assessed",
+        "sha256": "b6e94bfed6c6a3eaeec041bec74ba83a33ff38804955c99f9d1b9c1c392ef9b0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, AP Lamb 4 row, Support Times (hours), AP column",
+      "limitations": [
+        "Table 1 source labels AP Lamb 1–5; no persistent identifier links these rows to another study or dataset.",
+        "Table-row outcomes are not assigned exact event timestamps. The table does not support ordering each narrative event against the reported phase-duration endpoint.",
+        "The paper reports terminal lung assessment/autopsy and no long-term post-support developmental follow-up; these records do not establish healthy development.",
+        "Elapsed-hour interval bounds are computed cumulatively from the Table 1 phase durations in this same row and the sequential phase order stated in §3.1; they are not absolute timestamps."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "church2018-ap-lamb4-ap-mv-duration",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "transition_to_neonatal",
+      "developmental_interval": {
+        "label": "Table 1 AP Lamb 4, AP + MV support duration",
+        "start": 242,
+        "end": 257,
+        "time_unit": "hours since AP-support start (derived)",
+        "stage_source_artifact_id": "church2018-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm lamb supported on artificial placenta and transitioned toward mechanical ventilation"
+      },
+      "assay": {
+        "name": "Table 1 source-row transcription",
+        "endpoint": "AP + MV support duration",
+        "unit": "hours",
+        "measurement_role": "durability"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "AP Lamb 4",
+        "parent_id": "church_2018_ap_transition_group",
+        "hierarchy_note": "Table 1 row label only; no persistent identifier across studies is reported."
+      },
+      "observation": {
+        "value": 15,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "church2018-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6151273/",
+        "license": "PMC full text; XML states text-mining availability; broader reuse terms not assessed",
+        "sha256": "b6e94bfed6c6a3eaeec041bec74ba83a33ff38804955c99f9d1b9c1c392ef9b0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, AP Lamb 4 row, Support Times (hours), AP + MV column",
+      "limitations": [
+        "Table 1 source labels AP Lamb 1–5; no persistent identifier links these rows to another study or dataset.",
+        "Table-row outcomes are not assigned exact event timestamps. The table does not support ordering each narrative event against the reported phase-duration endpoint.",
+        "The paper reports terminal lung assessment/autopsy and no long-term post-support developmental follow-up; these records do not establish healthy development.",
+        "Elapsed-hour interval bounds are computed cumulatively from the Table 1 phase durations in this same row and the sequential phase order stated in §3.1; they are not absolute timestamps."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "church2018-ap-lamb4-mv-alone-duration",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "transition_to_neonatal",
+      "developmental_interval": {
+        "label": "Table 1 AP Lamb 4, MV alone support duration",
+        "start": 257,
+        "end": 257,
+        "time_unit": "hours since AP-support start (derived)",
+        "stage_source_artifact_id": "church2018-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm lamb supported on artificial placenta and transitioned toward mechanical ventilation"
+      },
+      "assay": {
+        "name": "Table 1 source-row transcription",
+        "endpoint": "MV alone support duration",
+        "unit": "hours",
+        "measurement_role": "durability"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "AP Lamb 4",
+        "parent_id": "church_2018_ap_transition_group",
+        "hierarchy_note": "Table 1 row label only; no persistent identifier across studies is reported."
+      },
+      "observation": {
+        "value": 0,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "church2018-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6151273/",
+        "license": "PMC full text; XML states text-mining availability; broader reuse terms not assessed",
+        "sha256": "b6e94bfed6c6a3eaeec041bec74ba83a33ff38804955c99f9d1b9c1c392ef9b0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, AP Lamb 4 row, Support Times (hours), MV alone column",
+      "limitations": [
+        "Table 1 source labels AP Lamb 1–5; no persistent identifier links these rows to another study or dataset.",
+        "Table-row outcomes are not assigned exact event timestamps. The table does not support ordering each narrative event against the reported phase-duration endpoint.",
+        "The paper reports terminal lung assessment/autopsy and no long-term post-support developmental follow-up; these records do not establish healthy development.",
+        "Elapsed-hour interval bounds are computed cumulatively from the Table 1 phase durations in this same row and the sequential phase order stated in §3.1; they are not absolute timestamps."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "church2018-ap-lamb4-airway-strategy",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 1 AP Lamb 4, airway strategy",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported table item",
+        "stage_source_artifact_id": "church2018-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm lamb supported on artificial placenta and transitioned toward mechanical ventilation"
+      },
+      "assay": {
+        "name": "Table 1 source-row transcription",
+        "endpoint": "Airway management strategy during AP support",
+        "unit": "source-reported category",
+        "measurement_role": "environmental_condition"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "AP Lamb 4",
+        "parent_id": "church_2018_ap_transition_group",
+        "hierarchy_note": "Table 1 row label only; no persistent identifier across studies is reported."
+      },
+      "observation": {
+        "value": "TO",
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "church2018-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6151273/",
+        "license": "PMC full text; XML states text-mining availability; broader reuse terms not assessed",
+        "sha256": "b6e94bfed6c6a3eaeec041bec74ba83a33ff38804955c99f9d1b9c1c392ef9b0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, AP Lamb 4 row, Airway column; footnote a defines the source abbreviation",
+      "limitations": [
+        "Table 1 source labels AP Lamb 1–5; no persistent identifier links these rows to another study or dataset.",
+        "Table-row outcomes are not assigned exact event timestamps. The table does not support ordering each narrative event against the reported phase-duration endpoint.",
+        "The paper reports terminal lung assessment/autopsy and no long-term post-support developmental follow-up; these records do not establish healthy development."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "church2018-ap-lamb4-ductus-day9",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 1 AP Lamb 4, ductus status on Day 9",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported table item",
+        "stage_source_artifact_id": "church2018-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm lamb supported on artificial placenta and transitioned toward mechanical ventilation"
+      },
+      "assay": {
+        "name": "Table 1 source-row transcription",
+        "endpoint": "Ductus arteriosus status on Day 9 of support",
+        "unit": "source-reported category",
+        "measurement_role": "function"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "AP Lamb 4",
+        "parent_id": "church_2018_ap_transition_group",
+        "hierarchy_note": "Table 1 row label only; no persistent identifier across studies is reported."
+      },
+      "observation": {
+        "value": "Patent",
+        "measurement_time": 9,
+        "measurement_time_unit": "days of support (as labeled by source)",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "church2018-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6151273/",
+        "license": "PMC full text; XML states text-mining availability; broader reuse terms not assessed",
+        "sha256": "b6e94bfed6c6a3eaeec041bec74ba83a33ff38804955c99f9d1b9c1c392ef9b0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, AP Lamb 4 row, Ductus (Day 9) column; §3.1 states assessment preceded mechanical ventilation",
+      "limitations": [
+        "Table 1 source labels AP Lamb 1–5; no persistent identifier links these rows to another study or dataset.",
+        "Table-row outcomes are not assigned exact event timestamps. The table does not support ordering each narrative event against the reported phase-duration endpoint.",
+        "The paper reports terminal lung assessment/autopsy and no long-term post-support developmental follow-up; these records do not establish healthy development."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "church2018-ap-lamb4-ap-complication",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 1 AP Lamb 4, complication during AP support",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported table item",
+        "stage_source_artifact_id": "church2018-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm lamb supported on artificial placenta and transitioned toward mechanical ventilation"
+      },
+      "assay": {
+        "name": "Table 1 source-row transcription",
+        "endpoint": "Complication during AP support, source-table narrative",
+        "unit": "source-reported narrative",
+        "measurement_role": "adverse_effect"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "AP Lamb 4",
+        "parent_id": "church_2018_ap_transition_group",
+        "hierarchy_note": "Table 1 row label only; no persistent identifier across studies is reported."
+      },
+      "observation": {
+        "value": "Renal failure of unclear etiology",
+        "measurement_time": "during AP support",
+        "measurement_time_unit": "source column phase label; exact event time not reported",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "church2018-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6151273/",
+        "license": "PMC full text; XML states text-mining availability; broader reuse terms not assessed",
+        "sha256": "b6e94bfed6c6a3eaeec041bec74ba83a33ff38804955c99f9d1b9c1c392ef9b0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, AP Lamb 4 row, Complications during AP Support column",
+      "limitations": [
+        "Table 1 source labels AP Lamb 1–5; no persistent identifier links these rows to another study or dataset.",
+        "Table-row outcomes are not assigned exact event timestamps. The table does not support ordering each narrative event against the reported phase-duration endpoint.",
+        "The paper reports terminal lung assessment/autopsy and no long-term post-support developmental follow-up; these records do not establish healthy development."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "church2018-ap-lamb4-outcome",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "transition_to_neonatal",
+      "developmental_interval": {
+        "label": "Table 1 AP Lamb 4, reported outcome",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported table item",
+        "stage_source_artifact_id": "church2018-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm lamb supported on artificial placenta and transitioned toward mechanical ventilation"
+      },
+      "assay": {
+        "name": "Table 1 source-row transcription",
+        "endpoint": "Table 1 outcome narrative",
+        "unit": "source-reported narrative",
+        "measurement_role": "adverse_effect"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "AP Lamb 4",
+        "parent_id": "church_2018_ap_transition_group",
+        "hierarchy_note": "Table 1 row label only; no persistent identifier across studies is reported."
+      },
+      "observation": {
+        "value": "Hyperkalemia → cardiac arrest",
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "church2018-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6151273/",
+        "license": "PMC full text; XML states text-mining availability; broader reuse terms not assessed",
+        "sha256": "b6e94bfed6c6a3eaeec041bec74ba83a33ff38804955c99f9d1b9c1c392ef9b0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, AP Lamb 4 row, Outcome column; event timestamp not reported",
+      "limitations": [
+        "Table 1 source labels AP Lamb 1–5; no persistent identifier links these rows to another study or dataset.",
+        "Table-row outcomes are not assigned exact event timestamps. The table does not support ordering each narrative event against the reported phase-duration endpoint.",
+        "The paper reports terminal lung assessment/autopsy and no long-term post-support developmental follow-up; these records do not establish healthy development."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "church2018-ap-lamb5-ap-duration",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 1 AP Lamb 5, AP support duration",
+        "start": 0,
+        "end": 217,
+        "time_unit": "hours since AP-support start (derived)",
+        "stage_source_artifact_id": "church2018-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm lamb supported on artificial placenta and transitioned toward mechanical ventilation"
+      },
+      "assay": {
+        "name": "Table 1 source-row transcription",
+        "endpoint": "AP support duration",
+        "unit": "hours",
+        "measurement_role": "durability"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "AP Lamb 5",
+        "parent_id": "church_2018_ap_transition_group",
+        "hierarchy_note": "Table 1 row label only; no persistent identifier across studies is reported."
+      },
+      "observation": {
+        "value": 217,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "church2018-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6151273/",
+        "license": "PMC full text; XML states text-mining availability; broader reuse terms not assessed",
+        "sha256": "b6e94bfed6c6a3eaeec041bec74ba83a33ff38804955c99f9d1b9c1c392ef9b0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, AP Lamb 5 row, Support Times (hours), AP column",
+      "limitations": [
+        "Table 1 source labels AP Lamb 1–5; no persistent identifier links these rows to another study or dataset.",
+        "Table-row outcomes are not assigned exact event timestamps. The table does not support ordering each narrative event against the reported phase-duration endpoint.",
+        "The paper reports terminal lung assessment/autopsy and no long-term post-support developmental follow-up; these records do not establish healthy development.",
+        "Elapsed-hour interval bounds are computed cumulatively from the Table 1 phase durations in this same row and the sequential phase order stated in §3.1; they are not absolute timestamps."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "church2018-ap-lamb5-ap-mv-duration",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "transition_to_neonatal",
+      "developmental_interval": {
+        "label": "Table 1 AP Lamb 5, AP + MV support duration",
+        "start": 217,
+        "end": 332,
+        "time_unit": "hours since AP-support start (derived)",
+        "stage_source_artifact_id": "church2018-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm lamb supported on artificial placenta and transitioned toward mechanical ventilation"
+      },
+      "assay": {
+        "name": "Table 1 source-row transcription",
+        "endpoint": "AP + MV support duration",
+        "unit": "hours",
+        "measurement_role": "durability"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "AP Lamb 5",
+        "parent_id": "church_2018_ap_transition_group",
+        "hierarchy_note": "Table 1 row label only; no persistent identifier across studies is reported."
+      },
+      "observation": {
+        "value": 115,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "church2018-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6151273/",
+        "license": "PMC full text; XML states text-mining availability; broader reuse terms not assessed",
+        "sha256": "b6e94bfed6c6a3eaeec041bec74ba83a33ff38804955c99f9d1b9c1c392ef9b0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, AP Lamb 5 row, Support Times (hours), AP + MV column",
+      "limitations": [
+        "Table 1 source labels AP Lamb 1–5; no persistent identifier links these rows to another study or dataset.",
+        "Table-row outcomes are not assigned exact event timestamps. The table does not support ordering each narrative event against the reported phase-duration endpoint.",
+        "The paper reports terminal lung assessment/autopsy and no long-term post-support developmental follow-up; these records do not establish healthy development.",
+        "Elapsed-hour interval bounds are computed cumulatively from the Table 1 phase durations in this same row and the sequential phase order stated in §3.1; they are not absolute timestamps."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "church2018-ap-lamb5-mv-alone-duration",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "transition_to_neonatal",
+      "developmental_interval": {
+        "label": "Table 1 AP Lamb 5, MV alone support duration",
+        "start": 332,
+        "end": 341,
+        "time_unit": "hours since AP-support start (derived)",
+        "stage_source_artifact_id": "church2018-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm lamb supported on artificial placenta and transitioned toward mechanical ventilation"
+      },
+      "assay": {
+        "name": "Table 1 source-row transcription",
+        "endpoint": "MV alone support duration",
+        "unit": "hours",
+        "measurement_role": "durability"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "AP Lamb 5",
+        "parent_id": "church_2018_ap_transition_group",
+        "hierarchy_note": "Table 1 row label only; no persistent identifier across studies is reported."
+      },
+      "observation": {
+        "value": 9,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "church2018-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6151273/",
+        "license": "PMC full text; XML states text-mining availability; broader reuse terms not assessed",
+        "sha256": "b6e94bfed6c6a3eaeec041bec74ba83a33ff38804955c99f9d1b9c1c392ef9b0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, AP Lamb 5 row, Support Times (hours), MV alone column",
+      "limitations": [
+        "Table 1 source labels AP Lamb 1–5; no persistent identifier links these rows to another study or dataset.",
+        "Table-row outcomes are not assigned exact event timestamps. The table does not support ordering each narrative event against the reported phase-duration endpoint.",
+        "The paper reports terminal lung assessment/autopsy and no long-term post-support developmental follow-up; these records do not establish healthy development.",
+        "Elapsed-hour interval bounds are computed cumulatively from the Table 1 phase durations in this same row and the sequential phase order stated in §3.1; they are not absolute timestamps."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "church2018-ap-lamb5-airway-strategy",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 1 AP Lamb 5, airway strategy",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported table item",
+        "stage_source_artifact_id": "church2018-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm lamb supported on artificial placenta and transitioned toward mechanical ventilation"
+      },
+      "assay": {
+        "name": "Table 1 source-row transcription",
+        "endpoint": "Airway management strategy during AP support",
+        "unit": "source-reported category",
+        "measurement_role": "environmental_condition"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "AP Lamb 5",
+        "parent_id": "church_2018_ap_transition_group",
+        "hierarchy_note": "Table 1 row label only; no persistent identifier across studies is reported."
+      },
+      "observation": {
+        "value": "PFC",
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "church2018-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6151273/",
+        "license": "PMC full text; XML states text-mining availability; broader reuse terms not assessed",
+        "sha256": "b6e94bfed6c6a3eaeec041bec74ba83a33ff38804955c99f9d1b9c1c392ef9b0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, AP Lamb 5 row, Airway column; footnote a defines the source abbreviation",
+      "limitations": [
+        "Table 1 source labels AP Lamb 1–5; no persistent identifier links these rows to another study or dataset.",
+        "Table-row outcomes are not assigned exact event timestamps. The table does not support ordering each narrative event against the reported phase-duration endpoint.",
+        "The paper reports terminal lung assessment/autopsy and no long-term post-support developmental follow-up; these records do not establish healthy development."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "church2018-ap-lamb5-ductus-day9",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 1 AP Lamb 5, ductus status on Day 9",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported table item",
+        "stage_source_artifact_id": "church2018-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm lamb supported on artificial placenta and transitioned toward mechanical ventilation"
+      },
+      "assay": {
+        "name": "Table 1 source-row transcription",
+        "endpoint": "Ductus arteriosus status on Day 9 of support",
+        "unit": "source-reported category",
+        "measurement_role": "function"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "AP Lamb 5",
+        "parent_id": "church_2018_ap_transition_group",
+        "hierarchy_note": "Table 1 row label only; no persistent identifier across studies is reported."
+      },
+      "observation": {
+        "value": "Unable to assess",
+        "measurement_time": 9,
+        "measurement_time_unit": "days of support (as labeled by source)",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "church2018-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6151273/",
+        "license": "PMC full text; XML states text-mining availability; broader reuse terms not assessed",
+        "sha256": "b6e94bfed6c6a3eaeec041bec74ba83a33ff38804955c99f9d1b9c1c392ef9b0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, AP Lamb 5 row, Ductus (Day 9) column; §3.1 states assessment preceded mechanical ventilation",
+      "limitations": [
+        "Table 1 source labels AP Lamb 1–5; no persistent identifier links these rows to another study or dataset.",
+        "Table-row outcomes are not assigned exact event timestamps. The table does not support ordering each narrative event against the reported phase-duration endpoint.",
+        "The paper reports terminal lung assessment/autopsy and no long-term post-support developmental follow-up; these records do not establish healthy development."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "church2018-ap-lamb5-ap-complication",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 1 AP Lamb 5, complication during AP support",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported table item",
+        "stage_source_artifact_id": "church2018-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm lamb supported on artificial placenta and transitioned toward mechanical ventilation"
+      },
+      "assay": {
+        "name": "Table 1 source-row transcription",
+        "endpoint": "Complication during AP support, source-table narrative",
+        "unit": "source-reported narrative",
+        "measurement_role": "adverse_effect"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "AP Lamb 5",
+        "parent_id": "church_2018_ap_transition_group",
+        "hierarchy_note": "Table 1 row label only; no persistent identifier across studies is reported."
+      },
+      "observation": {
+        "value": "Anemia",
+        "measurement_time": "during AP support",
+        "measurement_time_unit": "source column phase label; exact event time not reported",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "church2018-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6151273/",
+        "license": "PMC full text; XML states text-mining availability; broader reuse terms not assessed",
+        "sha256": "b6e94bfed6c6a3eaeec041bec74ba83a33ff38804955c99f9d1b9c1c392ef9b0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, AP Lamb 5 row, Complications during AP Support column",
+      "limitations": [
+        "Table 1 source labels AP Lamb 1–5; no persistent identifier links these rows to another study or dataset.",
+        "Table-row outcomes are not assigned exact event timestamps. The table does not support ordering each narrative event against the reported phase-duration endpoint.",
+        "The paper reports terminal lung assessment/autopsy and no long-term post-support developmental follow-up; these records do not establish healthy development."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "church2018-ap-lamb5-outcome",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "transition_to_neonatal",
+      "developmental_interval": {
+        "label": "Table 1 AP Lamb 5, reported outcome",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported table item",
+        "stage_source_artifact_id": "church2018-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm lamb supported on artificial placenta and transitioned toward mechanical ventilation"
+      },
+      "assay": {
+        "name": "Table 1 source-row transcription",
+        "endpoint": "Table 1 outcome narrative",
+        "unit": "source-reported narrative",
+        "measurement_role": "adverse_effect"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "AP Lamb 5",
+        "parent_id": "church_2018_ap_transition_group",
+        "hierarchy_note": "Table 1 row label only; no persistent identifier across studies is reported."
+      },
+      "observation": {
+        "value": "Intestinal perforation/NEC",
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "church2018-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC6151273/",
+        "license": "PMC full text; XML states text-mining availability; broader reuse terms not assessed",
+        "sha256": "b6e94bfed6c6a3eaeec041bec74ba83a33ff38804955c99f9d1b9c1c392ef9b0",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Table 1, AP Lamb 5 row, Outcome column; event timestamp not reported",
+      "limitations": [
+        "Table 1 source labels AP Lamb 1–5; no persistent identifier links these rows to another study or dataset.",
+        "Table-row outcomes are not assigned exact event timestamps. The table does not support ordering each narrative event against the reported phase-duration endpoint.",
+        "The paper reports terminal lung assessment/autopsy and no long-term post-support developmental follow-up; these records do not establish healthy development."
+      ]
+    }
+  ],
+  "limitations": [
+    "The five Table 1 rows are a transition-analysis subset within a larger AP project group reported as n=12; the table is not a complete attempted-animal denominator.",
+    "The article reports group summaries of 230±11 h AP-only, 37±36 h concurrent AP+MV, and 11±10 h MV alone. Table 1 row arithmetic reproduces the concurrent-support summary from the first four rows, while the all-five mean is 52.6 h; the article does not identify the statistic-specific denominator or resolve the fifth row’s inclusion.",
+    "The article notes possible selection bias because initial continuation/transition selection required hemodynamic stability after seven support days; case-specific selection status is not mapped.",
+    "Table 1 reports complications/outcome narratives without exact event timestamps. Terminal lung assessment/autopsy is not long-term post-support follow-up, and these records do not establish healthy development."
+  ],
+  "cohort_coverage": [
+    {
+      "coverage_id": "church2018-ap-transition-table1-n5",
+      "source_artifact_id": "church2018-article",
+      "reported_group_label": "Five AP-supported lambs analyzed for transition to mechanical ventilation",
+      "group_label_status": "reported",
+      "counted_entity_kind": "fetus",
+      "counted_entity_label": "AP Lamb 1 through AP Lamb 5, as labeled in Table 1",
+      "endpoint_label": "Table 1 row-wise phase durations, airway strategy, Day 9 ductus status, AP-support complications, and outcome narratives",
+      "population_frame": "Five-lamb transition-analysis cohort within a larger AP project group reported as n=12.",
+      "measurement_window": "AP support, AP+MV, and MV-alone duration rows; ductus status on Day 9; exact outcome-event times not reported.",
+      "selection_definition": "The article identifies five lambs in the transition-analysis cohort within a larger AP project group (n=12). It also notes potential selection bias: initially, only lambs hemodynamically stable after seven days of AP support were selected to continue and transition; the case-specific application of this rule is not stated.",
+      "selection_definition_source_locator": "Discussion, paragraphs describing the five-lamb cohort, larger n=12 project group, and potential selection bias; Table 1",
+      "denominator": {
+        "value": 5,
+        "value_status": "reported",
+        "reported_label": "Five lambs in the transition-analysis cohort",
+        "source_locator": "Discussion, five-lamb cohort within larger n=12 group; Table 1 AP Lamb 1–5 rows"
+      },
+      "declarations": [
+        {
+          "category": "assessed",
+          "scope": "within_denominator",
+          "reported_label": "AP Lamb 1 through AP Lamb 5 rows are listed",
+          "quantity_kind": "count",
+          "value": 5,
+          "value_status": "reported",
+          "source_locator": "Table 1, AP Lamb 1–5 rows",
+          "note": "All five source-labeled case rows are represented in the candidate intake."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Five case rows list support durations, complications, and outcomes",
+          "quantity_kind": "count",
+          "value": 5,
+          "value_status": "reported",
+          "source_locator": "Table 1, AP Lamb 1–5 rows",
+          "note": "Row coverage does not establish complete post-support developmental follow-up."
+        }
+      ],
+      "selection_statements": [
+        {
+          "text": "The discussion says the five-lamb cohort was part of a larger artificial-placenta project group of 12 lambs.",
+          "source_locator": "Discussion, paragraph beginning “Using a fetal lamb model...”"
+        },
+        {
+          "text": "The article notes potential selection bias: initially, only lambs hemodynamically stable after seven days of AP support were selected to continue support and transition; it does not map that selection rule to each table row.",
+          "source_locator": "Discussion, final paragraph on experimental-cohort limitations"
+        },
+        {
+          "text": "The discussion reports that all five lambs transitioned to mechanical ventilation after AP support and four of five were fully weaned from AP support; the table’s case-level linkage to the reported 37±36-hour concurrent-support summary remains unresolved.",
+          "source_locator": "Discussion, transition paragraph; §3.1; Table 1"
+        }
+      ],
+      "cohort_window_status": "source_reported_common",
+      "disposition_completeness": "partial",
+      "categories_mutually_exclusive": "unknown",
+      "categories_exhaustive": "unknown"
+    }
+  ],
+  "transitions": [
+    {
+      "transition_id": "church2018-ap-lamb1-to-concurrent-mv",
+      "from_record_ids": [
+        "church2018-ap-lamb1-ap-duration"
+      ],
+      "to_record_ids": [
+        "church2018-ap-lamb1-ap-mv-duration"
+      ],
+      "continuity_status": "demonstrated",
+      "note": "Table 1 links the phase-duration entries within the same AP Lamb row; §3.1 describes AP-only support followed by concurrent ECLS and mechanical ventilation. Phase boundaries are not timestamped."
+    },
+    {
+      "transition_id": "church2018-ap-lamb1-to-mv-alone",
+      "from_record_ids": [
+        "church2018-ap-lamb1-ap-mv-duration"
+      ],
+      "to_record_ids": [
+        "church2018-ap-lamb1-mv-alone-duration"
+      ],
+      "continuity_status": "demonstrated",
+      "note": "Table 1 links the concurrent-support and MV-alone duration entries within the same AP Lamb row. A positive MV-alone duration is retained as source-reported; no exact transition time or broader health endpoint is inferred."
+    },
+    {
+      "transition_id": "church2018-ap-lamb2-to-concurrent-mv",
+      "from_record_ids": [
+        "church2018-ap-lamb2-ap-duration"
+      ],
+      "to_record_ids": [
+        "church2018-ap-lamb2-ap-mv-duration"
+      ],
+      "continuity_status": "demonstrated",
+      "note": "Table 1 links the phase-duration entries within the same AP Lamb row; §3.1 describes AP-only support followed by concurrent ECLS and mechanical ventilation. Phase boundaries are not timestamped."
+    },
+    {
+      "transition_id": "church2018-ap-lamb2-to-mv-alone",
+      "from_record_ids": [
+        "church2018-ap-lamb2-ap-mv-duration"
+      ],
+      "to_record_ids": [
+        "church2018-ap-lamb2-mv-alone-duration"
+      ],
+      "continuity_status": "demonstrated",
+      "note": "Table 1 links the concurrent-support and MV-alone duration entries within the same AP Lamb row. A positive MV-alone duration is retained as source-reported; no exact transition time or broader health endpoint is inferred."
+    },
+    {
+      "transition_id": "church2018-ap-lamb3-to-concurrent-mv",
+      "from_record_ids": [
+        "church2018-ap-lamb3-ap-duration"
+      ],
+      "to_record_ids": [
+        "church2018-ap-lamb3-ap-mv-duration"
+      ],
+      "continuity_status": "demonstrated",
+      "note": "Table 1 links the phase-duration entries within the same AP Lamb row; §3.1 describes AP-only support followed by concurrent ECLS and mechanical ventilation. Phase boundaries are not timestamped."
+    },
+    {
+      "transition_id": "church2018-ap-lamb3-to-mv-alone",
+      "from_record_ids": [
+        "church2018-ap-lamb3-ap-mv-duration"
+      ],
+      "to_record_ids": [
+        "church2018-ap-lamb3-mv-alone-duration"
+      ],
+      "continuity_status": "demonstrated",
+      "note": "Table 1 links the concurrent-support and MV-alone duration entries within the same AP Lamb row. A positive MV-alone duration is retained as source-reported; no exact transition time or broader health endpoint is inferred."
+    },
+    {
+      "transition_id": "church2018-ap-lamb4-to-concurrent-mv",
+      "from_record_ids": [
+        "church2018-ap-lamb4-ap-duration"
+      ],
+      "to_record_ids": [
+        "church2018-ap-lamb4-ap-mv-duration"
+      ],
+      "continuity_status": "demonstrated",
+      "note": "Table 1 links the phase-duration entries within the same AP Lamb row; §3.1 describes AP-only support followed by concurrent ECLS and mechanical ventilation. Phase boundaries are not timestamped."
+    },
+    {
+      "transition_id": "church2018-ap-lamb5-to-concurrent-mv",
+      "from_record_ids": [
+        "church2018-ap-lamb5-ap-duration"
+      ],
+      "to_record_ids": [
+        "church2018-ap-lamb5-ap-mv-duration"
+      ],
+      "continuity_status": "demonstrated",
+      "note": "Table 1 links the phase-duration entries within the same AP Lamb row; §3.1 describes AP-only support followed by concurrent ECLS and mechanical ventilation. Phase boundaries are not timestamped."
+    },
+    {
+      "transition_id": "church2018-ap-lamb5-to-mv-alone",
+      "from_record_ids": [
+        "church2018-ap-lamb5-ap-mv-duration"
+      ],
+      "to_record_ids": [
+        "church2018-ap-lamb5-mv-alone-duration"
+      ],
+      "continuity_status": "demonstrated",
+      "note": "Table 1 links the concurrent-support and MV-alone duration entries within the same AP Lamb row. A positive MV-alone duration is retained as source-reported; no exact transition time or broader health endpoint is inferred."
+    }
+  ]
+}

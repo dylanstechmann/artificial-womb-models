@@ -1,0 +1,250 @@
+{
+  "schema_version": 1,
+  "review_status": "candidate",
+  "human_review": "pending",
+  "inspected_on": "2026-10-11",
+  "source": {
+    "kind": "public_repository_metadata_for_human_single_cell_transcriptomics",
+    "geo_series": "GSE263528",
+    "bioproject": "PRJNA1097989",
+    "title": "Reciprocal Embryo-Endometrial adaptation at Implantation Onset Revealed by 3D Human Blastoid/Blastocyst-Endometrial Assembloid Co-Culture",
+    "geo_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE263528",
+    "bioproject_url": "https://www.ncbi.nlm.nih.gov/bioproject/PRJNA1097989",
+    "series_submission_date": "2024-04-09",
+    "public_date": "2026-08-21",
+    "last_updated": "2026-08-22",
+    "contributors": [
+      "Zhifen Tu",
+      "Yan Bi",
+      "Xinbao Zhang",
+      "Yixuan Wang",
+      "Jindian Hu",
+      "Che Chen"
+    ],
+    "series_type": "Expression profiling by high throughput sequencing",
+    "overall_design": "Single cell transcription profiling of blastoid and endometrial assembloids, as well as their co-culture.",
+    "review_depth": "NCBI GEO/BioProject/SRA metadata, bounded PubMed linkage queries, and full-stream structural integrity checks of all 11 GEO-listed UMI matrices; no expression values, sequencing reads, article full text, or paper supplement analyzed"
+  },
+  "repository_sample_map": {
+    "geo_sample_records": 11,
+    "unique_sra_experiment_accessions_listed": 11,
+    "submission_date_counts": {
+      "2024-04-09": 3,
+      "2026-05-14": 8
+    },
+    "last_update_date_for_all_sample_records": "2026-08-21",
+    "supplementary_file_entries_per_sample": 3,
+    "supplementary_file_content_types_listed": [
+      "cell barcode TSV",
+      "feature TSV",
+      "UMI matrix MTX"
+    ],
+    "sample_crosswalk": "artifacts/gse263528-maternal-interface-2026-10-11/GSE263528_sample_crosswalk.csv",
+    "normalized_metadata": "artifacts/gse263528-maternal-interface-2026-10-11/GSE263528_sample_metadata.json",
+    "sra_experiment_status_crosswalk": "artifacts/gse263528-maternal-interface-2026-10-11/GSE263528_sra_experiment_status.csv",
+    "sra_experiment_status_counts_at_2026-10-11": {
+      "suppressed": 11,
+      "run_lists_returned_nonempty": 0
+    },
+    "sra_status_qualification": "NCBI ESummary returned status=suppressed and empty run lists for all 11 GEO-linked SRX records at retrieval. This does not establish that sequence data do not exist or that alternate access routes are unavailable.",
+    "ena_run_report_outcome": "The metadata-only ENA run-report request did not respond within the bounded wait and was terminated; this is not evidence of absence.",
+    "geo_listed_umi_matrix_head_crosswalk": "artifacts/gse263528-maternal-interface-2026-10-11/GSE263528_geo_matrix_head_status.csv",
+    "geo_listed_umi_matrix_head_status_counts": {
+      "http_200": 11,
+      "requested": 11
+    },
+    "geo_matrix_content_qualification": "Cycle260 streamed and hashed all 11 complete GEO-listed matrix bodies (1,171,938,176 compressed bytes total), and Cycle262 validated all 314,202,222 sparse records for integer syntax, coordinate bounds and positive integer count-field format. No matrix file or count value was retained, and no expression-value distribution or biological comparison was computed. This does not establish assay quality, sample identity, or biological unit linkage.",
+    "unit_qualification": "GSM/SRX accessions are repository sample/experiment records. Their count is not an embryo, donor, independent-experiment, or assay-outcome denominator. The inspected metadata does not establish sample-to-individual developmental trajectories.",
+    "day_labels_qualification": "Day-2/day-4 strings and H0/H2/H6 labels are preserved as submitted sample names; no mapping to in-vivo developmental age or same-unit longitudinal observations is established.",
+    "geo_listed_barcode_feature_integrity_crosswalk": "artifacts/gse263528-maternal-interface-2026-10-11/GSE263528_geo_sidecar_integrity_cycle200.csv",
+    "geo_sidecar_integrity_screen_receipt": "artifacts/gse263528-maternal-interface-2026-10-11/gse263528-geo-sidecar-integrity-screen-cycle200.json",
+    "geo_sidecar_integrity_counts_at_2026-10-11": {
+      "requested": 22,
+      "http_200": 22,
+      "gzip_read_to_eof": 22,
+      "payload_size_matches_declared_length": 22,
+      "compressed_bytes_temporarily_processed": 11569917,
+      "raw_files_retained": 0
+    },
+    "geo_sidecar_structure_qualification": "All listed barcode/feature sidecars passed temporary gzip-to-EOF, declared-byte-length and Cycle200 SHA-256 checks. Cycle264 also confirmed their line counts match matrix dimensions, barcode rows have one nonempty unique key, and feature rows have three nonempty fields with unique first-column keys. Only aggregate counts and hashes are retained; raw sidecar rows and identifiers were discarded. These repository cell/feature records do not establish embryos, donors, independent experiments, or outcomes.",
+    "geo_listed_barcode_feature_key_validation_crosswalk": "artifacts/gse263528-maternal-interface-2026-10-11/GSE263528_geo_sidecar_key_validation_cycle264.csv",
+    "geo_sidecar_key_validation_receipt": "artifacts/gse263528-maternal-interface-2026-10-11/gse263528-geo-sidecar-key-validation-cycle264.json",
+    "geo_sidecar_key_validation_counts_at_2026-10-11": {
+      "sidecars_checked": 22,
+      "barcode_sidecars": 11,
+      "feature_sidecars": 11,
+      "sidecar_sha256_matches_cycle200": 22,
+      "line_counts_match_matrix_dimensions": 22,
+      "barcode_rows_checked": 2260414,
+      "feature_rows_checked": 402612,
+      "duplicate_key_rows": 0,
+      "blank_or_malformed_rows": 0,
+      "raw_identifiers_retained": false
+    },
+    "geo_sidecar_key_validation_qualification": "Barcode rows were checked for one nonempty unique identifier per line. Feature rows were checked for three nonempty fields and unique first-column identifiers. Counts establish repository-file consistency only; they are not biological-unit or assay-outcome denominators.",
+    "matrix_head_declared_total_bytes_at_2026_10_11": 1171938176,
+    "matrix_body_qualification": "The 11 GEO-listed UMI matrix bodies were temporarily streamed and fully hashed in Cycle260; Cycle262 then checked every sparse triplet's three-field integer syntax, row/column bounds, and positive integer count-field domain. No compressed matrix file or expression value was retained, and no expression-value distribution or biological comparison was computed.",
+    "geo_listed_matrix_full_integrity_crosswalk": "artifacts/gse263528-maternal-interface-2026-10-11/GSE263528_geo_matrix_full_integrity_cycle260.csv",
+    "geo_matrix_full_integrity_screen_receipt": "artifacts/gse263528-maternal-interface-2026-10-11/gse263528-geo-matrix-full-integrity-screen-cycle260.json",
+    "geo_matrix_full_integrity_counts_at_2026-10-11": {
+      "requested": 11,
+      "http_200": 11,
+      "declared_bytes_and_bytes_streamed_match": 11,
+      "compressed_bytes_streamed": 1171938176,
+      "gzip_crc_and_eof_valid": 11,
+      "matrix_market_dimensions_match_cycle201_headers": 11,
+      "actual_body_lines_match_declared_nonzero_entries": 11,
+      "nonzero_entry_lines_counted": 314202222,
+      "first_and_last_coordinate_samples_in_bounds": 11,
+      "compressed_sha256_recorded": 11,
+      "matrix_files_retained": 0,
+      "expression_values_retained": false
+    },
+    "geo_matrix_full_integrity_qualification": "The complete compressed streams were SHA-256 hashed and decompressed through gzip CRC/end-of-file. Matrix Market header dimensions and body-line counts matched the Cycle201 prefix headers. Cycle262 subsequently validated every triplet's syntax, coordinate bounds and positive integer count-field format; values were not retained, summarized, or interpreted biologically.",
+    "geo_listed_matrix_triplet_syntax_crosswalk": "artifacts/gse263528-maternal-interface-2026-10-11/GSE263528_geo_matrix_triplet_syntax_cycle262.csv",
+    "geo_matrix_triplet_syntax_counts_at_2026-10-11": {
+      "requested": 11,
+      "compressed_sha256_matches_cycle260": 11,
+      "triplet_records_checked": 314202222,
+      "records_with_three_fields": 314202222,
+      "records_with_integer_fields": 314202222,
+      "coordinates_in_bounds": 314202222,
+      "positive_integer_count_fields": 314202222,
+      "invalid_records": 0,
+      "matrix_files_retained": 0,
+      "count_values_retained": false,
+      "expression_value_summaries_computed": false
+    },
+    "geo_matrix_triplet_syntax_qualification": "All triplets were parsed only to validate field count, integer syntax, row/column bounds, and positive integer count-field format. No count-value aggregation, expression distribution, gene-level analysis, or biological interpretation was performed.",
+    "geo_listed_matrix_prefix_dimension_crosswalk": "artifacts/gse263528-maternal-interface-2026-10-11/GSE263528_geo_matrix_prefix_dimensions_cycle201.csv",
+    "geo_matrix_prefix_screen_receipt": "artifacts/gse263528-maternal-interface-2026-10-11/gse263528-geo-matrix-prefix-screen-cycle201.json",
+    "geo_matrix_prefix_screen_counts_at_2026-10-11": {
+      "requested": 11,
+      "http_206_bounded_prefix": 11,
+      "prefix_bytes_per_matrix": 65536,
+      "total_prefix_bytes_read": 720896,
+      "matrix_market_headers_parsed": 11,
+      "matrix_dimensions_matching_sidecar_row_counts": 11,
+      "prefixes_retained": 0,
+      "sparse_entries_read": 0,
+      "expression_values_read": 0
+    },
+    "matrix_prefix_qualification": "Only each gzipped Matrix Market prefix through the dimension header was read; no sparse entries or expression values. Header dimensions matched the retained feature/barcode file-row counts. This is file-shape consistency, not full-file integrity, sample identity, assay validity, or biological evidence."
+  },
+  "abstract_level_repository_summary": {
+    "reported_model_components": [
+      "human blastoids",
+      "human blastocyst sample label in one GEO record",
+      "endometrial assembloids"
+    ],
+    "reported_processes": [
+      "embryo attachment and expansion",
+      "trophoblast differentiation",
+      "gastrulation development"
+    ],
+    "interpretation_limit": "These are statements in the repository Series summary, not independently reviewed article outcomes or per-embryo measurements."
+  },
+  "publication_linkage": {
+    "series_relation_recorded": "BioProject PRJNA1097989",
+    "pubmed_relation_in_geo_series": false,
+    "bounded_pubmed_queries": [
+      {
+        "query": "GSE263528[all]",
+        "hits": 0
+      },
+      {
+        "query": "PRJNA1097989[all]",
+        "hits": 0
+      },
+      {
+        "query": "\"Reciprocal Embryo-Endometrial adaptation\"[Title]",
+        "hits": 0
+      }
+    ],
+    "song_2026_crosscheck": {
+      "song_pmid": "41443195",
+      "geo_contributor_with_initial_collision": "Xinbao Zhang",
+      "song_pubmed_author": "Xinwen Zhang",
+      "exact_full_name_match": false,
+      "geo_contributor_institution": "Tongji University (Series submitter metadata)",
+      "song_author_institution": "Shandong University (PubMed affiliation)",
+      "direct_sample_to_article_crosswalk_found": false,
+      "qualification": "Initials alone were insufficient. Full names differ and the inspected GEO record has no PubMed relation; leave the series unjoined to Song et al. pending direct provenance. This does not establish absence of collaboration or shared source material."
+    },
+    "search_scope": "NCBI GEO Series/Sample metadata, NCBI BioProject summary and exact PubMed title/accession queries; not a global publication or repository search. Europe PMC exact GSE accession/title and Song DOI/PMID API queries were added; the public full-text/supplement status is not globally resolved.",
+    "europe_pmc_screen": {
+      "artifact": "artifacts/gse263528-maternal-interface-2026-10-11/europepmc-publication-linkage-screen-cycle202.json",
+      "gse_accession_query_hits": 0,
+      "gse_exact_title_query_hits": 0,
+      "song_doi_record_pmid": "41443195",
+      "song_record_has_pmcid": false,
+      "song_record_in_europe_pmc_fulltext": false,
+      "song_record_in_pmc": false,
+      "song_record_has_europe_pmc_indexed_supplement": false,
+      "song_record_has_europe_pmc_pdf": false,
+      "song_record_has_text_mined_accession": false,
+      "article_data_availability_statement_reviewed": false,
+      "qualification": "Europe PMC exact accession/title searches returned zero. Its Song MED record lacks a PMCID and Europe PMC full-text/supplement/PDF/accession flags. These service index fields do not establish publisher-supplement absence; the publisher data-availability statement and direct source crosswalk remain unreviewed."
+    }
+  },
+  "data_review": {
+    "series_metadata_snapshot": "artifacts/gse263528-maternal-interface-2026-10-11/GSE263528_series_brief.soft",
+    "sample_metadata_snapshot": "artifacts/gse263528-maternal-interface-2026-10-11/GSE263528_sample_metadata.json",
+    "crosswalk_path": "artifacts/gse263528-maternal-interface-2026-10-11/GSE263528_sample_crosswalk.csv",
+    "sra_status_snapshot": "artifacts/gse263528-maternal-interface-2026-10-11/GSE263528_sra_experiment_esummary.json",
+    "sra_status_crosswalk": "artifacts/gse263528-maternal-interface-2026-10-11/GSE263528_sra_experiment_status.csv",
+    "run_status_screen_receipt": "artifacts/gse263528-maternal-interface-2026-10-11/gse263528-run-status-screen-cycle198.json",
+    "matrix_head_status_crosswalk": "artifacts/gse263528-maternal-interface-2026-10-11/GSE263528_geo_matrix_head_status.csv",
+    "matrix_head_receipt": "artifacts/gse263528-maternal-interface-2026-10-11/gse263528-geo-matrix-head-screen-cycle199.json",
+    "expression_matrices_downloaded": false,
+    "sequencing_reads_downloaded": false,
+    "supplementary_contents_reviewed": false,
+    "row_level_expression_values_transcribed": false,
+    "observation_records_promoted": 0,
+    "barcode_feature_sidecar_integrity_crosswalk": "artifacts/gse263528-maternal-interface-2026-10-11/GSE263528_geo_sidecar_integrity_cycle200.csv",
+    "barcode_feature_sidecar_receipt": "artifacts/gse263528-maternal-interface-2026-10-11/gse263528-geo-sidecar-integrity-screen-cycle200.json",
+    "barcode_feature_sidecars_temporarily_checked": 22,
+    "barcode_feature_sidecars_retained": 0,
+    "barcode_feature_sidecar_key_validation_crosswalk": "artifacts/gse263528-maternal-interface-2026-10-11/GSE263528_geo_sidecar_key_validation_cycle264.csv",
+    "barcode_feature_sidecar_key_validation_receipt": "artifacts/gse263528-maternal-interface-2026-10-11/gse263528-geo-sidecar-key-validation-cycle264.json",
+    "barcode_feature_sidecar_rows_structurally_checked": 2663026,
+    "barcode_feature_duplicate_keys": 0,
+    "barcode_feature_identifiers_retained": false,
+    "umi_matrix_declared_bytes_by_head": 1171938176,
+    "matrix_bodies_streamed": 11,
+    "matrix_body_compressed_bytes_streamed": 1171938176,
+    "matrix_files_retained": 0,
+    "matrix_full_integrity_crosswalk": "artifacts/gse263528-maternal-interface-2026-10-11/GSE263528_geo_matrix_full_integrity_cycle260.csv",
+    "matrix_full_integrity_receipt": "artifacts/gse263528-maternal-interface-2026-10-11/gse263528-geo-matrix-full-integrity-screen-cycle260.json",
+    "matrix_triplet_syntax_crosswalk": "artifacts/gse263528-maternal-interface-2026-10-11/GSE263528_geo_matrix_triplet_syntax_cycle262.csv",
+    "matrix_triplet_syntax_receipt": "artifacts/gse263528-maternal-interface-2026-10-11/gse263528-geo-matrix-triplet-syntax-screen-cycle262.json",
+    "matrix_triplet_records_syntax_checked": 314202222,
+    "matrix_triplet_invalid_records": 0,
+    "matrix_triplet_count_fields_structurally_validated": 314202222,
+    "matrix_expression_value_summaries_computed": false,
+    "matrix_sparse_entry_lines_counted": 314202222,
+    "matrix_expression_values_analyzed": false,
+    "matrix_content_reviewed": false,
+    "matrix_prefix_dimension_crosswalk": "artifacts/gse263528-maternal-interface-2026-10-11/GSE263528_geo_matrix_prefix_dimensions_cycle201.csv",
+    "matrix_prefix_receipt": "artifacts/gse263528-maternal-interface-2026-10-11/gse263528-geo-matrix-prefix-screen-cycle201.json",
+    "matrix_prefix_bytes_read": 720896,
+    "matrix_headers_matching_sidecars": 11,
+    "matrix_prefixes_retained": 0,
+    "europe_pmc_publication_linkage_screen": "artifacts/gse263528-maternal-interface-2026-10-11/europepmc-publication-linkage-screen-cycle202.json"
+  },
+  "feasibility_boundary": {
+    "supports": "A candidate human early-implantation interface transcriptomics route described by NCBI metadata.",
+    "does_not_establish": [
+      "per-embryo developmental success or failure",
+      "a validated embryo or donor denominator",
+      "same-embryo longitudinal progression",
+      "placental exchange support",
+      "continuous development beyond the source-mapped interval",
+      "complete gestation",
+      "birth or neonatal transition",
+      "postnatal health"
+    ],
+    "authors_contacted": false,
+    "clinical_inference_made": false
+  }
+}

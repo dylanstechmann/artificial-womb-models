@@ -67,6 +67,48 @@
       "url": "https://api.github.com/repos/kreshuklab/mouse-embryo-seg/git/trees/main?recursive=1",
       "bytes": 11351,
       "sha256": "85fc491a838d7af6d251764713854f157a20fa55db5a41c1eb729774d4675f13"
+    },
+    {
+      "path": "artifacts/source-mapping-2026-10-09/bondarenko-figure1-cell-counts.csv",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.15252%2Fembj.2022113280/MediaObjects/44318_2023_BFEMBJ2022113280_MOESM15_ESM.zip#Figure%201/Panel%20f/Cell%20counts%20panel%20f.csv",
+      "bytes": 3375,
+      "sha256": "d718beb887e025aa64a45a934d7b8eb4d4ec8003cc0c49bf2dfb9efcb7f51d8e",
+      "role": "Selected original publisher Figure 1 source-data CSV member fetched by HTTP byte range only; ZIP member CRC validated; not an embryo identity or outcome map"
+    },
+    {
+      "path": "artifacts/source-mapping-2026-10-09/bondarenko-figure1-embryo-dimensions.csv",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.15252%2Fembj.2022113280/MediaObjects/44318_2023_BFEMBJ2022113280_MOESM15_ESM.zip#Figure%201/Panel%20g/Embryo%20dimensions.csv",
+      "bytes": 1680,
+      "sha256": "eddfb965459e5238196b893a0b465cb69fb6d7a34e01797d6bfebe3bd9c3d0d4",
+      "role": "Selected original publisher Figure 1 source-data CSV member fetched by HTTP byte range only; ZIP member CRC validated; not an embryo identity or outcome map"
+    },
+    {
+      "path": "artifacts/source-mapping-2026-10-09/bondarenko-figure1-members.json",
+      "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.15252%2Fembj.2022113280/MediaObjects/44318_2023_BFEMBJ2022113280_MOESM15_ESM.zip",
+      "bytes": 8123,
+      "sha256": "60dfe2aa953c08ced80274db7d875c97c2c87bcc5cb9f05a0e45f04c66ac38df",
+      "role": "Bounded remote ZIP central-directory metadata and selected-member byte/hash record; full archive not downloaded"
+    },
+    {
+      "path": "artifacts/source-mapping-2026-10-09/bondarenko-zenodo-central-directory-cycle280.json",
+      "role": "Parsed bounded Zenodo ZIP central-directory inventory; exact HTTP range requests and archive member metadata preserved; full archive not downloaded",
+      "url": "https://zenodo.org/api/records/6546550/files/MouseEmbryos.zip/content",
+      "bytes": 14970,
+      "sha256": "4580df9fd00d86c96cdec7c9160116bdfb902ad3fe33f57819e8322429a960f6"
+    },
+    {
+      "path": "artifacts/source-mapping-2026-10-09/bondarenko-zenodo-readme-cycle280.md",
+      "role": "README.md extracted from verified small HTTP range; ZIP member size and CRC validated",
+      "url": "https://zenodo.org/api/records/6546550/files/MouseEmbryos.zip/content#README.md",
+      "bytes": 838,
+      "sha256": "026ead0feed27d33a6b5178d94a35ff5acbb4d5690409e8844c075f6d1b8bbf9"
+    },
+    {
+      "path": "artifacts/source-mapping-2026-10-09/bondarenko-zenodo-archive-range-inspection-cycle280.json",
+      "role": "Cycle 280 receipt for bounded archive metadata inspection and linkage boundary",
+      "url": "https://doi.org/10.5281/zenodo.6546550",
+      "bytes": 4378,
+      "sha256": "932612d2c2430bd92a682bbf17f45d9a5dbda13f12bf547d8d87dd59a94cf232"
     }
   ],
   "selected_scope": [
@@ -76,7 +118,8 @@
     "Data availability sec-0054; license",
     "Publisher Figure 6 source archive: displacement, cell-track, cell-count and embryo-length native CSVs; media not inspected/executed",
     "Appendix Figure S4 (page 6), S8 (page 10), S9 (page 11), Table S4 (page 15), Note sections 2.1/2.2 (pages 19/20)",
-    "Public segmentation repository recursive tree, pinned README and threshold segmentation script; no model weights, notebooks or source programs executed"
+    "Public segmentation repository recursive tree, pinned README and threshold segmentation script; no model weights, notebooks or source programs executed",
+    "Publisher Figure 1 ZIP central directory inspected via HTTPS byte ranges; two tabular source-data members fetched (cell counts and embryo dimensions); TIFF images and remainder of archive not downloaded."
   ],
   "source_summary_counts": {
     "composite_day3": {
@@ -115,7 +158,7 @@
   },
   "repository": {
     "url": "https://doi.org/10.5281/zenodo.6546550",
-    "scope": "metadata only",
+    "scope": "Zenodo record metadata plus bounded ZIP central-directory and README range inspection; archive not downloaded",
     "metadata_license": "cc-by-4.0",
     "files": [
       {
@@ -135,8 +178,30 @@
       "label: instance segmentation"
     ],
     "archive_downloaded": false,
-    "archive_byte_integrity": "not_checked",
-    "unit_time_outcome_links": "not_qualified; metadata describes segmentation annotations, not healthy development ground truth"
+    "archive_byte_integrity": "ZIP central-directory range and README member CRC/size validated; full archive checksum not computed",
+    "unit_time_outcome_links": "not established; inspected archive inventory contains segmentation image/label stacks and README only; no specimen crosswalk or later-development outcome table located in this bounded scope",
+    "archive_range_inspection_cycle280": {
+      "receipt": "artifacts/source-mapping-2026-10-09/bondarenko-zenodo-archive-range-inspection-cycle280.json",
+      "central_directory": "artifacts/source-mapping-2026-10-09/bondarenko-zenodo-central-directory-cycle280.json",
+      "readme": "artifacts/source-mapping-2026-10-09/bondarenko-zenodo-readme-cycle280.md",
+      "archive_size_bytes": 3077837738,
+      "range_request_count": 3,
+      "range_bytes_fetched": 71499,
+      "member_count": 53,
+      "member_type_counts": {
+        "directory": 7,
+        ".h5": 41,
+        ".md": 1,
+        ".png": 4
+      },
+      "textual_metadata_members": [
+        "README.md"
+      ],
+      "readme_crc_validated": true,
+      "full_archive_downloaded": false,
+      "full_archive_checksum_computed": false,
+      "mapping_result": "no movement-to-embryo/outcome key found in bounded archive metadata; E#_Ab# aliases unresolved"
+    }
   },
   "separate_sequencing_accession": "GSE228264; file/sample inventory and phenotype join not qualified",
   "source_review_issues": [
@@ -146,7 +211,8 @@
     "In-vivo soft-wetting account proposed in Discussion, not demonstrated by engineered-environment fit.",
     "No support-receipt/function evidence pairing closes the adequate-support versus coordination discriminator.",
     "Selected orientation cell-count comparison conditions on successful development; all-starting-unit effects require a complete disposition roster.",
-    "Appendix held-out shape validation has a later mismatch in one of three embryos and uses the held-out volume derivative; growth-input independence and absolute force scale remain unqualified."
+    "Appendix held-out shape validation has a later mismatch in one of three embryos and uses the held-out volume derivative; growth-input independence and absolute force scale remain unqualified.",
+    "Bounded Figure 1 source-data CSVs add stage-labelled cell-count and dimension rows but no stable specimen keys, recipient/experiment identifiers, dispositions or later outcomes; Figure 6 movement-to-outcome linkage remains not established."
   ],
   "biological_assay_performed": false,
   "biological_fit_performed": false,
@@ -236,8 +302,63 @@
     "audit_command": "audit-boundary-source; source archive pinned, native selected bytes retained, no effect estimation or biological model fit",
     "figure1_source_retrieval": {
       "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.15252%2Fembj.2022113280/MediaObjects/44318_2023_BFEMBJ2022113280_MOESM15_ESM.zip",
-      "status": "not_retrieved_exceeds_local_64_MB_limit",
-      "starting_roster": "not_qualified"
+      "status": "bounded_range_metadata_and_selected_tables_inspected",
+      "archive_bytes": 242614750,
+      "etag": "\"9d388675503d52e967dfee8196f7e7fc\"",
+      "last_modified": "Tue, 18 Nov 2025 12:40:22 GMT",
+      "member_count": 40,
+      "range_bytes_fetched": 131550,
+      "full_archive_downloaded": false,
+      "full_archive_sha256": "not_computed",
+      "central_directory_path": "artifacts/source-mapping-2026-10-09/bondarenko-figure1-members.json",
+      "selected_members": [
+        {
+          "member": "Figure 1/Panel f/Cell counts panel f.csv",
+          "file": "bondarenko-figure1-cell-counts.csv",
+          "bytes": 3375,
+          "sha256": "d718beb887e025aa64a45a934d7b8eb4d4ec8003cc0c49bf2dfb9efcb7f51d8e",
+          "zip_crc32": "486e3ab5",
+          "data_rows": 160,
+          "rows_by_category_stage": {
+            "In vivo E3.5": 5,
+            "In vivo E4.5": 21,
+            "In vivo E4.75": 28,
+            "In vivo E5.0": 20,
+            "In vivo E5.25": 20,
+            "In vivo E5.5": 21,
+            "3E-uterus D1": 20,
+            "3E-uterus D2": 13,
+            "3E-uterus D3": 12
+          },
+          "columns": [
+            "Category",
+            "Stage",
+            "VE",
+            "EPI"
+          ]
+        },
+        {
+          "member": "Figure 1/Panel g/Embryo dimensions.csv",
+          "file": "bondarenko-figure1-embryo-dimensions.csv",
+          "bytes": 1680,
+          "sha256": "eddfb965459e5238196b893a0b465cb69fb6d7a34e01797d6bfebe3bd9c3d0d4",
+          "zip_crc32": "20941226",
+          "data_rows": 26,
+          "rows_by_category": {
+            "3E-uterus D3": 12,
+            "In utero E5.25": 14
+          },
+          "columns": [
+            "Length",
+            "Minimal radius",
+            "Maximal radius",
+            "Average radius",
+            "Category"
+          ]
+        }
+      ],
+      "starting_roster": "not_qualified",
+      "movement_outcome_link": "not_established; Figure 1 tables have no specimen, recipient or experiment IDs and do not add a key to Figure 6 displacement rows"
     }
   },
   "appendix_qualification": {

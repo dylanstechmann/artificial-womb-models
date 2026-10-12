@@ -1,0 +1,129 @@
+{
+  "schema_version": 1,
+  "review_status": "candidate",
+  "human_review": "pending",
+  "inspected_on": "2026-10-11",
+  "article": {
+    "title": "Ex utero mouse embryogenesis from pre-gastrulation to late organogenesis",
+    "doi": "10.1038/s41586-021-03416-3",
+    "url": "https://www.nature.com/articles/s41586-021-03416-3",
+    "source_kind": "peer_reviewed_animal",
+    "species": "Mus musculus",
+    "reviewed_locators": [
+      "Abstract",
+      "Figure 1 caption",
+      "Extended Data Figure 2 caption",
+      "Data availability",
+      "Results: extended ex utero embryogenesis",
+      "Publisher workbook MOESM11, Panel d, culture-efficiency cells B33:E36",
+      "Publisher workbook MOESM12, Panel b, culture-efficiency cells B24:C24",
+      "Publisher workbook MOESM11, Panel e, individual length measurement cells B3:I45"
+    ]
+  },
+  "stage_coverage": {
+    "separate_starting_stages": ["E5.5", "E6.5", "E7.5"],
+    "reported_terminal_stage": "approximately E11 (hindlimb formation; late organogenesis)",
+    "maximum_reported_duration": "up to six days",
+    "starting_state_limit": "post-implantation mouse embryos; no pre-implantation-to-birth trajectory",
+    "cohort_linkage": "The E5.5, E6.5, and E7.5 starting-stage cohorts are separate protocols/cohorts and must not be joined into one continuous embryo trajectory."
+  },
+  "reported_endpoint": {
+    "starting_stage": "E7.5",
+    "timepoint": "after four culture days, approximately E11",
+    "normal_development_summary": "The article reports approximately 77% normal embryo development after four days across different mouse strains.",
+    "length_measurement_source_data": "MOESM11 Panel e contains 216 numeric embryo-length cells across eight separately labeled in-utero and ex-utero groups. Group cell counts are 13, 32, 19, 15, 15, 43, 38, and 41. The workbook title gives the antero-posterior axis for E8.5 and crown-rump axis for E9.5 onward. Ex-utero +Day labels remain culture time and are not converted to gestational age; group-local 'Embryo 1' labels do not establish identity across columns. Derived group means, sample SDs and SEMs are in the Cycle268 summary CSV and are not source-printed values.",
+    "adverse_outcome_narrative": [
+      "The authors report abnormalities, abrupt interruption of yolk-sac circulation, and pericardial effusion after four days, followed by rapid death overnight.",
+      "The authors interpret this as consistent with inadequate oxygen and nutrient supply relative to increased body size and the lack of maternal blood supply in the ex-utero system; this is an author interpretation, not an isolated causal test."
+    ],
+    "denominator_status": "Publisher source workbook MOESM11 Panel d reports 126 normally developed embryos / 163 total at +Day 4 (77% printed); summing the 12 experiment rows with a Day 4 fraction reproduces 126/163. The Day 4 denominator is timepoint-specific and excludes experiments 4-6, which are marked not continued; it is not the 230-embryo Day 1 denominator or a verified all-start survival risk set. No embryo identifiers or unit-linked event sequence are reported. Do not call this a survival probability.",
+    "caption_accounting": {
+      "figure_1d": "n denotes total embryos and x denotes experiments; plotted values are mean ± s.e.m.",
+      "extended_data_figure_2b": "Parenthetical numbers denote embryos assessed per condition at each sampled timepoint; embryos dissected, fixed, or moved to other conditions are subtracted from the total.",
+      "source_workbook_day4": "MOESM11 Panel d reports culture efficiency as normally developed embryos / total at +Day 1 through +Day 4: 227/230, 212/230, 155/185 and 126/163. Its note defines dash rows as cultures not continued due to experimental requirements. The daily denominators must remain distinct."
+    },
+    "functional_limit": "Morphological normality at the sampled endpoint does not establish sustained survival, mature organ function, complete gestation, live birth, or postnatal health."
+  },
+  "data_access_and_intake": {
+    "data_availability_statement": "The article states that source data are provided with the paper and lists publisher XLSX source-data files for Fig. 1 and Extended Data Fig. 2, among others.",
+    "source_workbook_status": "Two small XLSX files were retrieved directly from the DOI-derived official Springer static-content route and opened read-only. MOESM11 contains Panel d and Panel e; Panel d reports the E7.5 culture-efficiency series and says it is related to Fig. 1e and Extended Data Fig. 2b,c, while Panel e contains 216 individual length cells across eight groups. MOESM12 contains an E6.5 static-culture Panel b. Their contents are compatible with the Nature page's Source Data Fig. 1 and Extended Data Fig. 2 listings, but the exact page download-anchor-to-MOESM filename mapping was not verified because a normal article-page open still redirected to an inaccessible cookie authorization endpoint. No access-control workaround was attempted.",
+    "source_workbook_artifact_manifest": "artifacts/aguilera-castrejon-source-data-2026-10-11/SOURCE.json",
+    "experiment_level_crosswalk": "artifacts/aguilera-castrejon-source-data-2026-10-11/experiment-level-cell-crosswalk.csv",
+    "length_measurement_crosswalk": "artifacts/aguilera-castrejon-source-data-2026-10-11/panel-e-measurement-cell-crosswalk-cycle268.csv",
+    "length_measurement_descriptive_summary": "artifacts/aguilera-castrejon-source-data-2026-10-11/panel-e-length-descriptive-statistics-cycle268.csv",
+    "candidate_observation_dataset": "config/observations/aguilera_castrejon_2021_source_data_candidate.json",
+    "length_measurement_candidate_dataset": "config/observations/aguilera_castrejon_2021_length_source_candidate.json",
+    "figure_caption_access_screen": "Nature article HTML/PDF and Source data link did not expose the Figure 1 measurement caption through the public web reader; the article-body route redirected to cookie handling, and the official figure image timed out. PubMed ESummary lists PMID, DOI and PII, without a PMCID in the articleids list. Do not infer caption-level n/statistics from this access screen.",
+    "pubmed_accession_snapshot": "artifacts/aguilera-castrejon-source-data-2026-10-11/pubmed-esummary-33731940-cycle269.json",
+    "figure_caption_access_receipt": "artifacts/aguilera-castrejon-source-data-2026-10-11/figure-caption-and-open-fulltext-route-screen-cycle269.json",
+    "source_workbook_access_checks": [
+      {
+        "artifact": "Source Data Fig. 1 XLSX",
+        "discovery_source": "https://www.nature.com/articles/s41586-021-03416-3",
+        "discovery_result": "Listed in the search-indexed Nature article page.",
+        "access_result": "HTTP 200 from https://static-content.springer.com/esm/art%3A10.1038%2Fs41586-021-03416-3/MediaObjects/41586_2021_3416_MOESM11_ESM.xlsx; workbook opens with sheets Panel d and Panel e; SHA-256 0b6b05d036d251b0a2889421952ba4dc4b9f24e7e21844626457f81063000cc2; content-to-listing match is inferred, exact Nature download anchor unverified.",
+        "retrieval_status": "retrieved_official_static_asset_content_mapping_inferred"
+      },
+      {
+        "artifact": "Source Data Extended Data Fig. 2 XLSX",
+        "discovery_source": "https://www.nature.com/articles/s41586-021-03416-3",
+        "discovery_result": "Listed in the search-indexed Nature article page.",
+        "access_result": "HTTP 200 from https://static-content.springer.com/esm/art%3A10.1038%2Fs41586-021-03416-3/MediaObjects/41586_2021_3416_MOESM12_ESM.xlsx; workbook opens with sheet Panel b; SHA-256 e8b010822e984c444ee1c9602580be3474f8df1f9b82cc6f0d5848b2c33d6ee5; E6.5 content is compatible with the Extended Data Fig. 2 listing, exact Nature download anchor unverified.",
+        "retrieval_status": "retrieved_official_static_asset_content_mapping_inferred"
+      }
+    ],
+    "geo_sequence_dataset": {
+      "accession": "GSE149372",
+      "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE149372",
+      "series_title": "Ex utero Mouse Embryogenesis from Pre-Gastrulation to Late-Organogenesis",
+      "linked_bioproject": "PRJNA628518",
+      "linked_pubmed_id": "33731940",
+      "sample_record_count": 20,
+      "sample_stage_inventory": {
+        "E8.5_ex_utero": ["GSM4498728", "GSM4498729 (source title: replicates 2 and 3 pooled; 3 embryos)"],
+        "E8.5_in_utero_control": ["GSM4498732", "GSM4498733 (source title: replicates 2 and 3 pooled; 3 embryos)"],
+        "E10.5_ex_utero": ["GSM4498724", "GSM4498725", "GSM4498726", "GSM4498727", "GSM5068636", "GSM5068637", "GSM5068638"],
+        "E10.5_in_utero_control": ["GSM4498730", "GSM4498731", "GSM5068639", "GSM5068640", "GSM5068641"],
+        "stem_cell_controls": ["GSM4982987", "GSM4982988 (mESC)", "GSM4982989", "GSM4982990 (mEpiSC)"]
+      },
+      "terminal_boundary_coverage": "The 20 GEO sample records include E8.5 and E10.5 embryo labels plus stem-cell controls; none is labeled E11 or later.",
+      "interpretation_limit": "These are molecular-sample records, including pooled E8.5 libraries. They are not a starting-cohort survival denominator, do not locate onset of terminal deterioration, and expose no same-embryo join to Figure 1 development/survival outcomes. Sample labels and replicate numbers do not independently authenticate litter hierarchy or connect sequencing samples to the terminal risk set.",
+      "retrieval_method": "NCBI E-utilities GDS accession search and summary, retmax 100; all 20 GSM sample records inspected. Raw reads and count matrices were not downloaded or analyzed.",
+      "assay_type_mapping": {
+        "geo_series_type": "Expression profiling by high throughput sequencing",
+        "sample_run_link": "GEO sample GSM4498724 links to SRA experiment SRX8178759; GSM4498728 links to SRX8178763.",
+        "representative_sra_metadata": [
+          {"experiment": "SRX8178763", "sample": "GSM4498728, E8.5 ex-utero replicate 1", "reported_fields": "RNA-Seq; transcriptomic; cDNA; paired-end"},
+          {"experiment": "SRX9728626", "sample": "GSM4982987, WT mESC replicate 1", "reported_fields": "RNA-Seq; transcriptomic; cDNA; paired-end"}
+        ],
+        "bulk_vs_single_cell_status": "The GEO/SRA metadata inspected here does not distinguish bulk from single-cell for the representative libraries or map GSM/SRX records to the paper's bulk versus single-cell figures. The article states that both data types are deposited under GSE149372; the sample-to-assay crosswalk remains unresolved.",
+        "rate_limit_note": "A later E-utilities request returned an API rate-limit response. No retry was made; only validated response files are listed below."
+      },
+      "retrieval_snapshots": [
+        {"path": "artifacts/public-data-screen-2026-10-10/GSE149372-esearch.json", "bytes": 548, "sha256": "891ced83812168e5d9087d6aafdae67de843aa71594ada70aa9650b73d41f1ba", "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=gds&term=GSE149372%5BACCN%5D&retmax=100&retmode=json"},
+        {"path": "artifacts/public-data-screen-2026-10-10/GSE149372-esummary.json", "bytes": 280409, "sha256": "da7c895dcb8515d59fe75b270b13701049717dc13f1953d3390c3bb3cd75f7b1", "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esummary.fcgi?db=gds&id=200149372,100024247,100019057,304982990,304982989,304982988,304982987,305068641,305068640,305068639,305068638,305068637,305068636,304498733,304498732,304498731,304498730,304498729,304498728,304498727,304498726,304498725,304498724&retmode=json"},
+        {"path": "artifacts/public-data-screen-2026-10-10/GSE149372-efetch.txt", "bytes": 869, "sha256": "0268ec167a5bf34106ad10d6a68d1b9fe115c59d9e94e663a6e7434bfd5d884b", "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=gds&id=200149372&rettype=full&retmode=text"},
+        {"path": "artifacts/public-data-screen-2026-10-10/GSM4498724-efetch.txt", "bytes": 288, "sha256": "dddad69011c85e76bc0fb1ba2a1b73c7db2f3f70f0ffc2cb032b2794f7bf3c73", "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=gds&id=304498724&rettype=full&retmode=text"},
+        {"path": "artifacts/public-data-screen-2026-10-10/SRX8178763-efetch.xml", "bytes": 14999, "sha256": "2e8a6827dcd424e826f97407799a8eab3cb54ad889af4f0529920a6a0b539cfc", "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX8178763&rettype=full&retmode=xml"},
+        {"path": "artifacts/public-data-screen-2026-10-10/SRX9728626-efetch.xml", "bytes": 9985, "sha256": "78559721f1e33fd553405aaffb5186b95b5fde7d60000361dda12d99b1dff72a", "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=sra&id=SRX9728626&rettype=full&retmode=xml"}
+      ]
+    },
+    "observation_promotion": "Candidate datasets record six source-reported aggregate culture-efficiency summaries with timepoint-specific denominator records, plus 216 MOESM11 Panel e length measurements with source cell locators. They remain candidate and are not promoted to a human-reviewed ledger.",
+    "reason_not_promoted": "The workbook records provide no persistent embryo identities or verified same-unit links across sampled days. Culture-efficiency tables lack complete all-start disposition accounting or a survival endpoint. Two E6.5 experiment-level percentage literals disagree with their printed numerator/denominator pairs; the aggregate counts still sum to the workbook totals. Length is a morphology endpoint. Human review and exact figure-download-anchor mapping remain pending.",
+    "author_contact": "none"
+  },
+  "feasibility_boundary": {
+    "reported_achievement": "Separate mouse embryo culture cohorts were reported from post-implantation stages through approximately E11, with the E7.5-start cohort reaching late organogenesis before reported terminal deterioration.",
+    "design_relevance": "The reported deterioration makes support across the growing extraembryonic exchange interface a distinct unresolved handoff after early organogenesis. The paper does not establish a tested repair or a transferable human specification.",
+    "not_demonstrated": [
+      "complete gestation",
+      "live birth",
+      "postnatal viability",
+      "long-term health",
+      "human embryo support",
+      "surrogate replacement",
+      "reduced congenital defects"
+    ],
+    "model_use": "Mouse developmental milestone and terminal-failure evidence only; do not concatenate with separate fetal-support cohorts or convert stage to human gestational age."
+  }
+}

@@ -1,0 +1,387 @@
+{
+  "schema_version": 1,
+  "dataset_id": "schubert2026-amazeox-oxygen-transfer-candidate",
+  "title": "A-Maze-Ox single-test in-vitro oxygen-transfer operating points; candidate transcription",
+  "source_revision": {
+    "revision_id": "schubert2026-amazeox-vor-cycle325",
+    "citation": "Schubert F, Heyer J, Lunemann M, Arens J, Steinseifer U, Jansen SV, Schoberer M. A-Maze-Ox: a novel gas-exchange-area-adjustable oxygenator for extremely preterm infants—design and proof of concept. Pediatric Research. 2026. doi:10.1038/s41390-025-04740-4.",
+    "source_kind": "other",
+    "source_url": "https://www.nature.com/articles/s41390-025-04740-4",
+    "review_status": "candidate",
+    "reviewer": "",
+    "reviewed_on": null,
+    "review_note": ""
+  },
+  "artifacts": [
+    {
+      "artifact_id": "schubert2026-amazeox-article",
+      "uri": "https://www.nature.com/articles/s41390-025-04740-4",
+      "license": "CC BY 4.0",
+      "sha256": null,
+      "retrieved_on": "2026-10-11",
+      "source_resolution": {
+        "version_type": "published_version",
+        "version_identifier": "DOI 10.1038/s41390-025-04740-4; version of record published 2026-01-17",
+        "access_status": "full_text_free_to_read",
+        "oa_subset_status": "not_applicable",
+        "reuse_status": "explicit_license",
+        "license_expression": "CC-BY-4.0",
+        "checked_on": "2026-10-11",
+        "evidence_locator": "Publisher article landing page (Open access label); publisher PDF, rights and permissions statement on final page; DOI https://doi.org/10.1038/s41390-025-04740-4.",
+        "note": "The publisher identifies this as the published version and displays an Open access notice; the article rights statement specifies Creative Commons Attribution 4.0 International. Data availability says datasets can be requested from the corresponding author; no request was made and no data file was obtained. A local source-file hash is not recorded."
+      }
+    }
+  ],
+  "observations": [
+    {
+      "schema_version": 1,
+      "record_id": "amazeox-o2-transfer-sc-50",
+      "evidence_status": "author_reported_summary",
+      "species": "other",
+      "stage_track": "unspecified",
+      "developmental_interval": {
+        "label": "In-vitro oxygenator proof-of-concept test; development not assessed",
+        "start": null,
+        "end": null,
+        "time_unit": "not applicable",
+        "stage_source_artifact_id": "schubert2026-amazeox-article"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "A-Maze-Ox membrane oxygenator tested once in vitro with abattoir porcine blood under ISO 7199 conditioning; no human subjects",
+        "batch_id": null,
+        "laboratory_id": null
+      },
+      "assay": {
+        "name": "In-vitro oxygenator gas-transfer performance test",
+        "endpoint": "Oxygen transfer per blood volume",
+        "unit": "mL O2/L blood",
+        "measurement_role": "function",
+        "functional_evidence_class": "direct_function_measurement"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "The authors state that only one proof-of-concept test was performed. Operating points are not independent biological units; the source provides no per-run identifiers."
+      },
+      "observation": {
+        "value": 39.095,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null,
+        "measurement_conditions": [
+          {
+            "name": "operating_mode",
+            "value": "SC",
+            "unit": "",
+            "source_locator": "Methods > Experimental setup; five operating points"
+          },
+          {
+            "name": "blood_flow_rate",
+            "value": 50,
+            "unit": "mL/min",
+            "source_locator": "Methods > Experimental setup; five operating points"
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "schubert2026-amazeox-article",
+        "uri": "https://www.nature.com/articles/s41390-025-04740-4",
+        "license": "CC BY 4.0",
+        "sha256": null,
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Results > Blood gas values and Oxygen transfer performance; operating-point results",
+      "limitations": [
+        "The source reports 39.095 mL O2/L blood; blood-gas samples were taken before and after the oxygenator and sampled again after 6 minutes, with measured values averaged for transfer calculation.",
+        "Only one feasibility test was performed and no statistical analysis was conducted; sample size, repeatability and run-level variance are not established.",
+        "The test used abattoir porcine blood under ISO 7199 conditioning, not human fetal blood or a developing subject.",
+        "The paper states that its oxygen-transfer measurements did not reach the reported 24- and 28-week fetal-age targets; those requirements are not treatment settings or proof of clinical adequacy.",
+        "Data are available from the corresponding author on request, but no request was made; the public article route does not expose machine-readable run-level values."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "amazeox-o2-transfer-sc-100",
+      "evidence_status": "author_reported_summary",
+      "species": "other",
+      "stage_track": "unspecified",
+      "developmental_interval": {
+        "label": "In-vitro oxygenator proof-of-concept test; development not assessed",
+        "start": null,
+        "end": null,
+        "time_unit": "not applicable",
+        "stage_source_artifact_id": "schubert2026-amazeox-article"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "A-Maze-Ox membrane oxygenator tested once in vitro with abattoir porcine blood under ISO 7199 conditioning; no human subjects",
+        "batch_id": null,
+        "laboratory_id": null
+      },
+      "assay": {
+        "name": "In-vitro oxygenator gas-transfer performance test",
+        "endpoint": "Oxygen transfer per blood volume",
+        "unit": "mL O2/L blood",
+        "measurement_role": "function",
+        "functional_evidence_class": "direct_function_measurement"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "The authors state that only one proof-of-concept test was performed. Operating points are not independent biological units; the source provides no per-run identifiers."
+      },
+      "observation": {
+        "value": 17.44,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null,
+        "measurement_conditions": [
+          {
+            "name": "operating_mode",
+            "value": "SC",
+            "unit": "",
+            "source_locator": "Methods > Experimental setup; five operating points"
+          },
+          {
+            "name": "blood_flow_rate",
+            "value": 100,
+            "unit": "mL/min",
+            "source_locator": "Methods > Experimental setup; five operating points"
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "schubert2026-amazeox-article",
+        "uri": "https://www.nature.com/articles/s41390-025-04740-4",
+        "license": "CC BY 4.0",
+        "sha256": null,
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Results > Blood gas values and Oxygen transfer performance; operating-point results",
+      "limitations": [
+        "The source reports 17.44 mL O2/L blood; blood-gas samples were taken before and after the oxygenator and sampled again after 6 minutes, with measured values averaged for transfer calculation.",
+        "Only one feasibility test was performed and no statistical analysis was conducted; sample size, repeatability and run-level variance are not established.",
+        "The test used abattoir porcine blood under ISO 7199 conditioning, not human fetal blood or a developing subject.",
+        "The paper states that its oxygen-transfer measurements did not reach the reported 24- and 28-week fetal-age targets; those requirements are not treatment settings or proof of clinical adequacy.",
+        "Data are available from the corresponding author on request, but no request was made; the public article route does not expose machine-readable run-level values."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "amazeox-o2-transfer-sc-125",
+      "evidence_status": "author_reported_summary",
+      "species": "other",
+      "stage_track": "unspecified",
+      "developmental_interval": {
+        "label": "In-vitro oxygenator proof-of-concept test; development not assessed",
+        "start": null,
+        "end": null,
+        "time_unit": "not applicable",
+        "stage_source_artifact_id": "schubert2026-amazeox-article"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "A-Maze-Ox membrane oxygenator tested once in vitro with abattoir porcine blood under ISO 7199 conditioning; no human subjects",
+        "batch_id": null,
+        "laboratory_id": null
+      },
+      "assay": {
+        "name": "In-vitro oxygenator gas-transfer performance test",
+        "endpoint": "Oxygen transfer per blood volume",
+        "unit": "mL O2/L blood",
+        "measurement_role": "function",
+        "functional_evidence_class": "direct_function_measurement"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "The authors state that only one proof-of-concept test was performed. Operating points are not independent biological units; the source provides no per-run identifiers."
+      },
+      "observation": {
+        "value": 19.3,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null,
+        "measurement_conditions": [
+          {
+            "name": "operating_mode",
+            "value": "SC",
+            "unit": "",
+            "source_locator": "Methods > Experimental setup; five operating points"
+          },
+          {
+            "name": "blood_flow_rate",
+            "value": 125,
+            "unit": "mL/min",
+            "source_locator": "Methods > Experimental setup; five operating points"
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "schubert2026-amazeox-article",
+        "uri": "https://www.nature.com/articles/s41390-025-04740-4",
+        "license": "CC BY 4.0",
+        "sha256": null,
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Results > Blood gas values and Oxygen transfer performance; operating-point results",
+      "limitations": [
+        "The source reports 19.30 mL O2/L blood; blood-gas samples were taken before and after the oxygenator and sampled again after 6 minutes, with measured values averaged for transfer calculation.",
+        "Only one feasibility test was performed and no statistical analysis was conducted; sample size, repeatability and run-level variance are not established.",
+        "The test used abattoir porcine blood under ISO 7199 conditioning, not human fetal blood or a developing subject.",
+        "The paper states that its oxygen-transfer measurements did not reach the reported 24- and 28-week fetal-age targets; those requirements are not treatment settings or proof of clinical adequacy.",
+        "Data are available from the corresponding author on request, but no request was made; the public article route does not expose machine-readable run-level values."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "amazeox-o2-transfer-dc-125",
+      "evidence_status": "author_reported_summary",
+      "species": "other",
+      "stage_track": "unspecified",
+      "developmental_interval": {
+        "label": "In-vitro oxygenator proof-of-concept test; development not assessed",
+        "start": null,
+        "end": null,
+        "time_unit": "not applicable",
+        "stage_source_artifact_id": "schubert2026-amazeox-article"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "A-Maze-Ox membrane oxygenator tested once in vitro with abattoir porcine blood under ISO 7199 conditioning; no human subjects",
+        "batch_id": null,
+        "laboratory_id": null
+      },
+      "assay": {
+        "name": "In-vitro oxygenator gas-transfer performance test",
+        "endpoint": "Oxygen transfer per blood volume",
+        "unit": "mL O2/L blood",
+        "measurement_role": "function",
+        "functional_evidence_class": "direct_function_measurement"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "The authors state that only one proof-of-concept test was performed. Operating points are not independent biological units; the source provides no per-run identifiers."
+      },
+      "observation": {
+        "value": 30.32,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null,
+        "measurement_conditions": [
+          {
+            "name": "operating_mode",
+            "value": "DC",
+            "unit": "",
+            "source_locator": "Methods > Experimental setup; five operating points"
+          },
+          {
+            "name": "blood_flow_rate",
+            "value": 125,
+            "unit": "mL/min",
+            "source_locator": "Methods > Experimental setup; five operating points"
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "schubert2026-amazeox-article",
+        "uri": "https://www.nature.com/articles/s41390-025-04740-4",
+        "license": "CC BY 4.0",
+        "sha256": null,
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Results > Blood gas values and Oxygen transfer performance; operating-point results",
+      "limitations": [
+        "The source reports 30.32 mL O2/L blood; blood-gas samples were taken before and after the oxygenator and sampled again after 6 minutes, with measured values averaged for transfer calculation.",
+        "Only one feasibility test was performed and no statistical analysis was conducted; sample size, repeatability and run-level variance are not established.",
+        "The test used abattoir porcine blood under ISO 7199 conditioning, not human fetal blood or a developing subject.",
+        "The paper states that its oxygen-transfer measurements did not reach the reported 24- and 28-week fetal-age targets; those requirements are not treatment settings or proof of clinical adequacy.",
+        "Data are available from the corresponding author on request, but no request was made; the public article route does not expose machine-readable run-level values."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "amazeox-o2-transfer-dc-150",
+      "evidence_status": "author_reported_summary",
+      "species": "other",
+      "stage_track": "unspecified",
+      "developmental_interval": {
+        "label": "In-vitro oxygenator proof-of-concept test; development not assessed",
+        "start": null,
+        "end": null,
+        "time_unit": "not applicable",
+        "stage_source_artifact_id": "schubert2026-amazeox-article"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "A-Maze-Ox membrane oxygenator tested once in vitro with abattoir porcine blood under ISO 7199 conditioning; no human subjects",
+        "batch_id": null,
+        "laboratory_id": null
+      },
+      "assay": {
+        "name": "In-vitro oxygenator gas-transfer performance test",
+        "endpoint": "Oxygen transfer per blood volume",
+        "unit": "mL O2/L blood",
+        "measurement_role": "function",
+        "functional_evidence_class": "direct_function_measurement"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "The authors state that only one proof-of-concept test was performed. Operating points are not independent biological units; the source provides no per-run identifiers."
+      },
+      "observation": {
+        "value": 30.69,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null,
+        "measurement_conditions": [
+          {
+            "name": "operating_mode",
+            "value": "DC",
+            "unit": "",
+            "source_locator": "Methods > Experimental setup; five operating points"
+          },
+          {
+            "name": "blood_flow_rate",
+            "value": 150,
+            "unit": "mL/min",
+            "source_locator": "Methods > Experimental setup; five operating points"
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "schubert2026-amazeox-article",
+        "uri": "https://www.nature.com/articles/s41390-025-04740-4",
+        "license": "CC BY 4.0",
+        "sha256": null,
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "Results > Blood gas values and Oxygen transfer performance; operating-point results",
+      "limitations": [
+        "The source reports 30.69 mL O2/L blood; blood-gas samples were taken before and after the oxygenator and sampled again after 6 minutes, with measured values averaged for transfer calculation.",
+        "Only one feasibility test was performed and no statistical analysis was conducted; sample size, repeatability and run-level variance are not established.",
+        "The test used abattoir porcine blood under ISO 7199 conditioning, not human fetal blood or a developing subject.",
+        "The paper states that its oxygen-transfer measurements did not reach the reported 24- and 28-week fetal-age targets; those requirements are not treatment settings or proof of clinical adequacy.",
+        "Data are available from the corresponding author on request, but no request was made; the public article route does not expose machine-readable run-level values."
+      ]
+    }
+  ]
+}

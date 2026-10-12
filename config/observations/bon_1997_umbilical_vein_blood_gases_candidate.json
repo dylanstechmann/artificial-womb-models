@@ -1,0 +1,654 @@
+{
+  "schema_version": 1,
+  "dataset_id": "bon1997-uv-blood-gases-candidate",
+  "title": "Bon et al. 1997 abstract-level human fetal umbilical-vein gas summary; candidate transcription",
+  "source_revision": {
+    "revision_id": "bon1997-pubmed-abstract-cycle339",
+    "citation": "Bon C, Raudrant D, Poloce F, Champion F, Thoulon JM, Pichot J, Revol A. Acid-base equilibrium and oxygenation of the human fetus. Study of 73 samples obtained by cordocentesis. Ann Biol Clin (Paris). 1997;55(5):455-459. PMID: 9347013.",
+    "source_kind": "peer_reviewed_human_invivo",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/9347013/",
+    "review_status": "candidate",
+    "reviewer": "",
+    "reviewed_on": null,
+    "review_note": ""
+  },
+  "artifacts": [
+    {
+      "artifact_id": "bon1997-pubmed-abstract",
+      "uri": "https://pubmed.ncbi.nlm.nih.gov/9347013/",
+      "license": "PubMed bibliographic record and abstract; article reuse terms not confirmed",
+      "sha256": "c05d1ccfb4747cdb0dcb394322ba71c5a414518ad0f4d9a8dffb09847902dd73",
+      "retrieved_on": "2026-10-11",
+      "source_resolution": {
+        "version_type": "repository_record",
+        "version_identifier": "PMID 9347013; Ann Biol Clin (Paris). 1997;55(5):455-459.",
+        "access_status": "metadata_only",
+        "oa_subset_status": "not_applicable",
+        "reuse_status": "not_confirmed",
+        "license_expression": null,
+        "checked_on": "2026-10-11",
+        "evidence_locator": "Pinned NCBI E-utilities XML; PubMed record contains the English abstract.",
+        "note": "The pinned PubMed abstract is metadata-only for the article body. The official JLE issue and article pages identify the version of record and repeat the abstract values. The article page marks its full-text panel as freemium; the unauthenticated response showed only an opening paragraph and an order-an-article route, not the full article or tables. The journal-level archive catalog says full text is available after a 36-month delay with individual registration, but the exact article-level registration route was not completed. Article-specific full-text access, endpoint n, age-stratified values and reuse terms remain unresolved."
+      },
+      "local_path": "artifacts/schubert-amazeox-bon1997-intake-cycle339/sources/pubmed-efetch-bon1997-pmid9347013.xml",
+      "developmental_scope": {
+        "species": "human",
+        "stage_tracks": [
+          "unspecified"
+        ],
+        "time_unit": "gestational weeks (cohort span only)",
+        "start": 17,
+        "end": 41,
+        "source_locator": "PubMed abstract, second sentence: 73 AGA fetuses between 17 and 41 weeks of gestation."
+      }
+    }
+  ],
+  "observations": [
+    {
+      "schema_version": 1,
+      "record_id": "bon1997-uv-ph",
+      "evidence_status": "author_reported_summary",
+      "species": "human",
+      "stage_track": "unspecified",
+      "developmental_interval": {
+        "label": "Group cohort span 17-41 weeks; this result is not age-stratified",
+        "start": null,
+        "end": null,
+        "time_unit": "gestational weeks (cohort span only)",
+        "stage_source_artifact_id": "bon1997-pubmed-abstract"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Human appropriate-for-gestational-age fetus cohort; umbilical venous blood obtained by cordocentesis; abstract-level group summary."
+      },
+      "assay": {
+        "name": "Fetal blood acid-base and oxygenation analysis (assay details not available in abstract)",
+        "endpoint": "Umbilical venous blood pH",
+        "unit": "pH units",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "The abstract reports 73 fetuses in the study group but does not state endpoint-specific n or identify individual samples."
+      },
+      "observation": {
+        "value": 7.309,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null,
+        "summary_statistic": {
+          "kind": "reported_plus_minus",
+          "estimate": 7.309,
+          "plus_minus": 0.054,
+          "plus_minus_type": "not_reported",
+          "reported_sample_size": null,
+          "sample_size_scope": "The abstract identifies a cohort of 73 AGA fetuses but does not state endpoint-specific n for this summary; n is left null.",
+          "sample_size_source_locator": "PubMed abstract, second and third sentences; cohort and results.",
+          "source_literal": "pH = 7.309 +/- 0.054"
+        },
+        "measurement_conditions": [
+          {
+            "name": "specimen",
+            "value": "Umbilical venous blood",
+            "unit": "",
+            "source_locator": "PubMed abstract, second sentence for cohort and cordocentesis; third sentence for six umbilical-venous results."
+          },
+          {
+            "name": "sampling_method",
+            "value": "Cordocentesis",
+            "unit": "",
+            "source_locator": "PubMed abstract, second sentence for cohort and cordocentesis; third sentence for six umbilical-venous results."
+          },
+          {
+            "name": "cohort_size",
+            "value": 73,
+            "unit": "AGA fetuses in cohort; not asserted as endpoint-specific n",
+            "source_locator": "PubMed abstract, second sentence."
+          },
+          {
+            "name": "cohort_age_span",
+            "value": "17-41",
+            "unit": "gestational weeks; cohort span only",
+            "source_locator": "PubMed abstract, second sentence."
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "bon1997-pubmed-abstract",
+        "uri": "https://pubmed.ncbi.nlm.nih.gov/9347013/",
+        "license": "PubMed bibliographic record and abstract; article reuse terms not confirmed",
+        "sha256": "c05d1ccfb4747cdb0dcb394322ba71c5a414518ad0f4d9a8dffb09847902dd73",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "PubMed abstract, second sentence for cohort and cordocentesis; third sentence for six umbilical-venous results.",
+      "limitations": [
+        "The PubMed abstract describes a group of 73 appropriate-for-gestational-age fetuses spanning 17-41 gestational weeks; it does not provide age-stratified values for this summary.",
+        "The abstract does not identify endpoint-specific sample size. The cohort count of 73 is retained as study-frame context, not copied into each observation as n.",
+        "The abstract prints plus-minus values but does not identify whether they are standard deviations, standard errors, confidence intervals, or another quantity; all six are typed as not_reported.",
+        "The records preserve the reported group values and units; they do not assign individual fetal identities, imply that all six endpoints used the same samples, or create paired observations.",
+        "These broad-range in-vivo UV blood summaries are not a 24- or 28-week reference tuple, support requirement, physiological setpoint, safety boundary, or machine specification.",
+        "Only the PubMed abstract is locally pinned; the article full text, exact assay details and reuse terms remain unavailable or unconfirmed."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "bon1997-uv-pco2",
+      "evidence_status": "author_reported_summary",
+      "species": "human",
+      "stage_track": "unspecified",
+      "developmental_interval": {
+        "label": "Group cohort span 17-41 weeks; this result is not age-stratified",
+        "start": null,
+        "end": null,
+        "time_unit": "gestational weeks (cohort span only)",
+        "stage_source_artifact_id": "bon1997-pubmed-abstract"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Human appropriate-for-gestational-age fetus cohort; umbilical venous blood obtained by cordocentesis; abstract-level group summary."
+      },
+      "assay": {
+        "name": "Fetal blood acid-base and oxygenation analysis (assay details not available in abstract)",
+        "endpoint": "Umbilical venous blood pCO2",
+        "unit": "kPa",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "The abstract reports 73 fetuses in the study group but does not state endpoint-specific n or identify individual samples."
+      },
+      "observation": {
+        "value": 5.99,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null,
+        "summary_statistic": {
+          "kind": "reported_plus_minus",
+          "estimate": 5.99,
+          "plus_minus": 0.85,
+          "plus_minus_type": "not_reported",
+          "reported_sample_size": null,
+          "sample_size_scope": "The abstract identifies a cohort of 73 AGA fetuses but does not state endpoint-specific n for this summary; n is left null.",
+          "sample_size_source_locator": "PubMed abstract, second and third sentences; cohort and results.",
+          "source_literal": "pCO2 = 5.99 +/- 0.85 kPa"
+        },
+        "measurement_conditions": [
+          {
+            "name": "specimen",
+            "value": "Umbilical venous blood",
+            "unit": "",
+            "source_locator": "PubMed abstract, second sentence for cohort and cordocentesis; third sentence for six umbilical-venous results."
+          },
+          {
+            "name": "sampling_method",
+            "value": "Cordocentesis",
+            "unit": "",
+            "source_locator": "PubMed abstract, second sentence for cohort and cordocentesis; third sentence for six umbilical-venous results."
+          },
+          {
+            "name": "cohort_size",
+            "value": 73,
+            "unit": "AGA fetuses in cohort; not asserted as endpoint-specific n",
+            "source_locator": "PubMed abstract, second sentence."
+          },
+          {
+            "name": "cohort_age_span",
+            "value": "17-41",
+            "unit": "gestational weeks; cohort span only",
+            "source_locator": "PubMed abstract, second sentence."
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "bon1997-pubmed-abstract",
+        "uri": "https://pubmed.ncbi.nlm.nih.gov/9347013/",
+        "license": "PubMed bibliographic record and abstract; article reuse terms not confirmed",
+        "sha256": "c05d1ccfb4747cdb0dcb394322ba71c5a414518ad0f4d9a8dffb09847902dd73",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "PubMed abstract, second sentence for cohort and cordocentesis; third sentence for six umbilical-venous results.",
+      "limitations": [
+        "The PubMed abstract describes a group of 73 appropriate-for-gestational-age fetuses spanning 17-41 gestational weeks; it does not provide age-stratified values for this summary.",
+        "The abstract does not identify endpoint-specific sample size. The cohort count of 73 is retained as study-frame context, not copied into each observation as n.",
+        "The abstract prints plus-minus values but does not identify whether they are standard deviations, standard errors, confidence intervals, or another quantity; all six are typed as not_reported.",
+        "The records preserve the reported group values and units; they do not assign individual fetal identities, imply that all six endpoints used the same samples, or create paired observations.",
+        "These broad-range in-vivo UV blood summaries are not a 24- or 28-week reference tuple, support requirement, physiological setpoint, safety boundary, or machine specification.",
+        "Only the PubMed abstract is locally pinned; the article full text, exact assay details and reuse terms remain unavailable or unconfirmed."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "bon1997-uv-bicarbonate",
+      "evidence_status": "author_reported_summary",
+      "species": "human",
+      "stage_track": "unspecified",
+      "developmental_interval": {
+        "label": "Group cohort span 17-41 weeks; this result is not age-stratified",
+        "start": null,
+        "end": null,
+        "time_unit": "gestational weeks (cohort span only)",
+        "stage_source_artifact_id": "bon1997-pubmed-abstract"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Human appropriate-for-gestational-age fetus cohort; umbilical venous blood obtained by cordocentesis; abstract-level group summary."
+      },
+      "assay": {
+        "name": "Fetal blood acid-base and oxygenation analysis (assay details not available in abstract)",
+        "endpoint": "Umbilical venous bicarbonate (HCO3)",
+        "unit": "mmol/l",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "The abstract reports 73 fetuses in the study group but does not state endpoint-specific n or identify individual samples."
+      },
+      "observation": {
+        "value": 22.16,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null,
+        "summary_statistic": {
+          "kind": "reported_plus_minus",
+          "estimate": 22.16,
+          "plus_minus": 1.9,
+          "plus_minus_type": "not_reported",
+          "reported_sample_size": null,
+          "sample_size_scope": "The abstract identifies a cohort of 73 AGA fetuses but does not state endpoint-specific n for this summary; n is left null.",
+          "sample_size_source_locator": "PubMed abstract, second and third sentences; cohort and results.",
+          "source_literal": "HCO3 = 22.16 +/- 1.90 mmol/l"
+        },
+        "measurement_conditions": [
+          {
+            "name": "specimen",
+            "value": "Umbilical venous blood",
+            "unit": "",
+            "source_locator": "PubMed abstract, second sentence for cohort and cordocentesis; third sentence for six umbilical-venous results."
+          },
+          {
+            "name": "sampling_method",
+            "value": "Cordocentesis",
+            "unit": "",
+            "source_locator": "PubMed abstract, second sentence for cohort and cordocentesis; third sentence for six umbilical-venous results."
+          },
+          {
+            "name": "cohort_size",
+            "value": 73,
+            "unit": "AGA fetuses in cohort; not asserted as endpoint-specific n",
+            "source_locator": "PubMed abstract, second sentence."
+          },
+          {
+            "name": "cohort_age_span",
+            "value": "17-41",
+            "unit": "gestational weeks; cohort span only",
+            "source_locator": "PubMed abstract, second sentence."
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "bon1997-pubmed-abstract",
+        "uri": "https://pubmed.ncbi.nlm.nih.gov/9347013/",
+        "license": "PubMed bibliographic record and abstract; article reuse terms not confirmed",
+        "sha256": "c05d1ccfb4747cdb0dcb394322ba71c5a414518ad0f4d9a8dffb09847902dd73",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "PubMed abstract, second sentence for cohort and cordocentesis; third sentence for six umbilical-venous results.",
+      "limitations": [
+        "The PubMed abstract describes a group of 73 appropriate-for-gestational-age fetuses spanning 17-41 gestational weeks; it does not provide age-stratified values for this summary.",
+        "The abstract does not identify endpoint-specific sample size. The cohort count of 73 is retained as study-frame context, not copied into each observation as n.",
+        "The abstract prints plus-minus values but does not identify whether they are standard deviations, standard errors, confidence intervals, or another quantity; all six are typed as not_reported.",
+        "The records preserve the reported group values and units; they do not assign individual fetal identities, imply that all six endpoints used the same samples, or create paired observations.",
+        "These broad-range in-vivo UV blood summaries are not a 24- or 28-week reference tuple, support requirement, physiological setpoint, safety boundary, or machine specification.",
+        "Only the PubMed abstract is locally pinned; the article full text, exact assay details and reuse terms remain unavailable or unconfirmed."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "bon1997-uv-total-co2",
+      "evidence_status": "author_reported_summary",
+      "species": "human",
+      "stage_track": "unspecified",
+      "developmental_interval": {
+        "label": "Group cohort span 17-41 weeks; this result is not age-stratified",
+        "start": null,
+        "end": null,
+        "time_unit": "gestational weeks (cohort span only)",
+        "stage_source_artifact_id": "bon1997-pubmed-abstract"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Human appropriate-for-gestational-age fetus cohort; umbilical venous blood obtained by cordocentesis; abstract-level group summary."
+      },
+      "assay": {
+        "name": "Fetal blood acid-base and oxygenation analysis (assay details not available in abstract)",
+        "endpoint": "Umbilical venous total CO2",
+        "unit": "mmol/l",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "The abstract reports 73 fetuses in the study group but does not state endpoint-specific n or identify individual samples."
+      },
+      "observation": {
+        "value": 22.53,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null,
+        "summary_statistic": {
+          "kind": "reported_plus_minus",
+          "estimate": 22.53,
+          "plus_minus": 1.97,
+          "plus_minus_type": "not_reported",
+          "reported_sample_size": null,
+          "sample_size_scope": "The abstract identifies a cohort of 73 AGA fetuses but does not state endpoint-specific n for this summary; n is left null.",
+          "sample_size_source_locator": "PubMed abstract, second and third sentences; cohort and results.",
+          "source_literal": "total CO2 = 22.53 +/- 1.97 mmol/l"
+        },
+        "measurement_conditions": [
+          {
+            "name": "specimen",
+            "value": "Umbilical venous blood",
+            "unit": "",
+            "source_locator": "PubMed abstract, second sentence for cohort and cordocentesis; third sentence for six umbilical-venous results."
+          },
+          {
+            "name": "sampling_method",
+            "value": "Cordocentesis",
+            "unit": "",
+            "source_locator": "PubMed abstract, second sentence for cohort and cordocentesis; third sentence for six umbilical-venous results."
+          },
+          {
+            "name": "cohort_size",
+            "value": 73,
+            "unit": "AGA fetuses in cohort; not asserted as endpoint-specific n",
+            "source_locator": "PubMed abstract, second sentence."
+          },
+          {
+            "name": "cohort_age_span",
+            "value": "17-41",
+            "unit": "gestational weeks; cohort span only",
+            "source_locator": "PubMed abstract, second sentence."
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "bon1997-pubmed-abstract",
+        "uri": "https://pubmed.ncbi.nlm.nih.gov/9347013/",
+        "license": "PubMed bibliographic record and abstract; article reuse terms not confirmed",
+        "sha256": "c05d1ccfb4747cdb0dcb394322ba71c5a414518ad0f4d9a8dffb09847902dd73",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "PubMed abstract, second sentence for cohort and cordocentesis; third sentence for six umbilical-venous results.",
+      "limitations": [
+        "The PubMed abstract describes a group of 73 appropriate-for-gestational-age fetuses spanning 17-41 gestational weeks; it does not provide age-stratified values for this summary.",
+        "The abstract does not identify endpoint-specific sample size. The cohort count of 73 is retained as study-frame context, not copied into each observation as n.",
+        "The abstract prints plus-minus values but does not identify whether they are standard deviations, standard errors, confidence intervals, or another quantity; all six are typed as not_reported.",
+        "The records preserve the reported group values and units; they do not assign individual fetal identities, imply that all six endpoints used the same samples, or create paired observations.",
+        "These broad-range in-vivo UV blood summaries are not a 24- or 28-week reference tuple, support requirement, physiological setpoint, safety boundary, or machine specification.",
+        "Only the PubMed abstract is locally pinned; the article full text, exact assay details and reuse terms remain unavailable or unconfirmed."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "bon1997-uv-po2",
+      "evidence_status": "author_reported_summary",
+      "species": "human",
+      "stage_track": "unspecified",
+      "developmental_interval": {
+        "label": "Group cohort span 17-41 weeks; this result is not age-stratified",
+        "start": null,
+        "end": null,
+        "time_unit": "gestational weeks (cohort span only)",
+        "stage_source_artifact_id": "bon1997-pubmed-abstract"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Human appropriate-for-gestational-age fetus cohort; umbilical venous blood obtained by cordocentesis; abstract-level group summary."
+      },
+      "assay": {
+        "name": "Fetal blood acid-base and oxygenation analysis (assay details not available in abstract)",
+        "endpoint": "Umbilical venous blood pO2",
+        "unit": "kPa",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "The abstract reports 73 fetuses in the study group but does not state endpoint-specific n or identify individual samples."
+      },
+      "observation": {
+        "value": 6.02,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null,
+        "summary_statistic": {
+          "kind": "reported_plus_minus",
+          "estimate": 6.02,
+          "plus_minus": 1.68,
+          "plus_minus_type": "not_reported",
+          "reported_sample_size": null,
+          "sample_size_scope": "The abstract identifies a cohort of 73 AGA fetuses but does not state endpoint-specific n for this summary; n is left null.",
+          "sample_size_source_locator": "PubMed abstract, second and third sentences; cohort and results.",
+          "source_literal": "pO2 = 6.02 +/- 1.68 kPa"
+        },
+        "measurement_conditions": [
+          {
+            "name": "specimen",
+            "value": "Umbilical venous blood",
+            "unit": "",
+            "source_locator": "PubMed abstract, second sentence for cohort and cordocentesis; third sentence for six umbilical-venous results."
+          },
+          {
+            "name": "sampling_method",
+            "value": "Cordocentesis",
+            "unit": "",
+            "source_locator": "PubMed abstract, second sentence for cohort and cordocentesis; third sentence for six umbilical-venous results."
+          },
+          {
+            "name": "cohort_size",
+            "value": 73,
+            "unit": "AGA fetuses in cohort; not asserted as endpoint-specific n",
+            "source_locator": "PubMed abstract, second sentence."
+          },
+          {
+            "name": "cohort_age_span",
+            "value": "17-41",
+            "unit": "gestational weeks; cohort span only",
+            "source_locator": "PubMed abstract, second sentence."
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "bon1997-pubmed-abstract",
+        "uri": "https://pubmed.ncbi.nlm.nih.gov/9347013/",
+        "license": "PubMed bibliographic record and abstract; article reuse terms not confirmed",
+        "sha256": "c05d1ccfb4747cdb0dcb394322ba71c5a414518ad0f4d9a8dffb09847902dd73",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "PubMed abstract, second sentence for cohort and cordocentesis; third sentence for six umbilical-venous results.",
+      "limitations": [
+        "The PubMed abstract describes a group of 73 appropriate-for-gestational-age fetuses spanning 17-41 gestational weeks; it does not provide age-stratified values for this summary.",
+        "The abstract does not identify endpoint-specific sample size. The cohort count of 73 is retained as study-frame context, not copied into each observation as n.",
+        "The abstract prints plus-minus values but does not identify whether they are standard deviations, standard errors, confidence intervals, or another quantity; all six are typed as not_reported.",
+        "The records preserve the reported group values and units; they do not assign individual fetal identities, imply that all six endpoints used the same samples, or create paired observations.",
+        "These broad-range in-vivo UV blood summaries are not a 24- or 28-week reference tuple, support requirement, physiological setpoint, safety boundary, or machine specification.",
+        "Only the PubMed abstract is locally pinned; the article full text, exact assay details and reuse terms remain unavailable or unconfirmed."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "bon1997-uv-sao2",
+      "evidence_status": "author_reported_summary",
+      "species": "human",
+      "stage_track": "unspecified",
+      "developmental_interval": {
+        "label": "Group cohort span 17-41 weeks; this result is not age-stratified",
+        "start": null,
+        "end": null,
+        "time_unit": "gestational weeks (cohort span only)",
+        "stage_source_artifact_id": "bon1997-pubmed-abstract"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Human appropriate-for-gestational-age fetus cohort; umbilical venous blood obtained by cordocentesis; abstract-level group summary."
+      },
+      "assay": {
+        "name": "Fetal blood acid-base and oxygenation analysis (assay details not available in abstract)",
+        "endpoint": "Umbilical venous oxygen saturation (SaO2)",
+        "unit": "percent (source value scale printed 0.71)",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "The abstract reports 73 fetuses in the study group but does not state endpoint-specific n or identify individual samples."
+      },
+      "observation": {
+        "value": 0.71,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null,
+        "summary_statistic": {
+          "kind": "reported_plus_minus",
+          "estimate": 0.71,
+          "plus_minus": 0.18,
+          "plus_minus_type": "not_reported",
+          "reported_sample_size": null,
+          "sample_size_scope": "The abstract identifies a cohort of 73 AGA fetuses but does not state endpoint-specific n for this summary; n is left null.",
+          "sample_size_source_locator": "PubMed abstract, second and third sentences; cohort and results.",
+          "source_literal": "SaO2 = 0.71 +/- 0.18"
+        },
+        "measurement_conditions": [
+          {
+            "name": "specimen",
+            "value": "Umbilical venous blood",
+            "unit": "",
+            "source_locator": "PubMed abstract, second sentence for cohort and cordocentesis; third sentence for six umbilical-venous results."
+          },
+          {
+            "name": "sampling_method",
+            "value": "Cordocentesis",
+            "unit": "",
+            "source_locator": "PubMed abstract, second sentence for cohort and cordocentesis; third sentence for six umbilical-venous results."
+          },
+          {
+            "name": "cohort_size",
+            "value": 73,
+            "unit": "AGA fetuses in cohort; not asserted as endpoint-specific n",
+            "source_locator": "PubMed abstract, second sentence."
+          },
+          {
+            "name": "cohort_age_span",
+            "value": "17-41",
+            "unit": "gestational weeks; cohort span only",
+            "source_locator": "PubMed abstract, second sentence."
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "bon1997-pubmed-abstract",
+        "uri": "https://pubmed.ncbi.nlm.nih.gov/9347013/",
+        "license": "PubMed bibliographic record and abstract; article reuse terms not confirmed",
+        "sha256": "c05d1ccfb4747cdb0dcb394322ba71c5a414518ad0f4d9a8dffb09847902dd73",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "PubMed abstract, second sentence for cohort and cordocentesis; third sentence for six umbilical-venous results.",
+      "limitations": [
+        "The PubMed abstract describes a group of 73 appropriate-for-gestational-age fetuses spanning 17-41 gestational weeks; it does not provide age-stratified values for this summary.",
+        "The abstract does not identify endpoint-specific sample size. The cohort count of 73 is retained as study-frame context, not copied into each observation as n.",
+        "The abstract prints plus-minus values but does not identify whether they are standard deviations, standard errors, confidence intervals, or another quantity; all six are typed as not_reported.",
+        "The records preserve the reported group values and units; they do not assign individual fetal identities, imply that all six endpoints used the same samples, or create paired observations.",
+        "These broad-range in-vivo UV blood summaries are not a 24- or 28-week reference tuple, support requirement, physiological setpoint, safety boundary, or machine specification.",
+        "Only the PubMed abstract is locally pinned; the article full text, exact assay details and reuse terms remain unavailable or unconfirmed."
+      ]
+    }
+  ],
+  "transitions": [],
+  "measurement_pairs": [],
+  "cohort_coverage": [
+    {
+      "coverage_id": "bon1997-uv-cohort-frame",
+      "source_artifact_id": "bon1997-pubmed-abstract",
+      "reported_group_label": "73 appropriate-for-gestational-age fetuses between 17 and 41 weeks of gestation",
+      "group_label_status": "reported",
+      "counted_entity_kind": "fetus",
+      "counted_entity_label": "Study-group fetuses; not verified as endpoint-specific denominator",
+      "endpoint_label": "Umbilical venous pH, pCO2, bicarbonate, total CO2, pO2 and SaO2 abstract summaries",
+      "population_frame": "Human appropriate-for-gestational-age fetuses reported across 17-41 gestational weeks; fetal blood obtained by cordocentesis.",
+      "measurement_window": "Cohort span 17-41 gestational weeks; the six summary values are not separated by age in the abstract.",
+      "selection_definition": "The abstract reports a group of 73 appropriate-for-gestational-age fetuses, but does not report inclusion/exclusion disposition or a separate n for each endpoint.",
+      "selection_definition_source_locator": "PubMed abstract, second and third sentences.",
+      "denominator": {
+        "value": 73,
+        "value_status": "reported",
+        "reported_label": "73 AGA fetuses in described study group; not verified as the denominator of every endpoint",
+        "source_locator": "PubMed abstract, second sentence."
+      },
+      "declarations": [
+        {
+          "category": "other",
+          "scope": "unresolved",
+          "reported_label": "Study-group size in abstract; endpoint-specific denominator unresolved",
+          "quantity_kind": "count",
+          "value": 73,
+          "value_status": "reported",
+          "source_locator": "PubMed abstract, second sentence.",
+          "note": "This is a cohort-frame count only; not transcribed as endpoint-specific n."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "unresolved",
+          "reported_label": "Six umbilical-venous group summaries reported; endpoint-specific n and overlap are not stated",
+          "quantity_kind": "other",
+          "value": "six reported values; sample membership not specified",
+          "value_status": "reported",
+          "source_locator": "PubMed abstract, third sentence."
+        }
+      ],
+      "selection_statements": [
+        {
+          "text": "The 17-41 week span describes the cohort and does not assign an age to the group summaries or supply week-specific values.",
+          "source_locator": "PubMed abstract, second and third sentences."
+        },
+        {
+          "text": "The abstract does not establish whether the same 73 specimens contributed to every endpoint; do not infer endpoint pairing or individual identity.",
+          "source_locator": "PubMed abstract, second and third sentences."
+        }
+      ],
+      "cohort_window_status": "source_labels_only",
+      "disposition_completeness": "unknown",
+      "categories_mutually_exclusive": "unknown",
+      "categories_exhaustive": "unknown"
+    }
+  ],
+  "limitations": [
+    "The PubMed abstract describes a group of 73 appropriate-for-gestational-age fetuses spanning 17-41 gestational weeks; it does not provide age-stratified values for this summary.",
+    "The abstract does not identify endpoint-specific sample size. The cohort count of 73 is retained as study-frame context, not copied into each observation as n.",
+    "The abstract prints plus-minus values but does not identify whether they are standard deviations, standard errors, confidence intervals, or another quantity; all six are typed as not_reported.",
+    "The records preserve the reported group values and units; they do not assign individual fetal identities, imply that all six endpoints used the same samples, or create paired observations.",
+    "These broad-range in-vivo UV blood summaries are not a 24- or 28-week reference tuple, support requirement, physiological setpoint, safety boundary, or machine specification.",
+    "Only the PubMed abstract is locally pinned; the article full text, exact assay details and reuse terms remain unavailable or unconfirmed."
+  ]
+}

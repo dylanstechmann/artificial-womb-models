@@ -1,0 +1,1703 @@
+{
+  "schema_version": 1,
+  "dataset_id": "ashley2022-vitamin-d-perfusion-candidate",
+  "title": "Ashley et al. 2022 term-placenta vitamin-D perfusion endpoints; candidate intake",
+  "source_revision": {
+    "revision_id": "ashley-e71094-fig1-source-data-2026-10-10",
+    "citation": "Ashley B, Simner C, Manousopoulou A, et al. Placental uptake and metabolism of 25(OH)vitamin D determine its activity within the fetoplacental unit. eLife. 2022;11:e71094. doi:10.7554/eLife.71094.",
+    "source_kind": "peer_reviewed_human_invitro",
+    "source_url": "https://doi.org/10.7554/eLife.71094",
+    "review_status": "candidate",
+    "reviewer": "",
+    "reviewed_on": null,
+    "review_note": ""
+  },
+  "artifacts": [
+    {
+      "artifact_id": "ashley2022-article",
+      "uri": "https://doi.org/10.7554/eLife.71094",
+      "license": "CC BY 4.0 (article and figure source data; eLife release)",
+      "sha256": null,
+      "retrieved_on": "2026-10-10"
+    },
+    {
+      "artifact_id": "ashley2022-figure1-source-data",
+      "uri": "https://cdn.elifesciences.org/articles/71094/elife-71094-fig1-data1-v1.xlsx",
+      "license": "CC BY 4.0 (article and figure source data; eLife release)",
+      "sha256": "68eeb11636c5247751541cd48f5520c871666e4142401a77d7bc65580e69477a",
+      "retrieved_on": "2026-10-10",
+      "local_path": "artifacts/ashley-2022-vitamin-d-perfusion/figure1-source-data.xlsx"
+    }
+  ],
+  "observations": [
+    {
+      "schema_version": 1,
+      "record_id": "ashley2022-25d-maternal-loss-p252",
+      "evidence_status": "measured",
+      "species": "human",
+      "stage_track": "organoid_or_tissue_model",
+      "developmental_interval": {
+        "label": "Term human placental cotyledon at delivery, studied ex vivo",
+        "start": null,
+        "end": null,
+        "time_unit": "term gestational-stage text",
+        "stage_source_artifact_id": "ashley2022-article"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Ex-vivo open-loop perfusion of an isolated term human placental cotyledon; no embryo was cultured."
+      },
+      "assay": {
+        "name": "LC-MS/MS, 13C-25(OH)D3 perfusion endpoint",
+        "endpoint": "maternal 13C-25(OH)D3 loss rate normalized by cotyledon mass at 300 min",
+        "unit": "pmol/min/g",
+        "measurement_role": "function",
+        "calibration_artifact_id": null
+      },
+      "independent_unit": {
+        "kind": "donor",
+        "id": "placenta-252",
+        "parent_id": null,
+        "hierarchy_note": "Source-reported perfusion/placenta label only; not a personal donor identifier. The five placentas are reported as separate perfusions."
+      },
+      "observation": {
+        "value": 3.93306924567983,
+        "measurement_time": 300,
+        "measurement_time_unit": "min of ex-vivo perfusion; not gestational time",
+        "comparator_id": null,
+        "replicate_role": "independent",
+        "measurement_uncertainty": null,
+        "source_qualifications": [
+          {
+            "criterion_code": "workbook_unit_label",
+            "status_code": "article_rate_unit_used",
+            "criterion_label": "Worksheet literal omits /min; the article reports the corresponding normalized rate in pmol/min/g. Candidate unit follows article wording; retain the original worksheet label for review.",
+            "source_artifact_id": "ashley2022-figure1-source-data",
+            "source_locator": "Sheet1!A6 and B6",
+            "reference_value": null,
+            "reference_unit": "worksheet: pmol loss/g; article: pmol/min/g"
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "ashley2022-figure1-source-data",
+        "uri": "https://cdn.elifesciences.org/articles/71094/elife-71094-fig1-data1-v1.xlsx",
+        "license": "CC BY 4.0 (article and figure source data; eLife release)",
+        "sha256": "68eeb11636c5247751541cd48f5520c871666e4142401a77d7bc65580e69477a",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Sheet1!B6; Figure 1 source data workbook; per-perfusion label 252",
+      "limitations": [
+        "Value is a published per-perfusion endpoint/derived quantity, not a raw concentration-time observation.",
+        "This term-only ex-vivo tissue result does not establish embryo development, fetal sufficiency, gestational continuity, or artificial-womb performance."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ashley2022-25d-metabolized-p252",
+      "evidence_status": "measured",
+      "species": "human",
+      "stage_track": "organoid_or_tissue_model",
+      "developmental_interval": {
+        "label": "Term human placental cotyledon at delivery, studied ex vivo",
+        "start": null,
+        "end": null,
+        "time_unit": "term gestational-stage text",
+        "stage_source_artifact_id": "ashley2022-article"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Ex-vivo open-loop perfusion of an isolated term human placental cotyledon; no embryo was cultured."
+      },
+      "assay": {
+        "name": "LC-MS/MS, 13C-25(OH)D3 perfusion endpoint",
+        "endpoint": "13C-25(OH)D3 metabolized, rate normalized by cotyledon mass at 300 min",
+        "unit": "pmol/min/g",
+        "measurement_role": "function",
+        "calibration_artifact_id": null
+      },
+      "independent_unit": {
+        "kind": "donor",
+        "id": "placenta-252",
+        "parent_id": null,
+        "hierarchy_note": "Source-reported perfusion/placenta label only; not a personal donor identifier. The five placentas are reported as separate perfusions."
+      },
+      "observation": {
+        "value": 2.2056130788639448,
+        "measurement_time": 300,
+        "measurement_time_unit": "min of ex-vivo perfusion; not gestational time",
+        "comparator_id": null,
+        "replicate_role": "independent",
+        "measurement_uncertainty": null,
+        "source_qualifications": []
+      },
+      "source": {
+        "artifact_id": "ashley2022-figure1-source-data",
+        "uri": "https://cdn.elifesciences.org/articles/71094/elife-71094-fig1-data1-v1.xlsx",
+        "license": "CC BY 4.0 (article and figure source data; eLife release)",
+        "sha256": "68eeb11636c5247751541cd48f5520c871666e4142401a77d7bc65580e69477a",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Sheet1!B7; Figure 1 source data workbook; per-perfusion label 252",
+      "limitations": [
+        "Value is a published per-perfusion endpoint/derived quantity, not a raw concentration-time observation.",
+        "This term-only ex-vivo tissue result does not establish embryo development, fetal sufficiency, gestational continuity, or artificial-womb performance."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ashley2022-25d-maternal-loss-p254",
+      "evidence_status": "measured",
+      "species": "human",
+      "stage_track": "organoid_or_tissue_model",
+      "developmental_interval": {
+        "label": "Term human placental cotyledon at delivery, studied ex vivo",
+        "start": null,
+        "end": null,
+        "time_unit": "term gestational-stage text",
+        "stage_source_artifact_id": "ashley2022-article"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Ex-vivo open-loop perfusion of an isolated term human placental cotyledon; no embryo was cultured."
+      },
+      "assay": {
+        "name": "LC-MS/MS, 13C-25(OH)D3 perfusion endpoint",
+        "endpoint": "maternal 13C-25(OH)D3 loss rate normalized by cotyledon mass at 300 min",
+        "unit": "pmol/min/g",
+        "measurement_role": "function",
+        "calibration_artifact_id": null
+      },
+      "independent_unit": {
+        "kind": "donor",
+        "id": "placenta-254",
+        "parent_id": null,
+        "hierarchy_note": "Source-reported perfusion/placenta label only; not a personal donor identifier. The five placentas are reported as separate perfusions."
+      },
+      "observation": {
+        "value": 0.8533638564893671,
+        "measurement_time": 300,
+        "measurement_time_unit": "min of ex-vivo perfusion; not gestational time",
+        "comparator_id": null,
+        "replicate_role": "independent",
+        "measurement_uncertainty": null,
+        "source_qualifications": [
+          {
+            "criterion_code": "workbook_unit_label",
+            "status_code": "article_rate_unit_used",
+            "criterion_label": "Worksheet literal omits /min; the article reports the corresponding normalized rate in pmol/min/g. Candidate unit follows article wording; retain the original worksheet label for review.",
+            "source_artifact_id": "ashley2022-figure1-source-data",
+            "source_locator": "Sheet1!A6 and C6",
+            "reference_value": null,
+            "reference_unit": "worksheet: pmol loss/g; article: pmol/min/g"
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "ashley2022-figure1-source-data",
+        "uri": "https://cdn.elifesciences.org/articles/71094/elife-71094-fig1-data1-v1.xlsx",
+        "license": "CC BY 4.0 (article and figure source data; eLife release)",
+        "sha256": "68eeb11636c5247751541cd48f5520c871666e4142401a77d7bc65580e69477a",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Sheet1!C6; Figure 1 source data workbook; per-perfusion label 254",
+      "limitations": [
+        "Value is a published per-perfusion endpoint/derived quantity, not a raw concentration-time observation.",
+        "This term-only ex-vivo tissue result does not establish embryo development, fetal sufficiency, gestational continuity, or artificial-womb performance."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ashley2022-25d-metabolized-p254",
+      "evidence_status": "measured",
+      "species": "human",
+      "stage_track": "organoid_or_tissue_model",
+      "developmental_interval": {
+        "label": "Term human placental cotyledon at delivery, studied ex vivo",
+        "start": null,
+        "end": null,
+        "time_unit": "term gestational-stage text",
+        "stage_source_artifact_id": "ashley2022-article"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Ex-vivo open-loop perfusion of an isolated term human placental cotyledon; no embryo was cultured."
+      },
+      "assay": {
+        "name": "LC-MS/MS, 13C-25(OH)D3 perfusion endpoint",
+        "endpoint": "13C-25(OH)D3 metabolized, rate normalized by cotyledon mass at 300 min",
+        "unit": "pmol/min/g",
+        "measurement_role": "function",
+        "calibration_artifact_id": null
+      },
+      "independent_unit": {
+        "kind": "donor",
+        "id": "placenta-254",
+        "parent_id": null,
+        "hierarchy_note": "Source-reported perfusion/placenta label only; not a personal donor identifier. The five placentas are reported as separate perfusions."
+      },
+      "observation": {
+        "value": 0.6009714922597424,
+        "measurement_time": 300,
+        "measurement_time_unit": "min of ex-vivo perfusion; not gestational time",
+        "comparator_id": null,
+        "replicate_role": "independent",
+        "measurement_uncertainty": null,
+        "source_qualifications": []
+      },
+      "source": {
+        "artifact_id": "ashley2022-figure1-source-data",
+        "uri": "https://cdn.elifesciences.org/articles/71094/elife-71094-fig1-data1-v1.xlsx",
+        "license": "CC BY 4.0 (article and figure source data; eLife release)",
+        "sha256": "68eeb11636c5247751541cd48f5520c871666e4142401a77d7bc65580e69477a",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Sheet1!C7; Figure 1 source data workbook; per-perfusion label 254",
+      "limitations": [
+        "Value is a published per-perfusion endpoint/derived quantity, not a raw concentration-time observation.",
+        "This term-only ex-vivo tissue result does not establish embryo development, fetal sufficiency, gestational continuity, or artificial-womb performance."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ashley2022-25d-maternal-loss-p275",
+      "evidence_status": "measured",
+      "species": "human",
+      "stage_track": "organoid_or_tissue_model",
+      "developmental_interval": {
+        "label": "Term human placental cotyledon at delivery, studied ex vivo",
+        "start": null,
+        "end": null,
+        "time_unit": "term gestational-stage text",
+        "stage_source_artifact_id": "ashley2022-article"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Ex-vivo open-loop perfusion of an isolated term human placental cotyledon; no embryo was cultured."
+      },
+      "assay": {
+        "name": "LC-MS/MS, 13C-25(OH)D3 perfusion endpoint",
+        "endpoint": "maternal 13C-25(OH)D3 loss rate normalized by cotyledon mass at 300 min",
+        "unit": "pmol/min/g",
+        "measurement_role": "function",
+        "calibration_artifact_id": null
+      },
+      "independent_unit": {
+        "kind": "donor",
+        "id": "placenta-275",
+        "parent_id": null,
+        "hierarchy_note": "Source-reported perfusion/placenta label only; not a personal donor identifier. The five placentas are reported as separate perfusions."
+      },
+      "observation": {
+        "value": 0.6594330262355392,
+        "measurement_time": 300,
+        "measurement_time_unit": "min of ex-vivo perfusion; not gestational time",
+        "comparator_id": null,
+        "replicate_role": "independent",
+        "measurement_uncertainty": null,
+        "source_qualifications": [
+          {
+            "criterion_code": "workbook_unit_label",
+            "status_code": "article_rate_unit_used",
+            "criterion_label": "Worksheet literal omits /min; the article reports the corresponding normalized rate in pmol/min/g. Candidate unit follows article wording; retain the original worksheet label for review.",
+            "source_artifact_id": "ashley2022-figure1-source-data",
+            "source_locator": "Sheet1!A6 and D6",
+            "reference_value": null,
+            "reference_unit": "worksheet: pmol loss/g; article: pmol/min/g"
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "ashley2022-figure1-source-data",
+        "uri": "https://cdn.elifesciences.org/articles/71094/elife-71094-fig1-data1-v1.xlsx",
+        "license": "CC BY 4.0 (article and figure source data; eLife release)",
+        "sha256": "68eeb11636c5247751541cd48f5520c871666e4142401a77d7bc65580e69477a",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Sheet1!D6; Figure 1 source data workbook; per-perfusion label 275",
+      "limitations": [
+        "Value is a published per-perfusion endpoint/derived quantity, not a raw concentration-time observation.",
+        "This term-only ex-vivo tissue result does not establish embryo development, fetal sufficiency, gestational continuity, or artificial-womb performance."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ashley2022-25d-metabolized-p275",
+      "evidence_status": "measured",
+      "species": "human",
+      "stage_track": "organoid_or_tissue_model",
+      "developmental_interval": {
+        "label": "Term human placental cotyledon at delivery, studied ex vivo",
+        "start": null,
+        "end": null,
+        "time_unit": "term gestational-stage text",
+        "stage_source_artifact_id": "ashley2022-article"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Ex-vivo open-loop perfusion of an isolated term human placental cotyledon; no embryo was cultured."
+      },
+      "assay": {
+        "name": "LC-MS/MS, 13C-25(OH)D3 perfusion endpoint",
+        "endpoint": "13C-25(OH)D3 metabolized, rate normalized by cotyledon mass at 300 min",
+        "unit": "pmol/min/g",
+        "measurement_role": "function",
+        "calibration_artifact_id": null
+      },
+      "independent_unit": {
+        "kind": "donor",
+        "id": "placenta-275",
+        "parent_id": null,
+        "hierarchy_note": "Source-reported perfusion/placenta label only; not a personal donor identifier. The five placentas are reported as separate perfusions."
+      },
+      "observation": {
+        "value": 0.4924695136527139,
+        "measurement_time": 300,
+        "measurement_time_unit": "min of ex-vivo perfusion; not gestational time",
+        "comparator_id": null,
+        "replicate_role": "independent",
+        "measurement_uncertainty": null,
+        "source_qualifications": []
+      },
+      "source": {
+        "artifact_id": "ashley2022-figure1-source-data",
+        "uri": "https://cdn.elifesciences.org/articles/71094/elife-71094-fig1-data1-v1.xlsx",
+        "license": "CC BY 4.0 (article and figure source data; eLife release)",
+        "sha256": "68eeb11636c5247751541cd48f5520c871666e4142401a77d7bc65580e69477a",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Sheet1!D7; Figure 1 source data workbook; per-perfusion label 275",
+      "limitations": [
+        "Value is a published per-perfusion endpoint/derived quantity, not a raw concentration-time observation.",
+        "This term-only ex-vivo tissue result does not establish embryo development, fetal sufficiency, gestational continuity, or artificial-womb performance."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ashley2022-25d-maternal-loss-p343",
+      "evidence_status": "measured",
+      "species": "human",
+      "stage_track": "organoid_or_tissue_model",
+      "developmental_interval": {
+        "label": "Term human placental cotyledon at delivery, studied ex vivo",
+        "start": null,
+        "end": null,
+        "time_unit": "term gestational-stage text",
+        "stage_source_artifact_id": "ashley2022-article"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Ex-vivo open-loop perfusion of an isolated term human placental cotyledon; no embryo was cultured."
+      },
+      "assay": {
+        "name": "LC-MS/MS, 13C-25(OH)D3 perfusion endpoint",
+        "endpoint": "maternal 13C-25(OH)D3 loss rate normalized by cotyledon mass at 300 min",
+        "unit": "pmol/min/g",
+        "measurement_role": "function",
+        "calibration_artifact_id": null
+      },
+      "independent_unit": {
+        "kind": "donor",
+        "id": "placenta-343",
+        "parent_id": null,
+        "hierarchy_note": "Source-reported perfusion/placenta label only; not a personal donor identifier. The five placentas are reported as separate perfusions."
+      },
+      "observation": {
+        "value": 2.799031746964046,
+        "measurement_time": 300,
+        "measurement_time_unit": "min of ex-vivo perfusion; not gestational time",
+        "comparator_id": null,
+        "replicate_role": "independent",
+        "measurement_uncertainty": null,
+        "source_qualifications": [
+          {
+            "criterion_code": "workbook_unit_label",
+            "status_code": "article_rate_unit_used",
+            "criterion_label": "Worksheet literal omits /min; the article reports the corresponding normalized rate in pmol/min/g. Candidate unit follows article wording; retain the original worksheet label for review.",
+            "source_artifact_id": "ashley2022-figure1-source-data",
+            "source_locator": "Sheet1!A6 and E6",
+            "reference_value": null,
+            "reference_unit": "worksheet: pmol loss/g; article: pmol/min/g"
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "ashley2022-figure1-source-data",
+        "uri": "https://cdn.elifesciences.org/articles/71094/elife-71094-fig1-data1-v1.xlsx",
+        "license": "CC BY 4.0 (article and figure source data; eLife release)",
+        "sha256": "68eeb11636c5247751541cd48f5520c871666e4142401a77d7bc65580e69477a",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Sheet1!E6; Figure 1 source data workbook; per-perfusion label 343",
+      "limitations": [
+        "Value is a published per-perfusion endpoint/derived quantity, not a raw concentration-time observation.",
+        "This term-only ex-vivo tissue result does not establish embryo development, fetal sufficiency, gestational continuity, or artificial-womb performance."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ashley2022-25d-metabolized-p343",
+      "evidence_status": "measured",
+      "species": "human",
+      "stage_track": "organoid_or_tissue_model",
+      "developmental_interval": {
+        "label": "Term human placental cotyledon at delivery, studied ex vivo",
+        "start": null,
+        "end": null,
+        "time_unit": "term gestational-stage text",
+        "stage_source_artifact_id": "ashley2022-article"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Ex-vivo open-loop perfusion of an isolated term human placental cotyledon; no embryo was cultured."
+      },
+      "assay": {
+        "name": "LC-MS/MS, 13C-25(OH)D3 perfusion endpoint",
+        "endpoint": "13C-25(OH)D3 metabolized, rate normalized by cotyledon mass at 300 min",
+        "unit": "pmol/min/g",
+        "measurement_role": "function",
+        "calibration_artifact_id": null
+      },
+      "independent_unit": {
+        "kind": "donor",
+        "id": "placenta-343",
+        "parent_id": null,
+        "hierarchy_note": "Source-reported perfusion/placenta label only; not a personal donor identifier. The five placentas are reported as separate perfusions."
+      },
+      "observation": {
+        "value": 2.146597495382661,
+        "measurement_time": 300,
+        "measurement_time_unit": "min of ex-vivo perfusion; not gestational time",
+        "comparator_id": null,
+        "replicate_role": "independent",
+        "measurement_uncertainty": null,
+        "source_qualifications": []
+      },
+      "source": {
+        "artifact_id": "ashley2022-figure1-source-data",
+        "uri": "https://cdn.elifesciences.org/articles/71094/elife-71094-fig1-data1-v1.xlsx",
+        "license": "CC BY 4.0 (article and figure source data; eLife release)",
+        "sha256": "68eeb11636c5247751541cd48f5520c871666e4142401a77d7bc65580e69477a",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Sheet1!E7; Figure 1 source data workbook; per-perfusion label 343",
+      "limitations": [
+        "Value is a published per-perfusion endpoint/derived quantity, not a raw concentration-time observation.",
+        "This term-only ex-vivo tissue result does not establish embryo development, fetal sufficiency, gestational continuity, or artificial-womb performance."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ashley2022-25d-maternal-loss-p402",
+      "evidence_status": "measured",
+      "species": "human",
+      "stage_track": "organoid_or_tissue_model",
+      "developmental_interval": {
+        "label": "Term human placental cotyledon at delivery, studied ex vivo",
+        "start": null,
+        "end": null,
+        "time_unit": "term gestational-stage text",
+        "stage_source_artifact_id": "ashley2022-article"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Ex-vivo open-loop perfusion of an isolated term human placental cotyledon; no embryo was cultured."
+      },
+      "assay": {
+        "name": "LC-MS/MS, 13C-25(OH)D3 perfusion endpoint",
+        "endpoint": "maternal 13C-25(OH)D3 loss rate normalized by cotyledon mass at 300 min",
+        "unit": "pmol/min/g",
+        "measurement_role": "function",
+        "calibration_artifact_id": null
+      },
+      "independent_unit": {
+        "kind": "donor",
+        "id": "placenta-402",
+        "parent_id": null,
+        "hierarchy_note": "Source-reported perfusion/placenta label only; not a personal donor identifier. The five placentas are reported as separate perfusions."
+      },
+      "observation": {
+        "value": 6.783209264973741,
+        "measurement_time": 300,
+        "measurement_time_unit": "min of ex-vivo perfusion; not gestational time",
+        "comparator_id": null,
+        "replicate_role": "independent",
+        "measurement_uncertainty": null,
+        "source_qualifications": [
+          {
+            "criterion_code": "workbook_unit_label",
+            "status_code": "article_rate_unit_used",
+            "criterion_label": "Worksheet literal omits /min; the article reports the corresponding normalized rate in pmol/min/g. Candidate unit follows article wording; retain the original worksheet label for review.",
+            "source_artifact_id": "ashley2022-figure1-source-data",
+            "source_locator": "Sheet1!A6 and F6",
+            "reference_value": null,
+            "reference_unit": "worksheet: pmol loss/g; article: pmol/min/g"
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "ashley2022-figure1-source-data",
+        "uri": "https://cdn.elifesciences.org/articles/71094/elife-71094-fig1-data1-v1.xlsx",
+        "license": "CC BY 4.0 (article and figure source data; eLife release)",
+        "sha256": "68eeb11636c5247751541cd48f5520c871666e4142401a77d7bc65580e69477a",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Sheet1!F6; Figure 1 source data workbook; per-perfusion label 402",
+      "limitations": [
+        "Value is a published per-perfusion endpoint/derived quantity, not a raw concentration-time observation.",
+        "This term-only ex-vivo tissue result does not establish embryo development, fetal sufficiency, gestational continuity, or artificial-womb performance."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ashley2022-25d-metabolized-p402",
+      "evidence_status": "measured",
+      "species": "human",
+      "stage_track": "organoid_or_tissue_model",
+      "developmental_interval": {
+        "label": "Term human placental cotyledon at delivery, studied ex vivo",
+        "start": null,
+        "end": null,
+        "time_unit": "term gestational-stage text",
+        "stage_source_artifact_id": "ashley2022-article"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Ex-vivo open-loop perfusion of an isolated term human placental cotyledon; no embryo was cultured."
+      },
+      "assay": {
+        "name": "LC-MS/MS, 13C-25(OH)D3 perfusion endpoint",
+        "endpoint": "13C-25(OH)D3 metabolized, rate normalized by cotyledon mass at 300 min",
+        "unit": "pmol/min/g",
+        "measurement_role": "function",
+        "calibration_artifact_id": null
+      },
+      "independent_unit": {
+        "kind": "donor",
+        "id": "placenta-402",
+        "parent_id": null,
+        "hierarchy_note": "Source-reported perfusion/placenta label only; not a personal donor identifier. The five placentas are reported as separate perfusions."
+      },
+      "observation": {
+        "value": 5.834324454297231,
+        "measurement_time": 300,
+        "measurement_time_unit": "min of ex-vivo perfusion; not gestational time",
+        "comparator_id": null,
+        "replicate_role": "independent",
+        "measurement_uncertainty": null,
+        "source_qualifications": []
+      },
+      "source": {
+        "artifact_id": "ashley2022-figure1-source-data",
+        "uri": "https://cdn.elifesciences.org/articles/71094/elife-71094-fig1-data1-v1.xlsx",
+        "license": "CC BY 4.0 (article and figure source data; eLife release)",
+        "sha256": "68eeb11636c5247751541cd48f5520c871666e4142401a77d7bc65580e69477a",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Sheet1!F7; Figure 1 source data workbook; per-perfusion label 402",
+      "limitations": [
+        "Value is a published per-perfusion endpoint/derived quantity, not a raw concentration-time observation.",
+        "This term-only ex-vivo tissue result does not establish embryo development, fetal sufficiency, gestational continuity, or artificial-womb performance."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ashley2022-25d-fetal-transfer-p252",
+      "evidence_status": "measured",
+      "species": "human",
+      "stage_track": "organoid_or_tissue_model",
+      "developmental_interval": {
+        "label": "Term human placental cotyledon at delivery, studied ex vivo",
+        "start": null,
+        "end": null,
+        "time_unit": "term gestational-stage text",
+        "stage_source_artifact_id": "ashley2022-article"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Ex-vivo open-loop perfusion of an isolated term human placental cotyledon; no embryo was cultured."
+      },
+      "assay": {
+        "name": "LC-MS/MS, 13C-25(OH)D3 perfusion endpoint",
+        "endpoint": "13C-25(OH)D3 appearance in fetal circulation, rate normalized by cotyledon mass at 300 min",
+        "unit": "pmol/min/g",
+        "measurement_role": "function",
+        "calibration_artifact_id": null
+      },
+      "independent_unit": {
+        "kind": "donor",
+        "id": "placenta-252",
+        "parent_id": null,
+        "hierarchy_note": "Source-reported perfusion/placenta label only; not a personal donor identifier. The five placentas are reported as separate perfusions."
+      },
+      "observation": {
+        "value": 0.26511786697758527,
+        "measurement_time": 300,
+        "measurement_time_unit": "min of ex-vivo perfusion; not gestational time",
+        "comparator_id": null,
+        "replicate_role": "independent",
+        "measurement_uncertainty": null,
+        "source_qualifications": [
+          {
+            "criterion_code": "workbook_unit_label",
+            "status_code": "article_rate_unit_used",
+            "criterion_label": "Worksheet literal omits /min; the article reports the corresponding normalized rate in pmol/min/g. Candidate unit follows article wording; retain the original worksheet label for review.",
+            "source_artifact_id": "ashley2022-figure1-source-data",
+            "source_locator": "Sheet1!L6 and M6",
+            "reference_value": null,
+            "reference_unit": "worksheet: pmol gain/g; article: pmol/min/g"
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "ashley2022-figure1-source-data",
+        "uri": "https://cdn.elifesciences.org/articles/71094/elife-71094-fig1-data1-v1.xlsx",
+        "license": "CC BY 4.0 (article and figure source data; eLife release)",
+        "sha256": "68eeb11636c5247751541cd48f5520c871666e4142401a77d7bc65580e69477a",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Sheet1!M6; Figure 1 source data workbook; per-perfusion label 252",
+      "limitations": [
+        "Value is a published per-perfusion endpoint/derived quantity, not a raw concentration-time observation.",
+        "This term-only ex-vivo tissue result does not establish embryo development, fetal sufficiency, gestational continuity, or artificial-womb performance."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ashley2022-25d-placental-storage-p252",
+      "evidence_status": "measured",
+      "species": "human",
+      "stage_track": "organoid_or_tissue_model",
+      "developmental_interval": {
+        "label": "Term human placental cotyledon at delivery, studied ex vivo",
+        "start": null,
+        "end": null,
+        "time_unit": "term gestational-stage text",
+        "stage_source_artifact_id": "ashley2022-article"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Ex-vivo open-loop perfusion of an isolated term human placental cotyledon; no embryo was cultured."
+      },
+      "assay": {
+        "name": "LC-MS/MS, 13C-25(OH)D3 perfusion endpoint",
+        "endpoint": "13C-25(OH)D3 retained in placental tissue, rate normalized by cotyledon mass at 300 min",
+        "unit": "pmol/min/g",
+        "measurement_role": "function",
+        "calibration_artifact_id": null
+      },
+      "independent_unit": {
+        "kind": "donor",
+        "id": "placenta-252",
+        "parent_id": null,
+        "hierarchy_note": "Source-reported perfusion/placenta label only; not a personal donor identifier. The five placentas are reported as separate perfusions."
+      },
+      "observation": {
+        "value": 1.4623382998382999,
+        "measurement_time": 300,
+        "measurement_time_unit": "min of ex-vivo perfusion; not gestational time",
+        "comparator_id": null,
+        "replicate_role": "independent",
+        "measurement_uncertainty": null,
+        "source_qualifications": []
+      },
+      "source": {
+        "artifact_id": "ashley2022-figure1-source-data",
+        "uri": "https://cdn.elifesciences.org/articles/71094/elife-71094-fig1-data1-v1.xlsx",
+        "license": "CC BY 4.0 (article and figure source data; eLife release)",
+        "sha256": "68eeb11636c5247751541cd48f5520c871666e4142401a77d7bc65580e69477a",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Sheet1!M7; Figure 1 source data workbook; per-perfusion label 252",
+      "limitations": [
+        "Value is a published per-perfusion endpoint/derived quantity, not a raw concentration-time observation.",
+        "This term-only ex-vivo tissue result does not establish embryo development, fetal sufficiency, gestational continuity, or artificial-womb performance."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ashley2022-25d-fetal-transfer-p254",
+      "evidence_status": "measured",
+      "species": "human",
+      "stage_track": "organoid_or_tissue_model",
+      "developmental_interval": {
+        "label": "Term human placental cotyledon at delivery, studied ex vivo",
+        "start": null,
+        "end": null,
+        "time_unit": "term gestational-stage text",
+        "stage_source_artifact_id": "ashley2022-article"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Ex-vivo open-loop perfusion of an isolated term human placental cotyledon; no embryo was cultured."
+      },
+      "assay": {
+        "name": "LC-MS/MS, 13C-25(OH)D3 perfusion endpoint",
+        "endpoint": "13C-25(OH)D3 appearance in fetal circulation, rate normalized by cotyledon mass at 300 min",
+        "unit": "pmol/min/g",
+        "measurement_role": "function",
+        "calibration_artifact_id": null
+      },
+      "independent_unit": {
+        "kind": "donor",
+        "id": "placenta-254",
+        "parent_id": null,
+        "hierarchy_note": "Source-reported perfusion/placenta label only; not a personal donor identifier. The five placentas are reported as separate perfusions."
+      },
+      "observation": {
+        "value": 0.21997452448828653,
+        "measurement_time": 300,
+        "measurement_time_unit": "min of ex-vivo perfusion; not gestational time",
+        "comparator_id": null,
+        "replicate_role": "independent",
+        "measurement_uncertainty": null,
+        "source_qualifications": [
+          {
+            "criterion_code": "workbook_unit_label",
+            "status_code": "article_rate_unit_used",
+            "criterion_label": "Worksheet literal omits /min; the article reports the corresponding normalized rate in pmol/min/g. Candidate unit follows article wording; retain the original worksheet label for review.",
+            "source_artifact_id": "ashley2022-figure1-source-data",
+            "source_locator": "Sheet1!L6 and N6",
+            "reference_value": null,
+            "reference_unit": "worksheet: pmol gain/g; article: pmol/min/g"
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "ashley2022-figure1-source-data",
+        "uri": "https://cdn.elifesciences.org/articles/71094/elife-71094-fig1-data1-v1.xlsx",
+        "license": "CC BY 4.0 (article and figure source data; eLife release)",
+        "sha256": "68eeb11636c5247751541cd48f5520c871666e4142401a77d7bc65580e69477a",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Sheet1!N6; Figure 1 source data workbook; per-perfusion label 254",
+      "limitations": [
+        "Value is a published per-perfusion endpoint/derived quantity, not a raw concentration-time observation.",
+        "This term-only ex-vivo tissue result does not establish embryo development, fetal sufficiency, gestational continuity, or artificial-womb performance."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ashley2022-25d-placental-storage-p254",
+      "evidence_status": "measured",
+      "species": "human",
+      "stage_track": "organoid_or_tissue_model",
+      "developmental_interval": {
+        "label": "Term human placental cotyledon at delivery, studied ex vivo",
+        "start": null,
+        "end": null,
+        "time_unit": "term gestational-stage text",
+        "stage_source_artifact_id": "ashley2022-article"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Ex-vivo open-loop perfusion of an isolated term human placental cotyledon; no embryo was cultured."
+      },
+      "assay": {
+        "name": "LC-MS/MS, 13C-25(OH)D3 perfusion endpoint",
+        "endpoint": "13C-25(OH)D3 retained in placental tissue, rate normalized by cotyledon mass at 300 min",
+        "unit": "pmol/min/g",
+        "measurement_role": "function",
+        "calibration_artifact_id": null
+      },
+      "independent_unit": {
+        "kind": "donor",
+        "id": "placenta-254",
+        "parent_id": null,
+        "hierarchy_note": "Source-reported perfusion/placenta label only; not a personal donor identifier. The five placentas are reported as separate perfusions."
+      },
+      "observation": {
+        "value": 0.03241783974133816,
+        "measurement_time": 300,
+        "measurement_time_unit": "min of ex-vivo perfusion; not gestational time",
+        "comparator_id": null,
+        "replicate_role": "independent",
+        "measurement_uncertainty": null,
+        "source_qualifications": []
+      },
+      "source": {
+        "artifact_id": "ashley2022-figure1-source-data",
+        "uri": "https://cdn.elifesciences.org/articles/71094/elife-71094-fig1-data1-v1.xlsx",
+        "license": "CC BY 4.0 (article and figure source data; eLife release)",
+        "sha256": "68eeb11636c5247751541cd48f5520c871666e4142401a77d7bc65580e69477a",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Sheet1!N7; Figure 1 source data workbook; per-perfusion label 254",
+      "limitations": [
+        "Value is a published per-perfusion endpoint/derived quantity, not a raw concentration-time observation.",
+        "This term-only ex-vivo tissue result does not establish embryo development, fetal sufficiency, gestational continuity, or artificial-womb performance."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ashley2022-25d-fetal-transfer-p275",
+      "evidence_status": "measured",
+      "species": "human",
+      "stage_track": "organoid_or_tissue_model",
+      "developmental_interval": {
+        "label": "Term human placental cotyledon at delivery, studied ex vivo",
+        "start": null,
+        "end": null,
+        "time_unit": "term gestational-stage text",
+        "stage_source_artifact_id": "ashley2022-article"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Ex-vivo open-loop perfusion of an isolated term human placental cotyledon; no embryo was cultured."
+      },
+      "assay": {
+        "name": "LC-MS/MS, 13C-25(OH)D3 perfusion endpoint",
+        "endpoint": "13C-25(OH)D3 appearance in fetal circulation, rate normalized by cotyledon mass at 300 min",
+        "unit": "pmol/min/g",
+        "measurement_role": "function",
+        "calibration_artifact_id": null
+      },
+      "independent_unit": {
+        "kind": "donor",
+        "id": "placenta-275",
+        "parent_id": null,
+        "hierarchy_note": "Source-reported perfusion/placenta label only; not a personal donor identifier. The five placentas are reported as separate perfusions."
+      },
+      "observation": {
+        "value": 0.02028432884742854,
+        "measurement_time": 300,
+        "measurement_time_unit": "min of ex-vivo perfusion; not gestational time",
+        "comparator_id": null,
+        "replicate_role": "independent",
+        "measurement_uncertainty": null,
+        "source_qualifications": [
+          {
+            "criterion_code": "workbook_unit_label",
+            "status_code": "article_rate_unit_used",
+            "criterion_label": "Worksheet literal omits /min; the article reports the corresponding normalized rate in pmol/min/g. Candidate unit follows article wording; retain the original worksheet label for review.",
+            "source_artifact_id": "ashley2022-figure1-source-data",
+            "source_locator": "Sheet1!L6 and O6",
+            "reference_value": null,
+            "reference_unit": "worksheet: pmol gain/g; article: pmol/min/g"
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "ashley2022-figure1-source-data",
+        "uri": "https://cdn.elifesciences.org/articles/71094/elife-71094-fig1-data1-v1.xlsx",
+        "license": "CC BY 4.0 (article and figure source data; eLife release)",
+        "sha256": "68eeb11636c5247751541cd48f5520c871666e4142401a77d7bc65580e69477a",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Sheet1!O6; Figure 1 source data workbook; per-perfusion label 275",
+      "limitations": [
+        "Value is a published per-perfusion endpoint/derived quantity, not a raw concentration-time observation.",
+        "This term-only ex-vivo tissue result does not establish embryo development, fetal sufficiency, gestational continuity, or artificial-womb performance."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ashley2022-25d-placental-storage-p275",
+      "evidence_status": "measured",
+      "species": "human",
+      "stage_track": "organoid_or_tissue_model",
+      "developmental_interval": {
+        "label": "Term human placental cotyledon at delivery, studied ex vivo",
+        "start": null,
+        "end": null,
+        "time_unit": "term gestational-stage text",
+        "stage_source_artifact_id": "ashley2022-article"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Ex-vivo open-loop perfusion of an isolated term human placental cotyledon; no embryo was cultured."
+      },
+      "assay": {
+        "name": "LC-MS/MS, 13C-25(OH)D3 perfusion endpoint",
+        "endpoint": "13C-25(OH)D3 retained in placental tissue, rate normalized by cotyledon mass at 300 min",
+        "unit": "pmol/min/g",
+        "measurement_role": "function",
+        "calibration_artifact_id": null
+      },
+      "independent_unit": {
+        "kind": "donor",
+        "id": "placenta-275",
+        "parent_id": null,
+        "hierarchy_note": "Source-reported perfusion/placenta label only; not a personal donor identifier. The five placentas are reported as separate perfusions."
+      },
+      "observation": {
+        "value": 0.14667918373539673,
+        "measurement_time": 300,
+        "measurement_time_unit": "min of ex-vivo perfusion; not gestational time",
+        "comparator_id": null,
+        "replicate_role": "independent",
+        "measurement_uncertainty": null,
+        "source_qualifications": []
+      },
+      "source": {
+        "artifact_id": "ashley2022-figure1-source-data",
+        "uri": "https://cdn.elifesciences.org/articles/71094/elife-71094-fig1-data1-v1.xlsx",
+        "license": "CC BY 4.0 (article and figure source data; eLife release)",
+        "sha256": "68eeb11636c5247751541cd48f5520c871666e4142401a77d7bc65580e69477a",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Sheet1!O7; Figure 1 source data workbook; per-perfusion label 275",
+      "limitations": [
+        "Value is a published per-perfusion endpoint/derived quantity, not a raw concentration-time observation.",
+        "This term-only ex-vivo tissue result does not establish embryo development, fetal sufficiency, gestational continuity, or artificial-womb performance."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ashley2022-25d-fetal-transfer-p343",
+      "evidence_status": "measured",
+      "species": "human",
+      "stage_track": "organoid_or_tissue_model",
+      "developmental_interval": {
+        "label": "Term human placental cotyledon at delivery, studied ex vivo",
+        "start": null,
+        "end": null,
+        "time_unit": "term gestational-stage text",
+        "stage_source_artifact_id": "ashley2022-article"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Ex-vivo open-loop perfusion of an isolated term human placental cotyledon; no embryo was cultured."
+      },
+      "assay": {
+        "name": "LC-MS/MS, 13C-25(OH)D3 perfusion endpoint",
+        "endpoint": "13C-25(OH)D3 appearance in fetal circulation, rate normalized by cotyledon mass at 300 min",
+        "unit": "pmol/min/g",
+        "measurement_role": "function",
+        "calibration_artifact_id": null
+      },
+      "independent_unit": {
+        "kind": "donor",
+        "id": "placenta-343",
+        "parent_id": null,
+        "hierarchy_note": "Source-reported perfusion/placenta label only; not a personal donor identifier. The five placentas are reported as separate perfusions."
+      },
+      "observation": {
+        "value": 0.5519420980154609,
+        "measurement_time": 300,
+        "measurement_time_unit": "min of ex-vivo perfusion; not gestational time",
+        "comparator_id": null,
+        "replicate_role": "independent",
+        "measurement_uncertainty": null,
+        "source_qualifications": [
+          {
+            "criterion_code": "workbook_unit_label",
+            "status_code": "article_rate_unit_used",
+            "criterion_label": "Worksheet literal omits /min; the article reports the corresponding normalized rate in pmol/min/g. Candidate unit follows article wording; retain the original worksheet label for review.",
+            "source_artifact_id": "ashley2022-figure1-source-data",
+            "source_locator": "Sheet1!L6 and P6",
+            "reference_value": null,
+            "reference_unit": "worksheet: pmol gain/g; article: pmol/min/g"
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "ashley2022-figure1-source-data",
+        "uri": "https://cdn.elifesciences.org/articles/71094/elife-71094-fig1-data1-v1.xlsx",
+        "license": "CC BY 4.0 (article and figure source data; eLife release)",
+        "sha256": "68eeb11636c5247751541cd48f5520c871666e4142401a77d7bc65580e69477a",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Sheet1!P6; Figure 1 source data workbook; per-perfusion label 343",
+      "limitations": [
+        "Value is a published per-perfusion endpoint/derived quantity, not a raw concentration-time observation.",
+        "This term-only ex-vivo tissue result does not establish embryo development, fetal sufficiency, gestational continuity, or artificial-womb performance."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ashley2022-25d-placental-storage-p343",
+      "evidence_status": "measured",
+      "species": "human",
+      "stage_track": "organoid_or_tissue_model",
+      "developmental_interval": {
+        "label": "Term human placental cotyledon at delivery, studied ex vivo",
+        "start": null,
+        "end": null,
+        "time_unit": "term gestational-stage text",
+        "stage_source_artifact_id": "ashley2022-article"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Ex-vivo open-loop perfusion of an isolated term human placental cotyledon; no embryo was cultured."
+      },
+      "assay": {
+        "name": "LC-MS/MS, 13C-25(OH)D3 perfusion endpoint",
+        "endpoint": "13C-25(OH)D3 retained in placental tissue, rate normalized by cotyledon mass at 300 min",
+        "unit": "pmol/min/g",
+        "measurement_role": "function",
+        "calibration_artifact_id": null
+      },
+      "independent_unit": {
+        "kind": "donor",
+        "id": "placenta-343",
+        "parent_id": null,
+        "hierarchy_note": "Source-reported perfusion/placenta label only; not a personal donor identifier. The five placentas are reported as separate perfusions."
+      },
+      "observation": {
+        "value": 0.10049215356592406,
+        "measurement_time": 300,
+        "measurement_time_unit": "min of ex-vivo perfusion; not gestational time",
+        "comparator_id": null,
+        "replicate_role": "independent",
+        "measurement_uncertainty": null,
+        "source_qualifications": []
+      },
+      "source": {
+        "artifact_id": "ashley2022-figure1-source-data",
+        "uri": "https://cdn.elifesciences.org/articles/71094/elife-71094-fig1-data1-v1.xlsx",
+        "license": "CC BY 4.0 (article and figure source data; eLife release)",
+        "sha256": "68eeb11636c5247751541cd48f5520c871666e4142401a77d7bc65580e69477a",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Sheet1!P7; Figure 1 source data workbook; per-perfusion label 343",
+      "limitations": [
+        "Value is a published per-perfusion endpoint/derived quantity, not a raw concentration-time observation.",
+        "This term-only ex-vivo tissue result does not establish embryo development, fetal sufficiency, gestational continuity, or artificial-womb performance."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ashley2022-25d-fetal-transfer-p402",
+      "evidence_status": "measured",
+      "species": "human",
+      "stage_track": "organoid_or_tissue_model",
+      "developmental_interval": {
+        "label": "Term human placental cotyledon at delivery, studied ex vivo",
+        "start": null,
+        "end": null,
+        "time_unit": "term gestational-stage text",
+        "stage_source_artifact_id": "ashley2022-article"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Ex-vivo open-loop perfusion of an isolated term human placental cotyledon; no embryo was cultured."
+      },
+      "assay": {
+        "name": "LC-MS/MS, 13C-25(OH)D3 perfusion endpoint",
+        "endpoint": "13C-25(OH)D3 appearance in fetal circulation, rate normalized by cotyledon mass at 300 min",
+        "unit": "pmol/min/g",
+        "measurement_role": "function",
+        "calibration_artifact_id": null
+      },
+      "independent_unit": {
+        "kind": "donor",
+        "id": "placenta-402",
+        "parent_id": null,
+        "hierarchy_note": "Source-reported perfusion/placenta label only; not a personal donor identifier. The five placentas are reported as separate perfusions."
+      },
+      "observation": {
+        "value": 0.42696476819433776,
+        "measurement_time": 300,
+        "measurement_time_unit": "min of ex-vivo perfusion; not gestational time",
+        "comparator_id": null,
+        "replicate_role": "independent",
+        "measurement_uncertainty": null,
+        "source_qualifications": [
+          {
+            "criterion_code": "workbook_unit_label",
+            "status_code": "article_rate_unit_used",
+            "criterion_label": "Worksheet literal omits /min; the article reports the corresponding normalized rate in pmol/min/g. Candidate unit follows article wording; retain the original worksheet label for review.",
+            "source_artifact_id": "ashley2022-figure1-source-data",
+            "source_locator": "Sheet1!L6 and Q6",
+            "reference_value": null,
+            "reference_unit": "worksheet: pmol gain/g; article: pmol/min/g"
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "ashley2022-figure1-source-data",
+        "uri": "https://cdn.elifesciences.org/articles/71094/elife-71094-fig1-data1-v1.xlsx",
+        "license": "CC BY 4.0 (article and figure source data; eLife release)",
+        "sha256": "68eeb11636c5247751541cd48f5520c871666e4142401a77d7bc65580e69477a",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Sheet1!Q6; Figure 1 source data workbook; per-perfusion label 402",
+      "limitations": [
+        "Value is a published per-perfusion endpoint/derived quantity, not a raw concentration-time observation.",
+        "This term-only ex-vivo tissue result does not establish embryo development, fetal sufficiency, gestational continuity, or artificial-womb performance."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ashley2022-25d-placental-storage-p402",
+      "evidence_status": "measured",
+      "species": "human",
+      "stage_track": "organoid_or_tissue_model",
+      "developmental_interval": {
+        "label": "Term human placental cotyledon at delivery, studied ex vivo",
+        "start": null,
+        "end": null,
+        "time_unit": "term gestational-stage text",
+        "stage_source_artifact_id": "ashley2022-article"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Ex-vivo open-loop perfusion of an isolated term human placental cotyledon; no embryo was cultured."
+      },
+      "assay": {
+        "name": "LC-MS/MS, 13C-25(OH)D3 perfusion endpoint",
+        "endpoint": "13C-25(OH)D3 retained in placental tissue, rate normalized by cotyledon mass at 300 min",
+        "unit": "pmol/min/g",
+        "measurement_role": "function",
+        "calibration_artifact_id": null
+      },
+      "independent_unit": {
+        "kind": "donor",
+        "id": "placenta-402",
+        "parent_id": null,
+        "hierarchy_note": "Source-reported perfusion/placenta label only; not a personal donor identifier. The five placentas are reported as separate perfusions."
+      },
+      "observation": {
+        "value": 0.5219200424821727,
+        "measurement_time": 300,
+        "measurement_time_unit": "min of ex-vivo perfusion; not gestational time",
+        "comparator_id": null,
+        "replicate_role": "independent",
+        "measurement_uncertainty": null,
+        "source_qualifications": []
+      },
+      "source": {
+        "artifact_id": "ashley2022-figure1-source-data",
+        "uri": "https://cdn.elifesciences.org/articles/71094/elife-71094-fig1-data1-v1.xlsx",
+        "license": "CC BY 4.0 (article and figure source data; eLife release)",
+        "sha256": "68eeb11636c5247751541cd48f5520c871666e4142401a77d7bc65580e69477a",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Sheet1!Q7; Figure 1 source data workbook; per-perfusion label 402",
+      "limitations": [
+        "Value is a published per-perfusion endpoint/derived quantity, not a raw concentration-time observation.",
+        "This term-only ex-vivo tissue result does not establish embryo development, fetal sufficiency, gestational continuity, or artificial-womb performance."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ashley2022-125d-maternal-p252",
+      "evidence_status": "measured",
+      "species": "human",
+      "stage_track": "organoid_or_tissue_model",
+      "developmental_interval": {
+        "label": "Term human placental cotyledon at delivery, studied ex vivo",
+        "start": null,
+        "end": null,
+        "time_unit": "term gestational-stage text",
+        "stage_source_artifact_id": "ashley2022-article"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Ex-vivo open-loop perfusion of an isolated term human placental cotyledon; no embryo was cultured."
+      },
+      "assay": {
+        "name": "1,25(OH)2D3 perfusate EIA endpoint (method described in article)",
+        "endpoint": "1,25(OH)2D3 maternal perfusate transfer rate normalized by cotyledon mass at 300 min",
+        "unit": "fmol/min/g",
+        "measurement_role": "function",
+        "calibration_artifact_id": null
+      },
+      "independent_unit": {
+        "kind": "donor",
+        "id": "placenta-252",
+        "parent_id": null,
+        "hierarchy_note": "Source-reported perfusion/placenta label only; not a personal donor identifier. The five placentas are reported as separate perfusions."
+      },
+      "observation": {
+        "value": 0.09834743800974499,
+        "measurement_time": 300,
+        "measurement_time_unit": "min of ex-vivo perfusion; not gestational time",
+        "comparator_id": null,
+        "replicate_role": "independent",
+        "measurement_uncertainty": null,
+        "source_qualifications": []
+      },
+      "source": {
+        "artifact_id": "ashley2022-figure1-source-data",
+        "uri": "https://cdn.elifesciences.org/articles/71094/elife-71094-fig1-data1-v1.xlsx",
+        "license": "CC BY 4.0 (article and figure source data; eLife release)",
+        "sha256": "68eeb11636c5247751541cd48f5520c871666e4142401a77d7bc65580e69477a",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Sheet1!F22; Figure 1 source data workbook; per-perfusion label 252",
+      "limitations": [
+        "Value is a published per-perfusion endpoint/derived quantity, not a raw concentration-time observation.",
+        "This term-only ex-vivo tissue result does not establish embryo development, fetal sufficiency, gestational continuity, or artificial-womb performance."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ashley2022-125d-maternal-p254",
+      "evidence_status": "measured",
+      "species": "human",
+      "stage_track": "organoid_or_tissue_model",
+      "developmental_interval": {
+        "label": "Term human placental cotyledon at delivery, studied ex vivo",
+        "start": null,
+        "end": null,
+        "time_unit": "term gestational-stage text",
+        "stage_source_artifact_id": "ashley2022-article"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Ex-vivo open-loop perfusion of an isolated term human placental cotyledon; no embryo was cultured."
+      },
+      "assay": {
+        "name": "1,25(OH)2D3 perfusate EIA endpoint (method described in article)",
+        "endpoint": "1,25(OH)2D3 maternal perfusate transfer rate normalized by cotyledon mass at 300 min",
+        "unit": "fmol/min/g",
+        "measurement_role": "function",
+        "calibration_artifact_id": null
+      },
+      "independent_unit": {
+        "kind": "donor",
+        "id": "placenta-254",
+        "parent_id": null,
+        "hierarchy_note": "Source-reported perfusion/placenta label only; not a personal donor identifier. The five placentas are reported as separate perfusions."
+      },
+      "observation": {
+        "value": 0.28593747783162404,
+        "measurement_time": 300,
+        "measurement_time_unit": "min of ex-vivo perfusion; not gestational time",
+        "comparator_id": null,
+        "replicate_role": "independent",
+        "measurement_uncertainty": null,
+        "source_qualifications": []
+      },
+      "source": {
+        "artifact_id": "ashley2022-figure1-source-data",
+        "uri": "https://cdn.elifesciences.org/articles/71094/elife-71094-fig1-data1-v1.xlsx",
+        "license": "CC BY 4.0 (article and figure source data; eLife release)",
+        "sha256": "68eeb11636c5247751541cd48f5520c871666e4142401a77d7bc65580e69477a",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Sheet1!F23; Figure 1 source data workbook; per-perfusion label 254",
+      "limitations": [
+        "Value is a published per-perfusion endpoint/derived quantity, not a raw concentration-time observation.",
+        "This term-only ex-vivo tissue result does not establish embryo development, fetal sufficiency, gestational continuity, or artificial-womb performance."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ashley2022-125d-maternal-p275",
+      "evidence_status": "measured",
+      "species": "human",
+      "stage_track": "organoid_or_tissue_model",
+      "developmental_interval": {
+        "label": "Term human placental cotyledon at delivery, studied ex vivo",
+        "start": null,
+        "end": null,
+        "time_unit": "term gestational-stage text",
+        "stage_source_artifact_id": "ashley2022-article"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Ex-vivo open-loop perfusion of an isolated term human placental cotyledon; no embryo was cultured."
+      },
+      "assay": {
+        "name": "1,25(OH)2D3 perfusate EIA endpoint (method described in article)",
+        "endpoint": "1,25(OH)2D3 maternal perfusate transfer rate normalized by cotyledon mass at 300 min",
+        "unit": "fmol/min/g",
+        "measurement_role": "function",
+        "calibration_artifact_id": null
+      },
+      "independent_unit": {
+        "kind": "donor",
+        "id": "placenta-275",
+        "parent_id": null,
+        "hierarchy_note": "Source-reported perfusion/placenta label only; not a personal donor identifier. The five placentas are reported as separate perfusions."
+      },
+      "observation": {
+        "value": 0.07925034328656012,
+        "measurement_time": 300,
+        "measurement_time_unit": "min of ex-vivo perfusion; not gestational time",
+        "comparator_id": null,
+        "replicate_role": "independent",
+        "measurement_uncertainty": null,
+        "source_qualifications": []
+      },
+      "source": {
+        "artifact_id": "ashley2022-figure1-source-data",
+        "uri": "https://cdn.elifesciences.org/articles/71094/elife-71094-fig1-data1-v1.xlsx",
+        "license": "CC BY 4.0 (article and figure source data; eLife release)",
+        "sha256": "68eeb11636c5247751541cd48f5520c871666e4142401a77d7bc65580e69477a",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Sheet1!F24; Figure 1 source data workbook; per-perfusion label 275",
+      "limitations": [
+        "Value is a published per-perfusion endpoint/derived quantity, not a raw concentration-time observation.",
+        "This term-only ex-vivo tissue result does not establish embryo development, fetal sufficiency, gestational continuity, or artificial-womb performance."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ashley2022-125d-maternal-p343",
+      "evidence_status": "measured",
+      "species": "human",
+      "stage_track": "organoid_or_tissue_model",
+      "developmental_interval": {
+        "label": "Term human placental cotyledon at delivery, studied ex vivo",
+        "start": null,
+        "end": null,
+        "time_unit": "term gestational-stage text",
+        "stage_source_artifact_id": "ashley2022-article"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Ex-vivo open-loop perfusion of an isolated term human placental cotyledon; no embryo was cultured."
+      },
+      "assay": {
+        "name": "1,25(OH)2D3 perfusate EIA endpoint (method described in article)",
+        "endpoint": "1,25(OH)2D3 maternal perfusate transfer rate normalized by cotyledon mass at 300 min",
+        "unit": "fmol/min/g",
+        "measurement_role": "function",
+        "calibration_artifact_id": null
+      },
+      "independent_unit": {
+        "kind": "donor",
+        "id": "placenta-343",
+        "parent_id": null,
+        "hierarchy_note": "Source-reported perfusion/placenta label only; not a personal donor identifier. The five placentas are reported as separate perfusions."
+      },
+      "observation": {
+        "value": 0.22508912300005543,
+        "measurement_time": 300,
+        "measurement_time_unit": "min of ex-vivo perfusion; not gestational time",
+        "comparator_id": null,
+        "replicate_role": "independent",
+        "measurement_uncertainty": null,
+        "source_qualifications": []
+      },
+      "source": {
+        "artifact_id": "ashley2022-figure1-source-data",
+        "uri": "https://cdn.elifesciences.org/articles/71094/elife-71094-fig1-data1-v1.xlsx",
+        "license": "CC BY 4.0 (article and figure source data; eLife release)",
+        "sha256": "68eeb11636c5247751541cd48f5520c871666e4142401a77d7bc65580e69477a",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Sheet1!F25; Figure 1 source data workbook; per-perfusion label 343",
+      "limitations": [
+        "Value is a published per-perfusion endpoint/derived quantity, not a raw concentration-time observation.",
+        "This term-only ex-vivo tissue result does not establish embryo development, fetal sufficiency, gestational continuity, or artificial-womb performance."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ashley2022-125d-maternal-p402",
+      "evidence_status": "measured",
+      "species": "human",
+      "stage_track": "organoid_or_tissue_model",
+      "developmental_interval": {
+        "label": "Term human placental cotyledon at delivery, studied ex vivo",
+        "start": null,
+        "end": null,
+        "time_unit": "term gestational-stage text",
+        "stage_source_artifact_id": "ashley2022-article"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Ex-vivo open-loop perfusion of an isolated term human placental cotyledon; no embryo was cultured."
+      },
+      "assay": {
+        "name": "1,25(OH)2D3 perfusate EIA endpoint (method described in article)",
+        "endpoint": "1,25(OH)2D3 maternal perfusate transfer rate normalized by cotyledon mass at 300 min",
+        "unit": "fmol/min/g",
+        "measurement_role": "function",
+        "calibration_artifact_id": null
+      },
+      "independent_unit": {
+        "kind": "donor",
+        "id": "placenta-402",
+        "parent_id": null,
+        "hierarchy_note": "Source-reported perfusion/placenta label only; not a personal donor identifier. The five placentas are reported as separate perfusions."
+      },
+      "observation": {
+        "value": 0.3167972769920486,
+        "measurement_time": 300,
+        "measurement_time_unit": "min of ex-vivo perfusion; not gestational time",
+        "comparator_id": null,
+        "replicate_role": "independent",
+        "measurement_uncertainty": null,
+        "source_qualifications": []
+      },
+      "source": {
+        "artifact_id": "ashley2022-figure1-source-data",
+        "uri": "https://cdn.elifesciences.org/articles/71094/elife-71094-fig1-data1-v1.xlsx",
+        "license": "CC BY 4.0 (article and figure source data; eLife release)",
+        "sha256": "68eeb11636c5247751541cd48f5520c871666e4142401a77d7bc65580e69477a",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Sheet1!F26; Figure 1 source data workbook; per-perfusion label 402",
+      "limitations": [
+        "Value is a published per-perfusion endpoint/derived quantity, not a raw concentration-time observation.",
+        "This term-only ex-vivo tissue result does not establish embryo development, fetal sufficiency, gestational continuity, or artificial-womb performance."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ashley2022-125d-fetal-p252",
+      "evidence_status": "measured",
+      "species": "human",
+      "stage_track": "organoid_or_tissue_model",
+      "developmental_interval": {
+        "label": "Term human placental cotyledon at delivery, studied ex vivo",
+        "start": null,
+        "end": null,
+        "time_unit": "term gestational-stage text",
+        "stage_source_artifact_id": "ashley2022-article"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Ex-vivo open-loop perfusion of an isolated term human placental cotyledon; no embryo was cultured."
+      },
+      "assay": {
+        "name": "1,25(OH)2D3 perfusate EIA endpoint (method described in article)",
+        "endpoint": "1,25(OH)2D3 fetal perfusate transfer rate normalized by cotyledon mass at 300 min",
+        "unit": "fmol/min/g",
+        "measurement_role": "function",
+        "calibration_artifact_id": null
+      },
+      "independent_unit": {
+        "kind": "donor",
+        "id": "placenta-252",
+        "parent_id": null,
+        "hierarchy_note": "Source-reported perfusion/placenta label only; not a personal donor identifier. The five placentas are reported as separate perfusions."
+      },
+      "observation": {
+        "value": 0.02214529151801527,
+        "measurement_time": 300,
+        "measurement_time_unit": "min of ex-vivo perfusion; not gestational time",
+        "comparator_id": null,
+        "replicate_role": "independent",
+        "measurement_uncertainty": null,
+        "source_qualifications": []
+      },
+      "source": {
+        "artifact_id": "ashley2022-figure1-source-data",
+        "uri": "https://cdn.elifesciences.org/articles/71094/elife-71094-fig1-data1-v1.xlsx",
+        "license": "CC BY 4.0 (article and figure source data; eLife release)",
+        "sha256": "68eeb11636c5247751541cd48f5520c871666e4142401a77d7bc65580e69477a",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Sheet1!F30; Figure 1 source data workbook; per-perfusion label 252",
+      "limitations": [
+        "Value is a published per-perfusion endpoint/derived quantity, not a raw concentration-time observation.",
+        "This term-only ex-vivo tissue result does not establish embryo development, fetal sufficiency, gestational continuity, or artificial-womb performance."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ashley2022-125d-fetal-p254",
+      "evidence_status": "measured",
+      "species": "human",
+      "stage_track": "organoid_or_tissue_model",
+      "developmental_interval": {
+        "label": "Term human placental cotyledon at delivery, studied ex vivo",
+        "start": null,
+        "end": null,
+        "time_unit": "term gestational-stage text",
+        "stage_source_artifact_id": "ashley2022-article"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Ex-vivo open-loop perfusion of an isolated term human placental cotyledon; no embryo was cultured."
+      },
+      "assay": {
+        "name": "1,25(OH)2D3 perfusate EIA endpoint (method described in article)",
+        "endpoint": "1,25(OH)2D3 fetal perfusate transfer rate normalized by cotyledon mass at 300 min",
+        "unit": "fmol/min/g",
+        "measurement_role": "function",
+        "calibration_artifact_id": null
+      },
+      "independent_unit": {
+        "kind": "donor",
+        "id": "placenta-254",
+        "parent_id": null,
+        "hierarchy_note": "Source-reported perfusion/placenta label only; not a personal donor identifier. The five placentas are reported as separate perfusions."
+      },
+      "observation": {
+        "value": 0.06420058046189413,
+        "measurement_time": 300,
+        "measurement_time_unit": "min of ex-vivo perfusion; not gestational time",
+        "comparator_id": null,
+        "replicate_role": "independent",
+        "measurement_uncertainty": null,
+        "source_qualifications": []
+      },
+      "source": {
+        "artifact_id": "ashley2022-figure1-source-data",
+        "uri": "https://cdn.elifesciences.org/articles/71094/elife-71094-fig1-data1-v1.xlsx",
+        "license": "CC BY 4.0 (article and figure source data; eLife release)",
+        "sha256": "68eeb11636c5247751541cd48f5520c871666e4142401a77d7bc65580e69477a",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Sheet1!F31; Figure 1 source data workbook; per-perfusion label 254",
+      "limitations": [
+        "Value is a published per-perfusion endpoint/derived quantity, not a raw concentration-time observation.",
+        "This term-only ex-vivo tissue result does not establish embryo development, fetal sufficiency, gestational continuity, or artificial-womb performance."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ashley2022-125d-fetal-p275",
+      "evidence_status": "measured",
+      "species": "human",
+      "stage_track": "organoid_or_tissue_model",
+      "developmental_interval": {
+        "label": "Term human placental cotyledon at delivery, studied ex vivo",
+        "start": null,
+        "end": null,
+        "time_unit": "term gestational-stage text",
+        "stage_source_artifact_id": "ashley2022-article"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Ex-vivo open-loop perfusion of an isolated term human placental cotyledon; no embryo was cultured."
+      },
+      "assay": {
+        "name": "1,25(OH)2D3 perfusate EIA endpoint (method described in article)",
+        "endpoint": "1,25(OH)2D3 fetal perfusate transfer rate normalized by cotyledon mass at 300 min",
+        "unit": "fmol/min/g",
+        "measurement_role": "function",
+        "calibration_artifact_id": null
+      },
+      "independent_unit": {
+        "kind": "donor",
+        "id": "placenta-275",
+        "parent_id": null,
+        "hierarchy_note": "Source-reported perfusion/placenta label only; not a personal donor identifier. The five placentas are reported as separate perfusions."
+      },
+      "observation": {
+        "value": 0.02470114864537268,
+        "measurement_time": 300,
+        "measurement_time_unit": "min of ex-vivo perfusion; not gestational time",
+        "comparator_id": null,
+        "replicate_role": "independent",
+        "measurement_uncertainty": null,
+        "source_qualifications": []
+      },
+      "source": {
+        "artifact_id": "ashley2022-figure1-source-data",
+        "uri": "https://cdn.elifesciences.org/articles/71094/elife-71094-fig1-data1-v1.xlsx",
+        "license": "CC BY 4.0 (article and figure source data; eLife release)",
+        "sha256": "68eeb11636c5247751541cd48f5520c871666e4142401a77d7bc65580e69477a",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Sheet1!F32; Figure 1 source data workbook; per-perfusion label 275",
+      "limitations": [
+        "Value is a published per-perfusion endpoint/derived quantity, not a raw concentration-time observation.",
+        "This term-only ex-vivo tissue result does not establish embryo development, fetal sufficiency, gestational continuity, or artificial-womb performance."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ashley2022-125d-fetal-p343",
+      "evidence_status": "measured",
+      "species": "human",
+      "stage_track": "organoid_or_tissue_model",
+      "developmental_interval": {
+        "label": "Term human placental cotyledon at delivery, studied ex vivo",
+        "start": null,
+        "end": null,
+        "time_unit": "term gestational-stage text",
+        "stage_source_artifact_id": "ashley2022-article"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Ex-vivo open-loop perfusion of an isolated term human placental cotyledon; no embryo was cultured."
+      },
+      "assay": {
+        "name": "1,25(OH)2D3 perfusate EIA endpoint (method described in article)",
+        "endpoint": "1,25(OH)2D3 fetal perfusate transfer rate normalized by cotyledon mass at 300 min",
+        "unit": "fmol/min/g",
+        "measurement_role": "function",
+        "calibration_artifact_id": null
+      },
+      "independent_unit": {
+        "kind": "donor",
+        "id": "placenta-343",
+        "parent_id": null,
+        "hierarchy_note": "Source-reported perfusion/placenta label only; not a personal donor identifier. The five placentas are reported as separate perfusions."
+      },
+      "observation": {
+        "value": 0.05535594641455792,
+        "measurement_time": 300,
+        "measurement_time_unit": "min of ex-vivo perfusion; not gestational time",
+        "comparator_id": null,
+        "replicate_role": "independent",
+        "measurement_uncertainty": null,
+        "source_qualifications": []
+      },
+      "source": {
+        "artifact_id": "ashley2022-figure1-source-data",
+        "uri": "https://cdn.elifesciences.org/articles/71094/elife-71094-fig1-data1-v1.xlsx",
+        "license": "CC BY 4.0 (article and figure source data; eLife release)",
+        "sha256": "68eeb11636c5247751541cd48f5520c871666e4142401a77d7bc65580e69477a",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Sheet1!F33; Figure 1 source data workbook; per-perfusion label 343",
+      "limitations": [
+        "Value is a published per-perfusion endpoint/derived quantity, not a raw concentration-time observation.",
+        "This term-only ex-vivo tissue result does not establish embryo development, fetal sufficiency, gestational continuity, or artificial-womb performance."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ashley2022-125d-fetal-p402",
+      "evidence_status": "measured",
+      "species": "human",
+      "stage_track": "organoid_or_tissue_model",
+      "developmental_interval": {
+        "label": "Term human placental cotyledon at delivery, studied ex vivo",
+        "start": null,
+        "end": null,
+        "time_unit": "term gestational-stage text",
+        "stage_source_artifact_id": "ashley2022-article"
+      },
+      "model_system": {
+        "kind": "other",
+        "label": "Ex-vivo open-loop perfusion of an isolated term human placental cotyledon; no embryo was cultured."
+      },
+      "assay": {
+        "name": "1,25(OH)2D3 perfusate EIA endpoint (method described in article)",
+        "endpoint": "1,25(OH)2D3 fetal perfusate transfer rate normalized by cotyledon mass at 300 min",
+        "unit": "fmol/min/g",
+        "measurement_role": "function",
+        "calibration_artifact_id": null
+      },
+      "independent_unit": {
+        "kind": "donor",
+        "id": "placenta-402",
+        "parent_id": null,
+        "hierarchy_note": "Source-reported perfusion/placenta label only; not a personal donor identifier. The five placentas are reported as separate perfusions."
+      },
+      "observation": {
+        "value": 0.033717592291897504,
+        "measurement_time": 300,
+        "measurement_time_unit": "min of ex-vivo perfusion; not gestational time",
+        "comparator_id": null,
+        "replicate_role": "independent",
+        "measurement_uncertainty": null,
+        "source_qualifications": []
+      },
+      "source": {
+        "artifact_id": "ashley2022-figure1-source-data",
+        "uri": "https://cdn.elifesciences.org/articles/71094/elife-71094-fig1-data1-v1.xlsx",
+        "license": "CC BY 4.0 (article and figure source data; eLife release)",
+        "sha256": "68eeb11636c5247751541cd48f5520c871666e4142401a77d7bc65580e69477a",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Sheet1!F34; Figure 1 source data workbook; per-perfusion label 402",
+      "limitations": [
+        "Value is a published per-perfusion endpoint/derived quantity, not a raw concentration-time observation.",
+        "This term-only ex-vivo tissue result does not establish embryo development, fetal sufficiency, gestational continuity, or artificial-womb performance."
+      ]
+    }
+  ],
+  "limitations": [
+    "Five independent term human placental perfusions only; the source worksheet labels 252, 254, 275, 343 and 402 are study labels, not donor identities.",
+    "These are source-reported per-perfusion derived endpoints, not raw concentration-time series. Components from the same run may be algebraically dependent; do not count them as independent evidence or fit a support model from them.",
+    "For the two row-6 25(OH)D3 endpoints, the worksheet unit literal omits /min while the article reports the corresponding rate in pmol/min/g. The candidate unit follows the article and each record retains the worksheet discrepancy as a typed qualification.",
+    "The 24,25(OH)2D3 block is excluded from numeric observations pending review: worksheet unit is nmol/min/g versus article pmol/min/g, maternal workbook mean is 2.4986 versus article 2.05, and fetal workbook SEM is 0.2196 versus article 0.10.",
+    "The single 1,25(OH)2D3 placenta-production row is excluded because its source-unit/perfusion linkage is unclear; the article reports n=1 due to detection limits.",
+    "Term ex-vivo placental metabolism is not embryo culture, artificial gestation, fetal developmental outcome, or evidence of nutrient sufficiency across pregnancy.",
+    "Source transcription and scientific review remain pending; no author was contacted."
+  ]
+}

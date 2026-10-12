@@ -22,13 +22,415 @@
       "snapshot_hash_scope": "Observed local HTML, not a universal publisher revision",
       "article_license": "CC BY-NC-ND 4.0",
       "source_data_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-025-68039-y/MediaObjects/41467_2025_68039_MOESM18_ESM.xlsx",
-      "source_data_access": "Downloaded and inventoried; executable audit selects Fig4A/C/D/E/F and Sup 10 I; other worksheets not fully qualified",
+      "source_data_access": "Source Data workbook, linked publisher supplementary-information PDF and article HTML downloaded and pinned; executable audit selects Fig4A/C/D/E/F plus Sup 10 I and Sup10J; other worksheets not fully qualified",
       "source_data_path": "artifacts/feasibility-strategy-2026-10-09/guo-source-data.xlsx",
       "source_data_bytes": 137918,
       "source_data_sha256": "c84b1faf2ebe02c812af7ec73d94a10c6640a11fba677ac85947999b9dc33e8e",
       "source_data_license": "unqualified",
+      "public_data_accession_screen": {
+        "retrieved_on": "2026-10-10",
+        "publisher_data_availability_statement": {
+          "scRNA_seq_accession": "PRJCA004049",
+          "SmartSeq2_accession": "PRJCA052100",
+          "scRNA_seq_methods_scope": "Three in-vivo E8.5 embryos from three pregnant mice and three IVC day-9 embryos were selected for sequencing.",
+          "SmartSeq2_methods_scope": "The Methods describe trophoblast cells from three separate IVC-day-2 embryos for each of 40-MG and 40-MGT; 40-MGN is not included in that sentence."
+        },
+        "records": [
+          {
+            "accession": "PRJCA004049",
+            "record_url": "https://ngdc.cncb.ac.cn/bioproject/browse/PRJCA004049",
+            "record_title": "A uterus-inspired 3D niche drives embryo development beyond implantation",
+            "record_description": "scRNA-Seq and bulk RNA-Seq analysis for mouse embryo cultured in vitro",
+            "submitted_on": "2020-12-16",
+            "released_on": "2021-12-31",
+            "gsa_archive": "CRA004601",
+            "current_publication_link": "3D biomimetic niche modulates embryo development in vitro (2026)",
+            "biosample_count": 12,
+            "biosample_labels": ["D8_bulk_1", "D10_bulk_2", "D10_bulk_1", "D1_bulk_2", "D1_bulk_1", "E85_bulk_2", "E85_bulk_1", "E75_bulk_2", "E75_bulk_1", "E45_SC", "PDCO_SC", "PD_SC"],
+            "gsa_archive_inventory": {
+              "archive_url": "https://ngdc.cncb.ac.cn/gsa/browse/CRA004601",
+              "archive_title": "A uterus-inspired 3D niche drives embryo development beyond implantation",
+              "archive_experiment_run_records": [
+                {"sample_alias": "PD_SC", "biosample": "SAMC435198", "experiment": "CRX259699", "run_accessions": ["CRR305004", "CRR305005", "CRR305006", "CRR305007", "CRR305008"]},
+                {"sample_alias": "PDCO_SC", "biosample": "SAMC435199", "experiment": "CRX259700", "run_accessions": ["CRR305009", "CRR305010", "CRR305011", "CRR305012", "CRR305013"]},
+                {"sample_alias": "E45_SC", "biosample": "SAMC435200", "experiment": "CRX259701", "run_accessions": ["CRR305014", "CRR305015", "CRR305016", "CRR305017", "CRR305018"]}
+              ],
+              "E85_bulk_samples": [
+                {"sample_alias": "E85_bulk_1", "biosample": "SAMC435203", "description": "Bulk RNA-Seq for E8.5 embryos"},
+                {"sample_alias": "E85_bulk_2", "biosample": "SAMC435204"}
+              ],
+              "d9_scRNA_sample_alias_listed": false,
+              "interpretation_limit": "The archive's three single-cell-labeled BioSamples are the PD_SC, PDCO_SC and E45_SC groups; the E8.5-labeled BioSamples are described as bulk RNA-Seq and no D9-labeled scRNA-seq BioSample is listed. Run accessions enumerate sequencing records, not independent embryo counts."
+            },
+            "mapping_status": "processed_group_counts_match_but_2026_raw_scRNA_run_coverage_unresolved_candidate",
+            "interpretation_limit": "The 2026 repository's cell-level metadata and code match its reported E6.5, E8.5, and IVC day-9 processed-cell counts, but the inspected PRJCA004049/CRA004601 inventory lists older PD_SC/PDCO_SC/E45_SC single-cell groups and E8.5 bulk RNA-Seq samples, with no D9-labeled scRNA-seq sample. The processed cell groups are not linked to raw BioSamples/runs or embryo IDs. This is a candidate data-availability mapping discrepancy, not proof of incorrect deposition, non-reuse, or data absence elsewhere; resolve the sample/run-to-cell-object crosswalk before reanalysis."
+          },
+          {
+            "accession": "PRJCA052100",
+            "record_url": "https://ngdc.cncb.ac.cn/bioproject/browse/PRJCA052100",
+            "record_title": "Bulk RNA sequencing of 40-MG, 40-MGT, and 40-MGN",
+            "record_description": "IVC-day-2 hydrogel-contact-region sequencing for 40-MG, 40-MGT, and 40-MGN groups",
+            "submitted_on": "2025-11-25",
+            "released_on": "2025-11-26",
+            "gsa_archive": "CRA034161",
+            "current_publication_link": "3D biomimetic niche modulates embryo development in vitro (2026)",
+            "biosample_count": 11,
+            "biosample_counts_by_label": {"MG_EX": 3, "MGT_EX": 4, "MGN_EX": 4},
+            "mapping_status": "candidate_sample_to_methods_mapping_gap",
+            "interpretation_limit": "The accession's condition labels/counts and all-three-condition description do not directly match the Methods sentence describing three separate embryos for each of 40-MG and 40-MGT. The repository records may include additional libraries or another sample hierarchy; BioSample counts alone do not prove the experimental unit or replicate mapping. Preserve the discrepancy as unresolved."
+          }
+        ],
+        "analysis_code_repository": {
+          "url": "https://github.com/dongjingxi/embryo-development-in-vitro",
+          "commit": "e71eaaac80486d00f6b01092a2a5ae6618a087b6",
+          "tracked_paths": ["README.md", "code.Rmd", "meta.txt"],
+          "meta_txt": {
+            "bytes": 1550305,
+            "sha256": "54a122df4a637d199f7e5799bc5b55f794f0444971d20737f15acdd1a88cd6f0",
+            "data_rows": 39832,
+            "code_group_to_article_group": {"E8": "E8.5", "E6": "E6.5", "E8L": "D9 (IVC day 9)"},
+            "cell_counts_by_code_group": {"E8": 14761, "E6": 14315, "E8L": 10756},
+            "article_reported_cell_counts": {"E8.5": 14761, "E6.5": 14315, "D9_IVC": 10756},
+            "article_results_cell_counts_match": true,
+            "biological_embryo_or_run_ids_present": false,
+            "interpretation_limit": "These processed-cell counts match the article's reported post-QC cell totals and support group-level identification of the metadata file. They are cells, not independent embryos, and do not link the processed matrices to BioSample/Run accessions or recover embryo-level replication. The Results describe E6.5 scRNA-seq, while the scRNA library-generation Methods paragraph enumerates E8.5 and IVC day-9 samples but not E6.5; E6.5 source/reprocessing status is unresolved."
+          },
+          "gsa_archive_to_cell_object_crosswalk": "not_established; CRA004601 run records map the older PD_SC/PDCO_SC/E45_SC aliases and E8.5 bulk samples, but no listed 2026 E8.5 scRNA-seq or D9 scRNA-seq BioSample/run links to the E8/E8L processed groups or code.Rmd matrix paths",
+          "code_inputs_referenced_but_absent_from_tracked_tree": ["cellranger/E8-5/outs/filtered_feature_bc_matrix/", "cellranger/E6-5/outs/filtered_feature_bc_matrix/", "cellranger/E8-5-L/outs/filtered_feature_bc_matrix/", "singerR/refdata-se.rds", "GO_filter.txt", "sce_harmony_final.rds"],
+          "reproduction_status": "processed_group_cell_counts_match_but_not_self_contained_or_unit_linked",
+          "interpretation_limit": "The article's customized scripts and group-labeled processed-cell metadata are public, and the three group cell counts match the article Results. The tracked repository snapshot omits inputs referenced by code.Rmd. Raw sequence availability does not by itself provide the sample/run-to-matrix crosswalk, embryo-level unit IDs, or the missing reference/object files needed to reproduce the presented analysis as written."
+        },
+        "E6_E8_reference_dataset_comparison": {
+          "reference_article": "Pijuan-Sala et al. 2019, A single-cell molecular map of mouse gastrulation and early organogenesis",
+          "reference_dataset_accession": "E-MTAB-6967",
+          "reference_dataset_url": "https://www.ebi.ac.uk/biostudies/arrayexpress/studies/E-MTAB-6967",
+          "reference_metadata_table_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-019-0933-9/MediaObjects/41586_2019_933_MOESM6_ESM.csv",
+          "reference_metadata_table_bytes": 23096948,
+          "reference_metadata_table_sha256": "032750d2f442e9ddb0d76594dbb3e3e2740fdb333421903a2b7fd4b05769ad31",
+          "reference_metadata_columns_used": ["barcode", "sample", "stage"],
+          "reference_stage_rows": {"E6.5": 3697, "E8.5": 20978},
+          "reference_unique_barcode_values": {"E6.5": 3689, "E8.5": 20783},
+          "reference_sample_counts": {"E6.5": {"1": 360, "5": 1207, "18": 2130}, "E8.5": {"17": 4483, "29": 7569, "36": 4915, "37": 4011}},
+          "guo_repository_cell_counts": {"E6": 14315, "E8": 14761},
+          "exact_barcode_overlap": {"E6_vs_reference_E6.5": 0, "E8_vs_reference_E8.5": 0},
+          "barcode_overlap_after_removing_cellranger_suffix_minus_1": {"E6_vs_reference_E6.5": 0, "E8_vs_reference_E8.5": 0},
+          "barcode_string_lengths": {"guo_repo_E6_E8": 18, "reference_atlas_E6.5_E8.5": 14},
+          "direct_reference_cell_reuse_supported": false,
+          "mapping_status": "not_direct_barcode_reuse_of_E-MTAB-6967; origin_of_2026_E6.5_group_unresolved",
+          "interpretation_limit": "The stage-matched Pijuan-Sala metadata does not contain the repository's E6/E8 barcode strings, even after removing the trailing -1 suffix; the reference atlas also has different stage-specific cell counts. This weighs against direct cell-matrix reuse from E-MTAB-6967 but does not identify whether the 2026 cells are newly sequenced or derive from another dataset. The 2026 Results describe E6.5/E8.5/D9 scRNA groups, while its library-generation Methods paragraph names E8.5 and D9 but omits the E6.5 source."
+        },
+        "candidate_reference_datasets_screen": {
+          "screened_on": "2026-10-10",
+          "candidates": [
+            {
+              "accession": "GSE100597",
+              "title": "Single-cell landscape of transcriptional heterogeneity and cell fate decisions during mouse early gastrulation",
+              "series_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE100597",
+              "stage_coverage": ["E3.5", "E4.5", "E5.5", "E6.5"],
+              "geo_series_sample_records": 721,
+              "available_processed_file": "GSE100597_count_table_QC_filtered.txt.gz",
+              "candidate_role": "possible published reference for early-lineage annotation; no E6.5 matrix-to-Guo-cell or sample/run crosswalk found",
+              "source_status": "candidate_reference_only"
+            },
+            {
+              "accession": "GSE109071",
+              "title": "Single-cell RNA-seq reveals cellular heterogeneity of pluripotency transition and X-chromosome dynamics during early mouse development",
+              "series_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE109071",
+              "stage_coverage": ["E5.25", "E5.5", "E6.25", "E6.5"],
+              "reported_cells_and_embryos": {"cells": 1724, "pregastrula_embryos": 28},
+              "sample_method_example": "GSM2929812 is an E5.5 sample in this series and records manually picked cells and Smart-seq2 library preparation; this documents the series method, not an E6.5 sample-level link",
+              "sample_method_example_url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSM2929812",
+              "candidate_role": "possible published reference for early-stage annotation; stage coverage stops at E6.5 and no E6.5 matrix-to-Guo-cell or sample/run crosswalk found",
+              "source_status": "candidate_reference_only"
+            }
+          ],
+          "guo_input_context": {
+            "tracked_code_paths": ["cellranger/E6-5/outs/filtered_feature_bc_matrix/", "cellranger/E8-5/outs/filtered_feature_bc_matrix/", "cellranger/E8-5-L/outs/filtered_feature_bc_matrix/"],
+            "article_library_generation_methods": "The 2026 article specifies 10x Chromium v3.1 for three E8.5 and three IVC day-9 embryos; the paragraph does not describe the E6.5 group.",
+            "results_report_e6_5_cells": 14315
+          },
+          "mapping_status": "no_GEO_reference_identified_as_the_source_of_the_2026_E6.5_matrix",
+          "interpretation_limit": "These GEO records establish relevant public E6.5 reference datasets, not that Guo used them as the source of its E6.5 matrix. Guo's Results report three natural E6.5 embryos, but the library-generation paragraph names only E8.5 and D9; its tracked code refers to Cell Ranger feature-barcode matrices. Without a sample/run-to-matrix bridge, neither new sequencing nor reuse of a published E6.5 dataset is established."
+        },
+        "linked_2022_10x_dataset_crosswalk": {
+          "article_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9534964/",
+          "doi": "10.1002/advs.202202282",
+          "figure_locator": "Figure 6c-f",
+          "article_reported_assay": "10x Genomics single-cell RNA-seq",
+          "article_reported_groups": ["natural E6.5", "natural E8.5", "PDCO IVC days 8-10", "PD IVC days 8-10"],
+          "filtered_cells_reported_2022": {"E6.5": 14935, "E8.5": 15116, "PDCO_IVC_days_8_10": 21546, "PD_IVC_days_8_10": 16989},
+          "guo_2026_post_qc_cells": {"E6.5": 14315, "E8.5": 14761, "D9_IVC": 10756},
+          "natural_stage_count_difference_2026_minus_2022": {"E6.5": -620, "E8.5": -355},
+          "natural_stage_count_difference_percent_of_2022": {"E6.5": -4.15, "E8.5": -2.35},
+          "published_data_availability": "The data supporting the 2022 study are available from the corresponding author upon reasonable request; the statement names no public accession.",
+          "methods_scope_note": "The article's Single-Cell Isolation and Transcriptome Library Construction Methods subsection describes only IVC-day-2 PD/PDCO single cells compared with natural E4.5; it does not specify the Figure 6 later 10x collection or library workflow.",
+          "publisher_attachment_inventory": {
+            "article_url": "https://advanced.onlinelibrary.wiley.com/doi/full/10.1002/advs.202202282",
+            "supporting_files_listed": {"pdf": 1, "supplemental_movies": 7, "separate_spreadsheets_or_source_data_files": 0},
+            "supplementary_pdf_download_status": "HTTP 403; contents not inspected",
+            "interpretation_limit": "The publisher page does not list a separate table/source-data file for the single-cell profiles. The supporting PDF was not inspected because its public download link returned HTTP 403. This is a bounded attachment inventory and does not show that the PDF has no relevant detail or that data are unavailable elsewhere."
+          },
+          "public_archive_reconciliation": {
+            "candidate_archive": "PRJCA004049 / CRA004601",
+            "listed_scRNA_biosample_descriptions": {
+              "SAMC435198": "Drop-seq for embryos of PD on IVC day 2",
+              "SAMC435199": "Drop-seq for embryos of PDCO on IVC day 2",
+              "SAMC435200": "Drop-seq for E4.5 embryos"
+            },
+            "explicit_2022_figure6_10x_sample_aliases_listed": false,
+            "source_urls": [
+              "https://ngdc.cncb.ac.cn/gsa/browse/CRA004601",
+              "https://ngdc.cncb.ac.cn/biosample/browse/SAMC435198",
+              "https://ngdc.cncb.ac.cn/biosample/browse/SAMC435199",
+              "https://ngdc.cncb.ac.cn/biosample/browse/SAMC435200"
+            ]
+          },
+          "mapping_status": "strong_candidate_natural_stage_source_or_comparison_lead_but_no_cell_or_sample_run_crosswalk",
+          "interpretation_limit": "The 2022 paper reports a group-, stage-, and platform-overlapping 10x dataset, and its natural-stage filtered-cell totals are numerically near but unequal to the 2026 processed totals. Count similarity cannot distinguish reuse with different filtering from separately generated or otherwise processed data. No shared barcode, cell, embryo, library, BioSample, or run crosswalk was found in inspected material. The 2022 data statement supplies no accession; the currently displayed PRJCA004049 scRNA BioSamples are described as day-2 Drop-seq and E4.5 Drop-seq. This does not establish that the 2022 10x data are absent from every public location, that the 2026 data were reused, or that the 2026 D9 group came from the PDCO/PD populations. No author contact or observations were made."
+        },
+        "linked_2022_early_dropseq_group_alignment": {
+          "article_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9534964/",
+          "figure_locator": "Figure 3d-g",
+          "article_reported_cell_count": 518,
+          "article_reported_groups": ["PD embryos on IVC day 2", "PDCO embryos on IVC day 2", "natural E4.5 embryos"],
+          "archive": "PRJCA004049 / CRA004601",
+          "archive_biosamples": {
+            "SAMC435198": {"alias": "PD_SC", "description": "Drop-seq for embryos of PD on IVC day 2"},
+            "SAMC435199": {"alias": "PDCO_SC", "description": "Drop-seq for embryos of PDCO on IVC day 2"},
+            "SAMC435200": {"alias": "E45_SC", "description": "Drop-seq for E4.5 embryos"}
+          },
+          "mapping_status": "condition_label_alignment_supports_early_2022_groups_but_no_cell_or_run_crosswalk",
+          "interpretation_limit": "The published Figure 3 conditions and cell count align with the archive's three single-cell aliases and BioSample descriptions. This supports a plausible condition-level mapping of PRJCA004049 to the 2022 early 518-cell analysis, not a verified per-cell or per-run reconstruction. These groups are distinct from the paper's later 10x Figure 6 dataset and do not map the 2026 E6.5/E8.5/D9 matrices."
+        },
+        "broader_2022_archive_search": {
+          "query_scope": ["2022 article title", "Figure 6 natural E6.5/E8.5 stages", "10x Genomics platform", "official BioProject and GSA records"],
+          "directly_relevant_official_project_found": "PRJCA004049",
+          "second_official_accession_surfaced": false,
+          "search_completeness": "bounded_indexed_search; not an exhaustive archive query",
+          "interpretation_limit": "No second official accession surfaced in the indexed search results. This does not prove that no separate or differently titled record exists."
+        },
+        "supporting_material_crosswalk_screen": {
+          "retrieved_on": "2026-10-10",
+          "supplementary_pdf": {
+            "path": "artifacts/feasibility-strategy-2026-10-09/guo-supplementary-information.pdf",
+            "page_count": 31,
+            "text_search_patterns": ["PRJCA", "SAMC", "CRX", "CRR"],
+            "accession_identifier_hits": {"PRJCA": 0, "SAMC": 0, "CRX": 0, "CRR": 0},
+            "scRNA_group_content_present": "Supplementary Fig. 7 discusses E6.5, E8.5, and IVC day-9 scRNA-seq quality-control and cell-type proportions.",
+            "sample_run_crosswalk_found": false
+          },
+          "publisher_source_data_workbook": {
+            "path": "artifacts/feasibility-strategy-2026-10-09/guo-source-data.xlsx",
+            "worksheet_count": 55,
+            "Fig3_labeled_worksheet_present": false,
+            "interpretation_limit": "The workbook has no Fig. 3-labeled worksheet. This inventory check does not assert that no transcriptomic source data exist elsewhere."
+          },
+          "gsa_metadata_workbook_download": {
+            "source_page_url": "https://ngdc.cncb.ac.cn/gsa/browse/CRA004601",
+            "downloaded_filename": "CRA004601.xlsx",
+            "path": "artifacts/public-data-screen-2026-10-10/cra004601-metadata-export.xlsx",
+            "bytes": 13792,
+            "sha256": "0251316C5FAAE7B0ADD532124DAA6CF5A86C728F239EAFD2B59E97891711E6C5",
+            "worksheets": ["Sample", "Experiment", "Run"],
+            "sheet_dimensions": {"Sample": "A1", "Experiment": "A1", "Run": "A1"},
+            "only_nonempty_cell_per_sheet": "A1=ID",
+            "data_rows_present": false,
+            "interpretation_limit": "The downloaded workbook contains no metadata rows. This is not evidence that the archive has no further metadata; the GSA landing page itself visibly lists 12 BioSamples and linked experiment/run records."
+          },
+          "tracked_repository_text_search": {
+            "files": ["README.md", "code.Rmd", "meta.txt"],
+            "searched_identifier_patterns": ["PRJCA", "SAMC", "CRX", "CRR"],
+            "identifier_hits": 0,
+            "sample_run_to_cell_object_crosswalk_found": false
+          },
+          "interpretation_limit": "No explicit matrix-to-run, embryo-unit, or E6.5 reference-source crosswalk was found in the inspected public text/source surfaces. The GSA metadata workbook download was empty, while the landing page lists only the displayed BioSamples and runs. Other uninspected records may still contain additional mappings."
+        },
+        "observation_promotion": "none",
+        "parameter_fitting_performed": false,
+        "author_contact": "none"
+      },
+      "supplementary_information": {
+        "source_url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41467-025-68039-y/MediaObjects/41467_2025_68039_MOESM1_ESM.pdf",
+        "snapshot_path": "artifacts/feasibility-strategy-2026-10-09/guo-supplementary-information.pdf",
+        "snapshot_bytes": 3383310,
+        "snapshot_sha256": "eeef1dba62e161983b2e1a7ca58e28251fefb617fca622757319036e7e7a3d9f",
+        "retrieved_on": "2026-10-10",
+        "selected_locators": ["Supplementary Fig. 10I/J, PDF pages 18-19"],
+        "snapshot_hash_scope": "Downloaded publisher supplementary-information PDF; local bytes pinned, not a universal publisher revision"
+      },
+      "developmental_outcome_n_qualification": {
+        "panels": ["Fig4E", "Fig4F"],
+        "caption_statement": "n ≥ 4",
+        "caption_locator": "Figure 4 caption, panels E/F",
+        "minimum_n_stated": 4,
+        "exact_n_by_condition": null,
+        "unit_counted_by_n": "not specified",
+        "workbook_percentage_cell_counts_by_condition": {"40-MG": 7, "40-MGT": 4, "40-MGN": 5},
+        "cell_counts_are_verified_biological_n": false,
+        "embryo_numerators_denominators": "not reported in the selected workbook; no exact denominator recovered from the inspected article text"
+      },
+      "mechanical_panel_axis_qualification": [
+        {
+          "panel": "Fig4A",
+          "measure": "stress-relaxation half-time, τ1/2",
+          "axis_unit": "s",
+          "axis_scale": "linear",
+          "caption_n": "n=10, 9 independent experiments (E5.5 decidua and 40-MG, respectively)",
+          "source_locator": "Figure 4A axis and caption",
+          "method_mapping_status": "The caption describes the relaxation timescale and sample groups but names no assay or instrument; the Results text also does not assign a method."
+        },
+        {
+          "panel": "Fig4C",
+          "measure": "Young's modulus, E",
+          "axis_unit": "Pa",
+          "axis_scale": "logarithmic (10^1 and 10^2 ticks)",
+          "caption_n": "n=10; unit counted by n not specified",
+          "source_locator": "Figure 4C axis and caption"
+        },
+        {
+          "panel": "Fig4D",
+          "measure": "stress-relaxation half-time, τ1/2",
+          "axis_unit": "s",
+          "axis_scale": "linear",
+          "caption_n": "n=5; unit counted by n not specified",
+          "source_locator": "Figure 4D axis and caption",
+          "method_mapping_status": "Figure caption explicitly identifies nanoindentation."
+        }
+      ],
+      "mechanical_measurement_context": {
+        "rheometer_relaxation": {
+          "source_locator": "Methods > Rheological test",
+          "instrument": "MCR-302 rheometer with parallel plate",
+          "pretest_condition": "Hydrogel held at 37 °C for 60 min before stress-relaxation test",
+          "loading_mode": "fixed strain, 1%",
+          "response_normalization": "stress normalized to initial maximum stress",
+          "fit_model": "three-element generalized Maxwell–Wiechert model",
+          "repeat_statement": "Methods state all tests were repeated at least three times",
+          "mapping_limit": "Figure 4A's caption and Results text describe a relaxation timescale for E5.5 decidua and 40-MG but do not name an assay or instrument; Supplementary Fig. 10I/J explicitly identifies rheometer data. Individual run IDs and mapping to Figure 4A workbook values are not supplied"
+        },
+        "nanoindentation_relaxation": {
+          "source_locator": "Methods > Nanoindentation test",
+          "instrument": "Optics11 Piuma nanoindenter",
+          "loading_history": "4 s loading to 15,000 nm indentation depth, 40 s hold, then 4 s unloading",
+          "probe_context": "3 μm radius probe; cantilever stiffness 0.024 N/m",
+          "response_fit": "generalized Maxwell/Prony load-decay model during the holding phase",
+          "repeat_statement": "Methods state three experiments per tested sample",
+          "mapping_limit": "Figure 4D caption identifies nanoindentation, but sample IDs and aggregation from repeated experiments to the five plotted values per condition are not reported"
+        },
+        "young_modulus_method_mapping": {
+          "figure_4c_caption": "Young's modulus detected using a nanoindenter",
+          "methods_modulus_description": "A separate AFM/Hertz load-displacement method is described for decidua and Matrigel; it fits the loading curve from contact point to maximum load.",
+          "mapping_status": "not_explicitly_established_for_figure_4c",
+          "interpretation_limit": "Do not assume the separately described AFM/Hertz modulus method is the protocol used for Figure 4C's nanoindenter measurements."
+        }
+      },
+      "mechanical_panel_exact_value_overlaps": [
+        {
+          "left_panel": "Fig4A",
+          "left_condition": "40-MG",
+          "right_panel": "Fig4D",
+          "right_condition": "40-MG",
+          "match_method": "exact numeric source-lexeme equality",
+          "n_matching_lexemes": 5,
+          "n_left_source_cells": 6,
+          "n_right_source_cells": 5,
+          "matches": [
+            {"numeric_text": "10.964", "left_cells": ["A8"], "right_cells": ["A3"]},
+            {"numeric_text": "12.986000000000001", "left_cells": ["A9"], "right_cells": ["A4"]},
+            {"numeric_text": "5.8339999999999996", "left_cells": ["A3", "A10"], "right_cells": ["A5"]},
+            {"numeric_text": "7.3959999999999999", "left_cells": ["A2"], "right_cells": ["A6"]},
+            {"numeric_text": "9.2219999999999995", "left_cells": ["A6"], "right_cells": ["A2"]}
+          ],
+          "interpretation_limit": "Exact transcription overlap only. The source data do not identify specimens or runs, or say whether these entries are shared, remeasured, reused or coincident; do not infer pairing, duplication or independent replication."
+        }
+      ],
+      "supplementary_profile_qualification": {
+        "source_locator": "Supplementary Fig. 10I axis and caption, PDF pages 18-19",
+        "workbook_sheet": "Sup 10 I",
+        "workbook_mapping_basis": "The sheet title names the same supplementary panel and its three condition headers match the plotted legend; source column order is retained separately.",
+        "x_axis_label": "Time (s)",
+        "x_unit": "s",
+        "x_axis_scale": "linear",
+        "x_axis_ticks": [0, 250, 500, 750, 1000],
+        "response_axis_label": "σ/σ₀",
+        "response_unit": "dimensionless",
+        "response_normalization": "Stress levels normalized to the initial stress level.",
+        "assay": "rheometer",
+        "source_condition_headers_in_sheet_order": ["40-MG", "40-MGN", "40-MGT"],
+        "source_condition_legend_order": ["40-MG", "40-MGT", "40-MGN"],
+        "panel_i_replicate_scope": "The Supplementary Fig. 10I caption gives no n or profile aggregation level; the workbook does not state whether each curve is an individual run, mean, or another summary.",
+        "adjacent_panel_j_scope": "Supplementary Fig. 10J reports a rheometer relaxation half-time as mean ± s.d. with n=3 independent experiments; those summary replicates are not assigned to Fig. 10I profile rows.",
+        "profile_grid_qualification": {
+          "n_time_coordinates": 200,
+          "time_grid_unique": true,
+          "time_grid_strictly_increasing": true,
+          "time_range_seconds": [5.0, 1000.249],
+          "time_step_range_seconds": [5.0, 5.003],
+          "zero_second_coordinate_present": false,
+          "condition_profiles": {
+            "40-MG": {"n_source_values": 200, "first_value_at_first_recorded_time": 1.0, "last_value_at_last_recorded_time": 0.077234, "minimum_value": 0.07334, "maximum_value": 1.0, "n_values_above_one": 0, "n_adjacent_increases": 49},
+            "40-MGN": {"n_source_values": 200, "first_value_at_first_recorded_time": 1.0, "last_value_at_last_recorded_time": 0.117583, "minimum_value": 0.117583, "maximum_value": 1.0, "n_values_above_one": 0, "n_adjacent_increases": 30},
+            "40-MGT": {"n_source_values": 200, "first_value_at_first_recorded_time": 1.0, "last_value_at_last_recorded_time": 0.118587, "minimum_value": 0.091826, "maximum_value": 1.0, "n_values_above_one": 0, "n_adjacent_increases": 78}
+          },
+          "interpretation_limit": "Structural source-grid facts only. The workbook has no zero-second row and does not label the first recorded point as the measured initial instant; no zero-time value was inserted, no profile was smoothed or fit, and adjacent increases are retained as source values rather than edited away."
+        },
+        "interpretation_limit": "Axes, normalization, assay and condition labels are qualified; biological/technical unit IDs, per-curve hierarchy and mapping from profile rows to the n=3 panel-J summaries remain unknown. Keep profiles out of observation intake and fitting."
+      },
+      "supplementary_panel_j_qualification": {
+        "source_locator": "Supplementary Fig. 10J axis and caption, PDF pages 18-19",
+        "workbook_sheet": "Sup10J",
+        "quantity": "stress-relaxation half-time, τ1/2",
+        "unit": "s",
+        "axis_scale": "linear",
+        "assay": "rheometer",
+        "caption_n": "n=3 independent experiments per condition",
+        "caption_summary": "mean ± s.d.",
+        "condition_headers_in_sheet_order": ["40-MG", "40-MGT", "40-MGN"],
+        "n_source_cells": 9,
+        "n_source_values_by_condition": {"40-MG": 3, "40-MGT": 3, "40-MGN": 3},
+        "source_to_caption_count_alignment": "Three workbook values per condition match the caption n=3; the sheet provides no experiment IDs to verify one cell per independent experiment.",
+        "cross_condition_row_pairing": "not_established",
+        "profile_row_linkage": "The sheet does not identify which Fig. 10I trace or profile rows correspond to any Fig. 10J value.",
+        "derived_summary_reconstruction": {
+          "40-MG": {"n_source_values": 3, "mean_from_source_cells": 78.35166666666667, "sample_sd_from_source_cells": 2.887040064379665},
+          "40-MGT": {"n_source_values": 3, "mean_from_source_cells": 145.03533333333334, "sample_sd_from_source_cells": 20.00550000208276},
+          "40-MGN": {"n_source_values": 3, "mean_from_source_cells": 150.037, "sample_sd_from_source_cells": 17.324838209922756},
+          "sd_convention": "sample standard deviation (n-1) used for arithmetic reconciliation; caption does not state the formula"
+        },
+        "values_enter_observation_intake": false,
+        "values_enter_mechanical_fit": false,
+        "interpretation_limit": "The three values per condition and experiment-level n are source-qualified, but IDs and cross-condition pairing are absent. Keep these mechanical values out of biological observation intake and fitting."
+      },
+      "supplementary_profile_half_response_crossing_check": {
+        "source_profile_panel": "Supplementary Fig. 10I",
+        "summary_panel": "Supplementary Fig. 10J",
+        "threshold_response": 0.5,
+        "response_unit": "dimensionless σ/σ₀",
+        "conditions": {
+          "40-MG": {"first_downward_crossing_cells": ["B17", "B18"], "first_downward_crossing_bracket_seconds": [80.018, 85.02], "response_values": [0.508584, 0.496477], "downward_crossings": 1, "upward_crossings": 0, "Sup10J_mean_seconds": 78.35166666666667, "mean_position": "before_observed_bracket", "gap_seconds": 1.666333333333327},
+          "40-MGT": {"first_downward_crossing_cells": ["F30", "F31"], "first_downward_crossing_bracket_seconds": [145.035, 150.036], "response_values": [0.504429, 0.498261], "downward_crossings": 1, "upward_crossings": 0, "Sup10J_mean_seconds": 145.03533333333334, "mean_position": "within_observed_bracket", "gap_seconds": 0.0},
+          "40-MGN": {"first_downward_crossing_cells": ["D33", "D34"], "first_downward_crossing_bracket_seconds": [160.038, 165.041], "response_values": [0.502209, 0.495031], "downward_crossings": 1, "upward_crossings": 0, "Sup10J_mean_seconds": 150.037, "mean_position": "before_observed_bracket", "gap_seconds": 10.001000000000005}
+        },
+        "crossing_rule": "Record every adjacent raw response transition across 0.5; use the first downward-crossing time interval only. Do not interpolate, smooth, or fit.",
+        "comparability_status": "descriptive_scale_check_only_profile_run_and_aggregation_mapping_unknown",
+        "interpretation_limit": "The source profile first-crossing brackets and Fig. 10J source-cell means can be compared only as panel-level timing scales. The profile caption supplies no run/summary hierarchy, and no IDs map a profile to any of the three independent Fig. 10J values. This does not establish shared observations, replicate matching, or an estimated half-time."
+      },
+      "mechanical_40mg_cross_panel_scale_check": {
+        "condition": "40-MG",
+        "quantity": "stress-relaxation half-time, τ1/2",
+        "common_reported_unit": "s",
+        "descriptive_summaries": {
+          "Figure 4A": {"n_source_values": 9, "minimum_seconds": 5.834, "maximum_seconds": 12.986, "mean_seconds": 9.903444444444444, "median_seconds": 10.964, "method_status": "caption and Results do not name assay or instrument"},
+          "Figure 4D": {"n_source_values": 5, "minimum_seconds": 5.834, "maximum_seconds": 12.986, "mean_seconds": 9.2804, "median_seconds": 9.222, "method_status": "caption identifies nanoindentation"},
+          "Supplementary Fig. 10J": {"n_source_values": 3, "minimum_seconds": 75.018, "maximum_seconds": 80.019, "mean_seconds": 78.35166666666667, "median_seconds": 80.018, "method_status": "caption identifies rheometer"}
+        },
+        "supplementary_10j_mean_to_figure_4_mean_ratios": {"vs_figure_4a": 7.911557146222976, "vs_figure_4d": 8.442703619096878},
+        "supplementary_10j_range_overlap_with_figure_4": {"with_figure_4a": false, "with_figure_4d": false},
+        "comparability_status": "unresolved_protocol_and_run_hierarchy",
+        "interpretation_limit": "At the same nominal condition and reported quantity/unit, the Sup. Fig. 10J mean is about eight times the Fig. 4 means and the observed ranges do not overlap. Fig. 4A method linkage is not explicit; Fig. 4D identifies nanoindentation and Sup. Fig. 10J identifies rheometer. Treat this as a source-reconciliation flag, not a direct contradiction or biological result; do not pool or fit these values."
+      },
       "n_verified_biological_unit_links": 0,
-      "fit_eligibility": "not_qualified; missing hierarchy, mechanical units/loading/normalization and original outcome denominators",
+      "fit_eligibility": "not_qualified; missing panel-specific modulus method mapping, mechanical sample/run hierarchy, reconciliation of the Fig4A/D versus Sup10J 40-MG half-time scale difference and exact Fig4A/Fig4D value overlap, profile-to-summary hierarchy and original outcome denominators",
       "limits": ["Mouse early-stage result is separate from human development.", "Later placental substitution is not demonstrated.", "Perturbation specificity, unit hierarchy and attrition need review."]
     },
     {

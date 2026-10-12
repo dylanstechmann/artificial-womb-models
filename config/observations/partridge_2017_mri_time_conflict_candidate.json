@@ -1,0 +1,77 @@
+{
+  "schema_version": 1,
+  "dataset_id": "partridge2017-semiclosed-mri-conflict-candidate",
+  "title": "Partridge et al. 2017 semi-closed survivor MRI summary; candidate source transcription",
+  "source_revision": {
+    "revision_id": "partridge2017-mri-time-conflict-2026-10-10",
+    "citation": "Partridge EA, et al. An extra-uterine system to physiologically support the extreme premature lamb. Nature Communications. 2017;8:15112. doi:10.1038/ncomms15112.",
+    "source_kind": "peer_reviewed_animal",
+    "source_url": "https://doi.org/10.1038/ncomms15112",
+    "review_status": "candidate",
+    "reviewer": "",
+    "reviewed_on": null,
+    "review_note": ""
+  },
+  "artifacts": [
+    {
+      "artifact_id": "partridge2017-article-pdf",
+      "uri": "https://www.med.upenn.edu/cstr/assets/user-content/documents/ncomms15112.pdf",
+      "license": "CC BY 4.0 (article)",
+      "sha256": null,
+      "retrieved_on": "2026-10-10"
+    }
+  ],
+  "observations": [
+    {
+      "schema_version": 1,
+      "record_id": "partridge2017-semiclosed-animal4-mri-summary",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "developmental_outcomes",
+      "developmental_interval": {
+        "label": "Post-support MRI follow-up, semi-closed CA/JV Table 1 animal 4",
+        "start": null,
+        "end": null,
+        "time_unit": "Conflicting reports in months and years",
+        "stage_source_artifact_id": "partridge2017-article-pdf"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine lamb after semi-closed CA/JV artificial-placenta support"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Semi-closed CA/JV Animal 4",
+        "parent_id": null,
+        "hierarchy_note": "Table 1 row label; the Results describe one 288-hour CA/JV survivor, but no persistent identifier outside this article is provided."
+      },
+      "assay": {
+        "name": "Postnatal brain MRI summary",
+        "endpoint": "MRI finding with conflicting article-reported follow-up time",
+        "unit": "source-reported narrative",
+        "measurement_role": "other"
+      },
+      "observation": {
+        "value": "No ischaemia or structural defects reported; follow-up time conflicts within the article.",
+        "measurement_time": null,
+        "measurement_time_unit": "Table 1: 1 year; Results/Fig. 7d: 6 months",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      },
+      "source": {
+        "artifact_id": "partridge2017-article-pdf",
+        "uri": "https://www.med.upenn.edu/cstr/assets/user-content/documents/ncomms15112.pdf",
+        "license": "CC BY 4.0 (article)",
+        "sha256": null,
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Table 1, semi-closed CA/JV animal 4; Results > Brain growth and development, surviving-lamb MRI paragraph; Figure 7d"
+    }
+  ],
+  "limitations": [
+    "The source is internally inconsistent about this case's MRI follow-up age: Table 1 says 1 year, while the Results paragraph and Figure 7d say 6 months. The candidate preserves both as text and does not select one or assert that two separate scans occurred.",
+    "The case label comes from Table 1 and is within-article only. The Results describe one 288-hour CA/JV long-term survivor, but do not provide an external persistent animal identifier or an animal-level raw imaging dataset.",
+    "This is one MRI summary, not a comprehensive developmental assessment. The paper itself qualifies long-term neurologic conclusions because follow-up and ovine neurologic assessment are limited.",
+    "The article's correction addresses an omitted patent disclosure, not the MRI timing discrepancy. The public supplementary-material listing contains movies and a peer-review file, not a row-level postnatal imaging table."
+  ]
+}

@@ -1,0 +1,1540 @@
+{
+  "schema_version": 1,
+  "source_revision": {
+    "revision_id": "peers2024-iugr-table2-pilot-transcription-2026-10-10",
+    "citation": "Peers de Nieuwburgh M, et al. Assessment of extremely premature lambs supported by the Extrauterine Environment for Neonatal Development (EXTEND). Pediatric Research. 2024;96:1616-1625. doi:10.1038/s41390-024-03287-0.",
+    "source_kind": "peer_reviewed_animal",
+    "source_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11772227/",
+    "review_status": "candidate",
+    "reviewer": "",
+    "reviewed_on": null,
+    "review_note": ""
+  },
+  "artifacts": [
+    {
+      "artifact_id": "peers2024-article",
+      "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11772227/",
+      "license": "CC BY 4.0 (article; PMC copyright notice)",
+      "sha256": null,
+      "retrieved_on": "2026-10-10"
+    }
+  ],
+  "dataset_id": "peers2024-iugr-table2-pilot-candidate",
+  "title": "Peers de Nieuwburgh et al. 2024 IUGR EXTEND pilot Table 2 animal-level summaries; separate descriptive candidate",
+  "observations": [
+    {
+      "schema_version": 1,
+      "record_id": "peers2024-iugr-animal-1-sex",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 2 IUGR Animal 1, at cannulation",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported ovine days",
+        "stage_source_artifact_id": "peers2024-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetal lamb in the growth-restricted EXTEND IUGR pilot; separate from the extremely preterm EXTEND cohort"
+      },
+      "assay": {
+        "name": "Per-animal IUGR pilot summary, Table 2",
+        "endpoint": "Sex (F/M)",
+        "unit": "source category",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "IUGR Animal 1",
+        "parent_id": "peers_2024_iugr_extend_pilot",
+        "hierarchy_note": "Source-labeled IUGR column number in Table 2. This pilot unit is distinct from the ten extremely preterm EXTEND animals numbered 1-10."
+      },
+      "observation": {
+        "value": "F",
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "peers2024-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11772227/",
+        "license": "CC BY 4.0 (article; PMC copyright notice)",
+        "sha256": null,
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Table 2, Growth restricted EXTEND (IUGR) group, animal 1, row 'Sex (F/M)'",
+      "limitations": [
+        "The source states that the three IUGR animals were included for interest, were not analyzed in detail, and were excluded from statistical comparisons; do not pool them with the ten extremely preterm EXTEND animals."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "peers2024-iugr-animal-1-age-at-cannulation",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 2 IUGR Animal 1, at cannulation",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported ovine days",
+        "stage_source_artifact_id": "peers2024-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetal lamb in the growth-restricted EXTEND IUGR pilot; separate from the extremely preterm EXTEND cohort"
+      },
+      "assay": {
+        "name": "Per-animal IUGR pilot summary, Table 2",
+        "endpoint": "Age at cannulation",
+        "unit": "days of gestational age",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "IUGR Animal 1",
+        "parent_id": "peers_2024_iugr_extend_pilot",
+        "hierarchy_note": "Source-labeled IUGR column number in Table 2. This pilot unit is distinct from the ten extremely preterm EXTEND animals numbered 1-10."
+      },
+      "observation": {
+        "value": 105,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "peers2024-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11772227/",
+        "license": "CC BY 4.0 (article; PMC copyright notice)",
+        "sha256": null,
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Table 2, Growth restricted EXTEND (IUGR) group, animal 1, row 'Age at cannulation'",
+      "limitations": [
+        "The source states that the three IUGR animals were included for interest, were not analyzed in detail, and were excluded from statistical comparisons; do not pool them with the ten extremely preterm EXTEND animals."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "peers2024-iugr-animal-1-weight-at-cannulation",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 2 IUGR Animal 1, at cannulation",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported ovine days",
+        "stage_source_artifact_id": "peers2024-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetal lamb in the growth-restricted EXTEND IUGR pilot; separate from the extremely preterm EXTEND cohort"
+      },
+      "assay": {
+        "name": "Per-animal IUGR pilot summary, Table 2",
+        "endpoint": "Weight at cannulation",
+        "unit": "kg",
+        "measurement_role": "morphology"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "IUGR Animal 1",
+        "parent_id": "peers_2024_iugr_extend_pilot",
+        "hierarchy_note": "Source-labeled IUGR column number in Table 2. This pilot unit is distinct from the ten extremely preterm EXTEND animals numbered 1-10."
+      },
+      "observation": {
+        "value": 0.75,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "peers2024-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11772227/",
+        "license": "CC BY 4.0 (article; PMC copyright notice)",
+        "sha256": null,
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Table 2, Growth restricted EXTEND (IUGR) group, animal 1, row 'Weight at cannulation'",
+      "limitations": [
+        "The source states that the three IUGR animals were included for interest, were not analyzed in detail, and were excluded from statistical comparisons; do not pool them with the ten extremely preterm EXTEND animals."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "peers2024-iugr-animal-1-arterial-cannulas",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 2 IUGR Animal 1, during EXTEND support",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported ovine days",
+        "stage_source_artifact_id": "peers2024-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetal lamb in the growth-restricted EXTEND IUGR pilot; separate from the extremely preterm EXTEND cohort"
+      },
+      "assay": {
+        "name": "Per-animal IUGR pilot summary, Table 2",
+        "endpoint": "Size of arterial cannulas (Fr)",
+        "unit": "Fr, source literal",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "IUGR Animal 1",
+        "parent_id": "peers_2024_iugr_extend_pilot",
+        "hierarchy_note": "Source-labeled IUGR column number in Table 2. This pilot unit is distinct from the ten extremely preterm EXTEND animals numbered 1-10."
+      },
+      "observation": {
+        "value": "10/12",
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "peers2024-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11772227/",
+        "license": "CC BY 4.0 (article; PMC copyright notice)",
+        "sha256": null,
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Table 2, Growth restricted EXTEND (IUGR) group, animal 1, row 'Size of arterial cannulas (Fr)'",
+      "limitations": [
+        "The source states that the three IUGR animals were included for interest, were not analyzed in detail, and were excluded from statistical comparisons; do not pool them with the ten extremely preterm EXTEND animals.",
+        "The source prints paired cannula-size literals (for example 10/12 Fr) but does not define slash order; retain the literal without interpretation."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "peers2024-iugr-animal-1-venous-cannula",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 2 IUGR Animal 1, during EXTEND support",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported ovine days",
+        "stage_source_artifact_id": "peers2024-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetal lamb in the growth-restricted EXTEND IUGR pilot; separate from the extremely preterm EXTEND cohort"
+      },
+      "assay": {
+        "name": "Per-animal IUGR pilot summary, Table 2",
+        "endpoint": "Size of venous cannula (Fr)",
+        "unit": "Fr",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "IUGR Animal 1",
+        "parent_id": "peers_2024_iugr_extend_pilot",
+        "hierarchy_note": "Source-labeled IUGR column number in Table 2. This pilot unit is distinct from the ten extremely preterm EXTEND animals numbered 1-10."
+      },
+      "observation": {
+        "value": 14,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "peers2024-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11772227/",
+        "license": "CC BY 4.0 (article; PMC copyright notice)",
+        "sha256": null,
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Table 2, Growth restricted EXTEND (IUGR) group, animal 1, row 'Size of venous cannula (Fr)'",
+      "limitations": [
+        "The source states that the three IUGR animals were included for interest, were not analyzed in detail, and were excluded from statistical comparisons; do not pool them with the ten extremely preterm EXTEND animals."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "peers2024-iugr-animal-1-age-at-necropsy",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 2 IUGR Animal 1, at necropsy",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported ovine days",
+        "stage_source_artifact_id": "peers2024-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetal lamb in the growth-restricted EXTEND IUGR pilot; separate from the extremely preterm EXTEND cohort"
+      },
+      "assay": {
+        "name": "Per-animal IUGR pilot summary, Table 2",
+        "endpoint": "Age at necropsy",
+        "unit": "days of gestational age",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "IUGR Animal 1",
+        "parent_id": "peers_2024_iugr_extend_pilot",
+        "hierarchy_note": "Source-labeled IUGR column number in Table 2. This pilot unit is distinct from the ten extremely preterm EXTEND animals numbered 1-10."
+      },
+      "observation": {
+        "value": 128,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "peers2024-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11772227/",
+        "license": "CC BY 4.0 (article; PMC copyright notice)",
+        "sha256": null,
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Table 2, Growth restricted EXTEND (IUGR) group, animal 1, row 'Age at necropsy'",
+      "limitations": [
+        "The source states that the three IUGR animals were included for interest, were not analyzed in detail, and were excluded from statistical comparisons; do not pool them with the ten extremely preterm EXTEND animals."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "peers2024-iugr-animal-1-weight-at-necropsy",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 2 IUGR Animal 1, at necropsy",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported ovine days",
+        "stage_source_artifact_id": "peers2024-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetal lamb in the growth-restricted EXTEND IUGR pilot; separate from the extremely preterm EXTEND cohort"
+      },
+      "assay": {
+        "name": "Per-animal IUGR pilot summary, Table 2",
+        "endpoint": "Weight at necropsy",
+        "unit": "kg",
+        "measurement_role": "morphology"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "IUGR Animal 1",
+        "parent_id": "peers_2024_iugr_extend_pilot",
+        "hierarchy_note": "Source-labeled IUGR column number in Table 2. This pilot unit is distinct from the ten extremely preterm EXTEND animals numbered 1-10."
+      },
+      "observation": {
+        "value": 1.762,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "peers2024-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11772227/",
+        "license": "CC BY 4.0 (article; PMC copyright notice)",
+        "sha256": null,
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Table 2, Growth restricted EXTEND (IUGR) group, animal 1, row 'Weight at necropsy'",
+      "limitations": [
+        "The source states that the three IUGR animals were included for interest, were not analyzed in detail, and were excluded from statistical comparisons; do not pool them with the ten extremely preterm EXTEND animals."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "peers2024-iugr-animal-1-length-of-run",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 2 IUGR Animal 1, during EXTEND support",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported ovine days",
+        "stage_source_artifact_id": "peers2024-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetal lamb in the growth-restricted EXTEND IUGR pilot; separate from the extremely preterm EXTEND cohort"
+      },
+      "assay": {
+        "name": "Per-animal IUGR pilot summary, Table 2",
+        "endpoint": "Length of the run on EXTEND",
+        "unit": "days on EXTEND",
+        "measurement_role": "durability"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "IUGR Animal 1",
+        "parent_id": "peers_2024_iugr_extend_pilot",
+        "hierarchy_note": "Source-labeled IUGR column number in Table 2. This pilot unit is distinct from the ten extremely preterm EXTEND animals numbered 1-10."
+      },
+      "observation": {
+        "value": 23,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "peers2024-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11772227/",
+        "license": "CC BY 4.0 (article; PMC copyright notice)",
+        "sha256": null,
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Table 2, Growth restricted EXTEND (IUGR) group, animal 1, row 'Length of the run on EXTEND'",
+      "limitations": [
+        "The source states that the three IUGR animals were included for interest, were not analyzed in detail, and were excluded from statistical comparisons; do not pool them with the ten extremely preterm EXTEND animals."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "peers2024-iugr-animal-1-growth-rate",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 2 IUGR Animal 1, during EXTEND support",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported ovine days",
+        "stage_source_artifact_id": "peers2024-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetal lamb in the growth-restricted EXTEND IUGR pilot; separate from the extremely preterm EXTEND cohort"
+      },
+      "assay": {
+        "name": "Per-animal IUGR pilot summary, Table 2",
+        "endpoint": "Growth rate(g/kg/J)",
+        "unit": "g/kg/J (as printed)",
+        "measurement_role": "morphology"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "IUGR Animal 1",
+        "parent_id": "peers_2024_iugr_extend_pilot",
+        "hierarchy_note": "Source-labeled IUGR column number in Table 2. This pilot unit is distinct from the ten extremely preterm EXTEND animals numbered 1-10."
+      },
+      "observation": {
+        "value": 39.59,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "peers2024-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11772227/",
+        "license": "CC BY 4.0 (article; PMC copyright notice)",
+        "sha256": null,
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Table 2, Growth restricted EXTEND (IUGR) group, animal 1, row 'Growth rate(g/kg/J)'",
+      "limitations": [
+        "The source states that the three IUGR animals were included for interest, were not analyzed in detail, and were excluded from statistical comparisons; do not pool them with the ten extremely preterm EXTEND animals."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "peers2024-iugr-animal-1-transfusions",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 2 IUGR Animal 1, during EXTEND support",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported ovine days",
+        "stage_source_artifact_id": "peers2024-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetal lamb in the growth-restricted EXTEND IUGR pilot; separate from the extremely preterm EXTEND cohort"
+      },
+      "assay": {
+        "name": "Per-animal IUGR pilot summary, Table 2",
+        "endpoint": "Number of transfusions during EXTEND support",
+        "unit": "transfusions",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "IUGR Animal 1",
+        "parent_id": "peers_2024_iugr_extend_pilot",
+        "hierarchy_note": "Source-labeled IUGR column number in Table 2. This pilot unit is distinct from the ten extremely preterm EXTEND animals numbered 1-10."
+      },
+      "observation": {
+        "value": 0,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "peers2024-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11772227/",
+        "license": "CC BY 4.0 (article; PMC copyright notice)",
+        "sha256": null,
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Table 2, Growth restricted EXTEND (IUGR) group, animal 1, row 'Number of transfusions during EXTEND support'",
+      "limitations": [
+        "The source states that the three IUGR animals were included for interest, were not analyzed in detail, and were excluded from statistical comparisons; do not pool them with the ten extremely preterm EXTEND animals."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "peers2024-iugr-animal-2-sex",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 2 IUGR Animal 2, at cannulation",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported ovine days",
+        "stage_source_artifact_id": "peers2024-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetal lamb in the growth-restricted EXTEND IUGR pilot; separate from the extremely preterm EXTEND cohort"
+      },
+      "assay": {
+        "name": "Per-animal IUGR pilot summary, Table 2",
+        "endpoint": "Sex (F/M)",
+        "unit": "source category",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "IUGR Animal 2",
+        "parent_id": "peers_2024_iugr_extend_pilot",
+        "hierarchy_note": "Source-labeled IUGR column number in Table 2. This pilot unit is distinct from the ten extremely preterm EXTEND animals numbered 1-10."
+      },
+      "observation": {
+        "value": "M",
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "peers2024-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11772227/",
+        "license": "CC BY 4.0 (article; PMC copyright notice)",
+        "sha256": null,
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Table 2, Growth restricted EXTEND (IUGR) group, animal 2, row 'Sex (F/M)'",
+      "limitations": [
+        "The source states that the three IUGR animals were included for interest, were not analyzed in detail, and were excluded from statistical comparisons; do not pool them with the ten extremely preterm EXTEND animals."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "peers2024-iugr-animal-2-age-at-cannulation",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 2 IUGR Animal 2, at cannulation",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported ovine days",
+        "stage_source_artifact_id": "peers2024-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetal lamb in the growth-restricted EXTEND IUGR pilot; separate from the extremely preterm EXTEND cohort"
+      },
+      "assay": {
+        "name": "Per-animal IUGR pilot summary, Table 2",
+        "endpoint": "Age at cannulation",
+        "unit": "days of gestational age",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "IUGR Animal 2",
+        "parent_id": "peers_2024_iugr_extend_pilot",
+        "hierarchy_note": "Source-labeled IUGR column number in Table 2. This pilot unit is distinct from the ten extremely preterm EXTEND animals numbered 1-10."
+      },
+      "observation": {
+        "value": 107,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "peers2024-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11772227/",
+        "license": "CC BY 4.0 (article; PMC copyright notice)",
+        "sha256": null,
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Table 2, Growth restricted EXTEND (IUGR) group, animal 2, row 'Age at cannulation'",
+      "limitations": [
+        "The source states that the three IUGR animals were included for interest, were not analyzed in detail, and were excluded from statistical comparisons; do not pool them with the ten extremely preterm EXTEND animals."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "peers2024-iugr-animal-2-weight-at-cannulation",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 2 IUGR Animal 2, at cannulation",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported ovine days",
+        "stage_source_artifact_id": "peers2024-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetal lamb in the growth-restricted EXTEND IUGR pilot; separate from the extremely preterm EXTEND cohort"
+      },
+      "assay": {
+        "name": "Per-animal IUGR pilot summary, Table 2",
+        "endpoint": "Weight at cannulation",
+        "unit": "kg",
+        "measurement_role": "morphology"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "IUGR Animal 2",
+        "parent_id": "peers_2024_iugr_extend_pilot",
+        "hierarchy_note": "Source-labeled IUGR column number in Table 2. This pilot unit is distinct from the ten extremely preterm EXTEND animals numbered 1-10."
+      },
+      "observation": {
+        "value": 0.81,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "peers2024-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11772227/",
+        "license": "CC BY 4.0 (article; PMC copyright notice)",
+        "sha256": null,
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Table 2, Growth restricted EXTEND (IUGR) group, animal 2, row 'Weight at cannulation'",
+      "limitations": [
+        "The source states that the three IUGR animals were included for interest, were not analyzed in detail, and were excluded from statistical comparisons; do not pool them with the ten extremely preterm EXTEND animals."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "peers2024-iugr-animal-2-arterial-cannulas",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 2 IUGR Animal 2, during EXTEND support",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported ovine days",
+        "stage_source_artifact_id": "peers2024-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetal lamb in the growth-restricted EXTEND IUGR pilot; separate from the extremely preterm EXTEND cohort"
+      },
+      "assay": {
+        "name": "Per-animal IUGR pilot summary, Table 2",
+        "endpoint": "Size of arterial cannulas (Fr)",
+        "unit": "Fr, source literal",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "IUGR Animal 2",
+        "parent_id": "peers_2024_iugr_extend_pilot",
+        "hierarchy_note": "Source-labeled IUGR column number in Table 2. This pilot unit is distinct from the ten extremely preterm EXTEND animals numbered 1-10."
+      },
+      "observation": {
+        "value": "12/12",
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "peers2024-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11772227/",
+        "license": "CC BY 4.0 (article; PMC copyright notice)",
+        "sha256": null,
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Table 2, Growth restricted EXTEND (IUGR) group, animal 2, row 'Size of arterial cannulas (Fr)'",
+      "limitations": [
+        "The source states that the three IUGR animals were included for interest, were not analyzed in detail, and were excluded from statistical comparisons; do not pool them with the ten extremely preterm EXTEND animals.",
+        "The source prints paired cannula-size literals (for example 10/12 Fr) but does not define slash order; retain the literal without interpretation."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "peers2024-iugr-animal-2-venous-cannula",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 2 IUGR Animal 2, during EXTEND support",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported ovine days",
+        "stage_source_artifact_id": "peers2024-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetal lamb in the growth-restricted EXTEND IUGR pilot; separate from the extremely preterm EXTEND cohort"
+      },
+      "assay": {
+        "name": "Per-animal IUGR pilot summary, Table 2",
+        "endpoint": "Size of venous cannula (Fr)",
+        "unit": "Fr",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "IUGR Animal 2",
+        "parent_id": "peers_2024_iugr_extend_pilot",
+        "hierarchy_note": "Source-labeled IUGR column number in Table 2. This pilot unit is distinct from the ten extremely preterm EXTEND animals numbered 1-10."
+      },
+      "observation": {
+        "value": 14,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "peers2024-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11772227/",
+        "license": "CC BY 4.0 (article; PMC copyright notice)",
+        "sha256": null,
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Table 2, Growth restricted EXTEND (IUGR) group, animal 2, row 'Size of venous cannula (Fr)'",
+      "limitations": [
+        "The source states that the three IUGR animals were included for interest, were not analyzed in detail, and were excluded from statistical comparisons; do not pool them with the ten extremely preterm EXTEND animals."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "peers2024-iugr-animal-2-age-at-necropsy",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 2 IUGR Animal 2, at necropsy",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported ovine days",
+        "stage_source_artifact_id": "peers2024-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetal lamb in the growth-restricted EXTEND IUGR pilot; separate from the extremely preterm EXTEND cohort"
+      },
+      "assay": {
+        "name": "Per-animal IUGR pilot summary, Table 2",
+        "endpoint": "Age at necropsy",
+        "unit": "days of gestational age",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "IUGR Animal 2",
+        "parent_id": "peers_2024_iugr_extend_pilot",
+        "hierarchy_note": "Source-labeled IUGR column number in Table 2. This pilot unit is distinct from the ten extremely preterm EXTEND animals numbered 1-10."
+      },
+      "observation": {
+        "value": 115,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "peers2024-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11772227/",
+        "license": "CC BY 4.0 (article; PMC copyright notice)",
+        "sha256": null,
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Table 2, Growth restricted EXTEND (IUGR) group, animal 2, row 'Age at necropsy'",
+      "limitations": [
+        "The source states that the three IUGR animals were included for interest, were not analyzed in detail, and were excluded from statistical comparisons; do not pool them with the ten extremely preterm EXTEND animals."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "peers2024-iugr-animal-2-weight-at-necropsy",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 2 IUGR Animal 2, at necropsy",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported ovine days",
+        "stage_source_artifact_id": "peers2024-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetal lamb in the growth-restricted EXTEND IUGR pilot; separate from the extremely preterm EXTEND cohort"
+      },
+      "assay": {
+        "name": "Per-animal IUGR pilot summary, Table 2",
+        "endpoint": "Weight at necropsy",
+        "unit": "kg",
+        "measurement_role": "morphology"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "IUGR Animal 2",
+        "parent_id": "peers_2024_iugr_extend_pilot",
+        "hierarchy_note": "Source-labeled IUGR column number in Table 2. This pilot unit is distinct from the ten extremely preterm EXTEND animals numbered 1-10."
+      },
+      "observation": {
+        "value": 1.21,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "peers2024-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11772227/",
+        "license": "CC BY 4.0 (article; PMC copyright notice)",
+        "sha256": null,
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Table 2, Growth restricted EXTEND (IUGR) group, animal 2, row 'Weight at necropsy'",
+      "limitations": [
+        "The source states that the three IUGR animals were included for interest, were not analyzed in detail, and were excluded from statistical comparisons; do not pool them with the ten extremely preterm EXTEND animals."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "peers2024-iugr-animal-2-length-of-run",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 2 IUGR Animal 2, during EXTEND support",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported ovine days",
+        "stage_source_artifact_id": "peers2024-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetal lamb in the growth-restricted EXTEND IUGR pilot; separate from the extremely preterm EXTEND cohort"
+      },
+      "assay": {
+        "name": "Per-animal IUGR pilot summary, Table 2",
+        "endpoint": "Length of the run on EXTEND",
+        "unit": "days on EXTEND",
+        "measurement_role": "durability"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "IUGR Animal 2",
+        "parent_id": "peers_2024_iugr_extend_pilot",
+        "hierarchy_note": "Source-labeled IUGR column number in Table 2. This pilot unit is distinct from the ten extremely preterm EXTEND animals numbered 1-10."
+      },
+      "observation": {
+        "value": 8,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "peers2024-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11772227/",
+        "license": "CC BY 4.0 (article; PMC copyright notice)",
+        "sha256": null,
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Table 2, Growth restricted EXTEND (IUGR) group, animal 2, row 'Length of the run on EXTEND'",
+      "limitations": [
+        "The source states that the three IUGR animals were included for interest, were not analyzed in detail, and were excluded from statistical comparisons; do not pool them with the ten extremely preterm EXTEND animals."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "peers2024-iugr-animal-2-growth-rate",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 2 IUGR Animal 2, during EXTEND support",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported ovine days",
+        "stage_source_artifact_id": "peers2024-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetal lamb in the growth-restricted EXTEND IUGR pilot; separate from the extremely preterm EXTEND cohort"
+      },
+      "assay": {
+        "name": "Per-animal IUGR pilot summary, Table 2",
+        "endpoint": "Growth rate(g/kg/J)",
+        "unit": "g/kg/J (as printed)",
+        "measurement_role": "morphology"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "IUGR Animal 2",
+        "parent_id": "peers_2024_iugr_extend_pilot",
+        "hierarchy_note": "Source-labeled IUGR column number in Table 2. This pilot unit is distinct from the ten extremely preterm EXTEND animals numbered 1-10."
+      },
+      "observation": {
+        "value": 59.38,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "peers2024-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11772227/",
+        "license": "CC BY 4.0 (article; PMC copyright notice)",
+        "sha256": null,
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Table 2, Growth restricted EXTEND (IUGR) group, animal 2, row 'Growth rate(g/kg/J)'",
+      "limitations": [
+        "The source states that the three IUGR animals were included for interest, were not analyzed in detail, and were excluded from statistical comparisons; do not pool them with the ten extremely preterm EXTEND animals."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "peers2024-iugr-animal-2-transfusions",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 2 IUGR Animal 2, during EXTEND support",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported ovine days",
+        "stage_source_artifact_id": "peers2024-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetal lamb in the growth-restricted EXTEND IUGR pilot; separate from the extremely preterm EXTEND cohort"
+      },
+      "assay": {
+        "name": "Per-animal IUGR pilot summary, Table 2",
+        "endpoint": "Number of transfusions during EXTEND support",
+        "unit": "transfusions",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "IUGR Animal 2",
+        "parent_id": "peers_2024_iugr_extend_pilot",
+        "hierarchy_note": "Source-labeled IUGR column number in Table 2. This pilot unit is distinct from the ten extremely preterm EXTEND animals numbered 1-10."
+      },
+      "observation": {
+        "value": 0,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "peers2024-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11772227/",
+        "license": "CC BY 4.0 (article; PMC copyright notice)",
+        "sha256": null,
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Table 2, Growth restricted EXTEND (IUGR) group, animal 2, row 'Number of transfusions during EXTEND support'",
+      "limitations": [
+        "The source states that the three IUGR animals were included for interest, were not analyzed in detail, and were excluded from statistical comparisons; do not pool them with the ten extremely preterm EXTEND animals."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "peers2024-iugr-animal-3-sex",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 2 IUGR Animal 3, at cannulation",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported ovine days",
+        "stage_source_artifact_id": "peers2024-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetal lamb in the growth-restricted EXTEND IUGR pilot; separate from the extremely preterm EXTEND cohort"
+      },
+      "assay": {
+        "name": "Per-animal IUGR pilot summary, Table 2",
+        "endpoint": "Sex (F/M)",
+        "unit": "source category",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "IUGR Animal 3",
+        "parent_id": "peers_2024_iugr_extend_pilot",
+        "hierarchy_note": "Source-labeled IUGR column number in Table 2. This pilot unit is distinct from the ten extremely preterm EXTEND animals numbered 1-10."
+      },
+      "observation": {
+        "value": "F",
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "peers2024-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11772227/",
+        "license": "CC BY 4.0 (article; PMC copyright notice)",
+        "sha256": null,
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Table 2, Growth restricted EXTEND (IUGR) group, animal 3, row 'Sex (F/M)'",
+      "limitations": [
+        "The source states that the three IUGR animals were included for interest, were not analyzed in detail, and were excluded from statistical comparisons; do not pool them with the ten extremely preterm EXTEND animals."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "peers2024-iugr-animal-3-age-at-cannulation",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 2 IUGR Animal 3, at cannulation",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported ovine days",
+        "stage_source_artifact_id": "peers2024-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetal lamb in the growth-restricted EXTEND IUGR pilot; separate from the extremely preterm EXTEND cohort"
+      },
+      "assay": {
+        "name": "Per-animal IUGR pilot summary, Table 2",
+        "endpoint": "Age at cannulation",
+        "unit": "days of gestational age",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "IUGR Animal 3",
+        "parent_id": "peers_2024_iugr_extend_pilot",
+        "hierarchy_note": "Source-labeled IUGR column number in Table 2. This pilot unit is distinct from the ten extremely preterm EXTEND animals numbered 1-10."
+      },
+      "observation": {
+        "value": 108,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "peers2024-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11772227/",
+        "license": "CC BY 4.0 (article; PMC copyright notice)",
+        "sha256": null,
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Table 2, Growth restricted EXTEND (IUGR) group, animal 3, row 'Age at cannulation'",
+      "limitations": [
+        "The source states that the three IUGR animals were included for interest, were not analyzed in detail, and were excluded from statistical comparisons; do not pool them with the ten extremely preterm EXTEND animals."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "peers2024-iugr-animal-3-weight-at-cannulation",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 2 IUGR Animal 3, at cannulation",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported ovine days",
+        "stage_source_artifact_id": "peers2024-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetal lamb in the growth-restricted EXTEND IUGR pilot; separate from the extremely preterm EXTEND cohort"
+      },
+      "assay": {
+        "name": "Per-animal IUGR pilot summary, Table 2",
+        "endpoint": "Weight at cannulation",
+        "unit": "kg",
+        "measurement_role": "morphology"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "IUGR Animal 3",
+        "parent_id": "peers_2024_iugr_extend_pilot",
+        "hierarchy_note": "Source-labeled IUGR column number in Table 2. This pilot unit is distinct from the ten extremely preterm EXTEND animals numbered 1-10."
+      },
+      "observation": {
+        "value": 0.72,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "peers2024-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11772227/",
+        "license": "CC BY 4.0 (article; PMC copyright notice)",
+        "sha256": null,
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Table 2, Growth restricted EXTEND (IUGR) group, animal 3, row 'Weight at cannulation'",
+      "limitations": [
+        "The source states that the three IUGR animals were included for interest, were not analyzed in detail, and were excluded from statistical comparisons; do not pool them with the ten extremely preterm EXTEND animals."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "peers2024-iugr-animal-3-arterial-cannulas",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 2 IUGR Animal 3, during EXTEND support",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported ovine days",
+        "stage_source_artifact_id": "peers2024-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetal lamb in the growth-restricted EXTEND IUGR pilot; separate from the extremely preterm EXTEND cohort"
+      },
+      "assay": {
+        "name": "Per-animal IUGR pilot summary, Table 2",
+        "endpoint": "Size of arterial cannulas (Fr)",
+        "unit": "Fr, source literal",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "IUGR Animal 3",
+        "parent_id": "peers_2024_iugr_extend_pilot",
+        "hierarchy_note": "Source-labeled IUGR column number in Table 2. This pilot unit is distinct from the ten extremely preterm EXTEND animals numbered 1-10."
+      },
+      "observation": {
+        "value": "12/12",
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "peers2024-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11772227/",
+        "license": "CC BY 4.0 (article; PMC copyright notice)",
+        "sha256": null,
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Table 2, Growth restricted EXTEND (IUGR) group, animal 3, row 'Size of arterial cannulas (Fr)'",
+      "limitations": [
+        "The source states that the three IUGR animals were included for interest, were not analyzed in detail, and were excluded from statistical comparisons; do not pool them with the ten extremely preterm EXTEND animals.",
+        "The source prints paired cannula-size literals (for example 10/12 Fr) but does not define slash order; retain the literal without interpretation."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "peers2024-iugr-animal-3-venous-cannula",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 2 IUGR Animal 3, during EXTEND support",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported ovine days",
+        "stage_source_artifact_id": "peers2024-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetal lamb in the growth-restricted EXTEND IUGR pilot; separate from the extremely preterm EXTEND cohort"
+      },
+      "assay": {
+        "name": "Per-animal IUGR pilot summary, Table 2",
+        "endpoint": "Size of venous cannula (Fr)",
+        "unit": "Fr",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "IUGR Animal 3",
+        "parent_id": "peers_2024_iugr_extend_pilot",
+        "hierarchy_note": "Source-labeled IUGR column number in Table 2. This pilot unit is distinct from the ten extremely preterm EXTEND animals numbered 1-10."
+      },
+      "observation": {
+        "value": 14,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "peers2024-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11772227/",
+        "license": "CC BY 4.0 (article; PMC copyright notice)",
+        "sha256": null,
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Table 2, Growth restricted EXTEND (IUGR) group, animal 3, row 'Size of venous cannula (Fr)'",
+      "limitations": [
+        "The source states that the three IUGR animals were included for interest, were not analyzed in detail, and were excluded from statistical comparisons; do not pool them with the ten extremely preterm EXTEND animals."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "peers2024-iugr-animal-3-age-at-necropsy",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 2 IUGR Animal 3, at necropsy",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported ovine days",
+        "stage_source_artifact_id": "peers2024-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetal lamb in the growth-restricted EXTEND IUGR pilot; separate from the extremely preterm EXTEND cohort"
+      },
+      "assay": {
+        "name": "Per-animal IUGR pilot summary, Table 2",
+        "endpoint": "Age at necropsy",
+        "unit": "days of gestational age",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "IUGR Animal 3",
+        "parent_id": "peers_2024_iugr_extend_pilot",
+        "hierarchy_note": "Source-labeled IUGR column number in Table 2. This pilot unit is distinct from the ten extremely preterm EXTEND animals numbered 1-10."
+      },
+      "observation": {
+        "value": 119,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "peers2024-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11772227/",
+        "license": "CC BY 4.0 (article; PMC copyright notice)",
+        "sha256": null,
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Table 2, Growth restricted EXTEND (IUGR) group, animal 3, row 'Age at necropsy'",
+      "limitations": [
+        "The source states that the three IUGR animals were included for interest, were not analyzed in detail, and were excluded from statistical comparisons; do not pool them with the ten extremely preterm EXTEND animals."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "peers2024-iugr-animal-3-weight-at-necropsy",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 2 IUGR Animal 3, at necropsy",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported ovine days",
+        "stage_source_artifact_id": "peers2024-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetal lamb in the growth-restricted EXTEND IUGR pilot; separate from the extremely preterm EXTEND cohort"
+      },
+      "assay": {
+        "name": "Per-animal IUGR pilot summary, Table 2",
+        "endpoint": "Weight at necropsy",
+        "unit": "kg",
+        "measurement_role": "morphology"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "IUGR Animal 3",
+        "parent_id": "peers_2024_iugr_extend_pilot",
+        "hierarchy_note": "Source-labeled IUGR column number in Table 2. This pilot unit is distinct from the ten extremely preterm EXTEND animals numbered 1-10."
+      },
+      "observation": {
+        "value": 1.18,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "peers2024-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11772227/",
+        "license": "CC BY 4.0 (article; PMC copyright notice)",
+        "sha256": null,
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Table 2, Growth restricted EXTEND (IUGR) group, animal 3, row 'Weight at necropsy'",
+      "limitations": [
+        "The source states that the three IUGR animals were included for interest, were not analyzed in detail, and were excluded from statistical comparisons; do not pool them with the ten extremely preterm EXTEND animals."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "peers2024-iugr-animal-3-length-of-run",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 2 IUGR Animal 3, during EXTEND support",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported ovine days",
+        "stage_source_artifact_id": "peers2024-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetal lamb in the growth-restricted EXTEND IUGR pilot; separate from the extremely preterm EXTEND cohort"
+      },
+      "assay": {
+        "name": "Per-animal IUGR pilot summary, Table 2",
+        "endpoint": "Length of the run on EXTEND",
+        "unit": "days on EXTEND",
+        "measurement_role": "durability"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "IUGR Animal 3",
+        "parent_id": "peers_2024_iugr_extend_pilot",
+        "hierarchy_note": "Source-labeled IUGR column number in Table 2. This pilot unit is distinct from the ten extremely preterm EXTEND animals numbered 1-10."
+      },
+      "observation": {
+        "value": 11,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "peers2024-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11772227/",
+        "license": "CC BY 4.0 (article; PMC copyright notice)",
+        "sha256": null,
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Table 2, Growth restricted EXTEND (IUGR) group, animal 3, row 'Length of the run on EXTEND'",
+      "limitations": [
+        "The source states that the three IUGR animals were included for interest, were not analyzed in detail, and were excluded from statistical comparisons; do not pool them with the ten extremely preterm EXTEND animals."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "peers2024-iugr-animal-3-growth-rate",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 2 IUGR Animal 3, during EXTEND support",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported ovine days",
+        "stage_source_artifact_id": "peers2024-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetal lamb in the growth-restricted EXTEND IUGR pilot; separate from the extremely preterm EXTEND cohort"
+      },
+      "assay": {
+        "name": "Per-animal IUGR pilot summary, Table 2",
+        "endpoint": "Growth rate(g/kg/J)",
+        "unit": "g/kg/J (as printed)",
+        "measurement_role": "morphology"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "IUGR Animal 3",
+        "parent_id": "peers_2024_iugr_extend_pilot",
+        "hierarchy_note": "Source-labeled IUGR column number in Table 2. This pilot unit is distinct from the ten extremely preterm EXTEND animals numbered 1-10."
+      },
+      "observation": {
+        "value": 50.64,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "peers2024-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11772227/",
+        "license": "CC BY 4.0 (article; PMC copyright notice)",
+        "sha256": null,
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Table 2, Growth restricted EXTEND (IUGR) group, animal 3, row 'Growth rate(g/kg/J)'",
+      "limitations": [
+        "The source states that the three IUGR animals were included for interest, were not analyzed in detail, and were excluded from statistical comparisons; do not pool them with the ten extremely preterm EXTEND animals."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "peers2024-iugr-animal-3-transfusions",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Table 2 IUGR Animal 3, during EXTEND support",
+        "start": null,
+        "end": null,
+        "time_unit": "source-reported ovine days",
+        "stage_source_artifact_id": "peers2024-article"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetal lamb in the growth-restricted EXTEND IUGR pilot; separate from the extremely preterm EXTEND cohort"
+      },
+      "assay": {
+        "name": "Per-animal IUGR pilot summary, Table 2",
+        "endpoint": "Number of transfusions during EXTEND support",
+        "unit": "transfusions",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "IUGR Animal 3",
+        "parent_id": "peers_2024_iugr_extend_pilot",
+        "hierarchy_note": "Source-labeled IUGR column number in Table 2. This pilot unit is distinct from the ten extremely preterm EXTEND animals numbered 1-10."
+      },
+      "observation": {
+        "value": 2,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source": {
+        "artifact_id": "peers2024-article",
+        "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC11772227/",
+        "license": "CC BY 4.0 (article; PMC copyright notice)",
+        "sha256": null,
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Table 2, Growth restricted EXTEND (IUGR) group, animal 3, row 'Number of transfusions during EXTEND support'",
+      "limitations": [
+        "The source states that the three IUGR animals were included for interest, were not analyzed in detail, and were excluded from statistical comparisons; do not pool them with the ten extremely preterm EXTEND animals."
+      ]
+    }
+  ],
+  "cohort_coverage": [
+    {
+      "coverage_id": "peers2024-iugr-pilot-table2-animal-coverage",
+      "source_artifact_id": "peers2024-article",
+      "reported_group_label": "Growth restricted EXTEND (IUGR)",
+      "group_label_status": "reported",
+      "counted_entity_kind": "fetus",
+      "counted_entity_label": "Three source-labeled IUGR pilot lambs, Table 2 columns 1-3",
+      "endpoint_label": "Per-animal descriptive Table 2 pilot summaries",
+      "population_frame": "The three growth-restricted EXTEND pilot animals described in Methods and Table 1.",
+      "measurement_window": "Descriptive EXTEND pilot; source-reported runs 8–23 days",
+      "selection_definition": "Three pilot animals were included for interest and because Animal 1 survived 23 days despite a low cannulation weight; the authors state they were not analyzed in detail and are not included in statistical comparisons.",
+      "selection_definition_source_locator": "Methods > Experimental design; Table 1; Table 2",
+      "denominator": {
+        "value": 3,
+        "value_status": "reported",
+        "reported_label": "3 animals in the Growth restricted EXTEND (IUGR) group",
+        "source_locator": "Table 1, Study group design, N column"
+      },
+      "declarations": [
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Three numbered IUGR animals with selected per-animal Table 2 fields in the separate candidate intake",
+          "quantity_kind": "other",
+          "value": "three individual pilot rows in Table 2",
+          "value_status": "reported",
+          "source_locator": "Table 2, Growth restricted EXTEND (IUGR) group, columns 1-3",
+          "note": "The paper explicitly says the three IUGR animals were included for interest but were not analyzed in detail and were excluded from statistical comparisons. Their Table 2 rows are a separate pilot cohort, not a matched comparator for the ten extremely preterm animals."
+        },
+        {
+          "category": "assessed",
+          "scope": "within_denominator",
+          "reported_label": "Animals included in brain MRI analysis",
+          "quantity_kind": "count",
+          "value": 0,
+          "value_status": "reported",
+          "source_locator": "Table 1, Brain MRI analysis column"
+        },
+        {
+          "category": "assessed",
+          "scope": "within_denominator",
+          "reported_label": "Animals included in brain histology analysis",
+          "quantity_kind": "count",
+          "value": 0,
+          "value_status": "reported",
+          "source_locator": "Table 1, Brain histology analysis column"
+        }
+      ],
+      "selection_statements": [
+        {
+          "text": "The paper explicitly says the three IUGR animals were included for interest but were not analyzed in detail and were excluded from statistical comparisons. Their Table 2 rows are a separate pilot cohort, not a matched comparator for the ten extremely preterm animals.",
+          "source_locator": "Table 1, Study group design; Table 2"
+        },
+        {
+          "text": "Do not join these aggregate comparator summaries to the numbered Animal 1-10 EXTEND records; no cross-group animal-level mapping is reported.",
+          "source_locator": "Table 1 and Table 2"
+        }
+      ],
+      "cohort_window_status": "source_labels_only",
+      "disposition_completeness": "unknown",
+      "categories_mutually_exclusive": "unknown",
+      "categories_exhaustive": "unknown"
+    }
+  ],
+  "limitations": [
+    "This separate candidate contains ten Table 2 fields for three IUGR pilot animals only. It is not part of the ten-animal extremely preterm EXTEND cohort and is explicitly excluded from the paper’s statistical comparisons.",
+    "No IUGR brain mass, brain ratio, organ weight, MRI or histology result appears in the IUGR columns transcribed here; no missing outcomes are imputed from other groups.",
+    "The IUGR pilot is descriptive and not analyzed in detail in the article. Its 8–23 day support range and small-animal characteristics do not establish a validated minimum-size interface, reproducible performance, or human feasibility.",
+    "This experiment ended with euthanasia for terminal analysis and reports no post-support developmental follow-up."
+  ]
+}

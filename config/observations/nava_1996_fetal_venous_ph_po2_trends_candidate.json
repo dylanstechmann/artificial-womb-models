@@ -1,0 +1,336 @@
+{
+  "schema_version": 1,
+  "dataset_id": "nava1996-fetal-venous-ph-po2-trends-candidate",
+  "title": "Nava et al. 1996 abstract-level fetal venous pH and PO2 gestational trends; candidate transcription",
+  "source_revision": {
+    "revision_id": "nava1996-pubmed-abstract-cycle343",
+    "citation": "Nava S, Bocconi L, Zuliani G, Kustermann A, Nicolini U. Aspects of fetal physiology from 18 to 37 weeks' gestation as assessed by blood sampling. Obstet Gynecol. 1996;87(6):975-980. doi:10.1016/0029-7844(96)00056-7. PMID:8649709.",
+    "source_kind": "peer_reviewed_human_invivo",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/8649709/",
+    "review_status": "candidate",
+    "reviewer": "",
+    "reviewed_on": null,
+    "review_note": ""
+  },
+  "artifacts": [
+    {
+      "artifact_id": "nava1996-pubmed-abstract",
+      "uri": "https://pubmed.ncbi.nlm.nih.gov/8649709/",
+      "license": "PubMed bibliographic record and abstract; article reuse terms not confirmed",
+      "sha256": "e13e8af1bcaee0896391df239b1d860676e3c68ea57eb5215c5805edaba01a8a",
+      "retrieved_on": "2026-10-11",
+      "source_resolution": {
+        "version_type": "repository_record",
+        "version_identifier": "PMID 8649709; DOI 10.1016/0029-7844(96)00056-7; Obstet Gynecol. 87(6), 975-980 (1996)",
+        "access_status": "metadata_only",
+        "oa_subset_status": "not_applicable",
+        "reuse_status": "not_confirmed",
+        "license_expression": null,
+        "checked_on": "2026-10-11",
+        "evidence_locator": "Pinned NCBI E-utilities XML and PubMed English abstract.",
+        "note": "PubMed exposes the abstract and links to Ovid/Wolters Kluwer and Elsevier. Ovid returned HTTP 402 and the Elsevier link returned HTTP 403 in this environment; no numeric reference table or article reuse terms were recovered."
+      },
+      "local_path": "artifacts/nava-1996-ph-p02-trends-cycle343/sources/pubmed-efetch-pmid8649709.xml",
+      "developmental_scope": {
+        "species": "human",
+        "stage_tracks": [
+          "unspecified"
+        ],
+        "time_unit": "gestational weeks (cohort span only)",
+        "start": 18,
+        "end": 37,
+        "source_locator": "PubMed abstract, Methods: fetal blood sampling from 18 to 37 weeks."
+      }
+    }
+  ],
+  "observations": [
+    {
+      "schema_version": 1,
+      "record_id": "nava1996-fetal-venous-ph-trend",
+      "evidence_status": "author_reported_summary",
+      "species": "human",
+      "stage_track": "unspecified",
+      "developmental_interval": {
+        "label": "Group trend across cohort spanning 18-37 weeks; no age-specific values in abstract",
+        "start": null,
+        "end": null,
+        "time_unit": "gestational weeks (cohort span only)",
+        "stage_source_artifact_id": "nava1996-pubmed-abstract"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Human fetal reference cohort undergoing fetal blood sampling; abstract reports venous samples at placental cord insertion or intrahepatic vein."
+      },
+      "assay": {
+        "name": "Fetal venous blood constituent assay; detailed analytical method not reported in abstract",
+        "endpoint": "Fetal venous blood pH",
+        "unit": "not reported in abstract",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "The abstract gives 157 fetuses in the study cohort and sampling-site counts of 125 at placental cord insertion and 32 at intrahepatic vein; endpoint-specific denominators and individual identifiers are not given."
+      },
+      "observation": {
+        "value": "The abstract reports that pH decreased with gestational age.",
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null,
+        "measurement_conditions": [
+          {
+            "name": "cohort_size",
+            "value": 157,
+            "unit": "fetuses; cohort n, not endpoint-specific n",
+            "source_locator": "PubMed abstract, Methods."
+          },
+          {
+            "name": "gestational_span",
+            "value": "18-37",
+            "unit": "gestational weeks; cohort span only",
+            "source_locator": "PubMed abstract, Methods."
+          },
+          {
+            "name": "sampling_method",
+            "value": "Fetal blood sampling; procedure not specified in abstract",
+            "unit": "",
+            "source_locator": "PubMed abstract, Methods."
+          },
+          {
+            "name": "venous_sampling_sites",
+            "value": "Placental cord insertion n=125; intrahepatic vein n=32",
+            "unit": "fetuses by reported site; endpoint-specific n not stated",
+            "source_locator": "PubMed abstract, Results."
+          },
+          {
+            "name": "site_comparison",
+            "value": "Abstract reports all analyzed variables were similar between the two sampling-site groups",
+            "unit": "",
+            "source_locator": "PubMed abstract, Results."
+          },
+          {
+            "name": "specimen",
+            "value": "Fetal venous sample; placental-cord-insertion and intrahepatic-vein sites are retained as reported and are not collapsed into an umbilical-vein-only label",
+            "unit": "",
+            "source_locator": "PubMed abstract, Methods and Results."
+          }
+        ],
+        "source_qualifications": [
+          {
+            "criterion_code": "abstract_measurement_status",
+            "status_code": "measured",
+            "criterion_label": "Whether the analyte is stated to be directly assayed in the abstract",
+            "source_artifact_id": "nava1996-pubmed-abstract",
+            "source_locator": "PubMed abstract, Methods: venous pH and PO2 were assayed.",
+            "reference_value": null,
+            "reference_unit": ""
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "nava1996-pubmed-abstract",
+        "uri": "https://pubmed.ncbi.nlm.nih.gov/8649709/",
+        "license": "PubMed bibliographic record and abstract; article reuse terms not confirmed",
+        "sha256": "e13e8af1bcaee0896391df239b1d860676e3c68ea57eb5215c5805edaba01a8a",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "PubMed abstract, Methods and Results.",
+      "limitations": [
+        "The 18-37 week interval is the cohort span; the abstract provides no age-stratified numeric values, fitted coefficients, confidence limits, or endpoint-specific denominators.",
+        "Only venous pH and PO2 are in scope here. The abstract does not report pCO2, saturation, bicarbonate, or a complete gas tuple for this study.",
+        "Sampling sites are reported as placental cord insertion (n=125) and intrahepatic vein (n=32); the record does not relabel the entire group as umbilical venous blood.",
+        "These are source-reported directional trends, not age-specific measured values. No numeric value or threshold is derived.",
+        "The cohort is an in-utero human reference study; it does not measure ex-utero support, machine performance, healthy development under artificial support, or a sufficient safety envelope.",
+        "The PubMed abstract is pinned; Ovid and Elsevier routes were not accessible in this environment, and article reuse terms remain unconfirmed."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "nava1996-fetal-venous-po2-trend",
+      "evidence_status": "author_reported_summary",
+      "species": "human",
+      "stage_track": "unspecified",
+      "developmental_interval": {
+        "label": "Group trend across cohort spanning 18-37 weeks; no age-specific values in abstract",
+        "start": null,
+        "end": null,
+        "time_unit": "gestational weeks (cohort span only)",
+        "stage_source_artifact_id": "nava1996-pubmed-abstract"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Human fetal reference cohort undergoing fetal blood sampling; abstract reports venous samples at placental cord insertion or intrahepatic vein."
+      },
+      "assay": {
+        "name": "Fetal venous blood constituent assay; detailed analytical method not reported in abstract",
+        "endpoint": "Fetal venous oxygen partial pressure (PO2)",
+        "unit": "not reported in abstract",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "The abstract gives 157 fetuses in the study cohort and sampling-site counts of 125 at placental cord insertion and 32 at intrahepatic vein; endpoint-specific denominators and individual identifiers are not given."
+      },
+      "observation": {
+        "value": "The abstract reports that PO2 decreased with gestational age.",
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null,
+        "measurement_conditions": [
+          {
+            "name": "cohort_size",
+            "value": 157,
+            "unit": "fetuses; cohort n, not endpoint-specific n",
+            "source_locator": "PubMed abstract, Methods."
+          },
+          {
+            "name": "gestational_span",
+            "value": "18-37",
+            "unit": "gestational weeks; cohort span only",
+            "source_locator": "PubMed abstract, Methods."
+          },
+          {
+            "name": "sampling_method",
+            "value": "Fetal blood sampling; procedure not specified in abstract",
+            "unit": "",
+            "source_locator": "PubMed abstract, Methods."
+          },
+          {
+            "name": "venous_sampling_sites",
+            "value": "Placental cord insertion n=125; intrahepatic vein n=32",
+            "unit": "fetuses by reported site; endpoint-specific n not stated",
+            "source_locator": "PubMed abstract, Results."
+          },
+          {
+            "name": "site_comparison",
+            "value": "Abstract reports all analyzed variables were similar between the two sampling-site groups",
+            "unit": "",
+            "source_locator": "PubMed abstract, Results."
+          },
+          {
+            "name": "specimen",
+            "value": "Fetal venous sample; placental-cord-insertion and intrahepatic-vein sites are retained as reported and are not collapsed into an umbilical-vein-only label",
+            "unit": "",
+            "source_locator": "PubMed abstract, Methods and Results."
+          }
+        ],
+        "source_qualifications": [
+          {
+            "criterion_code": "abstract_measurement_status",
+            "status_code": "measured",
+            "criterion_label": "Whether the analyte is stated to be directly assayed in the abstract",
+            "source_artifact_id": "nava1996-pubmed-abstract",
+            "source_locator": "PubMed abstract, Methods: venous pH and PO2 were assayed.",
+            "reference_value": null,
+            "reference_unit": ""
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "nava1996-pubmed-abstract",
+        "uri": "https://pubmed.ncbi.nlm.nih.gov/8649709/",
+        "license": "PubMed bibliographic record and abstract; article reuse terms not confirmed",
+        "sha256": "e13e8af1bcaee0896391df239b1d860676e3c68ea57eb5215c5805edaba01a8a",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "PubMed abstract, Methods and Results.",
+      "limitations": [
+        "The 18-37 week interval is the cohort span; the abstract provides no age-stratified numeric values, fitted coefficients, confidence limits, or endpoint-specific denominators.",
+        "Only venous pH and PO2 are in scope here. The abstract does not report pCO2, saturation, bicarbonate, or a complete gas tuple for this study.",
+        "Sampling sites are reported as placental cord insertion (n=125) and intrahepatic vein (n=32); the record does not relabel the entire group as umbilical venous blood.",
+        "These are source-reported directional trends, not age-specific measured values. No numeric value or threshold is derived.",
+        "The cohort is an in-utero human reference study; it does not measure ex-utero support, machine performance, healthy development under artificial support, or a sufficient safety envelope.",
+        "The PubMed abstract is pinned; Ovid and Elsevier routes were not accessible in this environment, and article reuse terms remain unconfirmed."
+      ]
+    }
+  ],
+  "transitions": [],
+  "measurement_pairs": [],
+  "cohort_coverage": [
+    {
+      "coverage_id": "nava1996-fetal-venous-study-cohort",
+      "source_artifact_id": "nava1996-pubmed-abstract",
+      "reported_group_label": "157 fetuses undergoing fetal blood sampling between 18 and 37 weeks",
+      "group_label_status": "reported",
+      "counted_entity_kind": "fetus",
+      "counted_entity_label": "Fetuses in the study cohort; site counts reported separately and not endpoint-specific n",
+      "endpoint_label": "Venous pH and PO2 gestational trends",
+      "population_frame": "Human fetuses undergoing fetal blood sampling from 18 to 37 weeks; no infection or chromosomal, hematologic, or hormonal abnormality reported in abstract.",
+      "measurement_window": "Cohort spans 18-37 weeks; abstract gives no week-bin counts or endpoint-specific n.",
+      "selection_definition": "The abstract reports 157 fetuses and exclusions for infection or chromosomal, hematologic, or hormonal abnormalities; detailed screening, missingness, and endpoint denominators are not stated.",
+      "selection_definition_source_locator": "PubMed abstract, Methods.",
+      "denominator": {
+        "value": 157,
+        "value_status": "reported",
+        "reported_label": "157 fetuses in study cohort; not endpoint-specific",
+        "source_locator": "PubMed abstract, Methods."
+      },
+      "declarations": [
+        {
+          "category": "other",
+          "scope": "unresolved",
+          "reported_label": "Study cohort in abstract; endpoint-level inclusion unresolved",
+          "quantity_kind": "count",
+          "value": 157,
+          "value_status": "reported",
+          "source_locator": "PubMed abstract, Methods."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "unresolved",
+          "reported_label": "Two directional trends; no numeric age cells or endpoint-specific denominators",
+          "quantity_kind": "other",
+          "value": "venous pH and PO2 decrease with gestational age",
+          "value_status": "reported",
+          "source_locator": "PubMed abstract, Results."
+        },
+        {
+          "category": "other",
+          "scope": "unresolved",
+          "reported_label": "Fetuses sampled at placental cord insertion",
+          "quantity_kind": "count",
+          "value": 125,
+          "value_status": "reported",
+          "source_locator": "PubMed abstract, Results."
+        },
+        {
+          "category": "other",
+          "scope": "unresolved",
+          "reported_label": "Fetuses sampled at intrahepatic vein",
+          "quantity_kind": "count",
+          "value": 32,
+          "value_status": "reported",
+          "source_locator": "PubMed abstract, Results."
+        }
+      ],
+      "selection_statements": [
+        {
+          "text": "The abstract reports that fetal pH and PO2 decrease with gestational age but provides no numeric 18-37 week reference table or regression coefficients.",
+          "source_locator": "PubMed abstract, Results."
+        },
+        {
+          "text": "Sampling-site group sizes are 125 at the placental cord insertion and 32 at the intrahepatic vein; the abstract says analyzed variables were similar between sites.",
+          "source_locator": "PubMed abstract, Results."
+        }
+      ],
+      "cohort_window_status": "source_labels_only",
+      "disposition_completeness": "unknown",
+      "categories_mutually_exclusive": "unknown",
+      "categories_exhaustive": "unknown"
+    }
+  ],
+  "limitations": [
+    "The PubMed abstract does not provide age-specific numeric values, week-bin counts, fitted coefficients, confidence limits, or endpoint-specific denominators for venous pH and PO2.",
+    "Sampling sites are placental cord insertion (n=125) and intrahepatic vein (n=32); do not silently treat all observations as one umbilical-vein-only specimen group.",
+    "The abstract reports only pH and PO2 trends here; no pCO2, oxygen saturation, bicarbonate, or matched gas tuple is supplied.",
+    "The candidate captures qualitative abstract statements only. It does not define a fetal support requirement, operating setpoint, safety envelope, or healthy-outcome prediction.",
+    "Publisher full text and reuse terms remain unresolved; no author was contacted."
+  ]
+}

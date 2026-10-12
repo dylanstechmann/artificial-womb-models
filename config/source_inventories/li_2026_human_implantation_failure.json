@@ -1,0 +1,67 @@
+{
+  "schema_version": 1,
+  "review_status": "candidate",
+  "human_review": "pending",
+  "inspected_on": "2026-10-11",
+  "article": {
+    "title": "A 3D in vitro model for studying human implantation and implantation failure",
+    "doi": "10.1016/j.cell.2025.10.026",
+    "pmid": "41443192",
+    "citation": "Li Q et al. Cell. 2026;189(1):70-86.e20. doi:10.1016/j.cell.2025.10.026.",
+    "url": "https://doi.org/10.1016/j.cell.2025.10.026",
+    "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/41443192/",
+    "source_kind": "peer_reviewed_human_early_implantation_model",
+    "source_review_depth": "PubMed abstract and publisher-hosted supplemental workbook only; full article not reviewed"
+  },
+  "reported_scope": {
+    "model_question": "Study human embryo-endometrium interaction and recurrent implantation failure using a three-dimensional in-chip model.",
+    "model_components_reported_in_abstract": [
+      "human blastoids or blastocysts",
+      "bioengineered human endometrioid tissue"
+    ],
+    "abstract_claims": [
+      "The abstract reports reduced blastoid implantation capability with recurrent-implantation-failure-derived endometrioids relative to fertile controls.",
+      "The abstract reports candidates identified by a compound screen."
+    ],
+    "assay_endpoint_definition_verified": false,
+    "assay_timepoint_verified": false,
+    "assay_specific_denominator_verified": false,
+    "sample_to_assay_crosswalk_verified": false
+  },
+  "supplement_review": {
+    "publisher_asset_uri": "https://ars.els-cdn.com/content/image/1-s2.0-S0092867425012309-mmc1.xlsx",
+    "review_receipt_path": "artifacts/implantation-failure-model-2026-10-11/li-implantation-failure-route-and-supplement-screen-cycle194.json",
+    "source_manifest_path": "artifacts/implantation-failure-model-2026-10-11/SOURCE.json",
+    "declared_group_headers": {
+      "Ctrl": 18,
+      "RIF": 40
+    },
+    "sequence_labeled_columns": 58,
+    "qualification": "The workbook's group counts describe its clinical/endometrial sample-characteristics table and are not treated as implantation-assay sample sizes. Participant-level values were not transcribed; the workbook does not provide assay outcome rows or a sample-to-assay crosswalk."
+  },
+  "data_routes": {
+    "europe_pmc_is_open_access": false,
+    "europe_pmc_has_suppl_flag": false,
+    "publisher_supplement_directly_retrievable": true,
+    "biostudies_exact_title_and_doi_hits": 0,
+    "geo_exact_title_and_pmid_hits": 0,
+    "search_scope_qualification": "Exact-term results are bounded to the queried BioStudies and GEO endpoints; they do not prove that data are absent from other repositories or access routes."
+  },
+  "observation_intake": {
+    "observation_records_promoted": 0,
+    "reason_not_promoted": "The abstract claims are qualitative at the inspected depth. Assay outcome values, operational endpoint definition, timepoint, exact denominator and sample-to-assay linkage were not verified.",
+    "participant_level_values_transcribed": false
+  },
+  "feasibility_boundary": {
+    "supports": "Candidate evidence for an early human embryo-endometrium implantation research model.",
+    "does_not_establish": [
+      "placental exchange support",
+      "continuous support through later gestation",
+      "complete gestation",
+      "birth or neonatal transition",
+      "postnatal health",
+      "clinical treatment efficacy"
+    ],
+    "authors_contacted": false
+  }
+}

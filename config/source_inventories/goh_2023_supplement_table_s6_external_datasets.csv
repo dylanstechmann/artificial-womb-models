@@ -1,0 +1,52 @@
+source_data_row_number,Datasets,Authors,DOI link,Biological replicates and number cells,Data access link,Stage/Age,Sequencing type,Notes,Reannotated
+1,Yolk sac (published previously by our group),"Popescu et al, Nature, 2019",https://doi.org/10.1038/s41586-019-1652-y,"n=3, k=14,079",https://developmentcellatlas.ncl.ac.uk/datasets/hca_liver/,4-7 PCW,10x,,TRUE
+2,Yolk sac external,"Calvanese et al Nature, 2022",https://doi.org/10.1038/s41586-022-04571-x,"n=2, k=6,256",https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE162950,4.5 PCW,10x,,TRUE
+3,Yolk sac gastrulation,"Tyser et al, Nature, 2021",https://doi.org/10.1038/s41586-021-04158-y,"n=1, k=1,195",http://www.human-gastrula.net/,CS7,START-seq,,TRUE
+4,AGM external,"Calvanese et al Nature, 2022",https://doi.org/10.1038/s41586-022-04571-x,"n=4, k=12,248",https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE162950,4.5 - 6 PCW,10x,,TRUE
+5,Fetal bone marrow,"Jardine and Webb et al, Nature, 2021",https://doi.org/10.1038/s41586-021-03929-x,"n=9, k=103,228",https://fbm.cellatlas.io/,12-17 PCW,10x,,TRUE
+6,Fetal kidney,"Suo et al, BioRxiv, 2022",https://doi.org/10.1101/2022.01.17.476665,"n=7, k=6,847",https://developmentcellatlas.cellgeni.sanger.ac.uk/fetal-immune,7-12 PCW,10x,,FALSE
+7,Fetal brain,"Eze et al, Nature Neuroscience, 2021",https://doi.org/10.1038/s41593-020-00794-1,"n=10, k=289,000",https://cells-test.gi.ucsc.edu/?ds=early-brain,CS12-22,10x,Only used Mac and Microglia,TRUE
+8,Fetal skin,"Suo et al, BioRxiv, 2022",https://doi.org/10.1101/2022.01.17.476665,"n=15, k=185,582",https://developmentcellatlas.cellgeni.sanger.ac.uk/fetal-immune,7-16 PCW,10x,,TRUE
+9,Embryoinc liver,"Suo et al, BioRxiv, 2022",https://doi.org/10.1101/2022.01.17.476665,"n=3, k=49376",https://developmentcellatlas.cellgeni.sanger.ac.uk/fetal-immune,CS18 - CS23,10x,,TRUE
+10,Fetal liver (published previously by our group),"Popescu et al, Nature, 2019",https://doi.org/10.1038/s41586-019-1652-y,"n=11, k=140,000",https://developmentcellatlas.ncl.ac.uk/datasets/hca_liver/,7-17 PCW,10x,,TRUE
+11,Adult liver,"Sharma et al, Cell, 2020",https://doi.org/10.1016/j.cell.2020.08.040,"n=15, k=31492",https://data.mendeley.com/datasets/6wmzcskt6k/1,48-77 (reduce n=17 to n=15),10x,Only used Adult Healthy,TRUE
+12,Mouse gastrulation,"Pijuan-Sala et al, Nature, 2019",https://doi.org/10.1038/s41586-019-0933-9,"n=36, k=430,339",https://marionilab.github.io/ExtendedMouseAtlas/#Explore-the-data,E6.5-E9.5,10x,Only used Endoderm and Hematopoietic compartment.,TRUE
+13,Human iPSC,"Alsinet et al, BioRxiv, 2021",https://doi.org/10.1101/2021.11.17.469005,"n=19, k=50,512",https://www.hipimmuneatlas.org/,D0-D31+7,10x,,TRUE
+14,Fetal gonads,"Garcia-Alonso et al, Nature Portfolio, 2021",https://doi.org/10.21203/rs.3.rs-496470/v1,"n=44, k=19,538",In pre-print,6-21PCW,10x,,TRUE
+15,Human iPSC (definitive),"Calvanese et al Nature, 2022",https://doi.org/10.1038/s41586-022-04571-x,"n=4, k=12956",https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE162950,D14,10x,,TRUE
+16,Fetal Thymus,"Suo et al, BioRxiv, 2022",https://doi.org/10.1101/2022.01.17.476665,"n=11, k=104,251",https://developmentcellatlas.cellgeni.sanger.ac.uk/fetal-immune,7-17 PCW,10x,,FALSE
+17,Fetal Spleen,"Suo et al, BioRxiv, 2022",https://doi.org/10.1101/2022.01.17.476665,"n=10, k=127,186",https://developmentcellatlas.cellgeni.sanger.ac.uk/fetal-immune,9-17 PCW,10x,,FALSE
+18,Fetal mesenteric lymph node,"Suo et al, BioRxiv, 2022",https://doi.org/10.1101/2022.01.17.476665,"n=2, k=6,039",https://developmentcellatlas.cellgeni.sanger.ac.uk/fetal-immune,16-17 PCW,10x,,FALSE
+19,Fetal gut,"Suo et al, BioRxiv, 2022",https://doi.org/10.1101/2022.01.17.476665,"n=5, k=79,435",https://developmentcellatlas.cellgeni.sanger.ac.uk/fetal-immune,12-17 PCW,10x,,FALSE
+20,Fetal Brain,http://linnarssonlab.org/,http://linnarssonlab.org/,"n=26, k=1,665,937",In pre-print,3-6 PCW,10x,,TRUE
+21,Adult liver,"Brazovskja et al BioRxiv, 2022",DOI: 10.1101/2021.06.03.444016,"n=3, k=924",In pre-print,Adult,10x,,TRUE
+22,Adult bone marrow,"Domi’nguez Conde et al Science, 2022",DOI: 10.1126/science.abl51,"n=10, k=9408",https://www.tissueimmunecellatlas.org/#datasets,Adult,10x,,TRUE
+23,Adult gut,"Domi’nguez Conde et al Science, 2022",DOI: 10.1126/science.abl51,"n=13, k=1401",https://www.tissueimmunecellatlas.org/#datasets,Adult,10x,,TRUE
+24,Adult liver,"Domi’nguez Conde et al Science, 2022",DOI: 10.1126/science.abl51,"n=7, k=2728",https://www.tissueimmunecellatlas.org/#datasets,Adult,10x,,TRUE
+25,Adult lung,"Domi’nguez Conde et al Science, 2022",DOI: 10.1126/science.abl51,"n=10, k=25433",https://www.tissueimmunecellatlas.org/#datasets,Adult,10x,,TRUE
+26,Adult lymph node,"Domi’nguez Conde et al Science, 2022",DOI: 10.1126/science.abl51,"n=12, k=1380",https://www.tissueimmunecellatlas.org/#datasets,Adult,10x,,TRUE
+27,Adult muscle,"Domi’nguez Conde et al Science, 2022",DOI: 10.1126/science.abl51,"n=5, k=214",https://www.tissueimmunecellatlas.org/#datasets,Adult,10x,,TRUE
+28,Adult spleen,"Domi’nguez Conde et al Science, 2022",DOI: 10.1126/science.abl51,"n=12, k=8060",https://www.tissueimmunecellatlas.org/#datasets,Adult,10x,,TRUE
+29,Adult gut,"Elemntaite et al Nature, 2021",DOI: 10.1038/s41586-021-03852-1,"n=3, k=380",https://www.ebi.ac.uk/biostudies/arrayexpress,Adult,10x,,TRUE
+30,Adult uterus,"Garcia-Alonso et al Nature Genetics, 2021",DOI: 10.1038/s41588-021-00972-2,"n=5, k=458",https://www.ebi.ac.uk/biostudies/arrayexpress/studies/E-MTAB-10287,Adult,10x,,TRUE
+31,Adult heart,"Litvi–ukov‡ et al Nature, 2020",DOI: 10.1038/s41586-020-2797-4,"n=6, k=474",https://www.heartcellatlas.org/#DataSources,Adult,10x,,TRUE
+32,Adult lung,"Madissoon et al BioRxiv, 2021",DOI: 10.1101/2021.11.26.470108,"n=7, k=13200",https://5locationslung.cellgeni.sanger.ac.uk,Adult,10x,,TRUE
+33,Adult trachea,"Madissoon et al BioRxiv, 2021",DOI: 10.1101/2021.11.26.470108,"n=, k=679",https://5locationslung.cellgeni.sanger.ac.uk,Adult,10x,,TRUE
+34,Adult skin,"Reynolds et al Science, 2021",DOI: 10.1126/science.aba6500,"n=5, k=262",https://www.ebi.ac.uk/arrayexpress/experiments/E-MTAB-8142,Adult,10x,,TRUE
+35,Adult kidney,"Stewart et al, Science, 2019",DOI: 10.1126/science.aat503,"n=8, k=357",https://www.kidneycellatlas.org,Adult,10x,,TRUE
+36,Adult badder,"The Tabula Sapiens Consortium, Science, 2022",DOI: 10.1126/science.abl489,"n=3, k=2831",https://tabula-sapiens-portal.ds.czbiohub.org,Adult,10x,,TRUE
+37,Adult fat,"The Tabula Sapiens Consortium, Science, 2022",DOI: 10.1126/science.abl489,"n=2, k=1667",https://tabula-sapiens-portal.ds.czbiohub.org,Adult,10x,,TRUE
+38,Adult heart,"The Tabula Sapiens Consortium, Science, 2022",DOI: 10.1126/science.abl489,"n=1, k=12",https://tabula-sapiens-portal.ds.czbiohub.org,Adult,10x,,TRUE
+39,Adult liver,"The Tabula Sapiens Consortium, Science, 2022",DOI: 10.1126/science.abl489,"n=2, k=1171",https://tabula-sapiens-portal.ds.czbiohub.org,Adult,10x,,TRUE
+40,Adult lung,"The Tabula Sapiens Consortium, Science, 2022",DOI: 10.1126/science.abl489,"n=3, k=8272",https://tabula-sapiens-portal.ds.czbiohub.org,Adult,10x,,TRUE
+41,Adult lymph node,"The Tabula Sapiens Consortium, Science, 2022",DOI: 10.1126/science.abl489,"n=3, k=1127",https://tabula-sapiens-portal.ds.czbiohub.org,Adult,10x,,TRUE
+42,Adult muscle,"The Tabula Sapiens Consortium, Science, 2022",DOI: 10.1126/science.abl489,"n=3, k=822",https://tabula-sapiens-portal.ds.czbiohub.org,Adult,10x,,TRUE
+43,Adult pancreas,"The Tabula Sapiens Consortium, Science, 2022",DOI: 10.1126/science.abl489,"n=2, k=1030",https://tabula-sapiens-portal.ds.czbiohub.org,Adult,10x,,TRUE
+44,Adult prostate,"The Tabula Sapiens Consortium, Science, 2022",DOI: 10.1126/science.abl489,"n=2, k=356",https://tabula-sapiens-portal.ds.czbiohub.org,Adult,10x,,TRUE
+45,Adult skin,"The Tabula Sapiens Consortium, Science, 2022",DOI: 10.1126/science.abl489,"n=2, k=826",https://tabula-sapiens-portal.ds.czbiohub.org,Adult,10x,,TRUE
+46,Adult spleen,"The Tabula Sapiens Consortium, Science, 2022",DOI: 10.1126/science.abl489,"n=3, k=5583",https://tabula-sapiens-portal.ds.czbiohub.org,Adult,10x,,TRUE
+47,Adult thymus,"The Tabula Sapiens Consortium, Science, 2022",DOI: 10.1126/science.abl489,"n=2, k=505",https://tabula-sapiens-portal.ds.czbiohub.org,Adult,10x,,TRUE
+48,Adult trachea,"The Tabula Sapiens Consortium, Science, 2022",DOI: 10.1126/science.abl489,"n=2, k=697",https://tabula-sapiens-portal.ds.czbiohub.org,Adult,10x,,TRUE
+49,Adult uterus,"The Tabula Sapiens Consortium, Science, 2022",DOI: 10.1126/science.abl489,"n=1, k=174",https://tabula-sapiens-portal.ds.czbiohub.org,Adult,10x,,TRUE
+50,Adult vasculature,"The Tabula Sapiens Consortium, Science, 2022",DOI: 10.1126/science.abl489,"n=2, k=1602",https://tabula-sapiens-portal.ds.czbiohub.org,Adult,10x,,TRUE
+51,Adult brain,"Yang et al, BioRxiv, 2021",DOI: 10.1101/2021.04.26.441262,"n=7, k=832",https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE163577,Adult,10x,,TRUE

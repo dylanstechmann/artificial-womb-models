@@ -1,0 +1,231 @@
+{
+  "schema_version": 1,
+  "dataset_id": "mandelbrot-2019-dolutegravir-placenta-perfusion-candidate",
+  "title": "Mandelbrot et al. 2019 ex vivo term-cotyledon dolutegravir perfusion observations",
+  "intake_status": "candidate",
+  "source_review_status": "pending",
+  "citation": "Mandelbrot L, Ceccaldi P-F, Duro D, Lê M, Pencolé L, Peytavin G. Placental transfer and tissue accumulation of dolutegravir in the ex vivo human cotyledon perfusion model. PLoS ONE. 2019;14(8):e0220323. doi:10.1371/journal.pone.0220323.",
+  "primary_article_uri": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0220323",
+  "supplement_uri": "https://doi.org/10.1371/journal.pone.0220323.s001",
+  "publisher_file_uri": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0220323.s001&type=supplementary",
+  "license": "Creative Commons Attribution License, as linked in the article",
+  "retrieved_on": "2026-10-10",
+  "source_artifact": {
+    "artifact_id": "mandelbrot2019-supplement-s1",
+    "local_path": "artifacts/perfusion-intake-2026-10-10/mandelbrot_2019_dolutegravir_S1.xlsx",
+    "sha256": "193aef87db0c7d23df2e09a6de7fe2f7390b25d87efb379b9646d0c940a4adc2",
+    "worksheet": "Feuil1",
+    "table": "S1 Table"
+  },
+  "observation_file": {
+    "path": "config/perfusion_observations/mandelbrot_2019_dolutegravir_s1_cached_values.csv",
+    "sha256": "5b718c7128d59e446f0ead84e3502fc09e016f37e4c2d84e58ff4ff96601f42e",
+    "rows": 94,
+    "unique_record_ids": 94
+  },
+  "observation_frame": {
+    "record_unit": "one published perfusion-label × source timepoint row; repeated observations within each placenta-labeled series",
+    "perfusions_reported_by_article": 5,
+    "source_labels": [
+      "Placenta 1",
+      "Placenta 2",
+      "Placenta 3",
+      "Placenta 4",
+      "Placenta 7"
+    ],
+    "source_label_caution": "These are worksheet labels, not donor identities. Do not infer why labels 5 and 6 are not present."
+  },
+  "measured_fields": [
+    {
+      "name": "dtg_fetal_ng_ml",
+      "source_column": "C",
+      "quantity": "concentration",
+      "analyte": "dolutegravir",
+      "compartment_or_comparison": "fetal circulation",
+      "unit": "ng/mL",
+      "source_formula_cell_count": 93,
+      "source_formula_expression_text_count": 93,
+      "source_shared_formula_cell_count": 0,
+      "source_shared_formula_follower_count": 0
+    },
+    {
+      "name": "dtg_maternal_ng_ml",
+      "source_column": "D",
+      "quantity": "concentration",
+      "analyte": "dolutegravir",
+      "compartment_or_comparison": "maternal circulation",
+      "unit": "ng/mL",
+      "source_formula_cell_count": 94,
+      "source_formula_expression_text_count": 94,
+      "source_shared_formula_cell_count": 0,
+      "source_shared_formula_follower_count": 0
+    },
+    {
+      "name": "dtg_fetal_to_maternal_ratio_pct",
+      "source_column": "E",
+      "quantity": "ratio",
+      "analyte": "dolutegravir",
+      "compartment_or_comparison": "fetal-to-maternal",
+      "unit": "%",
+      "source_formula_cell_count": 94,
+      "source_formula_expression_text_count": 94,
+      "source_shared_formula_cell_count": 0,
+      "source_shared_formula_follower_count": 0
+    },
+    {
+      "name": "antipyrine_fetal_mg_l",
+      "source_column": "G",
+      "quantity": "concentration",
+      "analyte": "antipyrine",
+      "compartment_or_comparison": "fetal circulation",
+      "unit": "mg/L",
+      "source_formula_cell_count": 0,
+      "source_formula_expression_text_count": 0,
+      "source_shared_formula_cell_count": 0,
+      "source_shared_formula_follower_count": 0
+    },
+    {
+      "name": "antipyrine_maternal_mg_l",
+      "source_column": "H",
+      "quantity": "concentration",
+      "analyte": "antipyrine",
+      "compartment_or_comparison": "maternal circulation",
+      "unit": "mg/L",
+      "source_formula_cell_count": 0,
+      "source_formula_expression_text_count": 0,
+      "source_shared_formula_cell_count": 0,
+      "source_shared_formula_follower_count": 0
+    },
+    {
+      "name": "antipyrine_fetal_to_maternal_ratio_pct",
+      "source_column": "I",
+      "quantity": "ratio",
+      "analyte": "antipyrine",
+      "compartment_or_comparison": "fetal-to-maternal",
+      "unit": "%",
+      "source_formula_cell_count": 90,
+      "source_formula_expression_text_count": 22,
+      "source_shared_formula_cell_count": 73,
+      "source_shared_formula_follower_count": 68
+    },
+    {
+      "name": "clearance_index",
+      "source_column": "K",
+      "quantity": "index",
+      "analyte": "clearance index",
+      "compartment_or_comparison": "fetal-to-maternal comparison",
+      "unit": "",
+      "source_formula_cell_count": 94,
+      "source_formula_expression_text_count": 94,
+      "source_shared_formula_cell_count": 0,
+      "source_shared_formula_follower_count": 0
+    }
+  ],
+  "observation_counts": {
+    "rows": 94,
+    "rows_by_source_label": {
+      "Placenta 1": 19,
+      "Placenta 2": 19,
+      "Placenta 3": 18,
+      "Placenta 4": 19,
+      "Placenta 7": 19
+    },
+    "field_status_counts": {
+      "dtg_fetal_ng_ml": {
+        "reported_numeric": 94
+      },
+      "dtg_maternal_ng_ml": {
+        "reported_numeric": 94
+      },
+      "dtg_fetal_to_maternal_ratio_pct": {
+        "reported_text": 2,
+        "reported_numeric": 92
+      },
+      "antipyrine_fetal_mg_l": {
+        "source_blank": 5,
+        "reported_numeric": 89
+      },
+      "antipyrine_maternal_mg_l": {
+        "reported_numeric": 94
+      },
+      "antipyrine_fetal_to_maternal_ratio_pct": {
+        "reported_text": 4,
+        "reported_numeric": 90
+      },
+      "clearance_index": {
+        "reported_text": 6,
+        "reported_numeric": 88
+      }
+    }
+  },
+  "reported_timepoints_min": [
+    0,
+    5,
+    10,
+    15,
+    20,
+    25,
+    30,
+    35,
+    40,
+    45,
+    50,
+    55,
+    60,
+    75,
+    90,
+    105,
+    120,
+    150,
+    180
+  ],
+  "source_gaps": [
+    {
+      "perfusion_label": "Placenta 3",
+      "expected_time_min": 180,
+      "status": "no worksheet row present",
+      "note": "The other four labels have a 180-min row; the article reports a 3-h group summary for n=5, but this workbook does not contain this row. No value was imputed."
+    }
+  ],
+  "source_blank_note": "Antipyrine fetal-concentration cells at 0 min are blank in the worksheet. Blank cells remain blank; text dashes remain reported text rather than zero.",
+  "formula_and_cache_provenance": "The public worksheet contains formulas referring to an external workbook that is not bundled. The CSV preserves each selected formula cell type and cached result; nonempty source expression text is retained verbatim, and shared-formula followers retain their group index, range, and master-cell relationship even when local expression text is empty. The Cycle 248 validator checks these fields against the pinned raw XLSX without evaluating formulas. The published workbook has one external workbook link; two other linked sheets have refreshError markers. No formula was recalculated and no external workbook values were imported.",
+  "article_context": "The article reports five validated recirculating term-cotyledon perfusions and a mean±SD concentration figure. S1 Table contains placenta-labeled repeated measurements of dolutegravir and antipyrine and source-computed ratios/clearance index. It contains no run-by-time reservoir-volume or sample-removal history and no individual recovery/mass-balance record.",
+  "eligibility": {
+    "eligible_for": "source-linked descriptive concentration and source-reported ratio trajectories, pending human source/transcription review",
+    "not_eligible_for": [
+      "volume-based amount or mass-balance calculation",
+      "individual recovery estimate",
+      "net flux or dimensional transfer-parameter fitting",
+      "developmental, gestational, birth, or health outcome inference"
+    ]
+  },
+  "scope_limits": [
+    "This is ex vivo term-placenta drug-transfer evidence, not embryo development or artificial-womb performance.",
+    "Source labels do not establish donor identity or individual developmental continuity.",
+    "Do not pool with the separate open-circuit dolutegravir 2016 source or other antiretroviral perfusion studies.",
+    "Source transcription and scientific review remain pending."
+  ],
+  "author_contacted": false,
+  "formula_provenance_counts": {
+    "worksheet_formula_cells": 483,
+    "observation_mapped_formula_cells": 465,
+    "observation_local_formula_expression_text_cells": 397,
+    "observation_shared_formula_cells": 73,
+    "observation_shared_formula_followers_without_local_expression_text": 68
+  },
+  "source_cell_validator": {
+    "function": "src/wombmodels/mandelbrot_source.py::audit_mandelbrot_source_cells",
+    "status": "passed"
+  },
+  "source_cell_reconciliation": {
+    "status": "automated_source_cell_and_formula_provenance_reconciliation_passed",
+    "receipt": "artifacts/perfusion-intake-2026-10-10/mandelbrot-s1-formula-provenance-reconciliation-cycle248.json",
+    "validator": "src/wombmodels/mandelbrot_source.py::audit_mandelbrot_source_cells",
+    "selected_field_cells_checked": 658,
+    "cached_value_lexeme_mismatches": 0,
+    "mapped_formula_cells": 465,
+    "shared_formula_followers_with_group_metadata": 68,
+    "formula_recalculated": false,
+    "human_source_review_complete": false
+  }
+}

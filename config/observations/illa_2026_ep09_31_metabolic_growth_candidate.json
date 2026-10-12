@@ -1,0 +1,963 @@
+{
+  "schema_version": 1,
+  "dataset_id": "illa2026-ep09-31-metabolic-growth-candidate",
+  "title": "Illa et al. 2026 EP09.31 metabolic and growth plot summaries during ovine FLI support; candidate transcription",
+  "source_revision": {
+    "revision_id": "ep09-31-poster-visual-intake-2026-10-10",
+    "citation": "Illa M, et al. Metabolic adaptation and fetal growth during fetal liquid incubator support: influence of gestational age and parenteral nutrition. ISUOG 36th World Congress on Ultrasound in Obstetrics and Gynecology. 2026; poster EP09.31. doi:10.1002/uog.70305_739.",
+    "source_kind": "other",
+    "source_url": "https://epostersonline.com/isuog2026/poster/535",
+    "review_status": "candidate",
+    "reviewer": "",
+    "reviewed_on": null,
+    "review_note": ""
+  },
+  "artifacts": [
+    {
+      "artifact_id": "illa2026-ep09-31-poster",
+      "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.217077e.NORMAL.pdf?v=1",
+      "license": "Public conference poster; reuse license not stated",
+      "sha256": "271792a4c0e720296f13e38d68df2d3f44f8dc825072540df0e5da83898adc5d",
+      "retrieved_on": "2026-10-10",
+      "local_path": "artifacts/fetal-ovine-transition-2026-10-10/ep09-31-poster.pdf"
+    }
+  ],
+  "observations": [
+    {
+      "schema_version": 1,
+      "record_id": "ep09-31-total-bilirubin-baseline",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Baseline biochemical sample during FLI support",
+        "start": null,
+        "end": null,
+        "time_unit": "days relative to FLI support",
+        "stage_source_artifact_id": "illa2026-ep09-31-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep receiving fetal liquid incubator support; source unit IDs not reported"
+      },
+      "assay": {
+        "name": "Poster biochemical boxplot display",
+        "endpoint": "total bilirubin",
+        "unit": "mg/dL",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level poster summary; per-fetus values, endpoint-specific sample size, and paired-unit coverage are not reported."
+      },
+      "observation": {
+        "value": 0.45,
+        "measurement_time": "Baseline",
+        "measurement_time_unit": "relative to initiation of FLI support",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": "Poster display also shows bracketed range [0.30-0.70]; its statistic is not defined in the poster.",
+        "source_qualifications": [
+          {
+            "criterion_code": "displayed_range_statistic",
+            "status_code": "range_type_not_reported",
+            "criterion_label": "The poster prints a center value with a bracketed range, but does not define the bracket statistic or endpoint-specific n; do not call it an IQR or assign the study-model n.",
+            "source_artifact_id": "illa2026-ep09-31-poster",
+            "source_locator": "Poster PDF p. 1, Results > Biochemical evolution during FLI support, total bilirubin, Baseline display.",
+            "reference_value": null,
+            "reference_unit": ""
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "illa2026-ep09-31-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.217077e.NORMAL.pdf?v=1",
+        "license": "Public conference poster; reuse license not stated",
+        "sha256": "271792a4c0e720296f13e38d68df2d3f44f8dc825072540df0e5da83898adc5d",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Poster PDF p. 1, Results > Biochemical evolution during FLI support, total bilirubin, Baseline center and bracketed range"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ep09-31-total-bilirubin-day6-7",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Days 6-7 biochemical sample during FLI support",
+        "start": null,
+        "end": null,
+        "time_unit": "days relative to FLI support",
+        "stage_source_artifact_id": "illa2026-ep09-31-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep receiving fetal liquid incubator support; source unit IDs not reported"
+      },
+      "assay": {
+        "name": "Poster biochemical boxplot display",
+        "endpoint": "total bilirubin",
+        "unit": "mg/dL",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level poster summary; per-fetus values, endpoint-specific sample size, and paired-unit coverage are not reported."
+      },
+      "observation": {
+        "value": 4.8,
+        "measurement_time": "Days 6-7",
+        "measurement_time_unit": "relative to initiation of FLI support",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": "Poster display also shows bracketed range [3.20-6.30]; its statistic is not defined in the poster.",
+        "source_qualifications": [
+          {
+            "criterion_code": "displayed_range_statistic",
+            "status_code": "range_type_not_reported",
+            "criterion_label": "The poster prints a center value with a bracketed range, but does not define the bracket statistic or endpoint-specific n; do not call it an IQR or assign the study-model n.",
+            "source_artifact_id": "illa2026-ep09-31-poster",
+            "source_locator": "Poster PDF p. 1, Results > Biochemical evolution during FLI support, total bilirubin, Days 6-7 display.",
+            "reference_value": null,
+            "reference_unit": ""
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "illa2026-ep09-31-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.217077e.NORMAL.pdf?v=1",
+        "license": "Public conference poster; reuse license not stated",
+        "sha256": "271792a4c0e720296f13e38d68df2d3f44f8dc825072540df0e5da83898adc5d",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Poster PDF p. 1, Results > Biochemical evolution during FLI support, total bilirubin, Days 6-7 center and bracketed range"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ep09-31-conjugated-bilirubin-baseline",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Baseline biochemical sample during FLI support",
+        "start": null,
+        "end": null,
+        "time_unit": "days relative to FLI support",
+        "stage_source_artifact_id": "illa2026-ep09-31-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep receiving fetal liquid incubator support; source unit IDs not reported"
+      },
+      "assay": {
+        "name": "Poster biochemical boxplot display",
+        "endpoint": "conjugated bilirubin",
+        "unit": "mg/dL",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level poster summary; per-fetus values, endpoint-specific sample size, and paired-unit coverage are not reported."
+      },
+      "observation": {
+        "value": 0.1,
+        "measurement_time": "Baseline",
+        "measurement_time_unit": "relative to initiation of FLI support",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": "Poster display also shows bracketed range [0.05-0.20]; its statistic is not defined in the poster.",
+        "source_qualifications": [
+          {
+            "criterion_code": "displayed_range_statistic",
+            "status_code": "range_type_not_reported",
+            "criterion_label": "The poster prints a center value with a bracketed range, but does not define the bracket statistic or endpoint-specific n; do not call it an IQR or assign the study-model n.",
+            "source_artifact_id": "illa2026-ep09-31-poster",
+            "source_locator": "Poster PDF p. 1, Results > Biochemical evolution during FLI support, conjugated bilirubin, Baseline display.",
+            "reference_value": null,
+            "reference_unit": ""
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "illa2026-ep09-31-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.217077e.NORMAL.pdf?v=1",
+        "license": "Public conference poster; reuse license not stated",
+        "sha256": "271792a4c0e720296f13e38d68df2d3f44f8dc825072540df0e5da83898adc5d",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Poster PDF p. 1, Results > Biochemical evolution during FLI support, conjugated bilirubin, Baseline center and bracketed range"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ep09-31-conjugated-bilirubin-day6-7",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Days 6-7 biochemical sample during FLI support",
+        "start": null,
+        "end": null,
+        "time_unit": "days relative to FLI support",
+        "stage_source_artifact_id": "illa2026-ep09-31-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep receiving fetal liquid incubator support; source unit IDs not reported"
+      },
+      "assay": {
+        "name": "Poster biochemical boxplot display",
+        "endpoint": "conjugated bilirubin",
+        "unit": "mg/dL",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level poster summary; per-fetus values, endpoint-specific sample size, and paired-unit coverage are not reported."
+      },
+      "observation": {
+        "value": 1.6,
+        "measurement_time": "Days 6-7",
+        "measurement_time_unit": "relative to initiation of FLI support",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": "Poster display also shows bracketed range [1.00-2.40]; its statistic is not defined in the poster.",
+        "source_qualifications": [
+          {
+            "criterion_code": "displayed_range_statistic",
+            "status_code": "range_type_not_reported",
+            "criterion_label": "The poster prints a center value with a bracketed range, but does not define the bracket statistic or endpoint-specific n; do not call it an IQR or assign the study-model n.",
+            "source_artifact_id": "illa2026-ep09-31-poster",
+            "source_locator": "Poster PDF p. 1, Results > Biochemical evolution during FLI support, conjugated bilirubin, Days 6-7 display.",
+            "reference_value": null,
+            "reference_unit": ""
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "illa2026-ep09-31-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.217077e.NORMAL.pdf?v=1",
+        "license": "Public conference poster; reuse license not stated",
+        "sha256": "271792a4c0e720296f13e38d68df2d3f44f8dc825072540df0e5da83898adc5d",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Poster PDF p. 1, Results > Biochemical evolution during FLI support, conjugated bilirubin, Days 6-7 center and bracketed range"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ep09-31-ast-baseline",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Baseline biochemical sample during FLI support",
+        "start": null,
+        "end": null,
+        "time_unit": "days relative to FLI support",
+        "stage_source_artifact_id": "illa2026-ep09-31-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep receiving fetal liquid incubator support; source unit IDs not reported"
+      },
+      "assay": {
+        "name": "Poster biochemical boxplot display",
+        "endpoint": "AST",
+        "unit": "U/L",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level poster summary; per-fetus values, endpoint-specific sample size, and paired-unit coverage are not reported."
+      },
+      "observation": {
+        "value": 22.5,
+        "measurement_time": "Baseline",
+        "measurement_time_unit": "relative to initiation of FLI support",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": "Poster display also shows bracketed range [17.5-23.8]; its statistic is not defined in the poster.",
+        "source_qualifications": [
+          {
+            "criterion_code": "displayed_range_statistic",
+            "status_code": "range_type_not_reported",
+            "criterion_label": "The poster prints a center value with a bracketed range, but does not define the bracket statistic or endpoint-specific n; do not call it an IQR or assign the study-model n.",
+            "source_artifact_id": "illa2026-ep09-31-poster",
+            "source_locator": "Poster PDF p. 1, Results > Biochemical evolution during FLI support, AST, Baseline display.",
+            "reference_value": null,
+            "reference_unit": ""
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "illa2026-ep09-31-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.217077e.NORMAL.pdf?v=1",
+        "license": "Public conference poster; reuse license not stated",
+        "sha256": "271792a4c0e720296f13e38d68df2d3f44f8dc825072540df0e5da83898adc5d",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Poster PDF p. 1, Results > Biochemical evolution during FLI support, AST, Baseline center and bracketed range"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ep09-31-ast-day6-7",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Days 6-7 biochemical sample during FLI support",
+        "start": null,
+        "end": null,
+        "time_unit": "days relative to FLI support",
+        "stage_source_artifact_id": "illa2026-ep09-31-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep receiving fetal liquid incubator support; source unit IDs not reported"
+      },
+      "assay": {
+        "name": "Poster biochemical boxplot display",
+        "endpoint": "AST",
+        "unit": "U/L",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level poster summary; per-fetus values, endpoint-specific sample size, and paired-unit coverage are not reported."
+      },
+      "observation": {
+        "value": 21.0,
+        "measurement_time": "Days 6-7",
+        "measurement_time_unit": "relative to initiation of FLI support",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": "Poster display also shows bracketed range [20.0-22.8]; its statistic is not defined in the poster.",
+        "source_qualifications": [
+          {
+            "criterion_code": "displayed_range_statistic",
+            "status_code": "range_type_not_reported",
+            "criterion_label": "The poster prints a center value with a bracketed range, but does not define the bracket statistic or endpoint-specific n; do not call it an IQR or assign the study-model n.",
+            "source_artifact_id": "illa2026-ep09-31-poster",
+            "source_locator": "Poster PDF p. 1, Results > Biochemical evolution during FLI support, AST, Days 6-7 display.",
+            "reference_value": null,
+            "reference_unit": ""
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "illa2026-ep09-31-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.217077e.NORMAL.pdf?v=1",
+        "license": "Public conference poster; reuse license not stated",
+        "sha256": "271792a4c0e720296f13e38d68df2d3f44f8dc825072540df0e5da83898adc5d",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Poster PDF p. 1, Results > Biochemical evolution during FLI support, AST, Days 6-7 center and bracketed range"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ep09-31-alt-baseline",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Baseline biochemical sample during FLI support",
+        "start": null,
+        "end": null,
+        "time_unit": "days relative to FLI support",
+        "stage_source_artifact_id": "illa2026-ep09-31-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep receiving fetal liquid incubator support; source unit IDs not reported"
+      },
+      "assay": {
+        "name": "Poster biochemical boxplot display",
+        "endpoint": "ALT",
+        "unit": "U/L",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level poster summary; per-fetus values, endpoint-specific sample size, and paired-unit coverage are not reported."
+      },
+      "observation": {
+        "value": 2.0,
+        "measurement_time": "Baseline",
+        "measurement_time_unit": "relative to initiation of FLI support",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": "Poster display also shows bracketed range [2.0-2.5]; its statistic is not defined in the poster.",
+        "source_qualifications": [
+          {
+            "criterion_code": "displayed_range_statistic",
+            "status_code": "range_type_not_reported",
+            "criterion_label": "The poster prints a center value with a bracketed range, but does not define the bracket statistic or endpoint-specific n; do not call it an IQR or assign the study-model n.",
+            "source_artifact_id": "illa2026-ep09-31-poster",
+            "source_locator": "Poster PDF p. 1, Results > Biochemical evolution during FLI support, ALT, Baseline display.",
+            "reference_value": null,
+            "reference_unit": ""
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "illa2026-ep09-31-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.217077e.NORMAL.pdf?v=1",
+        "license": "Public conference poster; reuse license not stated",
+        "sha256": "271792a4c0e720296f13e38d68df2d3f44f8dc825072540df0e5da83898adc5d",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Poster PDF p. 1, Results > Biochemical evolution during FLI support, ALT, Baseline center and bracketed range"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ep09-31-alt-day6-7",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Days 6-7 biochemical sample during FLI support",
+        "start": null,
+        "end": null,
+        "time_unit": "days relative to FLI support",
+        "stage_source_artifact_id": "illa2026-ep09-31-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep receiving fetal liquid incubator support; source unit IDs not reported"
+      },
+      "assay": {
+        "name": "Poster biochemical boxplot display",
+        "endpoint": "ALT",
+        "unit": "U/L",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level poster summary; per-fetus values, endpoint-specific sample size, and paired-unit coverage are not reported."
+      },
+      "observation": {
+        "value": 2.0,
+        "measurement_time": "Days 6-7",
+        "measurement_time_unit": "relative to initiation of FLI support",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": "Poster display also shows bracketed range [2.0-2.0]; its statistic is not defined in the poster.",
+        "source_qualifications": [
+          {
+            "criterion_code": "displayed_range_statistic",
+            "status_code": "range_type_not_reported",
+            "criterion_label": "The poster prints a center value with a bracketed range, but does not define the bracket statistic or endpoint-specific n; do not call it an IQR or assign the study-model n.",
+            "source_artifact_id": "illa2026-ep09-31-poster",
+            "source_locator": "Poster PDF p. 1, Results > Biochemical evolution during FLI support, ALT, Days 6-7 display.",
+            "reference_value": null,
+            "reference_unit": ""
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "illa2026-ep09-31-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.217077e.NORMAL.pdf?v=1",
+        "license": "Public conference poster; reuse license not stated",
+        "sha256": "271792a4c0e720296f13e38d68df2d3f44f8dc825072540df0e5da83898adc5d",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Poster PDF p. 1, Results > Biochemical evolution during FLI support, ALT, Days 6-7 center and bracketed range"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ep09-31-blood-urea-nitrogen-baseline",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Baseline biochemical sample during FLI support",
+        "start": null,
+        "end": null,
+        "time_unit": "days relative to FLI support",
+        "stage_source_artifact_id": "illa2026-ep09-31-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep receiving fetal liquid incubator support; source unit IDs not reported"
+      },
+      "assay": {
+        "name": "Poster biochemical boxplot display",
+        "endpoint": "blood urea nitrogen",
+        "unit": "mg/dL",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level poster summary; per-fetus values, endpoint-specific sample size, and paired-unit coverage are not reported."
+      },
+      "observation": {
+        "value": 6.9,
+        "measurement_time": "Baseline",
+        "measurement_time_unit": "relative to initiation of FLI support",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": "Poster display also shows bracketed range [5.6-8.5]; its statistic is not defined in the poster.",
+        "source_qualifications": [
+          {
+            "criterion_code": "displayed_range_statistic",
+            "status_code": "range_type_not_reported",
+            "criterion_label": "The poster prints a center value with a bracketed range, but does not define the bracket statistic or endpoint-specific n; do not call it an IQR or assign the study-model n.",
+            "source_artifact_id": "illa2026-ep09-31-poster",
+            "source_locator": "Poster PDF p. 1, Results > Biochemical evolution during FLI support, blood urea nitrogen, Baseline display.",
+            "reference_value": null,
+            "reference_unit": ""
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "illa2026-ep09-31-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.217077e.NORMAL.pdf?v=1",
+        "license": "Public conference poster; reuse license not stated",
+        "sha256": "271792a4c0e720296f13e38d68df2d3f44f8dc825072540df0e5da83898adc5d",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Poster PDF p. 1, Results > Biochemical evolution during FLI support, blood urea nitrogen, Baseline center and bracketed range"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ep09-31-blood-urea-nitrogen-day6-7",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Days 6-7 biochemical sample during FLI support",
+        "start": null,
+        "end": null,
+        "time_unit": "days relative to FLI support",
+        "stage_source_artifact_id": "illa2026-ep09-31-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep receiving fetal liquid incubator support; source unit IDs not reported"
+      },
+      "assay": {
+        "name": "Poster biochemical boxplot display",
+        "endpoint": "blood urea nitrogen",
+        "unit": "mg/dL",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level poster summary; per-fetus values, endpoint-specific sample size, and paired-unit coverage are not reported."
+      },
+      "observation": {
+        "value": 16.0,
+        "measurement_time": "Days 6-7",
+        "measurement_time_unit": "relative to initiation of FLI support",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": "Poster display also shows bracketed range [13.0-19.6]; its statistic is not defined in the poster.",
+        "source_qualifications": [
+          {
+            "criterion_code": "displayed_range_statistic",
+            "status_code": "range_type_not_reported",
+            "criterion_label": "The poster prints a center value with a bracketed range, but does not define the bracket statistic or endpoint-specific n; do not call it an IQR or assign the study-model n.",
+            "source_artifact_id": "illa2026-ep09-31-poster",
+            "source_locator": "Poster PDF p. 1, Results > Biochemical evolution during FLI support, blood urea nitrogen, Days 6-7 display.",
+            "reference_value": null,
+            "reference_unit": ""
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "illa2026-ep09-31-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.217077e.NORMAL.pdf?v=1",
+        "license": "Public conference poster; reuse license not stated",
+        "sha256": "271792a4c0e720296f13e38d68df2d3f44f8dc825072540df0e5da83898adc5d",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Poster PDF p. 1, Results > Biochemical evolution during FLI support, blood urea nitrogen, Days 6-7 center and bracketed range"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ep09-31-albumin-baseline",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Baseline biochemical sample during FLI support",
+        "start": null,
+        "end": null,
+        "time_unit": "days relative to FLI support",
+        "stage_source_artifact_id": "illa2026-ep09-31-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep receiving fetal liquid incubator support; source unit IDs not reported"
+      },
+      "assay": {
+        "name": "Poster biochemical boxplot display",
+        "endpoint": "albumin",
+        "unit": "g/dL",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level poster summary; per-fetus values, endpoint-specific sample size, and paired-unit coverage are not reported."
+      },
+      "observation": {
+        "value": 2.7,
+        "measurement_time": "Baseline",
+        "measurement_time_unit": "relative to initiation of FLI support",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": "Poster display also shows bracketed range [2.5-3.0]; its statistic is not defined in the poster.",
+        "source_qualifications": [
+          {
+            "criterion_code": "displayed_range_statistic",
+            "status_code": "range_type_not_reported",
+            "criterion_label": "The poster prints a center value with a bracketed range, but does not define the bracket statistic or endpoint-specific n; do not call it an IQR or assign the study-model n.",
+            "source_artifact_id": "illa2026-ep09-31-poster",
+            "source_locator": "Poster PDF p. 1, Results > Biochemical evolution during FLI support, albumin, Baseline display.",
+            "reference_value": null,
+            "reference_unit": ""
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "illa2026-ep09-31-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.217077e.NORMAL.pdf?v=1",
+        "license": "Public conference poster; reuse license not stated",
+        "sha256": "271792a4c0e720296f13e38d68df2d3f44f8dc825072540df0e5da83898adc5d",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Poster PDF p. 1, Results > Biochemical evolution during FLI support, albumin, Baseline center and bracketed range"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ep09-31-albumin-day6-7",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Days 6-7 biochemical sample during FLI support",
+        "start": null,
+        "end": null,
+        "time_unit": "days relative to FLI support",
+        "stage_source_artifact_id": "illa2026-ep09-31-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep receiving fetal liquid incubator support; source unit IDs not reported"
+      },
+      "assay": {
+        "name": "Poster biochemical boxplot display",
+        "endpoint": "albumin",
+        "unit": "g/dL",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Group-level poster summary; per-fetus values, endpoint-specific sample size, and paired-unit coverage are not reported."
+      },
+      "observation": {
+        "value": 2.1,
+        "measurement_time": "Days 6-7",
+        "measurement_time_unit": "relative to initiation of FLI support",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": "Poster display also shows bracketed range [1.8-2.4]; its statistic is not defined in the poster.",
+        "source_qualifications": [
+          {
+            "criterion_code": "displayed_range_statistic",
+            "status_code": "range_type_not_reported",
+            "criterion_label": "The poster prints a center value with a bracketed range, but does not define the bracket statistic or endpoint-specific n; do not call it an IQR or assign the study-model n.",
+            "source_artifact_id": "illa2026-ep09-31-poster",
+            "source_locator": "Poster PDF p. 1, Results > Biochemical evolution during FLI support, albumin, Days 6-7 display.",
+            "reference_value": null,
+            "reference_unit": ""
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "illa2026-ep09-31-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.217077e.NORMAL.pdf?v=1",
+        "license": "Public conference poster; reuse license not stated",
+        "sha256": "271792a4c0e720296f13e38d68df2d3f44f8dc825072540df0e5da83898adc5d",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Poster PDF p. 1, Results > Biochemical evolution during FLI support, albumin, Days 6-7 center and bracketed range"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ep09-31-growth-velocity-under-115-days",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Fetal growth velocity, <115 gestational days at cannulation",
+        "start": null,
+        "end": null,
+        "time_unit": "poster-reported gestational-age group",
+        "stage_source_artifact_id": "illa2026-ep09-31-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep receiving fetal liquid incubator support for at least six days"
+      },
+      "assay": {
+        "name": "Poster growth-velocity boxplot display",
+        "endpoint": "Fetal growth velocity",
+        "unit": "g/kg/day",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Aggregate summary for the poster-labeled <115 gestational days at cannulation group (n=5); no per-fetus growth velocities or identifiers are reported."
+      },
+      "observation": {
+        "value": 66.7,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": "Poster display also shows bracketed range [49.3-133.1]; its statistic is not defined in the poster.",
+        "source_qualifications": [
+          {
+            "criterion_code": "growth_group_statistic_and_test",
+            "status_code": "displayed_range_type_unreported",
+            "criterion_label": "The poster labels this growth group n=5 and reports p=0.186 for the displayed between-group comparison; bracket statistic and per-unit values are not provided.",
+            "source_artifact_id": "illa2026-ep09-31-poster",
+            "source_locator": "Poster PDF p. 1, Results > Fetal growth velocity by gestational age group.",
+            "reference_value": 0.186,
+            "reference_unit": "reported p-value for figure group comparison; not recalculated"
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "illa2026-ep09-31-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.217077e.NORMAL.pdf?v=1",
+        "license": "Public conference poster; reuse license not stated",
+        "sha256": "271792a4c0e720296f13e38d68df2d3f44f8dc825072540df0e5da83898adc5d",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Poster PDF p. 1, Results > Fetal growth velocity by gestational age group, <115 gestational days at cannulation (n=5) center and bracketed range"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ep09-31-growth-velocity-at-least-115-days",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Fetal growth velocity, >=115 gestational days at cannulation",
+        "start": null,
+        "end": null,
+        "time_unit": "poster-reported gestational-age group",
+        "stage_source_artifact_id": "illa2026-ep09-31-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm fetal sheep receiving fetal liquid incubator support for at least six days"
+      },
+      "assay": {
+        "name": "Poster growth-velocity boxplot display",
+        "endpoint": "Fetal growth velocity",
+        "unit": "g/kg/day",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "other",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Aggregate summary for the poster-labeled >=115 gestational days at cannulation group (n=24); no per-fetus growth velocities or identifiers are reported."
+      },
+      "observation": {
+        "value": 35.1,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": "Poster display also shows bracketed range [23.5-56.1]; its statistic is not defined in the poster.",
+        "source_qualifications": [
+          {
+            "criterion_code": "growth_group_statistic_and_test",
+            "status_code": "displayed_range_type_unreported",
+            "criterion_label": "The poster labels this growth group n=24 and reports p=0.186 for the displayed between-group comparison; bracket statistic and per-unit values are not provided.",
+            "source_artifact_id": "illa2026-ep09-31-poster",
+            "source_locator": "Poster PDF p. 1, Results > Fetal growth velocity by gestational age group.",
+            "reference_value": 0.186,
+            "reference_unit": "reported p-value for figure group comparison; not recalculated"
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "illa2026-ep09-31-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.217077e.NORMAL.pdf?v=1",
+        "license": "Public conference poster; reuse license not stated",
+        "sha256": "271792a4c0e720296f13e38d68df2d3f44f8dc825072540df0e5da83898adc5d",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Poster PDF p. 1, Results > Fetal growth velocity by gestational age group, >=115 gestational days at cannulation (n=24) center and bracketed range"
+    }
+  ],
+  "cohort_coverage": [
+    {
+      "coverage_id": "ep09-31-biochemistry-assessment-denominator",
+      "source_artifact_id": "illa2026-ep09-31-poster",
+      "reported_group_label": "Baseline and day 6-7 biochemical display",
+      "group_label_status": "reported",
+      "counted_entity_kind": "fetus",
+      "counted_entity_label": "Preterm fetal lambs selected for FLI support >=6 days; endpoint n not reported",
+      "endpoint_label": "Total/conjugated bilirubin, AST, ALT, BUN, and albumin displayed at baseline and days 6-7",
+      "population_frame": "Poster study model lists 29 lambs (5 <115 and 24 >=115 gestational days) selected for at least six days of FLI support; the biochemistry panel does not report endpoint-specific n.",
+      "measurement_window": "Baseline and days 6-7; methods say daily sampling on days 1-7.",
+      "selection_definition": "Only lambs supported on FLI for at least six days are in the poster study model. The poster does not state how many contributed to each biochemical timepoint or how many had paired baseline/day 6-7 values.",
+      "selection_definition_source_locator": "Poster PDF p. 1, Methods > Study model and Results > Biochemical evolution during FLI support.",
+      "denominator": {
+        "value": null,
+        "value_status": "not_reported",
+        "reported_label": "Biochemical endpoint and paired-assessment n not stated; do not assign the study-model n=29.",
+        "source_locator": "Poster PDF p. 1, Methods > Study model and Results > Biochemical evolution during FLI support."
+      },
+      "declarations": [
+        {
+          "category": "endpoint_measure",
+          "scope": "unresolved",
+          "reported_label": "Poster displays six analyte summaries at baseline and days 6-7 without endpoint counts.",
+          "quantity_kind": "count",
+          "value": null,
+          "value_status": "not_reported",
+          "source_locator": "Poster PDF p. 1, Methods > Study model and Results > Biochemical evolution during FLI support.",
+          "note": "The figure does not provide individual units or a complete paired risk set."
+        }
+      ],
+      "selection_statements": [
+        {
+          "text": "The study model lists 29 lambs selected for at least six days of FLI support, but the biochemical panel does not label an endpoint sample size.",
+          "source_locator": "Poster PDF p. 1, Methods > Study model and Results > Biochemical evolution during FLI support."
+        },
+        {
+          "text": "Methods show daily sampling through days 1-7; the poster displays baseline versus days 6-7 without a paired-unit crosswalk.",
+          "source_locator": "Poster PDF p. 1, Methods > Study model and Results > Biochemical evolution during FLI support."
+        }
+      ],
+      "cohort_window_status": "source_labels_only",
+      "disposition_completeness": "unknown",
+      "categories_mutually_exclusive": "unknown",
+      "categories_exhaustive": "unknown"
+    },
+    {
+      "coverage_id": "ep09-31-growth-under-115-days",
+      "source_artifact_id": "illa2026-ep09-31-poster",
+      "reported_group_label": "<115 gestational days at cannulation (n=5)",
+      "group_label_status": "reported",
+      "counted_entity_kind": "fetus",
+      "counted_entity_label": "Poster-labeled fetal-lamb group",
+      "endpoint_label": "Fetal growth velocity during FLI support",
+      "population_frame": "Poster study model lists this gestational-age group among 29 lambs supported for at least six days; the growth figure labels n=5.",
+      "measurement_window": "Growth assessment during FLI support; exact assessment time not reported.",
+      "selection_definition": "Poster-labeled gestational-age group; n is printed below the group in the fetal-growth-velocity figure. The total number entering FLI support and the disposition of unselected or shorter-duration cases are not reported.",
+      "selection_definition_source_locator": "Poster PDF p. 1, Methods > Study model and Results > Fetal growth velocity by gestational age group.",
+      "denominator": {
+        "value": 5,
+        "value_status": "reported",
+        "reported_label": "n=5 printed for the <115 gestational days at cannulation group in the growth figure",
+        "source_locator": "Poster PDF p. 1, Methods > Study model and Results > Fetal growth velocity by gestational age group."
+      },
+      "declarations": [
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Fetal growth velocity group n=5",
+          "quantity_kind": "count",
+          "value": 5,
+          "value_status": "reported",
+          "source_locator": "Poster PDF p. 1, Methods > Study model and Results > Fetal growth velocity by gestational age group.",
+          "note": "Source-reported group n; no per-fetus observations or FLI-start success denominator."
+        }
+      ],
+      "selection_statements": [
+        {
+          "text": "This is a selected group supported for at least six days; it is not the denominator of all FLI starts or attempted transitions.",
+          "source_locator": "Poster PDF p. 1, Methods > Study model and Results > Fetal growth velocity by gestational age group."
+        }
+      ],
+      "cohort_window_status": "source_labels_only",
+      "disposition_completeness": "unknown",
+      "categories_mutually_exclusive": "unknown",
+      "categories_exhaustive": "unknown"
+    },
+    {
+      "coverage_id": "ep09-31-growth-at-least-115-days",
+      "source_artifact_id": "illa2026-ep09-31-poster",
+      "reported_group_label": ">=115 gestational days at cannulation (n=24)",
+      "group_label_status": "reported",
+      "counted_entity_kind": "fetus",
+      "counted_entity_label": "Poster-labeled fetal-lamb group",
+      "endpoint_label": "Fetal growth velocity during FLI support",
+      "population_frame": "Poster study model lists this gestational-age group among 29 lambs supported for at least six days; the growth figure labels n=24.",
+      "measurement_window": "Growth assessment during FLI support; exact assessment time not reported.",
+      "selection_definition": "Poster-labeled gestational-age group; n is printed below the group in the fetal-growth-velocity figure. The total number entering FLI support and the disposition of unselected or shorter-duration cases are not reported.",
+      "selection_definition_source_locator": "Poster PDF p. 1, Methods > Study model and Results > Fetal growth velocity by gestational age group.",
+      "denominator": {
+        "value": 24,
+        "value_status": "reported",
+        "reported_label": "n=24 printed for the >=115 gestational days at cannulation group in the growth figure",
+        "source_locator": "Poster PDF p. 1, Methods > Study model and Results > Fetal growth velocity by gestational age group."
+      },
+      "declarations": [
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Fetal growth velocity group n=24",
+          "quantity_kind": "count",
+          "value": 24,
+          "value_status": "reported",
+          "source_locator": "Poster PDF p. 1, Methods > Study model and Results > Fetal growth velocity by gestational age group.",
+          "note": "Source-reported group n; no per-fetus observations or FLI-start success denominator."
+        }
+      ],
+      "selection_statements": [
+        {
+          "text": "This is a selected group supported for at least six days; it is not the denominator of all FLI starts or attempted transitions.",
+          "source_locator": "Poster PDF p. 1, Methods > Study model and Results > Fetal growth velocity by gestational age group."
+        }
+      ],
+      "cohort_window_status": "source_labels_only",
+      "disposition_completeness": "unknown",
+      "categories_mutually_exclusive": "unknown",
+      "categories_exhaustive": "unknown"
+    }
+  ],
+  "limitations": [
+    "Conference poster only; no per-animal data, raw laboratory records, or peer-reviewed full-cohort paper were used in this candidate intake.",
+    "The study model selects 29 lambs supported for at least six days. Its FLI-start denominator and the biochemical endpoint/paired n are not reported; do not assign n=29 to the plotted biochemical summaries.",
+    "Biochemical center values and bracketed ranges are transcribed as displayed. The poster does not define the bracket statistic, so these ranges are not labeled as IQR, SD, or confidence intervals.",
+    "The growth panel labels n=5 and n=24 by gestational-age group and reports p=0.186 for the displayed group comparison. Panel 3 separately reports adjusted model associations; these displays are retained as separate analyses, not recalculated or forced into agreement.",
+    "The poster reports bilirubin and BUN increases and albumin decrease by days 6-7 while AST and ALT show no significant change; its interpretation is limited to these source-reported biochemical results and does not establish comprehensive organ health or successful gestation.",
+    "No post-support transition or developmental follow-up is reported here. This cohort has no public unit-level link to the four EP09.22 transition cases, the 2023-24 abstract cohort, Gaia, or company follow-up claims.",
+    "The candidate is not a human support specification and does not establish continuity from embryo culture to fetal support."
+  ]
+}

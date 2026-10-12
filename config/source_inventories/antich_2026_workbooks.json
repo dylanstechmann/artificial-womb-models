@@ -4,17 +4,103 @@
   "human_review": "pending",
   "article_url": "https://www.nature.com/articles/s41598-026-61708-y",
   "retrieved_on": "2026-10-09",
-  "inspection": "Read-only workbook names, dimensions and first two rows up to 12 columns; no expression/functional reanalysis.",
+  "inspection": "Read-only workbook names, dimensions and first rows/headers up to 12 columns; supplementary-set and repository-file metadata checked 2026-10-10; no expression or functional reanalysis.",
   "source_files_redistributed": false,
   "source_code_executed": false,
-  "eligibility": "No paired functional trajectory or independent-unit analysis split qualified from this inventory.",
+  "eligibility": "The article reports receiver-side nutrient-transfer measurements, but no replicate-by-time numeric functional table or machine-readable source-unit mapping was found in the audited public file set; no fit or independent-unit split is qualified.",
   "limitations": [
     "Workbook dimensions and row multiplicity are not biological n.",
     "Early/Late expression labels do not supply donor gestational age or continuous development.",
     "A Transport pathway sheet contains gene-expression labels; its name is not a physical transport measurement.",
     "Only names/dimensions/initial rows were inspected; this is not a full cell-by-cell audit or a claim about all study data.",
-    "Raw GEO/PRIDE data, individual functional values and source-specific reuse terms remain unqualified."
+    "No raw GEO/PRIDE files were downloaded; public functional figure images were not digitized. Repository-specific reuse terms and the functional replicate-to-source mapping remain unqualified."
   ],
+  "supplementary_set_audit": {
+    "audited_on": "2026-10-10",
+    "publisher_item_count": 16,
+    "format_counts": {
+      "docx": 2,
+      "pdf": 2,
+      "xlsx": 12
+    },
+    "non_workbook_items": [
+      {
+        "filename": "41598_2026_61708_MOESM1_ESM.docx",
+        "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41598-026-61708-y/MediaObjects/41598_2026_61708_MOESM1_ESM.docx",
+        "bytes": 30339,
+        "sha256": "273b70093a136d61586053f411546e31a2538e028f1545a94137e381ca193606",
+        "scope": "Supplementary narrative note; text inspected."
+      },
+      {
+        "filename": "41598_2026_61708_MOESM2_ESM.pdf",
+        "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41598-026-61708-y/MediaObjects/41598_2026_61708_MOESM2_ESM.pdf",
+        "bytes": 95815,
+        "sha256": "3200c87f419f98baeaa6700623f4c4b0ba5e07c2047e60ee8df4f6f9da2a3ea1",
+        "scope": "One-page narrative note; page rendered and read."
+      },
+      {
+        "filename": "41598_2026_61708_MOESM3_ESM.pdf",
+        "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41598-026-61708-y/MediaObjects/41598_2026_61708_MOESM3_ESM.pdf",
+        "bytes": 101596,
+        "sha256": "cc8cb725b518801a698f3557b6f13213b00a998e9057c4726fc500fd271a622e",
+        "scope": "One-page narrative note; page rendered and read."
+      },
+      {
+        "filename": "41598_2026_61708_MOESM16_ESM.docx",
+        "url": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41598-026-61708-y/MediaObjects/41598_2026_61708_MOESM16_ESM.docx",
+        "bytes": 23594710,
+        "sha256": "77d69a0491a491e23551d0c0e3df2532af4ee021820275fe4a5b657d6275774b",
+        "scope": "Figure package; captions/text and document structure inspected (85 embedded media items, zero tables); plotted values not digitized."
+      }
+    ],
+    "scope_notes": [
+      "The publisher supplementary index enumerates MOESM1 through MOESM16.",
+      "The existing MOESM4-MOESM15 sheet-name, dimension and header inventory describes gene-expression, enrichment/pathway and RNA/protein-comparison tables; no functional-transfer table was identified.",
+      "This is a bounded format/content qualification, not a full cell-by-cell reanalysis of the omics workbooks or a digitization of plotted figures."
+    ]
+  },
+  "repository_metadata_audit": {
+    "audited_on": "2026-10-10",
+    "geo": {
+      "accession": "GSE318016",
+      "record_type": "Expression profiling by high throughput sequencing",
+      "sample_count": 12,
+      "supplementary_file": "GSE318016_Placenta_CA_12_samples_raw_count.txt.gz",
+      "role": "Transcriptomic count data; not functional nutrient-transfer observations."
+    },
+    "pride": {
+      "accession": "PXD072837",
+      "project_title": "Bioprinted 3D vascularized human placenta models recapitulate early and late stages of pregnancy",
+      "file_count": 13,
+      "file_inventory": [
+        {
+          "extension": ".raw",
+          "count": 12,
+          "total_bytes": 14328370934
+        },
+        {
+          "filename": "ProteinQuant_summary.xlsx",
+          "count": 1,
+          "bytes": 4913765
+        }
+      ],
+      "raw_files_downloaded": false,
+      "role": "Proteomics files and protein-quantification summary; not a functional nutrient-transfer time series."
+    }
+  },
+  "functional_observation_audit": {
+    "paper_readouts": [
+      "Figure 6 separates trophoblast nutrient uptake, receiver-side targeted metabolite measurements and transporter-activity assays.",
+      "Targeted receiver-side measurements are reported for glucose, leucine and linoleic acid; Supplementary Note 3 describes the metabolite readout in peak-area terms.",
+      "The methods describe receiver-side collection over a 24-hour interval; the Figure 6 caption reports N=3 biological replicates."
+    ],
+    "unresolved_for_model_fit": [
+      "No replicate-by-time numeric transfer rows, absolute assay calibration or amount/recovery accounting were found in the audited public files.",
+      "No machine-readable mapping from each functional replicate to donor/source and experiment is available in the audited set.",
+      "A plotted peak-area/targeted-metabolite signal is not treated here as absolute concentration, amount, mass flux, permeability or nutrient-delivery fraction."
+    ],
+    "eligibility": "Descriptive figure-level functional candidate only; no dimensional fit, rate estimate, donor-grouped split or independent validation."
+  },
   "workbooks": [
     {
       "filename": "41598_2026_61708_MOESM10_ESM.xlsx",

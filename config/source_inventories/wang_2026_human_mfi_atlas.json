@@ -1,0 +1,632 @@
+{
+  "schema_version": 1,
+  "review_status": "candidate",
+  "human_review": "pending",
+  "inspected_on": "2026-10-10",
+  "source_id": "wang-2026-human-mfi-atlas",
+  "citation": "Wang et al. (2026). Single-cell spatiotemporal dissection of the human maternal–fetal interface. Nature 653, 167–179. DOI: 10.1038/s41586-026-10316-x.",
+  "article_url": "https://www.nature.com/articles/s41586-026-10316-x",
+  "full_text_url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC13149032/",
+  "portal_url": "https://cell.ucsf.edu/snPlacenta/",
+  "code_url": "https://github.com/complexdisease/mf.interface",
+  "organism_species": "human",
+  "source_role": "Cross-sectional maternal–fetal interface cell-identity and spatial-context reference; not a transport calibration or supported-embryo outcome study.",
+  "review_basis": "Publisher article, Supplementary Tables 1 and 4, publisher Source Data Figs. 1–2, UCSF portal, GEO/NeMO accession records and selected public analysis scripts. Only article statements, table metadata/QC rows, source-data worksheet structures/summaries, viewer schemas, bounded sample_id columns and linked dataset roles were qualified; no expression-feature values were retained.",
+  "source_license": {
+    "article": "CC BY 4.0, with third-party material exceptions as stated by the article.",
+    "portal_processed_data": "No dataset-specific license or reuse terms were found in the inspected static portal page; terms remain unverified and review is pending.",
+    "code": "GPL-3.0 repository license; selected source files inspected but not executed."
+  },
+  "code_review": {
+    "repository_commit": "dd30d10195c9b72c3cf3748052121e14dc5a0df6",
+    "repository_commit_date": "2026-08-14T18:03:17Z",
+    "files_inspected": [
+      {
+        "path": "Analysis/01_snRNA_integration.r",
+        "bytes": 2007,
+        "sha256": "8a0299b4eaa41f44fea7e5f3b3d9ee5e809c0bbe423ec87aae818020f24050a9",
+        "observation": "Reads per-sample Cell Ranger filtered feature-barcode matrices and constructs sample-labeled Seurat objects; does not state how the portal's 193,202 rows relate to the 191,735 paired nuclei."
+      },
+      {
+        "path": "Analysis/03_h5ad_Conversion.r",
+        "bytes": 299,
+        "sha256": "c4b641b31dee8dce8ad088edcd5e12ce5b6d604b9c51bd365dc0567ff5ed4aee",
+        "observation": "Converts an integrated Seurat object to H5AD; does not document a count reconciliation."
+      },
+      {
+        "path": "Analysis/12_STOMICs_preprocessing_Fig2.ipynb",
+        "bytes": 18619,
+        "sha256": "6b11ea27aad5160ba6d3e64031fbc6c887ee716fbd6f909bb343b4d8bb22868d",
+        "observation": "Applies cell and gene filters to spatial AnnData objects; does not provide sample-specific post-unknown-cluster counts."
+      }
+    ],
+    "execution": "not run",
+    "count_universe_question_resolved": false
+  },
+  "access": {
+    "portal_checked_on": "2026-10-10",
+    "processed_data": [
+      {
+        "kind": "integrated H5AD",
+        "url": "https://cell.ucsf.edu/snPlacenta/download/scPlacenta_host.h5ad",
+        "bytes_observed_from_portal_link": 3050244246,
+        "last_modified_header": "2026-09-22T05:13:25Z",
+        "downloaded": false
+      },
+      {
+        "kind": "snRNA count H5AD",
+        "url": "https://cell.ucsf.edu/snPlacenta/download/snRNA_raw_counts.h5ad",
+        "bytes_observed_from_portal_link": 3042755986,
+        "last_modified_header": "2026-09-22T05:16:23Z",
+        "downloaded": false
+      },
+      {
+        "kind": "snATAC fragments archive",
+        "url": "https://cell.ucsf.edu/snPlacenta/download/fragments.tar.gz",
+        "bytes_observed_from_portal_link": 49963047789,
+        "last_modified_header": "2026-09-22T05:10:16Z",
+        "downloaded": false
+      },
+      {
+        "kind": "interactive spatial browser",
+        "urls": [
+          "https://cell.ucsf.edu/snPlacenta/build5/",
+          "https://cell.ucsf.edu/snMultiome/build1/"
+        ],
+        "note": "Cirro browser shells require JavaScript; static viewer code and companion JSONL indexes were inspected to resolve the payload and range-addressable schema endpoints."
+      },
+      {
+        "kind": "CODEX shared-data link",
+        "url": "https://ucsf.box.com/s/1mk71olx7fkvvupgr21qqh6btx89idx5",
+        "note": "Public Box share landing page resolved to an app shell; individual file manifest was not qualified."
+      },
+      {
+        "kind": "commented-out Stereo-seq H5AD link",
+        "url": "https://cell.ucsf.edu/snPlacenta/download/STOMICS.h5ad",
+        "http_status": 404,
+        "downloaded": false
+      }
+    ],
+    "viewer_manifest_audit": [
+      {
+        "viewer_path": "/snPlacenta/build1/",
+        "display_label": "scPlacenta",
+        "descriptor_path": "artifacts/human-mfi-atlas-2026-04-08/datasets-1.json",
+        "descriptor_bytes": 111,
+        "descriptor_sha256": "620d159b5657c87afd5e566f1814da47f29711cfb519bf2d2befe851d3a1e8c6",
+        "descriptor_fields": [
+          "id",
+          "name",
+          "url"
+        ],
+        "payload_url": "https://cell.ucsf.edu/snPlacenta/build1/scPlacenta_host/scPlacenta_host.jsonl",
+        "payload_bytes": 4277524751,
+        "range_probe_bytes": 65536,
+        "complete_first_jsonl_record": true,
+        "first_record_schema_note": "One gene-feature key; cell values not retained."
+      },
+      {
+        "viewer_path": "/snPlacenta/build2/",
+        "display_label": "CTB",
+        "descriptor_path": "artifacts/human-mfi-atlas-2026-04-08/datasets-2.json",
+        "descriptor_bytes": 82,
+        "descriptor_sha256": "48398810466edee7a6f97950cc97f93de424241d7cc54dcad83c10dcb15f3910",
+        "descriptor_fields": [
+          "id",
+          "name",
+          "url"
+        ],
+        "payload_url": "https://cell.ucsf.edu/snPlacenta/build2/CTB_host/CTB_host.jsonl",
+        "payload_bytes": 1743882751,
+        "range_probe_bytes": 65536,
+        "complete_first_jsonl_record": true,
+        "first_record_schema_note": "One gene-feature key; cell values not retained."
+      },
+      {
+        "viewer_path": "/snPlacenta/build3/",
+        "display_label": "DSC",
+        "descriptor_path": "artifacts/human-mfi-atlas-2026-04-08/datasets-3.json",
+        "descriptor_bytes": 82,
+        "descriptor_sha256": "ae044c5d3763846654558fa3477ea67f809dfe85ddc3d7eff9b39c265100ebb4",
+        "descriptor_fields": [
+          "id",
+          "name",
+          "url"
+        ],
+        "payload_url": "https://cell.ucsf.edu/snPlacenta/build3/DSC_host/DSC_host.jsonl",
+        "payload_bytes": 523265489,
+        "range_probe_bytes": 65536,
+        "complete_first_jsonl_record": true,
+        "first_record_schema_note": "One gene-feature key; cell values not retained."
+      },
+      {
+        "viewer_path": "/snPlacenta/build5/",
+        "display_label": "stereo_seq",
+        "descriptor_path": "artifacts/human-mfi-atlas-2026-04-08/datasets-4.json",
+        "descriptor_bytes": 99,
+        "descriptor_sha256": "f4328eb15fad5f262fed4c28ed71daf8c4a0329ad706977f80ef7324ad41e99d",
+        "descriptor_fields": [
+          "id",
+          "name",
+          "url"
+        ],
+        "payload_url": "https://cell.ucsf.edu/snPlacenta/build5/stereo_host/stereo_host.jsonl",
+        "payload_bytes": 37783844305,
+        "range_probe_bytes": 65536,
+        "complete_first_jsonl_record": false,
+        "first_record_schema_note": "No complete first JSONL line within the bounded range."
+      },
+      {
+        "viewer_path": "/snMultiome/build1/",
+        "display_label": "GEX",
+        "descriptor_path": "artifacts/human-mfi-atlas-2026-04-08/datasets-5.json",
+        "descriptor_bytes": 99,
+        "descriptor_sha256": "10b3e7744c0e6457b999ca8e053fc6f8e5e7202c5e21263be4ec4c63adc3e89e",
+        "descriptor_fields": [
+          "id",
+          "name",
+          "url"
+        ],
+        "payload_url": "https://cell.ucsf.edu/snMultiome/build1/GEX_snMultiome_host/GEX_snMultiome_host.jsonl",
+        "payload_bytes": 6234492831,
+        "range_probe_bytes": 65536,
+        "complete_first_jsonl_record": true,
+        "first_record_schema_note": "One gene-feature key; cell values not retained."
+      }
+    ],
+    "viewer_schema_audit": [
+      {
+        "display_label": "scPlacenta",
+        "index_url": "https://cell.ucsf.edu/snPlacenta/build1/scPlacenta_host/scPlacenta_host.jsonl.idx.json",
+        "index_bytes": 1115539,
+        "index_sha256": "a2a0168defa5b84e6799254905228a52169ee07a645ee979f14f9b4cad68831b",
+        "schema_range": [
+          4276952948,
+          4277524749
+        ],
+        "schema_bytes": 571802,
+        "schema_sha256": "c3a3f741543040db83b91a7d7aad7b9c145230aec596a265ac2775ad7f82c5ad",
+        "shape": [
+          193202,
+          32920
+        ],
+        "observation_fields": [],
+        "categorical_observation_fields": [
+          "sample_id",
+          "gestational_week",
+          "major_class",
+          "minor_class",
+          "celltype_shortname",
+          "major_class_fullname",
+          "celltype_fullname"
+        ],
+        "embedding_fields": [
+          {
+            "name": "X_umap",
+            "dimensions": 2
+          },
+          {
+            "name": "X_umap.atac",
+            "dimensions": 2
+          }
+        ]
+      },
+      {
+        "display_label": "CTB",
+        "index_url": "https://cell.ucsf.edu/snPlacenta/build2/CTB_host/CTB_host.jsonl.idx.json",
+        "index_bytes": 1096377,
+        "index_sha256": "063973726d88ba4454f67825a035f4274a0d78cba24a294c152c9eaa6069dd01",
+        "schema_range": [
+          1743312623,
+          1743882749
+        ],
+        "schema_bytes": 570127,
+        "schema_sha256": "a222a6237aaf15a356cc5156fca863dc96e7a216bb63daee5f762b9c3bb06b42",
+        "shape": [
+          97906,
+          32920
+        ],
+        "observation_fields": [],
+        "categorical_observation_fields": [
+          "sample_id",
+          "minor_class",
+          "major_class",
+          "celltype_shortname",
+          "gestational_week"
+        ],
+        "embedding_fields": [
+          {
+            "name": "X_umap",
+            "dimensions": 2
+          }
+        ]
+      },
+      {
+        "display_label": "DSC",
+        "index_url": "https://cell.ucsf.edu/snPlacenta/build3/DSC_host/DSC_host.jsonl.idx.json",
+        "index_bytes": 1051817,
+        "index_sha256": "9e1a57fdf614103bea044919fbab5bd401cb8aaaa62768d570dda2b9e74b6bab",
+        "schema_range": [
+          522695759,
+          523265487
+        ],
+        "schema_bytes": 569729,
+        "schema_sha256": "3ac4de6713b4689cd6534975bdf41da5744764591e2795915b332bc943caf48d",
+        "shape": [
+          20278,
+          32920
+        ],
+        "observation_fields": [],
+        "categorical_observation_fields": [
+          "sample_id",
+          "minor_class",
+          "major_class",
+          "subtype",
+          "gestational_week"
+        ],
+        "embedding_fields": [
+          {
+            "name": "X_umap",
+            "dimensions": 2
+          }
+        ]
+      },
+      {
+        "display_label": "stereo_seq",
+        "index_url": "https://cell.ucsf.edu/snPlacenta/build5/stereo_host/stereo_host.jsonl.idx.json",
+        "index_bytes": 914911,
+        "index_sha256": "6f9be64678b310912acf6500df4eb8e93571c45fdef507c640f370d3dbf50235",
+        "schema_range": [
+          37783409356,
+          37783844303
+        ],
+        "schema_bytes": 434948,
+        "schema_sha256": "a0fcbb3dc6782bd400d3633fbff89eec3ea4493e9b8e8575e7d94966650685af",
+        "shape": [
+          1077690,
+          25794
+        ],
+        "observation_fields": [],
+        "categorical_observation_fields": [
+          "subclass",
+          "sample_id",
+          "celltype"
+        ],
+        "embedding_fields": [
+          {
+            "name": "spatial",
+            "dimensions": 2
+          }
+        ]
+      },
+      {
+        "display_label": "GEX",
+        "index_url": "https://cell.ucsf.edu/snMultiome/build1/GEX_snMultiome_host/GEX_snMultiome_host.jsonl.idx.json",
+        "index_bytes": 1105782,
+        "index_sha256": "d7381907f0c8f35a0a1c7077825378c9240e3bd15413faa4ff4774116ac0420d",
+        "schema_range": [
+          6233391085,
+          6234492829
+        ],
+        "schema_bytes": 1101745,
+        "schema_sha256": "b6bd009c732cde9199f514a19f2fa427f56df5c3b5f25972708bfca0790c4913",
+        "shape": [
+          232328,
+          32480
+        ],
+        "observation_fields": [
+          "Estimated_postconceptional_age_in_days",
+          "nCount_RNA",
+          "nFeature_RNA",
+          "nucleosome_signal",
+          "TSS.enrichment",
+          "SCR_score"
+        ],
+        "categorical_observation_fields": [
+          "dataset",
+          "Group",
+          "sex",
+          "Region",
+          "class",
+          "subclass",
+          "type",
+          "type_updated",
+          "donor_id"
+        ],
+        "embedding_fields": [
+          {
+            "name": "umap",
+            "dimensions": 2
+          }
+        ]
+      }
+    ],
+    "viewer_sample_id_probes": [
+      {
+        "display_label": "scPlacenta",
+        "field": "sample_id",
+        "range": [
+          4263999186,
+          4264460969
+        ],
+        "response_bytes": 461784,
+        "response_sha256": "d2aaf8e3a97d0f2983843e96beb225b5c6b266b65a6aa67a2d82ea3920cdd2d6",
+        "decoded_rows": 193202,
+        "category_count": 23,
+        "categories_used": 23,
+        "source_comparison": "All 23 categories join to Supplementary Table 1e; 22 per-sample counts are equal and one is 1,467 larger. Total is 193,202 versus 191,735 in Table 1e; count-universe relationship is unresolved. Labels and row values were not retained."
+      },
+      {
+        "display_label": "stereo_seq",
+        "field": "sample_id",
+        "range": [
+          37744680686,
+          37747140235
+        ],
+        "response_bytes": 2459550,
+        "response_sha256": "c9b1a2a9a8e6df66dc3317ecd423a9a35b1dd6f8a5402506f5c9ce93766e39e8",
+        "decoded_rows": 1077690,
+        "category_count": 16,
+        "categories_used": 16,
+        "source_comparison": "All 16 categories join to Supplementary Tables 4a and 4c. Aggregate rows match the 1,077,690 cells remaining after unknown-identity-cluster removal; Table 4c's 1,155,086 per-sample QC counts are pre-removal, so sample-specific removed counts are not available from the inspected table. Labels and row values were not retained."
+      }
+    ],
+    "source_data_audit": {
+      "checked_on": "2026-10-10",
+      "workbooks": [
+        {
+          "name": "Source Data Fig. 1",
+          "sheets": [
+            "a",
+            "i"
+          ],
+          "local_path": "artifacts/human-mfi-atlas-2026-04-08/SourceDataFig1.xlsx",
+          "sha256": "e59942e80bbd1876970aa0779076690cc51a55545bc5ea87cde45c1f7c9cb357"
+        },
+        {
+          "name": "Source Data Fig. 2",
+          "sheets": [
+            "2d",
+            "2f",
+            "2h",
+            "2i",
+            "2m",
+            "2q"
+          ],
+          "local_path": "artifacts/human-mfi-atlas-2026-04-08/SourceDataFig2.xlsx",
+          "sha256": "59073ccdb711a5ff0129bab06c707635823a0e15a3e72e0c422fd04ba3c80fc3"
+        }
+      ],
+      "result": "Figure-level proportion, spatial-distribution, vessel-density, and analysis-summary sheets; no sample-level snRNA nucleus-count table or mapping from 193,202 portal rows to the 191,735 paired-nuclei total was found.",
+      "count_universe_question_resolved": false
+    },
+    "article_linked_dataset_roles": {
+      "checked_on": "2026-10-10",
+      "records": [
+        {
+          "accession": "GSE198373",
+          "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE198373",
+          "role_in_paper": "Independent EVT iScore benchmark using second-trimester smooth-chorion and placental-villus single-cell data; GEO series describes four placentas and eight region samples.",
+          "relevance_to_portal_count": "Does not document the scPlacenta matrix count universe."
+        },
+        {
+          "accession": "GSE212505",
+          "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE212505",
+          "role_in_paper": "Independent term placenta accreta-spectrum/control EVT iScore benchmark; separate single-cell RNA-seq cohort.",
+          "relevance_to_portal_count": "Does not document the scPlacenta matrix count universe."
+        },
+        {
+          "accession": "GSE204684",
+          "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE204684",
+          "role_in_paper": "Adult human brain single-cell negative control for pregnancy-risk-cell analysis; not a placental cohort.",
+          "relevance_to_portal_count": "Not a placenta count source."
+        },
+        {
+          "accession": "NeMO dat-oiif74w",
+          "url": "https://assets.nemoarchive.org/dat-oiif74w",
+          "role_in_paper": "Fetal human brain single-cell negative control for pregnancy-risk-cell analysis; not a placental cohort.",
+          "relevance_to_portal_count": "Not a placenta count source."
+        }
+      ],
+      "interpretation": "The paper's Data availability section groups datasets used in its analyses; these GEO/NeMO links include independent benchmarking cohorts and brain negative controls, not a table of the atlas portal's sample-level nucleus-count reconciliation."
+    },
+    "donor_key_audit": {
+      "checked_on": "2026-10-10",
+      "supplementary_metadata": "S1c has a Sample ID field but no donor, patient, subject, individual or participant identifier field in its header; S1d and S1e use the same sample-level key.",
+      "scPlacenta_viewer": "Its categorical observation schema exposes sample_id but no donor_id field.",
+      "snMultiome_GEX_viewer": {
+        "shape": [232328, 32480],
+        "dataset_category_count": 38,
+        "donor_id_category_count": 27,
+        "sample_id_crosswalk": "Neither the dataset nor donor_id category set overlaps the 23 S1e/scPlacenta sample IDs, including after case/punctuation normalization.",
+        "bounded_metadata_only_reads": ["dataset", "donor_id"],
+        "expression_values_retained": false
+      },
+      "interpretation": "The GEX viewer's donor_id values cannot be linked to the scPlacenta/S1e samples from inspected public keys. Donor-grouped analysis of the scPlacenta cohort and cross-assay donor matching are not established."
+    },
+    "raw_fastq": "Controlled access through dbGaP phs004305.v1; no access request made.",
+    "author_contact": "none"
+  },
+  "artifacts": [
+    {
+      "artifact_id": "wang2026-supplementary-tables-zip",
+      "uri": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-026-10316-x/MediaObjects/41586_2026_10316_MOESM3_ESM.zip",
+      "local_path": "artifacts/human-mfi-atlas-2026-04-08/supplementary-tables.zip",
+      "bytes": 4794202,
+      "sha256": "ad8bfe9586bb475456587878feb533be71c4d24e7601bc85b3b7a712e1be1d1b",
+      "integrity": "ZIP CRC test passed; 28 members."
+    },
+    {
+      "artifact_id": "wang2026-supplementary-table-1",
+      "uri": "publisher supplementary ZIP member SuppTable1.xlsx",
+      "local_path": "artifacts/human-mfi-atlas-2026-04-08/SuppTable1.xlsx",
+      "bytes": 37537,
+      "sha256": "3405f6e2484dfe968ea27d16f063ac9494225924db2ff11ffcb5c0dc7358a4c2",
+      "locators": [
+        "S1c rows 3–25",
+        "S1d rows 3–25",
+        "S1e rows 3–25"
+      ]
+    },
+    {
+      "artifact_id": "wang2026-supplementary-table-4",
+      "uri": "publisher supplementary ZIP member SuppTable4.xlsx",
+      "local_path": "artifacts/human-mfi-atlas-2026-04-08/SuppTable4.xlsx",
+      "bytes": 21431,
+      "sha256": "d8197aa4fe4ff1f319e2e98954cf038b0df4c5ef3dcaad57f0016204eb6fe0e2",
+      "locators": [
+        "S4a rows 3–19",
+        "S4c rows 3–19",
+        "S4d rows 3–64"
+      ]
+    },
+    {
+      "artifact_id": "wang2026-portal-html-snapshot",
+      "uri": "https://cell.ucsf.edu/snPlacenta/",
+      "local_path": "artifacts/human-mfi-atlas-2026-04-08/portal.html",
+      "bytes": 22395,
+      "sha256": "9aab56d695dff9fcaba9c21cd28e7aa04882111c32aa414cbb9a9773e01972e0",
+      "role": "Portal link inventory and download endpoints; no data matrix downloaded."
+    },
+    {
+      "artifact_id": "wang2026-spatial-browser-shell",
+      "uri": "https://cell.ucsf.edu/snPlacenta/build5/",
+      "local_path": "artifacts/human-mfi-atlas-2026-04-08/build5.html",
+      "bytes": 1044,
+      "sha256": "f7b829fec79aadab8d47a2014b64c0ad72fcaf4cc76d786f96cba217f2c0a837",
+      "role": "JavaScript app shell only; does not expose the sample manifest in static HTML."
+    },
+    {
+      "artifact_id": "wang2026-codex-share-shell",
+      "uri": "https://ucsf.box.com/s/1mk71olx7fkvvupgr21qqh6btx89idx5",
+      "local_path": "artifacts/human-mfi-atlas-2026-04-08/box-codex-share.html",
+      "bytes": 35172,
+      "sha256": "052e40ae1adcc57f6ace5fe2d19da95853b0e96183b804c2b6436e3f8a74c644",
+      "role": "Box shared-folder app shell; individual file inventory not extracted."
+    },
+    {
+      "artifact_id": "wang2026-cirro-viewer-bundle",
+      "uri": "https://cell.ucsf.edu/snPlacenta/build5/static/js/main.ca748594.js",
+      "local_path": "artifacts/human-mfi-atlas-2026-04-08/cirro-main.js",
+      "bytes": 2159854,
+      "sha256": "257525becd7d7c1237e193125e07f02d65dc80228420c1204415c500d8191ee3",
+      "role": "Static viewer code inspected for metadata endpoints; not executed."
+    },
+    {
+      "artifact_id": "wang2026-viewer-descriptor-1",
+      "uri": "https://cell.ucsf.edu/snPlacenta/build1/datasets.json",
+      "local_path": "artifacts/human-mfi-atlas-2026-04-08/datasets-1.json",
+      "bytes": 111,
+      "sha256": "620d159b5657c87afd5e566f1814da47f29711cfb519bf2d2befe851d3a1e8c6",
+      "role": "Single-entry viewer descriptor; one large JSONL payload URL."
+    },
+    {
+      "artifact_id": "wang2026-viewer-descriptor-2",
+      "uri": "https://cell.ucsf.edu/snPlacenta/build2/datasets.json",
+      "local_path": "artifacts/human-mfi-atlas-2026-04-08/datasets-2.json",
+      "bytes": 82,
+      "sha256": "48398810466edee7a6f97950cc97f93de424241d7cc54dcad83c10dcb15f3910",
+      "role": "Single-entry viewer descriptor; one large JSONL payload URL."
+    },
+    {
+      "artifact_id": "wang2026-viewer-descriptor-3",
+      "uri": "https://cell.ucsf.edu/snPlacenta/build3/datasets.json",
+      "local_path": "artifacts/human-mfi-atlas-2026-04-08/datasets-3.json",
+      "bytes": 82,
+      "sha256": "ae044c5d3763846654558fa3477ea67f809dfe85ddc3d7eff9b39c265100ebb4",
+      "role": "Single-entry viewer descriptor; one large JSONL payload URL."
+    },
+    {
+      "artifact_id": "wang2026-viewer-descriptor-4",
+      "uri": "https://cell.ucsf.edu/snPlacenta/build5/datasets.json",
+      "local_path": "artifacts/human-mfi-atlas-2026-04-08/datasets-4.json",
+      "bytes": 99,
+      "sha256": "f4328eb15fad5f262fed4c28ed71daf8c4a0329ad706977f80ef7324ad41e99d",
+      "role": "Single-entry viewer descriptor; one large JSONL payload URL."
+    },
+    {
+      "artifact_id": "wang2026-viewer-descriptor-5",
+      "uri": "https://cell.ucsf.edu/snMultiome/build1/datasets.json",
+      "local_path": "artifacts/human-mfi-atlas-2026-04-08/datasets-5.json",
+      "bytes": 99,
+      "sha256": "10b3e7744c0e6457b999ca8e053fc6f8e5e7202c5e21263be4ec4c63adc3e89e",
+      "role": "Single-entry viewer descriptor; one large JSONL payload URL."
+    },
+    {
+      "artifact_id": "wang2026-source-data-fig1",
+      "uri": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-026-10316-x/MediaObjects/41586_2026_10316_MOESM4_ESM.xlsx",
+      "local_path": "artifacts/human-mfi-atlas-2026-04-08/SourceDataFig1.xlsx",
+      "bytes": 23945,
+      "sha256": "e59942e80bbd1876970aa0779076690cc51a55545bc5ea87cde45c1f7c9cb357",
+      "role": "Publisher source-data workbook; sheets a and i inspected for count reconciliation."
+    },
+    {
+      "artifact_id": "wang2026-source-data-fig2",
+      "uri": "https://media.springernature.com/original/springer-static/esm/art%3A10.1038%2Fs41586-026-10316-x/MediaObjects/41586_2026_10316_MOESM5_ESM.xlsx",
+      "local_path": "artifacts/human-mfi-atlas-2026-04-08/SourceDataFig2.xlsx",
+      "bytes": 24221,
+      "sha256": "59073ccdb711a5ff0129bab06c707635823a0e15a3e72e0c422fd04ba3c80fc3",
+      "role": "Publisher source-data workbook; sheets 2d, 2f, 2h, 2i, 2m and 2q inspected for count reconciliation."
+    }
+  ],
+  "qualified_scope": {
+    "multiome": {
+      "metadata_sample_records": 23,
+      "unique_sample_labels": 23,
+      "labels_joined_across_S1c_S1d_S1e": 23,
+      "sample_type_counts": {
+        "basal_plate": 17,
+        "decidua_basalis": 6
+      },
+      "source_gestational_label_range": "5+3 to 39+3 weeks+days",
+      "S1d_cellranger_estimated_cells_sum": 243103,
+      "S1e_cells_passed_QC_sum": 191735,
+      "article_reported_paired_nuclei": 191735,
+      "article_reported_mean_paired_nuclei_per_sample": 8336,
+      "portal_scPlacenta_rows": 193202,
+      "portal_sample_categories_joined_to_S1e": 23,
+      "portal_sample_category_counts_equal_to_S1e": 22,
+      "portal_sample_category_count_larger_by_1467": 1,
+      "portal_total_excess_over_S1e": 1467,
+      "interpretation": "S1e total exactly reconciles to the article's paired-nuclei count. Portal scPlacenta has 1,467 more rows, all 23 sample labels join, and one category accounts for the difference; its count universe remains unresolved. Labels and row values were not retained."
+    },
+    "spatial": {
+      "unique_sample_labels_in_metadata": 16,
+      "unique_sample_labels_in_QC_table": 16,
+      "sample_labels_joined_across_S4a_S4c": 16,
+      "independent_donors_reported_by_article": 16,
+      "sample_type": "basal plate",
+      "source_gestational_label_range": "18+6 to 24+1 weeks+days",
+      "S4c_cells_passed_QC_sum_before_unknown_cluster_removal": 1155086,
+      "S4c_cells_reported_remaining_after_unknown_cluster_removal": 1077690,
+      "difference_between_filtering_stages": 77396,
+      "portal_stereo_seq_rows": 1077690,
+      "portal_sample_categories_joined_to_S4a_S4c": 16,
+      "S4d_vessel_density_records": 62,
+      "S4d_slide_labels": 5,
+      "interpretation": "One footnote row in each table is excluded from sample counts. Portal row total matches the post-removal aggregate, but the per-sample S4c counts are pre-removal and do not match the filtered portal counts; sample-specific removed counts are unavailable in the inspected table. Vessel rows are nested observations, not independent donors. The filtering difference is not donor or pregnancy loss."
+    }
+  },
+  "data_eligibility": {
+    "identity_or_spatial_context_reference": "candidate_only",
+    "transport_calibration": "not_eligible_from_qualified_scope",
+    "developmental_continuity": "not_established",
+    "complete_human_gestation": "unestablished",
+    "biological_fit_performed": false,
+    "portal_matrices_downloaded": false,
+    "portal_metadata_schema_ranges_read": true,
+    "portal_sample_id_column_ranges_read": true,
+    "portal_expression_values_retained": false,
+    "raw_fastq_accessed": false,
+    "author_contacted": false,
+    "ledger_promotion": "none"
+  },
+  "limitations": [
+    "Source transcription and scientific eligibility remain pending human review.",
+    "Cross-sectional tissue identity and spatial structure do not measure functional material exchange or embryo developmental competence.",
+    "Spatial samples cover selected second-trimester basal-plate anatomy; multiome samples include distinct tissue sites across stages.",
+    "Twenty-three multiome sample labels are not assumed to represent 23 independent donors.",
+    "Portal-specific data reuse terms remain unverified; the large processed matrices were not downloaded.",
+    "Cell-level and vessel-level measurements are nested within sample and donor structure and are not independent donor replicates."
+  ]
+}

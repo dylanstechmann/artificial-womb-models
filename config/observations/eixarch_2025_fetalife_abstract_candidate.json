@@ -1,0 +1,1082 @@
+{
+  "schema_version": 1,
+  "dataset_id": "eixarch-2025-fetalife-oc14.07-candidate",
+  "title": "Eixarch et al. 2025 fetaLife OC14.07 aggregate abstract outcomes (candidate transcription)",
+  "source_revision": {
+    "revision_id": "eixarch2025-oc14-07-abstract-candidate-2026-10-11-cycle294",
+    "citation": "Eixarch E, et al. OC14.07: Extending fetal survival in fetaLife: an experimental artificial placenta system in fetal lambs. In: Fetal therapy: current and emerging strategies. Ultrasound in Obstetrics & Gynecology. 2025;66(S1):39–43. doi:10.1002/uog.70060.",
+    "source_kind": "other",
+    "source_url": "https://obgyn.onlinelibrary.wiley.com/doi/10.1002/uog.70060",
+    "review_status": "candidate",
+    "reviewer": "",
+    "reviewed_on": null,
+    "review_note": ""
+  },
+  "artifacts": [
+    {
+      "artifact_id": "eixarch2025-oc14-07-abstract",
+      "uri": "https://obgyn.onlinelibrary.wiley.com/doi/10.1002/uog.70060",
+      "license": "Publisher page marked Free Access; reuse license for extracted facts not stated",
+      "sha256": null,
+      "retrieved_on": "2026-10-11"
+    }
+  ],
+  "observations": [
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2025-mean-survival",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Fetal lambs transferred at 110–125 source-reported gestational days; support phase reported in OC14.07",
+        "start": 110,
+        "end": 125,
+        "time_unit": "source-reported gestational days",
+        "stage_source_artifact_id": "eixarch2025-oc14-07-abstract"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Fetal lambs supported in the fetaLife artificial-placenta system"
+      },
+      "assay": {
+        "name": "Conference-abstract group outcome",
+        "endpoint": "Mean survival duration (mean ± SD)",
+        "unit": "days",
+        "measurement_role": "durability"
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Methods reports 12 experiments; Results report animal outcomes. The abstract does not establish an endpoint-specific animal N or an experiment-to-animal mapping."
+      },
+      "observation": {
+        "value": 9.5,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": 3.3
+      },
+      "source": {
+        "artifact_id": "eixarch2025-oc14-07-abstract",
+        "uri": "https://obgyn.onlinelibrary.wiley.com/doi/10.1002/uog.70060",
+        "license": "Publisher page marked Free Access; reuse license for extracted facts not stated",
+        "sha256": null,
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "OC14.07 > Results > “Mean survival was 9.5 ± 3.3 days”",
+      "limitations": [
+        "Abstract-level aggregate only; no animal identifiers or individual trajectories are reported.",
+        "The abstract reports 12 Methods experiments, but does not state the animal N for this mean."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2025-reached-day-7",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Fetal lambs transferred at 110–125 source-reported gestational days; support phase reported in OC14.07",
+        "start": 110,
+        "end": 125,
+        "time_unit": "source-reported gestational days",
+        "stage_source_artifact_id": "eixarch2025-oc14-07-abstract"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Fetal lambs supported in the fetaLife artificial-placenta system"
+      },
+      "assay": {
+        "name": "Conference-abstract group outcome",
+        "endpoint": "Animals reaching day 7 of support",
+        "unit": "%",
+        "measurement_role": "durability"
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Methods reports 12 experiments; Results report animal outcomes. The abstract does not establish an endpoint-specific animal N or an experiment-to-animal mapping."
+      },
+      "observation": {
+        "value": 75,
+        "measurement_time": 7,
+        "measurement_time_unit": "days after transfer; threshold endpoint",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      },
+      "source": {
+        "artifact_id": "eixarch2025-oc14-07-abstract",
+        "uri": "https://obgyn.onlinelibrary.wiley.com/doi/10.1002/uog.70060",
+        "license": "Publisher page marked Free Access; reuse license for extracted facts not stated",
+        "sha256": null,
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "OC14.07 > Results > “75% of animals reached day 7”",
+      "limitations": [
+        "Abstract-level aggregate only; no animal identifiers or individual trajectories are reported.",
+        "Outcome denominator is not explicitly stated; do not convert percentage to a count using the 12-experiment Methods figure."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2025-reached-day-10",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Fetal lambs transferred at 110–125 source-reported gestational days; support phase reported in OC14.07",
+        "start": 110,
+        "end": 125,
+        "time_unit": "source-reported gestational days",
+        "stage_source_artifact_id": "eixarch2025-oc14-07-abstract"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Fetal lambs supported in the fetaLife artificial-placenta system"
+      },
+      "assay": {
+        "name": "Conference-abstract group outcome",
+        "endpoint": "Animals reaching day 10 of support",
+        "unit": "%",
+        "measurement_role": "durability"
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Methods reports 12 experiments; Results report animal outcomes. The abstract does not establish an endpoint-specific animal N or an experiment-to-animal mapping."
+      },
+      "observation": {
+        "value": 50,
+        "measurement_time": 10,
+        "measurement_time_unit": "days after transfer; threshold endpoint",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      },
+      "source": {
+        "artifact_id": "eixarch2025-oc14-07-abstract",
+        "uri": "https://obgyn.onlinelibrary.wiley.com/doi/10.1002/uog.70060",
+        "license": "Publisher page marked Free Access; reuse license for extracted facts not stated",
+        "sha256": null,
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "OC14.07 > Results > “50% of animals reached day 10”",
+      "limitations": [
+        "Abstract-level aggregate only; no animal identifiers or individual trajectories are reported.",
+        "Outcome denominator is not explicitly stated; do not convert percentage to a count using the 12-experiment Methods figure."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2025-reached-day-14",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Fetal lambs transferred at 110–125 source-reported gestational days; support phase reported in OC14.07",
+        "start": 110,
+        "end": 125,
+        "time_unit": "source-reported gestational days",
+        "stage_source_artifact_id": "eixarch2025-oc14-07-abstract"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Fetal lambs supported in the fetaLife artificial-placenta system"
+      },
+      "assay": {
+        "name": "Conference-abstract group outcome",
+        "endpoint": "Animals reaching day 14 of support",
+        "unit": "%",
+        "measurement_role": "durability"
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Methods reports 12 experiments; Results report animal outcomes. The abstract does not establish an endpoint-specific animal N or an experiment-to-animal mapping."
+      },
+      "observation": {
+        "value": 17,
+        "measurement_time": 14,
+        "measurement_time_unit": "days after transfer; threshold endpoint",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      },
+      "source": {
+        "artifact_id": "eixarch2025-oc14-07-abstract",
+        "uri": "https://obgyn.onlinelibrary.wiley.com/doi/10.1002/uog.70060",
+        "license": "Publisher page marked Free Access; reuse license for extracted facts not stated",
+        "sha256": null,
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "OC14.07 > Results > “17% of animals reached day 14”",
+      "limitations": [
+        "Abstract-level aggregate only; no animal identifiers or individual trajectories are reported.",
+        "Outcome denominator is not explicitly stated; do not convert percentage to a count using the 12-experiment Methods figure."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2025-flow-0-7",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Fetal lambs transferred at 110–125 source-reported gestational days; support phase reported in OC14.07",
+        "start": 110,
+        "end": 125,
+        "time_unit": "source-reported gestational days",
+        "stage_source_artifact_id": "eixarch2025-oc14-07-abstract"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Fetal lambs supported in the fetaLife artificial-placenta system"
+      },
+      "assay": {
+        "name": "Conference-abstract group outcome",
+        "endpoint": "Mean extracorporeal-circuit flow ± SD, 0–7 days of support",
+        "unit": "mL/kg/min",
+        "measurement_role": "environmental_condition"
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Methods reports 12 experiments; Results report animal outcomes. The abstract does not establish an endpoint-specific animal N or an experiment-to-animal mapping."
+      },
+      "observation": {
+        "value": 171.7,
+        "measurement_time": "0–7",
+        "measurement_time_unit": "days of support after transfer; source-reported bin",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": 44.5
+      },
+      "source": {
+        "artifact_id": "eixarch2025-oc14-07-abstract",
+        "uri": "https://obgyn.onlinelibrary.wiley.com/doi/10.1002/uog.70060",
+        "license": "Publisher page marked Free Access; reuse license for extracted facts not stated",
+        "sha256": null,
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "OC14.07 > Results > Mean extracorporeal-circuit flow ± SD > 0–7 days of support",
+      "limitations": [
+        "Abstract-level aggregate only; no animal identifiers or individual trajectories are reported.",
+        "Time-bin sample size is not reported; reported ± value is SD."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2025-flow-7-10",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Fetal lambs transferred at 110–125 source-reported gestational days; support phase reported in OC14.07",
+        "start": 110,
+        "end": 125,
+        "time_unit": "source-reported gestational days",
+        "stage_source_artifact_id": "eixarch2025-oc14-07-abstract"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Fetal lambs supported in the fetaLife artificial-placenta system"
+      },
+      "assay": {
+        "name": "Conference-abstract group outcome",
+        "endpoint": "Mean extracorporeal-circuit flow ± SD, 7–10 days of support",
+        "unit": "mL/kg/min",
+        "measurement_role": "environmental_condition"
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Methods reports 12 experiments; Results report animal outcomes. The abstract does not establish an endpoint-specific animal N or an experiment-to-animal mapping."
+      },
+      "observation": {
+        "value": 135.07,
+        "measurement_time": "7–10",
+        "measurement_time_unit": "days of support after transfer; source-reported bin",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": 60.9
+      },
+      "source": {
+        "artifact_id": "eixarch2025-oc14-07-abstract",
+        "uri": "https://obgyn.onlinelibrary.wiley.com/doi/10.1002/uog.70060",
+        "license": "Publisher page marked Free Access; reuse license for extracted facts not stated",
+        "sha256": null,
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "OC14.07 > Results > Mean extracorporeal-circuit flow ± SD > 7–10 days of support",
+      "limitations": [
+        "Abstract-level aggregate only; no animal identifiers or individual trajectories are reported.",
+        "Time-bin sample size is not reported; reported ± value is SD."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2025-flow-10-14",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Fetal lambs transferred at 110–125 source-reported gestational days; support phase reported in OC14.07",
+        "start": 110,
+        "end": 125,
+        "time_unit": "source-reported gestational days",
+        "stage_source_artifact_id": "eixarch2025-oc14-07-abstract"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Fetal lambs supported in the fetaLife artificial-placenta system"
+      },
+      "assay": {
+        "name": "Conference-abstract group outcome",
+        "endpoint": "Mean extracorporeal-circuit flow ± SD, 10–14 days of support",
+        "unit": "mL/kg/min",
+        "measurement_role": "environmental_condition"
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Methods reports 12 experiments; Results report animal outcomes. The abstract does not establish an endpoint-specific animal N or an experiment-to-animal mapping."
+      },
+      "observation": {
+        "value": 105.7,
+        "measurement_time": "10–14",
+        "measurement_time_unit": "days of support after transfer; source-reported bin",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": 54.4
+      },
+      "source": {
+        "artifact_id": "eixarch2025-oc14-07-abstract",
+        "uri": "https://obgyn.onlinelibrary.wiley.com/doi/10.1002/uog.70060",
+        "license": "Publisher page marked Free Access; reuse license for extracted facts not stated",
+        "sha256": null,
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "OC14.07 > Results > Mean extracorporeal-circuit flow ± SD > 10–14 days of support",
+      "limitations": [
+        "Abstract-level aggregate only; no animal identifiers or individual trajectories are reported.",
+        "Time-bin sample size is not reported; reported ± value is SD."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2025-heart-rate-0-7",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Fetal lambs transferred at 110–125 source-reported gestational days; support phase reported in OC14.07",
+        "start": 110,
+        "end": 125,
+        "time_unit": "source-reported gestational days",
+        "stage_source_artifact_id": "eixarch2025-oc14-07-abstract"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Fetal lambs supported in the fetaLife artificial-placenta system"
+      },
+      "assay": {
+        "name": "Conference-abstract group outcome",
+        "endpoint": "Mean fetal heart rate ± SD, 0–7 days of support",
+        "unit": "source-reported HR; unit not stated",
+        "measurement_role": "function"
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Methods reports 12 experiments; Results report animal outcomes. The abstract does not establish an endpoint-specific animal N or an experiment-to-animal mapping."
+      },
+      "observation": {
+        "value": 185.5,
+        "measurement_time": "0–7",
+        "measurement_time_unit": "days of support after transfer; source-reported bin",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": 40.9
+      },
+      "source": {
+        "artifact_id": "eixarch2025-oc14-07-abstract",
+        "uri": "https://obgyn.onlinelibrary.wiley.com/doi/10.1002/uog.70060",
+        "license": "Publisher page marked Free Access; reuse license for extracted facts not stated",
+        "sha256": null,
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "OC14.07 > Results > Mean fetal heart rate ± SD > 0–7 days of support",
+      "limitations": [
+        "Abstract-level aggregate only; no animal identifiers or individual trajectories are reported.",
+        "Time-bin sample size is not reported; reported ± value is SD."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2025-heart-rate-7-10",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Fetal lambs transferred at 110–125 source-reported gestational days; support phase reported in OC14.07",
+        "start": 110,
+        "end": 125,
+        "time_unit": "source-reported gestational days",
+        "stage_source_artifact_id": "eixarch2025-oc14-07-abstract"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Fetal lambs supported in the fetaLife artificial-placenta system"
+      },
+      "assay": {
+        "name": "Conference-abstract group outcome",
+        "endpoint": "Mean fetal heart rate ± SD, 7–10 days of support",
+        "unit": "source-reported HR; unit not stated",
+        "measurement_role": "function"
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Methods reports 12 experiments; Results report animal outcomes. The abstract does not establish an endpoint-specific animal N or an experiment-to-animal mapping."
+      },
+      "observation": {
+        "value": 198.8,
+        "measurement_time": "7–10",
+        "measurement_time_unit": "days of support after transfer; source-reported bin",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": 42.8
+      },
+      "source": {
+        "artifact_id": "eixarch2025-oc14-07-abstract",
+        "uri": "https://obgyn.onlinelibrary.wiley.com/doi/10.1002/uog.70060",
+        "license": "Publisher page marked Free Access; reuse license for extracted facts not stated",
+        "sha256": null,
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "OC14.07 > Results > Mean fetal heart rate ± SD > 7–10 days of support",
+      "limitations": [
+        "Abstract-level aggregate only; no animal identifiers or individual trajectories are reported.",
+        "Time-bin sample size is not reported; reported ± value is SD."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2025-heart-rate-10-14",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Fetal lambs transferred at 110–125 source-reported gestational days; support phase reported in OC14.07",
+        "start": 110,
+        "end": 125,
+        "time_unit": "source-reported gestational days",
+        "stage_source_artifact_id": "eixarch2025-oc14-07-abstract"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Fetal lambs supported in the fetaLife artificial-placenta system"
+      },
+      "assay": {
+        "name": "Conference-abstract group outcome",
+        "endpoint": "Mean fetal heart rate ± SD, 10–14 days of support",
+        "unit": "source-reported HR; unit not stated",
+        "measurement_role": "function"
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Methods reports 12 experiments; Results report animal outcomes. The abstract does not establish an endpoint-specific animal N or an experiment-to-animal mapping."
+      },
+      "observation": {
+        "value": 197.3,
+        "measurement_time": "10–14",
+        "measurement_time_unit": "days of support after transfer; source-reported bin",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": 63.3
+      },
+      "source": {
+        "artifact_id": "eixarch2025-oc14-07-abstract",
+        "uri": "https://obgyn.onlinelibrary.wiley.com/doi/10.1002/uog.70060",
+        "license": "Publisher page marked Free Access; reuse license for extracted facts not stated",
+        "sha256": null,
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "OC14.07 > Results > Mean fetal heart rate ± SD > 10–14 days of support",
+      "limitations": [
+        "Abstract-level aggregate only; no animal identifiers or individual trajectories are reported.",
+        "Time-bin sample size is not reported; reported ± value is SD."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2025-ph-0-7",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Fetal lambs transferred at 110–125 source-reported gestational days; support phase reported in OC14.07",
+        "start": 110,
+        "end": 125,
+        "time_unit": "source-reported gestational days",
+        "stage_source_artifact_id": "eixarch2025-oc14-07-abstract"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Fetal lambs supported in the fetaLife artificial-placenta system"
+      },
+      "assay": {
+        "name": "Conference-abstract group outcome",
+        "endpoint": "Mean pH ± SD, 0–7 days of support",
+        "unit": "pH; dimensionless",
+        "measurement_role": "environmental_condition"
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Methods reports 12 experiments; Results report animal outcomes. The abstract does not establish an endpoint-specific animal N or an experiment-to-animal mapping."
+      },
+      "observation": {
+        "value": 7.36,
+        "measurement_time": "0–7",
+        "measurement_time_unit": "days of support after transfer; source-reported bin",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": 0.49
+      },
+      "source": {
+        "artifact_id": "eixarch2025-oc14-07-abstract",
+        "uri": "https://obgyn.onlinelibrary.wiley.com/doi/10.1002/uog.70060",
+        "license": "Publisher page marked Free Access; reuse license for extracted facts not stated",
+        "sha256": null,
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "OC14.07 > Results > Mean pH ± SD > 0–7 days of support",
+      "limitations": [
+        "Abstract-level aggregate only; no animal identifiers or individual trajectories are reported.",
+        "Time-bin sample size is not reported; reported ± value is SD. Preserve the source-reported SD 0.49 verbatim; it is notably larger than the later-bin SDs and should be checked against the publisher typography before interpretation."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2025-ph-7-10",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Fetal lambs transferred at 110–125 source-reported gestational days; support phase reported in OC14.07",
+        "start": 110,
+        "end": 125,
+        "time_unit": "source-reported gestational days",
+        "stage_source_artifact_id": "eixarch2025-oc14-07-abstract"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Fetal lambs supported in the fetaLife artificial-placenta system"
+      },
+      "assay": {
+        "name": "Conference-abstract group outcome",
+        "endpoint": "Mean pH ± SD, 7–10 days of support",
+        "unit": "pH; dimensionless",
+        "measurement_role": "environmental_condition"
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Methods reports 12 experiments; Results report animal outcomes. The abstract does not establish an endpoint-specific animal N or an experiment-to-animal mapping."
+      },
+      "observation": {
+        "value": 7.39,
+        "measurement_time": "7–10",
+        "measurement_time_unit": "days of support after transfer; source-reported bin",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": 0.07
+      },
+      "source": {
+        "artifact_id": "eixarch2025-oc14-07-abstract",
+        "uri": "https://obgyn.onlinelibrary.wiley.com/doi/10.1002/uog.70060",
+        "license": "Publisher page marked Free Access; reuse license for extracted facts not stated",
+        "sha256": null,
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "OC14.07 > Results > Mean pH ± SD > 7–10 days of support",
+      "limitations": [
+        "Abstract-level aggregate only; no animal identifiers or individual trajectories are reported.",
+        "Time-bin sample size is not reported; reported ± value is SD."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2025-ph-10-14",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Fetal lambs transferred at 110–125 source-reported gestational days; support phase reported in OC14.07",
+        "start": 110,
+        "end": 125,
+        "time_unit": "source-reported gestational days",
+        "stage_source_artifact_id": "eixarch2025-oc14-07-abstract"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Fetal lambs supported in the fetaLife artificial-placenta system"
+      },
+      "assay": {
+        "name": "Conference-abstract group outcome",
+        "endpoint": "Mean pH ± SD, 10–14 days of support",
+        "unit": "pH; dimensionless",
+        "measurement_role": "environmental_condition"
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Methods reports 12 experiments; Results report animal outcomes. The abstract does not establish an endpoint-specific animal N or an experiment-to-animal mapping."
+      },
+      "observation": {
+        "value": 7.38,
+        "measurement_time": "10–14",
+        "measurement_time_unit": "days of support after transfer; source-reported bin",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": 0.09
+      },
+      "source": {
+        "artifact_id": "eixarch2025-oc14-07-abstract",
+        "uri": "https://obgyn.onlinelibrary.wiley.com/doi/10.1002/uog.70060",
+        "license": "Publisher page marked Free Access; reuse license for extracted facts not stated",
+        "sha256": null,
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "OC14.07 > Results > Mean pH ± SD > 10–14 days of support",
+      "limitations": [
+        "Abstract-level aggregate only; no animal identifiers or individual trajectories are reported.",
+        "Time-bin sample size is not reported; reported ± value is SD."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2025-lactate-0-7",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Fetal lambs transferred at 110–125 source-reported gestational days; support phase reported in OC14.07",
+        "start": 110,
+        "end": 125,
+        "time_unit": "source-reported gestational days",
+        "stage_source_artifact_id": "eixarch2025-oc14-07-abstract"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Fetal lambs supported in the fetaLife artificial-placenta system"
+      },
+      "assay": {
+        "name": "Conference-abstract group outcome",
+        "endpoint": "Mean lactate ± SD, 0–7 days of support",
+        "unit": "source-reported lactate; unit not stated",
+        "measurement_role": "function"
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Methods reports 12 experiments; Results report animal outcomes. The abstract does not establish an endpoint-specific animal N or an experiment-to-animal mapping."
+      },
+      "observation": {
+        "value": 2.7,
+        "measurement_time": "0–7",
+        "measurement_time_unit": "days of support after transfer; source-reported bin",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": 3.3
+      },
+      "source": {
+        "artifact_id": "eixarch2025-oc14-07-abstract",
+        "uri": "https://obgyn.onlinelibrary.wiley.com/doi/10.1002/uog.70060",
+        "license": "Publisher page marked Free Access; reuse license for extracted facts not stated",
+        "sha256": null,
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "OC14.07 > Results > Mean lactate ± SD > 0–7 days of support",
+      "limitations": [
+        "Abstract-level aggregate only; no animal identifiers or individual trajectories are reported.",
+        "Time-bin sample size is not reported; reported ± value is SD."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2025-lactate-7-10",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Fetal lambs transferred at 110–125 source-reported gestational days; support phase reported in OC14.07",
+        "start": 110,
+        "end": 125,
+        "time_unit": "source-reported gestational days",
+        "stage_source_artifact_id": "eixarch2025-oc14-07-abstract"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Fetal lambs supported in the fetaLife artificial-placenta system"
+      },
+      "assay": {
+        "name": "Conference-abstract group outcome",
+        "endpoint": "Mean lactate ± SD, 7–10 days of support",
+        "unit": "source-reported lactate; unit not stated",
+        "measurement_role": "function"
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Methods reports 12 experiments; Results report animal outcomes. The abstract does not establish an endpoint-specific animal N or an experiment-to-animal mapping."
+      },
+      "observation": {
+        "value": 1.4,
+        "measurement_time": "7–10",
+        "measurement_time_unit": "days of support after transfer; source-reported bin",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": 2.0
+      },
+      "source": {
+        "artifact_id": "eixarch2025-oc14-07-abstract",
+        "uri": "https://obgyn.onlinelibrary.wiley.com/doi/10.1002/uog.70060",
+        "license": "Publisher page marked Free Access; reuse license for extracted facts not stated",
+        "sha256": null,
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "OC14.07 > Results > Mean lactate ± SD > 7–10 days of support",
+      "limitations": [
+        "Abstract-level aggregate only; no animal identifiers or individual trajectories are reported.",
+        "Time-bin sample size is not reported; reported ± value is SD."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2025-lactate-10-14",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Fetal lambs transferred at 110–125 source-reported gestational days; support phase reported in OC14.07",
+        "start": 110,
+        "end": 125,
+        "time_unit": "source-reported gestational days",
+        "stage_source_artifact_id": "eixarch2025-oc14-07-abstract"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Fetal lambs supported in the fetaLife artificial-placenta system"
+      },
+      "assay": {
+        "name": "Conference-abstract group outcome",
+        "endpoint": "Mean lactate ± SD, 10–14 days of support",
+        "unit": "source-reported lactate; unit not stated",
+        "measurement_role": "function"
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Methods reports 12 experiments; Results report animal outcomes. The abstract does not establish an endpoint-specific animal N or an experiment-to-animal mapping."
+      },
+      "observation": {
+        "value": 2.4,
+        "measurement_time": "10–14",
+        "measurement_time_unit": "days of support after transfer; source-reported bin",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": 3.2
+      },
+      "source": {
+        "artifact_id": "eixarch2025-oc14-07-abstract",
+        "uri": "https://obgyn.onlinelibrary.wiley.com/doi/10.1002/uog.70060",
+        "license": "Publisher page marked Free Access; reuse license for extracted facts not stated",
+        "sha256": null,
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "OC14.07 > Results > Mean lactate ± SD > 10–14 days of support",
+      "limitations": [
+        "Abstract-level aggregate only; no animal identifiers or individual trajectories are reported.",
+        "Time-bin sample size is not reported; reported ± value is SD."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2025-stop-hemodynamic",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Fetal lambs transferred at 110–125 source-reported gestational days; support phase reported in OC14.07",
+        "start": 110,
+        "end": 125,
+        "time_unit": "source-reported gestational days",
+        "stage_source_artifact_id": "eixarch2025-oc14-07-abstract"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Fetal lambs supported in the fetaLife artificial-placenta system"
+      },
+      "assay": {
+        "name": "Conference-abstract group outcome",
+        "endpoint": "Discontinuation before day 14 attributed to hemodynamic deterioration or excessive flow decrease",
+        "unit": "%",
+        "measurement_role": "adverse_effect"
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Methods reports 12 experiments; Results report animal outcomes. The abstract does not establish an endpoint-specific animal N or an experiment-to-animal mapping."
+      },
+      "observation": {
+        "value": 58,
+        "measurement_time": 14,
+        "measurement_time_unit": "before day 14 of support; discontinuation summary",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      },
+      "source": {
+        "artifact_id": "eixarch2025-oc14-07-abstract",
+        "uri": "https://obgyn.onlinelibrary.wiley.com/doi/10.1002/uog.70060",
+        "license": "Publisher page marked Free Access; reuse license for extracted facts not stated",
+        "sha256": null,
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "OC14.07 > Results > “Reasons for discontinuation before 14 days” > hemodynamic deterioration/excessive flow decrease",
+      "limitations": [
+        "Abstract-level aggregate only; no animal identifiers or individual trajectories are reported.",
+        "Cause-specific denominator is not stated; category overlap and exhaustiveness are unknown."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "eixarch2025-stop-cannula-circuit",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Fetal lambs transferred at 110–125 source-reported gestational days; support phase reported in OC14.07",
+        "start": 110,
+        "end": 125,
+        "time_unit": "source-reported gestational days",
+        "stage_source_artifact_id": "eixarch2025-oc14-07-abstract"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Fetal lambs supported in the fetaLife artificial-placenta system"
+      },
+      "assay": {
+        "name": "Conference-abstract group outcome",
+        "endpoint": "Discontinuation before day 14 attributed to acute cannula or circuit events",
+        "unit": "%",
+        "measurement_role": "adverse_effect"
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "Methods reports 12 experiments; Results report animal outcomes. The abstract does not establish an endpoint-specific animal N or an experiment-to-animal mapping."
+      },
+      "observation": {
+        "value": 25,
+        "measurement_time": 14,
+        "measurement_time_unit": "before day 14 of support; discontinuation summary",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      },
+      "source": {
+        "artifact_id": "eixarch2025-oc14-07-abstract",
+        "uri": "https://obgyn.onlinelibrary.wiley.com/doi/10.1002/uog.70060",
+        "license": "Publisher page marked Free Access; reuse license for extracted facts not stated",
+        "sha256": null,
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "OC14.07 > Results > “Reasons for discontinuation before 14 days” > acute cannula/circuit events",
+      "limitations": [
+        "Abstract-level aggregate only; no animal identifiers or individual trajectories are reported.",
+        "Cause-specific denominator is not stated; category overlap and exhaustiveness are unknown."
+      ]
+    }
+  ],
+  "cohort_coverage": [
+    {
+      "coverage_id": "eixarch2025-methods-experiment-count",
+      "source_artifact_id": "eixarch2025-oc14-07-abstract",
+      "reported_group_label": "OC14.07 second phase, experiments conducted 2023–24",
+      "group_label_status": "reported",
+      "counted_entity_kind": "other",
+      "counted_entity_label": "experiment (Methods wording; not equated to one animal)",
+      "endpoint_label": "Experiment set reported in Methods",
+      "population_frame": "Fetal lamb experiments in the second fetaLife phase aiming for 7–14 days of support, 2023–24.",
+      "measurement_window": "Study phase; transfer at 110–125 gestational days; goal 7–14 days",
+      "selection_definition": "The abstract reports a set of 12 experiments. It does not provide individual IDs or state that experiment count equals the number of animals in each Results analysis.",
+      "selection_definition_source_locator": "OC14.07 > Methods > “a set of 12 experiments”",
+      "denominator": {
+        "value": 12,
+        "value_status": "reported",
+        "reported_label": "12 experiments",
+        "source_locator": "OC14.07 > Methods"
+      },
+      "declarations": [
+        {
+          "category": "initially_included",
+          "scope": "within_denominator",
+          "reported_label": "experiments in reported set",
+          "quantity_kind": "count",
+          "value": 12,
+          "value_status": "reported",
+          "source_locator": "OC14.07 > Methods"
+        }
+      ],
+      "selection_statements": [
+        {
+          "text": "Results use “animals” for survival percentages; animal-level membership in the 12 Methods experiments is not explicitly crosswalked.",
+          "source_locator": "OC14.07 > Methods and Results"
+        }
+      ],
+      "cohort_window_status": "source_reported_common",
+      "disposition_completeness": "unknown",
+      "categories_mutually_exclusive": "unknown",
+      "categories_exhaustive": "unknown"
+    },
+    {
+      "coverage_id": "eixarch2025-survival-threshold-denominators",
+      "source_artifact_id": "eixarch2025-oc14-07-abstract",
+      "reported_group_label": "OC14.07 second-phase survival thresholds",
+      "group_label_status": "reported",
+      "counted_entity_kind": "unresolved",
+      "counted_entity_label": "Results say animals; relationship to the 12 Methods experiments and outcome denominator unresolved",
+      "endpoint_label": "Percent reaching support day 7, day 10, and day 14",
+      "population_frame": "Fetal lamb survival summaries in the 2023–24 second phase.",
+      "measurement_window": "Thresholds through days 7, 10, and 14 after transfer",
+      "selection_definition": "Outcome denominator and endpoint-specific assessed counts are not stated in the abstract. Keep percentages as reported and do not infer counts.",
+      "selection_definition_source_locator": "OC14.07 > Results > survival thresholds",
+      "denominator": {
+        "value": null,
+        "value_status": "not_reported",
+        "reported_label": "Outcome denominator not stated; Methods reports 12 experiments only",
+        "source_locator": "OC14.07 > Results; compare Methods"
+      },
+      "declarations": [
+        {
+          "category": "endpoint_measure",
+          "scope": "unresolved",
+          "reported_label": "reached day 7: 75%",
+          "quantity_kind": "percentage",
+          "value": "75%",
+          "value_status": "reported",
+          "source_locator": "OC14.07 > Results"
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "unresolved",
+          "reported_label": "reached day 10: 50%",
+          "quantity_kind": "percentage",
+          "value": "50%",
+          "value_status": "reported",
+          "source_locator": "OC14.07 > Results"
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "unresolved",
+          "reported_label": "reached day 14: 17%",
+          "quantity_kind": "percentage",
+          "value": "17%",
+          "value_status": "reported",
+          "source_locator": "OC14.07 > Results"
+        }
+      ],
+      "selection_statements": [
+        {
+          "text": "No threshold-specific denominator or animal-to-experiment mapping is reported.",
+          "source_locator": "OC14.07 > Methods and Results"
+        }
+      ],
+      "cohort_window_status": "unresolved",
+      "disposition_completeness": "unknown",
+      "categories_mutually_exclusive": "unknown",
+      "categories_exhaustive": "unknown"
+    },
+    {
+      "coverage_id": "eixarch2025-discontinuation-cause-denominators",
+      "source_artifact_id": "eixarch2025-oc14-07-abstract",
+      "reported_group_label": "OC14.07 reasons for discontinuation before day 14",
+      "group_label_status": "reported",
+      "counted_entity_kind": "unresolved",
+      "counted_entity_label": "Discontinued animals/experiments not unambiguously defined by the abstract",
+      "endpoint_label": "Reported percentages attributed to two discontinuation causes",
+      "population_frame": "Fetal lamb survival summaries in the 2023–24 second phase.",
+      "measurement_window": "Discontinuation before 14 days of support",
+      "selection_definition": "The abstract reports reason percentages but no cause-specific denominator, overlap rule, or exhaustive category statement.",
+      "selection_definition_source_locator": "OC14.07 > Results > discontinuation reasons",
+      "denominator": {
+        "value": null,
+        "value_status": "not_reported",
+        "reported_label": "Cause-specific denominator not stated",
+        "source_locator": "OC14.07 > Results"
+      },
+      "declarations": [
+        {
+          "category": "other",
+          "scope": "unresolved",
+          "reported_label": "hemodynamic deterioration or excessive flow decrease: 58%",
+          "quantity_kind": "percentage",
+          "value": "58%",
+          "value_status": "reported",
+          "source_locator": "OC14.07 > Results"
+        },
+        {
+          "category": "other",
+          "scope": "unresolved",
+          "reported_label": "acute cannula or circuit events: 25%",
+          "quantity_kind": "percentage",
+          "value": "25%",
+          "value_status": "reported",
+          "source_locator": "OC14.07 > Results"
+        }
+      ],
+      "selection_statements": [
+        {
+          "text": "Cause categories may not be mutually exclusive or exhaustive; the apparent remainder is not assigned.",
+          "source_locator": "OC14.07 > Results"
+        }
+      ],
+      "cohort_window_status": "unresolved",
+      "disposition_completeness": "unknown",
+      "categories_mutually_exclusive": "unknown",
+      "categories_exhaustive": "unknown"
+    }
+  ],
+  "transitions": [],
+  "limitations": [
+    "The official Wiley page was visible through the web reader, but direct local publisher HTML/PDF routes returned HTTP 403; exact publisher bytes are not pinned and the source SHA-256 is null.",
+    "This is a published conference abstract, not a full cohort report; all records are aggregate summaries only.",
+    "Methods reports 12 experiments, while the survival results use “animals”; no animal-to-experiment mapping or endpoint-specific n is stated. Outcome denominators remain null where not explicitly reported.",
+    "Mean ± SD values are reported for flow, heart rate, pH, lactate and survival, but time-bin-specific sample sizes and unit-level values are not provided. HR and lactate units are not stated in the abstract.",
+    "The reported 0–7-day pH SD of 0.49 is preserved verbatim because the abstract displays it; check publisher typography before interpreting this comparatively large dispersion.",
+    "Discontinuation-cause percentages have no explicit denominator and no declared overlap or exhaustiveness; no counts or residual category are inferred.",
+    "The publisher page lists supporting information for OC14.06 only; no OC14.07 animal table or raw-data file is listed there. This is a page-bounded finding, not a global data-absence claim.",
+    "No post-support follow-up or healthy-birth/developmental outcome is reported in this abstract. It is a distinct source report from the 2023 paper and the 2026 EP09.22 poster, but cohort overlap or follow-up is unresolved; no animal-level crosswalk is provided, so do not treat the reports as independent or pool their denominators.",
+    "Candidate status only. Scientific eligibility, exact transcription and source-byte provenance have not received human review."
+  ]
+}

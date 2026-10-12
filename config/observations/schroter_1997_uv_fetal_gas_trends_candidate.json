@@ -1,0 +1,767 @@
+{
+  "schema_version": 1,
+  "dataset_id": "schroter1997-uv-fetal-blood-gas-trends-candidate",
+  "title": "Schröter et al. 1997 abstract-level gestational trends in fetal umbilical-vein blood gases; candidate transcription",
+  "source_revision": {
+    "revision_id": "schroter1997-pubmed-abstract-cycle341",
+    "citation": "Schröter B, Chaoui R, Glatzel E, Bollmann R. Normal value curves for intrauterine fetal blood gas and acid-base parameters in the 2nd and 3rd trimester. Gynakol Geburtshilfliche Rundsch. 1997;37(3):130-135. doi:10.1159/000272842. PMID: 9483871.",
+    "source_kind": "peer_reviewed_human_invivo",
+    "source_url": "https://pubmed.ncbi.nlm.nih.gov/9483871/",
+    "review_status": "candidate",
+    "reviewer": "",
+    "reviewed_on": null,
+    "review_note": ""
+  },
+  "artifacts": [
+    {
+      "artifact_id": "schroeter1997-pubmed-abstract",
+      "uri": "https://pubmed.ncbi.nlm.nih.gov/9483871/",
+      "license": "PubMed bibliographic record and abstract; article reuse terms not confirmed",
+      "sha256": "2ac4ff85c001843a72d06f848c2be7d4b371d44a08e17364e4d063dc4e93b8f1",
+      "retrieved_on": "2026-10-11",
+      "source_resolution": {
+        "version_type": "repository_record",
+        "version_identifier": "PMID 9483871; DOI 10.1159/000272842; Gynakol Geburtshilfliche Rundsch. 37(3), 130-135 (1997)",
+        "access_status": "metadata_only",
+        "oa_subset_status": "not_applicable",
+        "reuse_status": "not_confirmed",
+        "license_expression": null,
+        "checked_on": "2026-10-11",
+        "evidence_locator": "Pinned NCBI E-utilities XML and PubMed English abstract.",
+        "note": "PubMed provides an English abstract of a German-language article. Karger is the publisher full-text link, but the DOI route returned HTTP 403 in this environment; numeric regression equations, confidence bounds, and tables were not recovered. Article reuse terms are unconfirmed."
+      },
+      "local_path": "artifacts/schroeter-1997-gas-trends-intake-cycle341/sources/pubmed-efetch-pmid9483871.xml",
+      "developmental_scope": {
+        "species": "human",
+        "stage_tracks": [
+          "unspecified"
+        ],
+        "time_unit": "gestational weeks (cohort span only)",
+        "start": 18,
+        "end": 39,
+        "source_locator": "PubMed abstract, Methods: 155 AGA fetuses between 18 and 39 weeks."
+      }
+    }
+  ],
+  "observations": [
+    {
+      "schema_version": 1,
+      "record_id": "schroter1997-uv-ph-trend",
+      "evidence_status": "author_reported_summary",
+      "species": "human",
+      "stage_track": "unspecified",
+      "developmental_interval": {
+        "label": "Group trend across cohort spanning 18-39 weeks; no age-specific values in abstract",
+        "start": null,
+        "end": null,
+        "time_unit": "gestational weeks (cohort span only)",
+        "stage_source_artifact_id": "schroeter1997-pubmed-abstract"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Human appropriate-for-gestational-age fetal reference cohort; umbilical venous blood sampled by diagnostic cordocentesis."
+      },
+      "assay": {
+        "name": "Fetal blood-gas and acid-base assessment; AVL 995 analyzer reported",
+        "endpoint": "Umbilical venous blood pH",
+        "unit": "not reported in abstract",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "The abstract gives 155 as the study cohort size but does not report endpoint-specific sample counts or individual identifiers."
+      },
+      "observation": {
+        "value": "The abstract reports that pH showed a significant decrease with advancing gestational age.",
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null,
+        "measurement_conditions": [
+          {
+            "name": "cohort_size",
+            "value": 155,
+            "unit": "appropriate-for-gestational-age fetuses; cohort n, not endpoint-specific n",
+            "source_locator": "PubMed abstract, Methods."
+          },
+          {
+            "name": "gestational_span",
+            "value": "18-39",
+            "unit": "gestational weeks; cohort span only",
+            "source_locator": "PubMed abstract, Methods."
+          },
+          {
+            "name": "sampling_method",
+            "value": "Diagnostic cordocentesis",
+            "unit": "",
+            "source_locator": "PubMed abstract, Methods."
+          },
+          {
+            "name": "specimen",
+            "value": "Umbilical venous blood",
+            "unit": "",
+            "source_locator": "PubMed abstract, Methods."
+          },
+          {
+            "name": "analyzer",
+            "value": "AVL 995 blood gas analyzer",
+            "unit": "",
+            "source_locator": "PubMed abstract, Methods."
+          },
+          {
+            "name": "measurement_and_calculation",
+            "value": "pH, pO2, and pCO2 measured; oxygen saturation, bicarbonate, and base excess calculated",
+            "unit": "",
+            "source_locator": "PubMed abstract, Methods."
+          },
+          {
+            "name": "regression_output",
+            "value": "Linear regression against gestational age; 95% confidence interval established, but coefficients and numeric bounds are absent from abstract",
+            "unit": "",
+            "source_locator": "PubMed abstract, Methods."
+          }
+        ],
+        "source_qualifications": [
+          {
+            "criterion_code": "abstract_measurement_status",
+            "status_code": "measured",
+            "criterion_label": "Whether the analyte is stated to be directly measured or calculated in the abstract",
+            "source_artifact_id": "schroeter1997-pubmed-abstract",
+            "source_locator": "PubMed abstract, Methods sentence: parameters measured versus calculated.",
+            "reference_value": null,
+            "reference_unit": ""
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "schroeter1997-pubmed-abstract",
+        "uri": "https://pubmed.ncbi.nlm.nih.gov/9483871/",
+        "license": "PubMed bibliographic record and abstract; article reuse terms not confirmed",
+        "sha256": "2ac4ff85c001843a72d06f848c2be7d4b371d44a08e17364e4d063dc4e93b8f1",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "PubMed abstract, Methods and Results; English abstract of German-language article.",
+      "limitations": [
+        "The 18-39 week range describes the study cohort; the abstract does not provide age-stratified numeric values or endpoint-specific denominators.",
+        "The abstract states that linear regression against gestational age and a 95% confidence interval were calculated, but it exposes no coefficients, intercepts, fitted values or confidence-bound values.",
+        "The qualitative trend statements are source-reported summaries, not measured week-specific values. No age-specific number is derived or converted.",
+        "The abstract says pH, pO2 and pCO2 were measured, while oxygen saturation, bicarbonate and base excess were calculated; calculated endpoints are kept distinct from measured endpoints.",
+        "The study describes a human in-utero reference cohort. It does not measure ex-utero support, machine performance, healthy development under artificial support, or a sufficient safety envelope.",
+        "The PubMed English abstract is pinned. The article is in German, the Karger full-text route was inaccessible in this environment, and reuse rights are unconfirmed."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "schroter1997-uv-po2-trend",
+      "evidence_status": "author_reported_summary",
+      "species": "human",
+      "stage_track": "unspecified",
+      "developmental_interval": {
+        "label": "Group trend across cohort spanning 18-39 weeks; no age-specific values in abstract",
+        "start": null,
+        "end": null,
+        "time_unit": "gestational weeks (cohort span only)",
+        "stage_source_artifact_id": "schroeter1997-pubmed-abstract"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Human appropriate-for-gestational-age fetal reference cohort; umbilical venous blood sampled by diagnostic cordocentesis."
+      },
+      "assay": {
+        "name": "Fetal blood-gas and acid-base assessment; AVL 995 analyzer reported",
+        "endpoint": "Umbilical venous oxygen partial pressure (pO2)",
+        "unit": "not reported in abstract",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "The abstract gives 155 as the study cohort size but does not report endpoint-specific sample counts or individual identifiers."
+      },
+      "observation": {
+        "value": "The abstract reports that oxygen partial pressure showed a significant decrease with advancing gestational age.",
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null,
+        "measurement_conditions": [
+          {
+            "name": "cohort_size",
+            "value": 155,
+            "unit": "appropriate-for-gestational-age fetuses; cohort n, not endpoint-specific n",
+            "source_locator": "PubMed abstract, Methods."
+          },
+          {
+            "name": "gestational_span",
+            "value": "18-39",
+            "unit": "gestational weeks; cohort span only",
+            "source_locator": "PubMed abstract, Methods."
+          },
+          {
+            "name": "sampling_method",
+            "value": "Diagnostic cordocentesis",
+            "unit": "",
+            "source_locator": "PubMed abstract, Methods."
+          },
+          {
+            "name": "specimen",
+            "value": "Umbilical venous blood",
+            "unit": "",
+            "source_locator": "PubMed abstract, Methods."
+          },
+          {
+            "name": "analyzer",
+            "value": "AVL 995 blood gas analyzer",
+            "unit": "",
+            "source_locator": "PubMed abstract, Methods."
+          },
+          {
+            "name": "measurement_and_calculation",
+            "value": "pH, pO2, and pCO2 measured; oxygen saturation, bicarbonate, and base excess calculated",
+            "unit": "",
+            "source_locator": "PubMed abstract, Methods."
+          },
+          {
+            "name": "regression_output",
+            "value": "Linear regression against gestational age; 95% confidence interval established, but coefficients and numeric bounds are absent from abstract",
+            "unit": "",
+            "source_locator": "PubMed abstract, Methods."
+          }
+        ],
+        "source_qualifications": [
+          {
+            "criterion_code": "abstract_measurement_status",
+            "status_code": "measured",
+            "criterion_label": "Whether the analyte is stated to be directly measured or calculated in the abstract",
+            "source_artifact_id": "schroeter1997-pubmed-abstract",
+            "source_locator": "PubMed abstract, Methods sentence: parameters measured versus calculated.",
+            "reference_value": null,
+            "reference_unit": ""
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "schroeter1997-pubmed-abstract",
+        "uri": "https://pubmed.ncbi.nlm.nih.gov/9483871/",
+        "license": "PubMed bibliographic record and abstract; article reuse terms not confirmed",
+        "sha256": "2ac4ff85c001843a72d06f848c2be7d4b371d44a08e17364e4d063dc4e93b8f1",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "PubMed abstract, Methods and Results; English abstract of German-language article.",
+      "limitations": [
+        "The 18-39 week range describes the study cohort; the abstract does not provide age-stratified numeric values or endpoint-specific denominators.",
+        "The abstract states that linear regression against gestational age and a 95% confidence interval were calculated, but it exposes no coefficients, intercepts, fitted values or confidence-bound values.",
+        "The qualitative trend statements are source-reported summaries, not measured week-specific values. No age-specific number is derived or converted.",
+        "The abstract says pH, pO2 and pCO2 were measured, while oxygen saturation, bicarbonate and base excess were calculated; calculated endpoints are kept distinct from measured endpoints.",
+        "The study describes a human in-utero reference cohort. It does not measure ex-utero support, machine performance, healthy development under artificial support, or a sufficient safety envelope.",
+        "The PubMed English abstract is pinned. The article is in German, the Karger full-text route was inaccessible in this environment, and reuse rights are unconfirmed."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "schroter1997-uv-saturation-trend",
+      "evidence_status": "author_reported_summary",
+      "species": "human",
+      "stage_track": "unspecified",
+      "developmental_interval": {
+        "label": "Group trend across cohort spanning 18-39 weeks; no age-specific values in abstract",
+        "start": null,
+        "end": null,
+        "time_unit": "gestational weeks (cohort span only)",
+        "stage_source_artifact_id": "schroeter1997-pubmed-abstract"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Human appropriate-for-gestational-age fetal reference cohort; umbilical venous blood sampled by diagnostic cordocentesis."
+      },
+      "assay": {
+        "name": "Fetal blood-gas and acid-base assessment; AVL 995 analyzer reported",
+        "endpoint": "Umbilical venous oxygen saturation",
+        "unit": "not reported in abstract",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "The abstract gives 155 as the study cohort size but does not report endpoint-specific sample counts or individual identifiers."
+      },
+      "observation": {
+        "value": "The abstract reports that oxygen saturation showed a significant decrease with advancing gestational age.",
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null,
+        "measurement_conditions": [
+          {
+            "name": "cohort_size",
+            "value": 155,
+            "unit": "appropriate-for-gestational-age fetuses; cohort n, not endpoint-specific n",
+            "source_locator": "PubMed abstract, Methods."
+          },
+          {
+            "name": "gestational_span",
+            "value": "18-39",
+            "unit": "gestational weeks; cohort span only",
+            "source_locator": "PubMed abstract, Methods."
+          },
+          {
+            "name": "sampling_method",
+            "value": "Diagnostic cordocentesis",
+            "unit": "",
+            "source_locator": "PubMed abstract, Methods."
+          },
+          {
+            "name": "specimen",
+            "value": "Umbilical venous blood",
+            "unit": "",
+            "source_locator": "PubMed abstract, Methods."
+          },
+          {
+            "name": "analyzer",
+            "value": "AVL 995 blood gas analyzer",
+            "unit": "",
+            "source_locator": "PubMed abstract, Methods."
+          },
+          {
+            "name": "measurement_and_calculation",
+            "value": "pH, pO2, and pCO2 measured; oxygen saturation, bicarbonate, and base excess calculated",
+            "unit": "",
+            "source_locator": "PubMed abstract, Methods."
+          },
+          {
+            "name": "regression_output",
+            "value": "Linear regression against gestational age; 95% confidence interval established, but coefficients and numeric bounds are absent from abstract",
+            "unit": "",
+            "source_locator": "PubMed abstract, Methods."
+          }
+        ],
+        "source_qualifications": [
+          {
+            "criterion_code": "abstract_measurement_status",
+            "status_code": "calculated",
+            "criterion_label": "Whether the analyte is stated to be directly measured or calculated in the abstract",
+            "source_artifact_id": "schroeter1997-pubmed-abstract",
+            "source_locator": "PubMed abstract, Methods sentence: parameters measured versus calculated.",
+            "reference_value": null,
+            "reference_unit": ""
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "schroeter1997-pubmed-abstract",
+        "uri": "https://pubmed.ncbi.nlm.nih.gov/9483871/",
+        "license": "PubMed bibliographic record and abstract; article reuse terms not confirmed",
+        "sha256": "2ac4ff85c001843a72d06f848c2be7d4b371d44a08e17364e4d063dc4e93b8f1",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "PubMed abstract, Methods and Results; English abstract of German-language article.",
+      "limitations": [
+        "The 18-39 week range describes the study cohort; the abstract does not provide age-stratified numeric values or endpoint-specific denominators.",
+        "The abstract states that linear regression against gestational age and a 95% confidence interval were calculated, but it exposes no coefficients, intercepts, fitted values or confidence-bound values.",
+        "The qualitative trend statements are source-reported summaries, not measured week-specific values. No age-specific number is derived or converted.",
+        "The abstract says pH, pO2 and pCO2 were measured, while oxygen saturation, bicarbonate and base excess were calculated; calculated endpoints are kept distinct from measured endpoints.",
+        "The study describes a human in-utero reference cohort. It does not measure ex-utero support, machine performance, healthy development under artificial support, or a sufficient safety envelope.",
+        "The PubMed English abstract is pinned. The article is in German, the Karger full-text route was inaccessible in this environment, and reuse rights are unconfirmed."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "schroter1997-uv-pco2-trend",
+      "evidence_status": "author_reported_summary",
+      "species": "human",
+      "stage_track": "unspecified",
+      "developmental_interval": {
+        "label": "Group trend across cohort spanning 18-39 weeks; no age-specific values in abstract",
+        "start": null,
+        "end": null,
+        "time_unit": "gestational weeks (cohort span only)",
+        "stage_source_artifact_id": "schroeter1997-pubmed-abstract"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Human appropriate-for-gestational-age fetal reference cohort; umbilical venous blood sampled by diagnostic cordocentesis."
+      },
+      "assay": {
+        "name": "Fetal blood-gas and acid-base assessment; AVL 995 analyzer reported",
+        "endpoint": "Umbilical venous carbon-dioxide partial pressure (pCO2)",
+        "unit": "not reported in abstract",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "The abstract gives 155 as the study cohort size but does not report endpoint-specific sample counts or individual identifiers."
+      },
+      "observation": {
+        "value": "The abstract reports that carbon-dioxide partial pressure increased with advancing gestational age.",
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null,
+        "measurement_conditions": [
+          {
+            "name": "cohort_size",
+            "value": 155,
+            "unit": "appropriate-for-gestational-age fetuses; cohort n, not endpoint-specific n",
+            "source_locator": "PubMed abstract, Methods."
+          },
+          {
+            "name": "gestational_span",
+            "value": "18-39",
+            "unit": "gestational weeks; cohort span only",
+            "source_locator": "PubMed abstract, Methods."
+          },
+          {
+            "name": "sampling_method",
+            "value": "Diagnostic cordocentesis",
+            "unit": "",
+            "source_locator": "PubMed abstract, Methods."
+          },
+          {
+            "name": "specimen",
+            "value": "Umbilical venous blood",
+            "unit": "",
+            "source_locator": "PubMed abstract, Methods."
+          },
+          {
+            "name": "analyzer",
+            "value": "AVL 995 blood gas analyzer",
+            "unit": "",
+            "source_locator": "PubMed abstract, Methods."
+          },
+          {
+            "name": "measurement_and_calculation",
+            "value": "pH, pO2, and pCO2 measured; oxygen saturation, bicarbonate, and base excess calculated",
+            "unit": "",
+            "source_locator": "PubMed abstract, Methods."
+          },
+          {
+            "name": "regression_output",
+            "value": "Linear regression against gestational age; 95% confidence interval established, but coefficients and numeric bounds are absent from abstract",
+            "unit": "",
+            "source_locator": "PubMed abstract, Methods."
+          }
+        ],
+        "source_qualifications": [
+          {
+            "criterion_code": "abstract_measurement_status",
+            "status_code": "measured",
+            "criterion_label": "Whether the analyte is stated to be directly measured or calculated in the abstract",
+            "source_artifact_id": "schroeter1997-pubmed-abstract",
+            "source_locator": "PubMed abstract, Methods sentence: parameters measured versus calculated.",
+            "reference_value": null,
+            "reference_unit": ""
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "schroeter1997-pubmed-abstract",
+        "uri": "https://pubmed.ncbi.nlm.nih.gov/9483871/",
+        "license": "PubMed bibliographic record and abstract; article reuse terms not confirmed",
+        "sha256": "2ac4ff85c001843a72d06f848c2be7d4b371d44a08e17364e4d063dc4e93b8f1",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "PubMed abstract, Methods and Results; English abstract of German-language article.",
+      "limitations": [
+        "The 18-39 week range describes the study cohort; the abstract does not provide age-stratified numeric values or endpoint-specific denominators.",
+        "The abstract states that linear regression against gestational age and a 95% confidence interval were calculated, but it exposes no coefficients, intercepts, fitted values or confidence-bound values.",
+        "The qualitative trend statements are source-reported summaries, not measured week-specific values. No age-specific number is derived or converted.",
+        "The abstract says pH, pO2 and pCO2 were measured, while oxygen saturation, bicarbonate and base excess were calculated; calculated endpoints are kept distinct from measured endpoints.",
+        "The study describes a human in-utero reference cohort. It does not measure ex-utero support, machine performance, healthy development under artificial support, or a sufficient safety envelope.",
+        "The PubMed English abstract is pinned. The article is in German, the Karger full-text route was inaccessible in this environment, and reuse rights are unconfirmed."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "schroter1997-uv-bicarbonate-trend",
+      "evidence_status": "author_reported_summary",
+      "species": "human",
+      "stage_track": "unspecified",
+      "developmental_interval": {
+        "label": "Group trend across cohort spanning 18-39 weeks; no age-specific values in abstract",
+        "start": null,
+        "end": null,
+        "time_unit": "gestational weeks (cohort span only)",
+        "stage_source_artifact_id": "schroeter1997-pubmed-abstract"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Human appropriate-for-gestational-age fetal reference cohort; umbilical venous blood sampled by diagnostic cordocentesis."
+      },
+      "assay": {
+        "name": "Fetal blood-gas and acid-base assessment; AVL 995 analyzer reported",
+        "endpoint": "Umbilical venous bicarbonate concentration",
+        "unit": "not reported in abstract",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "The abstract gives 155 as the study cohort size but does not report endpoint-specific sample counts or individual identifiers."
+      },
+      "observation": {
+        "value": "The abstract reports that the bicarbonate range did not differ significantly with gestation.",
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null,
+        "measurement_conditions": [
+          {
+            "name": "cohort_size",
+            "value": 155,
+            "unit": "appropriate-for-gestational-age fetuses; cohort n, not endpoint-specific n",
+            "source_locator": "PubMed abstract, Methods."
+          },
+          {
+            "name": "gestational_span",
+            "value": "18-39",
+            "unit": "gestational weeks; cohort span only",
+            "source_locator": "PubMed abstract, Methods."
+          },
+          {
+            "name": "sampling_method",
+            "value": "Diagnostic cordocentesis",
+            "unit": "",
+            "source_locator": "PubMed abstract, Methods."
+          },
+          {
+            "name": "specimen",
+            "value": "Umbilical venous blood",
+            "unit": "",
+            "source_locator": "PubMed abstract, Methods."
+          },
+          {
+            "name": "analyzer",
+            "value": "AVL 995 blood gas analyzer",
+            "unit": "",
+            "source_locator": "PubMed abstract, Methods."
+          },
+          {
+            "name": "measurement_and_calculation",
+            "value": "pH, pO2, and pCO2 measured; oxygen saturation, bicarbonate, and base excess calculated",
+            "unit": "",
+            "source_locator": "PubMed abstract, Methods."
+          },
+          {
+            "name": "regression_output",
+            "value": "Linear regression against gestational age; 95% confidence interval established, but coefficients and numeric bounds are absent from abstract",
+            "unit": "",
+            "source_locator": "PubMed abstract, Methods."
+          }
+        ],
+        "source_qualifications": [
+          {
+            "criterion_code": "abstract_measurement_status",
+            "status_code": "calculated",
+            "criterion_label": "Whether the analyte is stated to be directly measured or calculated in the abstract",
+            "source_artifact_id": "schroeter1997-pubmed-abstract",
+            "source_locator": "PubMed abstract, Methods sentence: parameters measured versus calculated.",
+            "reference_value": null,
+            "reference_unit": ""
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "schroeter1997-pubmed-abstract",
+        "uri": "https://pubmed.ncbi.nlm.nih.gov/9483871/",
+        "license": "PubMed bibliographic record and abstract; article reuse terms not confirmed",
+        "sha256": "2ac4ff85c001843a72d06f848c2be7d4b371d44a08e17364e4d063dc4e93b8f1",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "PubMed abstract, Methods and Results; English abstract of German-language article.",
+      "limitations": [
+        "The 18-39 week range describes the study cohort; the abstract does not provide age-stratified numeric values or endpoint-specific denominators.",
+        "The abstract states that linear regression against gestational age and a 95% confidence interval were calculated, but it exposes no coefficients, intercepts, fitted values or confidence-bound values.",
+        "The qualitative trend statements are source-reported summaries, not measured week-specific values. No age-specific number is derived or converted.",
+        "The abstract says pH, pO2 and pCO2 were measured, while oxygen saturation, bicarbonate and base excess were calculated; calculated endpoints are kept distinct from measured endpoints.",
+        "The study describes a human in-utero reference cohort. It does not measure ex-utero support, machine performance, healthy development under artificial support, or a sufficient safety envelope.",
+        "The PubMed English abstract is pinned. The article is in German, the Karger full-text route was inaccessible in this environment, and reuse rights are unconfirmed."
+      ]
+    },
+    {
+      "schema_version": 1,
+      "record_id": "schroter1997-uv-base-excess-trend",
+      "evidence_status": "author_reported_summary",
+      "species": "human",
+      "stage_track": "unspecified",
+      "developmental_interval": {
+        "label": "Group trend across cohort spanning 18-39 weeks; no age-specific values in abstract",
+        "start": null,
+        "end": null,
+        "time_unit": "gestational weeks (cohort span only)",
+        "stage_source_artifact_id": "schroeter1997-pubmed-abstract"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Human appropriate-for-gestational-age fetal reference cohort; umbilical venous blood sampled by diagnostic cordocentesis."
+      },
+      "assay": {
+        "name": "Fetal blood-gas and acid-base assessment; AVL 995 analyzer reported",
+        "endpoint": "Umbilical venous base excess",
+        "unit": "not reported in abstract",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "not_reported",
+        "id": null,
+        "parent_id": null,
+        "hierarchy_note": "The abstract gives 155 as the study cohort size but does not report endpoint-specific sample counts or individual identifiers."
+      },
+      "observation": {
+        "value": "The abstract reports that the base-excess range did not differ significantly with gestation.",
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "measurement_uncertainty": null,
+        "measurement_conditions": [
+          {
+            "name": "cohort_size",
+            "value": 155,
+            "unit": "appropriate-for-gestational-age fetuses; cohort n, not endpoint-specific n",
+            "source_locator": "PubMed abstract, Methods."
+          },
+          {
+            "name": "gestational_span",
+            "value": "18-39",
+            "unit": "gestational weeks; cohort span only",
+            "source_locator": "PubMed abstract, Methods."
+          },
+          {
+            "name": "sampling_method",
+            "value": "Diagnostic cordocentesis",
+            "unit": "",
+            "source_locator": "PubMed abstract, Methods."
+          },
+          {
+            "name": "specimen",
+            "value": "Umbilical venous blood",
+            "unit": "",
+            "source_locator": "PubMed abstract, Methods."
+          },
+          {
+            "name": "analyzer",
+            "value": "AVL 995 blood gas analyzer",
+            "unit": "",
+            "source_locator": "PubMed abstract, Methods."
+          },
+          {
+            "name": "measurement_and_calculation",
+            "value": "pH, pO2, and pCO2 measured; oxygen saturation, bicarbonate, and base excess calculated",
+            "unit": "",
+            "source_locator": "PubMed abstract, Methods."
+          },
+          {
+            "name": "regression_output",
+            "value": "Linear regression against gestational age; 95% confidence interval established, but coefficients and numeric bounds are absent from abstract",
+            "unit": "",
+            "source_locator": "PubMed abstract, Methods."
+          }
+        ],
+        "source_qualifications": [
+          {
+            "criterion_code": "abstract_measurement_status",
+            "status_code": "calculated",
+            "criterion_label": "Whether the analyte is stated to be directly measured or calculated in the abstract",
+            "source_artifact_id": "schroeter1997-pubmed-abstract",
+            "source_locator": "PubMed abstract, Methods sentence: parameters measured versus calculated.",
+            "reference_value": null,
+            "reference_unit": ""
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "schroeter1997-pubmed-abstract",
+        "uri": "https://pubmed.ncbi.nlm.nih.gov/9483871/",
+        "license": "PubMed bibliographic record and abstract; article reuse terms not confirmed",
+        "sha256": "2ac4ff85c001843a72d06f848c2be7d4b371d44a08e17364e4d063dc4e93b8f1",
+        "retrieved_on": "2026-10-11"
+      },
+      "source_locator": "PubMed abstract, Methods and Results; English abstract of German-language article.",
+      "limitations": [
+        "The 18-39 week range describes the study cohort; the abstract does not provide age-stratified numeric values or endpoint-specific denominators.",
+        "The abstract states that linear regression against gestational age and a 95% confidence interval were calculated, but it exposes no coefficients, intercepts, fitted values or confidence-bound values.",
+        "The qualitative trend statements are source-reported summaries, not measured week-specific values. No age-specific number is derived or converted.",
+        "The abstract says pH, pO2 and pCO2 were measured, while oxygen saturation, bicarbonate and base excess were calculated; calculated endpoints are kept distinct from measured endpoints.",
+        "The study describes a human in-utero reference cohort. It does not measure ex-utero support, machine performance, healthy development under artificial support, or a sufficient safety envelope.",
+        "The PubMed English abstract is pinned. The article is in German, the Karger full-text route was inaccessible in this environment, and reuse rights are unconfirmed."
+      ]
+    }
+  ],
+  "transitions": [],
+  "measurement_pairs": [],
+  "cohort_coverage": [
+    {
+      "coverage_id": "schroter1997-uv-study-cohort",
+      "source_artifact_id": "schroeter1997-pubmed-abstract",
+      "reported_group_label": "155 appropriate-for-gestational-age fetuses between 18 and 39 weeks",
+      "group_label_status": "reported",
+      "counted_entity_kind": "fetus",
+      "counted_entity_label": "Fetuses undergoing diagnostic cordocentesis; cohort count, not verified per-endpoint n",
+      "endpoint_label": "Umbilical-venous pH, pO2, oxygen saturation, pCO2, bicarbonate and base-excess gestational trends",
+      "population_frame": "Human appropriate-for-gestational-age fetuses; diagnostic cordocentesis; gestational age 18-39 weeks.",
+      "measurement_window": "The regression spans the reported cohort range; the abstract does not expose gestational-age stratum counts or endpoint-specific n.",
+      "selection_definition": "The abstract reports a 155-fetus AGA reference cohort but gives no screening, exclusion, missingness, or endpoint-specific denominator breakdown.",
+      "selection_definition_source_locator": "PubMed abstract, Methods and Results.",
+      "denominator": {
+        "value": 155,
+        "value_status": "reported",
+        "reported_label": "155 appropriate-for-gestational-age fetuses in study cohort; not endpoint-specific",
+        "source_locator": "PubMed abstract, Methods."
+      },
+      "declarations": [
+        {
+          "category": "other",
+          "scope": "unresolved",
+          "reported_label": "Study cohort described in abstract; endpoint-level inclusion unresolved",
+          "quantity_kind": "count",
+          "value": 155,
+          "value_status": "reported",
+          "source_locator": "PubMed abstract, Methods."
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "unresolved",
+          "reported_label": "Six qualitative trend statements reported; endpoint-specific n and age-cell counts not given",
+          "quantity_kind": "other",
+          "value": "six trend directions/statements; no numeric age cells",
+          "value_status": "reported",
+          "source_locator": "PubMed abstract, Methods and Results."
+        }
+      ],
+      "selection_statements": [
+        {
+          "text": "The abstract describes a regression and 95% confidence interval across gestational age but gives no numeric coefficient, fitted value, or confidence-bound values.",
+          "source_locator": "PubMed abstract, Methods."
+        },
+        {
+          "text": "The 155-fetus study-group count is retained as cohort context and is not asserted as the endpoint-specific n for each parameter.",
+          "source_locator": "PubMed abstract, Methods and Results."
+        }
+      ],
+      "cohort_window_status": "source_labels_only",
+      "disposition_completeness": "unknown",
+      "categories_mutually_exclusive": "unknown",
+      "categories_exhaustive": "unknown"
+    }
+  ],
+  "limitations": [
+    "The 18-39 week range describes the study cohort; the abstract does not provide age-stratified numeric values or endpoint-specific denominators.",
+    "The abstract states that linear regression against gestational age and a 95% confidence interval were calculated, but it exposes no coefficients, intercepts, fitted values or confidence-bound values.",
+    "The qualitative trend statements are source-reported summaries, not measured week-specific values. No age-specific number is derived or converted.",
+    "The abstract says pH, pO2 and pCO2 were measured, while oxygen saturation, bicarbonate and base excess were calculated; calculated endpoints are kept distinct from measured endpoints.",
+    "The study describes a human in-utero reference cohort. It does not measure ex-utero support, machine performance, healthy development under artificial support, or a sufficient safety envelope.",
+    "The PubMed English abstract is pinned. The article is in German, the Karger full-text route was inaccessible in this environment, and reuse rights are unconfirmed."
+  ]
+}

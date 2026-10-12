@@ -1,0 +1,83 @@
+{
+  "schema_version": 1,
+  "review_status": "candidate",
+  "human_review": "pending",
+  "inspected_on": "2026-10-10",
+  "article": {
+    "title": "A Uterus-Inspired Niche Drives Blastocyst Development to the Early Organogenesis",
+    "doi": "10.1002/advs.202202282",
+    "url": "https://advanced.onlinelibrary.wiley.com/doi/full/10.1002/advs.202202282",
+    "source_kind": "peer_reviewed_animal",
+    "species": "Mus musculus",
+    "starting_stage": "E3.5 embryos",
+    "reviewed_locators": ["Results 2.2", "Figure 3", "Results 2.5", "Figure 5", "Methods: Statistical Analyses", "Data Availability Statement"]
+  },
+  "platform_and_comparators": {
+    "reported_platform": "Uterus-inspired niche PDCO: collagen-I layer grafted onto PDMS",
+    "reported_pdco_collagen": {"concentration_mg_per_ml": 7.5, "thickness_mean_um": 46, "thickness_sd_um": 10},
+    "comparators_in_figure_3_text": ["Petri dish", "PD", "CO"],
+    "assay_scope": "Mouse embryo in-vitro culture and developmental morphology through reported IVC day 10"
+  },
+  "figure_3_reported_outcome_summaries": {
+    "dispersion_definition": "The Methods state that data are represented as mean ± SD.",
+    "endpoints": [
+      {
+        "endpoint": "two cavities (EPI and ExE)",
+        "timepoint": "IVC day 3",
+        "measure": "reported percentage of embryos",
+        "percentage_mean_sd": {"PDCO": [36, 6], "Petri_dish": [16, 10], "PD": [16, 8], "CO": [13, 6]},
+        "caption_n_pdco_pd_comparison_only": {"PDCO_embryos": 71, "PD_embryos": 64},
+        "petri_dish_and_co_denominators": "not stated in the Figure 3 main-text caption",
+        "caption_test": "Two-tailed Student's t-test for PDCO versus PD",
+        "denominator_limit": "The caption does not give stage-specific denominators or per-replicate success counts; do not reconstruct embryo counts from the rounded percentage summaries."
+      },
+      {
+        "endpoint": "egg-cylinder structures",
+        "timepoint": "IVC day 5",
+        "measure": "reported percentage of embryos",
+        "percentage_mean_sd": {"PDCO": [47, 15], "Petri_dish": [32, 5], "PD": [32, 11], "CO": [3, 2]},
+        "caption_n_pdco_pd_comparison_only": {"PDCO_embryos": 71, "PD_embryos": 64},
+        "petri_dish_and_co_denominators": "not stated in the Figure 3 main-text caption",
+        "caption_test": "Two-tailed Student's t-test for PDCO versus PD",
+        "denominator_limit": "The caption does not give stage-specific denominators or per-replicate success counts; do not reconstruct embryo counts from the rounded percentage summaries."
+      },
+      {
+        "endpoint": "heartbeat-like stage",
+        "timepoint": "IVC days 8-10",
+        "measure": "reported percentage of embryos",
+        "percentage_mean_sd": {"PDCO": [11, 5], "Petri_dish": [1, 1], "PD": [0, null], "CO": [1, 2]},
+        "petri_dish_and_co_denominators": "not stated in the Figure 3 main-text caption",
+        "pd_sd_status": "Results text reports 0% without an explicit SD; null preserves that omission.",
+        "caption_n_pdco_pd_comparison_only": {"PDCO_embryos": 71, "PD_embryos": 64},
+        "caption_test": "Two-tailed Student's t-test for PDCO versus PD",
+        "denominator_limit": "The caption does not give stage-specific denominators or per-replicate success counts; ‘heartbeat-like’ does not establish a functional circulation or heart output."
+      }
+    ],
+    "interpretation_limit": "These are published summary percentages, not a recoverable per-embryo outcome table. The stated n values are embryo counts for the PDCO-versus-PD Figure 3 comparison; the article does not report stage-specific denominators or per-embryo successes, and the main-text caption does not give denominators for Petri dish or CO. Do not treat the three timepoints as independent cohorts or infer survival probabilities."
+  },
+  "figure_5_morphology_and_marker_evidence": {
+    "reported_panels": [
+      {"ivc_days": [2, 3], "comparison": ["in-vivo E4.5", "in-vivo E5.5"], "methods": "immunostaining and morphology", "caption_n_per_condition": 15},
+      {"ivc_days": [5, 6], "comparison": ["in-vivo E6.5", "in-vivo E7.5"], "methods": "primitive-streak marker T staining and morphology", "caption_n_per_condition": 20},
+      {"ivc_days": [9], "comparison": ["in-vivo E8.5"], "methods": "SOX2/PAX6 staining and neural-like morphology", "caption_n_per_condition": 20},
+      {"ivc_days": [10], "comparison": ["in-vivo E8.5"], "methods": "MHC/GATA4/MLC staining and heart-tube-like morphology", "caption_n_per_condition": 20}
+    ],
+    "observed_behavior_report": "The Results report beating of aggregated cardiomyocytes in cultured embryos.",
+    "authors_stage_qualification": "The paper says there remains a gap between IVC embryos and E8.5 embryos and describes early organogenesis as a suggested stage based on the reported findings.",
+    "functional_limit": "Marker-positive or heart-tube-like structures and beating aggregates do not establish mature organ function, systemic circulation, viability after culture, live birth, or postnatal health. The imaging n values are not denominators for the Figure 3 rates."
+  },
+  "data_access_and_intake": {
+    "data_availability_statement": "Data are available from the corresponding author upon reasonable request; no public accession is named in the 2022 statement.",
+    "figure_3_scRNA_cell_count": 518,
+    "related_archive_candidate": "PRJCA004049 / CRA004601; its three scRNA BioSample labels match the Figure 3 groups at the condition level, but per-cell and run mapping remain unverified.",
+    "figure_6_separate_10x_dataset": "Recorded in config/source_inventories/growing_interface_2026.json under linked_2022_10x_dataset_crosswalk; not the 518-cell Figure 3 dataset.",
+    "observation_promotion": "none",
+    "reason_not_promoted": "No source-level per-embryo endpoint table or stage-specific denominator was found; preserve the reported summaries as qualified evidence, not independent-unit observations.",
+    "author_contact": "none"
+  },
+  "feasibility_boundary": {
+    "reported_achievement": "Mouse embryos cultured on PDCO were reported through IVC day 10 with early organogenesis-associated morphology, cell markers, and beating cardiomyocyte aggregates.",
+    "not_demonstrated": ["complete gestation", "live birth", "postnatal viability", "long-term health", "human embryo support", "surrogate replacement", "reduced congenital defects"],
+    "model_use": "early mouse developmental milestone comparator only; do not use as a complete-gestation feasibility estimate or a human operating specification"
+  }
+}

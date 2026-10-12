@@ -1,0 +1,104 @@
+{
+  "cycle": 320,
+  "candidate_path": "config/observations/omecinski_2023_invitro_gas_exchange_candidate.json",
+  "assessment_path": "artifacts/omecinski-preemieox-2023-10-11-cycle320/mean-sd-intake-assessment-cycle320.json",
+  "report_path": "artifacts/omecinski-preemieox-2023-10-11-cycle320/REPORT.md",
+  "source": {
+    "uri": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9897463/",
+    "doi": "10.1097/MAT.0000000000001862",
+    "public_route": "PMC full-text article page inspected",
+    "local_source_sha256": null,
+    "reuse_terms": "not confirmed",
+    "source_resolution": {
+      "version_type": "author_manuscript",
+      "version_identifier": "PMC9897463.1; NIHMS1848709 (current PMC version)",
+      "access_status": "full_text_free_to_read",
+      "oa_subset_status": "not_included",
+      "reuse_status": "not_confirmed",
+      "license_expression": null,
+      "checked_on": "2026-10-11",
+      "evidence": [
+        {
+          "service": "PMC article page",
+          "result": "Banner identifies the record as an author manuscript available in PMC; article metadata identifies the final-edited ASAIO Journal version and DOI.",
+          "url": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9897463/"
+        },
+        {
+          "service": "PMC ID Converter API",
+          "result": "versions=yes returns PMC9897463.1, NIHMS1848709, marked current, with PMID 36716073 and the cited DOI.",
+          "url": "https://pmc.ncbi.nlm.nih.gov/tools/idconv/api/v1/articles/?ids=PMC9897463&format=json&versions=yes"
+        },
+        {
+          "service": "NCBI E-utilities ESearch",
+          "result": "PMC9897463[pmc] AND open access[filter] returned count 0 on the checked date.",
+          "url": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/esearch.fcgi?db=pmc&term=PMC9897463%5Bpmc%5D%20AND%20open%20access%5Bfilter%5D&retmode=json"
+        },
+        {
+          "service": "PMC publisher page route",
+          "result": "DOI redirect to the publisher page returned HTTP 403 in the inspected route; item-specific publisher license text was not verified.",
+          "url": "https://doi.org/10.1097/MAT.0000000000001862"
+        }
+      ],
+      "rights_note": "PMC's article page links to the general PMC Copyright Notice but exposes no item-specific license expression in the inspected route. PMC policy says author manuscripts may omit terms and free-to-read access alone does not establish reuse permission. No author was contacted and no license is inferred."
+    }
+  },
+  "reported_summary": {
+    "endpoint": "in-vitro carbon-dioxide removal rate (vCO2)",
+    "reported_estimate": 12.7,
+    "reported_plus_minus": 0.9,
+    "plus_minus_type": "not_reported",
+    "unit": "mL/min",
+    "reported_sample_size": 9,
+    "sample_size_scope": "benchtop gas-exchange test samples; not independent biological n",
+    "source_locator": "Results > In Vitro Gas Exchange"
+  },
+  "reported_context_summary": {
+    "endpoint": "in-vitro blood flow rate during gas-exchange test",
+    "reported_estimate": 163,
+    "reported_plus_minus": 2,
+    "plus_minus_type": "not_reported",
+    "unit": "mL/min",
+    "reported_sample_size": 9,
+    "sample_size_scope": "n=9 gas-exchange test samples is co-reported in the Results sentence; no individually identified runs or biological n",
+    "source_locator": "Results > In Vitro Gas Exchange; final reported summary sentence",
+    "measurement_role": "environmental_condition",
+    "paired_to_vco2_records": false
+  },
+  "reported_saturation_summary": {
+    "endpoint": "hemoglobin oxygen saturation (SO2)",
+    "reported_estimate": 99.4,
+    "reported_plus_minus": 0.4,
+    "plus_minus_type": "not_reported",
+    "unit": "%",
+    "reported_sample_size": null,
+    "sample_size_scope": "Source says all three cases but does not identify the denominator of the summary or the ± quantity.",
+    "source_locator": "Results > In Vitro Gas Exchange; final sentence on SO2",
+    "paired_to_other_summary_records": false
+  },
+  "reported_resistance_summary": {
+    "endpoint": "oxygenator hydraulic resistance",
+    "reported_estimate": 51,
+    "reported_plus_minus": 0,
+    "plus_minus_type": "not_reported",
+    "unit": "mmHg/L/min",
+    "reported_sample_size": 3,
+    "sample_size_scope": "Methods explicitly say the fluid-column resistance protocol was performed in triplicate; test runs are not biological units.",
+    "source_locator": "Methods > Resistance apparatus and measurement; Results > Resistance apparatus and measurement",
+    "individual_run_rows_available": false
+  },
+  "reported_priming_volume": {
+    "endpoint": "total device priming volume",
+    "value": 15,
+    "unit": "mL",
+    "reported_sample_size": null,
+    "source_locator": "Results > Resistance apparatus and measurement",
+    "individual_device_or_run_identifier_available": false
+  },
+  "individual_run_rows_available_in_inspected_route": false,
+  "paired_inlet_outlet_records_created": 0,
+  "measurement_pairs_created": 0,
+  "developmental_outcomes_created": 0,
+  "candidate_review_status": "candidate",
+  "source_resolution_conclusion": "The manuscript version and PMC access/filter status are resolved; article-specific reuse rights and a local byte hash remain unresolved. Candidate stays pending.",
+  "author_contacted": false
+}

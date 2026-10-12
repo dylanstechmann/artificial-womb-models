@@ -1,0 +1,158 @@
+{
+  "schema_version": 1,
+  "review_status": "source_screen_only",
+  "human_review": "pending",
+  "inspected_on": "2026-10-11",
+  "article": {
+    "title": "Melanoma targeted therapies dabrafenib and trametinib cross the placental barrier in ex vivo human placental perfusions",
+    "citation": "Heggarty E et al. J Am Acad Dermatol. 2025;93(5):1337–1339. doi:10.1016/j.jaad.2025.07.045.",
+    "doi": "10.1016/j.jaad.2025.07.045",
+    "pmid": "40716574",
+    "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/40716574/",
+    "publisher_url": "https://www.sciencedirect.com/science/article/pii/S0190962225025356",
+    "publisher_route_status": "HTTP 403 during this bounded screen; PubMed record reports no abstract",
+    "source_review_depth": "PubMed citation metadata, public repository manifest and both supplementary JPEG images, plus visual/text review of the official IFPA 2025 abstract-book pages 83–84; JAAD full text not available in the bounded screen"
+  },
+  "dataset": {
+    "title": "Melanoma targeted therapies dabrafenib and trametinib cross the placental barrier in ex vivo human placental perfusions",
+    "doi": "10.17632/wbbjfds7th.2",
+    "version": 2,
+    "url": "https://data.mendeley.com/datasets/wbbjfds7th/2",
+    "description": "Supplemental files for JAAD",
+    "license": "CC BY 4.0",
+    "manifest_url": "https://data.mendeley.com/public-api/datasets/wbbjfds7th/files?folder_id=root&version=2&$start=0&$limit=1000",
+    "manifest_http_status": 200,
+    "files": [
+      {
+        "filename": "Supplementary Figure 1 Flow chart.jpg",
+        "file_id": "c0493dcc-d79c-48c4-999b-6a06079c1ed4",
+        "size_bytes": 656096,
+        "sha256": "9a6c8ef52cdfa782628a95227e41ed235b69fdbb755f34f1ec7ba71a1fd8b988",
+        "sha256_verified_against_public_manifest": true,
+        "visually_inspected": true
+      },
+      {
+        "filename": "Supplementary Figure 2 FTR distribution.jpg",
+        "file_id": "de8dc5f1-03a3-4568-a178-179318bcb24f",
+        "size_bytes": 39342,
+        "sha256": "9bcc9b8423dca170f0699461be09543037a8ef3bd6515e31d3bd319399344d0b",
+        "sha256_verified_against_public_manifest": true,
+        "visually_inspected": true
+      }
+    ],
+    "binary_copies_retained_in_repository": false
+  },
+  "reported_observations": {
+    "study_flow": "Figure 1 reports transfer parameters available for 11 dabrafenib placentas and 7 trametinib placentas after separate eligibility/refusal/perfusion/leakage/antipyrine/dosage-failure stages.",
+    "figure_endpoint": "Figure 2 plots fetal transfer rates (%) as 11 dabrafenib and 7 trametinib symbols, consistent with Figure 1 transfer-parameter counts. The related IFPA abstract reports group FTR estimates that match the plot centers to visual precision, but does not state that it is the same cohort, define ±, give n, or define the FTR equation.",
+    "numeric_values_transcribed": false,
+    "related_abstract": "The IFPA 2025 abstract reports FTR as 8.6 ± 3.1% for trametinib and 15.3 ± 5.4% for dabrafenib, and placental uptake ratios as 7.5 ± 1.4% and 3.7 ± 2.2%, respectively. Neither the meaning of ± nor group denominators are specified; no individual numeric rows are supplied."
+  },
+  "availability_by_field": {
+    "individual_placenta_count_for_plotted_endpoint": "reported_as_group_denominators_in_flow_chart; no persistent unit identifiers",
+    "fetal_transfer_rate_percent": "plotted at individual-symbol level; no machine-readable numeric values in the public package",
+    "serial_concentration_by_compartment_and_time": "not_present_in_the_two_manifested_jpeg_files",
+    "compartment_volume_and_sample_removal_history": "not_present_in_the_two_manifested_jpeg_files",
+    "recovery_or_mass_balance": "not_present_in_the_two_manifested_jpeg_files",
+    "assay_uncertainty_and_calibration": "not_present_in_the_two_manifested_jpeg_files",
+    "gestational_frame_and_metric_definition": "normal term placentas reported in related abstract; direct cohort link and transfer-rate equation remain unverified",
+    "developmental_outcomes": "outside_study_scope",
+    "group_fetal_transfer_rate_summary": "related conference abstract reports group estimates; ± statistic, denominators and explicit link to the Mendeley figure cohort are unresolved",
+    "placental_uptake_ratio_summary": "reported only as aggregate values in related conference abstract; ± statistic and denominator unresolved",
+    "metric_equation_and_uncertainty_definition": "not specified in the inspected figure or related abstract"
+  },
+  "eligibility": {
+    "source_exact_observation_table": false,
+    "time_resolved_transport_fit": false,
+    "dimensional_mass_balance": false,
+    "use_role": "figure-level human placental functional-transfer comparator only"
+  },
+  "scope_limit": "A short ex-vivo human placental drug-transfer study; not embryo development, continuous gestation, artificial-environment birth, or later-health evidence.",
+  "next_action": "Retain as a figure- and abstract-level functional-transfer comparator. Continue public-only screening for the journal figure caption or a linked numeric source that defines the FTR equation, uncertainty statistic and cohort denominator; do not digitize plotted points or use for a dimensional fit.",
+  "author_contacted": false,
+  "related_abstract": {
+    "title": "Evaluation of transplacental transfer and placental effects of two recommended melanoma targeted therapies",
+    "source": "IFPA 2025 abstract book, abstract P2.58, printed pages 83–84",
+    "url": "https://ifpa2025.com/wp-content/uploads/2025/09/Abstract-Book_IFPA2025-1.pdf",
+    "relationship_to_journal_article": "Same first author, overlapping author group and same drug pair; the abstract reports FTR values that match the plotted central levels to visual precision, but no sample-level/case crosswalk explicitly links it to the JAAD/Mendeley package.",
+    "reported_frame": "Normal term placentas; ex-vivo placental perfusion. The journal-figure cohort link remains unverified.",
+    "reported_group_values": {
+      "fetal_transfer_rate_percent": {
+        "trametinib": "8.6 ± 3.1",
+        "dabrafenib": "15.3 ± 5.4",
+        "uncertainty_statistic": "not specified in the abstract",
+        "denominator": "not specified in the abstract"
+      },
+      "placental_uptake_ratio_percent": {
+        "trametinib": "7.5 ± 1.4",
+        "dabrafenib": "3.7 ± 2.2",
+        "uncertainty_statistic": "not specified in the abstract",
+        "denominator": "not specified in the abstract"
+      }
+    },
+    "metric_definition": "The abstract names fetal transfer rate but does not give its equation or define the meaning of ±.",
+    "individual_numeric_rows": "not provided"
+  },
+  "related_2024_ajog_abstract": {
+    "doi": "10.1016/j.ajog.2023.11.054",
+    "publisher_page": "https://www.em-consulte.com/article/1643188/article/-evaluation-of-transplacental-transfer-of-cancer-t",
+    "conference_program": "https://smfm2024.eventscribe.net/fsPopup.asp?PresentationID=1327366&mode=sessionInfo",
+    "publisher_access_status": "bibliographic page and section headings visible; full-text page states subscription required; linked PDF could not be read through the public web reader",
+    "reported_12_11_successfully_tested_counts": "unverified in an accessible primary-source result text; do not map to later flowchart stages",
+    "relationship_to_2025_jaad_cohort": "unresolved; title/author overlap and related drug pair are not an explicit sample-level crosswalk",
+    "receipt": "artifacts/heggarty-2025-perfusion-2026-10-11/ajog-abstract-access-screen-cycle218.json",
+    "index_screen": {
+      "pubmed_exact_doi_query_count": 0,
+      "crossref_abstract_field_present": false,
+      "receipt": "artifacts/heggarty-2025-perfusion-2026-10-11/ajog-abstract-index-screen-cycle219.json"
+    },
+    "hal_public_archive_screen": {
+      "exact_doi_query_count": 0,
+      "exact_title_query_count": 0,
+      "query_control": "Related 2025 JAAD DOI returns one HAL metadata record without an open file; control is not an AJOG cohort link.",
+      "receipt": "artifacts/heggarty-2025-perfusion-2026-10-11/ajog-abstract-hal-screen-cycle220.json"
+    },
+    "secondary_index_copy": {
+      "source_url": "https://scispace.com/papers/36-evaluation-of-transplacental-transfer-of-cancer-therapies-2ezpjqk02r",
+      "source_class": "secondary literature index; abstract copy not checked against the publisher PDF",
+      "reported_counts": {
+        "trametinib_successfully_tested": 11,
+        "dabrafenib_and_metabolites_successfully_tested": 12
+      },
+      "reported_values": {
+        "fetal_transfer_rate_percent": {
+          "trametinib": 8.6,
+          "dabrafenib": 14.9
+        },
+        "clearance_index": {
+          "trametinib": 0.27,
+          "dabrafenib": 0.34
+        },
+        "placental_uptake_ratio_percent": {
+          "trametinib": 6.7,
+          "dabrafenib": 2.6
+        }
+      },
+      "relationship_to_official_2025_ifpa_abstract": "FTR and uptake values differ; the reason and cohort relationship are unresolved.",
+      "intake_state": "discovery_lead_only; no observation promotion or pooling",
+      "receipt": "artifacts/heggarty-2025-perfusion-2026-10-11/ajog-secondary-abstract-screen-cycle221.json"
+    },
+    "publisher_metadata_export": {
+      "abstract_option_selected": true,
+      "abstract_field_nonempty": false,
+      "exported_volume_issue_pages_conflict_with_publisher_landing_page": true,
+      "receipt": "artifacts/heggarty-2025-perfusion-2026-10-11/ajog-metadata-export-screen-cycle222.json"
+    },
+    "conference_program_content_screen": {
+      "program_page_exposes_schedule_and_authors": true,
+      "abstract_or_attachment_exposed": false,
+      "interpretation": "The visible page is a presentation-identity source only; other meeting routes were not assessed.",
+      "receipt": "artifacts/heggarty-2025-perfusion-2026-10-11/smfm-program-detail-screen-cycle223.json"
+    },
+    "publisher_figures_tab_screen": {
+      "visible_result_figure_or_caption": false,
+      "interpretation": "The public route resolves to the gated article shell; this does not establish what figures appear in the subscription PDF.",
+      "receipt": "artifacts/heggarty-2025-perfusion-2026-10-11/ajog-figures-tab-screen-cycle224.json"
+    }
+  }
+}

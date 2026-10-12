@@ -1,0 +1,1010 @@
+{
+  "schema_version": 1,
+  "dataset_id": "eixarch2026-ep09-22-neonatal-candidate",
+  "title": "Eixarch et al. 2026 EP09.22 post-transition case summaries; candidate transcription",
+  "source_revision": {
+    "revision_id": "ep09-22-poster-2026-10-11-cycle282",
+    "citation": "Eixarch E, et al. Neonatal outcomes after transition to postnatal life following fetal liquid incubator support in preterm lambs. ISUOG 36th World Congress on Ultrasound in Obstetrics and Gynecology. 2026; poster EP09.22. doi:10.1002/uog.70305_731.",
+    "source_kind": "other",
+    "source_url": "https://epostersonline.com/isuog2026/poster/543",
+    "review_status": "candidate",
+    "reviewer": "",
+    "reviewed_on": null,
+    "review_note": ""
+  },
+  "artifacts": [
+    {
+      "artifact_id": "eixarch2026-ep09-22-poster",
+      "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.21f04bd.NORMAL.pdf?v=1",
+      "license": "Public poster; reuse license not stated",
+      "sha256": "b12a66778648322b6f937d190cfc7d59ecadfc782339d78aeb9bf986c60526f2",
+      "retrieved_on": "2026-10-10",
+      "local_path": "artifacts/fetal-ovine-transition-2026-10-10/ep09-22-poster.pdf"
+    }
+  ],
+  "observations": [
+    {
+      "schema_version": 1,
+      "record_id": "ep09-22-animal-1-extubation",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "transition_to_neonatal",
+      "developmental_interval": {
+        "label": "Post-transition outcome, poster Animal 1",
+        "start": null,
+        "end": null,
+        "time_unit": "timepoint-specific outcomes",
+        "stage_source_artifact_id": "eixarch2026-ep09-22-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine lamb after fetal liquid incubator support; anonymized poster case label"
+      },
+      "assay": {
+        "name": "Poster case-table outcome",
+        "endpoint": "Successful extubation",
+        "unit": "poster-reported categorical outcome",
+        "measurement_role": "function"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Animal 1",
+        "parent_id": null,
+        "hierarchy_note": "Anonymized poster row label only; no persistent animal identifier or linkage to other reports is provided."
+      },
+      "observation": {
+        "value": "No; table note: absence of respiratory drive",
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      },
+      "source": {
+        "artifact_id": "eixarch2026-ep09-22-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.21f04bd.NORMAL.pdf?v=1",
+        "license": "Public poster; reuse license not stated",
+        "sha256": "b12a66778648322b6f937d190cfc7d59ecadfc782339d78aeb9bf986c60526f2",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Poster PDF, table 'Outcomes of neonatal transition experiments following FLI support', Animal 1 row"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ep09-22-animal-1-survival",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "developmental_outcomes",
+      "developmental_interval": {
+        "label": "Post-transition outcome, poster Animal 1",
+        "start": null,
+        "end": null,
+        "time_unit": "timepoint-specific outcomes",
+        "stage_source_artifact_id": "eixarch2026-ep09-22-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine lamb after fetal liquid incubator support; anonymized poster case label"
+      },
+      "assay": {
+        "name": "Poster case-table outcome",
+        "endpoint": "Post-transition survival duration",
+        "unit": "days",
+        "measurement_role": "durability"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Animal 1",
+        "parent_id": null,
+        "hierarchy_note": "Anonymized poster row label only; no persistent animal identifier or linkage to other reports is provided."
+      },
+      "observation": {
+        "value": 7,
+        "measurement_time": 7,
+        "measurement_time_unit": "days after neonatal transition",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      },
+      "source": {
+        "artifact_id": "eixarch2026-ep09-22-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.21f04bd.NORMAL.pdf?v=1",
+        "license": "Public poster; reuse license not stated",
+        "sha256": "b12a66778648322b6f937d190cfc7d59ecadfc782339d78aeb9bf986c60526f2",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Poster PDF, table 'Outcomes of neonatal transition experiments following FLI support', Animal 1 row"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ep09-22-animal-1-disposition",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "developmental_outcomes",
+      "developmental_interval": {
+        "label": "Post-transition outcome, poster Animal 1",
+        "start": null,
+        "end": null,
+        "time_unit": "timepoint-specific outcomes",
+        "stage_source_artifact_id": "eixarch2026-ep09-22-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine lamb after fetal liquid incubator support; anonymized poster case label"
+      },
+      "assay": {
+        "name": "Poster case-table outcome",
+        "endpoint": "Reported post-transition disposition",
+        "unit": "poster-reported disposition",
+        "measurement_role": "adverse_effect"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Animal 1",
+        "parent_id": null,
+        "hierarchy_note": "Anonymized poster row label only; no persistent animal identifier or linkage to other reports is provided."
+      },
+      "observation": {
+        "value": "Euthanasia for iatrogenic complications",
+        "measurement_time": 7,
+        "measurement_time_unit": "days after neonatal transition",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      },
+      "source": {
+        "artifact_id": "eixarch2026-ep09-22-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.21f04bd.NORMAL.pdf?v=1",
+        "license": "Public poster; reuse license not stated",
+        "sha256": "b12a66778648322b6f937d190cfc7d59ecadfc782339d78aeb9bf986c60526f2",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Poster PDF, table 'Outcomes of neonatal transition experiments following FLI support', Animal 1 row"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ep09-22-animal-2-extubation",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "transition_to_neonatal",
+      "developmental_interval": {
+        "label": "Post-transition outcome, poster Animal 2",
+        "start": null,
+        "end": null,
+        "time_unit": "timepoint-specific outcomes",
+        "stage_source_artifact_id": "eixarch2026-ep09-22-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine lamb after fetal liquid incubator support; anonymized poster case label"
+      },
+      "assay": {
+        "name": "Poster case-table outcome",
+        "endpoint": "Successful extubation",
+        "unit": "poster-reported categorical outcome",
+        "measurement_role": "function"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Animal 2",
+        "parent_id": null,
+        "hierarchy_note": "Anonymized poster row label only; no persistent animal identifier or linkage to other reports is provided."
+      },
+      "observation": {
+        "value": "No",
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      },
+      "source": {
+        "artifact_id": "eixarch2026-ep09-22-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.21f04bd.NORMAL.pdf?v=1",
+        "license": "Public poster; reuse license not stated",
+        "sha256": "b12a66778648322b6f937d190cfc7d59ecadfc782339d78aeb9bf986c60526f2",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Poster PDF, table 'Outcomes of neonatal transition experiments following FLI support', Animal 2 row"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ep09-22-animal-2-survival",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "developmental_outcomes",
+      "developmental_interval": {
+        "label": "Post-transition outcome, poster Animal 2",
+        "start": null,
+        "end": null,
+        "time_unit": "timepoint-specific outcomes",
+        "stage_source_artifact_id": "eixarch2026-ep09-22-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine lamb after fetal liquid incubator support; anonymized poster case label"
+      },
+      "assay": {
+        "name": "Poster case-table outcome",
+        "endpoint": "Post-transition survival duration",
+        "unit": "days",
+        "measurement_role": "durability"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Animal 2",
+        "parent_id": null,
+        "hierarchy_note": "Anonymized poster row label only; no persistent animal identifier or linkage to other reports is provided."
+      },
+      "observation": {
+        "value": 2,
+        "measurement_time": 2,
+        "measurement_time_unit": "days after neonatal transition",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      },
+      "source": {
+        "artifact_id": "eixarch2026-ep09-22-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.21f04bd.NORMAL.pdf?v=1",
+        "license": "Public poster; reuse license not stated",
+        "sha256": "b12a66778648322b6f937d190cfc7d59ecadfc782339d78aeb9bf986c60526f2",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Poster PDF, table 'Outcomes of neonatal transition experiments following FLI support', Animal 2 row"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ep09-22-animal-2-disposition",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "developmental_outcomes",
+      "developmental_interval": {
+        "label": "Post-transition outcome, poster Animal 2",
+        "start": null,
+        "end": null,
+        "time_unit": "timepoint-specific outcomes",
+        "stage_source_artifact_id": "eixarch2026-ep09-22-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine lamb after fetal liquid incubator support; anonymized poster case label"
+      },
+      "assay": {
+        "name": "Poster case-table outcome",
+        "endpoint": "Reported post-transition disposition",
+        "unit": "poster-reported disposition",
+        "measurement_role": "adverse_effect"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Animal 2",
+        "parent_id": null,
+        "hierarchy_note": "Anonymized poster row label only; no persistent animal identifier or linkage to other reports is provided."
+      },
+      "observation": {
+        "value": "Sudden cardiopulmonary arrest; suspected white matter disease",
+        "measurement_time": 2,
+        "measurement_time_unit": "days after neonatal transition",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      },
+      "source": {
+        "artifact_id": "eixarch2026-ep09-22-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.21f04bd.NORMAL.pdf?v=1",
+        "license": "Public poster; reuse license not stated",
+        "sha256": "b12a66778648322b6f937d190cfc7d59ecadfc782339d78aeb9bf986c60526f2",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Poster PDF, table 'Outcomes of neonatal transition experiments following FLI support', Animal 2 row"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ep09-22-animal-3-extubation",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "transition_to_neonatal",
+      "developmental_interval": {
+        "label": "Post-transition outcome, poster Animal 3",
+        "start": null,
+        "end": null,
+        "time_unit": "timepoint-specific outcomes",
+        "stage_source_artifact_id": "eixarch2026-ep09-22-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine lamb after fetal liquid incubator support; anonymized poster case label"
+      },
+      "assay": {
+        "name": "Poster case-table outcome",
+        "endpoint": "Successful extubation",
+        "unit": "poster-reported categorical outcome",
+        "measurement_role": "function"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Animal 3",
+        "parent_id": null,
+        "hierarchy_note": "Anonymized poster row label only; no persistent animal identifier or linkage to other reports is provided."
+      },
+      "observation": {
+        "value": "Yes",
+        "measurement_time": 24,
+        "measurement_time_unit": "hours after neonatal transition",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      },
+      "source": {
+        "artifact_id": "eixarch2026-ep09-22-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.21f04bd.NORMAL.pdf?v=1",
+        "license": "Public poster; reuse license not stated",
+        "sha256": "b12a66778648322b6f937d190cfc7d59ecadfc782339d78aeb9bf986c60526f2",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Poster PDF, table 'Outcomes of neonatal transition experiments following FLI support', Animal 3 row"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ep09-22-animal-3-survival",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "developmental_outcomes",
+      "developmental_interval": {
+        "label": "Post-transition outcome, poster Animal 3",
+        "start": null,
+        "end": null,
+        "time_unit": "timepoint-specific outcomes",
+        "stage_source_artifact_id": "eixarch2026-ep09-22-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine lamb after fetal liquid incubator support; anonymized poster case label"
+      },
+      "assay": {
+        "name": "Poster case-table outcome",
+        "endpoint": "Post-transition survival duration",
+        "unit": "days",
+        "measurement_role": "durability"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Animal 3",
+        "parent_id": null,
+        "hierarchy_note": "Anonymized poster row label only; no persistent animal identifier or linkage to other reports is provided."
+      },
+      "observation": {
+        "value": 5,
+        "measurement_time": 5,
+        "measurement_time_unit": "days after neonatal transition",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      },
+      "source": {
+        "artifact_id": "eixarch2026-ep09-22-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.21f04bd.NORMAL.pdf?v=1",
+        "license": "Public poster; reuse license not stated",
+        "sha256": "b12a66778648322b6f937d190cfc7d59ecadfc782339d78aeb9bf986c60526f2",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Poster PDF, table 'Outcomes of neonatal transition experiments following FLI support', Animal 3 row"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ep09-22-animal-3-disposition",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "developmental_outcomes",
+      "developmental_interval": {
+        "label": "Post-transition outcome, poster Animal 3",
+        "start": null,
+        "end": null,
+        "time_unit": "timepoint-specific outcomes",
+        "stage_source_artifact_id": "eixarch2026-ep09-22-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine lamb after fetal liquid incubator support; anonymized poster case label"
+      },
+      "assay": {
+        "name": "Poster case-table outcome",
+        "endpoint": "Reported post-transition disposition",
+        "unit": "poster-reported disposition",
+        "measurement_role": "adverse_effect"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Animal 3",
+        "parent_id": null,
+        "hierarchy_note": "Anonymized poster row label only; no persistent animal identifier or linkage to other reports is provided."
+      },
+      "observation": {
+        "value": "Sudden cardiopulmonary arrest; suspected white matter disease",
+        "measurement_time": 5,
+        "measurement_time_unit": "days after neonatal transition",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      },
+      "source": {
+        "artifact_id": "eixarch2026-ep09-22-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.21f04bd.NORMAL.pdf?v=1",
+        "license": "Public poster; reuse license not stated",
+        "sha256": "b12a66778648322b6f937d190cfc7d59ecadfc782339d78aeb9bf986c60526f2",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Poster PDF, table 'Outcomes of neonatal transition experiments following FLI support', Animal 3 row"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ep09-22-animal-4-extubation",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "transition_to_neonatal",
+      "developmental_interval": {
+        "label": "Post-transition outcome, poster Animal 4",
+        "start": null,
+        "end": null,
+        "time_unit": "timepoint-specific outcomes",
+        "stage_source_artifact_id": "eixarch2026-ep09-22-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine lamb after fetal liquid incubator support; anonymized poster case label"
+      },
+      "assay": {
+        "name": "Poster case-table outcome",
+        "endpoint": "Successful extubation",
+        "unit": "poster-reported categorical outcome",
+        "measurement_role": "function"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Animal 4",
+        "parent_id": null,
+        "hierarchy_note": "Anonymized poster row label only; no persistent animal identifier or linkage to other reports is provided."
+      },
+      "observation": {
+        "value": "Yes",
+        "measurement_time": 6,
+        "measurement_time_unit": "days after neonatal transition",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      },
+      "source": {
+        "artifact_id": "eixarch2026-ep09-22-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.21f04bd.NORMAL.pdf?v=1",
+        "license": "Public poster; reuse license not stated",
+        "sha256": "b12a66778648322b6f937d190cfc7d59ecadfc782339d78aeb9bf986c60526f2",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Poster PDF, table 'Outcomes of neonatal transition experiments following FLI support', Animal 4 row; maze result in Methods/Results"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ep09-22-animal-4-survival",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "developmental_outcomes",
+      "developmental_interval": {
+        "label": "Post-transition outcome, poster Animal 4",
+        "start": null,
+        "end": null,
+        "time_unit": "timepoint-specific outcomes",
+        "stage_source_artifact_id": "eixarch2026-ep09-22-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine lamb after fetal liquid incubator support; anonymized poster case label"
+      },
+      "assay": {
+        "name": "Poster case-table outcome",
+        "endpoint": "Post-transition survival duration",
+        "unit": "months",
+        "measurement_role": "durability"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Animal 4",
+        "parent_id": null,
+        "hierarchy_note": "Anonymized poster row label only; no persistent animal identifier or linkage to other reports is provided."
+      },
+      "observation": {
+        "value": 13,
+        "measurement_time": 13,
+        "measurement_time_unit": "months after neonatal transition",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      },
+      "source": {
+        "artifact_id": "eixarch2026-ep09-22-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.21f04bd.NORMAL.pdf?v=1",
+        "license": "Public poster; reuse license not stated",
+        "sha256": "b12a66778648322b6f937d190cfc7d59ecadfc782339d78aeb9bf986c60526f2",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Poster PDF, table 'Outcomes of neonatal transition experiments following FLI support', Animal 4 row; maze result in Methods/Results"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ep09-22-animal-4-maze-assessment",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "developmental_outcomes",
+      "developmental_interval": {
+        "label": "Post-transition outcome, poster Animal 4",
+        "start": null,
+        "end": null,
+        "time_unit": "timepoint-specific outcomes",
+        "stage_source_artifact_id": "eixarch2026-ep09-22-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine lamb after fetal liquid incubator support; anonymized poster case label"
+      },
+      "assay": {
+        "name": "Poster case-table outcome",
+        "endpoint": "Maze-test comparison statement",
+        "unit": "poster-reported qualitative comparison",
+        "measurement_role": "function"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Animal 4",
+        "parent_id": null,
+        "hierarchy_note": "Anonymized poster row label only; no persistent animal identifier or linkage to other reports is provided."
+      },
+      "observation": {
+        "value": "Reported comparable to age-matched controls",
+        "measurement_time": 3,
+        "measurement_time_unit": "months of age",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      },
+      "source": {
+        "artifact_id": "eixarch2026-ep09-22-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.21f04bd.NORMAL.pdf?v=1",
+        "license": "Public poster; reuse license not stated",
+        "sha256": "b12a66778648322b6f937d190cfc7d59ecadfc782339d78aeb9bf986c60526f2",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Poster PDF, Methods/Results and Animal 4 outcome table row"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ep09-22-animal-1-fli-support-duration",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Fetal liquid incubator support before neonatal transition, poster Animal 1",
+        "start": 123,
+        "end": 132,
+        "time_unit": "poster-reported ovine gestational days",
+        "stage_source_artifact_id": "eixarch2026-ep09-22-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm ovine lamb in fetal liquid incubator support; anonymized poster case label"
+      },
+      "assay": {
+        "name": "Poster case-table duration",
+        "endpoint": "Days on fetal liquid incubator support",
+        "unit": "days",
+        "measurement_role": "durability"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Animal 1",
+        "parent_id": null,
+        "hierarchy_note": "Anonymized poster row label only; no persistent animal identifier or linkage to other reports is provided."
+      },
+      "observation": {
+        "value": 9,
+        "measurement_time": null,
+        "measurement_time_unit": "days on fetal liquid incubator support",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      },
+      "source": {
+        "artifact_id": "eixarch2026-ep09-22-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.21f04bd.NORMAL.pdf?v=1",
+        "license": "Public poster; reuse license not stated",
+        "sha256": "b12a66778648322b6f937d190cfc7d59ecadfc782339d78aeb9bf986c60526f2",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Poster PDF, p. 1, table 'Outcomes of neonatal transition experiments following FLI support', Animal 1 row, 'Days on FLI Support' column"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ep09-22-animal-2-fli-support-duration",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Fetal liquid incubator support before neonatal transition, poster Animal 2",
+        "start": 125,
+        "end": 139,
+        "time_unit": "poster-reported ovine gestational days",
+        "stage_source_artifact_id": "eixarch2026-ep09-22-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm ovine lamb in fetal liquid incubator support; anonymized poster case label"
+      },
+      "assay": {
+        "name": "Poster case-table duration",
+        "endpoint": "Days on fetal liquid incubator support",
+        "unit": "days",
+        "measurement_role": "durability"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Animal 2",
+        "parent_id": null,
+        "hierarchy_note": "Anonymized poster row label only; no persistent animal identifier or linkage to other reports is provided."
+      },
+      "observation": {
+        "value": 24,
+        "measurement_time": null,
+        "measurement_time_unit": "days on fetal liquid incubator support",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "source_qualifications": [
+          {
+            "criterion_code": "support_duration_internal_consistency",
+            "status_code": "table_cell_conflicts_with_stage_delta_and_summary",
+            "criterion_label": "The visually confirmed 24-day table value conflicts with the displayed 14-day gestational-age difference (139 minus 125) and the reported cohort summary of 9.6 ± 3.1 days; retain the table value without correction.",
+            "source_artifact_id": "eixarch2026-ep09-22-poster",
+            "source_locator": "Poster PDF, p. 1, Animal 2 row, 'Days on FLI Support' column; cross-checked against the cannulation and neonatal-transition gestational-age columns and the Results summary.",
+            "reference_value": 14,
+            "reference_unit": "days, difference between the two displayed gestational-age cells"
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "eixarch2026-ep09-22-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.21f04bd.NORMAL.pdf?v=1",
+        "license": "Public poster; reuse license not stated",
+        "sha256": "b12a66778648322b6f937d190cfc7d59ecadfc782339d78aeb9bf986c60526f2",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Poster PDF, p. 1, table 'Outcomes of neonatal transition experiments following FLI support', Animal 2 row, 'Days on FLI Support' column"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ep09-22-animal-3-fli-support-duration",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Fetal liquid incubator support before neonatal transition, poster Animal 3",
+        "start": 126,
+        "end": 134,
+        "time_unit": "poster-reported ovine gestational days",
+        "stage_source_artifact_id": "eixarch2026-ep09-22-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm ovine lamb in fetal liquid incubator support; anonymized poster case label"
+      },
+      "assay": {
+        "name": "Poster case-table duration",
+        "endpoint": "Days on fetal liquid incubator support",
+        "unit": "days",
+        "measurement_role": "durability"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Animal 3",
+        "parent_id": null,
+        "hierarchy_note": "Anonymized poster row label only; no persistent animal identifier or linkage to other reports is provided."
+      },
+      "observation": {
+        "value": 8,
+        "measurement_time": null,
+        "measurement_time_unit": "days on fetal liquid incubator support",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      },
+      "source": {
+        "artifact_id": "eixarch2026-ep09-22-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.21f04bd.NORMAL.pdf?v=1",
+        "license": "Public poster; reuse license not stated",
+        "sha256": "b12a66778648322b6f937d190cfc7d59ecadfc782339d78aeb9bf986c60526f2",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Poster PDF, p. 1, table 'Outcomes of neonatal transition experiments following FLI support', Animal 3 row, 'Days on FLI Support' column"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ep09-22-animal-4-fli-support-duration",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Fetal liquid incubator support before neonatal transition, poster Animal 4",
+        "start": 129,
+        "end": 139,
+        "time_unit": "poster-reported ovine gestational days",
+        "stage_source_artifact_id": "eixarch2026-ep09-22-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Preterm ovine lamb in fetal liquid incubator support; anonymized poster case label"
+      },
+      "assay": {
+        "name": "Poster case-table duration",
+        "endpoint": "Days on fetal liquid incubator support",
+        "unit": "days",
+        "measurement_role": "durability"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Animal 4",
+        "parent_id": null,
+        "hierarchy_note": "Anonymized poster row label only; no persistent animal identifier or linkage to other reports is provided."
+      },
+      "observation": {
+        "value": 7,
+        "measurement_time": null,
+        "measurement_time_unit": "days on fetal liquid incubator support",
+        "comparator_id": null,
+        "replicate_role": "summary_only",
+        "source_qualifications": [
+          {
+            "criterion_code": "support_duration_clock_relation",
+            "status_code": "gestational_age_increment_differs_from_fli_support_days",
+            "criterion_label": "The two displayed gestational-age cells differ by 10 days, while the table reports 7 days on FLI support. The poster does not explain whether the columns use different clock origins; retain both values and do not reconcile them.",
+            "source_artifact_id": "eixarch2026-ep09-22-poster",
+            "source_locator": "Poster PDF, p. 1, Animal 4 row, 'Gestational Age at Cannulation', 'Days on FLI Support', and 'GA at NNT' columns",
+            "reference_value": 10,
+            "reference_unit": "gestational days between the two displayed GA cells"
+          }
+        ]
+      },
+      "source": {
+        "artifact_id": "eixarch2026-ep09-22-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.21f04bd.NORMAL.pdf?v=1",
+        "license": "Public poster; reuse license not stated",
+        "sha256": "b12a66778648322b6f937d190cfc7d59ecadfc782339d78aeb9bf986c60526f2",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Poster PDF, p. 1, table 'Outcomes of neonatal transition experiments following FLI support', Animal 4 row, 'Days on FLI Support' column"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ep09-22-animal-1-weight",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "unspecified",
+      "developmental_interval": {
+        "label": "Poster case table, Animal 1; weight timepoint not stated",
+        "start": null,
+        "end": null,
+        "time_unit": "timepoint not stated in poster",
+        "stage_source_artifact_id": "eixarch2026-ep09-22-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine lamb in fetal liquid incubator neonatal-transition case table; poster-local label"
+      },
+      "assay": {
+        "name": "Poster case-table measurement",
+        "endpoint": "Weight",
+        "unit": "kg",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Animal 1",
+        "parent_id": null,
+        "hierarchy_note": "Poster-local row label only; no persistent animal identifier or linkage to other reports is provided."
+      },
+      "observation": {
+        "value": 2.8,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      },
+      "source": {
+        "artifact_id": "eixarch2026-ep09-22-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.21f04bd.NORMAL.pdf?v=1",
+        "license": "Public poster; reuse license not stated",
+        "sha256": "b12a66778648322b6f937d190cfc7d59ecadfc782339d78aeb9bf986c60526f2",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Poster PDF, p. 1, table 'Outcomes of neonatal transition experiments following FLI support', Animal 1 row, 'Weight (kg)' column"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ep09-22-animal-2-weight",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "unspecified",
+      "developmental_interval": {
+        "label": "Poster case table, Animal 2; weight timepoint not stated",
+        "start": null,
+        "end": null,
+        "time_unit": "timepoint not stated in poster",
+        "stage_source_artifact_id": "eixarch2026-ep09-22-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine lamb in fetal liquid incubator neonatal-transition case table; poster-local label"
+      },
+      "assay": {
+        "name": "Poster case-table measurement",
+        "endpoint": "Weight",
+        "unit": "kg",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Animal 2",
+        "parent_id": null,
+        "hierarchy_note": "Poster-local row label only; no persistent animal identifier or linkage to other reports is provided."
+      },
+      "observation": {
+        "value": 2.0,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      },
+      "source": {
+        "artifact_id": "eixarch2026-ep09-22-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.21f04bd.NORMAL.pdf?v=1",
+        "license": "Public poster; reuse license not stated",
+        "sha256": "b12a66778648322b6f937d190cfc7d59ecadfc782339d78aeb9bf986c60526f2",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Poster PDF, p. 1, table 'Outcomes of neonatal transition experiments following FLI support', Animal 2 row, 'Weight (kg)' column"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ep09-22-animal-3-weight",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "unspecified",
+      "developmental_interval": {
+        "label": "Poster case table, Animal 3; weight timepoint not stated",
+        "start": null,
+        "end": null,
+        "time_unit": "timepoint not stated in poster",
+        "stage_source_artifact_id": "eixarch2026-ep09-22-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine lamb in fetal liquid incubator neonatal-transition case table; poster-local label"
+      },
+      "assay": {
+        "name": "Poster case-table measurement",
+        "endpoint": "Weight",
+        "unit": "kg",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Animal 3",
+        "parent_id": null,
+        "hierarchy_note": "Poster-local row label only; no persistent animal identifier or linkage to other reports is provided."
+      },
+      "observation": {
+        "value": 2.2,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      },
+      "source": {
+        "artifact_id": "eixarch2026-ep09-22-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.21f04bd.NORMAL.pdf?v=1",
+        "license": "Public poster; reuse license not stated",
+        "sha256": "b12a66778648322b6f937d190cfc7d59ecadfc782339d78aeb9bf986c60526f2",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Poster PDF, p. 1, table 'Outcomes of neonatal transition experiments following FLI support', Animal 3 row, 'Weight (kg)' column"
+    },
+    {
+      "schema_version": 1,
+      "record_id": "ep09-22-animal-4-weight",
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "unspecified",
+      "developmental_interval": {
+        "label": "Poster case table, Animal 4; weight timepoint not stated",
+        "start": null,
+        "end": null,
+        "time_unit": "timepoint not stated in poster",
+        "stage_source_artifact_id": "eixarch2026-ep09-22-poster"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine lamb in fetal liquid incubator neonatal-transition case table; poster-local label"
+      },
+      "assay": {
+        "name": "Poster case-table measurement",
+        "endpoint": "Weight",
+        "unit": "kg",
+        "measurement_role": "other"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Animal 4",
+        "parent_id": null,
+        "hierarchy_note": "Poster-local row label only; no persistent animal identifier or linkage to other reports is provided."
+      },
+      "observation": {
+        "value": 2.7,
+        "measurement_time": null,
+        "measurement_time_unit": "",
+        "comparator_id": null,
+        "replicate_role": "summary_only"
+      },
+      "source": {
+        "artifact_id": "eixarch2026-ep09-22-poster",
+        "uri": "https://epostersonline-2.s3.eu-west-1.amazonaws.com/isuog2026/isuog2026.21f04bd.NORMAL.pdf?v=1",
+        "license": "Public poster; reuse license not stated",
+        "sha256": "b12a66778648322b6f937d190cfc7d59ecadfc782339d78aeb9bf986c60526f2",
+        "retrieved_on": "2026-10-10"
+      },
+      "source_locator": "Poster PDF, p. 1, table 'Outcomes of neonatal transition experiments following FLI support', Animal 4 row, 'Weight (kg)' column"
+    }
+  ],
+  "cohort_coverage": [
+    {
+      "coverage_id": "ep09-22-four-transition-case-summaries",
+      "source_artifact_id": "eixarch2026-ep09-22-poster",
+      "reported_group_label": "Four neonatal transition cases",
+      "group_label_status": "reported",
+      "counted_entity_kind": "fetus",
+      "counted_entity_label": "Ovine lambs labeled Animal 1-4 in the poster table",
+      "endpoint_label": "Per-case extubation, post-transition survival/disposition, and Animal 4 maze-assessment outcome",
+      "population_frame": "The four source-labeled cases in the poster's neonatal transition outcome table",
+      "measurement_window": "Source-reported per-case points from neonatal transition through follow-up; time units vary by endpoint",
+      "selection_definition": "The poster describes four lambs transitioned after fetal liquid incubator support. This is a transition-case subset; the number entering fetal liquid incubator support and the number eligible for transition are not reported.",
+      "selection_definition_source_locator": "Poster PDF, Results and table 'Outcomes of neonatal transition experiments following FLI support'",
+      "denominator": {
+        "value": 4,
+        "value_status": "reported",
+        "reported_label": "Four lambs described in the neonatal transition table",
+        "source_locator": "Poster PDF, Results; four-row neonatal transition outcome table"
+      },
+      "declarations": [
+        {
+          "category": "initially_included",
+          "scope": "within_denominator",
+          "reported_label": "Four lambs described as transitioned after FLI support",
+          "quantity_kind": "count",
+          "value": 4,
+          "value_status": "reported",
+          "source_locator": "Poster PDF, Results; four-row neonatal transition outcome table"
+        },
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Four source-labeled animals represented in the case outcome table",
+          "quantity_kind": "count",
+          "value": 4,
+          "value_status": "reported",
+          "source_locator": "Poster PDF, table: Outcomes of neonatal transition experiments following FLI support"
+        }
+      ],
+      "selection_statements": [
+        {
+          "text": "The poster reports four cases transitioned to neonatal life, but does not report the total number entering FLI support or an attempted-transition denominator.",
+          "source_locator": "Poster PDF, Results and conclusion; four-row outcome table"
+        }
+      ],
+      "cohort_window_status": "source_labels_only",
+      "disposition_completeness": "partial",
+      "categories_mutually_exclusive": "unknown",
+      "categories_exhaustive": "unknown"
+    }
+  ],
+  "limitations": [
+    "This is a candidate, typed transcription of a public conference poster, not a peer-reviewed full-cohort report or raw-data release; the poster table was visually inspected and all extracted values remain source-reported.",
+    "Only four poster-labeled transition cases are represented. The total FLI-start denominator and transition-eligible denominator are not reported, so these cases do not define a transition or survival rate.",
+    "The poster table visually prints support durations of 9, 24, 8 and 7 days. The four values have mean 12.0 days and sample SD 8.04 days, unlike the reported 9.6 ± 3.1-day cohort summary. Animal 2 gestational ages imply 14 days; Animal 4 gestational ages differ by 10 days while its FLI duration is 7 days. The poster does not reconcile the clock differences. Replacing 24 with 14 would yield a mean of 9.5 and sample SD 3.11, but remains an unverified hypothesis, not a correction.",
+    "The poster says satisfactory respiratory parameters were present in all four animals, while the case table records no successful extubation for Animals 1 and 2. These may describe distinct endpoints because assessment conditions and support mode are unspecified; preserve both statements and do not equate satisfactory monitored parameters with extubation.",
+    "The maze comparison is reported for one case at 3 months, with no named instrument details, scoring, blinded assessment, or broader developmental domains. It is not evidence of comprehensive normal development.",
+    "The source labels Animal 1-4 are poster-local labels only and are not linked to the 2025 OC14.07 abstract, other poster cohorts, the named Gaia case, or company follow-up claims. The close 9.6 ± 3.1-day poster support summary and 9.5 ± 3.3-day 2025 survival summary make partial overlap or follow-up plausible, but endpoint frames differ and no animal IDs/date crosswalk is reported; do not assume an independent replication or pool denominators.",
+    "Extubation, survival, disposition, support duration, and maze rows preserve separate source statements. Missing extubation times for Animals 1 and 2 remain unset; multiple endpoints are not collapsed into a single timepoint.",
+    "The poster table lists weights of 2.8, 2.0, 2.2 and 2.7 kg for Animals 1-4. The measurement timepoint is not stated; the candidate preserves the values with time unset and does not call them birth weight or transition weight."
+  ]
+}

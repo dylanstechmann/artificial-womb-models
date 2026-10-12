@@ -1,0 +1,73 @@
+{
+  "schema_version": 1,
+  "review_status": "source_screen_only",
+  "human_review": "pending",
+  "inspected_on": "2026-10-11",
+  "article": {
+    "title": "Transplacental transfer of osimertinib and alectinib using an ex vivo human placental perfusion model",
+    "citation": "Benoit L et al. Placenta. 2026;182:116-122. doi:10.1016/j.placenta.2026.05.024.",
+    "doi": "10.1016/j.placenta.2026.05.024",
+    "pmid": "42335649",
+    "publisher_url": "https://www.sciencedirect.com/science/article/pii/S0143400426001864",
+    "pubmed_url": "https://pubmed.ncbi.nlm.nih.gov/42335649/",
+    "publisher_route_status": "Direct ScienceDirect page returned HTTP 403 in this screen; PubMed full abstract is accessible.",
+    "publisher_indexed_data_availability": "Search-indexed publisher preview states that all data supporting the results are detailed in the article; the gated article text was not inspected.",
+    "source_review_depth": "PubMed bibliographic record and abstract, ScienceDirect indexed preview, and bounded exact-title/DOI repository searches; no full article, supplement, or repository file was inspected"
+  },
+  "reported_abstract_results": {
+    "study_frame": "Normal-term human placentas; ex-vivo placental cotyledon perfusion.",
+    "osimertinib": {
+      "fetal_transfer_rate_percent": 9.5,
+      "clearance_index": 0.41,
+      "cotyledon_accumulation_percent": 28.9,
+      "clearance_index_source_difference": "The publisher-indexed discussion excerpt reports median CI 0.42, while PubMed abstract reports CI 0.41; reason unresolved."
+    },
+    "alectinib": {
+      "fetal_sample_detection": "not detected, as reported in the abstract",
+      "placental_tissue_accumulation_percent": 370.7
+    },
+    "alectinib_metabolite_M4": {
+      "fetal_sample_detection": "not detected, as reported in the abstract",
+      "placental_tissue_accumulation_percent": 178.3
+    },
+    "group_denominators": "not reported in the abstract",
+    "uncertainty_statistics": "not reported in the abstract",
+    "metric_equations_and_detection_limits": "not reported in the abstract"
+  },
+  "availability_by_field": {
+    "individual_placenta_numeric_rows": "not present in the inspected abstract; full article not assessed",
+    "serial_concentration_by_compartment_and_time": "not present in the inspected abstract; full article not assessed",
+    "compartment_volumes_and_sample_removal_history": "not present in the inspected abstract; full article not assessed",
+    "assay_calibration_recovery_and_uncertainty": "not present in the inspected abstract; full article not assessed",
+    "separate_repository_dataset": "No exact DOI match surfaced in the public Mendeley Data search; exact title search in Figshare returned zero, while DOI-string Figshare search returned 10 broad records without a target match; DataCite related-identifier query returned zero. Bounded index results only, not archive-wide absence.",
+    "developmental_or_neonatal_outcomes": "outside study scope"
+  },
+  "eligibility": {
+    "source_exact_observation_table": false,
+    "time_resolved_transport_fit": false,
+    "dimensional_mass_balance": false,
+    "use_role": "aggregate human placental drug-transfer comparator only"
+  },
+  "scope_limit": "Ex-vivo term-placenta drug transfer; not embryo development, continuous gestation, artificial-environment birth, or later-health evidence.",
+  "next_action": "Retain as aggregate context. Revisit only if an authorized public article/supporting-file route or separately deposited public dataset becomes available; do not fit or pool abstract summaries. See repository-linkage and repository-search receipts for cycles 226–227.",
+  "repository_linkage_receipt": "artifacts/benoit-2026-osimertinib-alectinib-2026-10-11/repository-linkage-screen-cycle226.json",
+  "author_contacted": false,
+  "values_promoted_to_observations": false,
+  "repository_search_receipt": "artifacts/benoit-2026-osimertinib-alectinib-2026-10-11/repository-search-screen-cycle227.json",
+  "openaire_relation_screen": {
+    "publication_record": "OpenAIRE exact-DOI query resolves to the target Crossref-harvested publication; record relations field is null.",
+    "dataset_queries": "Article DOI as dataset DOI and conjunctive title query \"osimertinib alectinib\" each returned zero dataset records.",
+    "interpretation": "Query-bounded index result only; not proof of repository-wide data absence.",
+    "receipt": "artifacts/benoit-2026-osimertinib-alectinib-2026-10-11/openaire-relation-screen-cycle228.json"
+  },
+  "openalex_location_screen": {
+    "open_access": false,
+    "best_oa_location": null,
+    "locations": [
+      "publisher landing page (closed)",
+      "PubMed (closed)"
+    ],
+    "receipt": "artifacts/benoit-2026-osimertinib-alectinib-2026-10-11/openalex-location-screen-cycle229.json",
+    "limit": "OpenAlex index coverage only; not proof of no other public copy or supplement."
+  }
+}

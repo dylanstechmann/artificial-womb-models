@@ -1,0 +1,280 @@
+{
+  "schema_version": 1,
+  "source_id": "mathiesen-2020-human-placental-perfusion",
+  "citation": "Mathiesen L, Bay-Richter C, Wegener G, Liebenberg N, Knudsen LE (2020). Maternal stress and placental function; ex vivo placental perfusion studying cortisol, cortisone, tryptophan and serotonin. PLOS ONE 15(6): e0233979.",
+  "article_url": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0233979",
+  "source_class": "peer_reviewed_human_invitro",
+  "availability_crosswalk": "config/source_inventories/mathiesen_2020_placental_perfusion_crosswalk.json",
+  "organism_species": "human",
+  "source_role": "Candidate source-cell description of term placental perfusate reservoir concentrations; not embryo development or gestational-outcome evidence.",
+  "review_status": "candidate",
+  "human_review": "pending",
+  "retrieved_on": "2026-10-10",
+  "source_files_redistributed": false,
+  "source_code_executed": false,
+  "source_artifacts": [
+    {
+      "artifact_id": "mathiesen2020-article",
+      "uri": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0233979",
+      "local_path": "artifacts/tryptophan-perfusion-2020/article.html",
+      "bytes": 176427,
+      "sha256": "ad0dd45d56df976b03742c942c22a717590440d08285283e5b7da6b830f20f31",
+      "role": "Publisher article HTML; claims, labels, method and selection context inspected.",
+      "reuse_note": "Article page states CC BY 4.0."
+    },
+    {
+      "artifact_id": "mathiesen2020-s1data",
+      "uri": "https://doi.org/10.1371/journal.pone.0233979.s005",
+      "local_path": "artifacts/tryptophan-perfusion-2020/supplement-s1-data.xlsx",
+      "bytes": 36746,
+      "sha256": "c69a7d03d3083435ded8b5a686d25c6dbe186d77321152aceb8ec934a94812a0",
+      "role": "Native workbook; five analytes, maternal/fetal labels, source times and 22 run columns parsed offline.",
+      "reuse_note": "Item-specific supplement reuse review pending."
+    },
+    {
+      "artifact_id": "mathiesen2020-table1",
+      "uri": "https://journals.plos.org/plosone/article/figure/image?download&size=large&id=10.1371/journal.pone.0233979.t001",
+      "local_path": "artifacts/tryptophan-perfusion-2020/table1.png",
+      "bytes": 319879,
+      "sha256": "7cb46b1b495c44ba418e57cc65ae4a987bfc385e12ce028972eff14cc97654b8",
+      "role": "Publisher Table 1 image; run group and acceptable-duration mapping manually transcribed; human verification pending.",
+      "reuse_note": "Image reuse review pending."
+    },
+    {
+      "artifact_id": "mathiesen2020-s1table",
+      "uri": "https://doi.org/10.1371/journal.pone.0233979.s001",
+      "local_path": "artifacts/tryptophan-perfusion-2020/supplement-s1-table.docx",
+      "bytes": 13663,
+      "sha256": "c1c16427fbc70ae6a7f89cb805cda87e5f3a98a083bd998a50d28af130bbd9e4",
+      "role": "Selection funnel: 48 received, 43 cannulations, 26 successful pre-perfusion/substance-added cases, 15 successful 6-hour perfusions; relationship to 22 numbered runs unresolved.",
+      "reuse_note": "Item-specific supplement reuse review pending."
+    }
+  ],
+  "additional_supporting_information_audit": {
+    "audit_date": "2026-10-10",
+    "source_files_redistributed": false,
+    "local_directory": "artifacts/tryptophan-perfusion-supporting-2020",
+    "inspection_scope": "Pinned public files; hashes, document/table structure and headers inspected. S3 numeric key column inspected; donor-level measurement cells were not transcribed.",
+    "files": [
+      {
+        "artifact_id": "mathiesen2020-s2",
+        "uri": "https://doi.org/10.1371/journal.pone.0233979.s002",
+        "local_path": "artifacts/tryptophan-perfusion-supporting-2020/s2-descriptive.docx",
+        "bytes": 14312,
+        "sha256": "5de99801d53a6e2ab4a5b2c3198ab611d7690f5aca098bc866d2ff12f9956768",
+        "role": "Descriptive donor data; one 29-row, two-column Variable/Frequency table. Aggregate structure only; values not transcribed."
+      },
+      {
+        "artifact_id": "mathiesen2020-s3",
+        "uri": "https://doi.org/10.1371/journal.pone.0233979.s003",
+        "local_path": "artifacts/tryptophan-perfusion-supporting-2020/s3-stress-perfusion.docx",
+        "bytes": 17516,
+        "sha256": "0fb9f383a30db58139bab94383a194fa8c90eab9e1247f74641db1ce48015554",
+        "role": "Stress questionnaire data and selected perfusion outcomes; 22 data rows, 14 columns including `nr`, DASS/PRA/FFI, AFCE, selected fetal cortisol/serotonin and 5-HIAA fields. Measurements not transcribed."
+      },
+      {
+        "artifact_id": "mathiesen2020-s4",
+        "uri": "https://doi.org/10.1371/journal.pone.0233979.s004",
+        "local_path": "artifacts/tryptophan-perfusion-supporting-2020/s4-correlations.docx",
+        "bytes": 23812,
+        "sha256": "fcb0c88f86c0e6ce06cb02dcb63ce61f96f6231ca840464de057f2e06487b6dc",
+        "role": "Correlation results; one 43-row, 15-column table. Values not transcribed."
+      }
+    ],
+    "candidate_unit_link": {
+      "s3_key_column": "nr",
+      "s3_key_values": "1 through 22, unique",
+      "table1_key_column": "ID",
+      "table1_key_values": "1 through 22",
+      "numeric_key_sets_match": true,
+      "article_context": "S3 is described as donor questionnaire data and selected perfusion outcomes; Table 1 describes each perfusion.",
+      "explicit_same_key_statement_found": false,
+      "status": "candidate link; not verified",
+      "handling": "Do not join donor-level records to perfusion IDs or add inferred unit membership."
+    },
+    "public_numeric_volume_accounting_found": false,
+    "methods_note": "Article Methods state that fetal reservoir volume was observed after each sample and maternal/fetal volumes were measured at the end; the inspected public files do not expose numerical per-sample volume/removal histories or per-run final volumes."
+  },
+  "cited_validation_literature": [
+    {
+      "citation": "Mathiesen L et al. (2010). Quality assessment of a placental perfusion protocol. Reproductive Toxicology 30(1):138–146.",
+      "doi": "10.1016/j.reprotox.2010.01.006",
+      "public_record": "https://pubmed.ncbi.nlm.nih.gov/20096346/",
+      "reviewed_access": "PubMed metadata and University College Copenhagen publication record/abstract; full text not reviewed in this intake.",
+      "reported_outcome_summary": "Abstract reports positive-control antipyrine transport across 59 perfusions, negative-control leakage checks, and 15% of 202 cannulated placentae meeting the study's success checkpoints over one year.",
+      "evidence_role": "Method-quality and sample-yield context for ex vivo term-placenta assays only.",
+      "intake_status": "Context only; no row-level observations or protocol parameters imported."
+    },
+    {
+      "citation": "Myllynen P et al. (2010). Preliminary interlaboratory comparison of the ex vivo dual human placental perfusion system. Reproductive Toxicology 30(1):94–102.",
+      "doi": "10.1016/j.reprotox.2010.04.006",
+      "public_record": "https://pubmed.ncbi.nlm.nih.gov/20434538/",
+      "reviewed_access": "PubMed abstract and University of Copenhagen publication record; no linked row-level dataset was identified in those records, and the publisher full text was not reviewed.",
+      "reported_outcome_summary": "Abstract reports concordant interlaboratory transfer rankings for three compounds and failed curve fitting for a fourth; detailed transfer data are said to be published or to be published separately.",
+      "evidence_role": "Prevalidation/harmonization context for ex vivo placental transfer endpoints; not gestational support or fetal outcome evidence.",
+      "intake_status": "Context only; follow the separately published compound datasets before attempting quantitative reuse."
+    },
+    {
+      "citation": "Mose T et al. (2012). Meta-analysis of data from human ex vivo placental perfusion studies on genotoxic and immunotoxic agents within the integrated European project NewGeneris. Placenta 33(5):433–439.",
+      "doi": "10.1016/j.placenta.2012.02.004",
+      "public_record": "https://pubmed.ncbi.nlm.nih.gov/22374511/",
+      "institutional_record": "https://researchprofiles.ku.dk/en/publications/meta-analysis-of-data-from-human-exvivo-placental-perfusion-studi/",
+      "reviewed_access": "PubMed and University of Copenhagen abstracts; full text and any supplemental files not reviewed.",
+      "reported_outcome_summary": "Abstract describes re-analysis of thirteen agents across three ex vivo laboratories. Antipyrine transfer differed between studies/labs; normalization reduced variance, but the abstract says the correction only partially addresses small methodological differences and transfer rankings vary slightly by endpoint.",
+      "evidence_role": "Cross-laboratory method-comparison context. Distinct compounds/endpoints from the 2020 hormone/amino-acid workbook; not eligible for pooling with it or as gestational support evidence.",
+      "data_discovery_status": "No row-level dataset linked from the PubMed or institutional records inspected; this does not establish that no supplementary or separately published records exist.",
+      "intake_status": "Context only; retain normalization and recovery limitations, do not transcribe aggregate rankings as individual observations."
+    },
+    {
+      "citation": "Karttunen V et al. (2015). Criteria and challenges of the human placental perfusion—Data from a large series of perfusions. Toxicology in Vitro 29(7):1482–1491.",
+      "doi": "10.1016/j.tiv.2015.06.001",
+      "public_record": "https://pubmed.ncbi.nlm.nih.gov/26055651/",
+      "reviewed_access": "PubMed abstract; full text and any supplemental files not reviewed.",
+      "reported_outcome_summary": "Abstract describes more than one hundred perfusions from one center since 2005. Gestational duration over 40 weeks was associated with a lower fetomaternal antipyrine ratio; placental weight and delivery mode did not affect the reported success criteria. The authors identify possible recovery loss to perfusion-system materials as a study concern.",
+      "evidence_role": "Single-center assay-throughput and covariate context; not a developmental outcome or a whole-gestation result.",
+      "data_discovery_status": "No row-level dataset linked from the PubMed record inspected; this does not establish that no supplementary or separately published records exist.",
+      "intake_status": "Context only; do not pool counts or success rates across laboratories without aligned eligibility definitions."
+    },
+    {
+      "citation": "Conings S et al. (2017). Integration and validation of the ex vivo human placenta perfusion model. Journal of Pharmacological and Toxicological Methods 88(Pt 1):25–31.",
+      "doi": "10.1016/j.vascn.2017.05.002",
+      "public_record": "https://pubmed.ncbi.nlm.nih.gov/28522142/",
+      "reviewed_access": "PubMed abstract; full text and any supplemental files not reviewed.",
+      "reported_outcome_summary": "Abstract reports 89 collected placentas and 34 meeting the study's antipyrine and quality-control success criteria (38%).",
+      "evidence_role": "A separate laboratory's implementation and assay-yield context; not evidence of embryonic development or gestational support.",
+      "data_discovery_status": "No row-level dataset linked from the PubMed record inspected; this does not establish that no supplementary or separately published records exist.",
+      "intake_status": "Context only; retain as a distinct cohort and do not combine its yield with the 2010 Copenhagen or Kuopio counts."
+    },
+    {
+      "citation": "Schneider H et al. (2022). Ex vivo dual perfusion of an isolated human placenta cotyledon: Towards protocol standardization and improved inter-centre comparability. Placenta 126:83–89.",
+      "doi": "10.1016/j.placenta.2022.05.003",
+      "public_record": "https://www.sciencedirect.com/science/article/pii/S014340042200234X",
+      "open_access_copy": "https://pure.eur.nl/files/59978396/Ex_vivo_dual_perfusion_of_an_isolated_human_placenta_cotyledon_Towards_protocol_standardization_and_improved_inter_centre_comparability.pdf",
+      "reviewed_access": "Publisher abstract and search-indexed open-access PDF record; direct PDF retrieval failed, so full text was not verified.",
+      "reported_scope": "The abstract identifies broad inter-centre variation in establishment, perfusate composition, gas conditions, cannulation method, flow, perfused tissue mass and quality-control practice. It proposes a multi-centre pilot to examine effects on placental function and structure; this paper is a standardization rationale, not the pilot's outcome report.",
+      "evidence_role": "Candidate comparability-factor source for isolated placenta assays; no direct gestational-support or embryo-outcome evidence.",
+      "data_discovery_status": "No linked row-level dataset or completed pilot results identified from the abstract and records inspected.",
+      "intake_status": "Use listed categories as candidate metadata prompts only; not a validated minimum reporting standard or a source for protocol setpoints."
+    },
+    {
+      "citation": "Glättli SC et al. (2024). Variability in perfusion conditions and set-up parameters used in ex vivo human placenta models: A literature review. Placenta 157:37–49.",
+      "doi": "10.1016/j.placenta.2024.03.007",
+      "public_record": "https://pubmed.ncbi.nlm.nih.gov/38570213/",
+      "open_access_full_text": "https://pure.rug.nl/ws/portalfiles/portal/1183788968/1-s2.0-S0143400424000742-main.pdf",
+      "reviewed_access": "PubMed abstract, full open-access publisher PDF hosted by the University of Groningen, and five publisher supplementary DOCX files. Table structure and phase headings inspected; study-specific setup values were not added to this intake.",
+      "reported_scope": "Review searched PubMed through 2022-09-26 and included 135 studies (2000–2022) of therapeutic drug transfer in uncomplicated full-term placentae with fixed within-run setup. It reports substantial inter-laboratory differences and says studies are not readily comparable or interchangeable.",
+      "reporting_completeness_summary": "The review says 65.8% of setup parameters were present in primary reports, another 13.6% could be recovered from cited protocols, and 20.6% remained undescribed even after that search; it also notes some cited protocol information was inconsistent.",
+      "supplementary_files": [
+        {"id": "glattli2024-s1", "phase": "Country list", "local_path": "artifacts/perfusion-standardization-2024/supplementary-tables.docx", "bytes": 14321, "sha256": "dcae54216302fe407e9764473f5ecc35a814f5961002ac7e237e41043d7c2fc4"},
+        {"id": "glattli2024-s2", "phase": "Preparation", "local_path": "artifacts/perfusion-standardization-2024/study-setup-tables.docx", "bytes": 299808, "sha256": "59848f94655a4dcb46e4da57485bdf2e5bebcfaf913871a2cec1021a2dda2588"},
+        {"id": "glattli2024-s3", "phase": "Control/stabilization", "local_path": "artifacts/perfusion-standardization-2024/study-setup-tables-S3.docx", "bytes": 258198, "sha256": "e7bd849c7966d28d42c35653ce378e063da558a3421a5a4d5cc9e84a32d2d680"},
+        {"id": "glattli2024-s4", "phase": "Test compound", "local_path": "artifacts/perfusion-standardization-2024/study-setup-tables-S4.docx", "bytes": 226509, "sha256": "4325210c7ce6d038d875af7e7a8239fcd31d8219612065da8fbeaa5a80f42a10"},
+        {"id": "glattli2024-s5", "phase": "Experimental period", "local_path": "artifacts/perfusion-standardization-2024/study-setup-tables-S5.docx", "bytes": 359353, "sha256": "f1f9bfc6e6534d9e64e2c78768af99bf4bba2839ec84fa9f981ed1ded95c8114"}
+      ],
+      "data_discovery_status": "S2-S5 are per-study setup metadata tables grouped by phase/direction. The review explicitly excluded measurement outcomes from extraction. Structure/headings inspected only; no setup values were imported.",
+      "evidence_role": "Evidence-intake and missingness context for drug-transfer methods; not a completed inter-centre pilot and not gestational-development evidence.",
+      "intake_status": "Candidate source for metadata vocabulary only; do not pool its therapeutic-drug setup records with the 2020 hormone/amino-acid observations.",
+      "intake_note": "PERFUSION_COMPARABILITY_INTAKE_2026-10-10.md"
+    }
+  ],
+  "observation_contract": {
+    "native_unit": "nM reservoir concentration",
+    "analytes": ["Cortisol", "Cortisone", "Tryptophan", "Serotonin", "5-HIAA"],
+    "compartments": ["maternal perfusate reservoir", "fetal perfusate reservoir"],
+    "source_run_columns": 22,
+    "expected_source_cells": 3190,
+    "numeric_cells": 2908,
+    "blank_cells": 282,
+    "blank_reason": "Article attributes missing data to analysis errors but provides no cell-specific cause.",
+    "source_time_labels": "Preserved in minutes where numeric; Mbefore and Fbefore remain text labels without an invented elapsed time.",
+    "unit_identity": "Numbered perfusion-run IDs only; not verified personal donor identities or proven independent biological units.",
+    "run_map_review": "Manual Table 1 transcription; human verification pending.",
+    "run_map_second_visual_check": {
+      "checked_on": "2026-10-10",
+      "result": "Second visual pass against the pinned image found no mismatch for all 22 ID-to-antagonist and acceptable-duration entries.",
+      "independent_human_review": false,
+      "status": "candidate; human verification pending"
+    },
+    "source_window": {
+      "runs_acceptable_for_6_hours": 15,
+      "runs_listed_for_shorter_durations": 7,
+      "expected_cells_at_or_before_window": 2920,
+      "numeric_cells_at_or_before_window": 2711,
+      "blank_cells_at_or_before_window": 209,
+      "expected_cells_after_window": 270,
+      "numeric_cells_after_window": 197,
+      "blank_cells_after_window": 73,
+      "handling": "Later numeric source cells are retained and flagged; they are not silently treated as valid late-window readings."
+    },
+    "normalized_bundle_join_audit": {
+      "checked_on": "2026-10-10",
+      "source_audit_rows": 3190,
+      "unique_source_cell_locators": 3190,
+      "standardized_records_matched_by_source_locator": 3190,
+      "numeric_values_matched": 2908,
+      "blank_values_matched": 282,
+      "source_window_statuses": {
+        "before_exposure_time_not_numeric": 220,
+        "within_source_reported_ok_duration": 2700,
+        "after_source_reported_ok_duration": 270
+      },
+      "late_window_values": {
+        "numeric": 197,
+        "blank": 73
+      },
+      "previous_v4_export_contains_per_record_window_status": false,
+      "normalized_export_contains_source_qualification": true,
+      "qualification_field": "observation.source_qualifications",
+      "qualification_records": 3190,
+      "qualification_criterion": "source_reported_ok_duration",
+      "qualification_source_artifact": "mathiesen2020-table1",
+      "qualification_status_matches_audit_csv_for_all_records": true,
+      "window_status_join_required_for_filtering": false,
+      "join_key": "source_locator",
+      "join_source": "artifacts/mathiesen-perfusion-audit-2026-10-10-v5/cell_observations.csv",
+      "interpretation": "The v5 source-cell and normalized intake values/nulls match by unique source locator. Every standardized record also carries the Table 1 source-duration status, source locator, and source-reported threshold; these are machine-transcribed candidate declarations and human verification remains pending. The v4 export remains unchanged and still requires its audit-CSV join."
+    },
+    "missingness_by_analyte": {
+      "Cortisol": {"expected": 638, "blank": 18},
+      "Cortisone": {"expected": 638, "blank": 17},
+      "Tryptophan": {"expected": 638, "blank": 24},
+      "Serotonin": {"expected": 638, "blank": 79},
+      "5-HIAA": {"expected": 638, "blank": 144}
+    }
+  },
+  "selection_frames": {
+    "s1_table": {"received": 48, "cannulated": 43, "successful_preperfusion_and_substance_added": 26, "successful_six_hour": 15},
+    "numbered_test_substance_perfusions": 22,
+    "linkage_between_frames": "Not reported in inspected source set; do not reconcile or treat as a single denominator."
+  },
+  "bounded_descriptive_check": {
+    "analyte": "Tryptophan",
+    "group": "No antagonist, source IDs 1-8",
+    "statistic": "Mean of per-run (fetal F360 reservoir concentration / maternal M0 reservoir concentration) * 100",
+    "mean_percent": 70.15635571029247,
+    "range_percent": [62.470769506397936, 85.00633992297703],
+    "status": "descriptive source check only; not flux, mass balance, nutrient sufficiency or permeability"
+  },
+  "eligibility": {
+    "permitted_candidate": "Source-linked descriptive concentration summary after human verification of source transcription and run mapping.",
+    "dimensional_transport_fit": "not eligible",
+    "missing_for_fit": [
+      "Numerical per-sample reservoir-volume/removal histories",
+      "Per-run maternal and fetal end volumes",
+      "Analyte inventory and recovery accounting",
+      "Original instrument chromatograms",
+      "Calibration and measurement-uncertainty records",
+      "Human review of source transcription, run mapping and proposed analysis"
+    ],
+    "unobserved_outcomes": ["Embryo/fetal growth", "Continuous gestation", "Birth", "Neonatal transition", "Later health"],
+    "author_contact_sent": false
+  },
+  "audit_outputs": {
+    "audit_bundle": "artifacts/mathiesen-perfusion-audit-2026-10-10-v5",
+    "observation_intake_bundle": "artifacts/mathiesen-perfusion-intake-2026-10-10-v5",
+    "commands": [
+      "wombmodels audit-mathiesen-source --article <article.html> --workbook <data.xlsx> --table1 <table1.png> --success-table <s1-table.docx> --s3-table <s3-table.docx> --out <new-dir>",
+      "wombmodels validate-observations --dataset <input_dataset.json> --source-root <source-directory> --out <new-dir>"
+    ]
+  }
+}

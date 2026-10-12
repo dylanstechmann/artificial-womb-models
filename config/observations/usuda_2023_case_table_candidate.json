@@ -1,0 +1,1706 @@
+{
+  "schema_version": 1,
+  "dataset_id": "usuda2023-case-table-candidate",
+  "title": "Usuda et al. 2023 per-case APT summaries; candidate source transcription",
+  "source_revision": {
+    "revision_id": "usuda2023-table4-2026-10-10",
+    "citation": "Usuda H, et al. Artificial placenta support of extremely preterm ovine fetuses at the border of viability for up to 336 hours with maintenance of systemic circulation but reduced somatic and organ growth. Frontiers in Physiology. 2023;14:1219185. doi:10.3389/fphys.2023.1219185.",
+    "source_kind": "peer_reviewed_animal",
+    "source_url": "https://doi.org/10.3389/fphys.2023.1219185",
+    "review_status": "candidate",
+    "reviewer": "",
+    "reviewed_on": null,
+    "review_note": ""
+  },
+  "artifacts": [
+    {
+      "artifact_id": "usuda2023-article-html",
+      "uri": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1219185/full",
+      "license": "CC BY 4.0 (publisher article HTML)",
+      "sha256": "92dfaf3daefb24b414bbd62b23d9a84d8e90bc41c9b61a3494d990c96294bf14",
+      "retrieved_on": "2026-10-09",
+      "local_path": "artifacts/feasibility-strategy-2026-10-09/usuda-growth.html",
+      "developmental_scope": {
+        "species": "ovine",
+        "stage_tracks": [
+          "partial_fetal_support"
+        ],
+        "time_unit": "hours after APT initiation",
+        "start": 0,
+        "end": 336,
+        "source_locator": "Table 4, case-specific survival time row; article describes maximum support duration of 336 hours"
+      }
+    }
+  ],
+  "observations": [
+    {
+      "schema_version": 1,
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Usuda APT support interval, source case A; starting gestational day is not mapped to this case",
+        "start": 0,
+        "end": 296,
+        "time_unit": "hours after APT initiation",
+        "stage_source_artifact_id": "usuda2023-article-html"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetus in the Usuda artificial-placenta support study; source case labels A-F"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Case A",
+        "parent_id": null,
+        "hierarchy_note": "Source table label only; no external persistent animal ID or control-pairing key is published."
+      },
+      "source": {
+        "artifact_id": "usuda2023-article-html",
+        "uri": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1219185/full",
+        "license": "CC BY 4.0 (publisher article HTML)",
+        "sha256": "92dfaf3daefb24b414bbd62b23d9a84d8e90bc41c9b61a3494d990c96294bf14",
+        "retrieved_on": "2026-10-09"
+      },
+      "record_id": "usuda-case-a-body-weight-at-induction",
+      "assay": {
+        "name": "Table 4 source-reported case summary",
+        "endpoint": "Body weight at induction of APT",
+        "unit": "g",
+        "measurement_role": "other"
+      },
+      "observation": {
+        "value": 705,
+        "measurement_time": 0,
+        "measurement_time_unit": "hours after APT initiation",
+        "comparator_id": null,
+        "replicate_role": "repeated_measure"
+      },
+      "source_locator": "Table 4, Case A, row: Body weight (Induction of APT) (g)"
+    },
+    {
+      "schema_version": 1,
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Usuda APT support interval, source case A; starting gestational day is not mapped to this case",
+        "start": 0,
+        "end": 296,
+        "time_unit": "hours after APT initiation",
+        "stage_source_artifact_id": "usuda2023-article-html"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetus in the Usuda artificial-placenta support study; source case labels A-F"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Case A",
+        "parent_id": null,
+        "hierarchy_note": "Source table label only; no external persistent animal ID or control-pairing key is published."
+      },
+      "source": {
+        "artifact_id": "usuda2023-article-html",
+        "uri": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1219185/full",
+        "license": "CC BY 4.0 (publisher article HTML)",
+        "sha256": "92dfaf3daefb24b414bbd62b23d9a84d8e90bc41c9b61a3494d990c96294bf14",
+        "retrieved_on": "2026-10-09"
+      },
+      "record_id": "usuda-case-a-body-weight-at-conclusion",
+      "assay": {
+        "name": "Table 4 source-reported case summary",
+        "endpoint": "Body weight at conclusion of APT",
+        "unit": "g",
+        "measurement_role": "other"
+      },
+      "observation": {
+        "value": 1460,
+        "measurement_time": 296,
+        "measurement_time_unit": "hours after APT initiation",
+        "comparator_id": null,
+        "replicate_role": "repeated_measure"
+      },
+      "source_locator": "Table 4, Case A, row: Body weight (Conclusion) (g)"
+    },
+    {
+      "schema_version": 1,
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Usuda APT support interval, source case A; starting gestational day is not mapped to this case",
+        "start": 0,
+        "end": 296,
+        "time_unit": "hours after APT initiation",
+        "stage_source_artifact_id": "usuda2023-article-html"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetus in the Usuda artificial-placenta support study; source case labels A-F"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Case A",
+        "parent_id": null,
+        "hierarchy_note": "Source table label only; no external persistent animal ID or control-pairing key is published."
+      },
+      "source": {
+        "artifact_id": "usuda2023-article-html",
+        "uri": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1219185/full",
+        "license": "CC BY 4.0 (publisher article HTML)",
+        "sha256": "92dfaf3daefb24b414bbd62b23d9a84d8e90bc41c9b61a3494d990c96294bf14",
+        "retrieved_on": "2026-10-09"
+      },
+      "record_id": "usuda-case-a-support-survival-duration",
+      "assay": {
+        "name": "Table 4 source-reported case summary",
+        "endpoint": "Support survival duration",
+        "unit": "h",
+        "measurement_role": "durability"
+      },
+      "observation": {
+        "value": 296,
+        "measurement_time": 296,
+        "measurement_time_unit": "hours after APT initiation",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source_locator": "Table 4, Case A, row: Survival time (hours)"
+    },
+    {
+      "schema_version": 1,
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Usuda APT support interval, source case B; starting gestational day is not mapped to this case",
+        "start": 0,
+        "end": 306,
+        "time_unit": "hours after APT initiation",
+        "stage_source_artifact_id": "usuda2023-article-html"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetus in the Usuda artificial-placenta support study; source case labels A-F"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Case B",
+        "parent_id": null,
+        "hierarchy_note": "Source table label only; no external persistent animal ID or control-pairing key is published."
+      },
+      "source": {
+        "artifact_id": "usuda2023-article-html",
+        "uri": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1219185/full",
+        "license": "CC BY 4.0 (publisher article HTML)",
+        "sha256": "92dfaf3daefb24b414bbd62b23d9a84d8e90bc41c9b61a3494d990c96294bf14",
+        "retrieved_on": "2026-10-09"
+      },
+      "record_id": "usuda-case-b-body-weight-at-induction",
+      "assay": {
+        "name": "Table 4 source-reported case summary",
+        "endpoint": "Body weight at induction of APT",
+        "unit": "g",
+        "measurement_role": "other"
+      },
+      "observation": {
+        "value": 630,
+        "measurement_time": 0,
+        "measurement_time_unit": "hours after APT initiation",
+        "comparator_id": null,
+        "replicate_role": "repeated_measure"
+      },
+      "source_locator": "Table 4, Case B, row: Body weight (Induction of APT) (g)"
+    },
+    {
+      "schema_version": 1,
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Usuda APT support interval, source case B; starting gestational day is not mapped to this case",
+        "start": 0,
+        "end": 306,
+        "time_unit": "hours after APT initiation",
+        "stage_source_artifact_id": "usuda2023-article-html"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetus in the Usuda artificial-placenta support study; source case labels A-F"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Case B",
+        "parent_id": null,
+        "hierarchy_note": "Source table label only; no external persistent animal ID or control-pairing key is published."
+      },
+      "source": {
+        "artifact_id": "usuda2023-article-html",
+        "uri": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1219185/full",
+        "license": "CC BY 4.0 (publisher article HTML)",
+        "sha256": "92dfaf3daefb24b414bbd62b23d9a84d8e90bc41c9b61a3494d990c96294bf14",
+        "retrieved_on": "2026-10-09"
+      },
+      "record_id": "usuda-case-b-body-weight-at-conclusion",
+      "assay": {
+        "name": "Table 4 source-reported case summary",
+        "endpoint": "Body weight at conclusion of APT",
+        "unit": "g",
+        "measurement_role": "other"
+      },
+      "observation": {
+        "value": 1230,
+        "measurement_time": 306,
+        "measurement_time_unit": "hours after APT initiation",
+        "comparator_id": null,
+        "replicate_role": "repeated_measure"
+      },
+      "source_locator": "Table 4, Case B, row: Body weight (Conclusion) (g)"
+    },
+    {
+      "schema_version": 1,
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Usuda APT support interval, source case B; starting gestational day is not mapped to this case",
+        "start": 0,
+        "end": 306,
+        "time_unit": "hours after APT initiation",
+        "stage_source_artifact_id": "usuda2023-article-html"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetus in the Usuda artificial-placenta support study; source case labels A-F"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Case B",
+        "parent_id": null,
+        "hierarchy_note": "Source table label only; no external persistent animal ID or control-pairing key is published."
+      },
+      "source": {
+        "artifact_id": "usuda2023-article-html",
+        "uri": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1219185/full",
+        "license": "CC BY 4.0 (publisher article HTML)",
+        "sha256": "92dfaf3daefb24b414bbd62b23d9a84d8e90bc41c9b61a3494d990c96294bf14",
+        "retrieved_on": "2026-10-09"
+      },
+      "record_id": "usuda-case-b-support-survival-duration",
+      "assay": {
+        "name": "Table 4 source-reported case summary",
+        "endpoint": "Support survival duration",
+        "unit": "h",
+        "measurement_role": "durability"
+      },
+      "observation": {
+        "value": 306,
+        "measurement_time": 306,
+        "measurement_time_unit": "hours after APT initiation",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source_locator": "Table 4, Case B, row: Survival time (hours)"
+    },
+    {
+      "schema_version": 1,
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Usuda APT support interval, source case C; starting gestational day is not mapped to this case",
+        "start": 0,
+        "end": 213,
+        "time_unit": "hours after APT initiation",
+        "stage_source_artifact_id": "usuda2023-article-html"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetus in the Usuda artificial-placenta support study; source case labels A-F"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Case C",
+        "parent_id": null,
+        "hierarchy_note": "Source table label only; no external persistent animal ID or control-pairing key is published."
+      },
+      "source": {
+        "artifact_id": "usuda2023-article-html",
+        "uri": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1219185/full",
+        "license": "CC BY 4.0 (publisher article HTML)",
+        "sha256": "92dfaf3daefb24b414bbd62b23d9a84d8e90bc41c9b61a3494d990c96294bf14",
+        "retrieved_on": "2026-10-09"
+      },
+      "record_id": "usuda-case-c-body-weight-at-induction",
+      "assay": {
+        "name": "Table 4 source-reported case summary",
+        "endpoint": "Body weight at induction of APT",
+        "unit": "g",
+        "measurement_role": "other"
+      },
+      "observation": {
+        "value": 605,
+        "measurement_time": 0,
+        "measurement_time_unit": "hours after APT initiation",
+        "comparator_id": null,
+        "replicate_role": "repeated_measure"
+      },
+      "source_locator": "Table 4, Case C, row: Body weight (Induction of APT) (g)"
+    },
+    {
+      "schema_version": 1,
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Usuda APT support interval, source case C; starting gestational day is not mapped to this case",
+        "start": 0,
+        "end": 213,
+        "time_unit": "hours after APT initiation",
+        "stage_source_artifact_id": "usuda2023-article-html"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetus in the Usuda artificial-placenta support study; source case labels A-F"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Case C",
+        "parent_id": null,
+        "hierarchy_note": "Source table label only; no external persistent animal ID or control-pairing key is published."
+      },
+      "source": {
+        "artifact_id": "usuda2023-article-html",
+        "uri": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1219185/full",
+        "license": "CC BY 4.0 (publisher article HTML)",
+        "sha256": "92dfaf3daefb24b414bbd62b23d9a84d8e90bc41c9b61a3494d990c96294bf14",
+        "retrieved_on": "2026-10-09"
+      },
+      "record_id": "usuda-case-c-body-weight-at-conclusion",
+      "assay": {
+        "name": "Table 4 source-reported case summary",
+        "endpoint": "Body weight at conclusion of APT",
+        "unit": "g",
+        "measurement_role": "other"
+      },
+      "observation": {
+        "value": 1290,
+        "measurement_time": 213,
+        "measurement_time_unit": "hours after APT initiation",
+        "comparator_id": null,
+        "replicate_role": "repeated_measure"
+      },
+      "source_locator": "Table 4, Case C, row: Body weight (Conclusion) (g)"
+    },
+    {
+      "schema_version": 1,
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Usuda APT support interval, source case C; starting gestational day is not mapped to this case",
+        "start": 0,
+        "end": 213,
+        "time_unit": "hours after APT initiation",
+        "stage_source_artifact_id": "usuda2023-article-html"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetus in the Usuda artificial-placenta support study; source case labels A-F"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Case C",
+        "parent_id": null,
+        "hierarchy_note": "Source table label only; no external persistent animal ID or control-pairing key is published."
+      },
+      "source": {
+        "artifact_id": "usuda2023-article-html",
+        "uri": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1219185/full",
+        "license": "CC BY 4.0 (publisher article HTML)",
+        "sha256": "92dfaf3daefb24b414bbd62b23d9a84d8e90bc41c9b61a3494d990c96294bf14",
+        "retrieved_on": "2026-10-09"
+      },
+      "record_id": "usuda-case-c-support-survival-duration",
+      "assay": {
+        "name": "Table 4 source-reported case summary",
+        "endpoint": "Support survival duration",
+        "unit": "h",
+        "measurement_role": "durability"
+      },
+      "observation": {
+        "value": 213,
+        "measurement_time": 213,
+        "measurement_time_unit": "hours after APT initiation",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source_locator": "Table 4, Case C, row: Survival time (hours)"
+    },
+    {
+      "schema_version": 1,
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Usuda APT support interval, source case D; starting gestational day is not mapped to this case",
+        "start": 0,
+        "end": 174,
+        "time_unit": "hours after APT initiation",
+        "stage_source_artifact_id": "usuda2023-article-html"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetus in the Usuda artificial-placenta support study; source case labels A-F"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Case D",
+        "parent_id": null,
+        "hierarchy_note": "Source table label only; no external persistent animal ID or control-pairing key is published."
+      },
+      "source": {
+        "artifact_id": "usuda2023-article-html",
+        "uri": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1219185/full",
+        "license": "CC BY 4.0 (publisher article HTML)",
+        "sha256": "92dfaf3daefb24b414bbd62b23d9a84d8e90bc41c9b61a3494d990c96294bf14",
+        "retrieved_on": "2026-10-09"
+      },
+      "record_id": "usuda-case-d-body-weight-at-induction",
+      "assay": {
+        "name": "Table 4 source-reported case summary",
+        "endpoint": "Body weight at induction of APT",
+        "unit": "g",
+        "measurement_role": "other"
+      },
+      "observation": {
+        "value": 625,
+        "measurement_time": 0,
+        "measurement_time_unit": "hours after APT initiation",
+        "comparator_id": null,
+        "replicate_role": "repeated_measure"
+      },
+      "source_locator": "Table 4, Case D, row: Body weight (Induction of APT) (g)"
+    },
+    {
+      "schema_version": 1,
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Usuda APT support interval, source case D; starting gestational day is not mapped to this case",
+        "start": 0,
+        "end": 174,
+        "time_unit": "hours after APT initiation",
+        "stage_source_artifact_id": "usuda2023-article-html"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetus in the Usuda artificial-placenta support study; source case labels A-F"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Case D",
+        "parent_id": null,
+        "hierarchy_note": "Source table label only; no external persistent animal ID or control-pairing key is published."
+      },
+      "source": {
+        "artifact_id": "usuda2023-article-html",
+        "uri": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1219185/full",
+        "license": "CC BY 4.0 (publisher article HTML)",
+        "sha256": "92dfaf3daefb24b414bbd62b23d9a84d8e90bc41c9b61a3494d990c96294bf14",
+        "retrieved_on": "2026-10-09"
+      },
+      "record_id": "usuda-case-d-body-weight-at-conclusion",
+      "assay": {
+        "name": "Table 4 source-reported case summary",
+        "endpoint": "Body weight at conclusion of APT",
+        "unit": "g",
+        "measurement_role": "other"
+      },
+      "observation": {
+        "value": 1250,
+        "measurement_time": 174,
+        "measurement_time_unit": "hours after APT initiation",
+        "comparator_id": null,
+        "replicate_role": "repeated_measure"
+      },
+      "source_locator": "Table 4, Case D, row: Body weight (Conclusion) (g)"
+    },
+    {
+      "schema_version": 1,
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Usuda APT support interval, source case D; starting gestational day is not mapped to this case",
+        "start": 0,
+        "end": 174,
+        "time_unit": "hours after APT initiation",
+        "stage_source_artifact_id": "usuda2023-article-html"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetus in the Usuda artificial-placenta support study; source case labels A-F"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Case D",
+        "parent_id": null,
+        "hierarchy_note": "Source table label only; no external persistent animal ID or control-pairing key is published."
+      },
+      "source": {
+        "artifact_id": "usuda2023-article-html",
+        "uri": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1219185/full",
+        "license": "CC BY 4.0 (publisher article HTML)",
+        "sha256": "92dfaf3daefb24b414bbd62b23d9a84d8e90bc41c9b61a3494d990c96294bf14",
+        "retrieved_on": "2026-10-09"
+      },
+      "record_id": "usuda-case-d-support-survival-duration",
+      "assay": {
+        "name": "Table 4 source-reported case summary",
+        "endpoint": "Support survival duration",
+        "unit": "h",
+        "measurement_role": "durability"
+      },
+      "observation": {
+        "value": 174,
+        "measurement_time": 174,
+        "measurement_time_unit": "hours after APT initiation",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source_locator": "Table 4, Case D, row: Survival time (hours)"
+    },
+    {
+      "schema_version": 1,
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Usuda APT support interval, source case E; starting gestational day is not mapped to this case",
+        "start": 0,
+        "end": 173,
+        "time_unit": "hours after APT initiation",
+        "stage_source_artifact_id": "usuda2023-article-html"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetus in the Usuda artificial-placenta support study; source case labels A-F"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Case E",
+        "parent_id": null,
+        "hierarchy_note": "Source table label only; no external persistent animal ID or control-pairing key is published."
+      },
+      "source": {
+        "artifact_id": "usuda2023-article-html",
+        "uri": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1219185/full",
+        "license": "CC BY 4.0 (publisher article HTML)",
+        "sha256": "92dfaf3daefb24b414bbd62b23d9a84d8e90bc41c9b61a3494d990c96294bf14",
+        "retrieved_on": "2026-10-09"
+      },
+      "record_id": "usuda-case-e-body-weight-at-induction",
+      "assay": {
+        "name": "Table 4 source-reported case summary",
+        "endpoint": "Body weight at induction of APT",
+        "unit": "g",
+        "measurement_role": "other"
+      },
+      "observation": {
+        "value": 672,
+        "measurement_time": 0,
+        "measurement_time_unit": "hours after APT initiation",
+        "comparator_id": null,
+        "replicate_role": "repeated_measure"
+      },
+      "source_locator": "Table 4, Case E, row: Body weight (Induction of APT) (g)"
+    },
+    {
+      "schema_version": 1,
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Usuda APT support interval, source case E; starting gestational day is not mapped to this case",
+        "start": 0,
+        "end": 173,
+        "time_unit": "hours after APT initiation",
+        "stage_source_artifact_id": "usuda2023-article-html"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetus in the Usuda artificial-placenta support study; source case labels A-F"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Case E",
+        "parent_id": null,
+        "hierarchy_note": "Source table label only; no external persistent animal ID or control-pairing key is published."
+      },
+      "source": {
+        "artifact_id": "usuda2023-article-html",
+        "uri": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1219185/full",
+        "license": "CC BY 4.0 (publisher article HTML)",
+        "sha256": "92dfaf3daefb24b414bbd62b23d9a84d8e90bc41c9b61a3494d990c96294bf14",
+        "retrieved_on": "2026-10-09"
+      },
+      "record_id": "usuda-case-e-body-weight-at-conclusion",
+      "assay": {
+        "name": "Table 4 source-reported case summary",
+        "endpoint": "Body weight at conclusion of APT",
+        "unit": "g",
+        "measurement_role": "other"
+      },
+      "observation": {
+        "value": 1230,
+        "measurement_time": 173,
+        "measurement_time_unit": "hours after APT initiation",
+        "comparator_id": null,
+        "replicate_role": "repeated_measure"
+      },
+      "source_locator": "Table 4, Case E, row: Body weight (Conclusion) (g)"
+    },
+    {
+      "schema_version": 1,
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Usuda APT support interval, source case E; starting gestational day is not mapped to this case",
+        "start": 0,
+        "end": 173,
+        "time_unit": "hours after APT initiation",
+        "stage_source_artifact_id": "usuda2023-article-html"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetus in the Usuda artificial-placenta support study; source case labels A-F"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Case E",
+        "parent_id": null,
+        "hierarchy_note": "Source table label only; no external persistent animal ID or control-pairing key is published."
+      },
+      "source": {
+        "artifact_id": "usuda2023-article-html",
+        "uri": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1219185/full",
+        "license": "CC BY 4.0 (publisher article HTML)",
+        "sha256": "92dfaf3daefb24b414bbd62b23d9a84d8e90bc41c9b61a3494d990c96294bf14",
+        "retrieved_on": "2026-10-09"
+      },
+      "record_id": "usuda-case-e-support-survival-duration",
+      "assay": {
+        "name": "Table 4 source-reported case summary",
+        "endpoint": "Support survival duration",
+        "unit": "h",
+        "measurement_role": "durability"
+      },
+      "observation": {
+        "value": 173,
+        "measurement_time": 173,
+        "measurement_time_unit": "hours after APT initiation",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source_locator": "Table 4, Case E, row: Survival time (hours)"
+    },
+    {
+      "schema_version": 1,
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Usuda APT support interval, source case F; starting gestational day is not mapped to this case",
+        "start": 0,
+        "end": 336,
+        "time_unit": "hours after APT initiation",
+        "stage_source_artifact_id": "usuda2023-article-html"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetus in the Usuda artificial-placenta support study; source case labels A-F"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Case F",
+        "parent_id": null,
+        "hierarchy_note": "Source table label only; no external persistent animal ID or control-pairing key is published."
+      },
+      "source": {
+        "artifact_id": "usuda2023-article-html",
+        "uri": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1219185/full",
+        "license": "CC BY 4.0 (publisher article HTML)",
+        "sha256": "92dfaf3daefb24b414bbd62b23d9a84d8e90bc41c9b61a3494d990c96294bf14",
+        "retrieved_on": "2026-10-09"
+      },
+      "record_id": "usuda-case-f-body-weight-at-induction",
+      "assay": {
+        "name": "Table 4 source-reported case summary",
+        "endpoint": "Body weight at induction of APT",
+        "unit": "g",
+        "measurement_role": "other"
+      },
+      "observation": {
+        "value": 698,
+        "measurement_time": 0,
+        "measurement_time_unit": "hours after APT initiation",
+        "comparator_id": null,
+        "replicate_role": "repeated_measure"
+      },
+      "source_locator": "Table 4, Case F, row: Body weight (Induction of APT) (g)"
+    },
+    {
+      "schema_version": 1,
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Usuda APT support interval, source case F; starting gestational day is not mapped to this case",
+        "start": 0,
+        "end": 336,
+        "time_unit": "hours after APT initiation",
+        "stage_source_artifact_id": "usuda2023-article-html"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetus in the Usuda artificial-placenta support study; source case labels A-F"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Case F",
+        "parent_id": null,
+        "hierarchy_note": "Source table label only; no external persistent animal ID or control-pairing key is published."
+      },
+      "source": {
+        "artifact_id": "usuda2023-article-html",
+        "uri": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1219185/full",
+        "license": "CC BY 4.0 (publisher article HTML)",
+        "sha256": "92dfaf3daefb24b414bbd62b23d9a84d8e90bc41c9b61a3494d990c96294bf14",
+        "retrieved_on": "2026-10-09"
+      },
+      "record_id": "usuda-case-f-body-weight-at-conclusion",
+      "assay": {
+        "name": "Table 4 source-reported case summary",
+        "endpoint": "Body weight at conclusion of APT",
+        "unit": "g",
+        "measurement_role": "other"
+      },
+      "observation": {
+        "value": 1480,
+        "measurement_time": 336,
+        "measurement_time_unit": "hours after APT initiation",
+        "comparator_id": null,
+        "replicate_role": "repeated_measure"
+      },
+      "source_locator": "Table 4, Case F, row: Body weight (Conclusion) (g)"
+    },
+    {
+      "schema_version": 1,
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Usuda APT support interval, source case F; starting gestational day is not mapped to this case",
+        "start": 0,
+        "end": 336,
+        "time_unit": "hours after APT initiation",
+        "stage_source_artifact_id": "usuda2023-article-html"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetus in the Usuda artificial-placenta support study; source case labels A-F"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Case F",
+        "parent_id": null,
+        "hierarchy_note": "Source table label only; no external persistent animal ID or control-pairing key is published."
+      },
+      "source": {
+        "artifact_id": "usuda2023-article-html",
+        "uri": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1219185/full",
+        "license": "CC BY 4.0 (publisher article HTML)",
+        "sha256": "92dfaf3daefb24b414bbd62b23d9a84d8e90bc41c9b61a3494d990c96294bf14",
+        "retrieved_on": "2026-10-09"
+      },
+      "record_id": "usuda-case-f-support-survival-duration",
+      "assay": {
+        "name": "Table 4 source-reported case summary",
+        "endpoint": "Support survival duration",
+        "unit": "h",
+        "measurement_role": "durability"
+      },
+      "observation": {
+        "value": 336,
+        "measurement_time": 336,
+        "measurement_time_unit": "hours after APT initiation",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source_locator": "Table 4, Case F, row: Survival time (hours)"
+    },
+    {
+      "schema_version": 1,
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Usuda APT support interval, source case A; starting gestational day is not mapped to this case",
+        "start": 0,
+        "end": 296,
+        "time_unit": "hours after APT initiation",
+        "stage_source_artifact_id": "usuda2023-article-html"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetus in the Usuda artificial-placenta support study; source case labels A-F"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Case A",
+        "parent_id": null,
+        "hierarchy_note": "Source table label only; no external persistent animal ID or control-pairing key is published."
+      },
+      "source": {
+        "artifact_id": "usuda2023-article-html",
+        "uri": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1219185/full",
+        "license": "CC BY 4.0 (publisher article HTML)",
+        "sha256": "92dfaf3daefb24b414bbd62b23d9a84d8e90bc41c9b61a3494d990c96294bf14",
+        "retrieved_on": "2026-10-09"
+      },
+      "record_id": "usuda-case-a-bleeding-status",
+      "assay": {
+        "name": "Table 4 source-reported case summary",
+        "endpoint": "Bleeding status (source-coded)",
+        "unit": "source status/time annotation text",
+        "measurement_role": "adverse_effect"
+      },
+      "observation": {
+        "value": "-",
+        "measurement_time": null,
+        "measurement_time_unit": "Time annotation, if present, remains unparsed in source value.",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source_locator": "Table 4, Case A, row: Bleeding"
+    },
+    {
+      "schema_version": 1,
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Usuda APT support interval, source case A; starting gestational day is not mapped to this case",
+        "start": 0,
+        "end": 296,
+        "time_unit": "hours after APT initiation",
+        "stage_source_artifact_id": "usuda2023-article-html"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetus in the Usuda artificial-placenta support study; source case labels A-F"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Case A",
+        "parent_id": null,
+        "hierarchy_note": "Source table label only; no external persistent animal ID or control-pairing key is published."
+      },
+      "source": {
+        "artifact_id": "usuda2023-article-html",
+        "uri": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1219185/full",
+        "license": "CC BY 4.0 (publisher article HTML)",
+        "sha256": "92dfaf3daefb24b414bbd62b23d9a84d8e90bc41c9b61a3494d990c96294bf14",
+        "retrieved_on": "2026-10-09"
+      },
+      "record_id": "usuda-case-a-edema-status",
+      "assay": {
+        "name": "Table 4 source-reported case summary",
+        "endpoint": "Edema status (source-coded)",
+        "unit": "source status/time annotation text",
+        "measurement_role": "adverse_effect"
+      },
+      "observation": {
+        "value": "(240H-) +",
+        "measurement_time": null,
+        "measurement_time_unit": "Time annotation, if present, remains unparsed in source value.",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source_locator": "Table 4, Case A, row: Edema"
+    },
+    {
+      "schema_version": 1,
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Usuda APT support interval, source case B; starting gestational day is not mapped to this case",
+        "start": 0,
+        "end": 306,
+        "time_unit": "hours after APT initiation",
+        "stage_source_artifact_id": "usuda2023-article-html"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetus in the Usuda artificial-placenta support study; source case labels A-F"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Case B",
+        "parent_id": null,
+        "hierarchy_note": "Source table label only; no external persistent animal ID or control-pairing key is published."
+      },
+      "source": {
+        "artifact_id": "usuda2023-article-html",
+        "uri": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1219185/full",
+        "license": "CC BY 4.0 (publisher article HTML)",
+        "sha256": "92dfaf3daefb24b414bbd62b23d9a84d8e90bc41c9b61a3494d990c96294bf14",
+        "retrieved_on": "2026-10-09"
+      },
+      "record_id": "usuda-case-b-bleeding-status",
+      "assay": {
+        "name": "Table 4 source-reported case summary",
+        "endpoint": "Bleeding status (source-coded)",
+        "unit": "source status/time annotation text",
+        "measurement_role": "adverse_effect"
+      },
+      "observation": {
+        "value": "Bladder+ (290H-)",
+        "measurement_time": null,
+        "measurement_time_unit": "Time annotation, if present, remains unparsed in source value.",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source_locator": "Table 4, Case B, row: Bleeding"
+    },
+    {
+      "schema_version": 1,
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Usuda APT support interval, source case B; starting gestational day is not mapped to this case",
+        "start": 0,
+        "end": 306,
+        "time_unit": "hours after APT initiation",
+        "stage_source_artifact_id": "usuda2023-article-html"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetus in the Usuda artificial-placenta support study; source case labels A-F"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Case B",
+        "parent_id": null,
+        "hierarchy_note": "Source table label only; no external persistent animal ID or control-pairing key is published."
+      },
+      "source": {
+        "artifact_id": "usuda2023-article-html",
+        "uri": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1219185/full",
+        "license": "CC BY 4.0 (publisher article HTML)",
+        "sha256": "92dfaf3daefb24b414bbd62b23d9a84d8e90bc41c9b61a3494d990c96294bf14",
+        "retrieved_on": "2026-10-09"
+      },
+      "record_id": "usuda-case-b-edema-status",
+      "assay": {
+        "name": "Table 4 source-reported case summary",
+        "endpoint": "Edema status (source-coded)",
+        "unit": "source status/time annotation text",
+        "measurement_role": "adverse_effect"
+      },
+      "observation": {
+        "value": "(216H-) +",
+        "measurement_time": null,
+        "measurement_time_unit": "Time annotation, if present, remains unparsed in source value.",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source_locator": "Table 4, Case B, row: Edema"
+    },
+    {
+      "schema_version": 1,
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Usuda APT support interval, source case C; starting gestational day is not mapped to this case",
+        "start": 0,
+        "end": 213,
+        "time_unit": "hours after APT initiation",
+        "stage_source_artifact_id": "usuda2023-article-html"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetus in the Usuda artificial-placenta support study; source case labels A-F"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Case C",
+        "parent_id": null,
+        "hierarchy_note": "Source table label only; no external persistent animal ID or control-pairing key is published."
+      },
+      "source": {
+        "artifact_id": "usuda2023-article-html",
+        "uri": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1219185/full",
+        "license": "CC BY 4.0 (publisher article HTML)",
+        "sha256": "92dfaf3daefb24b414bbd62b23d9a84d8e90bc41c9b61a3494d990c96294bf14",
+        "retrieved_on": "2026-10-09"
+      },
+      "record_id": "usuda-case-c-bleeding-status",
+      "assay": {
+        "name": "Table 4 source-reported case summary",
+        "endpoint": "Bleeding status (source-coded)",
+        "unit": "source status/time annotation text",
+        "measurement_role": "adverse_effect"
+      },
+      "observation": {
+        "value": "retroperitoneum+ (24H)",
+        "measurement_time": null,
+        "measurement_time_unit": "Time annotation, if present, remains unparsed in source value.",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source_locator": "Table 4, Case C, row: Bleeding"
+    },
+    {
+      "schema_version": 1,
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Usuda APT support interval, source case C; starting gestational day is not mapped to this case",
+        "start": 0,
+        "end": 213,
+        "time_unit": "hours after APT initiation",
+        "stage_source_artifact_id": "usuda2023-article-html"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetus in the Usuda artificial-placenta support study; source case labels A-F"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Case C",
+        "parent_id": null,
+        "hierarchy_note": "Source table label only; no external persistent animal ID or control-pairing key is published."
+      },
+      "source": {
+        "artifact_id": "usuda2023-article-html",
+        "uri": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1219185/full",
+        "license": "CC BY 4.0 (publisher article HTML)",
+        "sha256": "92dfaf3daefb24b414bbd62b23d9a84d8e90bc41c9b61a3494d990c96294bf14",
+        "retrieved_on": "2026-10-09"
+      },
+      "record_id": "usuda-case-c-edema-status",
+      "assay": {
+        "name": "Table 4 source-reported case summary",
+        "endpoint": "Edema status (source-coded)",
+        "unit": "source status/time annotation text",
+        "measurement_role": "adverse_effect"
+      },
+      "observation": {
+        "value": "-",
+        "measurement_time": null,
+        "measurement_time_unit": "Time annotation, if present, remains unparsed in source value.",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source_locator": "Table 4, Case C, row: Edema"
+    },
+    {
+      "schema_version": 1,
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Usuda APT support interval, source case D; starting gestational day is not mapped to this case",
+        "start": 0,
+        "end": 174,
+        "time_unit": "hours after APT initiation",
+        "stage_source_artifact_id": "usuda2023-article-html"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetus in the Usuda artificial-placenta support study; source case labels A-F"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Case D",
+        "parent_id": null,
+        "hierarchy_note": "Source table label only; no external persistent animal ID or control-pairing key is published."
+      },
+      "source": {
+        "artifact_id": "usuda2023-article-html",
+        "uri": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1219185/full",
+        "license": "CC BY 4.0 (publisher article HTML)",
+        "sha256": "92dfaf3daefb24b414bbd62b23d9a84d8e90bc41c9b61a3494d990c96294bf14",
+        "retrieved_on": "2026-10-09"
+      },
+      "record_id": "usuda-case-d-bleeding-status",
+      "assay": {
+        "name": "Table 4 source-reported case summary",
+        "endpoint": "Bleeding status (source-coded)",
+        "unit": "source status/time annotation text",
+        "measurement_role": "adverse_effect"
+      },
+      "observation": {
+        "value": "Bladder + (172H-)",
+        "measurement_time": null,
+        "measurement_time_unit": "Time annotation, if present, remains unparsed in source value.",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source_locator": "Table 4, Case D, row: Bleeding"
+    },
+    {
+      "schema_version": 1,
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Usuda APT support interval, source case D; starting gestational day is not mapped to this case",
+        "start": 0,
+        "end": 174,
+        "time_unit": "hours after APT initiation",
+        "stage_source_artifact_id": "usuda2023-article-html"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetus in the Usuda artificial-placenta support study; source case labels A-F"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Case D",
+        "parent_id": null,
+        "hierarchy_note": "Source table label only; no external persistent animal ID or control-pairing key is published."
+      },
+      "source": {
+        "artifact_id": "usuda2023-article-html",
+        "uri": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1219185/full",
+        "license": "CC BY 4.0 (publisher article HTML)",
+        "sha256": "92dfaf3daefb24b414bbd62b23d9a84d8e90bc41c9b61a3494d990c96294bf14",
+        "retrieved_on": "2026-10-09"
+      },
+      "record_id": "usuda-case-d-edema-status",
+      "assay": {
+        "name": "Table 4 source-reported case summary",
+        "endpoint": "Edema status (source-coded)",
+        "unit": "source status/time annotation text",
+        "measurement_role": "adverse_effect"
+      },
+      "observation": {
+        "value": "-",
+        "measurement_time": null,
+        "measurement_time_unit": "Time annotation, if present, remains unparsed in source value.",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source_locator": "Table 4, Case D, row: Edema"
+    },
+    {
+      "schema_version": 1,
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Usuda APT support interval, source case E; starting gestational day is not mapped to this case",
+        "start": 0,
+        "end": 173,
+        "time_unit": "hours after APT initiation",
+        "stage_source_artifact_id": "usuda2023-article-html"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetus in the Usuda artificial-placenta support study; source case labels A-F"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Case E",
+        "parent_id": null,
+        "hierarchy_note": "Source table label only; no external persistent animal ID or control-pairing key is published."
+      },
+      "source": {
+        "artifact_id": "usuda2023-article-html",
+        "uri": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1219185/full",
+        "license": "CC BY 4.0 (publisher article HTML)",
+        "sha256": "92dfaf3daefb24b414bbd62b23d9a84d8e90bc41c9b61a3494d990c96294bf14",
+        "retrieved_on": "2026-10-09"
+      },
+      "record_id": "usuda-case-e-bleeding-status",
+      "assay": {
+        "name": "Table 4 source-reported case summary",
+        "endpoint": "Bleeding status (source-coded)",
+        "unit": "source status/time annotation text",
+        "measurement_role": "adverse_effect"
+      },
+      "observation": {
+        "value": "Bladder + (170H-)",
+        "measurement_time": null,
+        "measurement_time_unit": "Time annotation, if present, remains unparsed in source value.",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source_locator": "Table 4, Case E, row: Bleeding"
+    },
+    {
+      "schema_version": 1,
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Usuda APT support interval, source case E; starting gestational day is not mapped to this case",
+        "start": 0,
+        "end": 173,
+        "time_unit": "hours after APT initiation",
+        "stage_source_artifact_id": "usuda2023-article-html"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetus in the Usuda artificial-placenta support study; source case labels A-F"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Case E",
+        "parent_id": null,
+        "hierarchy_note": "Source table label only; no external persistent animal ID or control-pairing key is published."
+      },
+      "source": {
+        "artifact_id": "usuda2023-article-html",
+        "uri": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1219185/full",
+        "license": "CC BY 4.0 (publisher article HTML)",
+        "sha256": "92dfaf3daefb24b414bbd62b23d9a84d8e90bc41c9b61a3494d990c96294bf14",
+        "retrieved_on": "2026-10-09"
+      },
+      "record_id": "usuda-case-e-edema-status",
+      "assay": {
+        "name": "Table 4 source-reported case summary",
+        "endpoint": "Edema status (source-coded)",
+        "unit": "source status/time annotation text",
+        "measurement_role": "adverse_effect"
+      },
+      "observation": {
+        "value": "-",
+        "measurement_time": null,
+        "measurement_time_unit": "Time annotation, if present, remains unparsed in source value.",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source_locator": "Table 4, Case E, row: Edema"
+    },
+    {
+      "schema_version": 1,
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Usuda APT support interval, source case F; starting gestational day is not mapped to this case",
+        "start": 0,
+        "end": 336,
+        "time_unit": "hours after APT initiation",
+        "stage_source_artifact_id": "usuda2023-article-html"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetus in the Usuda artificial-placenta support study; source case labels A-F"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Case F",
+        "parent_id": null,
+        "hierarchy_note": "Source table label only; no external persistent animal ID or control-pairing key is published."
+      },
+      "source": {
+        "artifact_id": "usuda2023-article-html",
+        "uri": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1219185/full",
+        "license": "CC BY 4.0 (publisher article HTML)",
+        "sha256": "92dfaf3daefb24b414bbd62b23d9a84d8e90bc41c9b61a3494d990c96294bf14",
+        "retrieved_on": "2026-10-09"
+      },
+      "record_id": "usuda-case-f-bleeding-status",
+      "assay": {
+        "name": "Table 4 source-reported case summary",
+        "endpoint": "Bleeding status (source-coded)",
+        "unit": "source status/time annotation text",
+        "measurement_role": "adverse_effect"
+      },
+      "observation": {
+        "value": "-",
+        "measurement_time": null,
+        "measurement_time_unit": "Time annotation, if present, remains unparsed in source value.",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source_locator": "Table 4, Case F, row: Bleeding"
+    },
+    {
+      "schema_version": 1,
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Usuda APT support interval, source case F; starting gestational day is not mapped to this case",
+        "start": 0,
+        "end": 336,
+        "time_unit": "hours after APT initiation",
+        "stage_source_artifact_id": "usuda2023-article-html"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetus in the Usuda artificial-placenta support study; source case labels A-F"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Case F",
+        "parent_id": null,
+        "hierarchy_note": "Source table label only; no external persistent animal ID or control-pairing key is published."
+      },
+      "source": {
+        "artifact_id": "usuda2023-article-html",
+        "uri": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1219185/full",
+        "license": "CC BY 4.0 (publisher article HTML)",
+        "sha256": "92dfaf3daefb24b414bbd62b23d9a84d8e90bc41c9b61a3494d990c96294bf14",
+        "retrieved_on": "2026-10-09"
+      },
+      "record_id": "usuda-case-f-edema-status",
+      "assay": {
+        "name": "Table 4 source-reported case summary",
+        "endpoint": "Edema status (source-coded)",
+        "unit": "source status/time annotation text",
+        "measurement_role": "adverse_effect"
+      },
+      "observation": {
+        "value": "(240H-) +",
+        "measurement_time": null,
+        "measurement_time_unit": "Time annotation, if present, remains unparsed in source value.",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source_locator": "Table 4, Case F, row: Edema"
+    },
+    {
+      "schema_version": 1,
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Usuda APT support interval, source case A; starting gestational day is not mapped to this case",
+        "start": 0,
+        "end": 296,
+        "time_unit": "hours after APT initiation",
+        "stage_source_artifact_id": "usuda2023-article-html"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetus in the Usuda artificial-placenta support study; source case labels A-F"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Case A",
+        "parent_id": null,
+        "hierarchy_note": "Source table label only; no external persistent animal ID or control-pairing key is published."
+      },
+      "source": {
+        "artifact_id": "usuda2023-article-html",
+        "uri": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1219185/full",
+        "license": "CC BY 4.0 (publisher article HTML)",
+        "sha256": "92dfaf3daefb24b414bbd62b23d9a84d8e90bc41c9b61a3494d990c96294bf14",
+        "retrieved_on": "2026-10-09"
+      },
+      "record_id": "usuda-case-a-disposition-summary",
+      "assay": {
+        "name": "Results individual case narrative summary",
+        "endpoint": "Case-specific experiment disposition summary",
+        "unit": "curated source-reported case narrative",
+        "measurement_role": "other"
+      },
+      "observation": {
+        "value": "Euthanized at 296 h after progressive circuit-flow deterioration; the case narrative reports no overt bleeding.",
+        "measurement_time": 296,
+        "measurement_time_unit": "hours after APT initiation",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source_locator": "Results > Individual case information > Case A"
+    },
+    {
+      "schema_version": 1,
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Usuda APT support interval, source case B; starting gestational day is not mapped to this case",
+        "start": 0,
+        "end": 306,
+        "time_unit": "hours after APT initiation",
+        "stage_source_artifact_id": "usuda2023-article-html"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetus in the Usuda artificial-placenta support study; source case labels A-F"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Case B",
+        "parent_id": null,
+        "hierarchy_note": "Source table label only; no external persistent animal ID or control-pairing key is published."
+      },
+      "source": {
+        "artifact_id": "usuda2023-article-html",
+        "uri": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1219185/full",
+        "license": "CC BY 4.0 (publisher article HTML)",
+        "sha256": "92dfaf3daefb24b414bbd62b23d9a84d8e90bc41c9b61a3494d990c96294bf14",
+        "retrieved_on": "2026-10-09"
+      },
+      "record_id": "usuda-case-b-disposition-summary",
+      "assay": {
+        "name": "Results individual case narrative summary",
+        "endpoint": "Case-specific experiment disposition summary",
+        "unit": "curated source-reported case narrative",
+        "measurement_role": "other"
+      },
+      "observation": {
+        "value": "Euthanized at 306 h after gross hematuria; necropsy reported bladder-wall perforation.",
+        "measurement_time": 306,
+        "measurement_time_unit": "hours after APT initiation",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source_locator": "Results > Individual case information > Case B"
+    },
+    {
+      "schema_version": 1,
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Usuda APT support interval, source case C; starting gestational day is not mapped to this case",
+        "start": 0,
+        "end": 213,
+        "time_unit": "hours after APT initiation",
+        "stage_source_artifact_id": "usuda2023-article-html"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetus in the Usuda artificial-placenta support study; source case labels A-F"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Case C",
+        "parent_id": null,
+        "hierarchy_note": "Source table label only; no external persistent animal ID or control-pairing key is published."
+      },
+      "source": {
+        "artifact_id": "usuda2023-article-html",
+        "uri": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1219185/full",
+        "license": "CC BY 4.0 (publisher article HTML)",
+        "sha256": "92dfaf3daefb24b414bbd62b23d9a84d8e90bc41c9b61a3494d990c96294bf14",
+        "retrieved_on": "2026-10-09"
+      },
+      "record_id": "usuda-case-c-disposition-summary",
+      "assay": {
+        "name": "Results individual case narrative summary",
+        "endpoint": "Case-specific experiment disposition summary",
+        "unit": "curated source-reported case narrative",
+        "measurement_role": "other"
+      },
+      "observation": {
+        "value": "Euthanized at 213 h after circuit-flow deterioration; earlier retroperitoneal bleeding at 24 h is reported.",
+        "measurement_time": 213,
+        "measurement_time_unit": "hours after APT initiation",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source_locator": "Results > Individual case information > Case C"
+    },
+    {
+      "schema_version": 1,
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Usuda APT support interval, source case D; starting gestational day is not mapped to this case",
+        "start": 0,
+        "end": 174,
+        "time_unit": "hours after APT initiation",
+        "stage_source_artifact_id": "usuda2023-article-html"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetus in the Usuda artificial-placenta support study; source case labels A-F"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Case D",
+        "parent_id": null,
+        "hierarchy_note": "Source table label only; no external persistent animal ID or control-pairing key is published."
+      },
+      "source": {
+        "artifact_id": "usuda2023-article-html",
+        "uri": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1219185/full",
+        "license": "CC BY 4.0 (publisher article HTML)",
+        "sha256": "92dfaf3daefb24b414bbd62b23d9a84d8e90bc41c9b61a3494d990c96294bf14",
+        "retrieved_on": "2026-10-09"
+      },
+      "record_id": "usuda-case-d-disposition-summary",
+      "assay": {
+        "name": "Results individual case narrative summary",
+        "endpoint": "Case-specific experiment disposition summary",
+        "unit": "curated source-reported case narrative",
+        "measurement_role": "other"
+      },
+      "observation": {
+        "value": "Euthanized at 174 h after gross hematuria; necropsy reported bladder and colon perforation.",
+        "measurement_time": 174,
+        "measurement_time_unit": "hours after APT initiation",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source_locator": "Results > Individual case information > Case D"
+    },
+    {
+      "schema_version": 1,
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Usuda APT support interval, source case E; starting gestational day is not mapped to this case",
+        "start": 0,
+        "end": 173,
+        "time_unit": "hours after APT initiation",
+        "stage_source_artifact_id": "usuda2023-article-html"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetus in the Usuda artificial-placenta support study; source case labels A-F"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Case E",
+        "parent_id": null,
+        "hierarchy_note": "Source table label only; no external persistent animal ID or control-pairing key is published."
+      },
+      "source": {
+        "artifact_id": "usuda2023-article-html",
+        "uri": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1219185/full",
+        "license": "CC BY 4.0 (publisher article HTML)",
+        "sha256": "92dfaf3daefb24b414bbd62b23d9a84d8e90bc41c9b61a3494d990c96294bf14",
+        "retrieved_on": "2026-10-09"
+      },
+      "record_id": "usuda-case-e-disposition-summary",
+      "assay": {
+        "name": "Results individual case narrative summary",
+        "endpoint": "Case-specific experiment disposition summary",
+        "unit": "curated source-reported case narrative",
+        "measurement_role": "other"
+      },
+      "observation": {
+        "value": "Euthanized at 173 h after gross hematuria; necropsy reported bladder perforation.",
+        "measurement_time": 173,
+        "measurement_time_unit": "hours after APT initiation",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source_locator": "Results > Individual case information > Case E"
+    },
+    {
+      "schema_version": 1,
+      "evidence_status": "author_reported_summary",
+      "species": "ovine",
+      "stage_track": "partial_fetal_support",
+      "developmental_interval": {
+        "label": "Usuda APT support interval, source case F; starting gestational day is not mapped to this case",
+        "start": 0,
+        "end": 336,
+        "time_unit": "hours after APT initiation",
+        "stage_source_artifact_id": "usuda2023-article-html"
+      },
+      "model_system": {
+        "kind": "intact_organism",
+        "label": "Ovine fetus in the Usuda artificial-placenta support study; source case labels A-F"
+      },
+      "independent_unit": {
+        "kind": "fetus",
+        "id": "Case F",
+        "parent_id": null,
+        "hierarchy_note": "Source table label only; no external persistent animal ID or control-pairing key is published."
+      },
+      "source": {
+        "artifact_id": "usuda2023-article-html",
+        "uri": "https://www.frontiersin.org/journals/physiology/articles/10.3389/fphys.2023.1219185/full",
+        "license": "CC BY 4.0 (publisher article HTML)",
+        "sha256": "92dfaf3daefb24b414bbd62b23d9a84d8e90bc41c9b61a3494d990c96294bf14",
+        "retrieved_on": "2026-10-09"
+      },
+      "record_id": "usuda-case-f-disposition-summary",
+      "assay": {
+        "name": "Results individual case narrative summary",
+        "endpoint": "Case-specific experiment disposition summary",
+        "unit": "curated source-reported case narrative",
+        "measurement_role": "other"
+      },
+      "observation": {
+        "value": "Survival time was 336 h; the Results report one of six fetuses reached the pre-determined duration.",
+        "measurement_time": 336,
+        "measurement_time_unit": "hours after APT initiation",
+        "comparator_id": null,
+        "replicate_role": "independent"
+      },
+      "source_locator": "Results > Individual case information > Case F"
+    }
+  ],
+  "cohort_coverage": [
+    {
+      "coverage_id": "usuda2023-table4-apt-cases",
+      "source_artifact_id": "usuda2023-article-html",
+      "reported_group_label": "APT Group",
+      "group_label_status": "reported",
+      "counted_entity_kind": "fetus",
+      "counted_entity_label": "Ovine fetus; source cases A-F",
+      "endpoint_label": "Per-case body weight, support duration, source-coded adverse status, and disposition summary",
+      "population_frame": "Six source-labeled APT cases listed A-F",
+      "measurement_window": "At APT induction and experiment conclusion; support duration as reported per case",
+      "selection_definition": "The six APT cases listed in Table 4; the source states six APT animals were analyzed.",
+      "selection_definition_source_locator": "Table 4 case headers A-F; Table 4 caption; Results > Physiological variables",
+      "denominator": {
+        "value": 6,
+        "value_status": "reported",
+        "reported_label": "Six APT Group animals",
+        "source_locator": "Table 4 caption; Table 1 number row"
+      },
+      "declarations": [
+        {
+          "category": "endpoint_measure",
+          "scope": "within_denominator",
+          "reported_label": "Six APT cases shown in Table 4",
+          "quantity_kind": "count",
+          "value": 6,
+          "value_status": "reported",
+          "source_locator": "Table 4 case headers A-F",
+          "note": "Source-table listing count; not a disposition partition."
+        }
+      ],
+      "selection_statements": [],
+      "cohort_window_status": "source_labels_only",
+      "disposition_completeness": "unknown",
+      "categories_mutually_exclusive": "unknown",
+      "categories_exhaustive": "unknown"
+    }
+  ],
+  "transitions": [],
+  "limitations": [
+    "This is a candidate transcription of selected per-case body-weight, support-duration, adverse-status, and disposition summaries; it is not the article's raw time-series dataset.",
+    "Source case labels A-F are not external persistent identifiers; gestational start day is not mapped to an individual case.",
+    "developmental_interval records each case's full reported support episode; observation.measurement_time locates a table value within that episode. Induction body weight is at 0 hours, while conclusion weight is at the case-reported duration.",
+    "Terminal growth, organ, biochemical, and cardiac endpoints are reported as group summaries in Tables 1, 3, and 6; no per-case join to these endpoints is published.",
+    "The abstract reports six age-matched in-utero controls while Methods and endpoint tables report eight; this candidate contains no control observations or case-to-control links.",
+    "The article reports no post-support developmental follow-up. No growth rate, effect estimate, or biological fit is calculated here.",
+    "Bleeding and edema entries preserve exact source-coded status/time strings; event timing is not parsed or inferred.",
+    "Case narratives describe per-case events and endpoint timing, but the two aggregate umbilical-artery-vasoconstriction dispositions are not explicitly assigned to case labels A-F."
+  ]
+}

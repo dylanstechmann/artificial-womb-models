@@ -1,0 +1,894 @@
+{
+  "schema_version": 1,
+  "source_id": "mathiesen-2020-human-placental-perfusion",
+  "created_on": "2026-10-10",
+  "review_status": "candidate",
+  "human_review": "pending",
+  "crosswalk_note": "MATHIESEN_PERFUSION_AVAILABILITY_CROSSWALK_2026-10-10.md",
+  "status_vocabulary": {
+    "reported": "The cited primary public source directly states or provides the field.",
+    "partially_reported": "Some components are available, but the field is not complete at the unit, time, or value level needed for its intended use.",
+    "described_without_numeric_source_values": "The source says a measure was observed or performed, but numeric records were not located in the inspected files.",
+    "not_found_in_inspected_files": "The value or record was not located in the explicitly scoped public artifacts; this does not establish that it was never measured.",
+    "unresolved_linkage": "Labels or counts align, but the source does not establish the requested identity or denominator relationship.",
+    "conflicting_sources": "Inspected sources give incompatible statements for a shared field or frame.",
+    "outside_study_scope": "The source design and stated endpoints do not address this outcome.",
+    "not_assessed": "Use only when the source explicitly states that the measure was not assessed."
+  },
+  "inspection_scope": {
+    "primary_article": {
+      "uri": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0233979",
+      "local_artifact": "artifacts/tryptophan-perfusion-2020/article.html",
+      "inspected_sections": [
+        "Materials and methods",
+        "Placental perfusion",
+        "Quantification of antipyrine",
+        "Quantification of cortisol and cortisone",
+        "Quantification of tryptophan, serotonin and metabolites",
+        "Statistical analysis",
+        "Supporting information captions"
+      ]
+    },
+    "s1_data": {
+      "uri": "https://doi.org/10.1371/journal.pone.0233979.s005",
+      "local_artifact": "artifacts/tryptophan-perfusion-2020/supplement-s1-data.xlsx",
+      "inspection": "Workbook values were parsed in the existing source-cell audit; 3,190 expected cells, 2,908 numeric values and 282 blanks were retained with source locators."
+    },
+    "table1": {
+      "uri": "https://journals.plos.org/plosone/article/figure/image?download&size=large&id=10.1371/journal.pone.0233979.t001",
+      "local_artifact": "artifacts/tryptophan-perfusion-2020/table1.png",
+      "inspection": "Two visual passes checked the 22 ID-to-antagonist and acceptable-duration entries only. Other Table 1 columns were not transcribed; human verification remains pending."
+    },
+    "s1_table": {
+      "uri": "https://doi.org/10.1371/journal.pone.0233979.s001",
+      "local_artifact": "artifacts/tryptophan-perfusion-2020/supplement-s1-table.docx",
+      "inspection": "Selection counts and table structure checked; its relationship to the 22 numbered test-substance perfusions is not established."
+    },
+    "s2_s4": {
+      "uris": [
+        "https://doi.org/10.1371/journal.pone.0233979.s002",
+        "https://doi.org/10.1371/journal.pone.0233979.s003",
+        "https://doi.org/10.1371/journal.pone.0233979.s004"
+      ],
+      "local_directory": "artifacts/tryptophan-perfusion-supporting-2020",
+      "inspection": "Hashes, structure and headers checked. S3's unique nr keys were inspected; donor/questionnaire and correlation values were not transcribed."
+    },
+    "non_inference_rule": "Every absence applies only to the artifacts and portions above. Do not infer that a measurement was never performed, join matching numeric keys without a stated crosswalk, or treat an ex vivo placental result as an embryo, gestation, birth, or health outcome."
+  },
+  "fields": [
+    {
+      "field_id": "study_frame_and_material",
+      "group": "study_and_sample_frame",
+      "availability": "partially_reported",
+      "evidence": [
+        {
+          "source": "primary_article",
+          "locator": "Materials and methods; Placental perfusion"
+        },
+        {
+          "source": "s2_s4",
+          "locator": "S2 table structure; S3 table description"
+        }
+      ],
+      "finding": "The paper describes an ex vivo human term-placenta perfusion study in Copenhagen and says the placentas came from the Maternal Stress and Placental Function project. The article reports 22 placentas set up for perfusion.",
+      "limit": "The audited concentration workbook identifies numbered perfusion columns, not verified personal donor identities or independent biological units."
+    },
+    {
+      "field_id": "donor_to_perfusion_identity",
+      "group": "study_and_sample_frame",
+      "availability": "unresolved_linkage",
+      "evidence": [
+        {
+          "source": "s2_s4",
+          "locator": "S3 `nr` key column, values 1 through 22"
+        },
+        {
+          "source": "table1",
+          "locator": "Table 1 `ID` entries, values 1 through 22"
+        }
+      ],
+      "finding": "S3's unique numeric key set matches the Table 1 ID set, and S3 is described as donor-questionnaire data with selected perfusion outcomes.",
+      "limit": "No inspected source explicitly defines `nr` as the Table 1 perfusion ID or supplies a donor-to-run crosswalk. No join is made."
+    },
+    {
+      "field_id": "selection_denominators_and_disposition",
+      "group": "study_and_sample_frame",
+      "availability": "unresolved_linkage",
+      "evidence": [
+        {
+          "source": "primary_article",
+          "locator": "Materials and methods; 22 set up, 2 early leaks, 5 later leaks, 15 six-hour perfusions"
+        },
+        {
+          "source": "s1_table",
+          "locator": "S1 Table selection funnel: 48 received, 43 cannulated, 26 successful pre-perfusion/substance-added, 15 successful six-hour perfusions"
+        }
+      ],
+      "finding": "Both records report 15 six-hour perfusions, while one gives a 22-run disposition and S1 Table gives a 48-to-43-to-26-to-15 funnel.",
+      "limit": "The common cohort, denominator timing and relationship between the 26 and 22 counts are not stated in the inspected source set. Keep the frames separate."
+    },
+    {
+      "field_id": "test_substances_and_exposure_arms",
+      "group": "test_substance",
+      "availability": "reported",
+      "evidence": [
+        {
+          "source": "primary_article",
+          "locator": "Abstract; Placental perfusion"
+        },
+        {
+          "source": "table1",
+          "locator": "Table 1 run-condition entries; transcription pending human verification"
+        }
+      ],
+      "finding": "The article reports simultaneous maternal-side addition of cortisol, cortisone, tryptophan and serotonin and describes carbenoxolone, fluoxetine and PCPA co-exposure groups. The workbook also contains 5-HIAA measurements.",
+      "limit": "The run-to-condition map is a manual transcription checked twice by the same agent, not independent human verification."
+    },
+    {
+      "field_id": "compartments_units_and_time_labels",
+      "group": "experimental_compartments",
+      "availability": "reported",
+      "evidence": [
+        {
+          "source": "primary_article",
+          "locator": "Placental perfusion; S1 Data caption"
+        },
+        {
+          "source": "s1_data",
+          "locator": "Five analytes, maternal/fetal systems, source time labels and 22 numbered perfusion columns"
+        }
+      ],
+      "finding": "The source reports maternal and fetal perfusate concentration data in nM for cortisol, cortisone, tryptophan, serotonin and 5-HIAA. Workbook labels and cell locations are preserved in the source-cell audit.",
+      "limit": "`Mbefore` and `Fbefore` remain textual pre-exposure labels; they are not assigned invented elapsed times. Concentration is not amount or flux."
+    },
+    {
+      "field_id": "perfusion_setup_and_medium_context",
+      "group": "preparation_and_experimental_compartments",
+      "availability": "partially_reported",
+      "evidence": [
+        {
+          "source": "primary_article",
+          "locator": "Placental perfusion"
+        }
+      ],
+      "finding": "The article describes an ex vivo single-cotyledon model with maternal and fetal recirculating compartments and identifies selected medium and temperature context.",
+      "limit": "The crosswalk is a reporting-availability record, not an operating specification. It does not copy a cited protocol or claim complete reporting of all setup parameters."
+    },
+    {
+      "field_id": "run_duration_and_acceptability",
+      "group": "control_and_acceptance",
+      "availability": "partially_reported",
+      "evidence": [
+        {
+          "source": "primary_article",
+          "locator": "Materials and methods; Placental perfusion"
+        },
+        {
+          "source": "table1",
+          "locator": "Table 1 acceptability-duration entries; transcription pending human verification"
+        }
+      ],
+      "finding": "The article reports 2 perfusions unsuccessful due to early fetal-circulation leakage, 5 becoming unsuccessful after leakage at 4 hours, and 15 successful six-hour perfusions. The current transcription marks 15 runs acceptable for six hours and 7 shorter-duration runs.",
+      "limit": "The per-run duration map remains a candidate pending independent review; other Table 1 columns were not transcribed."
+    },
+    {
+      "field_id": "quality_control_criteria_and_run_values",
+      "group": "control_and_acceptance",
+      "availability": "partially_reported",
+      "evidence": [
+        {
+          "source": "primary_article",
+          "locator": "Placental perfusion; S1 Table caption"
+        },
+        {
+          "source": "table1",
+          "locator": "Other columns not transcribed in this audit"
+        }
+      ],
+      "finding": "The Methods state fetal-system volume-loss and antipyrine feto-maternal-ratio criteria, and the article reports aggregate failure/success counts.",
+      "limit": "Per-run criterion values were not extracted or verified here. Their status is not classified as absent."
+    },
+    {
+      "field_id": "sample_volume_and_removal_history",
+      "group": "collection_and_analysis",
+      "availability": "described_without_numeric_source_values",
+      "evidence": [
+        {
+          "source": "primary_article",
+          "locator": "Placental perfusion: fetal reservoir volume observed after each sample; maternal and fetal volumes measured at end"
+        },
+        {
+          "source": "s1_data",
+          "locator": "Concentration workbook; no per-sample volume/removal series in the audited data"
+        },
+        {
+          "source": "s1_table",
+          "locator": "Selection counts only"
+        },
+        {
+          "source": "s2_s4",
+          "locator": "Table structure and S3 key inspected; no numeric volume series identified"
+        }
+      ],
+      "finding": "The article says reservoir volumes were observed during sampling and measured at the end.",
+      "limit": "No numerical per-sample removal history or per-run final maternal/fetal volume was located in the inventoried public files. This is not evidence that volume was never measured."
+    },
+    {
+      "field_id": "physiological_monitoring_values",
+      "group": "experimental_compartments",
+      "availability": "described_without_numeric_source_values",
+      "evidence": [
+        {
+          "source": "primary_article",
+          "locator": "Placental perfusion: oxygen, glucose and pH monitoring described"
+        },
+        {
+          "source": "s1_data",
+          "locator": "Analyte concentration workbook"
+        }
+      ],
+      "finding": "The Methods say oxygen, glucose and pH were measured during perfusion and regulated.",
+      "limit": "No corresponding numeric time series is present in the audited concentration workbook or the inventoried supplementary tables."
+    },
+    {
+      "field_id": "analytical_method_and_calibration",
+      "group": "collection_and_analysis",
+      "availability": "partially_reported",
+      "evidence": [
+        {
+          "source": "primary_article",
+          "locator": "Quantification of antipyrine; cortisol and cortisone; tryptophan, serotonin and metabolites"
+        },
+        {
+          "source": "s1_data",
+          "locator": "Reported nM concentration values"
+        }
+      ],
+      "finding": "The article describes assay platforms, sample preparation and selected instrument/column conditions; it refers readers elsewhere for detailed cortisol/cortisone quantification.",
+      "limit": "Calibration curves, analytical uncertainty, precision/accuracy records, chromatograms and analyte recovery/inventory records were not found among the inventoried public artifacts."
+    },
+    {
+      "field_id": "concentration_observations_and_missingness",
+      "group": "outcomes_and_missingness",
+      "availability": "partially_reported",
+      "evidence": [
+        {
+          "source": "s1_data",
+          "locator": "Source-cell audit: 3,190 expected, 2,908 numeric, 282 blank cells"
+        },
+        {
+          "source": "primary_article",
+          "locator": "S1 Data caption: missing data due to analysis errors"
+        }
+      ],
+      "finding": "Numeric maternal/fetal reservoir concentrations and their original workbook locators are available; the article attributes missing data globally to analysis errors.",
+      "limit": "The source provides no cell-specific cause for the 282 blanks. Do not infer no measurement, zero, or a biological failure for an empty cell."
+    },
+    {
+      "field_id": "embryo_gestation_birth_and_later_health_outcomes",
+      "group": "outcomes_and_missingness",
+      "availability": "outside_study_scope",
+      "evidence": [
+        {
+          "source": "primary_article",
+          "locator": "Abstract and Methods: ex vivo term placental perfusion and placental analyte endpoints"
+        }
+      ],
+      "finding": "The stated study design and reported endpoints concern ex vivo placental perfusate and placental transport/metabolism.",
+      "limit": "This source cannot qualify embryo development, continuous gestation, birth, neonatal transition or later health."
+    }
+  ],
+  "claim_gates": [
+    {
+      "claim_id": "source_cell_concentration_description",
+      "current_status": "candidate_after_human_review",
+      "current_basis": "Source-cell nM values, compartments, source time labels and blank cells are retained, but run-map and transcription review is pending.",
+      "proposed_evidence_to_reconsider": [
+        "Independent human verification of workbook transcription and Table 1 run-to-condition/duration map",
+        "Receipt-bound reproduction of only the specified source-cell summary",
+        "Preservation of source labels, blank cells, and late-window flags"
+      ],
+      "claim_ceiling": "Descriptive reservoir concentrations or a clearly labeled descriptive ratio; not flux, mass balance, nutrient sufficiency, or developmental support."
+    },
+    {
+      "claim_id": "between_arm_or_duration_comparison",
+      "current_status": "not_yet_eligible",
+      "current_basis": "The run-condition map has not had independent human review; other Table 1 QC columns were not transcribed; selection frames are unresolved.",
+      "proposed_evidence_to_reconsider": [
+        "Verified run-to-arm and acceptable-duration map",
+        "Source-located run-level acceptance/disposition evidence and explicit comparison denominator",
+        "Verified independent-unit grouping and a frozen descriptive comparison plan"
+      ],
+      "claim_ceiling": "Source-specific descriptive group contrast only; no generalized or causal effect claim follows automatically."
+    },
+    {
+      "claim_id": "dimensional_transport_or_mass_balance",
+      "current_status": "ineligible_with_inspected_record_set",
+      "current_basis": "The inspected record set has reservoir concentrations but not numerical sampling/removal histories, per-run starting/final volumes, recovery/inventory, or calibration/uncertainty records.",
+      "proposed_evidence_to_reconsider": [
+        "Per-run initial and final volume for each compartment",
+        "Time-linked volume removed or returned at each sample and any additions",
+        "Dose and analyte mass accounting, including relevant metabolism and recovery/loss terms",
+        "Calibration, precision and measurement-uncertainty records for each assay",
+        "Verified per-run quality criteria and source-unit identity"
+      ],
+      "claim_ceiling": "A fit is reviewable only after the observation model and its uncertainty are identifiable from the source records; concentration trajectories alone remain insufficient."
+    },
+    {
+      "claim_id": "donor_level_stress_or_covariate_association",
+      "current_status": "ineligible_pending_identity_and_disposition",
+      "current_basis": "S3 `nr` and Table 1 IDs match numerically, but no explicit donor-to-run crosswalk is present; the 22-run and 48-to-15 selection frames are unresolved.",
+      "proposed_evidence_to_reconsider": [
+        "An explicit source-supported donor-to-perfusion key",
+        "Individual donor/covariate and perfusion outcome values with provenance",
+        "Selection, exclusion and missingness disposition for the same declared cohort",
+        "Independent biological-unit structure and a prespecified analysis plan"
+      ],
+      "claim_ceiling": "An eligible association analysis would remain observational and source-specific; numeric key equality alone never establishes identity."
+    },
+    {
+      "claim_id": "embryo_development_or_integrated_gestation",
+      "current_status": "outside_source_scope",
+      "current_basis": "This is an ex vivo term-placenta transport/metabolism study and contains no same-embryo developmental trajectory or birth/health endpoint.",
+      "proposed_evidence_to_reconsider": [
+        "A distinct source that follows the same identified embryo and recipient/support context across the developmental transition at issue",
+        "Direct time-linked developmental and functional outcomes with disposition of all enrolled units",
+        "For claims extending through birth, observed birth, neonatal transition and the stated later-health window"
+      ],
+      "claim_ceiling": "Placental concentration data cannot substitute for embryo progression, continuous gestation, birth, or healthy-child outcomes."
+    }
+  ],
+  "related_public_source_candidate_screens": [
+    {
+      "citation": "Hirschmugl B, Perazzolo S, Sengers BG, et al. Placental mobilization of free fatty acids contributes to altered materno-fetal transfer in obesity. Int J Obes. 2021;45(5):1114-1123. doi:10.1038/s41366-021-00781-x.",
+      "primary_article": "https://www.nature.com/articles/s41366-021-00781-x",
+      "article_text_copy": "https://www.researchgate.net/publication/349643674_Placental_mobilization_of_free_fatty_acids_contributes_to_altered_materno-fetal_transfer_in_obesity",
+      "source_screen": "HIRSCHMUGL_2021_FATTY_ACID_PERFUSION_SOURCE_SCREEN_2026-10-10.md",
+      "relevance": "Term-human-placenta nutrient-transfer mechanism comparator. The article distinguishes isotope-labeled maternal fatty-acid transfer, endogenous release, fetal-side appearance, placental uptake, and model-estimated parameters; it is not an embryo-support or continuous-gestation source.",
+      "public_evidence_seen": [
+        "The article reports 15 perfusions (lean n=8, obese n=7); the main clearance comparison uses n=13 after one experiment in each group was excluded for a missing measurement at one time point. A distinct n=1 experiment is a model-prediction check.",
+        "Article figures present group-mean ± SD clearance time courses and a representative model-fit plot; the model figure marks the syncytiotrophoblast state as having no experimental concentration data and states that maternal-vein concentrations were measured only at 90 minutes.",
+        "The five-page publisher supplemental PDF was retrieved and visually checked. Supplementary Table 1 gives FFA-mix concentration summaries over 14 experiments; Table 2 gives quality-control summaries for 15 placentae, with pressure, pH and lactate means calculated over 90 minutes; Table 3 gives lean/obese group characteristics, including group-level birth weight and ponderal index.",
+        "Supplementary Figure 1 reports group-level calculated placental FFA uptake (mean ± SD; lean n=4, obese n=3). No run-specific uptake values or source rows are provided in that figure.",
+        "Methods describe repeated physiological sampling and instrument logging, and the article defines an uptake calculation from reservoir quantities at 0 and 90 minutes. The article and supplement do not expose machine-readable run-linked concentration rows, numeric per-run reservoir-volume/sample-removal history, or numeric blood-gas/pump/pressure logs.",
+        "The publisher page identifies CC BY 4.0. The exact supplementary PDF and its retrieval URL/size/hash are preserved in the ignored local source artifact. No table values were transcribed, no figures were digitized, and no author was contacted."
+      ],
+      "supplement_status": "publisher_pdf_inspected; five-page PDF contains group-summary tables and one group-level uptake figure; individual run-level rows not provided",
+      "availability_by_field": {
+        "study_frame": "reported; term ex-vivo human placental perfusion; lean n=8 and obese n=7",
+        "labeled_fatty_acid_clearance": "article reports group mean ± SD time courses; primary comparison n=13 after one missing-timepoint exclusion per group",
+        "individual_concentration_trajectories": "not provided as source rows in the inspected article or supplement; one representative/model-fit figure is not a machine-readable trajectory dataset",
+        "input_mixture_concentrations": "Supplementary Table 1 reports mean ± SD mixture concentrations over 14 experiments; per-experiment values and run linkage not provided",
+        "quality_control": "Supplementary Table 2 reports aggregate summaries for 15 placentae; selected time-varying measures were averaged over 90 minutes; no per-run series or values",
+        "maternal_vein_and_tissue_compartment_observations": "maternal-vein concentration experimentally sampled only at 90 minutes in the model figure; syncytiotrophoblast compartment is model-only",
+        "placental_tissue_uptake": "Supplementary Figure 1 reports calculated group summaries (lean n=4, obese n=3); no individual source rows",
+        "reservoir_quantity_and_volume_history": "uptake equation is described, but per-run quantities/volumes are not exposed in the inspected article or supplement",
+        "sample_removal_history": "not found in the inspected article or supplement",
+        "device_logs": "measurement and logging are described; numeric run-linked blood-gas/pump/pressure histories are not found in the inspected article or supplement",
+        "population_and_birth_context": "Supplementary Table 3 gives group-level characteristics including birth weight and ponderal index; no individual linkage to perfusion labels",
+        "model_derived_parameters": "reported as fitted model summaries; retain as model outputs, not measured source observations",
+        "developmental_outcomes": "clinical group-level birth-weight and ponderal-index summaries only; no outcome from artificial gestational support, embryo development under such support, or later health follow-up"
+      },
+      "scope_limit": "Term-human-placenta fatty-acid exchange/metabolism only. The supplement includes aggregate clinical birth-weight and ponderal-index context, but the study does not test embryo growth under artificial support, sustained gestation by an artificial system, artificial-environment birth, or later health.",
+      "next_action": "Retain as a mechanism and observation-contract comparator. The accessible supplement adds field-level quality-control and uptake summaries but no individual rows or run-level accounting join. Continue public-only screening for source-linked nutrient trajectories with explicit unit identity and volume/removal/recovery records. Do not digitize figures, re-fit the paper model, pool sources, or contact authors.",
+      "author_contacted": false,
+      "publisher_supplement": "https://static-content.springer.com/esm/art%3A10.1038%2Fs41366-021-00781-x/MediaObjects/41366_2021_781_MOESM1_ESM.pdf",
+      "local_source_artifact": "artifacts/hirschmugl-2021-fatty-acid-perfusion/supplement.pdf",
+      "source_sha256": "4467AE2CE59A117F0071C9651EAAFF570FC9EF2050B061BEFBE8C3B6CA7803C3"
+    },
+    {
+      "citation": "Spiess D et al. Placental Passage of Protopine in an Ex Vivo Human Perfusion System. Planta Med. 2023;89(2):194–207. doi:10.1055/a-1829-9546.",
+      "primary_article": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9868778/",
+      "publisher_pdf": "https://www.thieme-connect.de/products/ejournals/pdf/10.1055/a-1829-9546.pdf",
+      "institutional_companion_record": "https://edoc.unibas.ch/entities/publication/bc8556f6-d477-49cd-baa9-d6c6fed4d831",
+      "relevance": "Highest-priority public candidate found for the missing ex vivo-perfusion accounting fields: the primary paper gives a recovery equation that uses maternal, fetal and sampled concentrations/volumes and accounts for system adherence; it says the supplement includes absolute concentration profiles, recovery, placenta characteristics, individual-perfusion detail and analytical-method information.",
+      "public_evidence_seen": [
+        "Primary article reports maternal/fetal concentration sampling and sample-volume range, and defines a recovery calculation including sampled amount and empty-system adherence.",
+        "Primary article captions report concentration profiles as group mean ± SD and Table 1S summarizes maternal, fetal, sampled and system-adherence recovery fractions at group level.",
+        "An indexed excerpt from the author's University of Basel dissertation reproduces Table 3S structure: compound-group experiment numbers, placenta/cotyledon characteristics, total maternal/fetal volume loss at experiment end, and preparation/pre-phase/perfusion timing.",
+        "The repository landing page currently shows request-copy; the linked PMC supplement returned a bot challenge. The indexed excerpt was read as searchable text only, not as an inspected or pinned source file.",
+        "Cycle 231: official PMC article HTML (HTTP 200) exposes the named 2 MB Supporting Information PDF and its field-description text. HEAD on the linked attachment returned HTTP 200 with text/html and 1,817 bytes, not PDF content; the supplement remains uninspected. The page identifies CC BY-NC-ND 4.0. No data were extracted or reproduced.",
+        "Cycle 241: Europe PMC fullTextXML returned article XML and the relative supplement filename, but its separate article/bin file route returned HTTP 403. The exact Thieme article-PDF route returned HTTP 404 over HTTP and HTTPS. No supplement bytes were retrieved; see the route receipt."
+      ],
+      "supplement_status": "article_html_and_europepmc_xml_metadata_accessible; all_checked_supplement_file_routes_unavailable; supplement_file_not_retrieved",
+      "bounded_retrieval_status": "The PMC page and Europe PMC fullTextXML expose article text/metadata and the supplement filename. The PMC attachment returned an HTML challenge, the Europe PMC file route returned HTTP 403, the exact Thieme article-PDF route returned HTTP 404, and the legacy PMC OA package endpoint returned HTTP 404. No supplement bytes were retrieved, pinned or transcribed; no author contact.",
+      "remaining_checks": [
+        "Revisit only if a new direct public file host or delivery route becomes available; do not retry the challenged PMC attachment or the checked 403/404 routes.",
+        "Do not work around the attachment challenge or create derivative table/observation rows under the current license boundary."
+      ],
+      "scope_limit": "This is a term ex vivo placental-transfer study, not embryo development, continuous gestation, birth or later-health evidence. Do not import or pool its study values with Mathiesen et al. 2020.",
+      "screen_report": "SPIESS_2023_PERFUSION_SUPPLEMENT_SCREEN_2026-10-10.md",
+      "field_map_result": "Group-mean concentration/recovery summaries; indexed Table 3S per-perfusion endpoint volume-loss and timing context; no time-resolved removal/volume series or run-linked concentration trajectory exposed in inspected text.",
+      "next_action": "Close the current route screen. Retain as a field-availability candidate, but move to the accessible Spiess Frontiers comparator for a bounded field-availability audit; do not retry the challenged/failed routes or import a derivative table. No author contact.",
+      "author_contacted": false
+    },
+    {
+      "citation": "Spiess D et al. Transplacental passage of hyperforin, hypericin, and valerenic acid. Front Pharmacol. 2023;14:1123194. doi:10.3389/fphar.2023.1123194.",
+      "primary_article": "https://www.frontiersin.org/journals/pharmacology/articles/10.3389/fphar.2023.1123194/full",
+      "supplement_pdf": "https://www.frontiersin.org/api/v4/articles/1123194/file/Data_Sheet_1.PDF/1123194_supplementary-materials_datasheets_1_pdf/1",
+      "relevance": "Directly accessible comparator for intake fields: the 19-page supplement includes group-level concentration/recovery summaries, experiment-level placenta/cotyledon characteristics and total maternal/fetal volume loss, plus assay calibration/QC summaries.",
+      "public_evidence_seen": [
+        "Supplementary Figure 1 presents absolute concentration time courses as mean ± SD from three to four independent experiments, not individual-run trajectories.",
+        "Supplementary Table 1 presents maternal, fetal, sampled and final-recovery percentages as group mean ± SD.",
+        "Supplementary Table 2 lists experiment numbers by compound group, placenta/cotyledon weight, total maternal/fetal volume loss at experiment end, preparation/cannulation/pre-phase times and perfusion duration for 11 placentas donated by 11 women.",
+        "Supplementary Tables 4–11 report calibrator and QC summaries including SD, CV% and relative error; this is assay-validation evidence, not per-observation uncertainty.",
+        "No timepoint-resolved sample-removal or reservoir-volume history, individual concentration series, or shared donor key across compound groups is shown in the inspected supplement.",
+        "Cycle 242 visually checked Supplementary Figure 1 and Table 2: curve and table denominators align by compound (4/3/4), but no table-experiment-to-curve-run join is given. Table 2 defines signed volume loss only at experiment end. See artifacts/perfusion-comparability-2026-10-11/spiess-frontiers-field-availability-cycle242.json."
+      ],
+      "supplement_status": "public_pdf_inspected_by_text; table_and_figure_structure_screened",
+      "scope_limit": "Different phytochemicals in term ex vivo placentae; supports reporting-field comparison only. It cannot establish embryo development, continuous gestation, or an integrated artificial womb. Do not pool with Mathiesen et al. 2020.",
+      "next_action": "Keep as a comparator for field availability and missingness. The Cycle 242 denominator and table review found no run-level join or time-resolved volume ledger. Do not import its aggregate curves or unrelated compound values into the Mathiesen source-cell intake.",
+      "author_contacted": false
+    },
+    {
+      "citation": "Eliesen G et al. Placental transfer of tofacitinib in the ex vivo dual-side human placenta perfusion model. Current Research in Toxicology. 2024;6:100149. doi:10.1016/j.crtox.2024.100149.",
+      "primary_article": "https://www.sciencedirect.com/science/article/pii/S2666027X24000021",
+      "publisher_supplement": "https://ars.els-cdn.com/content/image/1-s2.0-S2666027X24000021-mmc1.docx",
+      "observation_intake": "config/perfusion_observations/eliesen_2024_tofacitinib_dataset.json",
+      "observation_rows": 70,
+      "relevance": "Public descriptive observation candidate. The primary article reports three successful cotyledon perfusions from different donors, and the publisher supplement contains individual maternal/fetal concentration trajectories for tofacitinib at ten stated times. The methods describe estimating reservoir volumes at sample times, but the inspected public table set does not expose numeric run-level volume/removal histories or individual recovery totals.",
+      "public_evidence_seen": [
+        "The publisher-linked 25.7 KB supplementary DOCX was retrieved directly from the publisher content host and inspected. Table S1 contains individual placenta-labeled fetal and maternal FITC-dextran concentrations, Table S2 contains individual placenta-labeled maternal and fetal antipyrine concentrations, and Table S3 contains individual placenta-labeled maternal and fetal tofacitinib concentrations plus a no-placenta control series.",
+        "Table S3 reports three placenta-labeled perfusions from three different donors at t=0, 1, 5, 15, 30, 60, 90, 120, 150 and 180 minutes. Concentrations are in nM; the no-placenta control is marked N/A at 1 minute. The article reports plotted group means ± SD from n=3.",
+        "Cycle 243's standard-library audit reconciles all 70 Table S3 observation keys, source lexemes, units, compartments and missingness fields against the pinned DOCX. The DOCX table stores literal text values (no formula/cache layer); all 69 numeric values match and the control N/A remains not_assessed. The machine check does not replace human transcription/source review. See artifacts/perfusion-intake-2026-10-10/eliesen-table-s3-source-reconciliation-cycle243.json.",
+        "Cycle 244 independently recomputes arithmetic mean and sample SD from the three placenta labels at each time. At 180 min the maternal summary rounds to the article's 35.6 ± 5.5 nM, but Table S3's fetal values (30.0, 20.1, 24.9 nM) yield 25.0 ± 5.0 nM versus the Results text's 24.8 ± 4.7 nM. Preserve the discrepancy; the figure was not digitized. See artifacts/perfusion-intake-2026-10-10/eliesen-table-s3-group-summary-cycle244.json.",
+        "Cycle 245 uses the same DOCX's antipyrine Table S2 as a column-mapping control. Both 180-minute maternal/fetal means and sample SDs round to the article's 36.9 ± 3.0 and 36.7 ± 1.3 µg/ml, respectively. This does not resolve the separate tofacitinib Table S3 discrepancy, and no antipyrine observations were imported. See artifacts/perfusion-intake-2026-10-10/eliesen-antipyrine-s2-endpoint-control-cycle245.json.",
+        "Cycle 246 checked official Crossref and DataCite DOI-relation routes: Crossref's relation object is empty and the exact DataCite related-identifier query returns zero records. The publisher lists only mmc1.docx and states the underlying data are available on request. This is bounded metadata coverage, not proof of dataset absence; no author contact was made. See artifacts/perfusion-comparability-2026-10-11/eliesen-public-dataset-route-screen-cycle246.json.",
+        "The article reports 61 ± 10% tofacitinib recovery from combined perfusates at 180 minutes and 74 ± 4% antipyrine recovery; these are group summaries, not individual-run recovery rows. The no-placenta control time course is a system-adherence check, not a per-placenta recovery measurement.",
+        "Methods state that remaining maternal and fetal perfusion volumes were estimated at sampling times to inspect fetal-side volume loss. Tables S1–S3 contain concentration values only; no numerical run-by-time reservoir volumes, sample-removal amounts, or individual recovery totals were found in the inspected article and supplement. The article's data-availability statement says data will be made available on request; no author contact was made."
+      ],
+      "supplement_status": "publisher_docx_inspected; table_s3_source_cells_machine_reconciled; human_review_pending; fetal_endpoint_summary_discrepancy_pending_review; individual_concentration_trajectories_present; per_run_volume_and_recovery_join_absent",
+      "availability_by_field": {
+        "individual_concentration_trajectories": "reported_for_three_placenta_labeled_donor-perfusions_at_ten_times_in_Supplementary_Tables_S1-S3",
+        "placenta_or_donor_identity": "three distinct placenta labels; article states the tofacitinib cotyledons came from different donors; no personal identity reported",
+        "remaining_reservoir_volume_history": "measurement_estimation_described_at_sampling_times; numeric per-run values not found in inspected files",
+        "sample_volume_and_removal_history": "not_found_in_inspected_article_and_supplement",
+        "individual_recovery": "not_reported; article gives group-level tofacitinib and antipyrine recovery summaries",
+        "system_adherence": "no-placenta concentration time course reported in Supplementary Table S3; not a run-specific placental mass balance",
+        "data_availability": "publisher states data will be made available on request; Crossref relation object empty and exact DataCite related-identifier query returns zero records; no author contact made; these bounded metadata checks do not establish global absence",
+        "embryo_or_gestation_outcomes": "outside_study_scope"
+      },
+      "scope_limit": "Methodological context for term ex vivo perfusion only; no developmental or gestational outcome evidence.",
+      "next_action": "The public source-linked concentration intake is recorded in config/perfusion_observations/eliesen_2024_tofacitinib_dataset.json; preserve the unresolved Table S3 fetal endpoint difference from the Results text despite the matching antipyrine Table S2 control, pending human source review. Crossref and DataCite relation routes found no companion dataset record in this bounded screen. Prioritize other public perfusion sources with linked volume/removal/recovery records; do not calculate or fit amount, mass balance, net flux, or a dimensional transfer parameter without such data, and do not contact authors.",
+      "author_contacted": false
+    },
+    {
+      "citation": "Loza A et al. Xenobiotic transfer of onabotulinumtoxinA using an ex vivo human placental perfusion model: A pilot study. Pregnancy. 2026;2:e70363. doi:10.1002/pmf2.70363.",
+      "primary_article": "https://obgyn.onlinelibrary.wiley.com/doi/full/10.1002/pmf2.70363",
+      "publisher_pdf": "https://obgyn.onlinelibrary.wiley.com/doi/epdf/10.1002/pmf2.70363",
+      "relevance": "Public observation-intake comparator. The article reports five successful term-placenta perfusions with trial-labeled serial concentration plots, explicit missing plot timepoints, assay detection limits, and some trial-level context. It does not publish a machine-readable observation table or the volume/removal records needed for dimensional transport or mass-balance analysis.",
+      "public_evidence_seen": [
+        "Publisher full text and seven-page article PDF were inspected; five of seven collected placentas met the reported perfusion criteria.",
+        "Fetal samples are described at 30-minute intervals over three hours for all five trials; maternal time series are reported only for Trials 4 and 5.",
+        "Figure 3 explicitly identifies missing antipyrine fetal samples in Trial 1 at 30 minutes, Trial 4 at 30 minutes, and Trial 5 at 60 minutes; Figure 4 reports fetal onabotulinumtoxinA results for five trials and maternal results for two.",
+        "The paper reports an approximate 40–50 pg/mL functional lower limit for the onabotulinumtoxinA assay and says fetal samples were below detection; this is a bounded non-detection result, not proof of zero transfer.",
+        "The publisher article/PDF routes inspected contain no explicit data-availability statement, no linked supplemental dataset, and no numerical timepoint-specific sample-removal or reservoir-volume history."
+      ],
+      "supplement_status": "no_linked_supplement_or_machine_readable_dataset_found_in_inspected_publisher_article_and_pdf",
+      "availability_by_field": {
+        "trial_identity_and_some_context": "reported_in_article_table",
+        "concentration_trajectories": "partially_reported_as_trial_labeled_figures; underlying numeric rows not published in inspected files",
+        "missingness": "partially_reported; three fetal antipyrine plot timepoints named",
+        "assay_detection_limit": "reported_for_onabotulinumtoxinA",
+        "timepoint_specific_sample_volume_and_removal_history": "not_found_in_inspected_publisher_files",
+        "initial_or_final_compartment_volume": "not_found_in_inspected_publisher_files",
+        "calibration_and_per_observation_uncertainty": "not_found_in_inspected_publisher_files",
+        "embryo_or_gestation_outcomes": "outside_study_scope"
+      },
+      "scope_limit": "Five successful term ex vivo placenta perfusions for xenobiotic transfer only. Useful for observation schema and explicit missingness examples; not evidence of embryo development, continuous gestation, birth, later health, or an integrated artificial womb. Do not digitize plotted curves as source-exact raw observations or pool this study with Mathiesen et al. 2020.",
+      "next_action": "Retain as a partial public comparator. Continue screening for openly accessible per-run numeric trajectories with unit-linked volumes, and keep any graph digitization explicitly derived and separate from source-reported values. Do not contact authors.",
+      "author_contacted": false
+    },
+    {
+      "citation": "van Kammen C et al. Targeted lipid nanoparticles to prevent trans-placental passage in the ex vivo human placental cotyledon perfusion model. Drug Deliv Transl Res. 2025;15(6):1985–1993. doi:10.1007/s13346-024-01715-6.",
+      "primary_article": "https://link.springer.com/article/10.1007/s13346-024-01715-6",
+      "publisher_supplement": "https://static-content.springer.com/esm/art%3A10.1007%2Fs13346-024-01715-6/MediaObjects/13346_2024_1715_MOESM1_ESM.docx",
+      "relevance": "Public observation-intake comparator with a three-placenta mean±SD plot of maternal and fetal compartment volumes over time, alongside concentration profiles. It explicitly demonstrates that a volume trajectory can be relevant to interpreting concentration changes, while the public files still do not expose per-run volume or concentration observations.",
+      "public_evidence_seen": [
+        "Publisher article inspected. Figure 1C shows maternal and fetal circulation-volume distribution over time as mean±SD for three placentas; the article reports a late decline and discusses edema as a possible explanation, not a resolved mechanism.",
+        "Methods state that the maternal circuit initially contained 120 mL and that samples were collected at fixed timepoints, but the inspected article does not supply a sample-volume/removal history or a numeric timepoint-by-timepoint volume table.",
+        "The publisher-listed supplementary DOCX was retrieved and inspected. Table S1 has placenta-labeled pH summaries, qualitative leak observations, and paired outflow values; its last two column headers are identical, so their distinct meanings remain unresolved.",
+        "The supplement does not contain the underlying Figure 1 concentration or volume time series. The article's data-availability statement says generated or analyzed datasets are available from the corresponding author on reasonable request; no author contact was made."
+      ],
+      "supplement_status": "publisher_docx_inspected; physiology_summary_table_and_images_only; no_individual_transport_or_volume_trajectory_table",
+      "availability_by_field": {
+        "placenta_identity_and_some_physiology": "partially_reported_by_placenta_label; duplicate outflow headers leave one field mapping unresolved",
+        "concentration_trajectories": "partially_reported_as_three-placenta_mean_and_sd_figures; no numeric per-run values in inspected files",
+        "initial_compartment_volume": "maternal_circuit_total_reported_as_120_mL; fetal_circuit_initial_volume_not_found_in_inspected_article_and_supplement",
+        "compartment_volume_trajectory": "partially_reported_as_three-placenta_mean_and_sd_figure; no numeric per-run values in inspected files",
+        "sample_volume_and_removal_history": "not_found_in_inspected_article_and_supplement",
+        "data_access": "underlying datasets available on reasonable request per article; not retrieved",
+        "embryo_or_gestation_outcomes": "outside_study_scope"
+      },
+      "scope_limit": "Ex vivo term-placenta nanoparticle-transfer study. Useful for observation-schema comparison only; figure-level volume means and SDs cannot support a source-exact per-run mass balance, and the nanoparticle endpoints do not establish nutrient adequacy, embryo development, continuous gestation, birth, later health, or integrated artificial-womb function. Do not pool with Mathiesen et al. 2020.",
+      "next_action": "Retain as a partial comparator and continue public-only screening for per-run numeric concentration and volume histories with explicit sample-accounting fields. Do not contact authors.",
+      "author_contacted": false
+    },
+    {
+      "citation": "Bukkems VE et al. Prediction of maternal and fetal doravirine exposure by integrating physiologically based pharmacokinetic modeling and human placenta perfusion experiments. Clinical Pharmacokinetics. 2022;61:1129–1141. doi:10.1007/s40262-022-01127-0.",
+      "primary_article": "https://pmc.ncbi.nlm.nih.gov/articles/PMC9349081/",
+      "publisher_article": "https://link.springer.com/article/10.1007/s40262-022-01127-0",
+      "publisher_supplements": [
+        "https://static-content.springer.com/esm/art%3A10.1007%2Fs40262-022-01127-0/MediaObjects/40262_2022_1127_MOESM1_ESM.pdf",
+        "https://static-content.springer.com/esm/art%3A10.1007%2Fs40262-022-01127-0/MediaObjects/40262_2022_1127_MOESM2_ESM.pdf"
+      ],
+      "source_screen": "BUKKEMS_2022_DORAVIRINE_PERFUSION_SCREEN_2026-10-10.md",
+      "pinned_supplements": [
+        {
+          "local_artifact": "artifacts/perfusion-intake-2026-10-10/bukkems_2022_doravirine_ESM1.pdf",
+          "sha256": "b44e63c7a43fe476ce5841a2452ab867f0b78718e514362641ea7745f8fe8b12"
+        },
+        {
+          "local_artifact": "artifacts/perfusion-intake-2026-10-10/bukkems_2022_doravirine_ESM2.pdf",
+          "sha256": "8684a03dc0f6dd2dfcdcabf9464af743c8af611218f41113806b6e84b5580ae5"
+        }
+      ],
+      "relevance": "Public human term-cotyledon perfusion source with concentration and loss-corrected mass-balance figures. It documents sampling-volume correction but does not expose the per-run time series needed to reproduce a dimensional balance.",
+      "public_evidence_seen": [
+        "The PMC article reports closed–closed human cotyledon perfusions in maternal-to-fetal and fetal-to-maternal directions (n=4 each), with concentrations sampled at fixed times over 180 minutes. Figure 3 is explicitly mean ± SD; the text also reports final median values and ranges.",
+        "The article reports doravirine recovery of 46% of dose in the maternal-to-fetal direction and 53% in the fetal-to-maternal direction. These are study-level summaries, not individual-perfusion recovery rows.",
+        "Publisher supplement ESM1, Online Resource 6, plots mass-balance calculations for n=4 in each direction and states that calculations use measured maternal/fetal buffer concentrations at each timepoint with corrections for volume lost to sampling. It does not provide numeric per-run concentration, reservoir-volume, sample-removal, or recovery rows.",
+        "Publisher supplement ESM1, Online Resource 5, reports end-of-experiment tissue concentrations for eight placentas as mean ± SD. ESM2, Online Resource 15, plots closed–open concentration and mass-balance results for six placentas (n=3 per direction) as mean ± SD. These figures do not supply the individual numeric records or per-run volume histories.",
+        "The article states that data are stored at Radboud University Medical Center and may be available upon request. No author contact was made."
+      ],
+      "supplement_status": "publisher_pdfs_inspected; group concentration_and_loss_corrected_mass_balance_figures_present; underlying_individual_concentration_volume_removal_and_recovery_rows_not_found",
+      "availability_by_field": {
+        "study_frame": "reported; ex vivo human term cotyledon; closed–closed n=4 each direction and closed–open n=3 each direction",
+        "group_concentration_trajectories": "reported_as_figure_summaries; closed–closed Figure 3 mean±SD; closed–open ESM2 Online Resource 15 mean±SD",
+        "individual_concentration_trajectories": "not_found_in_inspected_article_and_supplements",
+        "sampling_schedule": "fixed samples over 180 minutes; figures display time axes; machine-readable per-run time rows not present",
+        "sampling_volume_correction": "explicitly_described_for_ESM1_Online_Resource_6",
+        "numeric_per_run_reservoir_volume_and_sample_removal_history": "not_found_in_inspected_article_and_supplements",
+        "recovery": "46% maternal-to-fetal and 53% fetal-to-maternal reported as study-level results; individual-run totals not found",
+        "data_access": "stored at Radboud University Medical Center and may be available upon request per article; no author contact made",
+        "embryo_or_gestation_outcomes": "outside_study_scope"
+      },
+      "scope_limit": "Human ex vivo term-placenta drug-transfer and pharmacokinetic modeling evidence only. Figures and model estimates are not embryo development, continuous gestation, birth, or healthy-human outcome observations.",
+      "next_action": "Keep as an aggregate accounting-method comparator. Continue public-only intake for source tables with per-run concentration, numeric reservoir/sample-removal histories, and individual recovery. Do not digitize curves into pseudo-individual values or fit a dimensional transport model from group plots.",
+      "author_contacted": false
+    },
+    {
+      "citation": "Le MP et al. Placental transfer of doravirine, a recent HIV-1 NNRTI in the ex vivo human cotyledon perfusion model. Journal of Antimicrobial Chemotherapy. 2021;76(9):2364–2367. doi:10.1093/jac/dkab202.",
+      "primary_article": "https://academic.oup.com/jac/article/76/9/2364/6306969",
+      "publisher_supplement": "https://oup.silverchair-cdn.com/oup/backfile/Content_public/Journal/jac/76/9/10.1093_jac_dkab202/1/dkab202_supplementary_data.docx",
+      "source_screen": "LE_2021_DORAVIRINE_PERFUSION_SCREEN_2026-10-10.md",
+      "pinned_supplement": {
+        "local_artifact": "artifacts/perfusion-intake-2026-10-10/le_2021_doravirine_supplementary_data.docx",
+        "sha256": "2f03e008c21f74da108f565a92e2035b6191deb6d948ede3ab3179d9d29cf8c3"
+      },
+      "relevance": "Independent open-circuit human term-cotyledon comparator for placental transfer. Article figures contain group concentration profiles, but no numeric per-perfusion time series or volume/removal records.",
+      "public_evidence_seen": [
+        "The article describes maternal-to-fetal open-circuit perfusion of term placentas; it reports samples every 5 minutes over 90 minutes, an initial maternal perfusate volume of 1250 mL, and five procedures validated by the antipyrine transfer criterion.",
+        "The publisher supplementary DOCX contains only captions and three embedded figure images: Figure S1a antipyrine concentrations, Figure S1b doravirine concentrations, each labeled mean ± SD; and Figure S2 fetal-to-maternal ratios. No numeric observation table is present.",
+        "The article reports median (IQR) maternal and fetal doravirine concentrations and transfer ratios for the five validated procedures. Individual run values and a mapping from graph values to individual placenta labels are not published in the inspected article/supplement.",
+        "No per-run maternal/fetal volume history, sample-removal amounts, or individual recovery/mass-balance table was located. The supplement contains no linked raw-data file or volume ledger. No author contact was made."
+      ],
+      "supplement_status": "publisher_docx_inspected; three_figure_images_only; group_mean_sd_concentration_and_transfer_ratio_plots; no_numeric_run_level_table",
+      "availability_by_field": {
+        "study_frame": "reported; ex vivo human term cotyledon; five validated procedures reported",
+        "concentration_trajectory": "reported_as_mean_sd_figures; samples every 5 minutes over 90 minutes; numeric per-run values absent",
+        "initial_maternal_perfusate_volume": "1250 mL stated in methods as target dilution volume",
+        "numeric_per_run_volume_and_sample_removal_history": "not_found_in_inspected_article_and_supplement",
+        "individual_recovery_or_mass_balance": "not_found_in_inspected_article_and_supplement",
+        "placenta_identity_linkage": "individual placenta labels and graph-to-run mapping not reported in inspected source",
+        "developmental_outcomes": "outside_study_scope",
+        "data_access": "no linked raw-data file found in inspected article/supplement; no author contact made"
+      },
+      "scope_limit": "Term human ex vivo open-circuit drug-transfer evidence only. It does not establish embryo development, continuous gestation, birth, or healthy-human outcomes. Keep separate from the 2022 Bukkems closed-circuit study.",
+      "next_action": "Retain as a group-figure comparator and preserve the published sample interval and initial maternal volume context. Do not digitize mean±SD plots as individual records or infer mass balance without run-linked measurements.",
+      "author_contacted": false
+    },
+    {
+      "citation": "Pencolé L et al. Placental transfer of the integrase strand inhibitors cabotegravir and bictegravir in the ex-vivo human cotyledon perfusion model. AIDS. 2020;34(14):2145–2149. doi:10.1097/QAD.0000000000002637.",
+      "public_record": "https://pubmed.ncbi.nlm.nih.gov/32796211/",
+      "publisher_doi": "https://doi.org/10.1097/QAD.0000000000002637",
+      "source_screen": "CABOTEGRAVIR_BICTEGRAVIR_2020_ACCESS_SCREEN_2026-10-10.md",
+      "relevance": "Related open-circuit human term-cotyledon perfusion source found during the public-source search. Current intake status is access-screen only because the publisher full text was not publicly retrievable in this inspection.",
+      "public_evidence_seen": [
+        "PubMed abstract reports maternal-to-fetal open-circuit perfusions lasting up to 90 minutes, with five cabotegravir and six bictegravir experiments; it publishes group medians and IQRs for maternal/fetal concentrations and transfer indices.",
+        "The inspected PubMed record presents bibliographic details and the abstract but no linked downloadable supplement or machine-readable dataset.",
+        "The publisher full-text route linked from PubMed returned HTTP 402/payment required in the public browser access attempt. Because the full article and any publisher-only supplement were not inspectable, their contents and volume/removal reporting remain unresolved.",
+        "No author contact was made; no observation rows were extracted or inferred."
+      ],
+      "supplement_status": "bounded_public_access_screen_only; pubmed_abstract_available; publisher_full_text_access_returned_402; supplement_and_full_article_contents_unresolved",
+      "availability_by_field": {
+        "study_frame": "abstract reports open-circuit ex vivo human cotyledon experiments; five CAB and six BIC experiments",
+        "group_transfer_summaries": "reported_in_pubmed_abstract_as_medians_and_iqrs",
+        "individual_concentration_trajectories": "not_assessed_because_full_text_and_supplement_not_inspected",
+        "volume_and_sample_removal_history": "not_assessed_because_full_text_and_supplement_not_inspected",
+        "individual_recovery": "not_assessed_because_full_text_and_supplement_not_inspected",
+        "developmental_outcomes": "outside_abstract_scope",
+        "data_access": "no_downloadable_dataset_or_supplement_link_seen_on_pubmed_record; publisher route required payment in this access attempt; no author contact"
+      },
+      "scope_limit": "This record is an access-triage note, not a complete source audit. Do not treat it as evidence that individual or volume records do not exist in the inaccessible full article or supplemental files.",
+      "next_action": "Defer detailed intake unless a legitimate public full-text or supplement route is identified. Continue screening directly accessible public machine-readable sources.",
+      "author_contacted": false
+    },
+    {
+      "citation": "Mandelbrot L et al. Placental transfer and tissue accumulation of dolutegravir in the ex vivo human cotyledon perfusion model. PLoS ONE. 2019;14(8):e0220323. doi:10.1371/journal.pone.0220323.",
+      "primary_article": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0220323",
+      "publisher_supplement": "https://doi.org/10.1371/journal.pone.0220323.s001",
+      "observation_intake": "config/perfusion_observations/mandelbrot_2019_dolutegravir_dataset.json",
+      "observation_rows": 94,
+      "source_screen": "MANDELBROT_DOLUTEGRAVIR_PERFUSION_INTAKE_2026-10-10.md",
+      "relevance": "Public machine-readable repeated-measure perfusion observations. S1 Table exposes placenta-labeled dolutegravir and antipyrine concentration rows and source ratios; cached spreadsheet values are preserved with cell locators and external-formula provenance.",
+      "public_evidence_seen": [
+        "PLOS article states all relevant data are within the manuscript and Supporting Information; S1 Table is the publisher-linked XLSX of validated recirculating placental perfusions, n=5.",
+        "The S1 worksheet contains five source labels (Placenta 1, 2, 3, 4, 7) and 94 populated timepoint rows: 19 each for four labels and 18 for Placenta 3. Time values run from 0 to 180 minutes; the Placenta 3 worksheet series has no 180-minute row.",
+        "The article reports a group mean ± SD at 3 hours for n=5. The one absent Placenta 3 endpoint row was kept missing; no per-run value was imputed to reproduce the article summary.",
+        "The published worksheet formulas reference an external workbook not bundled with S1. Cached cell results are embedded in the publisher XLSX; the intake preserves each formula, exact cached value lexeme, source cell and numeric representation without recalculation.",
+        "Cycle 247's one-off XML cell reconciliation matched all 658 selected field value lexemes across the 94-row CSV. It identified 68 antipyrine-ratio shared-formula followers with cached values but no local expression text; shared-group IDs/ranges/master-cell provenance is absent from the intake, and the current source_formula_cell_count of 22 counts nonempty expressions rather than all 90 formula-bearing cells in that field. A dedicated regression-tested validator remains to be added. See artifacts/perfusion-intake-2026-10-10/mandelbrot-s1-source-cell-triage-cycle247.json.",
+        "Cycle 248 adds formula type and all shared-formula index/range/master metadata for the 68 followers, and clarifies the formula counts: 90 antipyrine-ratio formula cells, 22 with local expression text, 73 shared cells, 68 followers without local expression text. The new validator reconciles all 658 selected cached value lexemes and formula metadata; tamper tests pass. No formula was evaluated. See artifacts/perfusion-intake-2026-10-10/mandelbrot-s1-formula-provenance-reconciliation-cycle248.json.",
+        "No numeric reservoir-volume/sample-removal history or individual recovery/mass-balance records are present in S1 Table. The data support descriptive concentration observations only, pending human review."
+      ],
+      "supplement_status": "publisher_xlsx_inspected; 94_row_cached_values_and_formula_groups_reconciled_by_tested_validator; external_formula_dependency_unresolved; human_transcription_review_pending",
+      "availability_by_field": {
+        "individual_concentration_trajectories": "reported_in_S1_table_as_placenta-labeled_rows; 94 worksheet timepoints with cached values; one label lacks the 180-minute row",
+        "source_reported_ratios_and_clearance_index": "reported_in_S1_table; source values and formulas retained without recalculation",
+        "placenta_identity": "five source labels only; no personal donor identities or donor-to-label crosswalk",
+        "formula_provenance": "external formulas refer to an unbundled workbook; for all selected cells the CSV preserves cached value lexemes, formula type, and shared index/range/master metadata; formula-bearing cells and nonempty local expression text are counted separately; no formula was recalculated",
+        "numeric_per_run_volume_and_sample_removal_history": "not_found_in_S1_table_or_inspected_article",
+        "individual_recovery_or_mass_balance": "not_found_in_S1_table_or_inspected_article",
+        "data_availability": "article says all relevant data are within manuscript and supporting information",
+        "embryo_or_gestation_outcomes": "outside_study_scope"
+      },
+      "scope_limit": "Ex vivo human term-cotyledon drug-transfer evidence only. This intake does not measure embryo development, continuous gestation, birth, or later health.",
+      "next_action": "Keep the source-linked descriptive observations pending human review. The shared-formula group provenance is now recorded and machine-validated, but the external workbook remains unbundled and the study has no linked per-run volume/removal/recovery records; do not recalculate formulas, estimate amount/recovery/net flux, or fit dimensional transport. Do not pool with other perfusion studies.",
+      "author_contacted": false
+    },
+    {
+      "citation": "Schalkwijk S et al. Placental transfer of the HIV integrase inhibitor dolutegravir in an ex vivo human cotyledon perfusion model. J Antimicrob Chemother. 2016;71(2):480–483. doi:10.1093/jac/dkv358.",
+      "public_record": "https://pubmed.ncbi.nlm.nih.gov/26538508/",
+      "publisher_article": "https://academic.oup.com/jac/article/71/2/480/2363948",
+      "publisher_pdf_route": "https://academic.oup.com/jac/article-pdf/71/2/480/6993130/dkv358.pdf",
+      "source_screen": "SCHALKWIJK_2016_DOLUTEGRAVIR_ACCESS_SCREEN_2026-10-10.md",
+      "relevance": "Earlier ex vivo human term-cotyledon dolutegravir-transfer source identified during public-source screening. The accessible abstract provides group summaries; this screen did not retrieve the full article or a run-level dataset.",
+      "public_evidence_seen": [
+        "PubMed abstract reports six dual-perfused term cotyledons and, at three hours, group mean±SD fetal-to-maternal ratio 0.6±0.2, maternal concentration 2.3±0.4 mg/L, and fetal concentration 1.3±0.3 mg/L.",
+        "The publisher issue entry lists an abstract and article link but no supplementary-data link for this article. The linked article-PDF route resolved to a publisher page marked Available for Purchase during this inspection.",
+        "Bounded public searches for a full-text PDF, supplement, dataset, or repository surfaced no separately accessible run-level file. This does not establish that uninspected full text or supplements lack such records.",
+        "No individual values were transcribed or inferred, and no author was contacted."
+      ],
+      "supplement_status": "bounded_public_access_screen_only; abstract_available; publisher_full_text_route_purchase_required; run_level_data_and_supplement_contents_unassessed",
+      "availability_by_field": {
+        "study_frame": "abstract reports ex vivo dual perfusion of six human term cotyledons",
+        "group_transfer_summary": "abstract reports three-hour group mean±SD concentrations and fetal-to-maternal ratio",
+        "individual_concentration_trajectories": "not_assessed_because_full_article_and_supplement_not_inspected",
+        "volume_and_sample_removal_history": "not_assessed_because_full_article_and_supplement_not_inspected",
+        "individual_recovery": "not_assessed_because_full_article_and_supplement_not_inspected",
+        "developmental_outcomes": "outside_abstract_scope",
+        "data_access": "publisher article-PDF route required purchase in this access attempt; no separately accessible dataset or supplement surfaced; no author contact"
+      },
+      "scope_limit": "Access-screen record only. Abstract-level ex vivo term-placenta drug-transfer summaries do not establish embryo development, continuous gestation, birth, or later health.",
+      "next_action": "Retain abstract summaries only as bibliographic context. Do not combine with the separate 2019 Mandelbrot study or infer the contents of inaccessible full text/supplements. Prioritize directly inspectable public machine-readable sources.",
+      "author_contacted": false
+    },
+    {
+      "citation": "Faure Bardon V, Peytavin G, Lê MP, Guilleminot T, Elefant E, Stirnemann J, Leruez-Ville M, Ville Y. Placental transfer of Letermovir & Maribavir in the ex vivo human cotyledon perfusion model. PLoS ONE. 2020;15(4):e0232140. doi:10.1371/journal.pone.0232140.",
+      "primary_article": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0232140",
+      "publisher_supplement": "https://journals.plos.org/plosone/article/file?id=10.1371/journal.pone.0232140.s001&type=supplementary",
+      "observation_intake": "config/perfusion_observations/faure_bardon_2020_lmv_mbv_dataset.json",
+      "observation_rows": 912,
+      "source_screen": "FAURE_BARDON_2020_LETERMOVIR_MARIBAVIR_PERFUSION_INTAKE_2026-10-10.md",
+      "pinned_supplement": {
+        "local_artifact": "artifacts/perfusion-intake-2026-10-10/faure_bardon_2020_letermovir_maribavir_S1.xlsx",
+        "sha256": "8c360f9ac01d64950e17793c57f6d17943b69ab40a423282c7ad1cae095f6fc2"
+      },
+      "relevance": "Public machine-readable open-circuit human term-cotyledon active-drug and antipyrine concentration/ratio trajectories at 5-minute intervals. Adds a source-cell descriptive intake and an unresolved letermovir summary-label mismatch; does not measure embryo development or prove interface sufficiency.",
+      "public_evidence_seen": [
+        "The article describes 5-minute maternal/fetal sampling over 90 minutes and antipyrine as a viability marker with an FTR >20% validation criterion; it reports ten letermovir experiments with five validated and eight maribavir experiments with three validated.",
+        "The public S1 XLSX has a 0–90 minute active-drug table and a separate antipyrine table, with three maribavir and five letermovir placenta labels. The intake preserves FC, MC, and FTR cell lexemes, formulas, formula caches, and source coordinates as 912 scalar rows.",
+        "Sixteen fetal-concentration cells are blank at 0 minutes and remain blank. Ratios remain source fractions; no percent conversion or value imputation was applied.",
+        "The worksheet’s group summary entries for maribavir reproduce from the three visible labels. For letermovir, summary formula references and values use Placenta 1–4 while Placenta 5 is visible in the raw table; this conflicts with the article’s reported five validated perfusions. The discrepancy is retained unresolved.",
+        "A maternal antipyrine source value of 113 mg/L appears at Letermovir-group Placenta 3, 80 minutes (Z40); it is retained unchanged for source review.",
+        "The article and S1 Data do not contain numeric per-run reservoir-volume/sample-removal histories, individual recovery rows, or individual tissue-concentration observations. No author contact was made.",
+        "Cycle 232 independent OpenXML reconciliation: all 912 source-cell CSV rows exactly match the pinned workbook value/formula/cache lexemes; all 288 paired nonblank FC/MC/FTR records recompute within 1e-5. This qualifies descriptive ratios only; volume/removal and recovery gaps remain.",
+        "Cycle 233 repaired formula provenance: the CSV now retains all 304 mapped formula caches, including 281 shared formulas and 259 followers linked to their source group index, range, and master cell. The bounded raw-XML audit and tamper test pass; source values are unchanged.",
+        "Cycle 234 rechecked the open PLOS Results and Table 3 image: 5/10 LMV and 3/8 MBV procedures are reported validated, but the table has no printed n or label crosswalk. The S1 LMV summary formulas use four of five visible labels. Primary sources do not explain the discrepancy; all five raw series remain retained."
+      ],
+      "supplement_status": "publisher_xlsx_inspected; 912 source-cell observations intaken; 8 source labels × 19 timepoints × 2 analyte groups × 3 fields; human review pending; letermovir aggregate contributor mismatch unresolved",
+      "availability_by_field": {
+        "study_frame": "reported; ex vivo open-circuit term human cotyledon; article reports letermovir n=5 and maribavir n=3 validated perfusions from larger attempted groups",
+        "individual_concentration_trajectories": "reported in S1 Data as placenta-labeled FC/MC values at 19 timepoints for active drug and antipyrine",
+        "individual_fetal_to_maternal_ratios": "reported in S1 Data as fractions; formula/cache provenance retained",
+        "group_summary_contributor_mapping": "unresolved for letermovir; workbook summaries omit visible Placenta 5 despite article statement of five validated perfusions; maribavir summaries use all three visible labels",
+        "timepoint_specific_reservoir_volume_and_sample_removal": "not found in inspected article or S1 Data",
+        "individual_recovery_or_mass_balance": "not found in inspected article or S1 Data",
+        "individual_tissue_concentrations": "not found in S1 Data; article reports aggregate tissue accumulation results",
+        "donor_identity_and_validation_crosswalk": "not reported for each source label in inspected files",
+        "developmental_outcomes": "outside study scope"
+      },
+      "scope_limit": "Ex vivo term-placenta antiviral-transfer evidence only. It does not measure embryo growth, nutrient adequacy, continuous gestation, birth, or later health.",
+      "next_action": "Keep the five-label versus four-label summary discrepancy unresolved; retain all raw source series and do not recalculate or pool the summary. Continue only with descriptive per-label ratios pending human review; no dimensional fit.",
+      "author_contacted": false,
+      "source_cell_reconciliation_receipt": "artifacts/perfusion-intake-2026-10-10/faure-bardon-s1-formula-provenance-cycle233.json",
+      "summary_label_check_receipt": "artifacts/perfusion-intake-2026-10-10/faure-bardon-summary-label-check-cycle234.json"
+    },
+    {
+      "citation": "Lofthouse EM et al. Phenylalanine transfer across the isolated perfused human placenta: an experimental and modeling investigation. Am J Physiol Regul Integr Comp Physiol. 2016;310(9):R828–R836. doi:10.1152/ajpregu.00405.2015.",
+      "primary_article": "https://journals.physiology.org/doi/full/10.1152/ajpregu.00405.2015",
+      "institutional_full_text_pdf": "https://eprints.soton.ac.uk/389349/1/R828.full.pdf",
+      "public_record": "https://pubmed.ncbi.nlm.nih.gov/26676251/",
+      "source_screen": "LOFTHOUSE_2016_PHENYLALANINE_PERFUSION_SOURCE_SCREEN_2026-10-10.md",
+      "relevance": "Human term-placenta essential-amino-acid perfusion study reporting maternal uptake, fetal delivery, and tissue/protein retention. It is an aggregate source-level comparator for interface evidence requirements, not a row-level calibration dataset.",
+      "public_evidence_seen": [
+        "The accessible version-of-record PDF reports full-term human placenta perfusions (n=5) and mean±SE experimental figures for labelled phenylalanine uptake and fetal-side delivery under multiple flow conditions.",
+        "The paper describes measurement of maternal uptake, fetal transfer, and tissue free/protein-associated tracer; the aggregate account reports recovery of 56% of the tracer described as retained in tissue. Individual-perfusion values and a row-linked tissue recovery table are not reported in the inspected PDF.",
+        "The authors report that uptake changed with maternal flow while fetal delivery did not show a corresponding relationship, and discuss metabolism/protein incorporation as possible determinants; physiological-concentration conclusions are model-based and the paper says they require experimental demonstration.",
+        "The source has an unresolved internal unit discrepancy: Methods on printed page R829 states 2.7 nmol/L tracer, while Discussion on printed page R834 says 2.7 pmol/L. Neither value was selected or normalized.",
+        "The nine-page PDF contains no data-availability or supplementary-data section. Bounded exact-DOI/repository searches found the paper/PDF but no separate machine-readable run-level dataset. The institutional direct-download route presented a JavaScript proof-of-work challenge, so no local source copy was pinned.",
+        "No author contact was made."
+      ],
+      "supplement_status": "aggregate_full_text_screen; mean_se_figures_n5; individual_perfusion_rows_and_data_repository_not_found_in_inspected_public_routes; source_unit_discrepancy_unresolved",
+      "availability_by_field": {
+        "study_frame": "reported; isolated perfused human full-term placenta; n=5",
+        "group_level_phenylalanine_uptake_and_fetal_delivery": "reported as mean±SE experimental figures",
+        "individual_perfusion_values": "not found in inspected full-text PDF; no machine-readable supplementary file surfaced",
+        "placental_tissue_free_and_protein_associated_tracer": "reported as aggregate group summaries; individual values not found",
+        "tracer_concentration_unit": "unresolved; Methods reports 2.7 nmol/L and Discussion reports 2.7 pmol/L",
+        "individual_flow_recovery_and_closed_balance": "not found in inspected full-text PDF",
+        "developmental_outcomes": "outside study scope"
+      },
+      "scope_limit": "Term human placental amino-acid transport evidence only. The study does not measure embryo growth, early-development support, continuous gestation, birth, or later health.",
+      "next_action": "Retain as an aggregate, mechanism-relevant comparator and as a requirements source for separating uptake, delivery, placental storage/metabolism, and recovery. Do not digitize plots as individual observations, resolve the unit discrepancy by assumption, or use model-derived physiological predictions as measured transfer data.",
+      "author_contacted": false
+    },
+    {
+      "citation": "Holm MB et al. Uptake and release of amino acids in the fetal-placental unit in human pregnancies. PLoS ONE. 2017;12(10):e0185760. doi:10.1371/journal.pone.0185760.",
+      "primary_article": "https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0185760",
+      "repository_record_v1": "https://doi.org/10.18712/NSD-NSD2489-V1",
+      "repository_record_current": "https://surveybanken.sikt.no/study/NSD2489/1",
+      "source_screen": "HOLM_2017_AMINO_ACID_INTAKE_SOURCE_SCREEN_2026-10-10.md",
+      "standalone_in_vivo_record": "config/source_inventories/holm_2017_in_vivo_amino_acid_summary.json",
+      "aggregate_table_csv": "config/source_inventories/holm_2017_table2_aggregate_source_cells.csv",
+      "aggregate_table_sha256": "b35f681c8a49a23720e6c99c05f3393cfba18f1a0668bff5182b4dcaf566b27c",
+      "paired_difference_summary_csv": "config/source_inventories/holm_2017_table3_paired_difference_summaries.csv",
+      "paired_difference_summary_sha256": "9547e0a465d62122b59644e1384025837923f80ca6858d0424f411d46363bfbb",
+      "aggregate_table_source": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pmc&id=5628923&retmode=xml",
+      "measurement_modality": "cross_sectional_in_vivo_human_vessel_sampling_at_term",
+      "not_ex_vivo_perfusion": true,
+      "relevance": "Cross-sectional in-vivo human term reference for maternal and fetal vessel amino-acid concentrations and paired arteriovenous differences; keep distinct from ex-vivo perfusion evidence.",
+      "public_evidence_seen": [
+        "The open article reports 179 healthy women with uncomplicated term pregnancies; samples were taken from maternal radial artery and uterine vein and fetal umbilical vein and artery at planned cesarean delivery, with 19 amino acids measured by LC-MS/MS.",
+        "Public article tables provide group medians and quartiles for vessel concentrations and paired concentration differences; S1 Table provides correlation summaries. The paper reports incomplete sampling and uses available pairs, so N varies by comparison.",
+        "A source-preserving extract contains 76 Table 2 aggregate concentration cells (19 amino acids by four vessels), with literal median/IQR strings, vessel N values, and XML row/cell locators; this is not participant-level data.",
+        "A separate source-preserving extract contains 76 Table 3 paired-difference summary cells (19 amino acids by two circulations and crude/water-adjusted summaries), with printed p-values, source bold formatting, and XML row/cell locators; these are not participant-level data.",
+        "A descriptive check of water-adjusted umbilical medians finds 17 positive and two negative medians; 14 positive cells and the negative glutamic-acid cell are source-bolded for FDR significance, consistent with the article's narrative. Positive sign alone is not treated as significance.",
+        "The Table 2 alanine/uterine-vein cell literally reads 255 [2, 294] in both PMC XML and PLOS version-of-record PDF text extraction; the unusual lower-quartile value is flagged and retained without correction.",
+        "The article reports positive umbilical venoarterial concentration differences for 14 amino acids after a water-transfer adjustment. These are concentration differences, not flux measurements; no paired blood-flow dataset was present in the inspected public sources.",
+        "The article points to NSD-NSD2489-V1 for original data. Public repository metadata identifies V1 and a higher version; current V2 metadata describes 179 individual cases and restricts provision to agreement with the principal investigator upon order.",
+        "No participant-level file was requested or downloaded. No author contact was made."
+      ],
+      "supplement_status": "public_aggregate_article_tables_and_correlation_supplement; participant_level_repository_record_access_restricted_by_arrangement",
+      "availability_by_field": {
+        "study_frame": "reported; cross-sectional in-vivo uncomplicated term pregnancies; cohort n=179",
+        "maternal_and_fetal_vessel_concentrations": "aggregate medians and quartiles in article tables; participant-level source file access-restricted",
+        "paired_arteriovenous_and_venoarterial_differences": "aggregate crude and water-adjusted summaries in article tables; participant-level paired rows access-restricted",
+        "correlations": "summary statistics in S1 Table",
+        "sample_size_by_analyte_and_pair": "varies due to incomplete sampling; complete participant-level pattern not inspected",
+        "blood_flow_and_mass_flux": "not present in inspected public article tables or supplement",
+        "developmental_outcomes": "outside study scope"
+      },
+      "scope_limit": "Human term in-vivo amino-acid exchange reference only. It does not establish ex-vivo interface performance, earlier-stage exchange, embryo support, continuous gestation, artificial-environment birth, or later health.",
+      "next_action": "Retain public aggregate findings as a distinct reference. Do not infer flux from concentration differences, combine with ex-vivo trajectories, or request the access-restricted participant file under the no-author-contact scope.",
+      "author_contacted": false
+    },
+    {
+      "citation": "Day PEL et al. Partitioning of glutamine synthesised by the isolated perfused human placenta between the maternal and fetal circulations. Placenta. 2013;34(12):1223–1231. doi:10.1016/j.placenta.2013.10.003.",
+      "primary_article": "https://pmc.ncbi.nlm.nih.gov/articles/PMC3851744/",
+      "publisher_article": "https://www.sciencedirect.com/science/article/pii/S0143400413007753",
+      "public_supplement": "https://ars.els-cdn.com/content/image/1-s2.0-S0143400413007753-mmc1.docx",
+      "source_screen": "DAY_2013_GLUTAMINE_PERFUSION_SOURCE_SCREEN_2026-10-10.md",
+      "relevance": "Term ex-vivo human cotyledon tracer study with maternal/fetal circuits, tissue measurements, and amino-acid metabolic conversion; mechanism and aggregate-flux comparator only.",
+      "license": "CC BY-NC-ND 3.0 as stated by the public article; no table/figure dataset was reproduced.",
+      "public_evidence_seen": [
+        "Four labeled-substrate perfusion protocols are described: fetal U-13C-glutamate, maternal 15N-leucine, fetal 15N-glutamate, and maternal 15N-glutamate. The study reports fixed circuit flow rates and hourly venous sampling over five hours.",
+        "Article tables report aggregate uptake and tissue amino-acid summaries with endpoint-specific group sizes from four to six. The supplement contains mean±SEM figures; S1 and S2 report n=4, S3 is a time course, and S4 compares isotope spectra in n=4 tissue samples.",
+        "The authors report that glutamate was largely converted to glutamine and most synthesized glutamine was released into the maternal circulation. Their approximately 7 mmol/day maternal-release value and comparisons to maternal and fetal glutamine flux are author-reported estimates, not a reconstructed unit-level balance.",
+        "The inspected article and supplement do not provide individual run-level trajectories or a complete per-run tracer-input/outflow/tissue/recovery join. No separate raw-data archive surfaced in a bounded exact-DOI search.",
+        "The public OmicsDI hit is a literature metadata record, not the experimental dataset. No author contact was made."
+      ],
+      "supplement_status": "public_aggregate_article_tables_and_mean_sem_supplement_figures; individual_run_rows_and_complete_tracer_recovery_join_not_found_in_inspected_files",
+      "availability_by_field": {
+        "study_frame": "reported; short-duration dual ex-vivo perfusion of term human placental cotyledons",
+        "circuit_flows_and_sampling_schedule": "reported in methods as study-specific setup metadata; not a recommended support-system setpoint",
+        "labeled_substrate_uptake": "aggregate table summaries by protocol; individual run values not located",
+        "maternal_and_fetal_venous_appearance": "mean±SEM figures and text summaries; no machine-readable run-level trajectories located",
+        "placental_tissue_amino_acid_pools": "aggregate table summaries for baseline and selected post-perfusion groups",
+        "tracer_recovery_and_closed_balance": "complete per-run input/outflow/tissue/recovery join not found in inspected files",
+        "developmental_outcomes": "outside study scope"
+      },
+      "scope_limit": "Short term-human-placenta metabolism and transfer only. It does not establish nutrient adequacy, early-stage support, continuous gestation, artificial-environment birth, or later health.",
+      "next_action": "Retain as an aggregate mechanism comparator for separating uptake, conversion, tissue pools, and maternal/fetal release. Do not use as a row-level calibration dataset or infer a long-duration operating regime.",
+      "author_contacted": false
+    },
+    {
+      "citation": "Heggarty E et al. Melanoma targeted therapies dabrafenib and trametinib cross the placental barrier in ex vivo human placental perfusions. J Am Acad Dermatol. 2025;93(5):1337–1339. doi:10.1016/j.jaad.2025.07.045.",
+      "primary_article": "https://doi.org/10.1016/j.jaad.2025.07.045",
+      "pubmed_record": "https://pubmed.ncbi.nlm.nih.gov/40716574/",
+      "public_dataset": "https://data.mendeley.com/datasets/wbbjfds7th/2",
+      "dataset_doi": "10.17632/wbbjfds7th.2",
+      "license": "CC BY 4.0",
+      "source_screen": "HEGGARTY_2025_DABRAFENIB_TRAMETINIB_PERFUSION_SCREEN_2026-10-11.md",
+      "source_inventory": "config/source_inventories/heggarty_2025_dabrafenib_trametinib.json",
+      "manifest_receipt": "artifacts/heggarty-2025-perfusion-2026-10-11/manifest-and-figure-screen-cycle216.json",
+      "relevance": "Public figure- and abstract-level functional-transfer comparator for ex-vivo human placenta; not a source-exact trajectory or dimensional transport dataset.",
+      "public_evidence_seen": [
+        "The version-2 Mendeley package lists two JPEG supplementary figures and no numeric table or trajectory file; both figure hashes were verified against the public manifest.",
+        "Supplementary Figure 1 reports transfer parameters available for 11 dabrafenib and 7 trametinib placentas after distinct study-flow exclusions.",
+        "Supplementary Figure 2 plots fetal-transfer-rate percentages for 11 and 7 placentas, respectively, but does not show source-exact numeric values or define the central summary and whisker interval.",
+        "The PubMed record has no abstract and the publisher full-text route returned HTTP 403 during the bounded screen; gestational frame and transfer-rate definition remain unverified.",
+        "No machine-readable concentration time course, volume/removal history, recovery or assay uncertainty was present in the inspected package. No author contact was made.",
+        "The related IFPA 2025 abstract reports FTR estimates 8.6 ± 3.1% (trametinib) and 15.3 ± 5.4% (dabrafenib), plus aggregate uptake ratios. It identifies normal-term placentas but does not specify the ± statistic, n, FTR equation, or a cohort link to the Mendeley figure; the plotted centers are visually consistent with its group values.",
+        "The conference abstract provides aggregate context only; it does not add individual rows, serial concentrations, volumes/removal, recovery or assay uncertainty. No values were promoted to the observation intake and no author contact was made.",
+        "The related 2024 AJOG presentation is bibliographically confirmed by the official publisher page and SMFM program, but the publisher says full text requires a subscription and its linked PDF could not be read through the public web reader. An exact PubMed DOI-field query returns no record, Crossref has no abstract field, and exact HAL DOI/title searches return no record (with a related-DOI query control succeeding). A secondary SciSpace page exposes an abstract copy reporting 11/12 successful-test counts, but source fidelity and the relationship to the later figure remain unverified. The publisher's public abstract-enabled metadata export returns an empty abstract field and conflicting volume/pages metadata; it does not expose the PDF results. The official SMFM program page exposes schedule and author metadata only. The official publisher Figures tab exposes no result figure or caption in the public page view. See the Cycle 218–224 receipts."
+      ],
+      "supplement_status": "two_public_jpeg_figures_and_related_abstract_reviewed; group_summaries_reported; no_numeric_individual_table_or_time_series",
+      "availability_by_field": {
+        "per_placenta_transfer_rate": "plotted_only; 11 dabrafenib and 7 trametinib symbols; no exact numeric source rows or persistent unit identifiers",
+        "concentration_by_compartment_and_time": "not_found_in_inspected_public_package",
+        "volume_removal_and_recovery": "not_found_in_inspected_public_package",
+        "assay_uncertainty": "not_found_in_inspected_public_package",
+        "gestational_frame_and_metric_definition": "normal term placentas reported in related abstract; cohort link and FTR equation remain unverified",
+        "developmental_outcomes": "outside_study_scope",
+        "group_fetal_transfer_rate_summary": "related conference abstract reports group estimates; ± statistic, denominator and explicit link to Mendeley figure cohort unresolved",
+        "placental_uptake_ratio_summary": "aggregate values reported in related conference abstract; ± statistic and denominator unresolved"
+      },
+      "scope_limit": "Ex-vivo placental drug transfer only; no embryo development, continuous gestation, artificial-environment birth or later-health evidence.",
+      "next_action": "Retain as a figure- and abstract-level functional-transfer comparator. Continue public-only screening for a source that defines the FTR equation, uncertainty statistic, cohort denominator and linked numeric observations; do not reconcile the unverified 2024 counts to the later figure flow, digitize plotted points or fit a dimensional model.",
+      "author_contacted": false,
+      "related_conference_abstract": "IFPA 2025 abstract book, P2.58, printed pp. 83–84; see artifacts/heggarty-2025-perfusion-2026-10-11/ifpa2025-abstract-screen-cycle217.json",
+      "related_2024_ajog_access_screen": "The official EM Consulte page confirms the record but gates full text behind subscription; the linked PDF could not be read through the public web reader. The 12/11 counts remain unverified; see artifacts/heggarty-2025-perfusion-2026-10-11/ajog-abstract-access-screen-cycle218.json.",
+      "related_2024_ajog_index_screen": "Exact PubMed DOI-field query returns zero results; Crossref metadata has no abstract field. These are index-route results, not evidence that the abstract is absent. See artifacts/heggarty-2025-perfusion-2026-10-11/ajog-abstract-index-screen-cycle219.json.",
+      "related_2024_ajog_hal_screen": "Exact DOI and title-phrase queries return no HAL record; a related 2025 DOI query control succeeds. This is bounded index coverage only. See artifacts/heggarty-2025-perfusion-2026-10-11/ajog-abstract-hal-screen-cycle220.json.",
+      "related_2024_ajog_secondary_index_copy": "SciSpace exposes a DOI-linked abstract copy with reported n=11 trametinib and n=12 dabrafenib, plus group summaries; these differ in part from the official 2025 IFPA report. Treat only as a discovery lead until checked against publisher text. See artifacts/heggarty-2025-perfusion-2026-10-11/ajog-secondary-abstract-screen-cycle221.json.",
+      "related_2024_ajog_publisher_metadata_export": "The publisher's public 'with abstract' export returned an empty abstract field and volume/pages fields conflicting with its landing page. This does not characterize the gated PDF. See artifacts/heggarty-2025-perfusion-2026-10-11/ajog-metadata-export-screen-cycle222.json.",
+      "related_2024_smfm_program_content": "Official event page confirms the session and authors but exposes no abstract text, result values, or download link in the inspected page. This is page-level scope only. See artifacts/heggarty-2025-perfusion-2026-10-11/smfm-program-detail-screen-cycle223.json.",
+      "related_2024_ajog_figures_tab": "The public Figures route exposes no result figure/caption in its page view; this does not characterize the gated PDF. See artifacts/heggarty-2025-perfusion-2026-10-11/ajog-figures-tab-screen-cycle224.json."
+    },
+    {
+      "citation": "Benoit L et al. Transplacental transfer of osimertinib and alectinib using an ex vivo human placental perfusion model. Placenta. 2026;182:116-122. doi:10.1016/j.placenta.2026.05.024.",
+      "primary_article": "https://doi.org/10.1016/j.placenta.2026.05.024",
+      "pubmed_record": "https://pubmed.ncbi.nlm.nih.gov/42335649/",
+      "source_screen": "BENOIT_2026_OSIMERTINIB_ALECTINIB_PERFUSION_SCREEN_2026-10-11.md",
+      "source_inventory": "config/source_inventories/benoit_2026_osimertinib_alectinib_perfusion.json",
+      "screen_receipt": "artifacts/benoit-2026-osimertinib-alectinib-2026-10-11/pubmed-and-publisher-screen-cycle225.json",
+      "relevance": "Aggregate human ex-vivo term-placenta drug-transfer comparator; separate analytes and cohort from the Heggarty dabrafenib/trametinib source.",
+      "public_evidence_seen": [
+        "PubMed abstract reports osimertinib FTR 9.5%, CI 0.41, and cotyledon accumulation 28.9%; it reports alectinib and M4 not detected in fetal samples and placental-tissue accumulation 370.7% and 178.3%.",
+        "A publisher-indexed discussion excerpt reports median osimertinib CI 0.42, differing from PubMed abstract CI 0.41; reason unresolved.",
+        "Publisher-indexed data-availability text says supporting data are detailed in the article, but the direct ScienceDirect page returned HTTP 403 and full-text tables/figures were not inspected.",
+        "No exact-title/DOI HAL record surfaced; Europe PMC has no PMCID/full-text link, Crossref exposes no related dataset relation, and a quoted exact-DOI Zenodo query returns zero. The unquoted Zenodo route errors. These are bounded index results, not data-absence evidence. No author contact was made.",
+        "Cycle 227: Mendeley Data public exact-DOI search returned 0; Figshare exact-title search returned 0 and DOI-string query returned 10 broad records without a target match; DataCite related-identifier query returned 0. These bounded results do not establish data absence; no files or author contact.",
+        "Cycle 228: OpenAIRE exact-DOI search resolves to the target closed-access publication record, whose relations field is null; exact-DOI and conjunctive title queries against the datasets endpoint return zero. Index-bounded only; no full text or files accessed.",
+        "Cycle 229: OpenAlex DOI record marks the work closed access, has no best open location, and lists only the publisher and PubMed landing pages; bibliographic index coverage only."
+      ],
+      "availability_by_field": {
+        "group_fetal_transfer_rate": "abstract-reported aggregate; denominator and uncertainty not stated",
+        "clearance_index": "abstract reports 0.41; publisher-indexed discussion excerpt reports median 0.42; unresolved",
+        "cotyledon_accumulation": "aggregate abstract values only",
+        "individual_placenta_rows_and_time_series": "not in abstract; full article not assessed",
+        "volume_removal_recovery_and_assay_uncertainty": "not in abstract; full article not assessed",
+        "developmental_outcomes": "outside study scope"
+      },
+      "scope_limit": "Ex-vivo term-placenta pharmacology; not embryo development, continuous gestation, artificial-environment birth, or later-health evidence.",
+      "next_action": "Retain as aggregate context. If full text or supplementary files become publicly accessible, screen them for source-level denominators, per-placenta values, time series, volumes, detection limits, and assay uncertainty before intake; do not fit or pool abstract summaries.",
+      "author_contacted": false,
+      "repository_search_receipt": "artifacts/benoit-2026-osimertinib-alectinib-2026-10-11/repository-search-screen-cycle227.json",
+      "openaire_relation_screen_receipt": "artifacts/benoit-2026-osimertinib-alectinib-2026-10-11/openaire-relation-screen-cycle228.json",
+      "openalex_location_receipt": "artifacts/benoit-2026-osimertinib-alectinib-2026-10-11/openalex-location-screen-cycle229.json"
+    }
+  ],
+  "claim_limits": {
+    "criteria_are": "Proposed evidence-intake gates for this candidate source, not a validated reporting standard or universal sufficiency rule.",
+    "authors_contacted": false
+  },
+  "current_model_identifiability_synthesis": {
+    "screen_receipt": "artifacts/perfusion-comparability-2026-10-11/transfer-identifiability-screen-cycle230.json",
+    "dimensional_transport_fit": "ineligible with the inspected records; no source currently has paired per-run concentration and time-resolved volume/removal histories plus complete identity, assay and recovery context",
+    "highest_value_missing_field": "Per-run time-resolved volume and sample-removal ledger linked to concentration rows.",
+    "next_intake_priority": "Audit the accessible Spiess Frontiers supplement against the per-run concentration-to-volume/removal gate, while preserving its aggregate-only curve limits; retain the descriptive-only boundary and pursue dimensional model fields only if an accessible source supplies linked per-run records.",
+    "scope_limit": "These sources are transfer-method comparators, not evidence of artificial human gestation or healthy birth.",
+    "supplement_route_status": "Spiess protopine supplement filename is exposed in official PMC/Europe PMC metadata; the PMC attachment challenged, Europe PMC file route returned 403, and Thieme article PDF returned 404. Do not retry these routes; continue with the accessible Frontiers comparator."
+  }
+}
