@@ -32,6 +32,23 @@ revisions, exact units, developmental context, measurement uncertainty,
 missingness and optional local file hashes. Runtime validation additionally
 enforces references, identities and matrix coverage.
 
+Typed source summaries support median [IQR], mean ± SD when the source names
+the SD, and `reported_plus_minus` when the source does not define the ±
+quantity. Each retains its source literal, declared sample-size scope and
+locator; unknown denominators remain null. A group summary stays a single
+`summary_only` record and does not create individual measurements or
+biological replicate counts.
+
+An optional artifact `source_resolution` keeps source-version identity,
+full-text access, repository OA-subset membership, and reuse rights in separate
+fields. Record the checked date and the exact metadata route or query. A
+free-to-read page does not imply a reuse license, and OA-subset membership does
+not authenticate the scientific transcription. Use `reuse_status: not_confirmed`
+with a null `license_expression` when no item-specific license
+has been verified; do not infer a license from an aggregator or a publisher
+page that could not be inspected. These fields are dated curation, not a legal
+opinion or authenticated review.
+
 Each cohort supplies:
 
 - A source namespace and locator, a population declaration and a starting
@@ -47,6 +64,14 @@ Each cohort supplies:
   software does not infer them or treat unknown IDs as a shared donor.
 - One outcome for every roster specimen and endpoint, with a unique
   observation-record reference, status, reason and original-value locator.
+- Optional dataset-level `measurement_pairs` link two or more observation
+  records using a declared pairing type, member roles, source artifact, exact
+  locator, and either a source-explicit or curator-linked basis. The validator
+  checks record and artifact references; a `same_unit_same_time` declaration
+  also requires the same reported unit ID and exactly matching non-null
+  measurement time/unit. It does not infer other pairings from shared labels,
+  timepoints, or values, nor authenticate the link. Pair membership is exported
+  to `measurement_pairs.csv` for review.
 
 Statuses are `observed`, `missing`, `excluded` and `not_assessed`. Observed
 outcomes require finite numeric values. Missing/unassessed outcomes require
@@ -70,7 +95,7 @@ conversion. Exact-unit numeric ascertainment outside the declared
 developmental interval fails; unavailable containment remains unresolved.
 
 The input is bounded to 20 cohorts, 20 endpoints and conditions per cohort,
-1,000 specimens per cohort, 5,000 total outcomes and 2 MB of JSON. Source
+1,000 specimens per cohort, 5,000 total outcomes and 16 MB of JSON. Source
 file verification uses the existing bounded, read-only `--source-root`
 contract. It never fetches source URLs or executes source code.
 

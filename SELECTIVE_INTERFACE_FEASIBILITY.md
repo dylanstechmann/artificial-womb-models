@@ -61,15 +61,37 @@ Human source-specific reuse review remains separate from byte verification.
 Antich's data availability points to
 [GSE318016](https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE318016) and
 [PXD072837](https://www.ebi.ac.uk/pride/archive/projects/PXD072837) for
-transcriptomics and proteomics. Repository records/data were not analyzed
-here. Twelve supplemental workbooks were inspected for names, dimensions
-and initial rows. The [metadata inventory](config/source_inventories/antich_2026_workbooks.json)
-records their hashes and inspected headers, which describe expression,
-enrichment and protein/RNA comparisons. A sheet named `Transport` is not
-itself a physical transport trajectory. No paired functional dataset was
-qualified by this inventory; it is not a full cell-by-cell audit of those
-files. No expression fit,
-genotype inference or gene-to-transport-rate assignment was made.
+transcriptomics and proteomics. A metadata-only check of the GEO record found
+12 RNA-seq samples and a raw-count matrix. The PRIDE file manifest lists 12
+mass-spectrometry `.raw` files and one `ProteinQuant_summary.xlsx`; no large
+raw omics files were downloaded. These records can qualify molecular datasets,
+not nutrient-transfer trajectories.
+
+**Bounded public-file closure, 2026-10-10:** the publisher lists 16
+supplementary items. The 12 XLSX sheets previously inventoried have gene
+expression, pathway/enrichment or RNA/protein-comparison headers; the sheet
+named `Transport` is a gene-expression table. The four additional items were
+checked as follows: Supplement 1 is a narrative note, Supplements 2 and 3 are
+one-page narrative notes, and Supplement 16 is a figure package with embedded
+images and no tables. Their hashes and scope are in the
+[metadata inventory](config/source_inventories/antich_2026_workbooks.json).
+The figure images were not digitized, and the spreadsheet cells were not
+reanalyzed. No structured per-replicate functional-transfer table was found
+in this bounded file set.
+
+The article reports separate trophoblast uptake and receiver-side targeted
+metabolite measurements for glucose, leucine and linoleic acid. Its methods
+describe receiver-side collection over a 24-hour interval and three
+biologically independent replicates; Figure 6 reports N=3. Supplementary
+Note 3 describes the targeted-metabolite readout in peak-area terms. The
+published files do not provide replicate-by-time numeric transfer rows or a
+replicate-to-donor/source crosswalk. A peak-area signal is distinct from
+calibrated concentration, amount, net flux or nutrient delivery fraction;
+those require assay calibration and collection-volume, baseline and recovery
+accounting. Thus this is a useful **descriptive
+functional candidate**, not a fit-ready or independently validated transport
+dataset. No expression fit, genotype inference or gene-to-transport-rate
+assignment was made.
 
 ## Freeze IF-3: which distinct functions are actually observed?
 

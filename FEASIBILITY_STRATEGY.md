@@ -83,6 +83,19 @@ state and independent function alongside support. An endocrine association
 does not establish a single-hormone solution. Nutrition, signaling, stress or
 exposure, and clearance explanations remain competing hypotheses.
 
+Cycle 346 makes this constraint quantitative in a separate
+[terminal group intake](config/observations/usuda_2023_terminal_group_candidate.json).
+The APT/control ratios of published terminal means are 0.976 for body mass,
+0.810 for lung mass, 0.704 for liver mass and 0.736 for kidney mass, while brain
+mass is 1.028. These unadjusted group ratios retain all nine terminal numeric
+Table 1 endpoints; they are not individual growth effects or acceptable design
+margins. Complete Table 3 summaries retain competing biochemical explanations.
+Differing necropsy ages, edema, the six/eight-control discrepancy, and missing
+animal links prevent a causal or same-unit support/development analysis.
+The machine concept must therefore preserve independent developmental and
+fluid-state observations as requirements; apparently similar body mass is
+insufficient evidence of developmental adequacy.
+
 The [2026 human maternal–fetal interface atlas](https://www.nature.com/articles/s41586-026-10316-x)
 adds spatially distinct maternal/fetal states and remodeling context. It is a
 comparison reference, not proof that a cell-state list supplies support.
@@ -94,8 +107,10 @@ human path.
 ## Keep competing architectures testable
 
 The [functional support routes](FUNCTIONAL_SUPPORT_ROUTES.md) add a bounded
-placental-bypass comparator, motivated by a 2026 mouse preprint abstract. It
-tests which maternal/placental functions are necessary over a declared interval.
+placental-bypass comparator, informed by a 2026 mouse preprint that reports
+whole-embryo culture through approximately E12.5 while also reporting low
+terminal morphological yield and adverse findings. It tests which
+maternal/placental functions are necessary over a declared interval.
 The growing biological interface remains the preferred full-course hypothesis;
 neither route is established for complete human gestation. Delivery, tissue
 metabolic use and organ/lineage development need separate observations.
@@ -156,8 +171,36 @@ Guo's publisher workbook is now inspected in the
 preserves selected mechanical/profile cells and candidate developmental
 percentages, while retaining unknown cross-panel unit links and denominators.
 The article declares CC BY-NC-ND 4.0; workbook-specific reuse terms remain
-unqualified. The next requirement is authenticating the material-to-embryo/run
-hierarchy, loading definitions, outcome numerators/denominators and exclusions.
+unqualified. Figure 4 axes, Methods, and Supplementary Fig. 10I now qualify
+panel-specific units, rheometer profile time/response axes, normalization and
+parts of the loading history. The Figure 4C modulus protocol mapping,
+mechanical specimen/run and profile-to-summary hierarchy, material-to-embryo
+links, outcome numerators/denominators and exclusions remain open.
+The source workbook also repeats five exact numeric lexemes between the Fig4A
+and Fig4D 40-MG columns (six cells in Fig4A because one lexeme occurs twice;
+five cells in Fig4D). With no sample/run IDs, this cannot establish whether the
+entries are shared, remeasured, reused or coincident, and they must not be
+joined or counted as independent replication.
+Supplementary Fig. 10J's `Sup10J` sheet provides three half-time values per
+condition, consistent in count with its n=3 independent-experiment caption;
+their reconstructed means and sample SDs match the plotted summary scale.
+There are no experiment IDs or links from these values to the Sup 10 I curves.
+However, the 40-MG half-time cells reveal an unresolved panel-scale gap:
+Figure 4A and 4D source values span 5.834–12.986 s, while Sup. Fig. 10J
+values span 75.018–80.019 s. Their means differ by about eightfold. Fig. 4D
+names nanoindentation and Fig. 10J names a rheometer. A recheck of the pinned
+article's Figure 4A caption and Results paragraph found no assay or instrument
+assignment for that panel. Resolve protocol and
+run/sample hierarchy before comparing or pooling these panels; the difference
+is a source-reconciliation flag, not a direct contradiction. The pinned HTML
+snapshot and reviewed section locators are now hash-recorded in the audit.
+As a separate source-level check, the normalized Sup 10 I curves first cross
+0.5 between adjacent coordinates at 80.018–85.020 s (40-MG), 145.035–150.036 s
+(40-MGT), and 160.038–165.041 s (40-MGN). The Sup10J source-cell means are
+78.352, 145.035, and 150.037 s, each within 10.001 s of its profile bracket.
+This supports broad timescale consistency between Supplementary panels I/J,
+but profile aggregation and experiment mapping remain unknown; no values are
+interpolated or pooled.
 This could discriminate a fixed-stiffness niche assumption without claiming
 later support. Usuda's raw-data statement offers author-provided data; a linked
 support/growth comparison still needs unit records and comparator reconciliation.
@@ -186,3 +229,10 @@ growth, boundary and outcome trajectories before reanalysis, and independent
 support receipt/function before claiming coordination failure despite adequate
 support. Public segmentation annotations currently qualify a measurement resource,
 without supplying that joint biological endpoint.
+
+
+## Select work by the uncertainty it can change
+
+The 2026-10-11 gas-reference branch has reached diminishing returns: several primary abstracts independently report age trends, but the reviewed routes do not supply the required numeric 24-/28-week values. Hold additional trend-only intake until an exact table, numeric regression or eligible dataset appears. The source arithmetic audit remains useful; it does not resolve this physiological applicability gap.
+
+The late-support/transition evidence comparison is already recorded in Cycles 310–315. Repeating that comparison would not close the early-to-sustained-exchange boundary. Prefer an analysis with usable quantity/unit linkage and a stated counterexample to the chosen architecture, or a source that resolves an actual same-unit handoff. A demonstrated intake defect also warrants a bounded fix: Cycle 345 preserves partial source ages without inferring missing bounds. These are distinct advances in evidence handling, model applicability and biology; count them separately.

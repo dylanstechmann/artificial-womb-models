@@ -19,6 +19,14 @@ affect interpretation of disappearance and recovery. The publisher records a
 supplementary update on 3 July 2026. These assays do not observe embryonic
 development, neonatal transition or a complete gestation.
 
+The current article text gives a cumulative-mass equation that corrects for
+analyte removed in earlier samples. This confirms that raw concentration at a
+later time is not the corrected transferred amount. The recovered Prism tables
+remain percent-of-initial-dose summaries; the inspected files do not link those
+percentages to original concentration/volume records or identify which
+correction steps produced each plotted row. The equation is therefore a
+source-declared method, not a reproducible correction for the recovered values.
+
 [Fournier et al., Advanced Sensor Research (2026)](https://advanced.onlinelibrary.wiley.com/doi/10.1002/adsr.202500166)
 provides another collection/transport analysis candidate. Its data statement
 offers data on reasonable request. Its supporting attachment could not be
@@ -28,8 +36,10 @@ has been sent.
 ## Recover actual tables, then qualify their meaning
 
 The [Roelofsen supplement](https://media.springernature.com/original/springer-static/esm/art%3A10.1007%2Fs00204-026-04418-8/MediaObjects/204_2026_4418_MOESM1_ESM.docx)
-contains six native Prism OLE objects. The recovery selects objects 5 and 6
-rather than digitizing plotted images. Its pinned input is:
+contains six native Prism OLE objects. The original percent-of-dose recovery
+selects objects 5 and 6 rather than digitizing plotted images. A later bounded
+audit of the stability-control objects 2 and 3 is recorded below. Its pinned
+input is:
 
 | Input | Bytes | SHA-256 |
 | --- | ---: | --- |
@@ -45,6 +55,73 @@ declaration; native slot-to-donor mapping remains unverified.
 | --- | --- | --- |
 | `word/embeddings/oleObject5.bin`, S9 | Four XY tables, each 11 rows and 9 columns: one X column and two sets of four Y slots; 352 Y values | Author-processed percentages of initial dose, with maternal/foetal set titles. Original concentrations and normalization ancestry are not recovered here. |
 | `word/embeddings/oleObject6.bin`, S10 | One grouped table, four labeled rows and 25 columns: row label and four sets of six Y slots; 96 Y values | Source labels `Placenta 1`–`Placenta 4` retained. The six slots within each compound do not establish six additional biological donors. |
+
+## Public supplementary object audit — 2026-10-10
+
+The current publisher DOCX was retrieved again on 2026-10-10. It is byte-for-byte
+identical to the version pinned above (779,093 bytes; SHA-256
+`ccab1bae3d666024b35e256cf9fb421217fcbba226ea5a294182002ab0a8e108`), despite
+the article page's updated marker. The additional source worksheets are not a
+new revision or an external raw-data repository.
+
+A bounded, read-only extraction of native objects 2 and 3, mapped to
+Supplementary Figures S4 and S5, found twelve embedded worksheets. The
+[machine-readable inventory](config/source_inventories/roelofsen_auxiliary_table_inventory.csv)
+retains worksheet/table IDs, figure and paragraph locators, set labels, shape,
+numeric-cell counts, axis titles, unit qualifications and exact CSV hashes.
+Exact native CSV bytes are held in the ignored local artifact directory
+`artifacts/roelofsen-auxiliary-stability-2026-10-10/`; its `SOURCE.json` pins
+the parent DOCX, OLE objects and extracted tables.
+
+Object 2 (S4) contains two 11-row, four-compound series with three source slots
+per compound and sheet titles ending in `% of ID`; the x-axis is only titled
+`Time`, without a unit. It also contains two thalidomide series labeled
+`stability perfusion system` and `degradation in glass vial`. One numeric table
+is titled as input to a log transformation, but its y unit is not specified;
+its companion worksheet contains transformed values, followed by Prism fit
+lines and statistics. Object 3 (S5) contains a 16-row four-compound
+`% of ID` transwell-stability series with a native `Time (min)` axis and a
+separate log-transformed thalidomide series. Saved regression lines and fit
+summaries remain derived outputs and are not observations.
+
+These stability controls help characterize compound disappearance in test
+systems, but they are not placenta-transfer concentration histories. The
+unlabeled numeric thalidomide series is not assigned a concentration unit;
+`% of ID` is not converted to mass. Replicate slots do not establish perfusion
+donors or biological-unit linkage. The article does report a 3 mL subtraction
+per ex-vivo timepoint, described as two 1.5 mL samples, and fixed BeWo
+compartment/sample volumes. The inspected ex-vivo text does not resolve how
+that aliquot total maps to each circuit. The files also lack run-linked
+concentration histories, actual starting circuit volumes, calibration records
+and donor mappings. The [field matrix](config/source_inventories/roelofsen_mass_balance_field_matrix.csv)
+separates those method statements from per-run measurements. The separate
+[area-source lineage note](ROELOFSEN_SURFACE_AREA_LINEAGE_2026-10-10.md)
+traces the area/count inputs and the available literature-fit uncertainty. For the ex-vivo
+Papp calculation, the discussion calls cotyledon surface area its critical
+scaling assumption: it divides the reported average whole-placenta villous
+area (11.8 m²) by an average 35 cotyledons, and warns this can over- or
+underestimate the cotyledons tested. No cotyledon-specific microscopic area measurement is
+linked to the perfusions, so the published Papp carries structural scaling
+uncertainty beyond the missing per-run fluid and concentration histories. No
+values from these twelve sheets were added to the observation dataset or fitted.
+
+The Dallmann 2017 supplement labels its independent variable as fertilization
+age but omits the numeric unit. A later Dallmann et al. methods paper describes
+the model maximum as 38 weeks; evaluating the 2017 mean fit at `x = 38` gives
+about 11.81 m² (fitted SD about 2.16 m²), consistent with Roelofsen's rounded
+11.8 m². This is a source-lineage check on a whole-placenta literature fit,
+not a measurement or uncertainty distribution for the cotyledons perfused.
+
+The Methods print this assumed area as 3371 dm², while the Discussion's
+11.8 m² / 35 calculation gives about 0.337 m² = 33.7 dm² = 3371 cm². The
+printed unit is therefore 100 times the Discussion-implied area; the value
+3371 is consistent with cm². Table 1 reports ex-vivo `Papp` in cm/s. The
+supplement and available source tables do not establish which physical area
+was used for the reported ex-vivo values. Since `Papp` is inversely
+proportional to area, the ambiguity could produce a 100-fold scale difference
+if the larger area was actually used. Treat this as an unresolved source
+inconsistency: no values have been rescaled. See the [surface-area lineage
+note](ROELOFSEN_SURFACE_AREA_LINEAGE_2026-10-10.md).
 
 Source spelling, including `Antipryine`, is retained. Further native metadata
 inspection resolved the trajectory unit: each XY table references an X data

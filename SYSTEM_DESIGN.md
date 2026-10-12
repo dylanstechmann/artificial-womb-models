@@ -5,6 +5,8 @@ Authorship: AI-assisted project design; no human scientific or clinical review i
 recorded. This is a requirements and evidence-gap design, not a build specification
 or a demonstrated embryo-to-birth machine.
 
+Owner scope correction, 2026-10-11: the completion objective is owned equipment for at least ten simultaneous gestations and a common actual calendar birth date. Assume 100+ embryos are supplied upstream. Sequential births or service-only access cannot complete this objective. [PROGRAM_PLAN.md](PROGRAM_PLAN.md) version two adds ownership, ten-unit isolation/resource qualification, actual readiness/date assessment and a separate AI/robot parenting track with tall-stature and intellectual/skill goals. These are requirements, not demonstrated capabilities. The A/B/C allocations below remain hypotheses pending comparative evidence.
+
 The intended system would accept an embryo at a declared developmental stage,
 support continuous embryonic and fetal development outside a uterus, and enable
 transition to neonatal life. Its objective is a healthy newborn with independently

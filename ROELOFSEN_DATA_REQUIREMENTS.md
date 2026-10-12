@@ -18,10 +18,25 @@ one-based CSV locations. Native set GUIDs identify source data sets; they do
 not identify biological specimens. Neither aligned slot positions nor labels
 `Placenta 1`–`Placenta 4` authenticate cross-table donor pairing.
 
+The article's Table 1 is now separately represented by a 15-cell aggregate
+source-cell inventory, with exact mean±SD text, parsed values, source-cell
+locators, assay times, compound-addition conditions and caption-level sample
+counts. A second inventory preserves all ten printed comparison-ratio cells
+and their conditional 100× sensitivity values. The full-text XML and offline
+extraction script are pinned alongside both inventories. These are published
+aggregate summaries, not per-perfusion or per-culture observations; the
+caption's `N` is not asserted as a compound-cell-specific denominator. The
+ex-vivo summaries retain the unresolved area-unit qualification and remain
+outside executable and developmental observation inputs.
+
 The candidate intake records human ex vivo placental tissue, processed `% of
 initial dose`, unqualified exact donor gestational ages and no developmental
 continuity. Each independent-unit ID is null and each replicate role remains
 `not_reported`. No value is relabeled as an original instrument observation.
+The candidate observation intake still does not import the article's Table 1
+`Papp`; the separate inventory is descriptive only. No published `Papp` is
+used as a model parameter in the abstract transport diagnostic. Keep the
+area-unit qualification attached if a future quantitative intake is proposed.
 
 ## Selection affects the target population
 
@@ -51,8 +66,14 @@ nor assuming they are paired analytical duplicates is justified by layout.
 | Can source values and time definitions be traced? | Executable candidate transcription available; human review pending | Confirm cell mapping, caption mapping, exact quantities and source-specific reuse terms. |
 | Do paired maternal/foetal trajectories constrain transport alternatives? | Not qualified | Authenticate specimen/run/slot links and the original observations, corrections and uncertainty. Freeze a simpler alternative and analysis contract before fitting. |
 | Can tissue endpoints resolve storage versus conversion/unrecovered analyte? | Not qualified | Authenticate tissue/run linkage and subsample hierarchy, denominator definitions, and collection-corrected amounts. A tissue endpoint alone leaves other sink ambiguity. |
+| Can the reported ex-vivo Papp be treated as donor-specific cotyledon conductance? | Not qualified; the calculation uses average term-placenta villous area divided by an average cotyledon count, not per-perfusion morphometry. A separate photo-count cohort reports 3–37 visible maternal cotyledons, but uses a different operational definition. The Methods print 3371 dm², whereas 11.8 m² / 35 in the Discussion implies about 3371 cm², a 100-fold unit discrepancy. Dallmann's age fit at 38 fertilization weeks yields about 11.81 m², consistent with the rounded 11.8 m² source, but remains a whole-placenta literature fit. If the larger area was used, the Table 1 ex-vivo/BeWo Papp ratios would conditionally shift from 0.34–0.54 (mixture) and 0.31–0.75 (separate) to 34–54 and 31–75, respectively. | First reconcile the area unit/value actually used in the published calculation. Then link cotyledon-specific area and count to each run, or define a prespecified sensitivity analysis with the age convention, population area variability, a definition-matched count distribution and surface definition made explicit. See the [area-source lineage](ROELOFSEN_SURFACE_AREA_LINEAGE_2026-10-10.md). |
 | What fraction of starting attempts succeeds? | Unknown denominator and exclusions | Obtain a complete attempt roster with included/failed/excluded/unavailable status and actual criteria. |
 | Does this support continuous human development? | Not assessed by these assays | Requires separate same-unit developmental/transition/outcome evidence; term-tissue transfer does not supply it. |
+
+The 100× sensitivity above is an exact unit-conversion scenario, not a
+probability, confidence interval or biological cotyledon-area range. Available
+records do not reveal which area was used, and the separate gross cotyledon
+count cohort is not suitable for assigning a broader numerical area range.
 
 No dynamic rate, permeability, pooled biological n, uncertainty interval or
 survival probability is estimated from this candidate intake. Its numerical
@@ -68,6 +89,15 @@ time values are assay observations, not simulation settings or gestation time.
 - Original concentration/instrument and calibration records; initial-dose
   denominator definitions; volume/collection histories; and which records
   received stability, hydrolysis, sampling or other corrections.
+- For area-scaled `Papp`, either per-cotyledon surface measurements or a
+  justified sensitivity distribution that distinguishes whole-placenta
+  villous-area variability from cotyledon-count uncertainty. A gross maternal-
+  surface count from another cohort must not be treated as the same quantity
+  unless the counting definition and population are matched.
+- Reconcile the Methods' `3371 dm²` with the Discussion's `11.8 m² / 35`
+  denominator before using the reported ex-vivo `Papp` quantitatively. The
+  implied area is about `3371 cm²`; no rescaling is justified without the
+  calculation record.
 - A mapping of native tissue slots to tissue subsamples, repeated analytical
   measurements and their source runs, with uncertainty/missingness definitions.
 - Confirmation of the exact source version, relevant units and reuse terms.

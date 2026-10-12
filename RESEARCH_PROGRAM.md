@@ -1,5 +1,7 @@
 # Research program: from separate demonstrations to testable ectogenesis questions
 
+**Work selection update, 2026-10-11:** [PROGRAM_PLAN.md](PROGRAM_PLAN.md) version four targets the earliest achievable owned equipment, ten simultaneous surrogate-free gestations and common actual birth-date outcomes, preferably within two to three years or sooner, with a separate AI/robot parenting and stature/skill program. Assume 100+ embryos supplied upstream. [The register](config/program/roadmap.json) and [current status comparison](PROGRAM_STATUS.md) start resource preparation alongside architecture and measurement work, tie tasks to completion conditions and hold redundant branches. The horizon is an owner preference, not an established forecast. The contracts below remain technical supporting material.
+
 Planning revision: **2026-10-06**. Status: proposed research and software work.
 The long-term objective is complete human ectogenesis from IVF through birth,
 including normal development and later function. This document specifies how
@@ -139,9 +141,12 @@ source transcription, dataset qualification and human review remain separate.
 | [Modeling human embryo implantation in vitro, Cell, 2026 issue](https://doi.org/10.1016/j.cell.2025.10.027) | Reports embryo/endometrial-model implantation and day-14 interface analysis | Early interface development; does not supply evidence for a completed pregnancy. Review actual units, stages, controls and exclusions. |
 | [Hori et al., 2024 placental barrier organoids](https://www.nature.com/articles/s41467-024-45279-y) | Reports selected barrier, permeability and endocrine observations and links Source Data | [Agent file audit](SOURCE_QUALIFICATION.md): 48 Figure 5G Papp endpoints; descriptive extraction only. Unit-linked trajectories and human review remain absent. |
 | [Bhide et al., 2026 placenta-on-chip record](https://pubmed.ncbi.nlm.nih.gov/42269672/) / [DOI](https://doi.org/10.1088/1758-5090/ae7bc8) | Candidate two-compartment glucose/urea exchange measurements | [Inspected attachments 5/6](SOURCE_QUALIFICATION.md): summary comparisons, not raw unit trajectories; benchmark eligibility and supplemental reuse unresolved. |
-| [2026 maternal–fetal interface atlas](https://www.nature.com/articles/s41586-026-10316-x) / [author portal](https://cell.ucsf.edu/snPlacenta/) | Reference cell states and spatial context for comparison with models | Processed data are offered through the portal; raw FASTQ access is controlled under `phs004305.v1`. Sampling site and actual stage matter. This is an identity/context reference, not transport calibration. |
+| [Roelofsen et al., 2026 ex vivo perfusion comparison](https://link.springer.com/article/10.1007/s00204-026-04418-8) | Candidate native time-course and tissue-endpoint observations for placental transfer | [Native Prism recovery](COLLECTION_ACCOUNTING.md): exact source CSV bytes and 4-replicate declarations retained. Tables are processed percent-of-dose data for tested compounds; slot-to-donor mapping, normalization ancestry and correction review remain open. Not a nutrient or developmental-outcome dataset. |
+| [Mathiesen et al., 2020 ex vivo human placental perfusion](https://journals.plos.org/plosone/article?id=10.1371/journal.pone.0233979) | Candidate measured maternal/fetal reservoir concentrations for five analytes over source-labeled time points | [Source qualification](MATHIESEN_PERFUSION_QUALIFICATION_2026-10-10.md): 22 numbered perfusion runs, 2,908 numeric cells, 282 unevenly distributed blanks and source-duration flags retained. The Table 1 run map awaits human verification; a concentration-ratio check is descriptive only. Missing volume/removal, inventory/recovery, calibration and original instrument records block dimensional fit. |
+| [Antich et al., 2026 vascularized human placental barrier](https://www.nature.com/articles/s41598-026-61708-y) | Separates trophoblast uptake, receiver-side targeted nutrient measurements and transporter activity in a human placental tissue model | [Bounded intake](SELECTIVE_INTERFACE_FEASIBILITY.md): all 16 supplements enumerated, GEO/PRIDE roles checked; no replicate-by-time functional table or functional replicate/source crosswalk. Descriptive candidate only. |
+| [2026 maternal–fetal interface atlas](https://www.nature.com/articles/s41586-026-10316-x) / [UCSF portal](https://cell.ucsf.edu/snPlacenta/) | Candidate human cell-identity and spatial-context reference | [Source qualification](HUMAN_MFI_ATLAS_QUALIFICATION_2026-10-10.md): spatial rows match the documented post-filter total; the 193,202-row scPlacenta payload remains +1,467 above the paired-nuclei supplement after checking figure Source Data and linked GEO/NeMO roles. S1c/scPlacenta lack a donor key; the separate GEX donor categories do not crosswalk to these sample IDs. Portal-specific reuse terms remain unverified; raw FASTQ is controlled under `phs004305.v1`. Context reference only; not transport calibration. |
 | [Aguilera-Castrejon et al., 2021](https://www.nature.com/articles/s41586-021-03416-3) | Existing mouse postimplantation interval in the ledger | Preserve its actual start and end, outcome denominators and unresolved later transition. |
-| [Lokshtanov et al., bioRxiv v1, 2026](https://doi.org/10.64898/2026.03.17.710314) | New mouse interval and intrinsic metabolic-transition claims; late adverse narrative retained | API/institutional abstract and selected rendered primary passages inspected. Preserve E6.5/E7.5 and modality-specific stage comparisons; original bytes, cohort incidence, causal mechanism and human review unqualified. |
+| [Lokshtanov et al., bioRxiv v1, 2026](https://doi.org/10.64898/2026.03.17.710314) | Unreviewed mouse interval and metabolic-transition claim; maximum E7.5-start morphology ~E12.5, separate E6.5-start ~E11.75 cohort | Official v1 and supplement PDFs pinned. 46 Figure 1D/2D count pairs and 42 Extended Data Figure 3D/3G emb/n labels retained; Figure 3D n semantics, Figure 4D embryo denominators and normal-outcome numerators, unit-linked attrition, causal mechanism and human review remain open; primary Results assigns the serum comparison to the distinct E6.5-start cohort. Bounded publisher/NCBI/DataCite searches found no separate Figure 4D source file in the queried routes; a globally complete public-data search remains open. Cycle 275 found no journal-version match in checked registries; Cycle 276 extended bounded searches to BioStudies and MetaboLights; Cycle 277 added Zenodo, Figshare, GitHub repository search and OpenAIRE, which points to an inaccessible EPFL full-text copy but no dataset record. Cycle 278 found no target-linked Metabolomics Workbench entry in documented title/author searches; the API has no DOI filter. Keep this source classified as bioRxiv v1/preprint; public-data completeness remains unresolved. |
 | [Solmonson et al., Nature, 2022](https://www.nature.com/articles/s41586-022-04557-9) | In-utero compartment/organ metabolic reference and uptake-versus-development distinction | Two source workbooks inspected read-only; qualify normalization direction, isotope quantities and dam/litter/embryo hierarchy. No machine validation or fit. |
 | [Usuda et al., 2023](https://doi.org/10.3389/fphys.2023.1219185) | Existing example of physiological support coexisting with reduced somatic/organ growth | Organize maintenance and development as separate outcomes; inspect the eligible unit-level data and control comparability. |
 | [FDA committee summary, 2023](https://www.fda.gov/media/172441/download) | Evaluation context for partial fetal support, maturation, transition and follow-up | Regulator discussion; preserve its intended-use scope and source class. |
@@ -169,6 +174,15 @@ batch correction. A separate barrier-function dataset can motivate a next
 question; it cannot supply paired function for these cells unless unit-level
 linkage actually exists.
 
+The 2026 maternal–fetal interface atlas is not yet eligible for that grouped
+comparison: its scPlacenta count universe differs by 1,467 cells from the
+paired-nuclei supplement, no inspected table/schema links its sample IDs to
+donors, and its portal-specific reuse terms remain unverified. Reopen it only
+if a public data-version record, reuse statement and sample-to-donor mapping
+resolve those blockers; otherwise use another human reference with eligible
+unit keys or retain only a descriptive cell-identity context without
+inferential statistics that treat sample labels as independent donors.
+
 **Discriminator:** a prespecified state/identity discrepancy that recurs in
 held-out source units, with any source-linked functional evidence reported
 independently. Similar expression alone leaves the function hypothesis
@@ -181,11 +195,15 @@ Compare passive exchange with exchange plus uptake/loss, and with a simple
 well-mixed alternative where the observation contract supports it. Specify
 the measured collection process, capacities, boundary input and geometry.
 
-**First analysis:** qualify Hori/Bhide candidate data, then freeze one limited
-dimensional model and an independent-unit split. Keep the current dimensionless
-model intact as a software test. Estimate effective transfer/clearance terms
-that the observations identify; without independently observed interface area,
-do not present permeability and area as separately recovered parameters.
+**First analysis:** qualify Roelofsen's recovered perfusion observations for
+their reported transport/correction scope; keep the tested compound class
+separate from nutrient exchange. Qualify Antich/Hori/Bhide separately for
+nutrient-specific uptake or barrier endpoints, then freeze one limited
+dimensional model and an independent-unit split only if one source meets the
+observation contract. Keep the current dimensionless model intact as a software
+test. Estimate only effective transfer/clearance terms the observations
+identify; without independently observed interface area, do not present
+permeability and area as separately recovered parameters.
 
 The [2026-10-09 source qualification](SOURCE_QUALIFICATION.md) completes a
 bounded first file audit: Hori supports a candidate descriptive endpoint
@@ -193,6 +211,37 @@ transcription; the inspected Hori/Bhide files do not meet the independent-unit
 dynamic benchmark contract. A dimensional fit and held-out split are deferred.
 The document lists the exact missing existing-data observables and review
 requirements. This agent audit does not mark E3/M6/G1 achieved.
+
+The [native perfusion recovery](COLLECTION_ACCOUNTING.md) is currently the
+strongest machine-readable transfer trace in the reviewed intake: native
+Prism tables preserve author-processed percent-of-dose values and exact time
+locators, and the article gives a sample-removal correction method. Original
+concentrations, full normalization ancestry and unit-to-donor/experiment
+mapping remain unresolved; the source concerns tested compounds, not fetal
+nutrient sufficiency. It is eligible for a descriptive source-level audit,
+not a biological transport fit or a general placental calibration.
+
+The [Antich functional intake](SELECTIVE_INTERFACE_FEASIBILITY.md) adds a
+more direct descriptive candidate: the article reports distinct uptake,
+receiver-side nutrient and transporter readouts, but its 16-file supplement
+package and GEO/PRIDE metadata do not expose replicate-by-time functional
+values or a functional replicate-to-source map. Supplementary Note 3 describes
+the targeted metabolite readout in peak-area terms; keep that signal separate
+from calibrated concentration, amount or net flux. The source is not eligible
+for a dimensional fit or independent validation until those observation and
+grouping fields are available and reviewed.
+
+The [Mathiesen source qualification](MATHIESEN_PERFUSION_QUALIFICATION_2026-10-10.md)
+adds actual cell-located nM reservoir concentrations, source-run windows and a
+bounded review of S2–S4. S3's `nr` keys match the Table 1 ID set 1–22, but no
+explicit crosswalk is given, so the machine audit records only a candidate
+link and does not join them. The source's 48→43→26→15 selection funnel also
+remains separate from its 22-run workbook. Methods state that fetal reservoir
+volume was observed after samples and final reservoir volumes were measured;
+the inspected public files contain no numerical logs for those volumes or
+sample removal. Those missing amounts, plus absent calibration and instrument
+records, block dimensional fitting. Keep this source at descriptive
+eligibility unless a reviewed existing record set supplies them.
 
 The [interface feasibility questions](INTERFACE_FEASIBILITY.md) add an
 explicit transport ambiguity: with zero initial states, known input and
