@@ -14,7 +14,7 @@ from pathlib import Path
 
 from . import __version__
 
-MAX_JSON_BYTES = 2_000_000
+MAX_JSON_BYTES = 16_000_000
 MAX_JSON_DEPTH = 64
 MAX_JSON_INTEGER_DIGITS = 256
 
@@ -43,7 +43,7 @@ def csv_bytes(columns: list[str], rows: list[dict]) -> bytes:
 def decode_json(raw: bytes):
     """Decode bounded UTF-8 JSON without duplicate keys or nonfinite numbers."""
     if len(raw) > MAX_JSON_BYTES:
-        raise InputError("Input JSON exceeds the 2 MB limit")
+        raise InputError("Input JSON exceeds the 16 MB limit")
     try:
         decoded = raw.decode("utf-8")
         # Bound container nesting independently of the Python JSON decoder's
@@ -150,6 +150,8 @@ def reproduction_plan(kind: str, files: dict[str, bytes], metadata: dict) -> dic
             "wombmodels audit-fattahi-source --workbook <external-pinned-source.xlsx> --out <new-dir>",
         "native_placental_source_recovery":
             "wombmodels audit-roelofsen-source --supplement <external-pinned-source.docx> --out <new-dir>",
+        "human_placental_perfusion_observation_audit":
+            "wombmodels audit-mathiesen-source --article <external-pinned-article.html> --workbook <external-pinned-observations.xlsx> --table1 <external-pinned-run-map.png> --success-table <external-pinned-selection.docx> --s3-table <external-pinned-unit-key-screen.docx> --out <new-dir>",
         "niche_mechanics_development_source_audit":
             "wombmodels audit-guo-source --workbook <external-pinned-source.xlsx> --out <new-dir>",
         "early_interface_source_linkage_audit":
@@ -171,6 +173,8 @@ def reproduction_plan(kind: str, files: dict[str, bytes], metadata: dict) -> dic
                    if kind in {"published_endpoint_source_audit", "functional_readout_source_audit", "niche_mechanics_development_source_audit", "yolk_sac_functional_source_audit"} else
                    ["input_source_manifest.json", "external pinned source supplement (not bundled)"]
                    if kind == "native_placental_source_recovery" else
+                   ["input_source_manifest.json", "external pinned article, data workbook, run table and selection table (not bundled)"]
+                   if kind == "human_placental_perfusion_observation_audit" else
                    ["input_source_manifest.json", "external pinned source archive (not bundled)"]
                    if kind == "developmental_boundary_source_linkage_audit" else
                    ["input_source_manifest.json", "external pinned SDRF and code archive (not bundled)"]
@@ -188,7 +192,7 @@ def reproduction_plan(kind: str, files: dict[str, bytes], metadata: dict) -> dic
             "Matching hashes establish bundle integrity only, not numerical correctness, "
             "parameter identifiability or biological validity.",
             ("Source audit/intake preserves reported units; it does not establish measurement validity, rights, analysis eligibility or predict human gestation."
-             if kind in {"developmental_observation_intake", "published_endpoint_source_audit", "functional_readout_source_audit", "native_placental_source_recovery", "niche_mechanics_development_source_audit", "yolk_sac_functional_source_audit", "developmental_boundary_source_linkage_audit", "early_interface_source_linkage_audit", "specimen_phenotype_intake"} else
+             if kind in {"developmental_observation_intake", "published_endpoint_source_audit", "functional_readout_source_audit", "native_placental_source_recovery", "human_placental_perfusion_observation_audit", "niche_mechanics_development_source_audit", "yolk_sac_functional_source_audit", "developmental_boundary_source_linkage_audit", "early_interface_source_linkage_audit", "specimen_phenotype_intake"} else
              "Every value in these fixtures is dimensionless. Nothing here predicts human gestation."),
             "Verification never reruns the model. A rerun needs the recorded package version and "
             "the exact inputs listed above.",

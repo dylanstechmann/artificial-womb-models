@@ -1,0 +1,104 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://github.com/dylanstechmann/artificial-womb-models/schemas/cohort-coverage.schema.json",
+  "title": "Source-linked aggregate cohort coverage",
+  "description": "Preserves source-level population and denominator declarations separately from individual specimen observations. Each assertion records whether it falls within, outside, or has unresolved membership in the stated denominator. Equal labels do not establish cohort identity. Count closure is only assessed when a common cohort and window, complete coverage, and mutually exclusive and exhaustive categories are explicitly source-reported.",
+  "type": "object",
+  "additionalProperties": false,
+  "required": [
+    "coverage_id", "source_artifact_id", "reported_group_label", "group_label_status",
+    "counted_entity_kind", "counted_entity_label", "endpoint_label", "population_frame",
+    "measurement_window", "selection_definition", "selection_definition_source_locator", "denominator", "declarations",
+    "selection_statements", "cohort_window_status", "disposition_completeness",
+    "categories_mutually_exclusive", "categories_exhaustive"
+  ],
+  "properties": {
+    "coverage_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{2,95}$"},
+    "source_artifact_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{1,95}$"},
+    "reported_group_label": {"type": ["string", "null"], "minLength": 1, "maxLength": 300},
+    "group_label_status": {"enum": ["reported", "not_reported", "ambiguous"]},
+    "counted_entity_kind": {"enum": ["embryo", "fetus", "recipient_animal", "tissue_fragment", "imaging_subsample", "assay_event", "other", "unresolved"]},
+    "counted_entity_label": {"type": ["string", "null"], "minLength": 1, "maxLength": 300},
+    "endpoint_label": {"type": "string", "minLength": 1, "maxLength": 500},
+    "population_frame": {"type": "string", "minLength": 1, "maxLength": 500},
+    "measurement_window": {"type": "string", "minLength": 1, "maxLength": 300},
+    "selection_definition": {"type": "string", "minLength": 1, "maxLength": 2000},
+    "selection_definition_source_locator": {"type": "string", "minLength": 1, "maxLength": 1000},
+    "denominator": {
+      "type": "object", "additionalProperties": false,
+      "required": ["value", "value_status", "reported_label", "source_locator"],
+      "properties": {
+        "value": {"type": ["integer", "null"], "minimum": 0, "maximum": 1000000000},
+        "value_status": {"enum": ["reported", "not_reported", "ambiguous"]},
+        "reported_label": {"type": "string", "minLength": 1, "maxLength": 500},
+        "source_locator": {"type": "string", "minLength": 1, "maxLength": 1000}
+      },
+      "allOf": [
+        {
+          "if": {"properties": {"value_status": {"const": "reported"}}, "required": ["value_status"]},
+          "then": {"properties": {"value": {"type": "integer", "minimum": 0, "maximum": 1000000000}}}
+        },
+        {
+          "if": {"properties": {"value_status": {"enum": ["not_reported", "ambiguous"]}}, "required": ["value_status"]},
+          "then": {"properties": {"value": {"type": "null"}}}
+        }
+      ]
+    },
+    "declarations": {
+      "type": "array", "minItems": 1, "maxItems": 100,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["category", "scope", "reported_label", "quantity_kind", "value", "value_status", "source_locator"],
+        "properties": {
+          "category": {"enum": ["initially_included", "assessed", "attached", "retained", "shed", "assay_withdrawn", "excluded", "missing", "not_assessed", "endpoint_measure", "other"]},
+          "scope": {"enum": ["within_denominator", "outside_denominator", "unresolved"]},
+          "reported_label": {"type": "string", "minLength": 1, "maxLength": 500},
+          "quantity_kind": {"enum": ["count", "percentage", "other"]},
+          "value": {"type": ["integer", "string", "null"], "minimum": 0, "maximum": 1000000000, "maxLength": 120},
+          "value_status": {"enum": ["reported", "not_reported", "ambiguous"]},
+          "source_locator": {"type": "string", "minLength": 1, "maxLength": 1000},
+          "note": {"type": "string", "maxLength": 1000}
+        },
+        "allOf": [
+          {
+            "if": {"properties": {"value_status": {"const": "reported"}, "quantity_kind": {"const": "count"}}, "required": ["value_status", "quantity_kind"]},
+            "then": {"properties": {"value": {"type": "integer", "minimum": 0, "maximum": 1000000000}}}
+          },
+          {
+            "if": {"properties": {"value_status": {"const": "reported"}, "quantity_kind": {"enum": ["percentage", "other"]}}, "required": ["value_status", "quantity_kind"]},
+            "then": {"properties": {"value": {"type": "string", "minLength": 1, "maxLength": 120}}}
+          },
+          {
+            "if": {"properties": {"value_status": {"enum": ["not_reported", "ambiguous"]}}, "required": ["value_status"]},
+            "then": {"properties": {"value": {"type": "null"}}}
+          }
+        ]
+      }
+    },
+    "selection_statements": {
+      "type": "array", "maxItems": 20,
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["text", "source_locator"],
+        "properties": {
+          "text": {"type": "string", "minLength": 1, "maxLength": 2000},
+          "source_locator": {"type": "string", "minLength": 1, "maxLength": 1000}
+        }
+      }
+    },
+    "cohort_window_status": {"enum": ["source_reported_common", "source_labels_only", "not_reported", "unresolved"]},
+    "disposition_completeness": {"enum": ["complete", "partial", "unknown"]},
+    "categories_mutually_exclusive": {"enum": ["source_reported_yes", "source_reported_no", "unknown"]},
+    "categories_exhaustive": {"enum": ["source_reported_yes", "source_reported_no", "unknown"]}
+  },
+  "allOf": [
+    {
+      "if": {"properties": {"group_label_status": {"const": "reported"}}, "required": ["group_label_status"]},
+      "then": {"properties": {"reported_group_label": {"type": "string", "minLength": 1}}}
+    },
+    {
+      "if": {"properties": {"group_label_status": {"const": "not_reported"}}, "required": ["group_label_status"]},
+      "then": {"properties": {"reported_group_label": {"type": "null"}}}
+    }
+  ]
+}

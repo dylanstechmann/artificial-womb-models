@@ -23,6 +23,7 @@ MAX_FILE_BYTES = 50_000_000
 MAX_FILES = 500
 STATUS_NOT_REVIEWED = "not_established_by_this_tool"
 KNOWN_BUNDLE_KINDS = frozenset({
+    "research_program_status",
     "synthetic_exchange_software_fixture",
     "synthetic_exchange_observability_diagnostic",
     "synthetic_exchange_design_sweep",
@@ -33,10 +34,23 @@ KNOWN_BUNDLE_KINDS = frozenset({
     "published_endpoint_source_audit",
     "functional_readout_source_audit",
     "native_placental_source_recovery",
+    "human_placental_perfusion_observation_audit",
     "niche_mechanics_development_source_audit",
     "yolk_sac_functional_source_audit",
     "developmental_boundary_source_linkage_audit",
     "early_interface_source_linkage_audit",
+    "dimensionless_transport_theory",
+    "dimensionless_transport_identifiability",
+    "dimensionless_collection_accounting",
+    "dimensionless_mechanics_theory",
+    "dimensionless_transport_numerical_verification",
+    "dimensionless_transport_regime_matrix_verification",
+    "dimensionless_mechanics_numerical_verification",
+})
+DIMENSIONLESS_BUNDLE_KINDS = frozenset({
+    "synthetic_exchange_software_fixture",
+    "synthetic_exchange_observability_diagnostic",
+    "synthetic_exchange_design_sweep",
     "dimensionless_transport_theory",
     "dimensionless_transport_identifiability",
     "dimensionless_collection_accounting",
@@ -174,6 +188,19 @@ def verify_bundle(directory: Path, *, strict: bool = False) -> dict:
     else:
         warnings.append("bundle has no reproduction_plan.json; it predates recorded plans")
 
+    limits = [
+        "Matching hashes establish bundle integrity only. They do not establish numerical accuracy, "
+        "parameter identifiability, or any biological conclusion.",
+        "Byte verification does not establish source transcription, reuse rights, analysis eligibility, "
+        "measurement validity, or biological interpretation.",
+        "Ancestry resolution compares the parent receipt carried inside this bundle with the hash this "
+        "bundle declares. It cannot authenticate the original run environment.",
+        "This command never reruns a model.",
+    ]
+    if kind in DIMENSIONLESS_BUNDLE_KINDS:
+        limits.insert(3, "Every fixture value in this package is dimensionless. Verification says nothing about human "
+                      "gestation, surrogacy or congenital outcomes.")
+
     return {
         "schema_version": 1,
         "bundle": root.name,
@@ -194,13 +221,5 @@ def verify_bundle(directory: Path, *, strict: bool = False) -> dict:
         "files": files,
         "errors": errors,
         "warnings": warnings,
-        "limits": [
-            "Matching hashes establish bundle integrity only. They do not establish numerical accuracy, "
-            "parameter identifiability, or any biological conclusion.",
-            "Ancestry resolution compares the parent receipt carried inside this bundle with the hash this "
-            "bundle declares. It cannot authenticate the original run environment.",
-            "Every fixture value in this package is dimensionless. Verification says nothing about human "
-            "gestation, surrogacy or congenital outcomes.",
-            "This command never reruns a model.",
-        ],
+        "limits": limits,
     }

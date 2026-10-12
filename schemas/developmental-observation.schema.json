@@ -44,6 +44,10 @@
         "endpoint": { "type": "string", "minLength": 3, "maxLength": 500 },
         "unit": { "type": "string", "minLength": 1, "maxLength": 80 },
         "measurement_role": { "enum": ["morphology", "molecular_identity", "function", "viability", "genome_stability", "adverse_effect", "durability", "environmental_condition", "other"] },
+        "functional_evidence_class": {
+          "enum": ["direct_function_measurement", "biological_response_proxy", "developmental_outcome", "other"],
+          "description": "Optional curator classification of how this measured or reported endpoint relates to a functional claim. A direct_function_measurement observes a process or quantity relevant to the declared function; it does not prove sufficiency or health. A biological_response_proxy is an indirect biomarker or response. A developmental_outcome is a developmental, survival, adverse-effect, transition, or follow-up outcome. Omission is unclassified and is never inferred from endpoint wording."
+        },
         "calibration_artifact_id": { "type": ["string", "null"], "maxLength": 96 },
         "functional_context": {
           "type": "object", "additionalProperties": false,
@@ -62,11 +66,12 @@
     },
     "independent_unit": {
       "type": "object",
+      "description": "The source may report separate independent units without naming them individually. A null id preserves that identity gap; it cannot support a same-unit longitudinal link.",
       "additionalProperties": false,
       "required": ["kind", "id", "parent_id"],
       "properties": {
-        "kind": { "enum": ["donor", "pregnant_animal", "embryo", "source_kidney", "organoid", "vessel_construct", "culture_batch", "sample_pool", "other", "not_reported"] },
-        "id": { "type": ["string", "null"], "maxLength": 120 },
+        "kind": { "enum": ["donor", "pregnant_animal", "fetus", "embryo", "source_kidney", "organoid", "vessel_construct", "culture_batch", "sample_pool", "other", "not_reported"] },
+        "id": { "type": ["string", "null"], "maxLength": 120, "description": "Source-reported unit identifier, or null when the source does not identify the unit." },
         "parent_id": { "type": ["string", "null"], "maxLength": 120 },
         "hierarchy_note": { "type": "string", "maxLength": 500 },
         "members": {
@@ -75,7 +80,7 @@
           "items": {
             "type": "object", "additionalProperties": false, "required": ["kind", "id"],
             "properties": {
-              "kind": { "enum": ["donor", "pregnant_animal", "embryo", "source_kidney", "organoid", "vessel_construct", "culture_batch", "other"] },
+              "kind": { "enum": ["donor", "pregnant_animal", "fetus", "embryo", "source_kidney", "organoid", "vessel_construct", "culture_batch", "other"] },
               "id": { "type": "string", "minLength": 1, "maxLength": 120 },
               "parent_id": { "type": ["string", "null"], "maxLength": 120 }
             }
@@ -96,9 +101,70 @@
         "measurement_time": { "type": ["number", "string", "null"] },
         "measurement_time_unit": { "type": "string", "maxLength": 80 },
         "comparator_id": { "type": ["string", "null"], "maxLength": 120 },
-        "replicate_role": { "enum": ["independent", "repeated_measure", "technical", "summary_only", "not_reported"] },
+        "replicate_role": { "enum": ["independent", "repeated_measure", "technical", "summary_only", "not_reported"], "description": "Independent denotes a source-reported independent observation; the individual unit id may still be null and unlinked." },
         "measurement_uncertainty": { "type": ["number", "string", "null"] },
-        "missingness_reason": { "type": "string", "maxLength": 500 }
+        "missingness_reason": { "type": "string", "maxLength": 500 },
+        "summary_statistic": {
+          "type": "object", "additionalProperties": false,
+          "description": "Optional typed source-reported summary. It preserves median [interquartile range], mean ± an explicitly identified standard deviation, or an estimate ± a source-reported quantity whose type may remain not_reported. A null sample size preserves an unresolved denominator; summaries do not imply individual observations or independent replicates.",
+          "required": ["kind", "reported_sample_size", "sample_size_scope", "sample_size_source_locator", "source_literal"],
+          "properties": {
+          "kind": {"enum": ["median_iqr", "mean_sd", "reported_plus_minus"]},
+            "lower_quartile": {"type": "number"},
+            "upper_quartile": {"type": "number"},
+            "mean": {"type": "number"},
+            "standard_deviation": {"type": "number", "minimum": 0},
+          "estimate": {"type": "number"},
+          "plus_minus": {"type": "number", "minimum": 0},
+          "plus_minus_type": {"enum": ["standard_deviation", "standard_error", "confidence_interval", "measurement_uncertainty", "not_reported"]},
+            "reported_sample_size": {"type": ["integer", "null"], "minimum": 1, "maximum": 1000000000},
+            "sample_size_scope": {"type": "string", "minLength": 1, "maxLength": 500},
+            "sample_size_source_locator": {"type": "string", "minLength": 1, "maxLength": 1000},
+            "source_literal": {"type": "string", "minLength": 1, "maxLength": 200}
+          },
+          "oneOf": [
+            {"properties": {"kind": {"const": "median_iqr"}},
+             "required": ["lower_quartile", "upper_quartile"],
+             "not": {"anyOf": [{"required": ["mean"]}, {"required": ["standard_deviation"]}, {"required": ["estimate"]}, {"required": ["plus_minus"]}, {"required": ["plus_minus_type"]}]}},
+            {"properties": {"kind": {"const": "mean_sd"}},
+             "required": ["mean", "standard_deviation"],
+           "not": {"anyOf": [{"required": ["lower_quartile"]}, {"required": ["upper_quartile"]}, {"required": ["estimate"]}, {"required": ["plus_minus"]}, {"required": ["plus_minus_type"]}]}},
+          {"properties": {"kind": {"const": "reported_plus_minus"}},
+           "required": ["estimate", "plus_minus", "plus_minus_type"],
+           "not": {"anyOf": [{"required": ["lower_quartile"]}, {"required": ["upper_quartile"]}, {"required": ["mean"]}, {"required": ["standard_deviation"]}]}}
+          ]
+        },
+        "source_qualifications": {
+          "type": "array", "maxItems": 20, "uniqueItems": true,
+          "description": "Optional source-linked, per-observation qualification declarations. These retain the criterion and source locator; they do not establish scientific validity or analysis eligibility.",
+          "items": {
+            "type": "object", "additionalProperties": false,
+            "required": ["criterion_code", "status_code", "criterion_label", "source_artifact_id", "source_locator", "reference_value", "reference_unit"],
+            "properties": {
+              "criterion_code": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,79}$"},
+              "status_code": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,79}$"},
+              "criterion_label": {"type": "string", "minLength": 1, "maxLength": 300},
+              "source_artifact_id": {"type": "string", "minLength": 2, "maxLength": 96},
+              "source_locator": {"type": "string", "minLength": 1, "maxLength": 1000},
+              "reference_value": {"type": ["number", "null"]},
+              "reference_unit": {"type": "string", "maxLength": 80}
+            }
+          }
+        },
+        "measurement_conditions": {
+          "type": "array", "maxItems": 20,
+          "description": "Optional source-linked test conditions for this observation, such as operating mode or flow rate. Conditions preserve reported context and do not identify replicates or imply an experimental pairing.",
+          "items": {
+            "type": "object", "additionalProperties": false,
+            "required": ["name", "value", "unit", "source_locator"],
+            "properties": {
+              "name": {"type": "string", "pattern": "^[a-z][a-z0-9_]{1,79}$"},
+              "value": {"type": ["number", "string"]},
+              "unit": {"type": "string", "maxLength": 80},
+              "source_locator": {"type": "string", "minLength": 1, "maxLength": 1000}
+            }
+          }
+        }
       }
     },
     "source": {
@@ -113,6 +179,8 @@
         "retrieved_on": { "type": ["string", "null"], "format": "date" }
       }
     },
+    "source_locator": { "type": "string", "minLength": 1, "maxLength": 1000,
+                        "description": "Exact source table, worksheet cell, image/table row, or repository record locator for this individual observation." },
     "limitations": { "type": "array", "items": { "type": "string", "minLength": 8, "maxLength": 1000 } }
   }
 }

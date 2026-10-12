@@ -20,7 +20,7 @@ class ArtifactTests(unittest.TestCase):
 
         stream = BoundedStream(b" " * (MAX_JSON_BYTES + 100))
         with patch.object(Path, "open", return_value=stream):
-            with self.assertRaisesRegex(InputError, "2 MB"):
+            with self.assertRaisesRegex(InputError, "16 MB"):
                 read_json(Path("oversized.json"))
         self.assertEqual(stream.requested_size, MAX_JSON_BYTES + 1)
         self.assertTrue(stream.closed)

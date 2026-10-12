@@ -17,7 +17,7 @@
       "properties": {
         "revision_id": {"type": "string", "pattern": "^[A-Za-z0-9][A-Za-z0-9._-]{1,95}$"},
         "citation": {"type": "string", "minLength": 1, "maxLength": 2000},
-        "source_kind": {"enum": ["peer_reviewed_animal", "peer_reviewed_human_invitro", "regulator_discussion", "institution_announcement", "dataset_record", "preprint", "other"]},
+        "source_kind": {"enum": ["peer_reviewed_animal", "peer_reviewed_human_invitro", "peer_reviewed_human_invivo", "regulator_discussion", "institution_announcement", "dataset_record", "preprint", "other"]},
         "source_url": {"type": "string", "format": "uri"},
         "review_status": {"enum": ["candidate", "locally_reviewed_included", "locally_reviewed_excluded"]},
         "reviewer": {"type": "string", "maxLength": 200},
@@ -38,16 +38,38 @@
           "retrieved_on": {"type": ["string", "null"], "format": "date"},
           "developmental_scope": {
             "type": "object", "additionalProperties": false,
-            "description": "Optional curated scope for developmental intervals citing this artifact as their stage source. Exact species, stage and time-unit matches are required. Numeric record bounds must be contained; missing/textual bounds stay unassessed. Source transcription is not verified.",
+            "description": "Optional curated scope for developmental intervals citing this artifact as their stage source. Exact species, stage and time-unit matches are required. Source bounds may be null when unknown. Each numeric record bound must satisfy the known source bounds; incomplete bounds never establish full containment and are not inferred from prose. Source transcription is not verified.",
             "required": ["species", "stage_tracks", "time_unit", "start", "end", "source_locator"],
             "properties": {
               "species": {"enum": ["human", "mouse", "ovine", "rat", "chick", "other", "unspecified"]},
               "stage_tracks": {"type": "array", "minItems": 1, "maxItems": 8, "uniqueItems": true,
                 "items": {"enum": ["preimplantation", "implantation_and_placentation", "postimplantation_embryonic", "partial_fetal_support", "transition_to_neonatal", "developmental_outcomes", "organoid_or_tissue_model", "unspecified"]}},
               "time_unit": {"type": "string", "minLength": 1, "maxLength": 40},
-              "start": {"type": "number"}, "end": {"type": "number"},
+              "start": {"type": ["number", "null"]}, "end": {"type": ["number", "null"]},
               "source_locator": {"type": "string", "minLength": 1, "maxLength": 1000}
             }
+          },
+          "source_resolution": {
+            "type": "object", "additionalProperties": false,
+            "description": "Optional, dated curation that separates archived version identity, full-text access, OA-subset membership, and reuse rights. It records evidence and does not authenticate the assessment.",
+            "required": ["version_type", "version_identifier", "access_status", "oa_subset_status", "reuse_status", "license_expression", "checked_on", "evidence_locator", "note"],
+            "properties": {
+              "version_type": {"enum": ["published_version", "accepted_manuscript", "author_manuscript", "preprint", "repository_record", "unknown"]},
+              "version_identifier": {"type": "string", "minLength": 1, "maxLength": 300},
+              "access_status": {"enum": ["full_text_free_to_read", "metadata_only", "restricted", "unknown"]},
+              "oa_subset_status": {"enum": ["included", "not_included", "not_checked", "not_applicable"]},
+              "reuse_status": {"enum": ["explicit_license", "not_confirmed", "permission_required", "public_domain"]},
+              "license_expression": {"type": ["string", "null"], "minLength": 1, "maxLength": 200},
+              "checked_on": {"type": "string", "format": "date"},
+              "evidence_locator": {"type": "string", "minLength": 1, "maxLength": 1000},
+              "note": {"type": "string", "minLength": 1, "maxLength": 1200}
+            },
+            "allOf": [
+              {"if": {"properties": {"reuse_status": {"const": "explicit_license"}}, "required": ["reuse_status"]},
+               "then": {"properties": {"license_expression": {"type": "string", "minLength": 1}}}},
+              {"if": {"properties": {"reuse_status": {"enum": ["not_confirmed", "permission_required", "public_domain"]}}, "required": ["reuse_status"]},
+               "then": {"properties": {"license_expression": {"type": "null"}}}}
+            ]
           },
           "local_path": {"type": ["string", "null"], "minLength": 1, "maxLength": 500,
                          "description": "Optional relative path beneath --source-root; runtime rejects absolute paths and dot segments."}
@@ -57,6 +79,11 @@
     "observations": {
       "type": "array", "minItems": 1, "maxItems": 5000,
       "items": {"$ref": "developmental-observation.schema.json"}
+    },
+    "cohort_coverage": {
+      "type": "array", "maxItems": 500,
+      "description": "Optional source-linked aggregate populations, denominators, disposition counts and selection notes. These remain separate from individual observation records; matching group labels do not establish specimen identity or continuity.",
+      "items": {"$ref": "cohort-coverage.schema.json"}
     },
     "transitions": {
       "type": "array", "maxItems": 500,
@@ -72,6 +99,38 @@
         }
       }
     },
-    "limitations": {"type": "array", "maxItems": 50, "items": {"type": "string", "minLength": 8, "maxLength": 1000}}
+    "measurement_pairs": {
+      "type": "array", "maxItems": 5000,
+      "description": "Optional, explicit source-linked relationships among observation records. These preserve a declared pairing and member labels; matching group labels, timestamps, or values do not create pairs.",
+      "items": {
+        "type": "object", "additionalProperties": false,
+        "required": ["pair_id", "pair_type", "linkage_basis", "source_artifact_id", "members", "source_locator", "note"],
+        "properties": {
+          "pair_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{2,95}$"},
+          "pair_type": {
+            "enum": ["same_sample", "same_unit_same_time", "before_after", "interface_sides", "other_source_defined"],
+            "description": "same_unit_same_time is accepted only when all member records carry the same non-null unit identity and exactly matching non-null measurement time and unit. Other source-defined relation types retain their cited declaration without additional inference."
+          },
+          "linkage_basis": {"enum": ["source_explicit", "curator_linked"]},
+          "source_artifact_id": {"type": "string", "minLength": 2, "maxLength": 96},
+          "members": {
+            "type": "array", "minItems": 2, "maxItems": 20,
+            "items": {
+              "type": "object", "additionalProperties": false,
+              "required": ["record_id", "role"],
+              "properties": {
+                "record_id": {"type": "string", "pattern": "^[a-z0-9][a-z0-9._-]{2,95}$"},
+                "role": {"type": "string", "minLength": 1, "maxLength": 120}
+              }
+            }
+          },
+          "source_locator": {"type": "string", "minLength": 1, "maxLength": 1000},
+          "note": {"type": "string", "minLength": 1, "maxLength": 1000}
+        }
+      }
+    },
+    "limitations": {"type": "array", "maxItems": 50, "items": {"type": "string", "minLength": 8, "maxLength": 1000}},
+    "source_locator": {"type": "string", "minLength": 1, "maxLength": 1000,
+                       "description": "Exact source table, worksheet cell, image/table row, or repository record locator for this individual observation."}
   }
 }

@@ -11,6 +11,7 @@ from wombmodels.bundle_verification import verify_bundle
 from wombmodels.cli import main
 from wombmodels.exchange import simulate
 from wombmodels.identifiability import analyze
+from wombmodels.observations import observation_report
 
 EXAMPLES = Path(__file__).resolve().parents[1] / "examples"
 
@@ -112,6 +113,14 @@ class BundleVerificationTests(unittest.TestCase):
         report = verify_bundle(self.simulation, strict=True)
         self.assertTrue(report["bytes_verified"], report["errors"])
         self.assertEqual(report["ancestry_resolved"], "no_parent_declared")
+
+    def test_observation_intake_limits_do_not_claim_source_values_are_dimensionless(self):
+        bundle = self.root / "observation-intake"
+        observation_report(EXAMPLES / "observation_intake_fixture.json", bundle)
+        report = verify_bundle(bundle, strict=True)
+        self.assertTrue(report["bytes_verified"], report["errors"])
+        self.assertFalse(any("Every fixture value" in item for item in report["limits"]))
+        self.assertTrue(any("source transcription" in item for item in report["limits"]))
 
     def test_undeclared_file_is_a_warning_and_a_strict_failure(self):
         (self.bundle / "notes.txt").write_text("a reviewer left this behind\n", encoding="utf-8")

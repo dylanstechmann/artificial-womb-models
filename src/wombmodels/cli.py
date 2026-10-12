@@ -21,6 +21,7 @@ from .roelofsen_source import audit_roelofsen_source
 from .guo_source import audit_guo_source
 from .yolk_sac_source import audit_yolk_sac_source
 from .boundary_source import audit_boundary_source
+from .mathiesen_source import audit_mathiesen_source
 from .numerical_verification import (
     verify_mechanics_accuracy,
     verify_transport_accuracy,
@@ -59,6 +60,16 @@ def main(argv=None) -> int:
     native_audit = commands.add_parser("audit-roelofsen-source", help="Recover pinned embedded native Prism CSV tables offline; no saved analysis or model fit")
     native_audit.add_argument("--supplement", type=Path, required=True)
     native_audit.add_argument("--out", type=Path, required=True)
+    human_perfusion_audit = commands.add_parser("audit-mathiesen-source", help="Audit pinned human placental perfusion concentrations offline; preserve time, run mapping and source-validity windows without fitting")
+    human_perfusion_audit.add_argument("--article", type=Path, required=True)
+    human_perfusion_audit.add_argument("--workbook", type=Path, required=True)
+    human_perfusion_audit.add_argument("--table1", type=Path, required=True,
+                                       help="Pinned PLOS Table 1 image containing run ID, antagonist group and acceptable-duration mapping")
+    human_perfusion_audit.add_argument("--success-table", type=Path, required=True,
+                                       help="Pinned PLOS S1 Table DOCX for the broader selection funnel")
+    human_perfusion_audit.add_argument("--s3-table", type=Path, required=True,
+                                       help="Pinned PLOS S3 Table DOCX for a non-joining candidate key-set screen")
+    human_perfusion_audit.add_argument("--out", type=Path, required=True)
     niche_audit = commands.add_parser("audit-guo-source", help="Audit pinned niche mechanical/profile cells and candidate developmental percentages; no fit or pairing")
     niche_audit.add_argument("--workbook", type=Path, required=True)
     niche_audit.add_argument("--out", type=Path, required=True)
@@ -138,6 +149,9 @@ def main(argv=None) -> int:
             receipt = collection_accounting(args.config, args.out)
         elif args.command == "audit-roelofsen-source":
             receipt = audit_roelofsen_source(args.supplement, args.out)
+        elif args.command == "audit-mathiesen-source":
+            receipt = audit_mathiesen_source(args.article, args.workbook, args.table1,
+                                              args.success_table, args.s3_table, args.out)
         elif args.command == "audit-guo-source":
             receipt = audit_guo_source(args.workbook, args.out)
         elif args.command == "audit-yolk-sac-source":

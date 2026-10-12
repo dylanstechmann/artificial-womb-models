@@ -2,6 +2,7 @@
 from __future__ import annotations
 
 import hashlib
+import json
 import math
 import os
 import re
@@ -21,20 +22,36 @@ MODEL_KINDS = {"intact_organism", "embryo_model", "organoid", "tissue_construct"
                "simulation", "other"}
 MEASUREMENT_ROLES = {"morphology", "molecular_identity", "function", "viability", "genome_stability",
                      "adverse_effect", "durability", "environmental_condition", "other"}
+FUNCTIONAL_EVIDENCE_CLASSES = {"direct_function_measurement", "biological_response_proxy",
+                               "developmental_outcome", "other"}
 FUNCTIONAL_PROCESSES = {"uptake", "intracellular_processing", "passage", "secretion",
                         "tissue_abundance", "developmental_outcome", "other", "unspecified"}
 ASSESSMENT_CONTEXTS = {"in_utero", "ex_utero_whole_embryo", "isolated_tissue",
                        "cell_culture", "simulation", "other", "unspecified"}
 FUNCTIONAL_CONTEXT_FIELDS = ("compartment", "material", "process", "quantity_basis",
                              "assessment_context", "source_locator")
-UNIT_KINDS = {"donor", "pregnant_animal", "embryo", "source_kidney", "organoid", "vessel_construct",
+UNIT_KINDS = {"donor", "pregnant_animal", "fetus", "embryo", "source_kidney", "organoid", "vessel_construct",
               "culture_batch", "sample_pool", "other", "not_reported"}
 REPLICATE_ROLES = {"independent", "repeated_measure", "technical", "summary_only", "not_reported"}
-SOURCE_KINDS = {"peer_reviewed_animal", "peer_reviewed_human_invitro", "regulator_discussion",
+COUNTED_ENTITIES = {"embryo", "fetus", "recipient_animal", "tissue_fragment", "imaging_subsample",
+                    "assay_event", "other", "unresolved"}
+COVERAGE_CATEGORIES = {"initially_included", "assessed", "attached", "retained", "shed",
+                       "assay_withdrawn", "excluded", "missing", "not_assessed",
+                       "endpoint_measure", "other"}
+DISPOSITION_COUNT_CATEGORIES = {"assessed", "attached", "retained", "shed", "assay_withdrawn",
+                               "excluded", "missing", "not_assessed"}
+COVERAGE_VALUE_STATUSES = {"reported", "not_reported", "ambiguous"}
+COHORT_WINDOW_STATUSES = {"source_reported_common", "source_labels_only", "not_reported", "unresolved"}
+MEASUREMENT_PAIR_TYPES = {"same_sample", "same_unit_same_time", "before_after", "interface_sides", "other_source_defined"}
+MEASUREMENT_PAIR_LINKAGE_BASES = {"source_explicit", "curator_linked"}
+DISPOSITION_COMPLETENESS = {"complete", "partial", "unknown"}
+SOURCE_DECLARATION_STATES = {"source_reported_yes", "source_reported_no", "unknown"}
+SOURCE_KINDS = {"peer_reviewed_animal", "peer_reviewed_human_invitro", "peer_reviewed_human_invivo", "regulator_discussion",
                 "institution_announcement", "dataset_record", "preprint", "other"}
 REVIEW_STATES = {"candidate", "locally_reviewed_included", "locally_reviewed_excluded"}
 HEX64 = re.compile(r"[0-9a-f]{64}")
 RECORD_ID = re.compile(r"[a-z0-9][a-z0-9._-]{2,95}")
+QUALIFICATION_CODE = re.compile(r"[a-z][a-z0-9_]{1,79}")
 MAX_SOURCE_FILE_BYTES = 1_000_000_000
 MAX_SOURCE_TOTAL_BYTES = 2_000_000_000
 
@@ -112,10 +129,12 @@ def _validate_developmental_scope(value):
     _text(scope["time_unit"], "developmental_scope.time_unit", 40)
     _text(scope["source_locator"], "developmental_scope.source_locator", 1000)
     for field in ("start", "end"):
+        if scope[field] is None:
+            continue
         if isinstance(scope[field], bool) or not isinstance(scope[field], (int, float)):
-            raise InputError("developmental_scope bounds must be finite numeric values")
+            raise InputError("developmental_scope bounds must be finite numeric values or null")
         _number_or_reported_text(scope[field], f"developmental_scope.{field}")
-    if scope["end"] < scope["start"]:
+    if scope["start"] is not None and scope["end"] is not None and scope["end"] < scope["start"]:
         raise InputError("developmental_scope end precedes its start")
     return scope
 
@@ -129,12 +148,17 @@ def _check_interval_scope(record, artifacts):
         raise InputError("Observation species/stage lies outside its declared source developmental_scope")
     if interval["time_unit"] != scope["time_unit"]:
         raise InputError("Observation interval must use the exact source-scope time unit; no conversion is performed")
-    if any(isinstance(interval[field], bool) or not isinstance(interval[field], (int, float))
-           for field in ("start", "end")):
-        return "not_numeric"
-    if interval["start"] < scope["start"] or interval["end"] > scope["end"]:
-        raise InputError("Observation interval lies outside its declared source developmental_scope bounds")
-    return "contained_in_declared_scope"
+    numeric_bounds = [interval[field] for field in ("start", "end")
+                      if not isinstance(interval[field], bool) and isinstance(interval[field], (int, float))]
+    for bound in numeric_bounds:
+        if ((scope["start"] is not None and bound < scope["start"])
+                or (scope["end"] is not None and bound > scope["end"])):
+            raise InputError("Observation interval lies outside its declared source developmental_scope bounds")
+    if len(numeric_bounds) == 2 and scope["start"] is not None and scope["end"] is not None:
+        return "contained_in_declared_scope"
+    if numeric_bounds and (scope["start"] is not None or scope["end"] is not None):
+        return "partially_checked"
+    return "not_numeric" if not numeric_bounds else "source_bounds_unknown"
 
 
 def _validate_source_revision(value):
@@ -162,7 +186,7 @@ def _validate_source_revision(value):
 
 def _validate_artifact(value, source_ids):
     required = {"artifact_id", "uri", "license", "sha256", "retrieved_on"}
-    item = _object(value, required, {"local_path", "developmental_scope"}, "source artifact")
+    item = _object(value, required, {"local_path", "developmental_scope", "source_resolution"}, "source artifact")
     artifact_id = _text(item["artifact_id"], "artifact_id", 96)
     if not re.fullmatch(r"[A-Za-z0-9][A-Za-z0-9._-]{1,95}", artifact_id) or artifact_id in source_ids:
         raise InputError(f"Invalid or duplicate source artifact ID: {artifact_id}")
@@ -174,6 +198,28 @@ def _validate_artifact(value, source_ids):
     _date(item["retrieved_on"], "source artifact retrieved_on", nullable=True)
     if "developmental_scope" in item:
         _validate_developmental_scope(item["developmental_scope"])
+    if "source_resolution" in item:
+        resolution = _object(item["source_resolution"],
+            {"version_type", "version_identifier", "access_status", "oa_subset_status", "reuse_status",
+             "license_expression", "checked_on", "evidence_locator", "note"}, set(),
+            "source artifact source_resolution")
+        _enum(resolution["version_type"], {"published_version", "accepted_manuscript", "author_manuscript",
+              "preprint", "repository_record", "unknown"}, "source version type")
+        _text(resolution["version_identifier"], "source version identifier", 300)
+        _enum(resolution["access_status"], {"full_text_free_to_read", "metadata_only", "restricted", "unknown"},
+              "source full-text access status")
+        _enum(resolution["oa_subset_status"], {"included", "not_included", "not_checked", "not_applicable"},
+              "source OA-subset status")
+        reuse_status = _enum(resolution["reuse_status"],
+            {"explicit_license", "not_confirmed", "permission_required", "public_domain"}, "source reuse status")
+        license_expression = resolution["license_expression"]
+        if reuse_status == "explicit_license":
+            _text(license_expression, "source license expression", 200)
+        elif license_expression is not None:
+            raise InputError("source license expression must be null unless an explicit license is identified")
+        _date(resolution["checked_on"], "source_resolution.checked_on")
+        _text(resolution["evidence_locator"], "source resolution evidence locator", 1000)
+        _text(resolution["note"], "source resolution note", 1200)
     item.setdefault("local_path", None)
     if item["local_path"] is not None:
         local_path = _text(item["local_path"], "source artifact local_path", 500)
@@ -191,12 +237,14 @@ def _validate_record(value, artifacts):
     required = {"schema_version", "record_id", "evidence_status", "species", "stage_track",
                 "developmental_interval", "model_system", "assay", "independent_unit",
                 "observation", "source"}
-    record = _object(value, required, {"limitations"}, "observation record")
+    record = _object(value, required, {"limitations", "source_locator"}, "observation record")
     if type(record["schema_version"]) is not int or record["schema_version"] != 1:
         raise InputError("Observation schema_version must be 1")
     record_id = _text(record["record_id"], "record_id", 96)
     if not RECORD_ID.fullmatch(record_id):
         raise InputError("record_id has an invalid format")
+    if "source_locator" in record:
+        _text(record["source_locator"], "source_locator", 1000)
     _enum(record["evidence_status"], EVIDENCE_STATUSES, "evidence status")
     _enum(record["species"], SPECIES, "species")
     _enum(record["stage_track"], STAGE_TRACKS, "stage_track")
@@ -228,11 +276,14 @@ def _validate_record(value, artifacts):
         _string_or_null(model[field], f"model_system.{field}", 120)
 
     assay = _object(record["assay"], {"name", "endpoint", "unit", "measurement_role"},
-                    {"calibration_artifact_id", "functional_context"}, "assay")
+                    {"calibration_artifact_id", "functional_context", "functional_evidence_class"}, "assay")
     _text(assay["name"], "assay.name", 300)
     _text(assay["endpoint"], "assay.endpoint", 500)
     _text(assay["unit"], "assay.unit", 80)
     _enum(assay["measurement_role"], MEASUREMENT_ROLES, "measurement role")
+    if "functional_evidence_class" in assay:
+        _enum(assay["functional_evidence_class"], FUNCTIONAL_EVIDENCE_CLASSES,
+              "functional evidence class")
     if "functional_context" in assay:
         context = _object(assay["functional_context"], FUNCTIONAL_CONTEXT_FIELDS, set(),
                           "assay.functional_context")
@@ -278,7 +329,8 @@ def _validate_record(value, artifacts):
 
     observation = _object(record["observation"],
                           {"value", "measurement_time", "comparator_id", "replicate_role"},
-                          {"measurement_time_unit", "measurement_uncertainty", "missingness_reason"},
+                          {"measurement_time_unit", "measurement_uncertainty", "missingness_reason",
+                           "source_qualifications", "summary_statistic", "measurement_conditions"},
                           "observation")
     _number_or_reported_text(observation["value"], "observation.value")
     _number_or_reported_text(observation["measurement_time"], "observation.measurement_time")
@@ -301,8 +353,119 @@ def _validate_record(value, artifacts):
         raise InputError("A nonmissing observation cannot carry a missingness_reason")
     _string_or_null(observation["comparator_id"], "observation.comparator_id")
     role = _enum(observation["replicate_role"], REPLICATE_ROLES, "replicate role")
-    if role == "independent" and (unit["kind"] == "not_reported" or unit["id"] is None):
-        raise InputError("An independent replicate needs a source-reported unit identifier")
+    summary_statistic = observation.get("summary_statistic")
+    if "summary_statistic" in observation:
+        if not isinstance(summary_statistic, dict):
+            raise InputError("summary_statistic must be an object")
+        common = {"kind", "reported_sample_size", "sample_size_scope",
+                  "sample_size_source_locator", "source_literal"}
+        kind = _enum(summary_statistic.get("kind"), {"median_iqr", "mean_sd", "reported_plus_minus"},
+                     "summary statistic kind")
+        if kind == "median_iqr":
+            summary_statistic = _object(summary_statistic,
+                common | {"lower_quartile", "upper_quartile"}, set(), "summary_statistic")
+            fields = ("lower_quartile", "upper_quartile")
+        elif kind == "mean_sd":
+            summary_statistic = _object(summary_statistic,
+                common | {"mean", "standard_deviation"}, set(), "summary_statistic")
+            fields = ("mean", "standard_deviation")
+        else:
+            summary_statistic = _object(summary_statistic,
+                common | {"estimate", "plus_minus", "plus_minus_type"}, set(), "summary_statistic")
+            fields = ("estimate", "plus_minus")
+        for field in fields:
+            number = summary_statistic[field]
+            if isinstance(number, bool) or not isinstance(number, (int, float)):
+                raise InputError(f"summary_statistic.{field} must be finite numeric")
+            _number_or_reported_text(number, f"summary_statistic.{field}")
+        central_value = observation["value"]
+        if isinstance(central_value, bool) or not isinstance(central_value, (int, float)):
+            raise InputError(f"A {kind} summary needs a numeric observation.value")
+        if kind == "median_iqr":
+            lower = summary_statistic["lower_quartile"]
+            upper = summary_statistic["upper_quartile"]
+            if lower > central_value or central_value > upper:
+                raise InputError("Median and quartiles must be ordered lower <= median <= upper")
+        elif kind == "mean_sd":
+            if central_value != summary_statistic["mean"]:
+                raise InputError("A mean_sd summary's observation.value must equal its reported mean")
+            if summary_statistic["standard_deviation"] < 0:
+                raise InputError("summary_statistic.standard_deviation cannot be negative")
+        else:
+            if central_value != summary_statistic["estimate"]:
+                raise InputError("A reported_plus_minus summary's observation.value must equal its reported estimate")
+            if summary_statistic["plus_minus"] < 0:
+                raise InputError("summary_statistic.plus_minus cannot be negative")
+            _enum(summary_statistic["plus_minus_type"],
+                  {"standard_deviation", "standard_error", "confidence_interval",
+                   "measurement_uncertainty", "not_reported"}, "plus-minus type")
+        sample_size = summary_statistic["reported_sample_size"]
+        if sample_size is not None and (isinstance(sample_size, bool)
+                                        or not isinstance(sample_size, int)
+                                        or not 1 <= sample_size <= 1_000_000_000):
+            raise InputError("summary_statistic.reported_sample_size must be a positive integer or null")
+        _text(summary_statistic["sample_size_scope"], "summary_statistic.sample_size_scope", 500)
+        _text(summary_statistic["sample_size_source_locator"],
+              "summary_statistic.sample_size_source_locator", 1000)
+        _text(summary_statistic["source_literal"], "summary_statistic.source_literal", 200)
+        if record["evidence_status"] != "author_reported_summary" or role != "summary_only":
+            raise InputError("A typed distribution summary must be author_reported_summary with summary_only role")
+    if role == "independent" and unit["kind"] == "not_reported":
+        raise InputError("An independent replicate needs a source-reported unit kind")
+    conditions = observation.setdefault("measurement_conditions", [])
+    if not isinstance(conditions, list) or len(conditions) > 20:
+        raise InputError("measurement_conditions must be a list of at most 20 declarations")
+    condition_names = set()
+    for condition in conditions:
+        condition = _object(condition, {"name", "value", "unit", "source_locator"},
+                            set(), "measurement condition")
+        name = _text(condition["name"], "measurement condition name", 80)
+        if not QUALIFICATION_CODE.fullmatch(name):
+            raise InputError("measurement condition name must be a lowercase code")
+        if name in condition_names:
+            raise InputError("measurement condition names must be unique within a record")
+        condition_names.add(name)
+        value = condition["value"]
+        if isinstance(value, bool) or not isinstance(value, (int, float, str)):
+            raise InputError("measurement condition value must be finite numeric or reported text")
+        if isinstance(value, str):
+            _text(value, "measurement condition value", 200)
+        else:
+            _number_or_reported_text(value, "measurement condition value")
+        condition["unit"] = _text(condition["unit"], "measurement condition unit", 80, empty=True)
+        _text(condition["source_locator"], "measurement condition source_locator", 1000)
+    qualifications = observation.setdefault("source_qualifications", [])
+    if not isinstance(qualifications, list) or len(qualifications) > 20:
+        raise InputError("source_qualifications must be a list of at most 20 declarations")
+    qualification_keys = set()
+    for qualification in qualifications:
+        qualification = _object(qualification,
+            {"criterion_code", "status_code", "criterion_label", "source_artifact_id",
+             "source_locator", "reference_value", "reference_unit"}, set(), "source qualification")
+        for field in ("criterion_code", "status_code"):
+            token = _text(qualification[field], f"source qualification {field}", 80)
+            if not QUALIFICATION_CODE.fullmatch(token):
+                raise InputError(f"source qualification {field} must be a lowercase code")
+        _text(qualification["criterion_label"], "source qualification criterion_label", 300)
+        qualification_artifact_id = _text(qualification["source_artifact_id"],
+                                           "source qualification source_artifact_id", 96)
+        if qualification_artifact_id not in artifacts:
+            raise InputError("Source qualification references an unknown source artifact")
+        _text(qualification["source_locator"], "source qualification source_locator", 1000)
+        reference_value = qualification["reference_value"]
+        if reference_value is not None:
+            _number_or_reported_text(reference_value, "source qualification reference_value")
+            if isinstance(reference_value, bool) or not isinstance(reference_value, (int, float)):
+                raise InputError("source qualification reference_value must be numeric or null")
+        qualification["reference_unit"] = _text(
+            qualification["reference_unit"], "source qualification reference_unit", 80, empty=True)
+        if reference_value is not None and not qualification["reference_unit"]:
+            raise InputError("A numeric source qualification reference needs its reported unit")
+        key = (qualification["criterion_code"], qualification_artifact_id,
+               qualification["source_locator"])
+        if key in qualification_keys:
+            raise InputError("Source qualifications must have distinct criterion/source locators")
+        qualification_keys.add(key)
 
     source = _object(record["source"], {"artifact_id", "uri", "license", "sha256"},
                      {"retrieved_on"}, "record source")
@@ -372,6 +535,181 @@ def _validate_transition(value, records):
     return transition
 
 
+def _validate_measurement_pair(value, records, artifacts):
+    required = {"pair_id", "pair_type", "linkage_basis", "source_artifact_id", "members", "source_locator", "note"}
+    pair = _object(value, required, set(), "measurement pair")
+    pair_id = _text(pair["pair_id"], "measurement pair pair_id", 96)
+    if not RECORD_ID.fullmatch(pair_id):
+        raise InputError("measurement pair pair_id has an invalid format")
+    _enum(pair["pair_type"], MEASUREMENT_PAIR_TYPES, "measurement pair type")
+    _enum(pair["linkage_basis"], MEASUREMENT_PAIR_LINKAGE_BASES, "measurement pair linkage basis")
+    artifact_id = _text(pair["source_artifact_id"], "measurement pair source_artifact_id", 96)
+    if artifact_id not in artifacts:
+        raise InputError("measurement pair references an unknown source artifact")
+    _text(pair["source_locator"], "measurement pair source_locator", 1000)
+    _text(pair["note"], "measurement pair note", 1000)
+    members = pair["members"]
+    if not isinstance(members, list) or not 2 <= len(members) <= 20:
+        raise InputError("measurement pair members must contain 2–20 observation records")
+    record_ids = set()
+    member_records = []
+    for member in members:
+        _object(member, {"record_id", "role"}, set(), "measurement pair member")
+        record_id = _text(member["record_id"], "measurement pair member record_id", 96)
+        if not RECORD_ID.fullmatch(record_id) or record_id in record_ids:
+            raise InputError("measurement pair members need distinct valid record IDs")
+        if record_id not in records:
+            raise InputError("measurement pair references an unknown observation record")
+        _text(member["role"], "measurement pair member role", 120)
+        if records[record_id]["source"]["artifact_id"] != artifact_id:
+            raise InputError("measurement pair members must use its declared source artifact")
+        record_ids.add(record_id)
+        member_records.append(records[record_id])
+    if pair["pair_type"] == "same_unit_same_time":
+        units = {(item["independent_unit"]["kind"], item["independent_unit"]["id"],
+                  item["independent_unit"]["parent_id"]) for item in member_records}
+        times = [item["observation"]["measurement_time"] for item in member_records]
+        time_units = {item["observation"]["measurement_time_unit"] for item in member_records}
+        if len(units) != 1 or next(iter(units))[0] == "not_reported" or next(iter(units))[1] is None:
+            raise InputError("A same_unit_same_time pair needs one shared, reported unit identifier")
+        if (any(time is None for time in times)
+                or len({type(time) for time in times}) != 1
+                or any(time != times[0] for time in times[1:])
+                or len(time_units) != 1 or not next(iter(time_units))):
+            raise InputError("A same_unit_same_time pair needs the exact shared reported measurement time and unit")
+    return pair
+
+
+def _validate_coverage_declaration(value):
+    declaration = _object(value,
+        {"category", "scope", "reported_label", "quantity_kind", "value", "value_status", "source_locator"},
+        {"note"}, "cohort coverage declaration")
+    _enum(declaration["category"], COVERAGE_CATEGORIES, "cohort disposition category")
+    _enum(declaration["scope"], {"within_denominator", "outside_denominator", "unresolved"},
+          "cohort declaration denominator scope")
+    _text(declaration["reported_label"], "cohort declaration reported_label", 500)
+    quantity_kind = _enum(declaration["quantity_kind"], {"count", "percentage", "other"},
+                          "cohort declaration quantity kind")
+    value_status = _enum(declaration["value_status"], COVERAGE_VALUE_STATUSES,
+                         "cohort declaration value status")
+    reported_value = declaration["value"]
+    if value_status == "reported":
+        if quantity_kind == "count":
+            if (type(reported_value) is not int or reported_value < 0 or reported_value > 1_000_000_000):
+                raise InputError("A reported cohort count must be an integer from 0 to 1,000,000,000")
+        elif not isinstance(reported_value, str) or len(reported_value) > 120 or not reported_value.strip():
+            raise InputError("A reported percentage or other cohort value must preserve its source text")
+    elif reported_value is not None:
+        raise InputError("An unreported or ambiguous cohort value must be null")
+    _text(declaration["source_locator"], "cohort declaration source_locator", 1000)
+    _text(declaration.setdefault("note", ""), "cohort declaration note", 1000, empty=True)
+    return declaration
+
+
+def _validate_coverage(value, artifacts):
+    required = {"coverage_id", "source_artifact_id", "reported_group_label", "group_label_status",
+                "counted_entity_kind", "counted_entity_label", "endpoint_label", "population_frame",
+                "measurement_window", "selection_definition", "selection_definition_source_locator",
+                "denominator", "declarations",
+                "selection_statements", "cohort_window_status", "disposition_completeness",
+                "categories_mutually_exclusive", "categories_exhaustive"}
+    coverage = _object(value, required, set(), "cohort coverage record")
+    coverage_id = _text(coverage["coverage_id"], "coverage_id", 96)
+    if not RECORD_ID.fullmatch(coverage_id):
+        raise InputError("coverage_id has an invalid format")
+    source_artifact_id = _text(coverage["source_artifact_id"], "coverage source_artifact_id", 96)
+    if source_artifact_id not in artifacts:
+        raise InputError("Cohort coverage references an unknown source artifact")
+    group_label = coverage["reported_group_label"]
+    if group_label is not None:
+        _text(group_label, "reported_group_label", 300)
+    label_status = _enum(coverage["group_label_status"], {"reported", "not_reported", "ambiguous"},
+                         "group-label status")
+    if ((label_status == "reported" and group_label is None)
+            or (label_status == "not_reported" and group_label is not None)):
+        raise InputError("A reported group label must be present, and an unreported label must be null")
+    _enum(coverage["counted_entity_kind"], COUNTED_ENTITIES, "counted entity")
+    _string_or_null(coverage["counted_entity_label"], "counted_entity_label", 300)
+    for field, maximum in (("endpoint_label", 500), ("population_frame", 500),
+                           ("measurement_window", 300), ("selection_definition", 2000),
+                           ("selection_definition_source_locator", 1000)):
+        _text(coverage[field], f"cohort coverage {field}", maximum)
+    denominator = _object(coverage["denominator"],
+        {"value", "value_status", "reported_label", "source_locator"}, set(), "cohort denominator")
+    denominator_status = _enum(denominator["value_status"], COVERAGE_VALUE_STATUSES,
+                               "denominator value status")
+    denominator_value = denominator["value"]
+    if denominator_status == "reported":
+        if type(denominator_value) is not int or denominator_value < 0 or denominator_value > 1_000_000_000:
+            raise InputError("A reported cohort denominator must be an integer from 0 to 1,000,000,000")
+    elif denominator_value is not None:
+        raise InputError("An unreported or ambiguous denominator must be null")
+    _text(denominator["reported_label"], "cohort denominator reported_label", 500)
+    _text(denominator["source_locator"], "cohort denominator source_locator", 1000)
+    declarations = coverage["declarations"]
+    if not isinstance(declarations, list) or not 1 <= len(declarations) <= 100:
+        raise InputError("cohort declarations must contain 1–100 source-linked entries")
+    for item in declarations:
+        _validate_coverage_declaration(item)
+    statements = coverage["selection_statements"]
+    if not isinstance(statements, list) or len(statements) > 20:
+        raise InputError("selection_statements must contain at most 20 source-linked statements")
+    for item in statements:
+        statement = _object(item, {"text", "source_locator"}, set(), "cohort selection statement")
+        _text(statement["text"], "cohort selection statement text", 2000)
+        _text(statement["source_locator"], "cohort selection statement source_locator", 1000)
+    _enum(coverage["cohort_window_status"], COHORT_WINDOW_STATUSES, "cohort/window linkage status")
+    _enum(coverage["disposition_completeness"], DISPOSITION_COMPLETENESS,
+          "disposition completeness")
+    _enum(coverage["categories_mutually_exclusive"], SOURCE_DECLARATION_STATES,
+          "mutual-exclusivity declaration")
+    _enum(coverage["categories_exhaustive"], SOURCE_DECLARATION_STATES,
+          "exhaustiveness declaration")
+    return coverage
+
+
+def _coverage_closure(coverage):
+    """Check source-declared aggregate arithmetic only when the source defines the accounting frame."""
+    eligible = (
+        coverage["denominator"]["value_status"] == "reported"
+        and coverage["cohort_window_status"] == "source_reported_common"
+        and coverage["disposition_completeness"] == "complete"
+        and coverage["categories_mutually_exclusive"] == "source_reported_yes"
+        and coverage["categories_exhaustive"] == "source_reported_yes"
+    )
+    all_counts = [item for item in coverage["declarations"] if item["quantity_kind"] == "count"]
+    if any(item["scope"] == "unresolved" for item in all_counts):
+        return {"coverage_id": coverage["coverage_id"], "status": "not_assessed",
+                "disposition_sum": None, "denominator": coverage["denominator"]["value"],
+                "difference": None, "reason": "Denominator membership of one or more counts is unresolved."}
+    counted = [item for item in all_counts if item["scope"] == "within_denominator"]
+    if any(item["category"] not in DISPOSITION_COUNT_CATEGORIES for item in counted):
+        return {"coverage_id": coverage["coverage_id"], "status": "not_assessed",
+                "disposition_sum": None, "denominator": coverage["denominator"]["value"],
+                "difference": None, "reason": "Endpoint measurements or population counts are not disposition categories."}
+    if not eligible:
+        return {"coverage_id": coverage["coverage_id"], "status": "not_assessed",
+                "disposition_sum": None, "denominator": coverage["denominator"]["value"],
+                "difference": None,
+                "reason": "A common source-reported cohort/window and complete, mutually exclusive, exhaustive dispositions were not all declared."}
+    if not counted or any(item["value_status"] != "reported" for item in counted):
+        return {"coverage_id": coverage["coverage_id"], "status": "not_assessed",
+                "disposition_sum": None, "denominator": coverage["denominator"]["value"],
+                "difference": None, "reason": "One or more source disposition counts were not reported."}
+    categories = [item["category"] for item in counted]
+    if len(categories) != len(set(categories)):
+        return {"coverage_id": coverage["coverage_id"], "status": "not_assessed",
+                "disposition_sum": None, "denominator": coverage["denominator"]["value"],
+                "difference": None, "reason": "Disposition categories are not distinct, so they cannot be summed as a partition."}
+    total = sum(item["value"] for item in counted)
+    denominator = coverage["denominator"]["value"]
+    return {"coverage_id": coverage["coverage_id"],
+            "status": "matches" if total == denominator else "mismatch",
+            "disposition_sum": total, "denominator": denominator,
+            "difference": total - denominator,
+            "reason": "Source-declared aggregate arithmetic only; no specimen identity or biological outcome is inferred."}
+
+
 def _unit_membership_groups(records):
     """Index declared direct units and pool members without quadratic pair expansion."""
     groups = defaultdict(list)
@@ -396,7 +734,7 @@ def _reject_independent_membership_conflicts(records):
 
 def validate_dataset(dataset):
     required = {"schema_version", "dataset_id", "title", "source_revision", "artifacts", "observations"}
-    dataset = _object(dataset, required, {"transitions", "limitations"}, "observation dataset")
+    dataset = _object(dataset, required, {"transitions", "limitations", "cohort_coverage", "measurement_pairs"}, "observation dataset")
     if type(dataset["schema_version"]) is not int or dataset["schema_version"] != 1:
         raise InputError("Dataset schema_version must be 1")
     dataset_id = _text(dataset["dataset_id"], "dataset_id", 96)
@@ -431,6 +769,24 @@ def validate_dataset(dataset):
         if transition["transition_id"] in transition_ids:
             raise InputError("Transition IDs must be unique")
         transition_ids.add(transition["transition_id"])
+    measurement_pairs = dataset.setdefault("measurement_pairs", [])
+    if not isinstance(measurement_pairs, list) or len(measurement_pairs) > 5000:
+        raise InputError("measurement_pairs must contain at most 5000 records")
+    measurement_pair_ids = set()
+    for item in measurement_pairs:
+        pair = _validate_measurement_pair(item, records, artifacts)
+        if pair["pair_id"] in measurement_pair_ids:
+            raise InputError("Measurement pair IDs must be unique")
+        measurement_pair_ids.add(pair["pair_id"])
+    coverage_records = dataset.setdefault("cohort_coverage", [])
+    if not isinstance(coverage_records, list) or len(coverage_records) > 500:
+        raise InputError("cohort_coverage must contain at most 500 aggregate source-linked records")
+    coverage_ids = set()
+    for item in coverage_records:
+        coverage = _validate_coverage(item, artifacts)
+        if coverage["coverage_id"] in coverage_ids:
+            raise InputError("Cohort coverage IDs must be unique")
+        coverage_ids.add(coverage["coverage_id"])
     limitations = dataset.setdefault("limitations", [])
     if (not isinstance(limitations, list) or len(limitations) > 50
             or not all(isinstance(item, str) and 8 <= len(item) <= 1000 for item in limitations)):
@@ -560,10 +916,44 @@ def observation_report(dataset_path: Path, output: Path, source_root: Path | Non
                         "stage_source_artifact_id": item["developmental_interval"]["stage_source_artifact_id"],
                         "status": _check_interval_scope(item, artifacts)} for item in records]
     n_contained = sum(item["status"] == "contained_in_declared_scope" for item in interval_checks)
+    n_partially_checked = sum(item["status"] == "partially_checked" for item in interval_checks)
+    coverage_records = dataset["cohort_coverage"]
+    measurement_pairs = dataset["measurement_pairs"]
+    coverage_checks = [_coverage_closure(item) for item in coverage_records]
+    coverage_declaration_rows = [
+        {"coverage_id": coverage["coverage_id"], "source_artifact_id": coverage["source_artifact_id"],
+         "category": declaration["category"], "scope": declaration["scope"],
+         "reported_label": declaration["reported_label"],
+         "quantity_kind": declaration["quantity_kind"], "value": declaration["value"],
+         "value_status": declaration["value_status"], "source_locator": declaration["source_locator"],
+         "note": declaration.get("note", "")}
+        for coverage in coverage_records for declaration in coverage["declarations"]]
+    coverage_rows = [
+        {"coverage_id": item["coverage_id"], "source_artifact_id": item["source_artifact_id"],
+         "reported_group_label": item["reported_group_label"] or "",
+         "group_label_status": item["group_label_status"],
+         "counted_entity_kind": item["counted_entity_kind"],
+         "counted_entity_label": item["counted_entity_label"] or "",
+         "endpoint_label": item["endpoint_label"], "population_frame": item["population_frame"],
+         "measurement_window": item["measurement_window"],
+         "selection_definition": item["selection_definition"],
+         "selection_definition_source_locator": item["selection_definition_source_locator"],
+         "denominator_value": item["denominator"]["value"],
+         "denominator_value_status": item["denominator"]["value_status"],
+         "denominator_label": item["denominator"]["reported_label"],
+         "denominator_source_locator": item["denominator"]["source_locator"],
+         "cohort_window_status": item["cohort_window_status"],
+         "disposition_completeness": item["disposition_completeness"],
+         "categories_mutually_exclusive": item["categories_mutually_exclusive"],
+         "categories_exhaustive": item["categories_exhaustive"],
+         "selection_statements": " | ".join(
+             f"{statement['text']} [{statement['source_locator']}]" for statement in item["selection_statements"])}
+        for item in coverage_records]
     group_fields = ("species", "stage_track", "developmental_interval", "model_system", "assay", "source")
     groups = defaultdict(list)
     for record in records:
-        key = tuple(json_bytes(record[field]).decode("utf-8") for field in group_fields)
+        key = tuple(json_bytes(record[field]).decode("utf-8") for field in group_fields) + (
+            json_bytes(record["observation"].get("measurement_conditions", [])).decode("utf-8"),)
         groups[key].append(record)
     membership_rows = []
     for key, items in sorted(_unit_membership_groups(records).items(),
@@ -587,24 +977,42 @@ def observation_report(dataset_path: Path, output: Path, source_root: Path | Non
             "model_system": first["model_system"]["label"], "assay": first["assay"]["name"],
             "endpoint": first["assay"]["endpoint"], "unit": first["assay"]["unit"],
             "measurement_role": first["assay"]["measurement_role"],
+            "functional_evidence_class": first["assay"].get("functional_evidence_class", ""),
             "source_artifact_id": first["source"]["artifact_id"],
+            "measurement_conditions_json": json.dumps(
+                first["observation"].get("measurement_conditions", []),
+                sort_keys=True, separators=(",", ":"), ensure_ascii=False),
             "n_records": len(members),
             "n_distinct_reported_unit_keys": len({(item["independent_unit"]["kind"], item["independent_unit"]["id"],
                                                   item["independent_unit"]["parent_id"])
                                                  for item in members if item["independent_unit"]["id"] is not None}),
             "record_ids": ";".join(sorted(item["record_id"] for item in members)),
-            "grouping_note": "Exact recorded species, stage, interval, assay, unit and source match only; no unit conversion or pooling.",
+            "grouping_note": "Exact recorded species, stage, interval, assay, unit, source and measurement conditions match only; no unit conversion or pooling.",
         })
 
     source_status = dataset["source_revision"]["review_status"]
     source_kind = dataset["source_revision"]["source_kind"]
     warnings = []
+    source_resolutions = [
+        {"artifact_id": item["artifact_id"], **item["source_resolution"]}
+        for item in dataset["artifacts"] if "source_resolution" in item]
+    unconfirmed_rights = [item for item in source_resolutions if item["reuse_status"] == "not_confirmed"]
+    if unconfirmed_rights:
+        warnings.append("Reuse rights are unconfirmed for one or more artifacts; public access and repository status do not establish a reuse license.")
+    if coverage_records:
+        warnings.append("Aggregate cohort declarations retain source-reported populations and denominators; they do not create individual specimen IDs or developmental continuity. Equal group labels are not joined.")
+    if any(item["status"] == "not_assessed" for item in coverage_checks):
+        warnings.append("Some aggregate count-closure checks are unassessed because the source did not establish a common cohort/window and complete, mutually exclusive, exhaustive dispositions.")
+    if any(item["status"] == "mismatch" for item in coverage_checks):
+        warnings.append("At least one source-declared aggregate disposition sum differs from its denominator; the discrepancy is retained without repair or biological interpretation.")
+    if measurement_pairs:
+        warnings.append("Measurement-pair rows preserve source-explicit or curator-linked record relationships and member labels; the declared link is not independently verified and does not establish exchange sufficiency or biological continuity.")
     if context_rows:
         warnings.append("Functional contexts are source-linked declarations, not verified mechanisms, fluxes or paired specimen identities. Compartment abundance does not establish passage, secretion or embryonic use.")
     if source_kind == "preprint":
         warnings.append("Source is declared a preprint; local review does not establish journal peer review or validate its findings.")
     if n_contained < len(records):
-        warnings.append("Some developmental intervals have no declared numeric source scope or no numeric record bounds; their containment was not assessed.")
+        warnings.append("Some developmental intervals have missing source or record bounds; known numeric constraints were checked where available, but full containment was not assessed.")
     if source_status == "candidate":
         warnings.append("Source revision is a candidate awaiting local human review.")
     if source_status == "locally_reviewed_included":
@@ -635,6 +1043,12 @@ def observation_report(dataset_path: Path, output: Path, source_root: Path | Non
     elif source_verification["status"] == "partial":
         warnings.append("Some source files were not checked because their local path, declared hash, access, or size limit was unavailable.")
     not_reported_edges = sum(item["continuity_status"] == "not_reported" for item in dataset["transitions"])
+    source_qualification_count = sum(len(item["observation"].get("source_qualifications", []))
+                                     for item in records)
+    records_with_source_qualifications = sum(bool(item["observation"].get("source_qualifications"))
+                                             for item in records)
+    summary_statistic_records = [item for item in records
+                                 if item["observation"].get("summary_statistic") is not None]
     verification_summary = {key: value for key, value in source_verification.items() if key != "files"}
     report = {
         "schema_version": 1, "report_kind": "developmental_observation_intake",
@@ -642,15 +1056,49 @@ def observation_report(dataset_path: Path, output: Path, source_root: Path | Non
         "source_revision_id": dataset["source_revision"]["revision_id"],
         "source_kind": source_kind,
         "source_review_status": source_status, "n_source_artifacts": len(artifacts),
+        "source_resolution": {"n_assessed": len(source_resolutions),
+            "n_reuse_unconfirmed": len(unconfirmed_rights), "artifacts": source_resolutions,
+            "interpretation": "dated curation separates version identity, access, OA-subset membership and reuse rights; it is not authenticated by this tool"},
         "n_observation_records": len(records), "n_exact_comparison_groups": len(group_rows),
+        "n_cohort_coverage_records": len(coverage_records),
+        "n_cohort_coverage_declarations": len(coverage_declaration_rows),
+        "cohort_coverage_checks": coverage_checks,
+        "source_qualifications": {"n_records_with_declarations": records_with_source_qualifications,
+                                   "n_declarations": source_qualification_count,
+                                   "interpretation": "source-linked declarations; not scientific validation"},
+        "measurement_conditions": {"n_records_with_conditions": sum(
+            bool(item["observation"].get("measurement_conditions")) for item in records),
+            "n_condition_declarations": sum(len(item["observation"].get("measurement_conditions", []))
+                                             for item in records),
+            "interpretation": "source-linked test context; conditions do not establish replicates or measurement pairs"},
+        "summary_statistics": {"n_records": len(summary_statistic_records),
+                               "n_median_iqr": sum(item["observation"]["summary_statistic"]["kind"] == "median_iqr"
+                                                   for item in summary_statistic_records),
+                               "n_mean_sd": sum(item["observation"]["summary_statistic"]["kind"] == "mean_sd"
+                                                for item in summary_statistic_records),
+                               "n_reported_plus_minus": sum(item["observation"]["summary_statistic"]["kind"] == "reported_plus_minus"
+                                                             for item in summary_statistic_records),
+                               "interpretation": "typed source-reported mean ± explicitly named SD, source-neutral estimate ± reported quantity, or median [IQR]; these are not individual observations or independent replicates"},
         "n_transitions": len(dataset["transitions"]), "n_continuity_not_reported": not_reported_edges,
+        "measurement_pairing": {"n_pairs": len(measurement_pairs),
+                                "n_members": sum(len(item["members"]) for item in measurement_pairs),
+                                "interpretation": "source-explicit or curator-linked record relationships; not independently verified"},
         "biological_assay_performed": False,
         "analysis_eligibility": "requires source-specific human review and a frozen analysis plan",
         "source_file_verification": verification_summary,
         "functional_context": {"n_declared": len(context_rows),
                                "n_not_declared": len(records) - len(context_rows),
                                "scientific_transcription": "not_verified"},
+        "functional_evidence_classes": {
+            "counts": {label: sum(item["assay"].get("functional_evidence_class") == label
+                                   for item in records)
+                       for label in sorted(FUNCTIONAL_EVIDENCE_CLASSES)},
+            "n_not_declared": sum("functional_evidence_class" not in item["assay"]
+                                  for item in records),
+            "interpretation": "Curated endpoint relation to a functional question; not proof of sufficiency, mechanism, or health. Omitted values are not inferred.",
+        },
         "source_interval_containment": {"n_contained": n_contained,
+                                        "n_partially_checked": n_partially_checked,
                                         "n_not_assessed": len(records) - n_contained,
                                         "scientific_transcription": "not_verified"},
         "declared_unit_membership": {"n_pool_records": len(pool_records),
@@ -670,6 +1118,9 @@ def observation_report(dataset_path: Path, output: Path, source_root: Path | Non
             "Sample-pool members are source-recorded identifiers, not inferred specimens. Overlap with another pool or a direct unit prevents independent-replicate assertions in the same source/species/stage/assay/endpoint scope. Pool records cannot establish individual developmental continuity; missing members do not prove disjointness.",
             "Source interval containment compares curated metadata in exact recorded units. It does not verify a source transcription, infer numeric bounds from prose, or establish biological continuity.",
             "Optional functional contexts retain observed compartment/material, reported process, quantity basis, assessment context and source locator. Absence is not filled from endpoint prose; a declaration does not identify a mechanism or establish functional sufficiency.",
+            "Aggregate cohort coverage stores source-level counts and selection statements separately from individual observation records. Matching group labels do not authenticate cohort identity or continuity.",
+            "Aggregate count closure is assessed only when the source metadata explicitly declares one common cohort/window, complete dispositions, and mutually exclusive and exhaustive categories. Other accounting remains unassessed; eligible arithmetic does not establish biological identity.",
+            "Optional source qualifications are per-observation declarations tied to a source artifact and locator. Their status codes retain source-specific criteria; they are not independently verified by intake validation.",
         ],
     }
     lines = ["# Developmental observation intake", "",
@@ -679,10 +1130,22 @@ def observation_report(dataset_path: Path, output: Path, source_root: Path | Non
              f"Records: {len(records)} · exact comparison groups: {len(group_rows)} · transitions: {len(dataset['transitions'])}", "",
              "No biological assay was performed by this command. Source URIs are never fetched. Optional local byte checks use only files beneath --source-root and do not copy their contents into this bundle.",
              "Analysis eligibility still requires source-specific human review and a frozen analysis plan.", "",
+             "## Source qualifications", "",
+             f"Declared on {records_with_source_qualifications}/{len(records)} records ({source_qualification_count} declarations). They preserve source-reported criteria and locators; they do not establish scientific validity or analysis eligibility.", "",
+             f"Measurement conditions: {report['measurement_conditions']['n_condition_declarations']} declarations on {report['measurement_conditions']['n_records_with_conditions']} records. They preserve source-linked operating context and do not establish replicates or pairs.", "",
+             "## Typed distribution summaries", "",
+             f"Records with typed summary statistics: {len(summary_statistic_records)} (mean ± SD: {report['summary_statistics']['n_mean_sd']}; reported value ± quantity: {report['summary_statistics']['n_reported_plus_minus']}; median [IQR]: {report['summary_statistics']['n_median_iqr']}). The quantity type is preserved as not reported when the source does not define it; these remain group summaries and do not create participant-level rows or independent replicates.", "",
+             "## Declared measurement pairs", "",
+             f"Pairs: {len(measurement_pairs)} · linked record memberships: {sum(len(item['members']) for item in measurement_pairs)}. See measurement_pairs.csv. Pair links require a source locator and explicit source or curator basis; they do not establish unreported identity, flux, or sufficiency.", "",
+             "## Aggregate cohort coverage", "",
+             f"Coverage records: {len(coverage_records)} · source-linked declarations: {len(coverage_declaration_rows)} · closure checks unassessed: {sum(item['status'] == 'not_assessed' for item in coverage_checks)} · mismatches: {sum(item['status'] == 'mismatch' for item in coverage_checks)}.",
+             "See cohort_coverage.csv, cohort_dispositions.csv and cohort_coverage_checks.csv. Aggregate counts stay separate from specimen records; matching labels do not create identities or continuity. A count check runs only when the source explicitly defines a common cohort/window and a complete, mutually exclusive, exhaustive disposition set.", "",
              "## Declared functional contexts", "",
              f"Declared: {len(context_rows)} records; not declared: {len(records) - len(context_rows)}. See functional_contexts.csv. Compartment/material and readout context are curated metadata, not verified mechanisms or specimen pairing.", "",
+             "## Functional evidence classification", "",
+             f"Classified: {len(records) - report['functional_evidence_classes']['n_not_declared']}/{len(records)} records; not declared: {report['functional_evidence_classes']['n_not_declared']}. See observation_records.csv. Classes distinguish direct process measurements, response proxies, developmental outcomes, and other declarations; they do not establish sufficiency or health.", "",
              "## Declared source interval containment", "",
-             f"Contained in declared numeric scope: {n_contained}/{len(records)} records; unassessed: {len(records) - n_contained}. See source_interval_checks.csv and source_scopes.csv. Scientific transcription was not verified.", "",
+             f"Contained in declared numeric scope: {n_contained}/{len(records)} records; full containment unassessed: {len(records) - n_contained}, including {n_partially_checked} with known numeric bounds checked. Missing bounds were not inferred. See source_interval_checks.csv and source_scopes.csv. Scientific transcription was not verified.", "",
              "## Local source-file byte verification", "",
              f"Status: {source_verification['status']} · verified: {source_verification['n_verified']}/{source_verification['n_artifacts']} artifacts · bytes hashed: {source_verification['bytes_hashed']}",
              "The receipt covers the submitted dataset JSON and generated outputs, not the external source bytes.", ""]
@@ -691,8 +1154,13 @@ def observation_report(dataset_path: Path, output: Path, source_root: Path | Non
     lines.extend(["", "## Source review", "",
              f"{dataset['source_revision']['citation']} — [{dataset['source_revision']['source_url']}]({dataset['source_revision']['source_url']})",
              f"Recorded review state: {source_status}. A locally recorded review is not authenticated by this tool.", "",
+             "## Source version, access and reuse", "",
+             f"Artifacts with a recorded resolution: {len(source_resolutions)}; reuse rights unconfirmed: {len(unconfirmed_rights)}."])
+    for resolution in source_resolutions:
+        lines.append(f"- {resolution['artifact_id']}: {resolution['version_type']} `{resolution['version_identifier']}`; full text `{resolution['access_status']}`; PMC OA-subset `{resolution['oa_subset_status']}`; reuse `{resolution['reuse_status']}`; checked {resolution['checked_on']}. {resolution['note']} Evidence: {resolution['evidence_locator']}")
+    lines.extend(["", "Access status and OA-subset membership are not reuse permission. These fields preserve the inspected route and date; they do not authenticate rights or transcription.", "",
              "## Exact groups", "",
-             "Records are grouped only when species, stage, interval, model, endpoint, reported unit, and source artifact match exactly. No conversion or pooling is performed.", ""])
+            "Records are grouped only when species, stage, interval, model, endpoint, reported unit, source artifact, and declared measurement conditions match exactly. No conversion or pooling is performed. The conditions are shown in interval_groups.csv.", ""])
     for row in group_rows[:100]:
         lines.append(f"- {row['group_id']}: {row['species']} · {row['stage_track']} · {row['interval_label']} ({row['interval_unit']}) · {row['endpoint']} [{row['unit']}] · {row['n_records']} records · {row['n_distinct_reported_unit_keys']} distinct reported unit keys")
     if len(group_rows) > 100:
@@ -713,13 +1181,23 @@ def observation_report(dataset_path: Path, output: Path, source_root: Path | Non
             "interval_unit": interval["time_unit"], "model_kind": model["kind"], "model_label": model["label"],
             "assay": assay["name"], "endpoint": assay["endpoint"], "unit": assay["unit"],
             "measurement_role": assay["measurement_role"], "independent_unit_kind": unit["kind"],
+            "functional_evidence_class": assay.get("functional_evidence_class", ""),
+            "measurement_conditions_json": json.dumps(observation.get("measurement_conditions", []),
+                sort_keys=True, separators=(",", ":"), ensure_ascii=False),
             "independent_unit_id": unit["id"], "independent_unit_parent_id": unit["parent_id"],
             "n_declared_pool_members": len(unit["members"]),
             "value": observation["value"], "measurement_time": observation["measurement_time"],
             "measurement_time_unit": observation.get("measurement_time_unit", ""),
             "comparator_id": observation["comparator_id"], "replicate_role": observation["replicate_role"],
             "measurement_uncertainty": observation.get("measurement_uncertainty"),
+            "summary_statistic_json": json.dumps(observation.get("summary_statistic"),
+                sort_keys=True, separators=(",", ":"), ensure_ascii=False),
             "missingness_reason": observation.get("missingness_reason", ""),
+            "source_qualifications_json": json.dumps(observation.get("source_qualifications", []),
+                sort_keys=True, separators=(",", ":"), ensure_ascii=False),
+            "measurement_conditions_json": json.dumps(observation.get("measurement_conditions", []),
+                sort_keys=True, separators=(",", ":"), ensure_ascii=False),
+            "source_locator": item.get("source_locator", ""),
             "source_artifact_id": source["artifact_id"], "source_sha256": source["sha256"],
         })
     transition_rows = [{"transition_id": item["transition_id"],
@@ -727,6 +1205,14 @@ def observation_report(dataset_path: Path, output: Path, source_root: Path | Non
                         "to_record_ids": ";".join(item["to_record_ids"]),
                        "continuity_status": item["continuity_status"], "note": item["note"]}
                        for item in dataset["transitions"]]
+    measurement_pair_rows = [{
+        "pair_id": item["pair_id"], "pair_type": item["pair_type"],
+        "linkage_basis": item["linkage_basis"], "source_artifact_id": item["source_artifact_id"],
+        "record_ids": ";".join(member["record_id"] for member in item["members"]),
+        "member_roles": json.dumps([member["role"] for member in item["members"]],
+                                    ensure_ascii=False, separators=(",", ":")),
+        "source_locator": item["source_locator"], "note": item["note"],
+    } for item in measurement_pairs]
     source_file_rows = [{key: row[key] for key in
                          ("artifact_id", "relative_path", "declared_sha256", "observed_sha256",
                           "verification_status", "bytes_hashed", "note")}
@@ -738,6 +1224,8 @@ def observation_report(dataset_path: Path, output: Path, source_root: Path | Non
         "functional_contexts.csv": csv_bytes(["record_id", "source_artifact_id", *FUNCTIONAL_CONTEXT_FIELDS], context_rows),
         "interval_groups.csv": csv_bytes(list(group_rows[0]), group_rows),
         "transitions.csv": csv_bytes(["transition_id", "from_record_ids", "to_record_ids", "continuity_status", "note"], transition_rows),
+        "measurement_pairs.csv": csv_bytes(["pair_id", "pair_type", "linkage_basis", "source_artifact_id",
+            "record_ids", "member_roles", "source_locator", "note"], measurement_pair_rows),
         "source_files.csv": csv_bytes(["artifact_id", "relative_path", "declared_sha256", "observed_sha256",
                                         "verification_status", "bytes_hashed", "note"], source_file_rows),
         "unit_members.csv": csv_bytes(["record_id", "source_artifact_id", "pool_id", "member_kind", "member_id", "member_parent_id"],
@@ -749,6 +1237,19 @@ def observation_report(dataset_path: Path, output: Path, source_root: Path | Non
         "shared_unit_membership.csv": csv_bytes(["source_artifact_id", "species", "stage_track", "assay", "endpoint",
             "unit_kind", "unit_id", "parent_id", "n_records", "record_ids", "interpretation"], membership_rows),
         "source_interval_checks.csv": csv_bytes(["record_id", "stage_source_artifact_id", "status"], interval_checks),
+        "cohort_coverage.csv": csv_bytes(list(coverage_rows[0]) if coverage_rows else
+            ["coverage_id", "source_artifact_id", "reported_group_label", "group_label_status",
+             "counted_entity_kind", "counted_entity_label", "endpoint_label", "population_frame",
+             "measurement_window", "selection_definition", "selection_definition_source_locator",
+             "denominator_value", "denominator_value_status",
+             "denominator_label", "denominator_source_locator", "cohort_window_status",
+             "disposition_completeness", "categories_mutually_exclusive", "categories_exhaustive",
+             "selection_statements"], coverage_rows),
+        "cohort_dispositions.csv": csv_bytes(["coverage_id", "source_artifact_id", "category", "scope",
+            "reported_label", "quantity_kind", "value", "value_status", "source_locator", "note"],
+            coverage_declaration_rows),
+        "cohort_coverage_checks.csv": csv_bytes(["coverage_id", "status", "disposition_sum",
+            "denominator", "difference", "reason"], coverage_checks),
         "source_scopes.csv": csv_bytes(["artifact_id", "species", "stage_tracks", "time_unit", "start", "end", "source_locator"],
             [{"artifact_id": item["artifact_id"], **item["developmental_scope"],
               "stage_tracks": ";".join(item["developmental_scope"]["stage_tracks"])}
@@ -758,5 +1259,6 @@ def observation_report(dataset_path: Path, output: Path, source_root: Path | Non
     return publish_bundle(output, kind="developmental_observation_intake", input_raw=raw, files=files,
                           metadata={"dataset_id": dataset["dataset_id"], "source_revision_id": revision["revision_id"],
                                     "source_review_status": revision["review_status"],
+                                    "n_cohort_coverage_records": len(coverage_records),
                                     "source_file_verification_status": source_verification["status"],
                                     "biological_assay_performed": False})

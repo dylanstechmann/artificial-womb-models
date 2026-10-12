@@ -10,4 +10,5 @@
 - Output destinations are exclusive. Publish receipt last, preserve exact inputs, hash source implementation and outputs, and reject malformed/nonfinite values. Do not register synthetic exchange results as biological assays.
 - ResearchDesk is an optional loose bridge for normal searches, campaigns and dossiers. Local status discovery may export only ectogenesis blueprint metadata, not private notes/campaigns or credentials; do not submit jobs through it.
 - Use the parent workspace `dev` Compose service for compatible test/build commands. Run meaningful tests for numerical limits, conservation, event boundaries, provenance/claim separation and malformed inputs after changes.
+- Update `tests/test_program_status.py` pinned structural spot-checks in the same change as any `config/program/roadmap.json` status or dependency edit; eligibility itself is derived, not hardcoded.
 - Work in this repository's own Git history. Do not push, publish or commit another repository's changes without the user's task authorization.

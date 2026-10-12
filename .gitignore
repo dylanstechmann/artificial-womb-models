@@ -5,5 +5,6 @@ __pycache__/
 build/
 dist/
 artifacts/
+tmp/
 .coverage
 .pytest_cache/
