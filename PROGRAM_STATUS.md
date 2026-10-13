@@ -1,8 +1,8 @@
 # Program progress against the plan
 
-Assessment date: 2026-10-11. Generated from config/program/roadmap.json.
+Assessment date: 2026-10-12. Generated from config/program/roadmap.json.
 
-Owned equipment supporting at least ten simultaneous human gestations from embryos supplied upstream without human surrogates, with ten children's births on the same defined calendar date, independently assessed development and continuing health; separately qualified AI/robot-assisted parenting, tall physical stature and strong intellectual/practical skills. Seek the earliest achievable outcome, preferably within two to three years of 2026-10-11 or sooner (2028-10-11 to 2029-10-11). Five years is a comparison scenario; ten years may be tolerable. No supported completion forecast or success guarantee is asserted; longitudinal outcomes continue after birth.
+Owned equipment supporting at least one successful human gestation from embryos supplied upstream, without human surrogates, with independently assessed development and continuing health. One or a few concurrent gestations counts as success; up to ten concurrent gestations sharing one actual birth date is an aspiration, not a completion requirement. Seek the earliest achievable outcome, preferably within two to three years of 2026-10-11 or sooner (2028-10-11 to 2029-10-11). Five years is a comparison scenario; ten years may be tolerable. No supported completion forecast or success guarantee is asserted; longitudinal outcomes continue after birth. AI/robot care, education and development goals are tracked in a separate private repository and are out of scope here.
 
 This view checks pinned local evidence and task dependencies. It never advances a biological gate or authenticates scientific review. Declared completion is scoped to the named artifact; no readiness percentage is calculated.
 
@@ -18,8 +18,8 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | G5 Human translation and qualified platform | clinical | unassessed | Qualified platform and scientific/clinical review; applicable execution planning runs in parallel. |
 | G6 Authorized human starting-boundary evidence | clinical | not_established | Required scientific, institutional, clinical and jurisdictional decisions. |
 | G7 Owned platform and qualified operation | engineering | not_established | G6 evidence, owned equipment/control rights and accountable qualified operation. |
-| G8 Ten concurrent gestations and common birth date | clinical | not_established | G7 plus concurrent trajectory/isolation evidence, actual qualifying timestamps and each unit's readiness. |
-| G9 AI/robot care and longitudinal development | engineering | not_established | T15 capability matrix; simulation/nonliving bench then independently reviewed task-specific real-setting evaluation. |
+| G8 Successful gestation outcome; concurrency aspirational | clinical | not_established | G7 plus trajectory/isolation evidence and each unit's readiness. |
+| G9 AI/robot care and longitudinal development | engineering | deferred | Private-track capability matrix in the ai-robot-parenting repository. |
 
 ## Requirement comparison
 
@@ -34,12 +34,12 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | R07 Neonatal transition | G4 | Defined neonatal function, additional care, adverse outcomes and observation windows for all starting units. |
 | R08 Reproducibility and continuing health | G4 | Complete-cohort outcomes, independent replication and follow-up with residual uncertainties; no lifetime guarantee. |
 | R09 Qualified human translation | G5 | Independent technical/clinical/platform decisions for the actual starting boundary; applicable execution dependencies handled in parallel. |
-| R10 Complete owned simultaneous outcome | G8 | Owned equipment, at least ten concurrent gestations and ten actual common-date births with independent development/health and separately evaluated parenting/growth/skills; service-only or sequential success cannot substitute. |
+| R10 Complete owned gestation outcome | G8 | Owned equipment and at least one successful gestation with independent development and health assessment; service-only or document-only success cannot substitute. |
 | R11 Owned maintainable equipment | G7 | Ownership/control and maintainable specifications, configuration rights, parts, qualified operation and continuing support. |
-| R12 At least ten simultaneous gestations | G8 | Ten independent identified concurrent trajectories, resource contention/isolation/common-cause assessment and simultaneous neonatal-transition capacity. |
-| R13 Actual common calendar birth date | G8 | Define qualifying event, calendar/timezone and timestamps; independent developmental readiness for every unit; report target misses. |
+| R12 At least one successful gestation | G8 | Independently identified trajectory with development and health assessment; concurrency beyond one unit is aspirational stretch, not a requirement. |
+| R13 Actual common calendar birth date (aspiration) | G8 | Applies only if concurrent gestations are ever pursued; define the qualifying event, calendar/timezone and timestamps; report target misses. |
 | R14 At least100 upstream embryos assumed available | G0 | Record the owner's upstream availability premise separately from verified stock, suitability and resulting outcomes; no procurement task inferred. |
-| R15 AI/robot parenting and stature/skills | G9 | Task-specific care/education capability, human responsibility/fallbacks, actual-setting evaluation and longitudinal stature, intellectual/practical-skill outcomes. |
+| R15 AI/robot care and longitudinal development (private track) | G9 | Tracked in the separate private ai-robot-parenting repository; out of this public register scope. |
 
 ## Completed contributions
 
@@ -68,7 +68,7 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | M08 Full intended-use translation assessment | deferred | clinical | not claimed | Jurisdiction, sponsor, permissible research path, independent specialist review and platform qualification; no human-use assumption. |
 | M09 Authorized human full-boundary evidence | deferred | clinical | not claimed | Evidence for the actual starting boundary with all-start ascertainment and continuing follow-up. |
 | M10 Owned qualified platform operation | deferred | engineering | not claimed | Owned equipment/control and maintainable configuration, qualified operation, continuing measurements and independent medical/outcome decisions. |
-| M11 Owner's simultaneous common-date outcome | deferred | clinical | not claimed | At least ten concurrent gestations and ten actual common-date births satisfying independent development/health conditions; no sequential or service substitute. |
+| M11 Owner's successful gestation outcome (concurrency aspirational) | deferred | clinical | not claimed | At least ten concurrent gestations and ten actual common-date births satisfying independent development/health conditions; no sequential or service substitute. |
 | M12 Specialist functional allocation review | deferred | planning | not claimed | Reviewed A/B/C and alternative requirement-to-function matrix; every allocated or omitted function has an observable and a consequence if absent. |
 | M13 Candidate interface qualification | deferred | biological | not claimed | Component function and developmental progression linked in the same source-defined units; component transport/morphology alone cannot demonstrate adequacy. |
 | M14 Observation qualification | deferred | engineering | not claimed | Measurement dictionary, identity/time joins, calibration traceability, uncertainty and detection-failure evaluation with specialist-defined ranges and independent references. |
@@ -76,9 +76,9 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | M16 Integrated platform verification | deferred | engineering | not claimed | Traceable requirements/test matrix, configuration control and compatible support-change evidence with same-unit G3 outcomes; bench success alone cannot substitute for development. |
 | M17 Manufacturing and owned-operation qualification | deferred | engineering | not claimed | Reproducibility, maintainability, responsibility and facility-continuity qualification package with independent intended-use decisions before clinical deployment. |
 | M18 Transition and continuing outcome contract | deferred | planning | not claimed | All-start disposition, transition outcomes, additional-care records and continuing ascertainment; methods and windows set by qualified specialists. |
-| M19 Ten-unit resource and isolation qualification | deferred | engineering | not claimed | Qualified digital/nonliving and later biological evidence for concurrency, contention, common-cause failures, unit identity and transition capacity. |
+| M19 Concurrent-unit resource and isolation qualification (aspiration) | deferred | engineering | not claimed | Qualified digital/nonliving and later biological evidence for concurrency, contention, common-cause failures, unit identity and transition capacity. |
 | M20 Common-date outcome assessment | deferred | clinical | not claimed | Defined qualifying event/timezone, independent readiness and actual timestamps/outcomes for ten units; misses retained. |
-| M21 AI/robot parenting and capability qualification | deferred | engineering | not claimed | Per-task assistance evidence, end-to-end failures/recovery, human responsibility/fallbacks, independent actual-setting review and observed growth/skills. |
+| M21 AI/robot care and capability qualification (private track) | deferred | engineering | not claimed | Per-task assistance evidence, end-to-end failures/recovery, human responsibility/fallbacks, independent actual-setting review and observed growth/skills. |
 | M22 Executable computer/lab/bench feedback contract | complete | planning | True | Real resources/formats and missing capabilities, frozen prediction/comparator, measurement data contract, discrepancy review and redesign decision. |
 | M23 Measured prediction-to-redesign iteration | deferred | biological | not claimed | Applicable measured observations evaluated against earlier predictions and simpler comparator, independently reviewed, with documented allocation revision/retention/rejection. |
 
@@ -100,7 +100,7 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | T12 Owner completion requirements crosswalk | G0 | no | 3 | none |
 | T13 Ten-unit resource and fault dependency assessment | G8 | no | 4 | none |
 | T14 Birth-event and timing-observation contract | G8 | no | 3 | none |
-| T15 AI/robot parenting, stature and skills matrix | G9 | yes | 4 | none |
+| T15 AI/robot care and longitudinal development matrix | G9 | no | 4 | none |
 | T16 First physical discovery feedback contract | G1 | no | 4 | none |
 
 ## Uncertainties

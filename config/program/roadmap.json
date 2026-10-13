@@ -1,9 +1,9 @@
 {
   "schema_version": 1,
   "program_id": "surrogate-free-full-gestation",
-  "assessment_date": "2026-10-11",
+  "assessment_date": "2026-10-12",
   "program_status": "active",
-  "objective": "Owned equipment supporting at least ten simultaneous human gestations from embryos supplied upstream without human surrogates, with ten children's births on the same defined calendar date, independently assessed development and continuing health; separately qualified AI/robot-assisted parenting, tall physical stature and strong intellectual/practical skills. Seek the earliest achievable outcome, preferably within two to three years of 2026-10-11 or sooner (2028-10-11 to 2029-10-11). Five years is a comparison scenario; ten years may be tolerable. No supported completion forecast or success guarantee is asserted; longitudinal outcomes continue after birth.",
+  "objective": "Owned equipment supporting at least one successful human gestation from embryos supplied upstream, without human surrogates, with independently assessed development and continuing health. One or a few concurrent gestations counts as success; up to ten concurrent gestations sharing one actual birth date is an aspiration, not a completion requirement. Seek the earliest achievable outcome, preferably within two to three years of 2026-10-11 or sooner (2028-10-11 to 2029-10-11). Five years is a comparison scenario; ten years may be tolerable. No supported completion forecast or success guarantee is asserted; longitudinal outcomes continue after birth. AI/robot care, education and development goals are tracked in a separate private repository and are out of scope here.",
   "constraints": {
     "country": null,
     "state": null,
@@ -29,13 +29,10 @@
     "upstream_embryos_minimum_assumed": 100,
     "embryo_inventory_verified": false,
     "equipment_ownership_required": true,
-    "minimum_concurrent_gestations": 10,
-    "same_calendar_birth_date_required": true,
+    "minimum_concurrent_gestations": 1,
+    "same_calendar_birth_date_required": false,
     "birth_event_definition": null,
     "common_date_timezone": null,
-    "parenting_goal": "Material AI/robot assistance, qualified by specific capability and actual-setting evidence",
-    "growth_goal": "Physically tall over development; age-specific targets not yet defined",
-    "capability_goal": "Strong intellectual and practical skills; detailed age/skill goals not yet defined",
     "success_guarantee_requested": true,
     "success_guarantee_supported": false,
     "mission": "Technical achievement of owned simultaneous ectogenesis and care capabilities; political/religious argument outside scope",
@@ -46,7 +43,9 @@
     "owner_two_year_target_date": "2028-10-11",
     "five_year_comparison_date": "2031-10-11",
     "potentially_tolerable_ten_year_date": "2036-10-11",
-    "ten_year_commitment_confirmed": false
+    "ten_year_commitment_confirmed": false,
+    "aspirational_concurrent_gestations": 10,
+    "personal_outcome_goals": "Tracked in the separate private ai-robot-parenting repository; out of public scope."
   },
   "review": {
     "planning_review": "Version four removes avoidable planning dependencies and prioritizes the earliest achievable outcome, preferably within two to three years or sooner. Read-only AI critical-path and existing-evidence reviews informed the changes; independent scientific review remains unestablished.",
@@ -111,14 +110,13 @@
     },
     {
       "id": "R10",
-      "title": "Complete owned simultaneous outcome",
+      "title": "Complete owned gestation outcome",
       "gate_id": "G8",
-      "acceptance": "Owned equipment, at least ten concurrent gestations and ten actual common-date births with independent development/health and separately evaluated parenting/growth/skills; service-only or sequential success cannot substitute.",
+      "acceptance": "Owned equipment and at least one successful gestation with independent development and health assessment; service-only or document-only success cannot substitute.",
       "required_gate_ids": [
         "G6",
         "G7",
-        "G8",
-        "G9"
+        "G8"
       ]
     },
     {
@@ -129,15 +127,15 @@
     },
     {
       "id": "R12",
-      "title": "At least ten simultaneous gestations",
+      "title": "At least one successful gestation",
       "gate_id": "G8",
-      "acceptance": "Ten independent identified concurrent trajectories, resource contention/isolation/common-cause assessment and simultaneous neonatal-transition capacity."
+      "acceptance": "Independently identified trajectory with development and health assessment; concurrency beyond one unit is aspirational stretch, not a requirement."
     },
     {
       "id": "R13",
-      "title": "Actual common calendar birth date",
+      "title": "Actual common calendar birth date (aspiration)",
       "gate_id": "G8",
-      "acceptance": "Define qualifying event, calendar/timezone and timestamps; independent developmental readiness for every unit; report target misses."
+      "acceptance": "Applies only if concurrent gestations are ever pursued; define the qualifying event, calendar/timezone and timestamps; report target misses."
     },
     {
       "id": "R14",
@@ -147,9 +145,9 @@
     },
     {
       "id": "R15",
-      "title": "AI/robot parenting and stature/skills",
+      "title": "AI/robot care and longitudinal development (private track)",
       "gate_id": "G9",
-      "acceptance": "Task-specific care/education capability, human responsibility/fallbacks, actual-setting evaluation and longitudinal stature, intellectual/practical-skill outcomes."
+      "acceptance": "Tracked in the separate private ai-robot-parenting repository; out of this public register scope."
     }
   ],
   "gates": [
@@ -227,21 +225,21 @@
     },
     {
       "id": "G8",
-      "title": "Ten concurrent gestations and common birth date",
+      "title": "Successful gestation outcome; concurrency aspirational",
       "domain": "clinical",
       "status": "not_established",
-      "acceptance": "At least ten simultaneous gestations and ten actual common-date births with independent developmental readiness, health assessment and shared-resource/failure qualification.",
-      "hold_condition": "Sequential success, common start times, software clock alignment or copied devices substituted for actual concurrent healthy outcomes.",
-      "next_discriminator": "G7 plus concurrent trajectory/isolation evidence, actual qualifying timestamps and each unit's readiness."
+      "acceptance": "At least one successful gestation with independent developmental readiness and health assessment; concurrent multi-unit operation and common-date births are aspirations only.",
+      "hold_condition": "Sequential or concurrent counts, common start times, software clock alignment or copied devices substituted for an actual healthy outcome.",
+      "next_discriminator": "G7 plus trajectory/isolation evidence and each unit's readiness."
     },
     {
       "id": "G9",
       "title": "AI/robot care and longitudinal development",
       "domain": "engineering",
-      "status": "not_established",
-      "acceptance": "Qualified assistance functions in their real setting with human responsibility/fallbacks, and independently assessed longitudinal stature/learning/skills.",
-      "hold_condition": "Task videos, simulated learners or newborn condition substituted for dependable parenting or later development.",
-      "next_discriminator": "T15 capability matrix; simulation/nonliving bench then independently reviewed task-specific real-setting evaluation."
+      "status": "deferred",
+      "acceptance": "Qualified assistance functions in their real setting with human responsibility/fallbacks, and independently assessed longitudinal development.",
+      "hold_condition": "Task videos or simulated learners substituted for dependable care or later development.",
+      "next_discriminator": "Private-track capability matrix in the ai-robot-parenting repository."
     }
   ],
   "milestones": [
@@ -256,7 +254,7 @@
       "evidence": [
         {
           "path": "PROGRAM_PLAN.md",
-          "sha256": "8ebb8926b88b83ea3ddb39fbcfd987f4282e5089e291a671ff08dc7433018cfd"
+          "sha256": "9a09c53f95427ee1d5807419f06200f6f265f8abd237aa3050a4f70e42a33910"
         },
         {
           "path": "src/wombmodels/program_status.py",
@@ -361,7 +359,7 @@
     },
     {
       "id": "M11",
-      "title": "Owner's simultaneous common-date outcome",
+      "title": "Owner's successful gestation outcome (concurrency aspirational)",
       "gate_id": "G8",
       "domain": "clinical",
       "status": "deferred",
@@ -448,7 +446,7 @@
     },
     {
       "id": "M19",
-      "title": "Ten-unit resource and isolation qualification",
+      "title": "Concurrent-unit resource and isolation qualification (aspiration)",
       "gate_id": "G8",
       "domain": "engineering",
       "status": "deferred",
@@ -470,7 +468,7 @@
     },
     {
       "id": "M21",
-      "title": "AI/robot parenting and capability qualification",
+      "title": "AI/robot care and capability qualification (private track)",
       "gate_id": "G9",
       "domain": "engineering",
       "status": "deferred",
@@ -518,7 +516,7 @@
       "evidence": [
         {
           "path": "SYSTEM_DESIGN.md",
-          "sha256": "d1bbfa08ce673e072f117d218e347d9109bc0458b187dedb3cc48774ca29249d"
+          "sha256": "55439cc31037e9f55df1fa68c323fda8e307a94bb6c1d96cc55dc214a282269e"
         }
       ]
     },
@@ -1092,7 +1090,7 @@
         },
         {
           "path": "PROGRAM_PLAN.md",
-          "sha256": "8ebb8926b88b83ea3ddb39fbcfd987f4282e5089e291a671ff08dc7433018cfd"
+          "sha256": "9a09c53f95427ee1d5807419f06200f6f265f8abd237aa3050a4f70e42a33910"
         }
       ],
       "actual_agent_hours": null,
@@ -1159,24 +1157,24 @@
     },
     {
       "id": "T15",
-      "title": "AI/robot parenting, stature and skills matrix",
+      "title": "AI/robot care and longitudinal development matrix",
       "gate_id": "G9",
       "uncertainty_id": "U12",
       "domain": "planning",
-      "status": "ready",
+      "status": "deferred",
       "depends_on": [
         "M01",
         "T12"
       ],
       "agent_hour_cap": 4,
-      "horizon": "near-term requirements/preparation; actual capability as qualified",
-      "acceptance": "Per-task inputs/domain/authority/failure/fallback/evidence matrix; simulation/nonliving qualification and actual-setting review; longitudinal stature and unaided retention/transfer/skills goals.",
+      "horizon": "Transferred to the private ai-robot-parenting repository on 2026-10-12; out of public scope.",
+      "acceptance": "Maintained in the private track; this public register asserts no care, education or growth capability.",
       "decision_consequence": "Select bounded care/education prototype or reject unsupported autonomy; identify concrete evaluation need.",
       "stop_rule": "No task demonstration promoted to dependable parenting or trait guarantee; cap four hours.",
       "inputs": [
-        "BEHAVIOR Robot Suite primary paper",
-        "Kestin2025 primary education study",
-        "Owner stature/skill clarification"
+        "Private track: BEHAVIOR Robot Suite primary paper",
+        "Private track: Kestin2025 primary education study",
+        "Owner capability clarification (private track)"
       ],
       "evidence": [],
       "actual_agent_hours": null,
@@ -1271,6 +1269,12 @@
       "decision": "Complete T14 as an outcome-measurement contract: distinguish technical support exit from civil birth event; use a frozen timezone and independent readiness for each unit; do not infer timing distribution or force date alignment.",
       "trigger": "T14 acceptance requires an evaluable event/timezone/readiness record and target-miss rule for the owner’s common-date outcome.",
       "review": "Planning only; location, legal event mapping, readiness standard and observed ten-unit outcomes remain unresolved. No biological gate advances."
+    },
+    {
+      "id": "D09",
+      "date": "2026-10-12",
+      "decision": "Scope revision: completion objective is at least one successful owned surrogate-free gestation; concurrent gestations and common-date births are demoted to aspirations; AI/robot care and longitudinal development (R15/G9/T15) moved to the private ai-robot-parenting repository; personal outcome goals removed from public artifacts.",
+      "trigger": "Owner instruction 2026-10-12: personal end goals out of the public repo; one or a few gestations is success."
     }
   ],
   "planning_calendar": {

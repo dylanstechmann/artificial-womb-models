@@ -44,7 +44,10 @@ class ProgramStatusTests(unittest.TestCase):
         self.assertEqual(available, expected)
         # Derived equality alone is near-tautological, so pin the substance too.
         self.assertEqual({item["id"] for item in self.register["tasks"]
-                          if item["status"] == "ready"}, {"T15"})
+                          if item["status"] == "ready"}, set())
+        # T15 was deferred on 2026-10-12 when the care/development track moved private.
+        self.assertEqual(next(item for item in self.register["tasks"]
+                              if item["id"] == "T15")["status"], "deferred")
         self.assertEqual(sorted(next(item for item in self.register["tasks"]
                                      if item["id"] == "T15")["depends_on"]), ["M01", "T12"])
         self.assertTrue(valid["M01"], "T15 depends on the verified baseline milestone")
