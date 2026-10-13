@@ -1,0 +1,59 @@
+{
+  "schema_version": 1,
+  "title": "Ectogenesis platform concept, system schematic v1",
+  "canvas": {"width": 1240, "height": 860},
+  "lanes": [
+    {"id": "containment", "label": "Containment"},
+    {"id": "fluidics", "label": "Fluidics and supply"},
+    {"id": "monitoring", "label": "Monitoring and control"},
+    {"id": "automation", "label": "Automation and oversight"}
+  ],
+  "components": [
+    {"id": "chamber", "label": "Gestation chamber\n(sterile bath)", "lane": "containment", "kind": "vessel", "x": 520, "y": 90},
+    {"id": "cannula", "label": "Umbilical interface\nmodule (concept)", "lane": "containment", "kind": "vessel", "x": 280, "y": 90},
+    {"id": "transition", "label": "Neonatal transition\nmodule", "lane": "containment", "kind": "transition", "x": 780, "y": 90},
+    {"id": "reservoir", "label": "Perfusate reservoir", "lane": "fluidics", "kind": "fluidics", "x": 60, "y": 280},
+    {"id": "pump_a", "label": "Primary perfusion pump", "lane": "fluidics", "kind": "fluidics", "x": 300, "y": 260},
+    {"id": "pump_b", "label": "Redundant pump\n(hot standby)", "lane": "fluidics", "kind": "fluidics", "x": 300, "y": 380},
+    {"id": "oxygenator", "label": "Membrane gas exchanger", "lane": "fluidics", "kind": "fluidics", "x": 540, "y": 280},
+    {"id": "heater", "label": "Thermal regulation", "lane": "fluidics", "kind": "fluidics", "x": 780, "y": 280},
+    {"id": "dialyzer", "label": "Nutrient delivery and\nwaste dialysis", "lane": "fluidics", "kind": "fluidics", "x": 60, "y": 380},
+    {"id": "gas_supply", "label": "O2/CO2 supply and mixing", "lane": "fluidics", "kind": "supply", "x": 540, "y": 380},
+    {"id": "power", "label": "UPS and backup power", "lane": "fluidics", "kind": "power", "x": 1020, "y": 330},
+    {"id": "sensors", "label": "In-line sensor array:\nflow, pO2, pCO2, pH, T, P", "lane": "monitoring", "kind": "sensing", "x": 300, "y": 500},
+    {"id": "daq", "label": "Data acquisition and\nstate estimation", "lane": "monitoring", "kind": "control", "x": 540, "y": 500},
+    {"id": "controller", "label": "Closed-loop control", "lane": "monitoring", "kind": "control", "x": 780, "y": 500},
+    {"id": "alarms", "label": "Fault detection and\nescalation", "lane": "monitoring", "kind": "control", "x": 1020, "y": 500},
+    {"id": "robot_service", "label": "Robotic servicing: fluid\nchanges, probes, cleaning", "lane": "automation", "kind": "robotics", "x": 540, "y": 680},
+    {"id": "human_override", "label": "Human oversight and\nmanual override", "lane": "automation", "kind": "human", "x": 1020, "y": 680}
+  ],
+  "connections": [
+    {"from": "reservoir", "to": "pump_a", "label": "perfusate", "kind": "flow"},
+    {"from": "pump_a", "to": "oxygenator", "label": "pressurized flow", "kind": "flow"},
+    {"from": "oxygenator", "to": "heater", "label": "oxygenated", "kind": "flow"},
+    {"from": "heater", "to": "cannula", "label": "to umbilical interface", "kind": "flow"},
+    {"from": "cannula", "to": "chamber", "label": "support", "kind": "flow"},
+    {"from": "chamber", "to": "dialyzer", "label": "return", "kind": "flow"},
+    {"from": "dialyzer", "to": "reservoir", "label": "recycle", "kind": "flow"},
+    {"from": "pump_b", "to": "oxygenator", "label": "redundant path", "kind": "flow"},
+    {"from": "gas_supply", "to": "oxygenator", "label": "gas", "kind": "flow"},
+    {"from": "chamber", "to": "transition", "label": "at qualifying birth event", "kind": "flow"},
+    {"from": "sensors", "to": "daq", "label": "telemetry", "kind": "signal"},
+    {"from": "daq", "to": "controller", "label": "state estimate", "kind": "signal"},
+    {"from": "controller", "to": "pump_a", "label": "speed setpoint", "kind": "control"},
+    {"from": "controller", "to": "pump_b", "label": "failover", "kind": "control"},
+    {"from": "controller", "to": "heater", "label": "temperature setpoint", "kind": "control"},
+    {"from": "controller", "to": "oxygenator", "label": "exchange setpoint", "kind": "control"},
+    {"from": "controller", "to": "alarms", "label": "faults", "kind": "signal"},
+    {"from": "alarms", "to": "human_override", "label": "escalation", "kind": "signal"},
+    {"from": "human_override", "to": "controller", "label": "supervisory commands", "kind": "control"},
+    {"from": "robot_service", "to": "chamber", "label": "servicing", "kind": "service"},
+    {"from": "robot_service", "to": "reservoir", "label": "fluid exchange", "kind": "service"},
+    {"from": "power", "to": "controller", "label": "backed power", "kind": "service"}
+  ],
+  "notes": [
+    "Concept layout for planning and criticism only; not a build specification.",
+    "Automation-first intent: robotic servicing is the default once qualified; human oversight is supervisory with manual override.",
+    "No component here is evidence of biological capability; gates remain unestablished."
+  ]
+}

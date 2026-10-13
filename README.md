@@ -16,6 +16,8 @@ The [machine concept design](SYSTEM_DESIGN.md) proposes an individual continuous
 
 The [program status workflow](config/program/README.md) checks pinned local evidence and transitive task dependencies, then publishes a fresh receipt-backed status bundle. It cannot establish scientific acceptance or advance a biological gate.
 
+The [machine concept schematic](config/schematics/ectogenesis_platform_v1.json) renders the automation-first platform layout (containment, fluidics, monitoring/control and robotic servicing with human override) as a standalone SVG/HTML page via `python -m wombmodels.schematics --config config/schematics/ectogenesis_platform_v1.json --out <new-dir>`. It is a concept layout for planning and criticism, not a build specification.
+
 The [niche-source qualification](NICHE_SOURCE_QUALIFICATION.md) adds
 `audit-guo-source`: a pinned read-only audit of mouse niche mechanical/profile
 cells and developmental percentages. It separates candidate observation intake
