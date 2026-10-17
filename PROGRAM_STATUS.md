@@ -109,6 +109,7 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | T21 Integrated whole-path system twin | G1 | no | 16 | none |
 | T22 Growth-accommodation mechanics module | G3 | no | 10 | none |
 | T23 Coupled mechanical twin module | G3 | no | 10 | none |
+| T24 Minimum-measurement acquisition specification module | G3 | no | 10 | none |
 
 ## Uncertainties
 
@@ -185,5 +186,7 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | T22 | examples/growth_mechanics_fixture.json | matches |
 | T23 | src/wombmodels/mechanical_twin.py | matches |
 | T23 | examples/mechanical_twin_fixture.json | matches |
+| T24 | src/wombmodels/acquisition_spec.py | matches |
+| T24 | examples/acquisition_spec_fixture.json | matches |
 
 For the next work cycle, read PROGRAM_PLAN.md and the original task acceptance conditions. Match each claimed result to its gate and uncertainty. Hold a branch after two cycles with no usable new information. Do not contact authors or other people. No new process or automation is started by this status command.

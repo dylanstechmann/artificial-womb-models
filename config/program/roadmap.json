@@ -1444,6 +1444,39 @@
       ],
       "actual_agent_hours": null,
       "result": "Coupled mechanical twin delivered: the run verifies one-way coupling at runtime by re-executing the uncoupled whole-path twin in-process - fluidic trajectories match exactly, so every T21 result carries over unchanged (fluidic boundary observables never separate any pair; internal receipt and progression separate every pair at the first handoff). The wall adds a boundary-observable mechanical channel: wall strain separates every pair at the first handoff through per-variant interface coupling (final strains 0.82/1.08/1.34, limit crossings ordered synthetic 0.5 < staged 1.5 < living 14.0), while wall damage separates every pair but enters no observable's derivative and stays hidden. The outage signature appears in strain (synthetic falls from 1.20 to 0.63 during the outage and rebounds to 1.11 after reseating), and a control world with identical coupling produces no mechanical signature for that pair - the signature is exactly the interface coupling. Ten tests pin the one-way carryover, the unchanged fluidic separations, the mechanical separations, damage hiddenness, coupling ordering, the outage signature, the identical-coupling control world, determinism, validation errors and strict verification. Synthetic fixture only; no biological capability or gate movement."
+    },
+    {
+      "id": "T24",
+      "title": "Minimum-measurement acquisition specification module",
+      "gate_id": "G3",
+      "uncertainty_id": "U05",
+      "domain": "software",
+      "status": "complete",
+      "depends_on": [
+        "T23"
+      ],
+      "agent_hour_cap": 10,
+      "horizon": "downstream D12 queue item 2026-10-17: the numeric minimum-measurement specification computed from the coupled twin, feeding the T08 reopen condition",
+      "acceptance": "An acquisition-spec-model command publishing a verified dimensionless bundle: required measurement channels computed from the run (only channels that separate every variant pair and are directly instrumentable enter the specification), numeric timing (sampling cadence, discrimination timepoints through the first separated handoff, surveillance timepoints for the failure arc), an analytic resolution floor under the twin's own relative-tolerance separation criterion with a k-sigma noise guard, analytic units-per-cohort scaling as the squared inverse of the resolution margin, and a seeded empirical sweep confirming both the floor and every analytic cohort size on synthetic ground truth, with the excluded channels (never separating or derived) stated with reasons.",
+      "decision_consequence": "The T05 challenge's demanded conversion is delivered: the twin's produced signatures become a numeric minimum-measurement specification - compartments, timepoints, resolution and units per cohort - that a laboratory can quote after calibration and a reviewer can audit back to the running twin. This is the qualified-requirements input a future owned-platform and resource decision (T08) consumes; it does not itself reopen T08, purchase anything or set any price.",
+      "stop_rule": "In silico modeling is the program's working mode (D12) and is not conditioned on the biological gates, which bind physical execution; all values are invented dimensionless fixture quantities, the specification is a template quotable only after calibration replaces the invented values, the k-sigma guard and cohort formula are first-order approximations under the twin's seeded stream, and the seeded sweep freezes the plan on synthetic ground truth rather than studying any real cohort. No hardware purchase, procurement, price, vendor, timeline, remote control action or author contact.",
+      "inputs": [
+        "INSILICO_MODELING_CORRECTION_2026-10-17.md deferred queue",
+        "T05_SEQUENCING_CHALLENGE_2026-10-17.md challenge item 4",
+        "mechanical_twin.py coupled twin"
+      ],
+      "evidence": [
+        {
+          "path": "src/wombmodels/acquisition_spec.py",
+          "sha256": "5f395cb5cedd03eabfb6f6b92bed6b6a6c25425e8d0b9b20bce7f76bf9edc33d"
+        },
+        {
+          "path": "examples/acquisition_spec_fixture.json",
+          "sha256": "586ed52af50163d788f7da6abcbbbc806dceca7ede9f768fa03479f016b14adf"
+        }
+      ],
+      "actual_agent_hours": null,
+      "result": "Minimum-measurement acquisition specification delivered: required channels computed from the run - wall strain (mechanical boundary), internal receipt and progression (both internal), each separating every pair at handoff 1 - while the fluidic boundary observables are excluded (never separate any pair, so no boundary flux sensor set of any resolution distinguishes the allocations) and wall damage is excluded as derived-not-instrumentable. Numeric timing: cadence 0.5, 21 timepoints through the first handoff (t=10) for discrimination, 81 through t=40 for the failure arc (capacity crossover 14.96; wall crossings living 14.0, staged 1.5, synthetic 0.5). Analytic resolution floors under the twin's relative-tolerance criterion with a 3-sigma guard: wall strain 0.68x, progression 0.55x, internal receipt 1.89x reference noise; units per allocation scale as the squared inverse of the margin (at 4x noise: 35 units on wall strain, 53 on progression, 5 on receipt), and a 24-seed sweep confirms every analytic floor and cohort size (all confirmations at reliability 1.0; the binding staged-synthetic pair loses single-unit separation at 2x-4x noise exactly as the guard predicts). Nine tests pin the computed channel requirements, floor and cohort formula reproduction from the report's own numbers, the guard-empirical agreement, timing, the D/M/P/W contract mapping, source-twin properties, determinism, validation errors and strict verification. Synthetic fixture only; no price, procurement or gate movement."
     }
   ],
   "decision_log": [
