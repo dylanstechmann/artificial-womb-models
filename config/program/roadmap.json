@@ -1343,6 +1343,40 @@
       ],
       "actual_agent_hours": null,
       "result": "Spatial identifiability module delivered: a feedforward compartment chain in which the observed prefix (interface and bulk) is bitwise shared by any world that keeps it fixed, while the hidden segment differs completely - the configured world's deep compartment consumes avidly (equilibrium at closed form) and the witness adds a slow hoarding compartment, so internal receipt differs by 78 percent with identical observed series and identical observed receipt. The number of hidden compartments is itself unidentifiable (3-compartment vs 4-compartment worlds share one boundary). Cut-point analysis: each added observed compartment resolves exactly one more step; everything below remains exchangeable. Seven tests pin observed-series identity, receipt separation, cut-point claims, closed-form equilibrium, balance residuals, determinism, validation errors and strict bundle verification. Synthetic fixture only; no biological capability or gate movement."
+    },
+    {
+      "id": "T21",
+      "title": "Integrated whole-path system twin",
+      "gate_id": "G1",
+      "uncertainty_id": "U01",
+      "domain": "software",
+      "status": "complete",
+      "depends_on": [
+        "T19",
+        "T20"
+      ],
+      "agent_hour_cap": 16,
+      "horizon": "third rung of the D12 modeling ladder 2026-10-17: couple the ladder components into one deterministic running world per interface variant",
+      "acceptance": "A whole-path-twin command publishing a verified dimensionless bundle: the T19 growth-scaling geometry and T20 spatial observability constraint coupled with a boundary-only rate-limited actuator, seeded sensor noise, a wall outage with reserve failover, a research monitor stream separate from control, and same-unit boundary events at each of the I1-I4 handoffs, run for living-interface, staged and synthetic parameterizations under shared noise seeds, with a pairwise separation analysis reporting which observables separate which variants at which handoff as an output of the run.",
+      "decision_consequence": "Absorb the variant-signature discrimination sweep's first cut: the signatures stop being predicted and start being produced. Under this fixture's parameterization the boundary observables never separate any variant pair across the whole path, internal receipt and progression separate every pair at the first handoff, and the deficit is identical across variants - so distinguishing the allocations requires internal measurement by construction, not by preference.",
+      "stop_rule": "In silico modeling is the program's working mode (D12) and is not conditioned on the biological gates, which bind physical execution; all values are invented dimensionless fixture quantities, the variants are invented parameterizations with no capability or safety ranking, synthetic results are never biological assays, and separation analysis compares synthetic runs of one model - it is not a cohort study and sets no sampling requirement. No hardware purchase, remote control action or author contact.",
+      "inputs": [
+        "INSILICO_MODELING_CORRECTION_2026-10-17.md modeling ladder",
+        "growth_scaling module and spatial_delivery module",
+        "WHOLE_INTERVAL_INSILICO_DESIGN_2026-10-17.md I1-I4 decomposition"
+      ],
+      "evidence": [
+        {
+          "path": "src/wombmodels/whole_path_twin.py",
+          "sha256": "df864417860ae3ed2d80af2cff37d12d5b3ab09f11bc50134350b837d593f89d"
+        },
+        {
+          "path": "examples/whole_path_twin_fixture.json",
+          "sha256": "7ccc0e2b789667b2390f9d5aefbb114044a94c0122a1ffc1e68d8bae520c8502"
+        }
+      ],
+      "actual_agent_hours": null,
+      "result": "Whole-path twin delivered: all three variants run I1-I4 with identical boundary behavior (full service maintained exactly until the capacity margin closes at t~15, served fraction then falling with the margin to 0.81 while the request stays full and the boundary actuator stays idle - no boundary actuation announces the accumulating shortfall) and divergent internal worlds (deep receipt 1.95/1.30/0.65 and progression 0.95/0.63/0.32 by the end). Pairwise separation as run output: boundary observables never separate any pair; deep receipt and progression separate every pair at the first handoff; the deficit is variant-identical. Outage failover engages the supplement only during the outage and reseats afterward; reserve depletes to 1.2; monitor faults (bias, dropout) perturb the recorded stream only. Nine tests pin separation results, the interval arc, closure idle-actuation, failover, stream separation, determinism, validation errors and strict verification. Synthetic fixture only; no biological capability or gate movement."
     }
   ],
   "decision_log": [

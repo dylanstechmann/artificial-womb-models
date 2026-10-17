@@ -48,6 +48,7 @@ KNOWN_BUNDLE_KINDS = frozenset({
     "dimensionless_mechanics_numerical_verification",
     "dimensionless_growth_scaling_theory",
     "dimensionless_spatial_delivery_theory",
+    "dimensionless_whole_path_twin",
 })
 DIMENSIONLESS_BUNDLE_KINDS = frozenset({
     "synthetic_exchange_software_fixture",
@@ -62,6 +63,7 @@ DIMENSIONLESS_BUNDLE_KINDS = frozenset({
     "dimensionless_mechanics_numerical_verification",
     "dimensionless_growth_scaling_theory",
     "dimensionless_spatial_delivery_theory",
+    "dimensionless_whole_path_twin",
 })
 
 
