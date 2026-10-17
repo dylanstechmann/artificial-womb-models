@@ -102,7 +102,7 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | T14 Birth-event and timing-observation contract | G8 | no | 3 | none |
 | T15 AI/robot care and longitudinal development matrix | G9 | no | 4 | none |
 | T16 First physical discovery feedback contract | G1 | no | 4 | none |
-| T17 Whole-system in silico design | G1 | yes | 16 | none |
+| T17 Whole-system in silico design | G1 | no | 16 | none |
 
 ## Uncertainties
 
@@ -164,5 +164,7 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | T13 | TEN_UNIT_DEPENDENCY_ASSESSMENT_2026-10-11.md | matches |
 | T14 | COMMON_DATE_READINESS_CONTRACT_2026-10-11.md | matches |
 | T16 | EARLY_SUPPORT_LINKAGE_DECISION_2026-10-11.md | matches |
+| T17 | WHOLE_SYSTEM_INSILICO_DESIGN_2026-10-17.md | matches |
+| T17 | config/schematics/early_exchange_system_v2.json | matches |
 
 For the next work cycle, read PROGRAM_PLAN.md and the original task acceptance conditions. Match each claimed result to its gate and uncertainty. Hold a branch after two cycles with no usable new information. Do not contact authors or other people. No new process or automation is started by this status command.

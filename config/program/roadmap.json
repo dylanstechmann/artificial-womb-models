@@ -1216,7 +1216,7 @@
       "gate_id": "G1",
       "uncertainty_id": "U01",
       "domain": "software",
-      "status": "ready",
+      "status": "complete",
       "depends_on": [],
       "agent_hour_cap": 16,
       "horizon": "owner priority 2026-10-17; first whole-system design iteration before further reviewer preparation",
@@ -1228,9 +1228,18 @@
         "SYSTEM_DESIGN.md and existing fixture/identifiability modules",
         "T01 architecture comparison and T04 observation contract"
       ],
-      "evidence": [],
+      "evidence": [
+        {
+          "path": "WHOLE_SYSTEM_INSILICO_DESIGN_2026-10-17.md",
+          "sha256": "90fa79dc5bdea3cc7fadab830531d8e9392ec0434fced6d3103838cc9b32a7bf"
+        },
+        {
+          "path": "config/schematics/early_exchange_system_v2.json",
+          "sha256": "9f94e43f4105b0936a39ff9480a9b1b943ca2d728800f7e710075e8b1be23ea8"
+        }
+      ],
       "actual_agent_hours": null,
-      "result": null
+      "result": "Whole-system in silico design delivered: twelve-function shared skeleton with the three allocations instantiated as substitutable interface variants, declared failure modes and fault propagation, fixture-to-system coverage map, and an identifiability-driven minimum-measurement specification (controlled excitation, paired interface/core transient sampling, separate same-unit M readout, stage-indexed P with complete disposition) that separates the three variant signatures. Design and measurement specification only; no biological capability, setpoint or gate movement; synthetic results are not biological assays."
     }
   ],
   "decision_log": [
