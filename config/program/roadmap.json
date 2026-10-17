@@ -1477,6 +1477,40 @@
       ],
       "actual_agent_hours": null,
       "result": "Minimum-measurement acquisition specification delivered: required channels computed from the run - wall strain (mechanical boundary), internal receipt and progression (both internal), each separating every pair at handoff 1 - while the fluidic boundary observables are excluded (never separate any pair, so no boundary flux sensor set of any resolution distinguishes the allocations) and wall damage is excluded as derived-not-instrumentable. Numeric timing: cadence 0.5, 21 timepoints through the first handoff (t=10) for discrimination, 81 through t=40 for the failure arc (capacity crossover 14.96; wall crossings living 14.0, staged 1.5, synthetic 0.5). Analytic resolution floors under the twin's relative-tolerance criterion with a 3-sigma guard: wall strain 0.68x, progression 0.55x, internal receipt 1.89x reference noise; units per allocation scale as the squared inverse of the margin (at 4x noise: 35 units on wall strain, 53 on progression, 5 on receipt), and a 24-seed sweep confirms every analytic floor and cohort size (all confirmations at reliability 1.0; the binding staged-synthetic pair loses single-unit separation at 2x-4x noise exactly as the guard predicts). Nine tests pin the computed channel requirements, floor and cohort formula reproduction from the report's own numbers, the guard-empirical agreement, timing, the D/M/P/W contract mapping, source-twin properties, determinism, validation errors and strict verification. Synthetic fixture only; no price, procurement or gate movement."
+    },
+    {
+      "id": "T25",
+      "title": "Platform and resource decision worksheet from the acquisition specification",
+      "gate_id": "G1",
+      "uncertainty_id": "U09",
+      "domain": "planning",
+      "status": "complete",
+      "depends_on": [
+        "T08",
+        "T24"
+      ],
+      "agent_hour_cap": 10,
+      "horizon": "T08 reopen 2026-10-17: the qualified requirements changed when T24 converted the twin's signatures into a numeric specification, triggering the registered reopen condition",
+      "acceptance": "A platform-requirements-model command publishing a verified dimensionless bundle that consumes the published acquisition-specification bundle byte-verbatim: each required channel becomes a measurement capability line item with cadence, discrimination and surveillance timepoints, analytic resolution floor, binding pair and units per allocation at stated instrument-noise levels confirmed by the source sweep; excluded channels become stated non-requirements (no boundary flux sensing resolution discriminates the allocations); and the three route options from the 2026-10-11 platform comparison each carry the supply obligations they would have to meet for exactly those channels, with dispositions open and unknowns stated.",
+      "decision_consequence": "The platform comparison gains the owner-controlled capability list its own next-action line demanded: a future quote, diligence or co-development conversation can be checked against exactly these channels, cadences and unit counts, with every price unknown by construction and no total computed. The route decision itself stays open; no supplier is chosen and no engagement is authorized.",
+      "stop_rule": "Every price stays unknown and no total, budget, quote, availability or timeline is computed or implied; the worksheet inherits the source specification's template status (quotable only after calibration replaces the invented dimensionless values); nothing names a real instrument, vendor or facility; no purchase, procurement, external contact or author approach arises. The biological gates bind physical execution and are untouched.",
+      "inputs": [
+        "OWNED_PLATFORM_OPTIONS_2026-10-11.md route comparison and next-action line",
+        "artifacts/acquisition-spec-module-2026-10-17 published specification bundle",
+        "T24 register entry reopen condition"
+      ],
+      "evidence": [
+        {
+          "path": "src/wombmodels/platform_requirements.py",
+          "sha256": "79d107c122caa84bdc82a0f10093cb361f3446f5bf6274de61ea4e0ac65692fc"
+        },
+        {
+          "path": "examples/platform_requirements_fixture.json",
+          "sha256": "a9591e1390ac67c54dd9d6eee098057c089971d12cbe37daab2b61c8aac38848"
+        }
+      ],
+      "actual_agent_hours": null,
+      "result": "Platform and resource decision worksheet delivered: three measurement capability line items (chamber-wall strain, internal tissue receipt-rate, stage-indexed progression) with numbers copied unchanged from the consumed specification (cadence 0.5; 21 discrimination timepoints, 81 surveillance; floors 0.68x/1.89x/0.55x reference noise; units per allocation 3/1/4 at reference noise and 35/5/53 at 4x, each confirmed by the source sweep) and five stated non-requirements (the three fluidic boundary observables never separate any pair, so no boundary flux sensing resolution discriminates the allocations; cumulative deficit is variant-identical; wall damage is derived). The three route options (owner-led, acquisition or licensing, co-development) each carry supply obligations covering exactly the required channels, with dispositions open, unknowns stated and no quote requested. Prices are unknown by construction: every line item carries a null price with an explicit quote need, no total is computed, and the source specification is preserved byte-verbatim with its sha256 pinned. Nine tests pin the line-item derivation, unit confirmation transfer, computed non-requirements, price discipline (recursive no-total scan), route completeness, byte-verbatim consumption, determinism, validation errors (including wrong-kind and missing source bundles) and strict verification. Synthetic fixture only; no route choice, purchase or gate movement."
     }
   ],
   "decision_log": [

@@ -16,6 +16,7 @@ from .growth_scaling import growth_scaling
 from .growth_mechanics import growth_mechanics
 from .mechanical_twin import mechanical_twin
 from .acquisition_spec import acquisition_spec
+from .platform_requirements import platform_requirements
 from .identifiability import analyze
 from .spatial_delivery import spatial_delivery
 from .whole_path_twin import whole_path_twin
@@ -104,6 +105,10 @@ def main(argv=None) -> int:
     acquisition = commands.add_parser("acquisition-spec-model", help="Compute the dimensionless minimum-measurement acquisition specification from the twin; no empirical fit")
     acquisition.add_argument("--config", type=Path, required=True)
     acquisition.add_argument("--out", type=Path, required=True)
+    platform = commands.add_parser("platform-requirements-model", help="Turn the published acquisition specification into the dimensionless capability worksheet; prices stay unknown")
+    platform.add_argument("--config", type=Path, required=True)
+    platform.add_argument("--spec", type=Path, required=True)
+    platform.add_argument("--out", type=Path, required=True)
     spatial_model = commands.add_parser("spatial-delivery-model", help="Run the dimensionless spatial internal-delivery identifiability fixture; no empirical fit")
     spatial_model.add_argument("--config", type=Path, required=True)
     spatial_model.add_argument("--out", type=Path, required=True)
@@ -194,6 +199,8 @@ def main(argv=None) -> int:
             receipt = mechanical_twin(args.config, args.out)
         elif args.command == "acquisition-spec-model":
             receipt = acquisition_spec(args.config, args.out)
+        elif args.command == "platform-requirements-model":
+            receipt = platform_requirements(args.config, args.spec, args.out)
         elif args.command == "spatial-delivery-model":
             receipt = spatial_delivery(args.config, args.out)
         elif args.command == "whole-path-twin":

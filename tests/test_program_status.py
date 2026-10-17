@@ -47,8 +47,9 @@ class ProgramStatusTests(unittest.TestCase):
         # completed the same day with its design pinned as evidence, the
         # D12 ladder rungs T18-T23 (including the second twin iteration)
         # were likewise registered complete same-day, and the downstream
-        # D12 queue item T24 (acquisition specification feeding T08) was
-        # registered complete after them.
+        # D12 queue items T24 (acquisition specification feeding T08) and
+        # T25 (the T08 reopen worksheet) were registered complete after
+        # them.
         self.assertEqual({item["id"] for item in self.register["tasks"]
                           if item["status"] == "ready"}, set())
         # T15 was deferred on 2026-10-12 when the care/development track moved private.

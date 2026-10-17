@@ -1,0 +1,6 @@
+{
+  "schema_version": 1,
+  "fixture_notice": "Artificial dimensionless software fixture; no physiological calibration, biological prediction or machine-control output.",
+  "source_bundle_kind": "dimensionless_acquisition_spec",
+  "degradation_multipliers": [1.0, 4.0]
+}
