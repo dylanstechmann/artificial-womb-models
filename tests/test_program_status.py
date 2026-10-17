@@ -43,8 +43,10 @@ class ProgramStatusTests(unittest.TestCase):
                     and all(valid.get(dep, False) for dep in item["depends_on"])}
         self.assertEqual(available, expected)
         # Derived equality alone is near-tautological, so pin the substance too.
+        # T17 has been the only ready task since the 2026-10-17 sequencing
+        # decision (D10) prioritized whole-system in silico design.
         self.assertEqual({item["id"] for item in self.register["tasks"]
-                          if item["status"] == "ready"}, set())
+                          if item["status"] == "ready"}, {"T17"})
         # T15 was deferred on 2026-10-12 when the care/development track moved private.
         self.assertEqual(next(item for item in self.register["tasks"]
                               if item["id"] == "T15")["status"], "deferred")
@@ -72,7 +74,12 @@ class ProgramStatusTests(unittest.TestCase):
                     path.write_bytes(b"Changed after acceptance.\n")
                 report = assess_register(self.register, self.root)
                 self.assertFalse(report["evidence_integrity_matches"])
-                self.assertFalse(any(t["eligible_to_start"] for t in report["tasks"]))
+                # Stale or missing completion evidence blocks every dependent
+                # start. T17 (ready since 2026-10-17, D10) has no dependencies
+                # and cites no completion evidence, so it remains the only
+                # task that can start; nothing else may.
+                self.assertEqual({t["id"] for t in report["tasks"]
+                                  if t["eligible_to_start"]}, {"T17"})
                 self.assertEqual(report["biological_gate_updates"], 0)
                 self.assertEqual(report["evidence_checks"][0]["status"],
                                  "missing" if missing else "changed_since_assessment")

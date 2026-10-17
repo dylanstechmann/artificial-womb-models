@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "program_id": "surrogate-free-full-gestation",
-  "assessment_date": "2026-10-12",
+  "assessment_date": "2026-10-17",
   "program_status": "active",
   "objective": "Owned equipment supporting at least one successful human gestation from embryos supplied upstream, without human surrogates, with independently assessed development and continuing health. One or a few concurrent gestations counts as success; up to ten concurrent gestations sharing one actual birth date is an aspiration, not a completion requirement. Seek the earliest achievable outcome, preferably within two to three years of 2026-10-11 or sooner (2028-10-11 to 2029-10-11). Five years is a comparison scenario; ten years may be tolerable. No supported completion forecast or success guarantee is asserted; longitudinal outcomes continue after birth. AI/robot care, education and development goals are tracked in a separate private repository and are out of scope here.",
   "constraints": {
@@ -48,7 +48,7 @@
     "personal_outcome_goals": "Tracked in the separate private ai-robot-parenting repository; out of public scope."
   },
   "review": {
-    "planning_review": "Version four removes avoidable planning dependencies and prioritizes the earliest achievable outcome, preferably within two to three years or sooner. Read-only AI critical-path and existing-evidence reviews informed the changes; independent scientific review remains unestablished.",
+    "planning_review": "Version four removes avoidable planning dependencies and prioritizes the earliest achievable outcome, preferably within two to three years or sooner. Read-only AI critical-path and existing-evidence reviews informed the changes; independent scientific review remains unestablished. Sequencing decision D10 (2026-10-17) defers independent-reviewer recruitment in favor of T17 whole-system in silico design; in silico work is not conditioned on the biological gates, which bind physical execution, and synthetic results are never biological assays.",
     "biological_review": "not_established",
     "baseline_completion_scope": "Named planning, software and source curation artifacts only."
   },
@@ -1051,10 +1051,10 @@
       "status": "held",
       "depends_on": [],
       "agent_hour_cap": 2,
-      "horizon": "held until qualified computational need",
+      "horizon": "held until qualified computational need; whole-system design scope is authorized separately under T17 (D10)",
       "acceptance": "New eligible model/data contract and a decision for which the extra computation supplies a discriminator.",
       "decision_consequence": "Current toy runtime does not reduce biological uncertainty; require measured bottleneck.",
-      "stop_rule": "Held; no hardware or increased synthetic scope without data eligibility and meaningful comparator.",
+      "stop_rule": "Held; no hardware or GPU jobs without data eligibility and a meaningful comparator; design-scope synthesis runs under T17, not this task.",
       "inputs": [
         "Existing design-sweep bounds",
         "T07 measurements when available"
@@ -1209,6 +1209,28 @@
       ],
       "actual_agent_hours": null,
       "result": "Offline computer and format inventory, known versus unverified physical capability, frozen qualitative prediction/comparator, observation contract, candidate-card validator replay boundary, discrepancy response and next prospective question are recorded. No laboratory loop or biological result is claimed."
+    },
+    {
+      "id": "T17",
+      "title": "Whole-system in silico design",
+      "gate_id": "G1",
+      "uncertainty_id": "U01",
+      "domain": "software",
+      "status": "ready",
+      "depends_on": [],
+      "agent_hour_cap": 16,
+      "horizon": "owner priority 2026-10-17; first whole-system design iteration before further reviewer preparation",
+      "acceptance": "One inspectable plausible whole working system designed in silico: functional decomposition at the early exchange boundary, compartment/exchange/control/monitoring coverage with declared failure modes, and an identifiability-driven minimum-measurement specification that could distinguish living-interface, staged and synthetic allocations.",
+      "decision_consequence": "Convert the architecture comparison from prose into a challengeable design with quantitative measurement requirements that a future reviewer, laboratory or acquisition decision can act on.",
+      "stop_rule": "In silico design is not conditioned on the biological gates, which bind physical execution; assign no biological units, gestational claims or success rates to synthetic results, and register no synthetic row as a biological assay. No hardware purchase, remote control action or author contact.",
+      "inputs": [
+        "T05_SEQUENCING_CHALLENGE_2026-10-17.md",
+        "SYSTEM_DESIGN.md and existing fixture/identifiability modules",
+        "T01 architecture comparison and T04 observation contract"
+      ],
+      "evidence": [],
+      "actual_agent_hours": null,
+      "result": null
     }
   ],
   "decision_log": [
@@ -1275,6 +1297,13 @@
       "date": "2026-10-12",
       "decision": "Scope revision: completion objective is at least one successful owned surrogate-free gestation; concurrent gestations and common-date births are demoted to aspirations; AI/robot care and longitudinal development (R15/G9/T15) moved to the private ai-robot-parenting repository; personal outcome goals removed from public artifacts.",
       "trigger": "Owner instruction 2026-10-12: personal end goals out of the public repo; one or a few gestations is success."
+    },
+    {
+      "id": "D10",
+      "date": "2026-10-17",
+      "decision": "Defer independent-reviewer recruitment; register T17 and prioritize a plausible whole working system designed in silico. In silico design is not conditioned on the biological/clinical gates, which bind physical execution; synthetic results are never biological assays. T05 stays held, T06 stays unsent, and T11's GPU/hardware hold is unchanged.",
+      "trigger": "Owner instruction 2026-10-17: whole-system in silico design is a high priority; do not gate in silico work on reviewer availability or spend scarce reviewer attention on the current negative-result packet.",
+      "review": "Planning only; the sequencing argument and its limits are recorded in T05_SEQUENCING_CHALLENGE_2026-10-17.md. No biological gate advances; independent scientific review remains unestablished."
     }
   ],
   "planning_calendar": {

@@ -1,6 +1,6 @@
 # Program progress against the plan
 
-Assessment date: 2026-10-12. Generated from config/program/roadmap.json.
+Assessment date: 2026-10-17. Generated from config/program/roadmap.json.
 
 Owned equipment supporting at least one successful human gestation from embryos supplied upstream, without human surrogates, with independently assessed development and continuing health. One or a few concurrent gestations counts as success; up to ten concurrent gestations sharing one actual birth date is an aspiration, not a completion requirement. Seek the earliest achievable outcome, preferably within two to three years of 2026-10-11 or sooner (2028-10-11 to 2029-10-11). Five years is a comparison scenario; ten years may be tolerable. No supported completion forecast or success guarantee is asserted; longitudinal outcomes continue after birth. AI/robot care, education and development goals are tracked in a separate private repository and are out of scope here.
 
@@ -102,6 +102,7 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | T14 Birth-event and timing-observation contract | G8 | no | 3 | none |
 | T15 AI/robot care and longitudinal development matrix | G9 | no | 4 | none |
 | T16 First physical discovery feedback contract | G1 | no | 4 | none |
+| T17 Whole-system in silico design | G1 | yes | 16 | none |
 
 ## Uncertainties
 
