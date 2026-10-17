@@ -1240,6 +1240,39 @@
       ],
       "actual_agent_hours": null,
       "result": "Whole-system in silico design delivered: twelve-function shared skeleton with the three allocations instantiated as substitutable interface variants, declared failure modes and fault propagation, fixture-to-system coverage map, and an identifiability-driven minimum-measurement specification (controlled excitation, paired interface/core transient sampling, separate same-unit M readout, stage-indexed P with complete disposition) that separates the three variant signatures. Design and measurement specification only; no biological capability, setpoint or gate movement; synthetic results are not biological assays."
+    },
+    {
+      "id": "T18",
+      "title": "Whole-interval in silico design extension",
+      "gate_id": "G3",
+      "uncertainty_id": "U05",
+      "domain": "software",
+      "status": "complete",
+      "depends_on": [
+        "T17"
+      ],
+      "agent_hour_cap": 8,
+      "horizon": "owner-selected extension 2026-10-17: sustained exchange, fetal maturation and neonatal transition on the same skeleton",
+      "acceptance": "Interval decomposition from the early-exchange design through neonatal transition with same-unit boundary continuity events, growth-paced delivery and maturation coverage with declared failure modes from the midgestation competing-explanation map, destructive-branch sampling separation, and transition readiness with retained uncertainty.",
+      "decision_consequence": "Make whole-path continuity a measured per-unit property with recorded disposition at every interval boundary, and expose the growth-scaling fixture gap as the next computable discriminator of internal delivery failure.",
+      "stop_rule": "In silico design is not conditioned on the biological gates, which bind physical execution; assign no biological units, gestational claims or success rates to synthetic results, and register no synthetic row as a biological assay. No hardware purchase, remote control action, transition procedure or author contact.",
+      "inputs": [
+        "WHOLE_SYSTEM_INSILICO_DESIGN_2026-10-17.md",
+        "MIDGESTATION_BOUNDARY.md competing-explanation map",
+        "T13 ten-unit dependency assessment"
+      ],
+      "evidence": [
+        {
+          "path": "WHOLE_INTERVAL_INSILICO_DESIGN_2026-10-17.md",
+          "sha256": "5b4750be67700380bcb38866f6a0b563ae043fc65fea4d6a34ea104e04d050d8"
+        },
+        {
+          "path": "config/schematics/whole_interval_system_v3.json",
+          "sha256": "397b9d2e4acdbc24362adbf4761d3bfc448813b32a3a1438e4bd2eacbdbf4495"
+        }
+      ],
+      "actual_agent_hours": null,
+      "result": "Whole-interval design delivered: I1-I4 interval decomposition with every boundary a same-unit pre/post D/M/P event and complete disposition, growth-paced delivery requirement, competing-failure register (internal delivery lag, tissue-use failure, vascular/fluid dysfunction, missing interactions, selection/stage mismatch) each with observable and forbidden inference, destructive-branch separation test-enforced from transition readiness, transition readiness with retained uncertainty, and ten-unit concurrency kept as an aspiration annex. Growth-scaling of exchange capacity identified as the fixture gap. Design only; no biological capability or gate movement."
     }
   ],
   "decision_log": [
@@ -1313,6 +1346,13 @@
       "decision": "Defer independent-reviewer recruitment; register T17 and prioritize a plausible whole working system designed in silico. In silico design is not conditioned on the biological/clinical gates, which bind physical execution; synthetic results are never biological assays. T05 stays held, T06 stays unsent, and T11's GPU/hardware hold is unchanged.",
       "trigger": "Owner instruction 2026-10-17: whole-system in silico design is a high priority; do not gate in silico work on reviewer availability or spend scarce reviewer attention on the current negative-result packet.",
       "review": "Planning only; the sequencing argument and its limits are recorded in T05_SEQUENCING_CHALLENGE_2026-10-17.md. No biological gate advances; independent scientific review remains unestablished."
+    },
+    {
+      "id": "D11",
+      "date": "2026-10-17",
+      "decision": "Owner selects extending the in silico design over the variant-signature sweep and the acquisition specification: T18 carries the whole working system through sustained exchange, fetal maturation and neonatal transition, with same-unit boundary continuity events at every interval handoff. Ten-unit concurrency stays an aspiration annex; no new evidence comparison or gate movement.",
+      "trigger": "Owner selection 2026-10-17 among the post-T17 next-work options.",
+      "review": "Design only; grounded in the midgestation competing-explanation map and the completed T13 assessment. No biological gate advances; independent scientific review remains unestablished."
     }
   ],
   "planning_calendar": {
