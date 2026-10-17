@@ -1377,6 +1377,39 @@
       ],
       "actual_agent_hours": null,
       "result": "Whole-path twin delivered: all three variants run I1-I4 with identical boundary behavior (full service maintained exactly until the capacity margin closes at t~15, served fraction then falling with the margin to 0.81 while the request stays full and the boundary actuator stays idle - no boundary actuation announces the accumulating shortfall) and divergent internal worlds (deep receipt 1.95/1.30/0.65 and progression 0.95/0.63/0.32 by the end). Pairwise separation as run output: boundary observables never separate any pair; deep receipt and progression separate every pair at the first handoff; the deficit is variant-identical. Outage failover engages the supplement only during the outage and reseats afterward; reserve depletes to 1.2; monitor faults (bias, dropout) perturb the recorded stream only. Nine tests pin separation results, the interval arc, closure idle-actuation, failover, stream separation, determinism, validation errors and strict verification. Synthetic fixture only; no biological capability or gate movement."
+    },
+    {
+      "id": "T22",
+      "title": "Growth-accommodation mechanics module",
+      "gate_id": "G3",
+      "uncertainty_id": "U05",
+      "domain": "software",
+      "status": "complete",
+      "depends_on": [
+        "T19"
+      ],
+      "agent_hour_cap": 10,
+      "horizon": "final rung of the D12 modeling ladder 2026-10-17: growth-accommodation mechanics of the chamber wall",
+      "acceptance": "A growth-mechanics-model command publishing a verified dimensionless bundle: a Kelvin-Voigt chamber wall under a load growing with unit size against stiffness scaling with a sub-linear exponent, with analytic equilibrium strain and failure time; a growth-paced versus fixed-stiffness accommodation comparison in the observable strain channel; cumulative damage accruing beyond a safe threshold that never enters the strain equation; and a damage witness sharing one strain series exactly while differing in accumulated damage.",
+      "decision_consequence": "Complete the mechanical analog of the growth-scaling result: when the load exponent exceeds the stiffness exponent, equilibrium strain grows with size and crosses the strain limit at an analytic time, so growth-paced accommodation is a measured property of the wall. The mechanical channel is observable (accommodation regimes separate immediately and fail at different times), while hidden cumulative damage - like internal delivery - is invisible in the observable readings by construction.",
+      "stop_rule": "In silico modeling is the program's working mode (D12) and is not conditioned on the biological gates, which bind physical execution; all values are invented dimensionless fixture quantities, the Kelvin-Voigt wall is an abstract viscoelastic element, cumulative damage is invented linear accounting of strain excess, and the witness demonstrates a structural property of this model only - not a sensor or inspection recommendation. No hardware purchase, remote control action or author contact.",
+      "inputs": [
+        "INSILICO_MODELING_CORRECTION_2026-10-17.md modeling ladder",
+        "existing dimensionless mechanics fixture and numerical verification",
+        "WHOLE_INTERVAL_INSILICO_DESIGN_2026-10-17.md growth-accommodation requirement"
+      ],
+      "evidence": [
+        {
+          "path": "src/wombmodels/growth_mechanics.py",
+          "sha256": "59788ca86cd9af4f90d6ade11904e3e2fef48903f39d91083c9b5da5d855ddde"
+        },
+        {
+          "path": "examples/growth_mechanics_fixture.json",
+          "sha256": "7720fd1d7a1fc4567100bb08d947835b16b6b87fdb95495fc2e0abb337312ef4"
+        }
+      ],
+      "actual_agent_hours": null,
+      "result": "Growth-accommodation mechanics module delivered: mechanical square-cube crossover (equilibrium strain crosses the strain limit at analytic size 1.5^3, time 19.79; tracked strain crosses within two output steps at 20.25) with the observable channel separating accommodation regimes immediately - the fixed-stiffness wall fails at 4.75, four times earlier than the growth-paced wall, with final strains 1.52 versus 0.55 - and an early-warning window of 7.75 dimensionless time units between detection (12.5) and failure with damage already accrued. The damage witness shares one strain series bitwise while accumulated damage differs by 300 percent: hidden wear is invisible in strain readings by construction. Nine tests pin the analytic crossover, witness invariance, observable-channel separation, the early-warning window, equilibrium tracking, balance residuals, determinism, the never-failing control world, validation errors and strict verification. Synthetic fixture only; no biological capability or gate movement."
     }
   ],
   "decision_log": [

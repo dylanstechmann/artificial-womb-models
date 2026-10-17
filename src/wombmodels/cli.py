@@ -13,6 +13,7 @@ from .developmental_models import simulate_mechanics, simulate_transport
 from .evidence import evidence_report
 from .exchange import simulate
 from .growth_scaling import growth_scaling
+from .growth_mechanics import growth_mechanics
 from .identifiability import analyze
 from .spatial_delivery import spatial_delivery
 from .whole_path_twin import whole_path_twin
@@ -92,6 +93,9 @@ def main(argv=None) -> int:
     growth_model = commands.add_parser("growth-scaling-model", help="Run the dimensionless growth-paced capacity-scaling exchange fixture; no empirical fit")
     growth_model.add_argument("--config", type=Path, required=True)
     growth_model.add_argument("--out", type=Path, required=True)
+    mechanics_model = commands.add_parser("growth-mechanics-model", help="Run the dimensionless growth-accommodation wall fixture; no empirical fit")
+    mechanics_model.add_argument("--config", type=Path, required=True)
+    mechanics_model.add_argument("--out", type=Path, required=True)
     spatial_model = commands.add_parser("spatial-delivery-model", help="Run the dimensionless spatial internal-delivery identifiability fixture; no empirical fit")
     spatial_model.add_argument("--config", type=Path, required=True)
     spatial_model.add_argument("--out", type=Path, required=True)
@@ -176,6 +180,8 @@ def main(argv=None) -> int:
             receipt = transport_identifiability(args.config, args.out)
         elif args.command == "growth-scaling-model":
             receipt = growth_scaling(args.config, args.out)
+        elif args.command == "growth-mechanics-model":
+            receipt = growth_mechanics(args.config, args.out)
         elif args.command == "spatial-delivery-model":
             receipt = spatial_delivery(args.config, args.out)
         elif args.command == "whole-path-twin":

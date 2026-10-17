@@ -107,6 +107,7 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | T19 Growth-scaling exchange module | G3 | no | 12 | none |
 | T20 Spatial internal-delivery identifiability module | G1 | no | 10 | none |
 | T21 Integrated whole-path system twin | G1 | no | 16 | none |
+| T22 Growth-accommodation mechanics module | G3 | no | 10 | none |
 
 ## Uncertainties
 
@@ -179,5 +180,7 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | T20 | examples/spatial_delivery_fixture.json | matches |
 | T21 | src/wombmodels/whole_path_twin.py | matches |
 | T21 | examples/whole_path_twin_fixture.json | matches |
+| T22 | src/wombmodels/growth_mechanics.py | matches |
+| T22 | examples/growth_mechanics_fixture.json | matches |
 
 For the next work cycle, read PROGRAM_PLAN.md and the original task acceptance conditions. Match each claimed result to its gate and uncertainty. Hold a branch after two cycles with no usable new information. Do not contact authors or other people. No new process or automation is started by this status command.

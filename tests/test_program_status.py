@@ -45,7 +45,7 @@ class ProgramStatusTests(unittest.TestCase):
         # Derived equality alone is near-tautological, so pin the substance too.
         # No task is ready: T17 (registered ready by D10 on 2026-10-17) was
         # completed the same day with its design pinned as evidence, and the
-        # D12 ladder rungs T18/T19/T20/T21 were likewise registered complete
+        # D12 ladder rungs T18-T22 were likewise registered complete
         # same-day.
         self.assertEqual({item["id"] for item in self.register["tasks"]
                           if item["status"] == "ready"}, set())
