@@ -105,6 +105,7 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | T17 Whole-system in silico design | G1 | no | 16 | none |
 | T18 Whole-interval in silico design extension | G3 | no | 8 | none |
 | T19 Growth-scaling exchange module | G3 | no | 12 | none |
+| T20 Spatial internal-delivery identifiability module | G1 | no | 10 | none |
 
 ## Uncertainties
 
@@ -173,5 +174,7 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | T19 | INSILICO_MODELING_CORRECTION_2026-10-17.md | matches |
 | T19 | src/wombmodels/growth_scaling.py | matches |
 | T19 | examples/growth_scaling_fixture.json | matches |
+| T20 | src/wombmodels/spatial_delivery.py | matches |
+| T20 | examples/spatial_delivery_fixture.json | matches |
 
 For the next work cycle, read PROGRAM_PLAN.md and the original task acceptance conditions. Match each claimed result to its gate and uncertainty. Hold a branch after two cycles with no usable new information. Do not contact authors or other people. No new process or automation is started by this status command.

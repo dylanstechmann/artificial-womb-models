@@ -1310,6 +1310,39 @@
       ],
       "actual_agent_hours": null,
       "result": "Executable growth-scaling module delivered: analytic crossover (margin closes at an exact size because capacity grows sub-linearly with the surface exponent while demand grows with the size), RK4 integration with bounded substeps and exact flux invariants, boundary detection lagging first internal shortfall by 4.5 dimensionless time units with deficit already accrued while the delivered flux continues rising, and an exact-boundary witness whose tissue receipt differs by two-thirds. Eight tests pin crossover accuracy, flux bounds, the detection-lag signature, witness invariance, balance residual, determinism, the open-margin control world, validation errors and strict bundle verification. Synthetic fixture only; no biological capability or gate movement."
+    },
+    {
+      "id": "T20",
+      "title": "Spatial internal-delivery identifiability module",
+      "gate_id": "G1",
+      "uncertainty_id": "U02",
+      "domain": "software",
+      "status": "complete",
+      "depends_on": [
+        "T19"
+      ],
+      "agent_hour_cap": 10,
+      "horizon": "second rung of the D12 modeling ladder 2026-10-17: spatial cascade identifiability of internal delivery",
+      "acceptance": "A spatial-delivery-model command publishing a verified dimensionless bundle: a compartment chain driven by boundary excitation whose observed prefix is feedforward; a witness world replacing the whole hidden segment below the observation depth (rates, service levels and even compartment count) while every observed quantity stays identical; per-compartment receipt accounting; closed-form equilibrium checks; and a cut-point statement that each added observation resolves only one more compartment.",
+      "decision_consequence": "Prove the structural core of the T18 measurement contract: boundary-plus-bulk readouts cannot distinguish served from unserved internal tissue, and the model dimension of the hidden segment is unidentifiable from the boundary - so spatially resolved internal receipt is a mathematical requirement, not a preference.",
+      "stop_rule": "In silico modeling is the program's working mode (D12) and is not conditioned on the biological gates, which bind physical execution; all values are invented dimensionless fixture quantities, synthetic results are never biological assays, and the cut-point statement is a mathematical observation requirement, not a sensor or biopsy recommendation. No hardware purchase, remote control action or author contact.",
+      "inputs": [
+        "INSILICO_MODELING_CORRECTION_2026-10-17.md modeling ladder",
+        "transport_identifiability rate-swap witness method",
+        "WHOLE_INTERVAL_INSILICO_DESIGN_2026-10-17.md measurement contract"
+      ],
+      "evidence": [
+        {
+          "path": "src/wombmodels/spatial_delivery.py",
+          "sha256": "8440f3783ad728c3c0a52a2a10690e4270923c2ee1831ccf9fee9f6080d29613"
+        },
+        {
+          "path": "examples/spatial_delivery_fixture.json",
+          "sha256": "6f47b21a8d219b7cd3f73d4224634407be045aaf5152b2d5dad7615b39b23117"
+        }
+      ],
+      "actual_agent_hours": null,
+      "result": "Spatial identifiability module delivered: a feedforward compartment chain in which the observed prefix (interface and bulk) is bitwise shared by any world that keeps it fixed, while the hidden segment differs completely - the configured world's deep compartment consumes avidly (equilibrium at closed form) and the witness adds a slow hoarding compartment, so internal receipt differs by 78 percent with identical observed series and identical observed receipt. The number of hidden compartments is itself unidentifiable (3-compartment vs 4-compartment worlds share one boundary). Cut-point analysis: each added observed compartment resolves exactly one more step; everything below remains exchangeable. Seven tests pin observed-series identity, receipt separation, cut-point claims, closed-form equilibrium, balance residuals, determinism, validation errors and strict bundle verification. Synthetic fixture only; no biological capability or gate movement."
     }
   ],
   "decision_log": [

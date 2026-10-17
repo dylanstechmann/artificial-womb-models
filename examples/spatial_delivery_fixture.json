@@ -1,0 +1,18 @@
+{
+  "schema_version": 1,
+  "fixture_notice": "Artificial dimensionless software fixture; no physiological calibration, biological prediction or machine-control output.",
+  "dimensionless_time": {"duration": 12, "output_step": 0.25},
+  "boundary": {"excitation": 1.0},
+  "observed_depth": 2,
+  "chain": [
+    {"loss": 0.4, "transfer": 1.2, "use": 0.1},
+    {"loss": 0.3, "transfer": 0.9, "use": 0.2},
+    {"loss": 0.1, "transfer": 0.0, "use": 1.5}
+  ],
+  "witness_chain": [
+    {"loss": 0.4, "transfer": 1.2, "use": 0.1},
+    {"loss": 0.3, "transfer": 0.9, "use": 0.2},
+    {"loss": 0.05, "transfer": 1.0, "use": 0.05},
+    {"loss": 0.05, "transfer": 0.0, "use": 0.05}
+  ]
+}
