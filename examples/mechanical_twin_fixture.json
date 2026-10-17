@@ -1,0 +1,26 @@
+{
+  "schema_version": 1,
+  "fixture_notice": "Artificial dimensionless software fixture; no physiological calibration, biological prediction or machine-control output.",
+  "dimensionless_time": {"duration": 40, "output_step": 0.5},
+  "interval_boundaries": [10, 20, 30],
+  "growth": {"linear_rate": 0.08, "surface_exponent": 0.6666666666666666},
+  "scaling": {"capacity_coefficient": 1.3, "demand_coefficient": 1.0},
+  "bulk": {"target": 0.5, "washout": 0.6, "transfer": 1.2},
+  "internal": {"use": 0.5, "repair": 0.3, "progression_rate": 0.05},
+  "control": {"gain": 2.0, "rate_limit": 0.3, "supplement_max": 1.0},
+  "reserve": {"initial": 2.0, "draw": 0.4, "fraction": 0.5},
+  "outages": [{"start": 8, "end": 10}],
+  "monitor": {"cadence": 1.0, "noise_sd": 0.02, "seed": 20261017, "faults": [
+    {"start": 12, "end": 14, "kind": "bias", "magnitude": 0.1},
+    {"start": 22, "end": 23, "kind": "dropout", "magnitude": 0}
+  ]},
+  "variants": {
+    "living_interface": {"serve_rate": 2.0, "internal_efficiency": 0.9, "wall_coupling": 0.4},
+    "staged": {"serve_rate": 1.0, "internal_efficiency": 0.6, "wall_coupling": 0.7},
+    "synthetic": {"serve_rate": 0.5, "internal_efficiency": 0.3, "wall_coupling": 1.0}
+  },
+  "wall": {"load_coefficient": 2.0, "viscosity": 0.8, "stiffness_coefficient": 3.0,
+            "stiffness_exponent": 0.6666666666666666, "safe_strain": 0.4,
+            "strain_limit": 0.8, "damage_rate": 0.1},
+  "analysis": {"separation_tolerance": 0.1, "served_threshold": 0.9}
+}

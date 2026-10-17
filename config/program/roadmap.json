@@ -1410,6 +1410,40 @@
       ],
       "actual_agent_hours": null,
       "result": "Growth-accommodation mechanics module delivered: mechanical square-cube crossover (equilibrium strain crosses the strain limit at analytic size 1.5^3, time 19.79; tracked strain crosses within two output steps at 20.25) with the observable channel separating accommodation regimes immediately - the fixed-stiffness wall fails at 4.75, four times earlier than the growth-paced wall, with final strains 1.52 versus 0.55 - and an early-warning window of 7.75 dimensionless time units between detection (12.5) and failure with damage already accrued. The damage witness shares one strain series bitwise while accumulated damage differs by 300 percent: hidden wear is invisible in strain readings by construction. Nine tests pin the analytic crossover, witness invariance, observable-channel separation, the early-warning window, equilibrium tracking, balance residuals, determinism, the never-failing control world, validation errors and strict verification. Synthetic fixture only; no biological capability or gate movement."
+    },
+    {
+      "id": "T23",
+      "title": "Coupled mechanical twin module",
+      "gate_id": "G3",
+      "uncertainty_id": "U05",
+      "domain": "software",
+      "status": "complete",
+      "depends_on": [
+        "T21",
+        "T22"
+      ],
+      "agent_hour_cap": 10,
+      "horizon": "second twin iteration 2026-10-17: the T22 wall coupled into the T21 whole-path twin",
+      "acceptance": "A mechanical-twin-model command publishing a verified dimensionless bundle: the whole-path world plus a per-variant chamber wall coupled one-way from the running world to the wall (load driven by bulk stock and the variant's interface coupling to the delivered flux), with the run itself verifying that the fluidic trajectories match the uncoupled whole-path twin exactly; pairwise separation over the fluidic boundary observables, the wall-strain mechanical boundary observable, the fluidic internal observables and the hidden wall-damage state; and per-variant wall summaries with strain-limit crossing times.",
+      "decision_consequence": "The boundary observability result is refined, not overturned: the fluidic exchange channel still never separates any variant pair, but interface coupling transmits variant identity into wall strain - a boundary-observable mechanical channel that separates every pair at the first handoff - while wall damage stays hidden by construction because it enters no observable's derivative. The one-way coupling is a modeling choice the run verifies at runtime by re-executing the uncoupled T21 twin in-process and matching trajectories exactly.",
+      "stop_rule": "In silico modeling is the program's working mode (D12) and is not conditioned on the biological gates, which bind physical execution; all values are invented dimensionless fixture quantities, the Kelvin-Voigt wall is an abstract viscoelastic element, wall damage is invented linear accounting of strain excess, and the one-way coupling is a fixture modeling choice, not a claim that a physical wall cannot feed back. No hardware purchase, remote control action or author contact.",
+      "inputs": [
+        "INSILICO_MODELING_CORRECTION_2026-10-17.md modeling ladder",
+        "whole_path_twin.py first twin iteration",
+        "growth_mechanics.py wall fixture"
+      ],
+      "evidence": [
+        {
+          "path": "src/wombmodels/mechanical_twin.py",
+          "sha256": "cf2fdcd2eee202e09f7af2e3526f641ab303f7e2cf05d7387ed6bf63a7eaefbf"
+        },
+        {
+          "path": "examples/mechanical_twin_fixture.json",
+          "sha256": "690a253d3c7178a1ff65fcb67c236a99e5a3b8c52da7bcf43217b7062ea2c065"
+        }
+      ],
+      "actual_agent_hours": null,
+      "result": "Coupled mechanical twin delivered: the run verifies one-way coupling at runtime by re-executing the uncoupled whole-path twin in-process - fluidic trajectories match exactly, so every T21 result carries over unchanged (fluidic boundary observables never separate any pair; internal receipt and progression separate every pair at the first handoff). The wall adds a boundary-observable mechanical channel: wall strain separates every pair at the first handoff through per-variant interface coupling (final strains 0.82/1.08/1.34, limit crossings ordered synthetic 0.5 < staged 1.5 < living 14.0), while wall damage separates every pair but enters no observable's derivative and stays hidden. The outage signature appears in strain (synthetic falls from 1.20 to 0.63 during the outage and rebounds to 1.11 after reseating), and a control world with identical coupling produces no mechanical signature for that pair - the signature is exactly the interface coupling. Ten tests pin the one-way carryover, the unchanged fluidic separations, the mechanical separations, damage hiddenness, coupling ordering, the outage signature, the identical-coupling control world, determinism, validation errors and strict verification. Synthetic fixture only; no biological capability or gate movement."
     }
   ],
   "decision_log": [
