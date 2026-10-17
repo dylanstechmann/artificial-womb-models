@@ -104,6 +104,7 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | T16 First physical discovery feedback contract | G1 | no | 4 | none |
 | T17 Whole-system in silico design | G1 | no | 16 | none |
 | T18 Whole-interval in silico design extension | G3 | no | 8 | none |
+| T19 Growth-scaling exchange module | G3 | no | 12 | none |
 
 ## Uncertainties
 
@@ -169,5 +170,8 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | T17 | config/schematics/early_exchange_system_v2.json | matches |
 | T18 | WHOLE_INTERVAL_INSILICO_DESIGN_2026-10-17.md | matches |
 | T18 | config/schematics/whole_interval_system_v3.json | matches |
+| T19 | INSILICO_MODELING_CORRECTION_2026-10-17.md | matches |
+| T19 | src/wombmodels/growth_scaling.py | matches |
+| T19 | examples/growth_scaling_fixture.json | matches |
 
 For the next work cycle, read PROGRAM_PLAN.md and the original task acceptance conditions. Match each claimed result to its gate and uncertainty. Hold a branch after two cycles with no usable new information. Do not contact authors or other people. No new process or automation is started by this status command.

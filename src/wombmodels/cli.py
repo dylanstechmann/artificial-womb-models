@@ -12,6 +12,7 @@ from .design_sweep import sweep
 from .developmental_models import simulate_mechanics, simulate_transport
 from .evidence import evidence_report
 from .exchange import simulate
+from .growth_scaling import growth_scaling
 from .identifiability import analyze
 from .hori_source import audit_hori_source
 from .fattahi_source import audit_fattahi_source
@@ -86,6 +87,9 @@ def main(argv=None) -> int:
     transport_diagnostic = commands.add_parser("transport-identifiability", help="Construct dimensionless core-only and equilibrium observation ambiguities; no empirical fit")
     transport_diagnostic.add_argument("--config", type=Path, required=True)
     transport_diagnostic.add_argument("--out", type=Path, required=True)
+    growth_model = commands.add_parser("growth-scaling-model", help="Run the dimensionless growth-paced capacity-scaling exchange fixture; no empirical fit")
+    growth_model.add_argument("--config", type=Path, required=True)
+    growth_model.add_argument("--out", type=Path, required=True)
     exchange = commands.add_parser("simulate", help="Run a dimensionless, nonphysiologic exchange fixture")
     exchange.add_argument("--config", type=Path, required=True)
     exchange.add_argument("--out", type=Path, required=True)
@@ -162,6 +166,8 @@ def main(argv=None) -> int:
             receipt = audit_crest_linkage(args.sdrf, args.archive, args.out)
         elif args.command == "transport-identifiability":
             receipt = transport_identifiability(args.config, args.out)
+        elif args.command == "growth-scaling-model":
+            receipt = growth_scaling(args.config, args.out)
         elif args.command == "identifiability-report":
             receipt = analyze(args.config, args.trajectory, args.out)
         elif args.command == "design-sweep":

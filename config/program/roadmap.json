@@ -1273,6 +1273,43 @@
       ],
       "actual_agent_hours": null,
       "result": "Whole-interval design delivered: I1-I4 interval decomposition with every boundary a same-unit pre/post D/M/P event and complete disposition, growth-paced delivery requirement, competing-failure register (internal delivery lag, tissue-use failure, vascular/fluid dysfunction, missing interactions, selection/stage mismatch) each with observable and forbidden inference, destructive-branch separation test-enforced from transition readiness, transition readiness with retained uncertainty, and ten-unit concurrency kept as an aspiration annex. Growth-scaling of exchange capacity identified as the fixture gap. Design only; no biological capability or gate movement."
+    },
+    {
+      "id": "T19",
+      "title": "Growth-scaling exchange module",
+      "gate_id": "G3",
+      "uncertainty_id": "U05",
+      "domain": "software",
+      "status": "complete",
+      "depends_on": [
+        "T18"
+      ],
+      "agent_hour_cap": 12,
+      "horizon": "first rung of the D12 modeling ladder 2026-10-17: executable growth-paced capacity scaling of the exchange surface",
+      "acceptance": "A growth-scaling-model command publishing a verified dimensionless bundle: size/capacity/demand geometry with analytic crossover size and time; request/served dynamics with the delivered-flux bound min(demand*request, capacity); cumulative internal deficit with a balance residual; boundary-visible shortfall detection time against the deficit already accrued at that time; and a witness world sharing the boundary exactly while differing in tissue receipt, demonstrating internal distribution efficiency is invisible at the exchange boundary by construction.",
+      "decision_consequence": "Convert the T18 design's declared internal-delivery-lag failure mode into a runnable mechanism: when a sub-linear capacity surface feeds a linearly growing sink, the boundary flux keeps rising in absolute terms while service falls behind, so boundary-only readouts report adequate supply during accumulating shortfall.",
+      "stop_rule": "In silico modeling is the program's working mode (D12) and is not conditioned on the biological gates, which bind physical execution; all values are invented dimensionless fixture quantities, synthetic results are never biological assays, and no hardware purchase, remote control action, transition procedure or author contact arises. No biological units, gestational claims or success rates.",
+      "inputs": [
+        "INSILICO_MODELING_CORRECTION_2026-10-17.md",
+        "WHOLE_INTERVAL_INSILICO_DESIGN_2026-10-17.md competing-failure register",
+        "MIDGESTATION_BOUNDARY.md internal-delivery-lag explanation"
+      ],
+      "evidence": [
+        {
+          "path": "INSILICO_MODELING_CORRECTION_2026-10-17.md",
+          "sha256": "bd14432cc9a151281192f0937e847f291ae2453d0ccf18a15440f711deb055c9"
+        },
+        {
+          "path": "src/wombmodels/growth_scaling.py",
+          "sha256": "d7f10ab2f659e12e6451ac6bf17c87a53748e8c83d494ea2eb0ad8b8e485d1a3"
+        },
+        {
+          "path": "examples/growth_scaling_fixture.json",
+          "sha256": "a0c3d95d1e095625bd097e12aa55963a8590da32adb6513bcfc7ffd01dd1eddc"
+        }
+      ],
+      "actual_agent_hours": null,
+      "result": "Executable growth-scaling module delivered: analytic crossover (margin closes at an exact size because capacity grows sub-linearly with the surface exponent while demand grows with the size), RK4 integration with bounded substeps and exact flux invariants, boundary detection lagging first internal shortfall by 4.5 dimensionless time units with deficit already accrued while the delivered flux continues rising, and an exact-boundary witness whose tissue receipt differs by two-thirds. Eight tests pin crossover accuracy, flux bounds, the detection-lag signature, witness invariance, balance residual, determinism, the open-margin control world, validation errors and strict bundle verification. Synthetic fixture only; no biological capability or gate movement."
     }
   ],
   "decision_log": [
@@ -1353,6 +1390,13 @@
       "decision": "Owner selects extending the in silico design over the variant-signature sweep and the acquisition specification: T18 carries the whole working system through sustained exchange, fetal maturation and neonatal transition, with same-unit boundary continuity events at every interval handoff. Ten-unit concurrency stays an aspiration annex; no new evidence comparison or gate movement.",
       "trigger": "Owner selection 2026-10-17 among the post-T17 next-work options.",
       "review": "Design only; grounded in the midgestation competing-explanation map and the completed T13 assessment. No biological gate advances; independent scientific review remains unestablished."
+    },
+    {
+      "id": "D12",
+      "date": "2026-10-17",
+      "decision": "Owner correction recorded: modeling physical worlds in silico is the program's working mode, not a phase to close out in favor of the acquisition decision. The physical resource decision consumes the in silico twin as its specification rather than ending the modeling. Adopt a modeling ladder: T19 growth-scaling exchange module, T20 spatial internal-delivery identifiability, T21 integrated whole-system twin (absorbing the variant-signature sweep), T22 growth-accommodation mechanics. The dimensionless convention and stop rules are unchanged; synthetic results are never biological assays and no gate moves.",
+      "trigger": "Agent recommended exiting the in silico phase to the acquisition specification; owner corrected 2026-10-17: the program is modeling physical worlds in silico.",
+      "review": "Planning only; recorded in INSILICO_MODELING_CORRECTION_2026-10-17.md. No biological gate advances; independent scientific review remains unestablished."
     }
   ],
   "planning_calendar": {

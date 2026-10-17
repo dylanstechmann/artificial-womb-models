@@ -46,6 +46,7 @@ KNOWN_BUNDLE_KINDS = frozenset({
     "dimensionless_transport_numerical_verification",
     "dimensionless_transport_regime_matrix_verification",
     "dimensionless_mechanics_numerical_verification",
+    "dimensionless_growth_scaling_theory",
 })
 DIMENSIONLESS_BUNDLE_KINDS = frozenset({
     "synthetic_exchange_software_fixture",
@@ -58,6 +59,7 @@ DIMENSIONLESS_BUNDLE_KINDS = frozenset({
     "dimensionless_transport_numerical_verification",
     "dimensionless_transport_regime_matrix_verification",
     "dimensionless_mechanics_numerical_verification",
+    "dimensionless_growth_scaling_theory",
 })
 
 
