@@ -12,11 +12,92 @@ The [research program](RESEARCH_PROGRAM.md) supplies the detailed transition and
 
 The [machine concept design](SYSTEM_DESIGN.md) proposes an individual continuous gestation unit, a dedicated support/observation station and a neonatal transition station. It specifies functional requirements, alternative interfaces, outcome assessment and research gates. Complete human embryo-to-birth support remains unestablished; the document is an AI-assisted research architecture, not a build specification or a guarantee of a healthy child.
 
+Start with the [document map](DOCUMENT_MAP.md), which groups every root document, or jump to the [quick start](#quick-start), the [in silico modeling work](#in-silico-design-and-modeling) or the [command reference](#command-reference).
+
+## Quick start
+
+Python 3.10 or newer; the runtime has no third-party dependencies.
+
+```bash
+python -m venv .venv
+. .venv/bin/activate        # Windows PowerShell: .venv\Scripts\Activate.ps1
+python -m pip install -e .
+wombmodels simulate --config examples/exchange_fixture.json --out artifacts/exchange-v1
+wombmodels verify-bundle --bundle artifacts/exchange-v1 --strict
+python -W error::ResourceWarning -m unittest discover -s tests
+```
+
+Every output directory must be new, so repeat a command with a different `--out`. All numerical outputs are dimensionless software fixtures. In a fresh clone, the tests that audit locally held source files are reported as skipped rather than passed; see [Development and verification](#development-and-verification).
+
 ## What you can run
 
 The [program status workflow](config/program/README.md) checks pinned local evidence and transitive task dependencies, then publishes a fresh receipt-backed status bundle. It cannot establish scientific acceptance or advance a biological gate.
 
 The [machine concept schematic](config/schematics/ectogenesis_platform_v1.json) renders the automation-first platform layout (containment, fluidics, monitoring/control and robotic servicing with human override) as a standalone SVG/HTML page via `python -m wombmodels.schematics --config config/schematics/ectogenesis_platform_v1.json --out <new-dir>`. It is a concept layout for planning and criticism, not a build specification.
+
+### In silico design and modeling
+
+Decision D12 (2026-10-17) made modeling the physical system in silico the program's working mode rather than a phase to finish; the [correction record](INSILICO_MODELING_CORRECTION_2026-10-17.md) explains why. The designs are in silico concepts and the fixtures are artificial dimensionless software constructs. None carries physiological calibration, biological prediction, a setpoint or machine-control output, and no synthetic result is registered as a biological assay.
+
+| Task | Deliverable | Where |
+| --- | --- | --- |
+| T17 | Whole-system design of the early exchange interval: one shared function skeleton with living-interface, staged-support and synthetic-replacement variants | [design](WHOLE_SYSTEM_INSILICO_DESIGN_2026-10-17.md), [schematic v2](config/schematics/early_exchange_system_v2.json) |
+| T18 | The same system carried through sustained exchange, fetal maturation and neonatal transition | [design](WHOLE_INTERVAL_INSILICO_DESIGN_2026-10-17.md), [schematic v3](config/schematics/whole_interval_system_v3.json) |
+| T19 | Growth-paced capacity-scaling exchange fixture | `growth-scaling-model` |
+| T20 | Spatial internal-delivery identifiability fixture | `spatial-delivery-model` |
+| T21 | Integrated whole-path system twin across the interface variants | `whole-path-twin` |
+| T22 | Growth-accommodation wall mechanics | `growth-mechanics-model` |
+| T23 | Coupled mechanical twin (one-way wall coupling) | `mechanical-twin-model` |
+| T24 | Minimum-measurement acquisition specification computed from the twin | `acquisition-spec-model` |
+| T25 | Platform and resource decision worksheet from that specification; prices stay unknown | `platform-requirements-model` |
+| T26 | Numerical stability, exact event accounting and convergence qualification of the fixture solvers | [qualification](NUMERICAL_INTEGRATION_QUALIFICATION_2026-10-22.md) |
+
+The schematics render with `python -m wombmodels.schematics --config <layout.json> --out <new-dir>`. `platform-requirements-model` consumes an `acquisition-spec-model` bundle through `--spec`. [The sequencing challenge](T05_SEQUENCING_CHALLENGE_2026-10-17.md) records why independent-reviewer recruitment was deferred behind this work, and [PROGRAM_STATUS.md](PROGRAM_STATUS.md) holds the task states.
+
+Acquisition plans qualify each channel at the first post-handoff where every variant pair separates simultaneously. Each channel's resolution and unit counts use that observation; the full sampling plan extends through the latest selected handoff. Reports distinguish partial discrimination from no discrimination, retain failed seeded confirmations, and treat a multiplier floor as not applicable when reference noise is zero. These are fixture-specific observation plans; joint-channel and longitudinal alternatives remain unassessed.
+
+The [numerical qualification](NUMERICAL_INTEGRATION_QUALIFICATION_2026-10-22.md) corrects substep clocks, integrates shortened terminal intervals, and splits twin integration at outages and reserve exhaustion. The wall subcycles independently using a stiffness/viscosity bound; coupled and uncoupled fluidic results remain exactly equal. Independent analytic solutions and refinement checks cover the repaired cases. Stability guards and passing examples do not establish accuracy for every allowed configuration.
+
+### Command reference
+
+The `wombmodels` command has one subcommand per row. Fixture-driven commands run from a fresh clone. The `audit-*` commands verify a published source file against a pinned SHA-256; this repository does not redistribute those files.
+
+| Command | What it does | Input |
+| --- | --- | --- |
+| `evidence-report` | Validate and report a reviewed evidence ledger | `config/evidence.json` |
+| `validate-observations` | Validate source-linked developmental observations and preserve exact-unit groups | a dataset card, e.g. `examples/observation_intake_fixture.json` or `config/observations/`; `--source-root` hashes local source files |
+| `validate-phenotypes` | Audit individual phenotype coverage, exclusions and experiment/source hierarchy; no effect estimation | a dataset card, e.g. `examples/phenotype_intake_fixture.json` |
+| `audit-hori-source` | Audit the pinned Hori 2024 Figure 5G workbook offline; no model fit | a pinned published workbook (not redistributed here) |
+| `audit-fattahi-source` | Audit pinned Figure 2 functional readouts offline; no pairing or model fit | a pinned published workbook (not redistributed here) |
+| `collection-accounting` | Construct dimensionless concentration/inventory/collection ambiguities; no biological fit | `examples/collection_accounting_fixture.json` |
+| `audit-roelofsen-source` | Recover pinned embedded native Prism CSV tables offline; no saved analysis or model fit | a pinned published supplement (not redistributed here) |
+| `audit-mathiesen-source` | Audit pinned human placental perfusion concentrations offline; preserve time, run mapping and source-validity windows without fitting | a pinned published article, workbook and three tables (not redistributed here) |
+| `audit-guo-source` | Audit pinned niche mechanical/profile cells and candidate developmental percentages; no fit or pairing | a pinned published workbook (not redistributed here) |
+| `audit-yolk-sac-source` | Audit pinned mouse yolk-sac readout cells and source timing; no unit inference or fit | a pinned published workbook (not redistributed here) |
+| `audit-boundary-source` | Audit pinned native boundary/growth source CSV linkage offline; no biological identity inference or fit | a pinned published CSV archive (not redistributed here) |
+| `audit-crest-linkage` | Audit pinned early-interface sample pools and annotation labels offline; no phenotype fit | a pinned published SDRF table and code archive (not redistributed here) |
+| `transport-identifiability` | Construct dimensionless core-only and equilibrium observation ambiguities; no empirical fit | `examples/transport_identifiability_fixture.json` |
+| `growth-scaling-model` | Run the dimensionless growth-paced capacity-scaling exchange fixture; no empirical fit | `examples/growth_scaling_fixture.json` |
+| `growth-mechanics-model` | Run the dimensionless growth-accommodation wall fixture; no empirical fit | `examples/growth_mechanics_fixture.json` |
+| `mechanical-twin-model` | Run the dimensionless coupled mechanical twin; no empirical fit | `examples/mechanical_twin_fixture.json` |
+| `acquisition-spec-model` | Compute the dimensionless minimum-measurement acquisition specification from the twin; no empirical fit | `examples/acquisition_spec_fixture.json` |
+| `platform-requirements-model` | Turn the published acquisition specification into the dimensionless capability worksheet; prices stay unknown | `examples/platform_requirements_fixture.json` and an `acquisition-spec-model` bundle (`--spec`) |
+| `spatial-delivery-model` | Run the dimensionless spatial internal-delivery identifiability fixture; no empirical fit | `examples/spatial_delivery_fixture.json` |
+| `whole-path-twin` | Run the dimensionless whole-path system twin across interface variants; no empirical fit | `examples/whole_path_twin_fixture.json` |
+| `simulate` | Run a dimensionless, nonphysiologic exchange fixture | `examples/exchange_fixture.json` |
+| `identifiability-report` | Analyze dimensionless input/conversion identifiability from a synthetic trajectory | `examples/exchange_fixture.json` and the `simulate` trajectory |
+| `design-sweep` | Compare bounded seeded cadence/noise, monitor-fault and event-timing profiles | `examples/exchange_fixture.json` |
+| `desk-status` | Read-only discovery of a local ResearchDesk ectogenesis blueprint | a ResearchDesk server on a numeric loopback address |
+| `transport-model` | Run a dimensionless two-compartment transport theory fixture | `examples/transport_fixture.json` |
+| `mechanics-model` | Run a dimensionless Kelvin–Voigt mechanics theory fixture | `examples/mechanics_fixture.json` |
+| `verify-transport` | Measure dimensionless transport Euler error against a closed-form reference | `examples/transport_fixture.json` |
+| `verify-mechanics` | Check dimensionless mechanics against a closed-form piecewise-load reference | `examples/mechanics_fixture.json` |
+| `verify-transport-matrix` | Check transport Euler convergence across seven dimensionless rate regimes | `examples/transport_fixture.json` |
+| `verify-bundle` | Verify a published bundle's receipt, files, parent ancestry and declared dependencies | any published bundle directory |
+
+### Source audits and intake notes
+
+What follows is the detailed account of each source audit and intake module, roughly in the order the work was done. Each paragraph keeps its own limits; none of these candidates establishes continuous human gestation.
 
 The [niche-source qualification](NICHE_SOURCE_QUALIFICATION.md) adds
 `audit-guo-source`: a pinned read-only audit of mouse niche mechanical/profile
@@ -101,8 +182,6 @@ with their exact reported units, separate from model fixtures. The inspected
 files cannot support an independent-unit transport benchmark; missing
 trajectories, unit linkage and review requirements are recorded explicitly.
 
-Python 3.10+; the runtime has no third-party dependencies.
-
 [Interface feasibility](INTERFACE_FEASIBILITY.md) now defines separate
 exchange-identifiability and tissue-interaction questions. The runnable
 `transport-identifiability` diagnostic exposes an exact core-only ambiguity
@@ -152,6 +231,10 @@ inventory/recovery and calibration records keep dimensional fitting ineligible.
 Run `audit-mathiesen-source` (including `--s3-table` for a non-joining candidate
 key screen) followed by `validate-observations` to reproduce the candidate
 bundles.
+
+### Example commands and outputs
+
+Windows PowerShell forms of the main fixture commands, each writing a new directory under `artifacts/`.
 
 ```powershell
 python -m venv .venv
@@ -214,8 +297,9 @@ The report keeps the questions apart: `bytes_verified` (bundle integrity),
 matches), `scientific_review`, always `not_established_by_this_tool`, and
 `reproduction`, always `not_attempted`. `--strict` also fails on files the
 receipt does not declare and on bundle kinds this package does not publish.
-Adding these verification steps to the GitHub Actions workflow is still pending:
-publishing a workflow change needs a token with the `workflow` scope.
+The GitHub Actions workflow runs `verify-bundle --strict` on its simulation and
+identifiability bundles, then on a renamed copy of the identifiability bundle
+after the original directories are deleted.
 
 ## Developmental scope
 
@@ -269,6 +353,15 @@ On a host with Python, after installing the package:
 python -W error::ResourceWarning -m unittest discover -s tests -v
 ```
 
+`artifacts/` is gitignored. It holds the published source files that the source audits pin by SHA-256 (not redistributed here) and the bundles built from them, so a fresh clone lacks it. Tests that audit those files carry `requires_local_evidence` ([tests/local_evidence.py](tests/local_evidence.py)) and are reported as **skipped**, never as passed. With the full local `artifacts/` tree nothing is skipped, and a missing or changed file inside a directory that is present still fails. Everything else runs in a clean clone, which is what GitHub Actions executes on Python 3.10, 3.12 and 3.13.
+
+Before pushing, run `python scripts/clean_checkout_tests.py`. It exports the working tree as a clean clone would receive it (tracked and new files, `.gitattributes` applied, no `artifacts/`) into a temporary directory and runs the suite there, so a test that only passes beside the local evidence is caught. `.gitattributes` keeps the curated data under `config/observations`, `config/perfusion_observations` and `config/source_inventories` byte-exact, because tests, source inventories and the program register pin those files by SHA-256 and byte size.
+
 The sensitivity and identifiability diagnostic asks whether scheduled measurements from this dimensionless fixture separate powered input from conversion. High parameter correlation, a poorly conditioned design, or weak later-interval fit expose ambiguity. These are diagnostics of software equations, not biological measurement design. [METHODS.md](METHODS.md) describes estimation and limits; [ROADMAP.md](ROADMAP.md) describes the research path.
 
-The code is MIT licensed. Source papers retain their original rights; the ledger contains short attributed summaries and links, not redistributed article text or figures.
+## Credits, sources and licence
+
+- **Research.** This repository maps and audits other people's work; it does not reproduce it. The curated ledger ([EVIDENCE.md](EVIDENCE.md), `config/evidence.json`) draws on [Partridge et al. 2017](https://doi.org/10.1038/ncomms15112) (Nature Communications), [Aguilera-Castrejon et al. 2021](https://doi.org/10.1038/s41586-021-03416-3) (Nature) and [Usuda et al. 2023](https://doi.org/10.3389/fphys.2023.1219185) (Frontiers in Physiology), plus an FDA 2023 background presentation and a 2026 Hospital Clinic BCNatal announcement, which the ledger keeps separate from peer-reviewed results. The dated source screens in the [document map](DOCUMENT_MAP.md) cover many further studies and public datasets. Each audit or intake card records the source it inspected, its retrieval date and a SHA-256 for the file; the authors and data depositors retain all rights.
+- **Software.** Python standard library only at runtime. GitHub Actions runs the tests, and GitHub renders the Mermaid diagram.
+- **AI assistance.** Substantial assistance from AI coding tools, Anthropic's Claude among them (some commit trailers name it), went into the code, tests and documents. Analyses here were run by AI agents working from the owner's instructions; unless a document records a review by the owner or an independent reviewer, treat its results as unreviewed.
+- **Licence.** The code is MIT licensed. Source papers retain their original rights; the ledger contains short attributed summaries and links, not redistributed article text or figures.

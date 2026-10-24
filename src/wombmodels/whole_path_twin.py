@@ -24,6 +24,7 @@ from pathlib import Path
 from .artifacts import InputError, csv_bytes, json_bytes, publish_bundle, read_json
 from .exchange import NOTICE, fields, intervals, number
 from .growth_scaling import analytic_crossover
+from .numerics import output_times, require_finite
 
 MAX_OUTPUT_INTERVALS = 50_000
 MAX_TOTAL_SUBSTEPS = 4_000_000
@@ -127,7 +128,7 @@ def _fault_at(faults, time):
     return None
 
 
-def _right_hand_side(time, state, parameters, held_reading):
+def _right_hand_side(time, state, parameters, held_reading, operating=None):
     """Derivatives of [request, bulk, tissue, unserved, progression, reserve, supplement]."""
     growth, scaling, bulk, internal, control, reserve, outages, variant = parameters
     size = 1.0 + growth["linear_rate"] * time
@@ -135,10 +136,13 @@ def _right_hand_side(time, state, parameters, held_reading):
     demand = scaling["demand_coefficient"] * size
     margin = capacity / demand
     request, stock, tissue, unserved, progression, remaining, supplement = state
-    outage = _in_outage(outages, time)
-    multiplier = 1.0
-    if outage:
-        multiplier = reserve["fraction"] if remaining > 0 else 0.0
+    if operating is None:
+        outage = _in_outage(outages, time)
+        active_backup = outage and remaining > 0
+        multiplier = reserve["fraction"] if active_backup else (0.0 if outage else 1.0)
+        draw = reserve["draw"] if active_backup else 0.0
+    else:
+        multiplier, draw = operating
     d_request = variant["serve_rate"] * (min(1.0, margin) - request)
     delivered = min(demand * request, capacity) * multiplier
     served = delivered / demand
@@ -147,36 +151,40 @@ def _right_hand_side(time, state, parameters, held_reading):
     d_unserved = demand * (1.0 - served) - internal["repair"] * unserved
     receipt = internal["use"] * tissue
     d_progression = internal["progression_rate"] * min(1.0, receipt / demand)
-    d_reserve = -reserve["draw"] if outage and remaining > 0 else 0.0
+    d_reserve = -draw
     correction = control["gain"] * (bulk["target"] - held_reading)
     d_supplement = max(-control["rate_limit"], min(control["rate_limit"], correction))
     return [d_request, d_bulk, d_tissue, d_unserved, d_progression, d_reserve, d_supplement]
 
 
-def _rk4_step(time, state, substep, parameters, held_reading):
-    first = _right_hand_side(time, state, parameters, held_reading)
+def _rk4_step(time, state, substep, parameters, held_reading, operating=None, observer=None):
+    first = _right_hand_side(time, state, parameters, held_reading, operating)
     second = _right_hand_side(time + 0.5 * substep,
                               [value + 0.5 * substep * rate for value, rate in zip(state, first)],
-                              parameters, held_reading)
+                              parameters, held_reading, operating)
     third = _right_hand_side(time + 0.5 * substep,
                              [value + 0.5 * substep * rate for value, rate in zip(state, second)],
-                             parameters, held_reading)
+                             parameters, held_reading, operating)
     fourth = _right_hand_side(time + substep,
                               [value + substep * rate for value, rate in zip(state, third)],
-                             parameters, held_reading)
+                             parameters, held_reading, operating)
+    if observer is not None:
+        observer.advance(time, state, substep, (first, second, third, fourth), operating)
     return [value + substep * (a + 2 * b + 2 * c + d) / 6.0
             for value, a, b, c, d in zip(state, first, second, third, fourth)]
 
 
-def _variant_run(name, variant, shared, duration, step, boundaries):
+def _variant_run(name, variant, shared, duration, step, boundaries, observer=None):
     """One deterministic whole-path run; control and monitor use separate streams."""
     growth, scaling, bulk, internal, control, reserve, outages = shared[:7]
     cadence, noise_sd, seed, faults = shared[7:]
     parameters = (growth, scaling, bulk, internal, control, reserve, outages, variant)
-    rate_scale = (max(variant["serve_rate"], bulk["washout"] + bulk["transfer"], internal["use"])
+    rate_scale = (max(variant["serve_rate"], bulk["washout"] + bulk["transfer"],
+                      internal["use"], internal["repair"])
                   + control["gain"] + reserve["draw"])
     substeps = max(1, math.ceil(step * rate_scale / SUBSTEP_RATE_TARGET))
-    intervals_count = int(duration / step)
+    times = output_times(duration, step)
+    intervals_count = len(times) - 1
     if intervals_count * substeps > MAX_TOTAL_SUBSTEPS:
         raise InputError(f"Integration exceeds the {MAX_TOTAL_SUBSTEPS}-substep budget")
     rng_control = random.Random(seed)
@@ -185,8 +193,9 @@ def _variant_run(name, variant, shared, duration, step, boundaries):
     held_reading = 0.0
     rows = []
     readings = []
-    for index in range(intervals_count + 1):
-        time = duration if index == intervals_count else index * step
+    work = 0
+    edges = sorted({item[key] for item in outages for key in ("start", "end")})
+    for index, time in enumerate(times):
         size = 1.0 + growth["linear_rate"] * time
         capacity = scaling["capacity_coefficient"] * size ** growth["surface_exponent"]
         demand = scaling["demand_coefficient"] * size
@@ -199,6 +208,8 @@ def _variant_run(name, variant, shared, duration, step, boundaries):
                      "bulk_stock": state[1], "deep_receipt_rate": internal["use"] * state[2],
                      "cumulative_unserved": state[3], "progression": state[4],
                      "reserve": state[5], "supplement": state[6], "controller_reading": held_reading})
+        if observer is not None:
+            rows[-1].update(observer.observe(time, rows[-1]))
         if index == intervals_count:
             break
         if noise_sd:
@@ -215,13 +226,40 @@ def _variant_run(name, variant, shared, duration, step, boundaries):
                     value += fault["magnitude"]
             readings.append({"dimensionless_time": time, "reading": value,
                              "fault": fault["kind"] if fault else ""})
-        substep = step / substeps
-        for _ in range(substeps):
-            state = _rk4_step(time, state, substep, parameters, held_reading)
-            state[0] = min(max(state[0], 0.0), 1.0)
-            state[6] = min(max(state[6], 0.0), control["supplement_max"])
-            for position in (2, 3, 4, 5):
-                state[position] = max(state[position], 0.0)
+        cursor, end = time, times[index + 1]
+        while cursor < end:
+            stop = min([end] + [edge for edge in edges if cursor < edge < end])
+            outage = _in_outage(outages, cursor)
+            active_backup = outage and state[5] > 0.0
+            draw = reserve["draw"] if active_backup else 0.0
+            power = reserve["fraction"] if active_backup else (0.0 if outage else 1.0)
+            depletion = cursor + state[5] / draw if draw > 0.0 else None
+            if depletion is not None:
+                stop = min(stop, depletion)
+            if stop <= cursor:
+                # A positive reserve below clock resolution has no representable
+                # remaining operating interval. Pin it empty without looping.
+                state[5] = 0.0
+                continue
+            count = max(1, math.ceil((stop - cursor) * rate_scale / SUBSTEP_RATE_TARGET))
+            work += count
+            if work > MAX_TOTAL_SUBSTEPS:
+                raise InputError(f"Integration exceeds the {MAX_TOTAL_SUBSTEPS}-substep budget")
+            segment_start, segment_reserve = cursor, state[5]
+            substep = (stop - cursor) / count
+            for inner in range(count):
+                subtime = segment_start + inner * substep
+                state = _rk4_step(subtime, state, substep, parameters, held_reading,
+                                  (power, draw), observer)
+                require_finite(state)
+                state[0] = min(max(state[0], 0.0), 1.0)
+                state[6] = min(max(state[6], 0.0), control["supplement_max"])
+                for position in (1, 2, 3, 4):
+                    state[position] = max(state[position], 0.0)
+                state[5] = max(0.0, segment_reserve - draw * (inner + 1) * substep)
+            if depletion is not None and stop == depletion:
+                state[5] = 0.0
+            cursor = stop
     events = _boundary_events(name, rows, boundaries, step)
     return rows, readings, events
 
@@ -325,6 +363,11 @@ def whole_path_twin(config_path: Path, output: Path) -> dict:
         "human_gestation_prediction": False,
         "n_intervals": len(boundaries) + 1, "boundaries": boundaries,
         "variants": sorted(variants), "crossover": crossover,
+        "integration": {"method": "RK4 with advancing substep clocks",
+                        "power_events": "split at outage edges and reserve exhaustion; modes frozen per segment",
+                        "reserve_accounting": "analytic draw over each segment, pinned zero at exhaustion",
+                        "max_substeps_per_variant": MAX_TOTAL_SUBSTEPS,
+                        "terminal_interval": "shortened when duration is off the output grid"},
         "variant_summaries": dispositions, "pairwise_separation": pairs,
         "separation_tolerance": analysis["separation_tolerance"],
         "interpretation": {

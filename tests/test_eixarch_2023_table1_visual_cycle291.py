@@ -4,6 +4,8 @@ import re
 import unittest
 from pathlib import Path
 
+from local_evidence import requires_local_evidence
+
 
 ROOT = Path(__file__).resolve().parents[1]
 ART = ROOT / "artifacts/eixarch-2023-group-outcomes-2026-10-11-cycle291"
@@ -11,6 +13,10 @@ CANDIDATE = ROOT / "config/observations/eixarch_2023_support_outcomes_candidate.
 INVENTORY = ROOT / "config/source_inventories/fetal_ovine_support_transition_2023_2026.json"
 
 
+@requires_local_evidence(
+    "eixarch-2023-group-outcomes-2026-10-11-cycle287",
+    "eixarch-2023-group-outcomes-2026-10-11-cycle291",
+)
 class Eixarch2023Table1VisualCycle291Tests(unittest.TestCase):
     def test_publisher_table_cells_and_footnote_scope_are_preserved(self):
         assessment = json.loads((ART / "table1-visual-assessment-cycle291.json").read_text(encoding="utf-8"))

@@ -26,6 +26,7 @@ from pathlib import Path
 
 from .artifacts import InputError, csv_bytes, json_bytes, publish_bundle, read_json
 from .exchange import NOTICE, fields, number
+from .numerics import output_times, require_finite
 
 MAX_OUTPUT_INTERVALS = 50_000
 MAX_TOTAL_SUBSTEPS = 4_000_000
@@ -130,18 +131,16 @@ def _rk4_step(time, state, substep, growth, scaling, chamber, paced):
 
 def _integrate(duration, step, growth, scaling, chamber, paced, damage_rate):
     """RK4 strain integration; damage accrues from the output series."""
-    rate_scale = (scaling["stiffness_coefficient"]
-                  * (1.0 + growth["linear_rate"] * duration) ** growth["stiffness_exponent"]
-                  / chamber["viscosity"])
+    rate_scale = _stiffness(scaling, growth, duration, paced) / chamber["viscosity"]
     substeps = max(1, math.ceil(step * rate_scale / SUBSTEP_RATE_TARGET))
-    intervals = int(duration / step)
+    times = output_times(duration, step)
+    intervals = len(times) - 1
     if intervals * substeps > MAX_TOTAL_SUBSTEPS:
         raise InputError(f"Integration exceeds the {MAX_TOTAL_SUBSTEPS}-substep budget")
     initial = equilibrium_strain(growth, scaling, 0.0)
     state = [initial, 0.0]
     rows = []
-    for index in range(intervals + 1):
-        time = duration if index == intervals else index * step
+    for index, time in enumerate(times):
         load = scaling["load_coefficient"] * (1.0 + growth["linear_rate"] * time) ** growth["load_exponent"]
         stiffness = _stiffness(scaling, growth, time, paced)
         strain = state[0]
@@ -152,9 +151,10 @@ def _integrate(duration, step, growth, scaling, chamber, paced, damage_rate):
                      "cumulative_damage": None})
         if index == intervals:
             break
-        substep = step / substeps
-        for _ in range(substeps):
-            state = _rk4_step(time, state, substep, growth, scaling, chamber, paced)
+        substep = (times[index + 1] - time) / substeps
+        for inner in range(substeps):
+            state = _rk4_step(time + inner * substep, state, substep, growth, scaling, chamber, paced)
+            require_finite(state)
     cumulative = 0.0
     for previous, current in zip(rows, rows[1:]):
         span = current["dimensionless_time"] - previous["dimensionless_time"]

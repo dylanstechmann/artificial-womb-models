@@ -7,6 +7,7 @@ import unittest
 from pathlib import Path
 
 from wombmodels.observations import observation_report, validate_dataset
+from local_evidence import requires_local_evidence
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -69,6 +70,7 @@ class UsudaCaseTableCandidateTests(unittest.TestCase):
             self.assertEqual(end["observation"]["measurement_time"], duration["observation"]["value"])
             self.assertEqual(start["developmental_interval"]["end"], duration["observation"]["value"])
 
+    @requires_local_evidence("feasibility-strategy-2026-10-09")
     def test_candidate_source_bytes_and_denominator_are_preserved(self):
         artifact = self.dataset["artifacts"][0]
         source_path = ROOT / artifact["local_path"]
@@ -115,6 +117,7 @@ class UsudaCaseTableCandidateTests(unittest.TestCase):
             },
         )
 
+    @requires_local_evidence("feasibility-strategy-2026-10-09")
     def test_intake_export_keeps_fetus_labels_events_and_no_inferred_transition(self):
         with tempfile.TemporaryDirectory() as temp_dir:
             output = Path(temp_dir) / "intake"

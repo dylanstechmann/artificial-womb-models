@@ -160,6 +160,26 @@ def reproduction_plan(kind: str, files: dict[str, bytes], metadata: dict) -> dic
         "dimensionless_transport_identifiability": "wombmodels transport-identifiability --config <input_config.json> --out <new-dir>",
         "dimensionless_collection_accounting": "wombmodels collection-accounting --config <input_config.json> --out <new-dir>",
         "dimensionless_mechanics_theory": "wombmodels mechanics-model --config <config.json> --out <new-dir>",
+        "reviewed_evidence_map": "wombmodels evidence-report --ledger <input_ledger.json> --out <new-dir>",
+        "dimensionless_transport_numerical_verification":
+            "wombmodels verify-transport --config <input_config.json> --out <new-dir>",
+        "dimensionless_transport_parameter_matrix_numerical_verification":
+            "wombmodels verify-transport-matrix --config <input_config.json> --out <new-dir>",
+        "dimensionless_mechanics_numerical_verification":
+            "wombmodels verify-mechanics --config <input_config.json> --out <new-dir>",
+        "dimensionless_growth_scaling_theory":
+            "wombmodels growth-scaling-model --config <input_config.json> --out <new-dir>",
+        "dimensionless_spatial_delivery_theory":
+            "wombmodels spatial-delivery-model --config <input_config.json> --out <new-dir>",
+        "dimensionless_whole_path_twin": "wombmodels whole-path-twin --config <input_config.json> --out <new-dir>",
+        "dimensionless_growth_mechanics_theory":
+            "wombmodels growth-mechanics-model --config <input_config.json> --out <new-dir>",
+        "dimensionless_mechanical_twin":
+            "wombmodels mechanical-twin-model --config <input_config.json> --out <new-dir>",
+        "dimensionless_acquisition_spec":
+            "wombmodels acquisition-spec-model --config <input_config.json> --out <new-dir>",
+        "dimensionless_platform_requirements":
+            "wombmodels platform-requirements-model --config <input_config.json> --spec <acquisition-spec-bundle> --out <new-dir>",
     }.get(kind)
     parent = metadata.get("parent_receipt_file")
     return {

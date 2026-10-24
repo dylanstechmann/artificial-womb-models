@@ -4,12 +4,15 @@ import json
 import unittest
 from pathlib import Path
 
+from local_evidence import requires_local_evidence
+
 
 ROOT = Path(__file__).resolve().parents[1]
 ARTIFACTS = ROOT / "artifacts/gse263528-maternal-interface-2026-10-11"
 INVENTORY = ROOT / "config/source_inventories/gse263528_human_embryo_endometrial_assembloid.json"
 
 
+@requires_local_evidence("gse263528-maternal-interface-2026-10-11")
 class GSE263528MetadataIntakeTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

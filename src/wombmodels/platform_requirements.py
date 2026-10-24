@@ -118,6 +118,8 @@ def platform_requirements(config_path: Path, spec_dir: Path, output: Path) -> di
             "sampling_cadence": timing["sampling_cadence"],
             "discrimination_timepoints": timing["discrimination_timepoints"],
             "surveillance_timepoints": timing["surveillance_timepoints"],
+            "selected_handoff": row["first_separated_handoff"],
+            "selected_time": timing["handoff_times"][row["first_separated_handoff"] - 1],
             "resolution_floor_multiplier": resolution["channel_floor_multiplier"][channel],
             "binding_pair": spec["binding_pair"][channel]["pair"],
             "binding_margin": spec["binding_pair"][channel]["margin"],
@@ -130,13 +132,22 @@ def platform_requirements(config_path: Path, spec_dir: Path, output: Path) -> di
     if not line_items:
         raise InputError("Source specification requires no channel; no worksheet can form")
 
-    fluidic_boundary = ("delivered_flux", "served_fraction", "bulk_stock")
+    def _exclusion_note(row):
+        reason = row["excluded_reason"]
+        if reason == "derived_not_directly_instrumentable":
+            return "derived channel; not separately procured"
+        if reason == "separates_only_some_pairs":
+            return "partial pairwise discrimination; insufficient alone for this plan"
+        if reason == "no_common_separated_handoff":
+            return "pairwise separation has no common handoff; a longitudinal plan is unassessed"
+        if row["channel"] in ("delivered_flux", "served_fraction", "bulk_stock"):
+            return "no boundary flux sensing resolution discriminates the allocations at the audited handoffs"
+        return "no pair separates at the audited handoffs; no discrimination requirement derived"
+
     non_requirements = [{
         "channel": row["channel"], "compartment": row["compartment"], "dmp": row["dmp"],
         "excluded_reason": row["excluded_reason"],
-        "note": ("no boundary flux sensing resolution discriminates the allocations"
-                 if row["channel"] in fluidic_boundary else
-                 "derived from instrumented channels; not separately procured")}
+        "note": _exclusion_note(row)}
         for row in excluded]
     route_comparison = [{
         "route": route, "supplies": supplies, "owner_retains": retains,
@@ -163,7 +174,7 @@ def platform_requirements(config_path: Path, spec_dir: Path, output: Path) -> di
         "price_totals_computed": False,
         "interpretation": {
             "line_items": "Each required channel becomes one measurement capability line item; the numbers come from the published specification unchanged, and the price of every line is unknown with an explicit quote need.",
-            "non_requirements": "The excluded channels are stated non-requirements: no boundary flux sensing resolution discriminates the allocations, wall damage is derived from instrumented strain history, and cumulative deficit is variant-identical.",
+            "non_requirements": "Each excluded channel retains its source reason. Partial or nonconcurrent discrimination does not establish that the channel is uninformative in a joint-channel or longitudinal plan.",
             "routes": "The three route options from the platform comparison each carry the supply obligations they would have to meet for exactly these channels; dispositions stay open and no quote, availability or engagement is assumed.",
             "t08": "This is the T08 reopen: the qualified requirements changed when the twin's signatures became a numeric specification, and this worksheet is the owner-controlled capability list a future quote, diligence or co-development conversation is checked against."},
         "limits": [
@@ -185,12 +196,15 @@ def platform_requirements(config_path: Path, spec_dir: Path, output: Path) -> di
             f"m={value:g}: {item['units_per_allocation_by_multiplier'][value]} unit(s)/allocation"
             + ("" if item["confirmed_by_seeded_sweep"][value] else " (unconfirmed)")
             for value in multipliers)
+        floor_text = ("noise multiplier floor not applicable (zero reference noise)"
+                      if item["resolution_floor_multiplier"] is None else
+                      f"floor {item['resolution_floor_multiplier']:.4g}x reference noise")
         lines.append(
             f"- {item['channel']} ({item['capability_class']}, {item['dmp']}): cadence "
             f"{item['sampling_cadence']}; discrimination needs "
             f"{item['discrimination_timepoints']} timepoints, surveillance "
-            f"{item['surveillance_timepoints']}; floor "
-            f"{item['resolution_floor_multiplier']:.4g}x reference noise; binding pair "
+            f"{item['surveillance_timepoints']}; selected handoff "
+            f"{item['selected_handoff']} (t={item['selected_time']}); {floor_text}; binding pair "
             f"{item['binding_pair']}; {parts}; price unknown - quote needed.")
     lines.extend(["", "## Non-requirements", ""])
     for row in non_requirements:

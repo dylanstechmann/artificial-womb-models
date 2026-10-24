@@ -3,11 +3,18 @@ import json
 import unittest
 from pathlib import Path
 
+from local_evidence import requires_local_evidence
+
 ROOT = Path(__file__).resolve().parents[1]
 ART = ROOT / "artifacts/eixarch-2023-group-outcomes-2026-10-11-cycle301"
 DATA = ROOT / "config/observations/eixarch_2026_neonatal_transition_candidate.json"
 
 
+@requires_local_evidence(
+    "eixarch-2023-group-outcomes-2026-10-11-cycle298",
+    "eixarch-2023-group-outcomes-2026-10-11-cycle301",
+    "fetal-ovine-transition-2026-10-10",
+)
 class EixarchEndpointScopeCycle301Tests(unittest.TestCase):
     def test_extubation_count_is_bounded_to_four_listed_cases(self):
         d = json.loads((ART / "endpoint-scope-assessment-cycle301.json").read_text(encoding="utf-8"))

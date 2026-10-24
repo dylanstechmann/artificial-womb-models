@@ -3,12 +3,18 @@ import json
 import unittest
 from pathlib import Path
 
+from local_evidence import requires_local_evidence
+
 ROOT = Path(__file__).resolve().parents[1]
 ART = ROOT / "artifacts/eixarch-2023-group-outcomes-2026-10-11-cycle305"
 INVENTORY = ROOT / "config/source_inventories/fetal_ovine_support_transition_2023_2026.json"
 DATA = ROOT / "config/observations/eixarch_2026_ep09_40_hpa_candidate.json"
 
 
+@requires_local_evidence(
+    "eixarch-2023-group-outcomes-2026-10-11-cycle304",
+    "eixarch-2023-group-outcomes-2026-10-11-cycle305",
+)
 class EixarchEP0940PublicRecordCycle305Tests(unittest.TestCase):
     def test_scoped_exact_search_results_and_publisher_route_are_preserved(self):
         assessment = json.loads((ART / "public-record-screen-cycle305.json").read_text(encoding="utf-8"))

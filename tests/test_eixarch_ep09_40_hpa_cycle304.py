@@ -3,6 +3,8 @@ import json
 import unittest
 from pathlib import Path
 
+from local_evidence import requires_local_evidence
+
 ROOT = Path(__file__).resolve().parents[1]
 ART = ROOT / "artifacts/eixarch-2023-group-outcomes-2026-10-11-cycle304"
 DATA = ROOT / "config/observations/eixarch_2026_ep09_40_hpa_candidate.json"
@@ -10,6 +12,7 @@ INVENTORY = ROOT / "config/source_inventories/fetal_ovine_support_transition_202
 
 
 class EixarchEP0940HPACycle304Tests(unittest.TestCase):
+    @requires_local_evidence("eixarch-2023-group-outcomes-2026-10-11-cycle304")
     def test_primary_poster_and_crossref_snapshots_are_pinned(self):
         assessment = json.loads((ART / "hpa-intake-and-linkage-cycle304.json").read_text(encoding="utf-8"))
         self.assertEqual(hashlib.sha256((ART / "ep09-40-poster-source.pdf").read_bytes()).hexdigest(), assessment["source"]["poster_sha256"])
@@ -48,6 +51,7 @@ class EixarchEP0940HPACycle304Tests(unittest.TestCase):
         self.assertTrue(all(o["observation"]["summary_statistic"]["reported_sample_size"] is None for o in data["observations"]))
         self.assertIn("all-start denominator", " ".join(data["limitations"]))
 
+    @requires_local_evidence("eixarch-2023-group-outcomes-2026-10-11-cycle304")
     def test_possible_poster_overlap_does_not_establish_identity_or_pool_counts(self):
         assessment = json.loads((ART / "hpa-intake-and-linkage-cycle304.json").read_text(encoding="utf-8"))
         compatibility = assessment["cross_poster_compatibility"]
@@ -56,6 +60,7 @@ class EixarchEP0940HPACycle304Tests(unittest.TestCase):
         self.assertFalse(compatibility["counts_may_be_summed"])
         self.assertFalse(compatibility["independent_replication_established"])
 
+    @requires_local_evidence("eixarch-2023-group-outcomes-2026-10-11-cycle304")
     def test_candidate_validation_receipt_matches_current_input(self):
         assessment = json.loads((ART / "hpa-intake-and-linkage-cycle304.json").read_text(encoding="utf-8"))
         receipt = json.loads((ART / "validate-ep09-40-final/receipt.json").read_text(encoding="utf-8"))

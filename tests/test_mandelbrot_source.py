@@ -10,8 +10,10 @@ from pathlib import Path
 
 from wombmodels.artifacts import InputError, sha256
 from wombmodels.mandelbrot_source import audit_mandelbrot_source_cells
+from local_evidence import requires_local_evidence
 
 
+@requires_local_evidence("perfusion-intake-2026-10-10")
 class MandelbrotSourceAuditTests(unittest.TestCase):
     def setUp(self):
         self.root = Path(__file__).resolve().parents[1]

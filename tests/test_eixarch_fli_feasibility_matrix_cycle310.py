@@ -4,11 +4,14 @@ import json
 import unittest
 from pathlib import Path
 
+from local_evidence import requires_local_evidence
+
 ROOT = Path(__file__).resolve().parents[1]
 ART = ROOT / "artifacts/eixarch-2023-group-outcomes-2026-10-11-cycle310"
 INVENTORY = ROOT / "config/source_inventories/fetal_ovine_support_transition_2023_2026.json"
 
 
+@requires_local_evidence("eixarch-2023-group-outcomes-2026-10-11-cycle310")
 class EixarchFLIFeasibilityMatrixCycle310Tests(unittest.TestCase):
     def test_four_sources_keep_distinct_denominators_and_candidate_hashes(self):
         with (ART / "four-poster-feasibility-coverage-cycle310.csv").open(encoding="utf-8", newline="") as f:

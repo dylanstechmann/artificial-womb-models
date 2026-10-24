@@ -1,8 +1,11 @@
 import json
 import unittest
 from pathlib import Path
+
+from local_evidence import requires_local_evidence
 ROOT=Path(__file__).resolve().parents[1]
 ART=ROOT/"artifacts/eixarch-2023-group-outcomes-2026-10-11-cycle302"
+@requires_local_evidence("eixarch-2023-group-outcomes-2026-10-11-cycle302")
 class EixarchProgramCoverageCycle302Tests(unittest.TestCase):
  def test_source_counts_remain_distinct_and_unpooled(self):
   d=json.loads((ART/"program-coverage-cycle302.json").read_text(encoding="utf-8")); by={x["record_id"]:x for x in d["sources"]}

@@ -10,12 +10,14 @@ from wombmodels.observations import observation_report
 from wombmodels.usuda_source import (
     SOURCE_PATH, audit_usuda_terminal, extract_terminal,
 )
+from local_evidence import requires_local_evidence
 
 
 ROOT = Path(__file__).resolve().parents[1]
 SOURCE = ROOT / SOURCE_PATH
 
 
+@requires_local_evidence("usuda-2023-case-linkage-2026-10-10")
 class UsudaTerminalSourceTests(unittest.TestCase):
     def test_published_morphology_retains_neutral_and_adverse_findings(self):
         cells, dataset = extract_terminal(SOURCE.read_bytes())

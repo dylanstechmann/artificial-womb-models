@@ -4,6 +4,7 @@ import unittest
 from pathlib import Path
 
 from xlsx_source_utils import xlsx_sheet_cells
+from local_evidence import requires_local_evidence
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -13,6 +14,7 @@ WORKBOOK = ROOT / "artifacts/uterine-interface-2026-10-09/source-data-suppfig1.x
 EXPECTED_SHA256 = "f34b1385968afa5039fb14a35face0da30ec71ef79754a1aeeaa517b3fbff097"
 
 
+@requires_local_evidence("uterine-interface-2026-10-09")
 class HiraokaSupplementaryFig1WorkbookRoundTripTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

@@ -3,10 +3,16 @@ import json
 import unittest
 from pathlib import Path
 
+from local_evidence import requires_local_evidence
+
 ROOT = Path(__file__).resolve().parents[1]
 ART = ROOT / "artifacts/eixarch-2023-group-outcomes-2026-10-11-cycle300"
 
 
+@requires_local_evidence(
+    "eixarch-2023-group-outcomes-2026-10-11-cycle300",
+    "fetal-ovine-transition-2026-10-10",
+)
 class EixarchPosterSubsetCycle300Tests(unittest.TestCase):
     def test_case_values_fit_reported_duration_and_gestational_frames_conditionally(self):
         d = json.loads((ART / "poster-cohort-compatibility-cycle300.json").read_text(encoding="utf-8"))

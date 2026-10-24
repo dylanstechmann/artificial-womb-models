@@ -5,6 +5,8 @@ import unittest
 from collections import Counter, defaultdict
 from pathlib import Path
 
+from local_evidence import requires_local_evidence
+
 
 ROOT = Path(__file__).resolve().parents[1]
 ARTIFACTS = ROOT / "artifacts/early-interface-model-2026-10-11"
@@ -22,6 +24,7 @@ def read_csv(path):
         return list(csv.DictReader(handle))
 
 
+@requires_local_evidence("early-interface-model-2026-10-11")
 class CrestHumanImplantationIntakeTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

@@ -3,6 +3,8 @@ import json
 import unittest
 from pathlib import Path
 
+from local_evidence import requires_local_evidence
+
 
 ROOT = Path(__file__).resolve().parents[1]
 ART = ROOT / "artifacts/eixarch-2023-group-outcomes-2026-10-11-cycle292"
@@ -10,6 +12,7 @@ CANDIDATE = ROOT / "config/observations/eixarch_2023_support_outcomes_candidate.
 INVENTORY = ROOT / "config/source_inventories/fetal_ovine_support_transition_2023_2026.json"
 
 
+@requires_local_evidence("eixarch-2023-group-outcomes-2026-10-11-cycle292")
 class Eixarch2023CrossrefReverseUpdateCycle292Tests(unittest.TestCase):
     def test_zero_reverse_links_are_bounded_and_candidate_is_unchanged(self):
         audit = json.loads((ART / "correction-reverse-link-screen-cycle292.json").read_text(encoding="utf-8"))

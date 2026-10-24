@@ -3,6 +3,8 @@ import hashlib
 import unittest
 from pathlib import Path
 
+from local_evidence import requires_local_evidence
+
 
 ROOT = Path(__file__).resolve().parents[1]
 INVENTORY = ROOT / "config/source_inventories/roelofsen_table1_papp_aggregate_source_cells.csv"
@@ -50,6 +52,7 @@ class RoelofsenTable1InventoryTests(unittest.TestCase):
             self.assertIn("not_the_ex_vivo_area_discrepancy", row["area_qualification"])
         self.assertIn("row label inherited by rowspan", self.rows[10]["source_cell_locator"])
 
+    @requires_local_evidence("transport-collection-2026-10-09")
     def test_inventory_is_tied_to_the_pinned_source_bytes(self):
         actual_hash = hashlib.sha256(SOURCE.read_bytes()).hexdigest()
         self.assertTrue(all(row["source_sha256"] == actual_hash for row in self.rows))

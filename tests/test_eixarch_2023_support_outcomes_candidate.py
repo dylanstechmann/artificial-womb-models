@@ -5,6 +5,7 @@ import unittest
 from pathlib import Path
 
 from wombmodels.observations import validate_dataset
+from local_evidence import requires_local_evidence
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -17,6 +18,7 @@ class Eixarch2023SupportOutcomesCandidateTests(unittest.TestCase):
         self.dataset = json.loads(DATASET.read_text(encoding="utf-8"))
         self.validated = validate_dataset(self.dataset)
 
+    @requires_local_evidence("eixarch-2023-group-outcomes-2026-10-11-cycle286")
     def test_official_pmc_source_pin_and_bounded_supplement_screen(self):
         artifact = self.dataset["artifacts"][0]
         local_path = ROOT / artifact["local_path"]
@@ -33,6 +35,7 @@ class Eixarch2023SupportOutcomesCandidateTests(unittest.TestCase):
         self.assertIn("does not establish global data absence", screen["interpretation_limit"])
         self.assertEqual(len(self.validated["observations"]), 50)
 
+    @requires_local_evidence("eixarch-2023-group-outcomes-2026-10-11-cycle287")
     def test_publisher_pdf_hash_and_visual_decision_keep_values_unchanged(self):
         pdf_artifact = next(item for item in self.dataset["artifacts"]
                             if item["artifact_id"] == "eixarch2023-publisher-pdf")
@@ -43,6 +46,7 @@ class Eixarch2023SupportOutcomesCandidateTests(unittest.TestCase):
         self.assertIn("Do not transcribe", assessment["intake_decision"])
         self.assertEqual(len(self.validated["observations"]), 50)
 
+    @requires_local_evidence("eixarch-2023-group-outcomes-2026-10-11-cycle288")
     def test_cycle288_complication_denominator_remains_arithmetic_only(self):
         audit = json.loads((ROOT / "artifacts/eixarch-2023-group-outcomes-2026-10-11-cycle288/table1-complication-denominator-audit-cycle288.json").read_text(encoding="utf-8"))
         self.assertEqual(audit["rows"][0]["implied_denominator_approx"], 6.993)

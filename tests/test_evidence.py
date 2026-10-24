@@ -5,6 +5,7 @@ import unittest
 from pathlib import Path
 
 from wombmodels.artifacts import InputError, read_json
+from wombmodels.bundle_verification import verify_bundle
 from wombmodels.evidence import evidence_report, validate_ledger
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -38,6 +39,15 @@ class EvidenceTests(unittest.TestCase):
                 claims_csv = list(csv.DictReader(handle))
             lamb_claim = next(row for row in claims_csv if row["claim_id"] == "lamb-partial-support")
             self.assertEqual(json.loads(lamb_claim["interval_components"])[0]["maximum"], 28)
+
+    def test_report_bundle_verifies_strictly_and_records_its_rerun_command(self):
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "report"
+            evidence_report(ROOT / "config/evidence.json", output)
+            checked = verify_bundle(output, strict=True)
+            self.assertTrue(checked["bytes_verified"], checked["errors"])
+            self.assertEqual(checked["errors"], [])
+            self.assertIn("evidence-report", checked["rerun_command"])
 
     def test_claim_intervals_cannot_exceed_or_relabel_source_axes(self):
         data = ledger()

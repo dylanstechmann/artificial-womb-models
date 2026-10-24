@@ -2,6 +2,8 @@ import json
 import unittest
 from pathlib import Path
 
+from local_evidence import requires_local_evidence
+
 ROOT = Path(__file__).resolve().parents[1]
 ASSESSMENT = ROOT / "artifacts/eixarch-2023-group-outcomes-2026-10-11-cycle295/phase-linkage-assessment-cycle295.json"
 INVENTORY = ROOT / "config/source_inventories/fetal_ovine_support_transition_2023_2026.json"
@@ -10,6 +12,7 @@ CANDIDATE_2025 = ROOT / "config/observations/eixarch_2025_fetalife_abstract_cand
 
 
 class EixarchCrossReportLinkageCycle295Tests(unittest.TestCase):
+    @requires_local_evidence("eixarch-2023-group-outcomes-2026-10-11-cycle295")
     def test_shared_stage_and_project_phase_do_not_create_a_cohort_join(self):
         assessment = json.loads(ASSESSMENT.read_text(encoding="utf-8"))
         overlap = assessment["observed_overlap"]

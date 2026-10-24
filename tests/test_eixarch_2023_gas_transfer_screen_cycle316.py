@@ -4,6 +4,8 @@ import unittest
 import xml.etree.ElementTree as ET
 from pathlib import Path
 
+from local_evidence import requires_local_evidence
+
 ROOT = Path(__file__).resolve().parents[1]
 ART = ROOT / "artifacts/eixarch-2023-group-outcomes-2026-10-11-cycle316"
 XML = ROOT / "artifacts/eixarch-2023-group-outcomes-2026-10-11-cycle286/eixarch2023-pmc10044909-efetch.xml"
@@ -24,6 +26,11 @@ def section_text(root, prefix):
     raise AssertionError(f"Missing section starting with {prefix}")
 
 
+@requires_local_evidence(
+    "eixarch-2023-group-outcomes-2026-10-11-cycle286",
+    "eixarch-2023-group-outcomes-2026-10-11-cycle287",
+    "eixarch-2023-group-outcomes-2026-10-11-cycle316",
+)
 class Eixarch2023GasTransferScreenCycle316Tests(unittest.TestCase):
     def test_method_route_exists_but_results_candidate_do_not_contain_transfer_values(self):
         root = ET.parse(XML).getroot()

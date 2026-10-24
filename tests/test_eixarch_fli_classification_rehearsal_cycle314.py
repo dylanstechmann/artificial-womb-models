@@ -8,6 +8,7 @@ from pathlib import Path
 
 from wombmodels.bundle_verification import verify_bundle
 from wombmodels.observations import observation_report, validate_dataset
+from local_evidence import requires_local_evidence
 
 ROOT = Path(__file__).resolve().parents[1]
 ART = ROOT / "artifacts/eixarch-2023-group-outcomes-2026-10-11-cycle313"
@@ -15,6 +16,13 @@ ASSESSMENT = ART / "functional-classification-overlay-cycle313.json"
 OVERLAY = ART / "poster-row-functional-classification-overlay-cycle313.csv"
 
 
+@requires_local_evidence(
+    "eixarch-2023-group-outcomes-2026-10-11-cycle303",
+    "eixarch-2023-group-outcomes-2026-10-11-cycle304",
+    "eixarch-2023-group-outcomes-2026-10-11-cycle313",
+    "eixarch-2023-group-outcomes-2026-10-11-cycle314",
+    "fetal-ovine-transition-2026-10-10",
+)
 class EixarchFLIClassificationRehearsalCycle314Tests(unittest.TestCase):
     def test_machine_readable_receipt_separates_validation_from_scientific_review(self):
         result = json.loads((ROOT / "artifacts/eixarch-2023-group-outcomes-2026-10-11-cycle314/functional-classification-rehearsal-cycle314.json").read_text(encoding="utf-8"))

@@ -21,6 +21,7 @@ from pathlib import Path
 
 from .artifacts import InputError, csv_bytes, json_bytes, publish_bundle, read_json
 from .exchange import NOTICE, fields, number
+from .numerics import output_times, require_finite
 
 MAX_OUTPUT_INTERVALS = 50_000
 MAX_TOTAL_SUBSTEPS = 4_000_000
@@ -101,25 +102,27 @@ def _rk4_step(excitation, chain, state, substep):
             for value, a, b, c, d in zip(state, first, second, third, fourth)]
 
 
-def _integrate(excitation, chain, duration, step):
+def _integrate(excitation, chain, duration, step, rate_scale=None):
     """Fixed-substep RK4 integration of one chain from zero initial stocks."""
-    rate_scale = max(rates["loss"] + rates["transfer"] + rates["use"] for rates in chain)
+    own_rate = max(rates["loss"] + rates["transfer"] + rates["use"] for rates in chain)
+    rate_scale = max(own_rate, rate_scale or 0.0)
     substeps = max(1, math.ceil(step * rate_scale / SUBSTEP_RATE_TARGET))
-    intervals = int(duration / step)
+    times = output_times(duration, step)
+    intervals = len(times) - 1
     if intervals * substeps > MAX_TOTAL_SUBSTEPS:
         raise InputError(f"Integration exceeds the {MAX_TOTAL_SUBSTEPS}-substep budget")
     state = [0.0] * len(chain)
     rows = []
-    for index in range(intervals + 1):
-        time = duration if index == intervals else index * step
+    for index, time in enumerate(times):
         rows.append({"dimensionless_time": time,
                      **{f"compartment_{position + 1}": value
                         for position, value in enumerate(state)}})
         if index == intervals:
             break
-        substep = step / substeps
+        substep = (times[index + 1] - time) / substeps
         for _ in range(substeps):
             state = _rk4_step(excitation, chain, state, substep)
+            require_finite(state)
     return rows
 
 
@@ -162,7 +165,11 @@ def spatial_delivery(config_path: Path, output: Path) -> dict:
     """Publish the spatial-delivery identifiability fixture; nothing is fitted."""
     config, raw = read_json(config_path)
     duration, step, excitation, depth, chains = _validate(config)
-    rows = {label: _integrate(excitation, chains[label], duration, step)
+    # A hidden fast compartment must refine both worlds equally; otherwise
+    # different integration rounding creates a false observed-prefix signal.
+    shared_rate = max(rates["loss"] + rates["transfer"] + rates["use"]
+                      for chain in chains.values() for rates in chain)
+    rows = {label: _integrate(excitation, chains[label], duration, step, shared_rate)
             for label in ("chain", "witness_chain")}
 
     observed_difference = {f"compartment_{position + 1}":
@@ -191,6 +198,9 @@ def spatial_delivery(config_path: Path, output: Path) -> dict:
         "biological_measurements": False, "physiologically_calibrated": False,
         "human_gestation_prediction": False,
         "n_samples": len(rows["chain"]),
+        "integration": {"method": "RK4", "shared_chain_substeps": True,
+                        "rate_bound": shared_rate,
+                        "terminal_interval": "shortened when duration is off the output grid"},
         "observed_depth": depth,
         "compartments": {"chain": len(chains["chain"]),
                          "witness_chain": len(chains["witness_chain"])},

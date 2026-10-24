@@ -22,15 +22,16 @@ no capability ranking.
 from __future__ import annotations
 
 import math
-import random
 from itertools import combinations
 from pathlib import Path
 
 from .artifacts import InputError, csv_bytes, json_bytes, publish_bundle, read_json
 from .exchange import NOTICE, fields, number
 from .growth_scaling import analytic_crossover
-from .whole_path_twin import (BOUNDARY_OBSERVABLES, INTERNAL_OBSERVABLES, _fault_at,
-                              _first_separation, _in_outage, _validate as _validate_fluidic,
+from .numerics import require_finite
+from .whole_path_twin import (BOUNDARY_OBSERVABLES, INTERNAL_OBSERVABLES,
+                              MAX_TOTAL_SUBSTEPS, SUBSTEP_RATE_TARGET,
+                              _first_separation, _validate as _validate_fluidic,
                               _variant_run as _uncoupled_variant_run)
 
 MAX_WALL_COUPLING = 100.0
@@ -81,114 +82,82 @@ def _validate(config):
     return fluidic, wall, couplings
 
 
-def _right_hand_side(time, state, parameters, held_reading, wall, variant):
-    """Derivatives of [request, stock, tissue, unserved, progression, reserve,
-    supplement, strain, damage]; the wall never feeds the fluidic terms."""
-    growth, scaling, bulk, internal, control, reserve, outages = parameters
-    size = 1.0 + growth["linear_rate"] * time
-    capacity = scaling["capacity_coefficient"] * size ** growth["surface_exponent"]
-    demand = scaling["demand_coefficient"] * size
-    margin = capacity / demand
-    request, stock, tissue, unserved, progression, remaining, supplement, strain, damage = state
-    outage = _in_outage(outages, time)
-    multiplier = 1.0
-    if outage:
-        multiplier = reserve["fraction"] if remaining > 0 else 0.0
-    d_request = variant["serve_rate"] * (min(1.0, margin) - request)
-    delivered = min(demand * request, capacity) * multiplier
-    served = delivered / demand
-    d_bulk = delivered + supplement - (bulk["washout"] + bulk["transfer"]) * stock
-    d_tissue = variant["internal_efficiency"] * bulk["transfer"] * stock - internal["use"] * tissue
-    d_unserved = demand * (1.0 - served) - internal["repair"] * unserved
-    receipt = internal["use"] * tissue
-    d_progression = internal["progression_rate"] * min(1.0, receipt / demand)
-    d_reserve = -reserve["draw"] if outage and remaining > 0 else 0.0
-    correction = control["gain"] * (bulk["target"] - held_reading)
-    d_supplement = max(-control["rate_limit"], min(control["rate_limit"], correction))
-    load = wall["load_coefficient"] * (stock + variant["wall_coupling"] * delivered)
-    stiffness = wall["stiffness_coefficient"] * size ** wall["stiffness_exponent"]
-    d_strain = (load - stiffness * strain) / wall["viscosity"]
-    d_damage = wall["damage_rate"] * max(0.0, strain - wall["safe_strain"])
-    return [d_request, d_bulk, d_tissue, d_unserved, d_progression, d_reserve,
-            d_supplement, d_strain, d_damage]
+class _WallObserver:
+    """One-way wall subcycling on the canonical fluidic RK4 continuous extension.
 
+    The cubic dense extension interpolates fluidic stage derivatives within
+    one event-free substep. It is third-order in the interior and agrees with
+    the fluidic RK4 endpoints. No interpolation spans a power discontinuity.
+    Only the wall is refined: it cannot change fluidic arithmetic or RNG draws.
+    """
+    def __init__(self, variant, growth, scaling, wall, duration):
+        self.variant, self.growth, self.scaling, self.wall = variant, growth, scaling, wall
+        self.rate = (wall["stiffness_coefficient"]
+                     * (1.0 + growth["linear_rate"] * duration) ** wall["stiffness_exponent"]
+                     / wall["viscosity"])
+        if duration * self.rate / SUBSTEP_RATE_TARGET > MAX_TOTAL_SUBSTEPS:
+            raise InputError(f"Wall integration exceeds the {MAX_TOTAL_SUBSTEPS}-substep budget")
+        load = wall["load_coefficient"] * variant["wall_coupling"] * min(
+            scaling["demand_coefficient"], scaling["capacity_coefficient"])
+        self.state = [load / wall["stiffness_coefficient"], 0.0]
+        self.work = 0
 
-def _rk4_step(time, state, substep, parameters, held_reading, wall, variant):
-    first = _right_hand_side(time, state, parameters, held_reading, wall, variant)
-    second = _right_hand_side(time + 0.5 * substep,
-                              [value + 0.5 * substep * rate for value, rate in zip(state, first)],
-                              parameters, held_reading, wall, variant)
-    third = _right_hand_side(time + 0.5 * substep,
-                             [value + 0.5 * substep * rate for value, rate in zip(state, second)],
-                             parameters, held_reading, wall, variant)
-    fourth = _right_hand_side(time + substep,
-                             [value + substep * rate for value, rate in zip(state, third)],
-                             parameters, held_reading, wall, variant)
-    return [value + substep * (a + 2 * b + 2 * c + d) / 6.0
-            for value, a, b, c, d in zip(state, first, second, third, fourth)]
+    def observe(self, time, row):
+        load = self.wall["load_coefficient"] * (
+            row["bulk_stock"] + self.variant["wall_coupling"] * row["delivered_flux"])
+        stiffness = self.wall["stiffness_coefficient"] * row["size"] ** self.wall["stiffness_exponent"]
+        return {"wall_load": load, "wall_stiffness": stiffness, "wall_strain": self.state[0],
+                "wall_safety_margin": self.wall["strain_limit"] - self.state[0],
+                "wall_damage": self.state[1]}
+
+    def advance(self, time, fluidic, span, stages, operating):
+        count = max(1, math.ceil(span * self.rate / SUBSTEP_RATE_TARGET))
+        self.work += count
+        if self.work > MAX_TOTAL_SUBSTEPS:
+            raise InputError(f"Wall integration exceeds the {MAX_TOTAL_SUBSTEPS}-substep budget")
+        power, _draw = operating
+
+        def rhs(offset, state):
+            theta = offset / span
+            square, cube = theta * theta, theta * theta * theta
+            weights = (theta - 1.5 * square + 2.0 * cube / 3.0,
+                       square - 2.0 * cube / 3.0,
+                       square - 2.0 * cube / 3.0,
+                       -0.5 * square + 2.0 * cube / 3.0)
+            request, stock = (fluidic[position] + span * sum(
+                weight * stage[position] for weight, stage in zip(weights, stages))
+                for position in (0, 1))
+            size = 1.0 + self.growth["linear_rate"] * (time + offset)
+            capacity = self.scaling["capacity_coefficient"] * size ** self.growth["surface_exponent"]
+            demand = self.scaling["demand_coefficient"] * size
+            delivered = min(demand * min(max(request, 0.0), 1.0), capacity) * power
+            load = self.wall["load_coefficient"] * (
+                max(stock, 0.0) + self.variant["wall_coupling"] * delivered)
+            stiffness = self.wall["stiffness_coefficient"] * size ** self.wall["stiffness_exponent"]
+            return [(load - stiffness * state[0]) / self.wall["viscosity"],
+                    self.wall["damage_rate"] * max(0.0, state[0] - self.wall["safe_strain"])]
+
+        substep = span / count
+        for index in range(count):
+            offset = index * substep
+            first = rhs(offset, self.state)
+            second = rhs(offset + substep / 2.0,
+                         [value + substep * rate / 2.0 for value, rate in zip(self.state, first)])
+            third = rhs(offset + substep / 2.0,
+                        [value + substep * rate / 2.0 for value, rate in zip(self.state, second)])
+            fourth = rhs(offset + substep,
+                         [value + substep * rate for value, rate in zip(self.state, third)])
+            self.state = [value + substep * (a + 2 * b + 2 * c + d) / 6.0
+                          for value, a, b, c, d in zip(self.state, first, second, third, fourth)]
+            require_finite(self.state)
+            self.state = [max(0.0, value) for value in self.state]
 
 
 def _coupled_variant_run(name, variant, shared, duration, step, boundaries, wall):
-    """One deterministic whole-path run with the coupled wall states."""
-    growth, scaling, bulk, internal, control, reserve, outages = shared[:7]
-    cadence, noise_sd, seed, faults = shared[7:]
-    parameters = (growth, scaling, bulk, internal, control, reserve, outages)
-    rate_scale = (max(variant["serve_rate"], bulk["washout"] + bulk["transfer"], internal["use"])
-                  + control["gain"] + reserve["draw"])
-    substeps = max(1, math.ceil(step * rate_scale / 0.2))
-    intervals_count = int(duration / step)
-    rng_control = random.Random(seed)
-    rng_monitor = random.Random(seed + 1)
-    initial_load = wall["load_coefficient"] * (0.0 + variant["wall_coupling"]
-                                                 * min(scaling["demand_coefficient"],
-                                                       scaling["capacity_coefficient"]))
-    state = [1.0, 0.0, 0.0, 0.0, 0.0, reserve["initial"], 0.0,
-             initial_load / wall["stiffness_coefficient"], 0.0]
-    held_reading = 0.0
-    rows = []
-    readings = []
-    for index in range(intervals_count + 1):
-        time = duration if index == intervals_count else index * step
-        size = 1.0 + growth["linear_rate"] * time
-        capacity = scaling["capacity_coefficient"] * size ** growth["surface_exponent"]
-        demand = scaling["demand_coefficient"] * size
-        delivered = min(demand * state[0], capacity)
-        outage = _in_outage(outages, time)
-        if outage:
-            delivered *= reserve["fraction"] if state[5] > 0 else 0.0
-        load = wall["load_coefficient"] * (state[1] + variant["wall_coupling"] * delivered)
-        stiffness = wall["stiffness_coefficient"] * size ** wall["stiffness_exponent"]
-        rows.append({"dimensionless_time": time, "size": size,
-                     "capacity_margin": capacity / demand, "request_fraction": state[0],
-                     "delivered_flux": delivered, "served_fraction": delivered / demand,
-                     "bulk_stock": state[1], "deep_receipt_rate": internal["use"] * state[2],
-                     "cumulative_unserved": state[3], "progression": state[4],
-                     "reserve": state[5], "supplement": state[6], "controller_reading": held_reading,
-                     "wall_load": load, "wall_stiffness": stiffness, "wall_strain": state[7],
-                     "wall_safety_margin": wall["strain_limit"] - state[7], "wall_damage": state[8]})
-        if index == intervals_count:
-            break
-        if noise_sd:
-            held_reading = state[1] + rng_control.gauss(0.0, noise_sd)
-        else:
-            held_reading = state[1]
-        if abs(round(time / cadence) - time / cadence) < 1e-9 or index == 0:
-            fault = _fault_at(faults, time)
-            if fault and fault["kind"] == "dropout":
-                value = None
-            else:
-                value = state[1] + rng_monitor.gauss(0.0, noise_sd)
-                if fault and fault["kind"] == "bias":
-                    value += fault["magnitude"]
-            readings.append({"dimensionless_time": time, "reading": value,
-                             "fault": fault["kind"] if fault else ""})
-        substep = step / substeps
-        for _ in range(substeps):
-            state = _rk4_step(time, state, substep, parameters, held_reading, wall, variant)
-            state[0] = min(max(state[0], 0.0), 1.0)
-            state[6] = min(max(state[6], 0.0), control["supplement_max"])
-            for position in (2, 3, 4, 5, 7, 8):
-                state[position] = max(state[position], 0.0)
+    """Reuse the exact fluidic calculation; refine the one-way wall independently."""
+    observer = _WallObserver(variant, shared[0], shared[1], wall, duration)
+    rows, readings, _events = _uncoupled_variant_run(
+        name, variant, shared, duration, step, boundaries, observer=observer)
     return rows, readings
 
 
@@ -287,6 +256,13 @@ def mechanical_twin(config_path: Path, output: Path) -> dict:
         "human_gestation_prediction": False,
         "n_intervals": len(boundaries) + 1, "boundaries": boundaries,
         "variants": sorted(variants), "crossover": crossover,
+        "integration": {
+            "fluidic_solver": "canonical whole-path RK4 with event-split power modes",
+            "wall_solver": "independent RK4 subcycling bounded by maximum stiffness/viscosity",
+            "wall_forcing": "cubic dense fluidic RK4 extension, third order in the interior",
+            "interpolates_across_power_events": False,
+            "max_substeps_per_variant_per_solver": MAX_TOTAL_SUBSTEPS,
+            "terminal_interval": "shortened when duration is off the output grid"},
         "one_way_coupling": {
             "wall_states_enter_fluidic_derivatives": False,
             "fluidic_trajectories_match_uncoupled_twin": one_way,
@@ -303,6 +279,7 @@ def mechanical_twin(config_path: Path, output: Path) -> dict:
             "The Kelvin-Voigt wall is an abstract viscoelastic element, not a validated uterine or chamber material model.",
             "Wall damage is invented linear accounting of strain excess; it is not a fatigue, injury or rupture prediction.",
             "The one-way coupling is a modeling choice of this fixture, not a claim that a physical wall cannot feed back.",
+            "Wall forcing uses a third-order interior dense interpolation of fluidic RK4 stages; wall subcycling does not remove fluidic discretization error. Step refinement must control that error separately.",
             "Separation analysis compares synthetic runs of one model; it is not a cohort study and sets no sampling requirement.",
             "No confidence interval, health score, physical device parameter, gestational claim or gate completion is computed."]}
     lines = ["# Dimensionless coupled mechanical twin", "", NOTICE, "",

@@ -2,6 +2,8 @@ import json
 import unittest
 from pathlib import Path
 
+from local_evidence import requires_local_evidence
+
 ROOT = Path(__file__).resolve().parents[1]
 CANDIDATE = ROOT / "config/observations/eixarch_2025_fetalife_abstract_candidate.json"
 INVENTORY = ROOT / "config/source_inventories/fetal_ovine_support_transition_2023_2026.json"
@@ -59,6 +61,7 @@ class Eixarch2025AbstractCandidateTests(unittest.TestCase):
         self.assertTrue(all(r["source"]["sha256"] is None for r in self.records.values()))
         self.assertIn("direct local publisher", " ".join(self.dataset["limitations"]).lower())
 
+    @requires_local_evidence("eixarch-2023-group-outcomes-2026-10-11-cycle297")
     def test_cycle297_percentages_do_not_uniquely_identify_outcome_denominators(self):
         path = ROOT / "artifacts/eixarch-2023-group-outcomes-2026-10-11-cycle297/percent-denominator-ambiguity-cycle297.json"
         audit = json.loads(path.read_text(encoding="utf-8"))
@@ -72,6 +75,7 @@ class Eixarch2025AbstractCandidateTests(unittest.TestCase):
         self.assertIsNone(coverage["eixarch2025-discontinuation-cause-denominators"]["denominator"]["value"])
         self.assertFalse(audit["candidate_dataset_changed"])
 
+    @requires_local_evidence("eixarch-2023-group-outcomes-2026-10-11-cycle296")
     def test_cycle296_pdf_route_errors_are_not_treated_as_source_bytes(self):
         route_file = ROOT / "artifacts/eixarch-2023-group-outcomes-2026-10-11-cycle296/publisher-pdf-route-probes-cycle296.json"
         routes = json.loads(route_file.read_text(encoding="utf-8"))["routes"]

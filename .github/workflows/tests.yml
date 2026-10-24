@@ -19,3 +19,11 @@ jobs:
       - run: wombmodels design-sweep --config examples/exchange_fixture.json --out artifacts/design-sweep-ci --replicates 1
       - run: wombmodels transport-model --config examples/transport_fixture.json --out artifacts/transport-ci
       - run: wombmodels mechanics-model --config examples/mechanics_fixture.json --out artifacts/mechanics-ci
+      - run: wombmodels verify-bundle --bundle artifacts/identifiability-ci --strict
+      - run: wombmodels verify-bundle --bundle artifacts/exchange-ci --strict
+      - name: A relocated bundle verifies without its source directory
+        run: |
+          mkdir -p artifacts/relocated
+          cp -r artifacts/identifiability-ci artifacts/relocated/renamed-bundle
+          rm -rf artifacts/exchange-ci artifacts/identifiability-ci
+          wombmodels verify-bundle --bundle artifacts/relocated/renamed-bundle --strict

@@ -1,1 +1,7 @@
 * text=auto eol=lf
+# Curated source ledgers and intake cards are pinned by SHA-256 and byte size in tests,
+# source inventories and config/program/roadmap.json. Keep their bytes as pinned so a
+# clean checkout verifies on every platform.
+config/observations/** -text
+config/perfusion_observations/** -text
+config/source_inventories/** -text

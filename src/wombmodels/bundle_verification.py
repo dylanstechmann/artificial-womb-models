@@ -22,12 +22,15 @@ from .artifacts import InputError, read_json, sha256
 MAX_FILE_BYTES = 50_000_000
 MAX_FILES = 500
 STATUS_NOT_REVIEWED = "not_established_by_this_tool"
+# Names from earlier releases stay listed so bundles published then still verify.
 KNOWN_BUNDLE_KINDS = frozenset({
     "research_program_status",
+    "machine_schematic",
     "synthetic_exchange_software_fixture",
     "synthetic_exchange_observability_diagnostic",
     "synthetic_exchange_design_sweep",
     "reviewed_evidence_ledger_report",
+    "reviewed_evidence_map",
     "developmental_observation_dataset_report",
     "developmental_observation_intake",
     "specimen_phenotype_intake",
@@ -45,6 +48,7 @@ KNOWN_BUNDLE_KINDS = frozenset({
     "dimensionless_mechanics_theory",
     "dimensionless_transport_numerical_verification",
     "dimensionless_transport_regime_matrix_verification",
+    "dimensionless_transport_parameter_matrix_numerical_verification",
     "dimensionless_mechanics_numerical_verification",
     "dimensionless_growth_scaling_theory",
     "dimensionless_spatial_delivery_theory",
@@ -64,6 +68,7 @@ DIMENSIONLESS_BUNDLE_KINDS = frozenset({
     "dimensionless_mechanics_theory",
     "dimensionless_transport_numerical_verification",
     "dimensionless_transport_regime_matrix_verification",
+    "dimensionless_transport_parameter_matrix_numerical_verification",
     "dimensionless_mechanics_numerical_verification",
     "dimensionless_growth_scaling_theory",
     "dimensionless_spatial_delivery_theory",

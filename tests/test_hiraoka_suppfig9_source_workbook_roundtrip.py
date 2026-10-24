@@ -5,6 +5,7 @@ import zipfile
 from pathlib import Path
 
 from xlsx_source_utils import xlsx_sheet_cells
+from local_evidence import requires_local_evidence
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -14,6 +15,7 @@ WORKBOOK = ROOT / "artifacts/uterine-interface-2026-10-09/source-data-suppfig9.x
 EXPECTED_SHA256 = "cef46750fe037ce8dbd1776835b5b8b9a7b48d5e56df16f4bea17dbf438f02ae"
 
 
+@requires_local_evidence("uterine-interface-2026-10-09")
 class HiraokaSupplementaryFig9WorkbookRoundTripTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

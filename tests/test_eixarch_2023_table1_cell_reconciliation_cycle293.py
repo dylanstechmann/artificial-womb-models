@@ -4,6 +4,8 @@ import json
 import unittest
 from pathlib import Path
 
+from local_evidence import requires_local_evidence
+
 
 ROOT = Path(__file__).resolve().parents[1]
 ART = ROOT / "artifacts/eixarch-2023-group-outcomes-2026-10-11-cycle293"
@@ -12,6 +14,7 @@ INVENTORY = ROOT / "config/source_inventories/fetal_ovine_support_transition_202
 
 
 class Eixarch2023Table1CellReconciliationCycle293Tests(unittest.TestCase):
+    @requires_local_evidence("eixarch-2023-group-outcomes-2026-10-11-cycle293")
     def test_all_table_cells_keep_value_missingness_and_linkage_states(self):
         assessment = json.loads((ART / "table1-cell-reconciliation-cycle293.json").read_text(encoding="utf-8"))
         with (ART / "table1-cell-crosswalk-cycle293.csv").open(encoding="utf-8-sig", newline="") as stream:
@@ -34,6 +37,10 @@ class Eixarch2023Table1CellReconciliationCycle293Tests(unittest.TestCase):
             "Vasospasm, 4-24 h: 4 (57.1%)",
         ])
 
+    @requires_local_evidence(
+        "eixarch-2023-group-outcomes-2026-10-11-cycle287",
+        "eixarch-2023-group-outcomes-2026-10-11-cycle293",
+    )
     def test_direct_observations_match_cell_lexemes_and_pinned_source(self):
         assessment = json.loads((ART / "table1-cell-reconciliation-cycle293.json").read_text(encoding="utf-8"))
         candidate = json.loads(CANDIDATE.read_text(encoding="utf-8"))

@@ -4,12 +4,15 @@ import json
 import unittest
 from pathlib import Path
 
+from local_evidence import requires_local_evidence
+
 ROOT = Path(__file__).resolve().parents[1]
 ART = ROOT / "artifacts/eixarch-2023-group-outcomes-2026-10-11-cycle311"
 INVENTORY = ROOT / "config/source_inventories/fetal_ovine_support_transition_2023_2026.json"
 
 
 class EixarchFLIFunctionalSufficiencyCycle311Tests(unittest.TestCase):
+    @requires_local_evidence("eixarch-2023-group-outcomes-2026-10-11-cycle311")
     def test_matrix_is_source_pinned_and_keeps_function_classes_separate(self):
         with (ART / "functional-claim-evidence-matrix-cycle311.csv").open(encoding="utf-8", newline="") as f:
             rows = list(csv.DictReader(f))
@@ -25,6 +28,7 @@ class EixarchFLIFunctionalSufficiencyCycle311Tests(unittest.TestCase):
             for path, expected in zip(paths, hashes):
                 self.assertEqual(hashlib.sha256((ROOT / path).read_bytes()).hexdigest(), expected)
 
+    @requires_local_evidence("eixarch-2023-group-outcomes-2026-10-11-cycle311")
     def test_assessment_does_not_upgrade_proxies_to_function_or_pool_counts(self):
         assessment = json.loads((ART / "functional-evidence-sufficiency-cycle311.json").read_text(encoding="utf-8"))
         self.assertFalse(assessment["assessment"]["direct_exchange_flux_demonstrated"])

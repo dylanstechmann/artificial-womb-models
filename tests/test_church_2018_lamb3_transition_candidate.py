@@ -6,6 +6,7 @@ import unittest
 from pathlib import Path
 
 from wombmodels.observations import observation_report, validate_dataset
+from local_evidence import requires_local_evidence
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -31,6 +32,7 @@ class Church2018TransitionTableCandidateTests(unittest.TestCase):
         self.assertIsNone(outcome["observation"]["measurement_time"])
         self.assertTrue(any("exact event timestamps" in item for item in outcome["limitations"]))
 
+    @requires_local_evidence("fetal-ovine-transition-2026-10-11-cycle285")
     def test_duration_aggregation_mismatch_is_preserved_not_reconciled(self):
         rows = [self.by_id[f"church2018-ap-lamb{i}-ap-mv-duration"]["observation"]["value"]
                 for i in range(1, 6)]
@@ -54,6 +56,7 @@ class Church2018TransitionTableCandidateTests(unittest.TestCase):
         self.assertTrue(all(edge["continuity_status"] == "demonstrated"
                             for edge in self.dataset["transitions"]))
 
+    @requires_local_evidence("fetal-ovine-transition-2026-10-11-cycle285")
     def test_source_snapshot_hash_and_inventory_match(self):
         artifact = self.dataset["artifacts"][0]
         source_path = ROOT / artifact["local_path"]

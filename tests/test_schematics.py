@@ -6,6 +6,7 @@ import xml.etree.ElementTree as ET
 from pathlib import Path
 
 from wombmodels.artifacts import InputError
+from wombmodels.bundle_verification import verify_bundle
 from wombmodels.schematics import (
     KIND_COLORS, load_layout, publish_schematic, render_html, render_svg,
     validate_layout)
@@ -72,6 +73,10 @@ class SchematicTests(unittest.TestCase):
             receipt = json.loads((out / "receipt.json").read_text(encoding="utf-8"))
             self.assertEqual(receipt["bundle_kind"], "machine_schematic")
             self.assertFalse(receipt["metadata"]["asserts_biological_capability"])
+            checked = verify_bundle(out, strict=True)
+            self.assertTrue(checked["bytes_verified"], checked["errors"])
+            self.assertEqual(checked["errors"], [])
+            self.assertIn("wombmodels.schematics", checked["rerun_command"])
             ET.fromstring((out / "schematic.svg").read_text(encoding="utf-8"))
             with self.assertRaisesRegex(InputError, "already exists"):
                 publish_schematic(CONFIG, out)

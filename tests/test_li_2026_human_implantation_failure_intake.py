@@ -2,12 +2,15 @@ import json
 import unittest
 from pathlib import Path
 
+from local_evidence import requires_local_evidence
+
 
 ROOT = Path(__file__).resolve().parents[1]
 INVENTORY = ROOT / "config/source_inventories/li_2026_human_implantation_failure.json"
 RECEIPT = ROOT / "artifacts/implantation-failure-model-2026-10-11/li-implantation-failure-route-and-supplement-screen-cycle194.json"
 
 
+@requires_local_evidence("implantation-failure-model-2026-10-11")
 class LiHumanImplantationFailureIntakeTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

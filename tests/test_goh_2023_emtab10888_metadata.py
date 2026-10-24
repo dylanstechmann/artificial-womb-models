@@ -5,6 +5,8 @@ import unittest
 from collections import Counter, defaultdict
 from pathlib import Path
 
+from local_evidence import requires_local_evidence
+
 
 ROOT = Path(__file__).resolve().parents[1]
 ARTIFACTS = ROOT / "artifacts/early-exchange-transition-2026-10-11"
@@ -14,6 +16,7 @@ INVENTORY = ROOT / "config/source_inventories/early_exchange_transition_2026.jso
 
 
 class Goh2023EMTAB10888MetadataTests(unittest.TestCase):
+    @requires_local_evidence("early-exchange-transition-2026-10-11")
     def test_paired_end_file_rows_collapse_to_142_sample_run_records(self):
         with SDRF.open(encoding="utf-8-sig", newline="") as stream:
             source_rows = list(csv.DictReader(stream, delimiter="\t"))
@@ -97,6 +100,7 @@ class Goh2023EMTAB10888MetadataTests(unittest.TestCase):
             self.assertTrue({row["biosample"] for row in current}.isdisjoint(row[biosample_key] for row in rows))
             self.assertTrue({row["ena_run"] for row in current}.isdisjoint(row[run_key] for row in rows))
 
+    @requires_local_evidence("early-exchange-transition-2026-10-11")
     def test_inventory_snapshots_and_crosswalk_hashes(self):
         inventory = json.loads(INVENTORY.read_text(encoding="utf-8"))
         source = next(

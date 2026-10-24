@@ -5,6 +5,8 @@ import unittest
 from collections import Counter, defaultdict
 from pathlib import Path
 
+from local_evidence import requires_local_evidence
+
 
 ROOT = Path(__file__).resolve().parents[1]
 ARTIFACTS = ROOT / "artifacts/early-exchange-transition-2026-10-11"
@@ -19,6 +21,7 @@ def read_sdrf(accession):
         return list(csv.DictReader(stream, delimiter="\t"))
 
 
+@requires_local_evidence("early-exchange-transition-2026-10-11")
 class Goh2023RemainingAccessionScreenTests(unittest.TestCase):
     def test_sample_crosswalk_separates_samples_runs_and_read_files(self):
         with CROSSWALK.open(encoding="utf-8", newline="") as stream:

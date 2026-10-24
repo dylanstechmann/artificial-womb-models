@@ -1,6 +1,6 @@
 # Program progress against the plan
 
-Assessment date: 2026-10-17. Generated from config/program/roadmap.json.
+Assessment date: 2026-10-22. Generated from config/program/roadmap.json.
 
 Owned equipment supporting at least one successful human gestation from embryos supplied upstream, without human surrogates, with independently assessed development and continuing health. One or a few concurrent gestations counts as success; up to ten concurrent gestations sharing one actual birth date is an aspiration, not a completion requirement. Seek the earliest achievable outcome, preferably within two to three years of 2026-10-11 or sooner (2028-10-11 to 2029-10-11). Five years is a comparison scenario; ten years may be tolerable. No supported completion forecast or success guarantee is asserted; longitudinal outcomes continue after birth. AI/robot care, education and development goals are tracked in a separate private repository and are out of scope here.
 
@@ -38,7 +38,7 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | R11 Owned maintainable equipment | G7 | Ownership/control and maintainable specifications, configuration rights, parts, qualified operation and continuing support. |
 | R12 At least one successful gestation | G8 | Independently identified trajectory with development and health assessment; concurrency beyond one unit is aspirational stretch, not a requirement. |
 | R13 Actual common calendar birth date (aspiration) | G8 | Applies only if concurrent gestations are ever pursued; define the qualifying event, calendar/timezone and timestamps; report target misses. |
-| R14 At least100 upstream embryos assumed available | G0 | Record the owner's upstream availability premise separately from verified stock, suitability and resulting outcomes; no procurement task inferred. |
+| R14 At least 100 upstream embryos assumed available | G0 | Record the owner's upstream availability premise separately from verified stock, suitability and resulting outcomes; no procurement task inferred. |
 | R15 AI/robot care and longitudinal development (private track) | G9 | Tracked in the separate private ai-robot-parenting repository; out of this public register scope. |
 
 ## Completed contributions
@@ -68,7 +68,7 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | M08 Full intended-use translation assessment | deferred | clinical | not claimed | Jurisdiction, sponsor, permissible research path, independent specialist review and platform qualification; no human-use assumption. |
 | M09 Authorized human full-boundary evidence | deferred | clinical | not claimed | Evidence for the actual starting boundary with all-start ascertainment and continuing follow-up. |
 | M10 Owned qualified platform operation | deferred | engineering | not claimed | Owned equipment/control and maintainable configuration, qualified operation, continuing measurements and independent medical/outcome decisions. |
-| M11 Owner's successful gestation outcome (concurrency aspirational) | deferred | clinical | not claimed | At least ten concurrent gestations and ten actual common-date births satisfying independent development/health conditions; no sequential or service substitute. |
+| M11 Owner's successful gestation outcome (concurrency aspirational) | deferred | clinical | not claimed | Owned equipment and at least one successful gestation with independent development and health assessment; service-only or document-only success cannot substitute. Concurrent gestations and common-date births are aspirations tracked under M19 and M20, not conditions of this milestone. |
 | M12 Specialist functional allocation review | deferred | planning | not claimed | Reviewed A/B/C and alternative requirement-to-function matrix; every allocated or omitted function has an observable and a consequence if absent. |
 | M13 Candidate interface qualification | deferred | biological | not claimed | Component function and developmental progression linked in the same source-defined units; component transport/morphology alone cannot demonstrate adequacy. |
 | M14 Observation qualification | deferred | engineering | not claimed | Measurement dictionary, identity/time joins, calibration traceability, uncertainty and detection-failure evaluation with specialist-defined ranges and independent references. |
@@ -77,7 +77,7 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | M17 Manufacturing and owned-operation qualification | deferred | engineering | not claimed | Reproducibility, maintainability, responsibility and facility-continuity qualification package with independent intended-use decisions before clinical deployment. |
 | M18 Transition and continuing outcome contract | deferred | planning | not claimed | All-start disposition, transition outcomes, additional-care records and continuing ascertainment; methods and windows set by qualified specialists. |
 | M19 Concurrent-unit resource and isolation qualification (aspiration) | deferred | engineering | not claimed | Qualified digital/nonliving and later biological evidence for concurrency, contention, common-cause failures, unit identity and transition capacity. |
-| M20 Common-date outcome assessment | deferred | clinical | not claimed | Defined qualifying event/timezone, independent readiness and actual timestamps/outcomes for ten units; misses retained. |
+| M20 Common-date outcome assessment (aspiration) | deferred | clinical | not claimed | Defined qualifying event/timezone, independent readiness and actual timestamps/outcomes for ten units; misses retained. |
 | M21 AI/robot care and capability qualification (private track) | deferred | engineering | not claimed | Per-task assistance evidence, end-to-end failures/recovery, human responsibility/fallbacks, independent actual-setting review and observed growth/skills. |
 | M22 Executable computer/lab/bench feedback contract | complete | planning | True | Real resources/formats and missing capabilities, frozen prediction/comparator, measurement data contract, discrepancy review and redesign decision. |
 | M23 Measured prediction-to-redesign iteration | deferred | biological | not claimed | Applicable measured observations evaluated against earlier predictions and simpler comparator, independently reviewed, with documented allocation revision/retention/rejection. |
@@ -111,6 +111,7 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | T23 Coupled mechanical twin module | G3 | no | 10 | none |
 | T24 Minimum-measurement acquisition specification module | G3 | no | 10 | none |
 | T25 Platform and resource decision worksheet from the acquisition specification | G1 | no | 10 | none |
+| T26 Numerical integration stability qualification | G3 | no | 12 | none |
 
 ## Uncertainties
 
@@ -122,7 +123,7 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | U04 | Which independent measurements distinguish adequate development from support proxies, fluid state or selection? | Source challenge revised LIPT1 to an endpoint-separation example: tracer uptake/transfer coexists with downstream metabolic/developmental defects at the study level, but not a continuous same-embryo D/M/P chain. Independent review pending. | Keep D, M and P distinct; obtain independent review without author contact or wait for materially new data. |
 | U05 | Are later support changes compatible with development and neonatal function across all starting units? | partial precedents; linked complete trajectory unavailable | Institutional stage/handoff contracts before claiming complete continuity. |
 | U06 | Who can take responsibility for the actual research pathway and intended use in an undecided jurisdiction? | Jurisdiction, facility and accountable research institution remain unknown; no outreach or commitment has occurred. | After location and funding constraints are chosen, compare qualified facilities and responsibility routes; keep any packet unsent until explicitly directed. |
-| U07 | What evidence qualifies owned operation, ten concurrent healthy outcomes and continuing care? | owned full-human capability and concurrent outcomes unestablished | Continue T14/T15, G6/G7 qualification and actual complete-cohort evidence; T13 closed only its bounded planning assessment, not ten-unit qualification. |
+| U07 | What evidence qualifies owned operation, at least one successful gestation and, as an aspiration, concurrent healthy outcomes, together with continuing care? | owned full-human capability and concurrent outcomes unestablished | Continue T14/T15, G6/G7 qualification and actual complete-cohort evidence; T13 closed only its bounded planning assessment, not ten-unit qualification. |
 | U08 | Which accepted tasks benefit from agent capacity or additional hardware, and what resources are actually available? | Five local software task types took 0.154572–0.230441 seconds per process (0.967892 seconds combined). No account usage or sum-agent-hour telemetry was exposed. The owner’s 24–48 AI-hours/week remains an unverified planning estimate; physical measurement and independent-review capacity remain unidentified. | Keep current compute allocation. Reopen only for a named accepted workload with a measured runtime/resume need or usage data showing a real account constraint; prioritize source-linked observations, independent review and physical measurement capability. |
 | U09 | Which development/acquisition route delivers owned maintainable equipment and actual operational control? | Initial route comparison complete, but ownership route is unselected; budget, jurisdiction, facility, quotes and available transfer rights remain unknown. Public fetaLife evidence describes later-fetal development, not a product availability offer. | Maintain owner-led requirements/control while keeping qualified component acquisition/licensing and co-development open; compare proposals only when scope, ownership, support and cost are documented. |
 | U10 | Which shared/dedicated allocations preserve identity, continuity and isolation under concurrent demand? | Conceptual allocation now requires one uniquely identified/contained trajectory per unit, with shared services modeled as common dependencies. Actual topology, measured loads, facility capability, fault propagation and ten-unit outcomes remain unknown. | Obtain a qualified dependency/load map and systems-reliability capability; then test identity, isolation, common-cause faults and simultaneous transition demand. Keep M15/M19 and G8 open. |
@@ -191,5 +192,8 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | T24 | examples/acquisition_spec_fixture.json | matches |
 | T25 | src/wombmodels/platform_requirements.py | matches |
 | T25 | examples/platform_requirements_fixture.json | matches |
+| T26 | NUMERICAL_INTEGRATION_QUALIFICATION_2026-10-22.md | matches |
+| T26 | tests/test_integration_stability.py | matches |
+| T26 | src/wombmodels/numerics.py | matches |
 
 For the next work cycle, read PROGRAM_PLAN.md and the original task acceptance conditions. Match each claimed result to its gate and uncertainty. Hold a branch after two cycles with no usable new information. Do not contact authors or other people. No new process or automation is started by this status command.

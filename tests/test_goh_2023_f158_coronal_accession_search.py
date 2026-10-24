@@ -6,6 +6,8 @@ import xml.etree.ElementTree as ET
 from collections import Counter
 from pathlib import Path
 
+from local_evidence import requires_local_evidence
+
 
 ROOT = Path(__file__).resolve().parents[1]
 ARTIFACTS = ROOT / "artifacts/early-exchange-transition-2026-10-11"
@@ -14,6 +16,7 @@ CROSSWALK = ROOT / "config/source_inventories/goh_2023_emtab11673_sample_crosswa
 
 
 class Goh2023F158CoronalAccessionSearchTests(unittest.TestCase):
+    @requires_local_evidence("early-exchange-transition-2026-10-11")
     def test_pinned_biostudies_searches_find_no_second_human_fetal_candidate(self):
         expected = {
             "biostudies-search-all-F158.json": 16,
@@ -49,6 +52,7 @@ class Goh2023F158CoronalAccessionSearchTests(unittest.TestCase):
                 ["Human fetal yolk sac scRNA-seq data (sample ID: F158 for Haniffa Lab; 16099 for HDBR)"],
             )
 
+    @requires_local_evidence("early-exchange-transition-2026-10-11")
     def test_ena_browser_records_confirm_the_existing_f158_yolk_sac_links(self):
         with CROSSWALK.open(encoding="utf-8", newline="") as stream:
             rows = list(csv.DictReader(stream))
@@ -75,6 +79,7 @@ class Goh2023F158CoronalAccessionSearchTests(unittest.TestCase):
             self.assertIn("carnegie stage 17", run.findtext("TITLE", "").casefold())
             self.assertEqual(len(run.findall("./DATA_BLOCK/FILES/FILE")), 3)
 
+    @requires_local_evidence("early-exchange-transition-2026-10-11")
     def test_inventory_pins_search_and_direct_ena_metadata_with_scope_limit(self):
         inventory = json.loads(INVENTORY.read_text(encoding="utf-8"))
         source = next(
@@ -92,6 +97,7 @@ class Goh2023F158CoronalAccessionSearchTests(unittest.TestCase):
             self.assertEqual(path.stat().st_size, declaration["bytes"])
             self.assertEqual(hashlib.sha256(path.read_bytes()).hexdigest(), declaration["sha256"])
 
+    @requires_local_evidence("early-exchange-transition-2026-10-11")
     def test_supplement_table_and_ega_brain_candidate_are_pinned_but_unmatched(self):
         inventory = json.loads(INVENTORY.read_text(encoding="utf-8"))
         source = next(
@@ -185,6 +191,10 @@ class Goh2023F158CoronalAccessionSearchTests(unittest.TestCase):
         self.assertEqual(len(b2073), 2)
         self.assertEqual({row["ega_sample_accession"] for row in b2073}, {"EGAN00002408476", "EGAN00002408477"})
 
+    @requires_local_evidence(
+        "early-exchange-transition-2026-10-09",
+        "early-exchange-transition-2026-10-11",
+    )
     def test_matched_coronal_accession_is_reciprocally_identified_and_crosswalked(self):
         inventory = json.loads(INVENTORY.read_text(encoding="utf-8"))
         source = next(
@@ -288,6 +298,7 @@ class Goh2023F158CoronalAccessionSearchTests(unittest.TestCase):
             self.assertEqual(attributes["embryo stage"], row["embryo_stage"])
             self.assertEqual(attributes["sex"], row["sex"])
 
+    @requires_local_evidence("early-exchange-transition-2026-10-11")
     def test_public_file_index_separates_fastq_manifest_from_matrix_claim(self):
         inventory = json.loads(INVENTORY.read_text(encoding="utf-8"))
         source = next(
@@ -351,6 +362,7 @@ class Goh2023F158CoronalAccessionSearchTests(unittest.TestCase):
             analysis_rows = list(csv.DictReader(stream, delimiter="\t"))
         self.assertEqual(analysis_rows, [])
 
+    @requires_local_evidence("early-exchange-transition-2026-10-11")
     def test_hdca_preprint_crosschecks_the_accession_but_not_matrix_availability(self):
         inventory = json.loads(INVENTORY.read_text(encoding="utf-8"))
         source = next(
@@ -444,6 +456,7 @@ class Goh2023F158CoronalAccessionSearchTests(unittest.TestCase):
         )
         self.assertFalse(archive["sequence_or_count_matrix_files_downloaded"])
 
+    @requires_local_evidence("early-exchange-transition-2026-10-11")
     def test_cycle190_analysis_file_probe_preserves_route_failure_without_absence_claim(self):
         inventory = json.loads(INVENTORY.read_text(encoding="utf-8"))
         source = next(
@@ -472,6 +485,7 @@ class Goh2023F158CoronalAccessionSearchTests(unittest.TestCase):
             receipt["requests"][3]["error_response_snapshot"]["sha256"],
         )
 
+    @requires_local_evidence("early-exchange-transition-2026-10-11")
     def test_f137_public_sra_crosswalk_maps_all_sections_without_replication_inference(self):
         inventory = json.loads(INVENTORY.read_text(encoding="utf-8"))
         source = next(
@@ -507,6 +521,7 @@ class Goh2023F158CoronalAccessionSearchTests(unittest.TestCase):
             self.assertEqual(snapshot.stat().st_size, int(row["snapshot_bytes"]))
             self.assertEqual(hashlib.sha256(snapshot.read_bytes()).hexdigest(), row["snapshot_sha256"])
 
+    @requires_local_evidence("early-exchange-transition-2026-10-11")
     def test_f137_runinfo_is_distinct_from_fastq_metadata_and_retains_earlier_probe(self):
         inventory = json.loads(INVENTORY.read_text(encoding="utf-8"))
         source = next(
@@ -535,6 +550,7 @@ class Goh2023F158CoronalAccessionSearchTests(unittest.TestCase):
         self.assertEqual(spec["ena_fastq_file_report_probe"]["timeouts_seconds"], [25, 30])
         self.assertFalse(spec["ena_fastq_file_report_probe"]["fastq_manifest_created"])
 
+    @requires_local_evidence("early-exchange-transition-2026-10-11")
     def test_f137_submitted_fastq_manifest_matches_runs_and_section_counts(self):
         inventory = json.loads(INVENTORY.read_text(encoding="utf-8"))
         source = next(
@@ -575,6 +591,7 @@ class Goh2023F158CoronalAccessionSearchTests(unittest.TestCase):
             self.assertEqual(int(summary["f137_ena_fastq_bytes"]), sum(int(row["bytes"]) for row in section_files))
         self.assertFalse(f137["content_downloaded"])
 
+    @requires_local_evidence("early-exchange-transition-2026-10-11")
     def test_f158_runinfo_zero_is_flagged_against_nonempty_ena_fastq_files(self):
         inventory = json.loads(INVENTORY.read_text(encoding="utf-8"))
         source = next(

@@ -4,6 +4,8 @@ import unittest
 from pathlib import Path
 import xml.etree.ElementTree as ET
 
+from local_evidence import requires_local_evidence
+
 
 ROOT = Path(__file__).resolve().parents[1]
 INVENTORY = ROOT / "config/source_inventories/fetal_ovine_support_transition_2023_2026.json"
@@ -60,6 +62,7 @@ class UsudaControlDenominatorTests(unittest.TestCase):
         self.assertTrue(linkage["post_support_follow_up"].startswith("Not reported"))
         self.assertIn("no individual terminal growth", linkage["interpretation_limit"])
 
+    @requires_local_evidence("usuda-2023-case-linkage-2026-10-10")
     def test_supplementary_screen_is_bounded_to_inspected_article_surfaces(self):
         inventory = json.loads(INVENTORY.read_text(encoding="utf-8"))
         record = next(

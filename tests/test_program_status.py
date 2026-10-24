@@ -49,7 +49,8 @@ class ProgramStatusTests(unittest.TestCase):
         # were likewise registered complete same-day, and the downstream
         # D12 queue items T24 (acquisition specification feeding T08) and
         # T25 (the T08 reopen worksheet) were registered complete after
-        # them.
+        # them. T26 records the 2026-10-22 numerical qualification as a
+        # software contribution; biological gates remain open.
         self.assertEqual({item["id"] for item in self.register["tasks"]
                           if item["status"] == "ready"}, set())
         # T15 was deferred on 2026-10-12 when the care/development track moved private.
@@ -59,6 +60,11 @@ class ProgramStatusTests(unittest.TestCase):
                                      if item["id"] == "T15")["depends_on"]), ["M01", "T12"])
         self.assertTrue(valid["M01"], "T15 depends on the verified baseline milestone")
         self.assertTrue(valid["T12"])
+        numerical = next(item for item in self.register["tasks"] if item["id"] == "T26")
+        self.assertEqual(numerical["status"], "complete")
+        self.assertEqual(numerical["domain"], "software")
+        self.assertEqual(numerical["depends_on"], ["T19", "T20", "T21", "T22", "T23", "T24"])
+        self.assertTrue(valid["T26"])
         for row in report["tasks"]:
             if row["eligible_to_start"]:
                 self.assertEqual(row["declared_status"], "ready")

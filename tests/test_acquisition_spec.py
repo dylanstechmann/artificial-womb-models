@@ -4,11 +4,14 @@ import math
 import tempfile
 import unittest
 from pathlib import Path
+from itertools import combinations
 
 from wombmodels.artifacts import InputError
 from wombmodels.bundle_verification import verify_bundle
 from wombmodels.exchange import NOTICE
-from wombmodels.acquisition_spec import acquisition_spec
+from wombmodels.acquisition_spec import OBSERVABLES, _channel_requirements, acquisition_spec
+from wombmodels.mechanical_twin import mechanical_twin
+from wombmodels.platform_requirements import platform_requirements
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -36,6 +39,135 @@ class AcquisitionSpecTests(unittest.TestCase):
     def rows(self, output, name):
         with (output / name).open(newline="", encoding="utf-8") as stream:
             return list(csv.DictReader(stream))
+
+    def channel_plan(self, post_values, pre_values=None):
+        events = []
+        names = ("a", "b", "c")
+        for handoff, values in enumerate(post_values, 1):
+            for name, value in zip(names, values):
+                event = dict.fromkeys(OBSERVABLES, 0.0)
+                event.update(variant=name, phase="post", handoff=handoff, wall_strain=value)
+                events.append(event)
+        if pre_values is not None:
+            for name, value in zip(names, pre_values):
+                event = dict.fromkeys(OBSERVABLES, 0.0)
+                event.update(variant=name, phase="pre", handoff=1, wall_strain=value)
+                events.append(event)
+        rows, pairs = _channel_requirements(events, list(combinations(names, 2)), 0.1)
+        return next(row for row in rows if row["channel"] == "wall_strain"), pairs
+
+    def test_qualification_waits_until_every_pair_separates_at_once(self):
+        channel, pairs = self.channel_plan([(1, 1, 2), (1, 2, 3)])
+        self.assertEqual(pairs[("a", "c", "wall_strain")], 1)
+        self.assertEqual(pairs[("a", "b", "wall_strain")], 2)
+        self.assertEqual(channel["first_separated_handoff"], 2)
+        self.assertTrue(channel["required"])
+
+    def test_first_ever_separation_cannot_substitute_for_a_common_handoff(self):
+        # Every pair differs at some point, but at each handoff two variants coincide.
+        channel, pairs = self.channel_plan([(1, 1, 2), (2, 1, 1), (1, 2, 1)])
+        self.assertTrue(all(value is not None for key, value in pairs.items()
+                            if key[2] == "wall_strain"))
+        self.assertEqual(channel["pairs_separated_ever"], 3)
+        self.assertIsNone(channel["first_separated_handoff"])
+        self.assertFalse(channel["required"])
+        self.assertEqual(channel["excluded_reason"], "no_common_separated_handoff")
+
+    def test_partial_separation_is_not_reported_as_never_separating(self):
+        channel, _pairs = self.channel_plan([(1, 1, 2)])
+        self.assertEqual(channel["pairs_separated_ever"], 2)
+        self.assertEqual(channel["variant_pair_count"], 3)
+        self.assertEqual(channel["excluded_reason"], "separates_only_some_pairs")
+        self.assertFalse(channel["required"])
+
+    def test_pre_handoff_separation_does_not_qualify_post_handoff_measurements(self):
+        channel, _pairs = self.channel_plan([(1, 1, 1)], pre_values=(1, 2, 3))
+        self.assertEqual(channel["excluded_reason"], "never_separates_any_pair")
+        self.assertFalse(channel["required"])
+
+    def test_no_discrimination_rejects_without_publishing_a_bundle(self):
+        config = fixture()
+        for variant in config["variants"].values():
+            variant.update(serve_rate=1.0, internal_efficiency=0.5, wall_coupling=0.7)
+        with tempfile.TemporaryDirectory() as temp:
+            path = Path(temp) / "config.json"
+            path.write_text(json.dumps(config), encoding="utf-8")
+            output = Path(temp) / "out"
+            with self.assertRaisesRegex(InputError, "common handoff"):
+                acquisition_spec(path, output)
+            self.assertFalse(output.exists())
+
+    def test_zero_reference_noise_has_no_multiplier_floor_and_needs_one_unit(self):
+        config = fixture()
+        config["monitor"]["noise_sd"] = 0
+        _receipt, report, output = self.run_spec(config)
+        self.assertEqual(report["resolution"]["floor_status"],
+                         "not_applicable_zero_reference_noise")
+        self.assertTrue(all(value is None for value
+                            in report["resolution"]["channel_floor_multiplier"].values()))
+        for row in report["noise_floor_sweep"]:
+            self.assertTrue(row["analytic_separated_with_margin"])
+            self.assertEqual(row["empirical_reliability"], 1.0)
+        for channel in report["units_per_cohort"].values():
+            self.assertTrue(all(row["analytic_units"] == 1 and row["confirmed"]
+                                for row in channel["sweep"]))
+        self.assertIn("floor not applicable", (output / "REPORT.md").read_text(encoding="utf-8"))
+        self.assertTrue(verify_bundle(output, strict=True)["bytes_verified"])
+
+    def test_failed_seed_confirmation_is_reported_as_unconfirmed(self):
+        config = fixture()
+        config["spec"]["detection_sigma"] = 0.1
+        _receipt, report, output = self.run_spec(config)
+        failed = [row for data in report["units_per_cohort"].values() for row in data["sweep"]
+                  if not row["capped"] and not row["confirmed"]]
+        self.assertTrue(failed, "the weak guard must exercise failed empirical confirmation")
+        text = (output / "REPORT.md").read_text(encoding="utf-8")
+        self.assertIn("unconfirmed (reliability", text)
+        for row in failed:
+            self.assertIn(f"N={row['analytic_units']}, unconfirmed "
+                          f"(reliability {row['empirical_reliability']:.6g})", text)
+
+    def test_channel_specific_handoffs_use_their_own_twin_observations(self):
+        config = fixture()
+        config["interval_boundaries"] = [8, 10.5, 20]
+        config["variants"]["staged"]["wall_coupling"] = 0.5
+        _receipt, report, output = self.run_spec(config)
+        timing = report["timing"]
+        self.assertEqual(timing["channel_handoffs"],
+                         {"wall_strain": 2, "deep_receipt_rate": 1, "progression": 1})
+        self.assertEqual(timing["first_separated_handoff"], 1)
+        self.assertEqual(timing["first_separated_time"], 8.0)
+        self.assertEqual(timing["plan_complete_handoff"], 2)
+        self.assertEqual(timing["plan_complete_time"], 10.5)
+        self.assertEqual(timing["discrimination_timepoints"], 22)
+        # Check against the source twin's published observations, not just
+        # the acquisition report's own effect/margin arithmetic.
+        source_config = {key: value for key, value in config.items() if key != "spec"}
+        source_path = output.parent / "twin.json"
+        source_path.write_text(json.dumps(source_config), encoding="utf-8")
+        twin = output.parent / "twin"
+        mechanical_twin(source_path, twin)
+        events = {(row["variant"], int(row["handoff"])): row
+                  for row in self.rows(twin, "boundary_events.csv") if row["phase"] == "post"}
+        for channel, pairs in report["resolution"]["pairs"].items():
+            handoff = timing["channel_handoffs"][channel]
+            for label, values in pairs.items():
+                first, second = label.split("|")
+                a = float(events[(first, handoff)][channel])
+                b = float(events[(second, handoff)][channel])
+                expected_margin = abs(a - b) - 0.1 * max(abs(a), abs(b), 1e-12)
+                self.assertEqual(values["effect"], abs(a - b))
+                self.assertEqual(values["margin"], expected_margin)
+                self.assertGreater(values["margin"], 0)
+        worksheet = output.parent / "worksheet"
+        platform_requirements(ROOT / "examples/platform_requirements_fixture.json", output, worksheet)
+        consumed = json.loads((worksheet / "platform_requirements_report.json").read_text(encoding="utf-8"))
+        for row in consumed["line_items"]:
+            self.assertEqual(row["selected_handoff"], timing["channel_handoffs"][row["channel"]])
+            self.assertEqual(row["selected_time"], timing["channel_times"][row["channel"]])
+            self.assertEqual(row["discrimination_timepoints"], 22)
+        self.assertTrue(verify_bundle(output, strict=True)["bytes_verified"])
+        self.assertTrue(verify_bundle(worksheet, strict=True)["bytes_verified"])
 
     def test_required_channels_are_computed_from_the_run(self):
         _receipt, report, _output = self.run_spec(fixture())

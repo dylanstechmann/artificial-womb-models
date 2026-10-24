@@ -7,6 +7,7 @@ import unittest
 from pathlib import Path
 
 from wombmodels.artifacts import InputError
+from wombmodels.bundle_verification import verify_bundle
 from wombmodels.developmental_models import simulate_mechanics, simulate_transport
 from wombmodels.numerical_verification import (
     _exact_mechanics_state,
@@ -272,6 +273,10 @@ class DevelopmentalModelTests(unittest.TestCase):
             curves = list(csv.DictReader(stream))
         names = {item["name"] for item in report["scenarios"]}
         self.assertEqual(receipt["bundle_kind"], "dimensionless_transport_parameter_matrix_numerical_verification")
+        checked = verify_bundle(output, strict=True)
+        self.assertTrue(checked["bytes_verified"], checked["errors"])
+        self.assertEqual(checked["errors"], [])
+        self.assertIn("verify-transport-matrix", checked["rerun_command"])
         self.assertEqual(names, {"configured_baseline", "zero_dynamics", "exchange_only",
                                  "transfer_only", "unequal_coupled", "high_mixing",
                                  "near_degenerate"})

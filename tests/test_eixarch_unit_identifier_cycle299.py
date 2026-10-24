@@ -3,10 +3,13 @@ import json
 import unittest
 from pathlib import Path
 
+from local_evidence import requires_local_evidence
+
 ROOT = Path(__file__).resolve().parents[1]
 ART = ROOT / "artifacts/eixarch-2023-group-outcomes-2026-10-11-cycle299"
 
 
+@requires_local_evidence("eixarch-2023-group-outcomes-2026-10-11-cycle299")
 class EixarchUnitIdentifierCycle299Tests(unittest.TestCase):
     def test_source_records_have_no_shared_unit_key(self):
         assessment = json.loads((ART / "unit-identifier-coverage-cycle299.json").read_text(encoding="utf-8"))

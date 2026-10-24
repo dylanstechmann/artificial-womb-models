@@ -8,8 +8,10 @@ from pathlib import Path
 
 from wombmodels.artifacts import InputError
 from wombmodels.ashley_source import audit_ashley_source_cells
+from local_evidence import requires_local_evidence
 
 
+@requires_local_evidence("ashley-2022-vitamin-d-perfusion")
 class AshleySourceAuditTests(unittest.TestCase):
     def setUp(self):
         self.root = Path(__file__).resolve().parents[1]

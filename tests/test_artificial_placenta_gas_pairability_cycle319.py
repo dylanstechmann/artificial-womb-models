@@ -4,6 +4,8 @@ import json
 import unittest
 from pathlib import Path
 
+from local_evidence import requires_local_evidence
+
 ROOT = Path(__file__).resolve().parents[1]
 ART = ROOT / "artifacts/artificial-placenta-gas-pairability-2026-10-11-cycle319"
 ASSESSMENT = ART / "gas-exchange-pairability-cycle319.json"
@@ -12,6 +14,7 @@ CANDIDATE = ROOT / "config/observations/eixarch_2023_support_outcomes_candidate.
 INVENTORY = ROOT / "config/source_inventories/artificial_placenta_gas_pairability_2026.json"
 
 
+@requires_local_evidence("artificial-placenta-gas-pairability-2026-10-11-cycle319")
 class ArtificialPlacentaGasPairabilityCycle319Tests(unittest.TestCase):
     def test_two_public_sources_keep_sampling_route_distinct_from_pairable_results(self):
         assessment = json.loads(ASSESSMENT.read_text(encoding="utf-8"))

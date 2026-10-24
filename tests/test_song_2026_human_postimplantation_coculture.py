@@ -6,6 +6,7 @@ import tempfile
 from pathlib import Path
 
 from wombmodels.observations import observation_report, validate_dataset
+from local_evidence import requires_local_evidence
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -13,6 +14,7 @@ INVENTORY = ROOT / "config/source_inventories/song_2026_human_postimplantation_c
 RECEIPT = ROOT / "artifacts/postimplantation-coculture-2026-10-11/song-postimplantation-source-route-screen-cycle195.json"
 
 
+@requires_local_evidence("postimplantation-coculture-2026-10-11")
 class SongPostimplantationCocultureIntakeTests(unittest.TestCase):
     @classmethod
     def setUpClass(cls):

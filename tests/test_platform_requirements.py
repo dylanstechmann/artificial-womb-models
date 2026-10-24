@@ -4,6 +4,7 @@ import tempfile
 import unittest
 from pathlib import Path
 
+from wombmodels.acquisition_spec import acquisition_spec
 from wombmodels.artifacts import InputError
 from wombmodels.bundle_verification import verify_bundle
 from wombmodels.exchange import NOTICE
@@ -11,7 +12,6 @@ from wombmodels.platform_requirements import platform_requirements
 
 
 ROOT = Path(__file__).resolve().parents[1]
-SPEC_BUNDLE = ROOT / "artifacts" / "acquisition-spec-module-2026-10-17"
 REQUIRED = ("wall_strain", "deep_receipt_rate", "progression")
 FLUIDIC_BOUNDARY = ("delivered_flux", "served_fraction", "bulk_stock")
 ROUTES = ("owner_led", "acquisition_or_licensing", "co_development")
@@ -22,6 +22,15 @@ def fixture():
 
 
 class PlatformRequirementsTests(unittest.TestCase):
+    @classmethod
+    def setUpClass(cls):
+        # Build the consumed specification from the tracked fixture so these tests
+        # need no untracked artifacts/ bundle.
+        temp = tempfile.TemporaryDirectory()
+        cls.addClassCleanup(temp.cleanup)
+        cls.spec_bundle = Path(temp.name) / "acquisition-spec"
+        acquisition_spec(ROOT / "examples/acquisition_spec_fixture.json", cls.spec_bundle)
+
     def run_worksheet(self, config=None, spec_dir=None):
         if config is None:
             config = fixture()
@@ -31,7 +40,7 @@ class PlatformRequirementsTests(unittest.TestCase):
         config_path = root / "config.json"
         config_path.write_text(json.dumps(config), encoding="utf-8")
         output = root / "bundle"
-        receipt = platform_requirements(config_path, spec_dir or SPEC_BUNDLE, output)
+        receipt = platform_requirements(config_path, spec_dir or self.spec_bundle, output)
         report = json.loads((output / "platform_requirements_report.json").read_text(encoding="utf-8"))
         return receipt, report, output
 
@@ -113,12 +122,48 @@ class PlatformRequirementsTests(unittest.TestCase):
 
     def test_consumed_specification_is_byte_verbatim(self):
         _receipt, report, output = self.run_worksheet()
-        source = (SPEC_BUNDLE / "acquisition_spec_report.json").read_bytes()
+        source = (self.spec_bundle / "acquisition_spec_report.json").read_bytes()
         self.assertEqual((output / "consumed_spec_report.json").read_bytes(), source)
         from wombmodels.artifacts import sha256
         self.assertEqual(report["source_spec"]["report_sha256"], sha256(source))
         self.assertEqual(report["source_spec"]["n_variants"], 3)
         self.assertEqual(report["source_spec"]["one_way_coupling_verified"], True)
+
+    def test_zero_noise_specification_publishes_a_verified_worksheet(self):
+        config = json.loads((ROOT / "examples/acquisition_spec_fixture.json").read_text(encoding="utf-8"))
+        config["monitor"]["noise_sd"] = 0
+        with tempfile.TemporaryDirectory() as temp:
+            path = Path(temp) / "config.json"
+            path.write_text(json.dumps(config), encoding="utf-8")
+            source = Path(temp) / "spec"
+            acquisition_spec(path, source)
+            _receipt, report, output = self.run_worksheet(spec_dir=source)
+        for row in report["line_items"]:
+            self.assertIsNone(row["resolution_floor_multiplier"])
+            self.assertEqual(row["selected_handoff"], 1)
+            self.assertEqual(row["selected_time"], 10.0)
+            self.assertTrue(all(units == 1 for units
+                                in row["units_per_allocation_by_multiplier"].values()))
+            self.assertTrue(all(row["confirmed_by_seeded_sweep"].values()))
+        self.assertIn("floor not applicable", (output / "REPORT.md").read_text(encoding="utf-8"))
+        self.assertTrue(verify_bundle(output, strict=True)["bytes_verified"])
+
+    def test_partial_channels_keep_their_source_exclusion_reason(self):
+        config = json.loads((ROOT / "examples/acquisition_spec_fixture.json").read_text(encoding="utf-8"))
+        # Two identical wall couplings leave only two of three pairs separable;
+        # internal efficiency still makes receipt and progression usable channels.
+        config["variants"]["staged"]["wall_coupling"] = config["variants"]["synthetic"]["wall_coupling"]
+        with tempfile.TemporaryDirectory() as temp:
+            path = Path(temp) / "config.json"
+            path.write_text(json.dumps(config), encoding="utf-8")
+            source = Path(temp) / "spec"
+            acquisition_spec(path, source)
+            _receipt, report, output = self.run_worksheet(spec_dir=source)
+        excluded = {row["channel"]: row for row in report["non_requirements"]}
+        self.assertEqual(excluded["wall_strain"]["excluded_reason"], "separates_only_some_pairs")
+        self.assertIn("partial pairwise discrimination", excluded["wall_strain"]["note"])
+        self.assertNotIn("derived", excluded["wall_strain"]["note"])
+        self.assertTrue(verify_bundle(output, strict=True)["bytes_verified"])
 
     def test_deterministic_reproduction(self):
         _r1, _rep1, one = self.run_worksheet()
@@ -147,7 +192,7 @@ class PlatformRequirementsTests(unittest.TestCase):
                     path = empty / "config.json"
                     path.write_text(json.dumps(config), encoding="utf-8")
                     with self.assertRaisesRegex(InputError, message):
-                        platform_requirements(path, SPEC_BUNDLE, empty / "out")
+                        platform_requirements(path, self.spec_bundle, empty / "out")
             valid = empty / "valid.json"
             valid.write_text(json.dumps(fixture()), encoding="utf-8")
             with self.assertRaisesRegex(InputError, "missing"):

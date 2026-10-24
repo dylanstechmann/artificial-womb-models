@@ -1,19 +1,21 @@
 from __future__ import annotations
 
+import ast
 import json
 import shutil
 import tempfile
 import unittest
 from pathlib import Path
 
-from wombmodels.artifacts import InputError, sha256
-from wombmodels.bundle_verification import verify_bundle
+from wombmodels.artifacts import InputError, reproduction_plan, sha256
+from wombmodels.bundle_verification import KNOWN_BUNDLE_KINDS, verify_bundle
 from wombmodels.cli import main
 from wombmodels.exchange import simulate
 from wombmodels.identifiability import analyze
 from wombmodels.observations import observation_report
 
 EXAMPLES = Path(__file__).resolve().parents[1] / "examples"
+SOURCE = Path(__file__).resolve().parents[1] / "src" / "wombmodels"
 
 
 class BundleVerificationTests(unittest.TestCase):
@@ -177,6 +179,40 @@ class BundleVerificationTests(unittest.TestCase):
         self.assertEqual(main(["verify-bundle", "--bundle", str(self.bundle), "--strict"]), 0)
         (self.bundle / "REPORT.md").write_text("edited after publication\n", encoding="utf-8")
         self.assertEqual(main(["verify-bundle", "--bundle", str(self.bundle)]), 1)
+
+
+class PublishedKindCoverageTests(unittest.TestCase):
+    """The strict verifier and reproduction plans must keep pace with what the package publishes."""
+
+    @staticmethod
+    def published_kinds():
+        """Map each literal publish_bundle(kind=...) to its module and whether the module writes its own plan."""
+        kinds = {}
+        for path in sorted(SOURCE.glob("*.py")):
+            text = path.read_text(encoding="utf-8")
+            for node in ast.walk(ast.parse(text)):
+                if not isinstance(node, ast.Call) or getattr(node.func, "id", getattr(node.func, "attr", "")) != "publish_bundle":
+                    continue
+                for keyword in node.keywords:
+                    if keyword.arg == "kind" and isinstance(keyword.value, ast.Constant):
+                        kinds[keyword.value.value] = (path.name, "reproduction_plan.json" in text)
+        return kinds
+
+    def test_the_scan_finds_the_publishers(self):
+        self.assertGreaterEqual(len(self.published_kinds()), 25)
+
+    def test_every_published_kind_is_known_to_the_strict_verifier(self):
+        unknown = sorted(set(self.published_kinds()) - KNOWN_BUNDLE_KINDS)
+        self.assertEqual(unknown, [], "strict verification would reject bundles the package publishes")
+
+    def test_every_published_kind_records_a_rerun_command(self):
+        for kind, (module, writes_own_plan) in sorted(self.published_kinds().items()):
+            if writes_own_plan:
+                continue
+            with self.subTest(kind=kind):
+                command = reproduction_plan(kind, {}, {})["command"]
+                self.assertFalse(command.startswith("no recorded command template"),
+                                 f"{module} publishes {kind} but artifacts.reproduction_plan has no command for it")
 
 
 if __name__ == "__main__":

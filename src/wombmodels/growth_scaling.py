@@ -20,6 +20,7 @@ from pathlib import Path
 
 from .artifacts import InputError, csv_bytes, json_bytes, publish_bundle, read_json
 from .exchange import NOTICE, fields, number
+from .numerics import output_times, require_finite
 
 MAX_OUTPUT_INTERVALS = 50_000
 MAX_TOTAL_SUBSTEPS = 4_000_000
@@ -122,13 +123,13 @@ def _integrate(duration, step, growth, scaling, exchange, worlds):
                   + exchange["repair"] + max(worlds["internal_world"]["use"],
                                              worlds["internal_witness"]["use"]))
     substeps = max(1, math.ceil(step * rate_scale / SUBSTEP_RATE_TARGET))
-    intervals = int(duration / step)
+    times = output_times(duration, step)
+    intervals = len(times) - 1
     if intervals * substeps > MAX_TOTAL_SUBSTEPS:
         raise InputError(f"Integration exceeds the {MAX_TOTAL_SUBSTEPS}-substep budget")
     state = [1.0, 0.0, 0.0, 0.0, 0.0]
     rows = []
-    for index in range(intervals + 1):
-        time = duration if index == intervals else index * step
+    for index, time in enumerate(times):
         size, capacity, demand, margin = _geometry(growth, scaling, time)
         delivered = min(demand * state[0], capacity)
         rows.append({"dimensionless_time": time, "size": size, "capacity": capacity,
@@ -139,9 +140,10 @@ def _integrate(duration, step, growth, scaling, exchange, worlds):
                      "tissue_stock_configured": state[3], "tissue_stock_witness": state[4]})
         if index == intervals:
             break
-        substep = step / substeps
-        for _ in range(substeps):
-            state = _rk4_step(time, state, substep, growth, scaling, exchange, worlds)
+        substep = (times[index + 1] - time) / substeps
+        for inner in range(substeps):
+            state = _rk4_step(time + inner * substep, state, substep, growth, scaling, exchange, worlds)
+            require_finite(state)
             # The request fraction is a bounded ratio; project it so the
             # delivered-flux invariants stay exact under floating-point drift.
             state[0] = min(max(state[0], 0.0), 1.0)

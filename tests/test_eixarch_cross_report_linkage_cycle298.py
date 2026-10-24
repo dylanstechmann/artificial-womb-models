@@ -4,6 +4,8 @@ import math
 import unittest
 from pathlib import Path
 
+from local_evidence import requires_local_evidence
+
 ROOT = Path(__file__).resolve().parents[1]
 ART = ROOT / "artifacts/eixarch-2023-group-outcomes-2026-10-11-cycle298"
 INVENTORY = ROOT / "config/source_inventories/fetal_ovine_support_transition_2023_2026.json"
@@ -17,6 +19,10 @@ def mean_sd(values):
     return mean, sd
 
 
+@requires_local_evidence(
+    "eixarch-2023-group-outcomes-2026-10-11-cycle298",
+    "fetal-ovine-transition-2026-10-10",
+)
 class EixarchCrossReportLinkageCycle298Tests(unittest.TestCase):
     def test_2025_2026_linkage_stays_possible_but_unverified(self):
         assessment = json.loads((ART / "cross-report-linkage-assessment-cycle298.json").read_text(encoding="utf-8"))

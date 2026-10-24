@@ -1,7 +1,7 @@
 {
   "schema_version": 1,
   "program_id": "surrogate-free-full-gestation",
-  "assessment_date": "2026-10-17",
+  "assessment_date": "2026-10-22",
   "program_status": "active",
   "objective": "Owned equipment supporting at least one successful human gestation from embryos supplied upstream, without human surrogates, with independently assessed development and continuing health. One or a few concurrent gestations counts as success; up to ten concurrent gestations sharing one actual birth date is an aspiration, not a completion requirement. Seek the earliest achievable outcome, preferably within two to three years of 2026-10-11 or sooner (2028-10-11 to 2029-10-11). Five years is a comparison scenario; ten years may be tolerable. No supported completion forecast or success guarantee is asserted; longitudinal outcomes continue after birth. AI/robot care, education and development goals are tracked in a separate private repository and are out of scope here.",
   "constraints": {
@@ -139,7 +139,7 @@
     },
     {
       "id": "R14",
-      "title": "At least100 upstream embryos assumed available",
+      "title": "At least 100 upstream embryos assumed available",
       "gate_id": "G0",
       "acceptance": "Record the owner's upstream availability premise separately from verified stock, suitability and resulting outcomes; no procurement task inferred."
     },
@@ -364,7 +364,7 @@
       "domain": "clinical",
       "status": "deferred",
       "horizon": "earliest achievable; preferred by 2028-10-11 to 2029-10-11 or sooner; forecast not established",
-      "acceptance": "At least ten concurrent gestations and ten actual common-date births satisfying independent development/health conditions; no sequential or service substitute.",
+      "acceptance": "Owned equipment and at least one successful gestation with independent development and health assessment; service-only or document-only success cannot substitute. Concurrent gestations and common-date births are aspirations tracked under M19 and M20, not conditions of this milestone.",
       "evidence": []
     },
     {
@@ -457,7 +457,7 @@
     },
     {
       "id": "M20",
-      "title": "Common-date outcome assessment",
+      "title": "Common-date outcome assessment (aspiration)",
       "gate_id": "G8",
       "domain": "clinical",
       "status": "deferred",
@@ -681,7 +681,7 @@
     {
       "id": "U07",
       "title": "Owned concurrent outcomes and continuity",
-      "question": "What evidence qualifies owned operation, ten concurrent healthy outcomes and continuing care?",
+      "question": "What evidence qualifies owned operation, at least one successful gestation and, as an aspiration, concurrent healthy outcomes, together with continuing care?",
       "status": "owned full-human capability and concurrent outcomes unestablished",
       "next_decision": "Continue T14/T15, G6/G7 qualification and actual complete-cohort evidence; T13 closed only its bounded planning assessment, not ten-unit qualification."
     },
@@ -1301,7 +1301,7 @@
         },
         {
           "path": "src/wombmodels/growth_scaling.py",
-          "sha256": "d7f10ab2f659e12e6451ac6bf17c87a53748e8c83d494ea2eb0ad8b8e485d1a3"
+          "sha256": "c3142564a881f4e8510873c6f0255221e98ab77624e9a48c7ed9e41a839b9d5b"
         },
         {
           "path": "examples/growth_scaling_fixture.json",
@@ -1334,7 +1334,7 @@
       "evidence": [
         {
           "path": "src/wombmodels/spatial_delivery.py",
-          "sha256": "8440f3783ad728c3c0a52a2a10690e4270923c2ee1831ccf9fee9f6080d29613"
+          "sha256": "24567cd9d6b2e78b96f765f65eccf2125d96c0fb6e100e34f9cb869095d7810a"
         },
         {
           "path": "examples/spatial_delivery_fixture.json",
@@ -1368,7 +1368,7 @@
       "evidence": [
         {
           "path": "src/wombmodels/whole_path_twin.py",
-          "sha256": "df864417860ae3ed2d80af2cff37d12d5b3ab09f11bc50134350b837d593f89d"
+          "sha256": "a434325c7bd0458224e9f041a2e21006acd5a14ff2189c77053213b7cc81d26b"
         },
         {
           "path": "examples/whole_path_twin_fixture.json",
@@ -1401,7 +1401,7 @@
       "evidence": [
         {
           "path": "src/wombmodels/growth_mechanics.py",
-          "sha256": "59788ca86cd9af4f90d6ade11904e3e2fef48903f39d91083c9b5da5d855ddde"
+          "sha256": "06b535718152e9dd06c4811b88312734237d5755b3c354e01afac1408e01984f"
         },
         {
           "path": "examples/growth_mechanics_fixture.json",
@@ -1435,7 +1435,7 @@
       "evidence": [
         {
           "path": "src/wombmodels/mechanical_twin.py",
-          "sha256": "cf2fdcd2eee202e09f7af2e3526f641ab303f7e2cf05d7387ed6bf63a7eaefbf"
+          "sha256": "cfd0b645873c476ea63f2a952e2bb2ccb272cc6181fe94ec0b7773ec63e63f64"
         },
         {
           "path": "examples/mechanical_twin_fixture.json",
@@ -1468,7 +1468,7 @@
       "evidence": [
         {
           "path": "src/wombmodels/acquisition_spec.py",
-          "sha256": "5f395cb5cedd03eabfb6f6b92bed6b6a6c25425e8d0b9b20bce7f76bf9edc33d"
+          "sha256": "7d6f4ea3ee1dd4b90b9d9b5d84c491fae79793dbcee93c44cfdcee64a22f9ad9"
         },
         {
           "path": "examples/acquisition_spec_fixture.json",
@@ -1476,7 +1476,7 @@
         }
       ],
       "actual_agent_hours": null,
-      "result": "Minimum-measurement acquisition specification delivered: required channels computed from the run - wall strain (mechanical boundary), internal receipt and progression (both internal), each separating every pair at handoff 1 - while the fluidic boundary observables are excluded (never separate any pair, so no boundary flux sensor set of any resolution distinguishes the allocations) and wall damage is excluded as derived-not-instrumentable. Numeric timing: cadence 0.5, 21 timepoints through the first handoff (t=10) for discrimination, 81 through t=40 for the failure arc (capacity crossover 14.96; wall crossings living 14.0, staged 1.5, synthetic 0.5). Analytic resolution floors under the twin's relative-tolerance criterion with a 3-sigma guard: wall strain 0.68x, progression 0.55x, internal receipt 1.89x reference noise; units per allocation scale as the squared inverse of the margin (at 4x noise: 35 units on wall strain, 53 on progression, 5 on receipt), and a 24-seed sweep confirms every analytic floor and cohort size (all confirmations at reliability 1.0; the binding staged-synthetic pair loses single-unit separation at 2x-4x noise exactly as the guard predicts). Nine tests pin the computed channel requirements, floor and cohort formula reproduction from the report's own numbers, the guard-empirical agreement, timing, the D/M/P/W contract mapping, source-twin properties, determinism, validation errors and strict verification. Synthetic fixture only; no price, procurement or gate movement."
+      "result": "Minimum-measurement acquisition specification delivered: required channels computed from the run - wall strain (mechanical boundary), internal receipt and progression (both internal), each separating every pair at handoff 1 - while the fluidic boundary observables are excluded (never separate any pair, so no boundary flux sensor set of any resolution distinguishes the allocations) and wall damage is excluded as derived-not-instrumentable. Numeric timing: cadence 0.5, 21 timepoints through the first handoff (t=10) for discrimination, 81 through t=40 for the failure arc (capacity crossover 14.96; wall crossings living 14.0, staged 1.5, synthetic 0.5). Analytic resolution floors under the twin's relative-tolerance criterion with a 3-sigma guard: wall strain 0.68x, progression 0.55x, internal receipt 1.89x reference noise; units per allocation scale as the squared inverse of the margin (at 4x noise: 35 units on wall strain, 53 on progression, 5 on receipt), and a 24-seed sweep confirms every analytic floor and cohort size (all confirmations at reliability 1.0; the binding staged-synthetic pair loses single-unit separation at 2x-4x noise exactly as the guard predicts). Nine tests pin the computed channel requirements, floor and cohort formula reproduction from the report's own numbers, the guard-empirical agreement, timing, the D/M/P/W contract mapping, source-twin properties, determinism, validation errors and strict verification. Synthetic fixture only; no price, procurement or gate movement. Maintenance 2026-10-22: channel-specific simultaneous all-pair handoff qualification, positive-margin checks, partial/no-common exclusion reasons, truthful seed-confirmation labels and zero-noise handling are covered by regressions through the downstream worksheet; the published default fixture's channel choices and numeric requirements are unchanged."
     },
     {
       "id": "T25",
@@ -1502,7 +1502,7 @@
       "evidence": [
         {
           "path": "src/wombmodels/platform_requirements.py",
-          "sha256": "79d107c122caa84bdc82a0f10093cb361f3446f5bf6274de61ea4e0ac65692fc"
+          "sha256": "3800e9b0775a9ee136622961bc088e147b159d7d55e517c9fabfbf52ea85d674"
         },
         {
           "path": "examples/platform_requirements_fixture.json",
@@ -1510,7 +1510,48 @@
         }
       ],
       "actual_agent_hours": null,
-      "result": "Platform and resource decision worksheet delivered: three measurement capability line items (chamber-wall strain, internal tissue receipt-rate, stage-indexed progression) with numbers copied unchanged from the consumed specification (cadence 0.5; 21 discrimination timepoints, 81 surveillance; floors 0.68x/1.89x/0.55x reference noise; units per allocation 3/1/4 at reference noise and 35/5/53 at 4x, each confirmed by the source sweep) and five stated non-requirements (the three fluidic boundary observables never separate any pair, so no boundary flux sensing resolution discriminates the allocations; cumulative deficit is variant-identical; wall damage is derived). The three route options (owner-led, acquisition or licensing, co-development) each carry supply obligations covering exactly the required channels, with dispositions open, unknowns stated and no quote requested. Prices are unknown by construction: every line item carries a null price with an explicit quote need, no total is computed, and the source specification is preserved byte-verbatim with its sha256 pinned. Nine tests pin the line-item derivation, unit confirmation transfer, computed non-requirements, price discipline (recursive no-total scan), route completeness, byte-verbatim consumption, determinism, validation errors (including wrong-kind and missing source bundles) and strict verification. Synthetic fixture only; no route choice, purchase or gate movement."
+      "result": "Platform and resource decision worksheet delivered: three measurement capability line items (chamber-wall strain, internal tissue receipt-rate, stage-indexed progression) with numbers copied unchanged from the consumed specification (cadence 0.5; 21 discrimination timepoints, 81 surveillance; floors 0.68x/1.89x/0.55x reference noise; units per allocation 3/1/4 at reference noise and 35/5/53 at 4x, each confirmed by the source sweep) and five stated non-requirements (the three fluidic boundary observables never separate any pair, so no boundary flux sensing resolution discriminates the allocations; cumulative deficit is variant-identical; wall damage is derived). The three route options (owner-led, acquisition or licensing, co-development) each carry supply obligations covering exactly the required channels, with dispositions open, unknowns stated and no quote requested. Prices are unknown by construction: every line item carries a null price with an explicit quote need, no total is computed, and the source specification is preserved byte-verbatim with its sha256 pinned. Nine tests pin the line-item derivation, unit confirmation transfer, computed non-requirements, price discipline (recursive no-total scan), route completeness, byte-verbatim consumption, determinism, validation errors (including wrong-kind and missing source bundles) and strict verification. Synthetic fixture only; no route choice, purchase or gate movement. Maintenance 2026-10-22: channel-specific simultaneous all-pair handoff qualification, positive-margin checks, partial/no-common exclusion reasons, truthful seed-confirmation labels and zero-noise handling are covered by regressions through the downstream worksheet; the published default fixture's channel choices and numeric requirements are unchanged."
+    },
+    {
+      "id": "T26",
+      "title": "Numerical integration stability qualification",
+      "gate_id": "G3",
+      "uncertainty_id": "U05",
+      "domain": "software",
+      "status": "complete",
+      "depends_on": [
+        "T19",
+        "T20",
+        "T21",
+        "T22",
+        "T23",
+        "T24"
+      ],
+      "agent_hour_cap": 12,
+      "horizon": "2026-10-22: owner-selected numerical correction before extending the twin",
+      "acceptance": "Advance internal clocks, bound stiff-wall work without changing canonical fluidic arithmetic, account for off-grid power/depletion events and terminal intervals, and verify independent analytic references, refinement, finite-state failure and publication integrity.",
+      "decision_consequence": "Further twin work can use the corrected solvers and explicit numerical limits; wall subcycling does not substitute for fluidic refinement or calibrated evidence.",
+      "stop_rule": "Dimensionless offline software fixtures only. These checks qualify stated numerical behaviors, not every configuration or a physical, biological or clinical capability. No hardware action, procurement, contact or biological gate movement.",
+      "inputs": [
+        "Owner continuation request: numerical integration stability",
+        "T19-T24 source implementations and tracked fixtures"
+      ],
+      "evidence": [
+        {
+          "path": "NUMERICAL_INTEGRATION_QUALIFICATION_2026-10-22.md",
+          "sha256": "ca40cdc7a0621601b1190233177498e3a8f4bda94a53deb9d8f62799823d71a4"
+        },
+        {
+          "path": "tests/test_integration_stability.py",
+          "sha256": "04bddee0c82703132da05fd98eab48dd5f392672cf7b09fd7bdb36ffa5c10ebb"
+        },
+        {
+          "path": "src/wombmodels/numerics.py",
+          "sha256": "66118b8b81b6611ff34e1e1899a46845cfeab5fd89bc9efff28c6fc6a2c506e3"
+        }
+      ],
+      "actual_agent_hours": null,
+      "result": "Advancing-clock and terminal-grid corrections across five solvers; canonical event-split fluidics with analytic reserve accounting; independently subcycled stiffness-bounded wall preserving exact fluidic equality; shared spatial substeps; fifteen independent analytic, refinement, event, guard and downstream timing regressions. Dense wall interpolation order and remaining numerical error are explicit. Software qualification only; no biological gate movement."
     }
   ],
   "decision_log": [
@@ -1598,6 +1639,13 @@
       "decision": "Owner correction recorded: modeling physical worlds in silico is the program's working mode, not a phase to close out in favor of the acquisition decision. The physical resource decision consumes the in silico twin as its specification rather than ending the modeling. Adopt a modeling ladder: T19 growth-scaling exchange module, T20 spatial internal-delivery identifiability, T21 integrated whole-system twin (absorbing the variant-signature sweep), T22 growth-accommodation mechanics. The dimensionless convention and stop rules are unchanged; synthetic results are never biological assays and no gate moves.",
       "trigger": "Agent recommended exiting the in silico phase to the acquisition specification; owner corrected 2026-10-17: the program is modeling physical worlds in silico.",
       "review": "Planning only; recorded in INSILICO_MODELING_CORRECTION_2026-10-17.md. No biological gate advances; independent scientific review remains unestablished."
+    },
+    {
+      "id": "D13",
+      "date": "2026-10-22",
+      "decision": "Prioritize numerical integration stability as T26 before extending the twin. Correct clocks and stiff-wall stepping while preserving canonical fluidic equality; qualify independent references and exact power-event accounting.",
+      "trigger": "Owner explicitly selected numerical integration stability after the measurement-planning correction.",
+      "review": "AI-assisted implementation and read-only numerical reviews; independent scientific review and biological capabilities remain unestablished."
     }
   ],
   "planning_calendar": {

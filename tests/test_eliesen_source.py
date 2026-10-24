@@ -14,8 +14,10 @@ from wombmodels.eliesen_source import (
     derive_eliesen_antipyrine_endpoint,
     derive_eliesen_placenta_summary,
 )
+from local_evidence import requires_local_evidence
 
 
+@requires_local_evidence("perfusion-intake-2026-10-10")
 class EliesenSourceAuditTests(unittest.TestCase):
     def setUp(self):
         self.root = Path(__file__).resolve().parents[1]

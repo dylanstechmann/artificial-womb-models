@@ -5,6 +5,8 @@ import unittest
 from collections import Counter, defaultdict
 from pathlib import Path
 
+from local_evidence import requires_local_evidence
+
 
 ROOT = Path(__file__).resolve().parents[1]
 INVENTORY = ROOT / "config/source_inventories/early_exchange_transition_2026.json"
@@ -13,6 +15,7 @@ CROSSWALK = ROOT / "config/source_inventories/goh_2023_emtab11673_sample_crosswa
 PREVIOUS_CROSSWALK = ROOT / "config/source_inventories/goh_2023_emtab10552_sdrf_crosswalk.csv"
 
 
+@requires_local_evidence("early-exchange-transition-2026-10-09")
 class Goh2023EMTAB11673MetadataTests(unittest.TestCase):
     def test_file_rows_collapse_to_six_stage_and_tissue_labeled_samples(self):
         with SDRF.open(encoding="utf-8-sig", newline="") as stream:

@@ -3,12 +3,15 @@ import json
 import unittest
 from pathlib import Path
 
+from local_evidence import requires_local_evidence
+
 ROOT = Path(__file__).resolve().parents[1]
 ART = ROOT / "artifacts/eixarch-2023-group-outcomes-2026-10-11-cycle312"
 INVENTORY = ROOT / "config/source_inventories/fetal_ovine_support_transition_2023_2026.json"
 
 
 class EixarchFLIFunctionalSchemaCycle312Tests(unittest.TestCase):
+    @requires_local_evidence("eixarch-2023-group-outcomes-2026-10-11-cycle312")
     def test_review_aid_pins_candidates_and_does_not_rewrite_them(self):
         assessment = json.loads((ART / "functional-evidence-classification-intake-cycle312.json").read_text(encoding="utf-8"))
         self.assertEqual(len(assessment["poster_review_aid"]), 5)

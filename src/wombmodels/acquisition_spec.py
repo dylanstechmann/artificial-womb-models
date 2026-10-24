@@ -7,11 +7,12 @@ laboratory can quote and a reviewer can audit, with every number recomputed
 from the running coupled twin rather than asserted.
 
 Required channels are computed from the run, not chosen: a channel enters the
-specification only if the twin separates every variant pair on it and it is
-directly instrumentable. The resolution floor is analytic under the twin's
+specification only if the twin separates every variant pair simultaneously
+at a post-handoff and it is directly instrumentable. Each channel uses its
+own earliest qualifying handoff. The resolution floor is analytic under the twin's
 own relative-tolerance separation criterion with a k-sigma noise guard, and
 units per cohort scale as the squared inverse of the resolution margin. A
-seeded empirical sweep over noise multipliers and cohort sizes confirms both
+seeded empirical sweep over noise multipliers and cohort sizes checks both
 on synthetic ground truth, freezing the analysis plan before any real data
 exists.
 
@@ -29,6 +30,7 @@ from pathlib import Path
 from .artifacts import InputError, csv_bytes, json_bytes, publish_bundle, read_json
 from .exchange import NOTICE, fields, number
 from .growth_scaling import analytic_crossover
+from .numerics import output_times
 from .mechanical_twin import (FLUIDIC_COLUMNS, WALL_BOUNDARY_OBSERVABLES, WALL_INTERNAL_OBSERVABLES,
                               _boundary_events, _coupled_variant_run,
                               _validate as _validate_twin)
@@ -125,6 +127,47 @@ def _first_crossing(rows, column, threshold):
     return None
 
 
+def _channel_requirements(events, pair_names, tolerance):
+    """Qualify a channel only at a handoff that separates every pair at once.
+
+    First-ever pairwise separation can occur at different handoffs and can
+    disappear later. It cannot by itself justify a positive noise margin.
+    Each channel gets its own earliest qualifying post-handoff observation.
+    """
+    post = {(event["variant"], event["handoff"]): event
+            for event in events if event["phase"] == "post"}
+    handoffs = sorted({handoff for _name, handoff in post})
+    separated = {(first, second, channel): _first_separation(
+        events, first, second, channel, tolerance)
+        for first, second in pair_names for channel in OBSERVABLES}
+    requirements = []
+    for channel in OBSERVABLES:
+        entry = CHANNEL_CATALOG[channel]
+        pair_count = sum(separated[(first, second, channel)] is not None
+                         for first, second in pair_names)
+        common = next((handoff for handoff in handoffs if all(
+            _separated(post[(first, handoff)][channel], post[(second, handoff)][channel],
+                       tolerance) for first, second in pair_names)), None)
+        instrumentable = channel in INSTRUMENTABLE
+        reason = None
+        if pair_count == 0:
+            reason = "never_separates_any_pair"
+        elif pair_count < len(pair_names):
+            reason = "separates_only_some_pairs"
+        elif common is None:
+            reason = "no_common_separated_handoff"
+        elif not instrumentable:
+            reason = "derived_not_directly_instrumentable"
+        requirements.append({
+            "channel": channel, "compartment": entry["compartment"], "kind": entry["kind"],
+            "dmp": entry["dmp"], "separates_all_pairs": common is not None,
+            "pairs_separated_ever": pair_count, "variant_pair_count": len(pair_names),
+            "first_separated_handoff": common,
+            "instrumentable": instrumentable, "required": common is not None and instrumentable,
+            "excluded_reason": reason})
+    return requirements, separated
+
+
 def acquisition_spec(config_path: Path, output: Path) -> dict:
     """Publish the acquisition specification; nothing is fitted or measured."""
     config, raw = read_json(config_path)
@@ -155,36 +198,20 @@ def acquisition_spec(config_path: Path, output: Path) -> dict:
     all_events = [event for name in sorted(variants)
                   for event in _boundary_events(name, rows_by_variant[name], boundaries, step)]
     pair_names = list(combinations(sorted(variants), 2))
-    separated = {(first, second, channel): _first_separation(
-        all_events, first, second, channel, tolerance)
-        for first, second in pair_names for channel in OBSERVABLES}
-    channel_requirements = []
-    for channel in OBSERVABLES:
-        entry = CHANNEL_CATALOG[channel]
-        handoffs = [separated[(first, second, channel)] for first, second in pair_names]
-        separates_all = all(value is not None for value in handoffs)
-        instrumentable = channel in INSTRUMENTABLE
-        reason = None
-        if not separates_all:
-            reason = "never_separates_any_pair"
-        elif not instrumentable:
-            reason = "derived_not_directly_instrumentable"
-        channel_requirements.append({
-            "channel": channel, "compartment": entry["compartment"], "kind": entry["kind"],
-            "dmp": entry["dmp"], "separates_all_pairs": separates_all,
-            "first_separated_handoff": min((value for value in handoffs if value is not None),
-                                           default=None),
-            "instrumentable": instrumentable, "required": separates_all and instrumentable,
-            "excluded_reason": reason})
+    channel_requirements, separated = _channel_requirements(all_events, pair_names, tolerance)
     required_channels = [row["channel"] for row in channel_requirements if row["required"]]
     if not required_channels:
-        raise InputError("No channel separates every variant pair; no specification can form")
-    handoff = min(row["first_separated_handoff"] for row in channel_requirements
-                  if row["required"])
+        raise InputError("No instrumentable channel separates every variant pair at a common "
+                         "handoff; no specification can form")
+    channel_handoffs = {row["channel"]: row["first_separated_handoff"]
+                        for row in channel_requirements if row["required"]}
+    first_handoff = min(channel_handoffs.values())
+    handoff = max(channel_handoffs.values())
     readings = {(name, channel): next(event[channel] for event in all_events
-                                      if event["variant"] == name and event["handoff"] == handoff
+                                      if event["variant"] == name
+                                      and event["handoff"] == channel_handoffs[channel]
                                       and event["phase"] == "post")
-                for name in sorted(variants) for channel in OBSERVABLES}
+                for name in sorted(variants) for channel in required_channels}
 
     pair_resolution = {}
     channel_floor = {}
@@ -197,6 +224,8 @@ def acquisition_spec(config_path: Path, output: Path) -> dict:
             effect = abs(a - b)
             scale = max(abs(a), abs(b), 1e-12)
             margin = effect - tolerance * scale
+            if not math.isfinite(margin) or margin <= 0.0:
+                raise InputError(f"No positive separation margin for {channel}: {first}|{second}")
             floor = None
             if margin > 0.0 and noise_sd > 0.0:
                 floor = margin / (sigma_k * math.sqrt(2.0) * noise_sd)
@@ -223,7 +252,8 @@ def acquisition_spec(config_path: Path, output: Path) -> dict:
                 floor_sweep.append({
                     "channel": channel, "pair": f"{first}|{second}",
                     "multiplier": multiplier, "analytic_floor_multiplier": floor,
-                    "analytic_separated_with_margin": floor is not None and multiplier <= floor,
+                    "analytic_separated_with_margin": noise_sd == 0.0 or (
+                        floor is not None and multiplier <= floor),
                     "empirical_reliability": reliability,
                     "separated_at_confidence": reliability >= confidence})
 
@@ -280,10 +310,17 @@ def acquisition_spec(config_path: Path, output: Path) -> dict:
                       for name in sorted(variants)}
     timing = {
         "sampling_cadence": step, "monitor_cadence": cadence, "handoff_times": boundaries,
-        "first_separated_handoff": handoff,
-        "first_separated_time": boundaries[handoff - 1],
+        "first_separated_handoff": first_handoff,
+        "first_separated_time": boundaries[first_handoff - 1],
+        "plan_complete_handoff": handoff,
+        "plan_complete_time": boundaries[handoff - 1],
+        "channel_handoffs": channel_handoffs,
+        "channel_times": {channel: boundaries[value - 1]
+                          for channel, value in channel_handoffs.items()},
+        "selection_rule": "Each channel uses its earliest post-handoff with simultaneous "
+                          "separation of every pair; the plan covers the latest selected handoff.",
         "discrimination_timepoints": round(boundaries[handoff - 1] / step) + 1,
-        "surveillance_timepoints": round(duration / step) + 1,
+        "surveillance_timepoints": len(output_times(duration, step)),
         "capacity_crossover_time": crossover["crossover_time"],
         "wall_limit_crossing_times": wall_crossings}
 
@@ -304,6 +341,8 @@ def acquisition_spec(config_path: Path, output: Path) -> dict:
         "resolution": {
             "reference_noise_sd": noise_sd, "separation_tolerance": tolerance,
             "detection_sigma": sigma_k,
+            "floor_status": "not_applicable_zero_reference_noise" if noise_sd == 0.0
+                            else "finite_positive_reference_noise",
             "floor_formula": "m* = (effect - tolerance * scale) / (detection_sigma * sqrt(2) * reference_noise)",
             "units_formula": "N(m) = ceil(2 * (detection_sigma * m * reference_noise / margin)^2)",
             "pairs": pair_resolution, "channel_floor_multiplier": channel_floor},
@@ -312,10 +351,10 @@ def acquisition_spec(config_path: Path, output: Path) -> dict:
         "spec_parameters": {"detection_sigma": sigma_k, "cohort_confidence": confidence,
                             "confirm_seeds": seeds, "noise_multipliers": multipliers},
         "interpretation": {
-            "required": "A channel enters the specification only if the run separates every variant pair on it and it is directly instrumentable: internal receipt, progression and wall strain. The fluidic exchange observables never separate any pair, so no boundary flux sensor set of any resolution distinguishes the allocations.",
-            "resolution": "The floor multiplier is analytic under the twin's own relative-tolerance separation criterion with a k-sigma noise guard; at or below the floor a single unit separates the pair with the configured margin.",
-            "cohort": "Units per allocation scale as the squared inverse of the resolution margin: doubling the instrument noise quadruples the units. The seeded sweep confirms each analytic cohort size at every swept noise level.",
-            "negative": "Wall damage separates every pair as world truth but is derived from strain history, so it is excluded from procurement; cumulative unserved is variant-identical; the fluidic boundary channels are excluded.",
+            "required": "A channel enters the specification only if every variant pair separates simultaneously at a post-handoff and the channel is directly instrumentable. Effects and margins use that channel's earliest qualifying handoff; the sampling plan extends through the latest selected handoff.",
+            "resolution": "The floor multiplier is a first-order k-sigma approximation under the twin's relative-tolerance criterion. With zero reference noise its multiplier is not applicable (null); noiseless separated readings need one unit.",
+            "cohort": "Units per allocation scale as the squared inverse of the positive separation margin. The seeded sweep reports confirmation or failure at each swept noise level; it does not guarantee confirmation.",
+            "negative": "Excluded channels retain distinct reasons: no pair separates, only some pairs separate, all pairs separate at different handoffs without a common observation, or the channel is derived rather than directly instrumentable. Exclusion from this single-handoff-per-channel plan does not rule out a joint-channel or longitudinal discriminator.",
             "t08": "This numeric specification is the qualified-requirements input a future owned-platform and resource decision consumes: a laboratory can quote the channels, cadence, resolution and units per cohort after calibration replaces the invented dimensionless values, and a reviewer can audit every number back to the running twin."},
         "limits": [
             "All channels, effects, floors, cohort sizes and times are invented dimensionless software fixture values computed from the twin.",
@@ -336,11 +375,14 @@ def acquisition_spec(config_path: Path, output: Path) -> dict:
              "", "## Required channels (procurement)", ""]
     for channel in required_channels:
         entry = CHANNEL_CATALOG[channel]
+        selected_handoff = channel_handoffs[channel]
         units_one = next((row["analytic_units"] for row in cohort[channel]["sweep"]
                           if row["multiplier"] == 1.0), None)
         lines.append(f"- {channel} ({entry['compartment']}, {entry['dmp']}): separates every pair "
-                     f"at handoff {handoff} (t={boundaries[handoff - 1]}); floor "
-                     f"{_show(channel_floor[channel])}x reference noise"
+                     f"at handoff {selected_handoff} (t={boundaries[selected_handoff - 1]}); "
+                     + ("noise multiplier floor not applicable (zero reference noise)"
+                        if noise_sd == 0.0 else
+                        f"floor {_show(channel_floor[channel])}x reference noise")
                      + (f"; {units_one} unit(s) per allocation at reference noise"
                         if units_one else "") + ".")
     lines.extend(["", "## Excluded channels", ""])
@@ -349,8 +391,8 @@ def acquisition_spec(config_path: Path, output: Path) -> dict:
             lines.append(f"- {row['channel']} ({row['compartment']}, {row['dmp']}): "
                          f"{row['excluded_reason']}.")
     lines.extend(["", "## Timing", "",
-                  f"- Sampling cadence {step}; discrimination needs {timing['discrimination_timepoints']} "
-                  f"timepoints through handoff {handoff} (t={timing['first_separated_time']}).",
+                  f"- Sampling cadence {step}; the full plan needs {timing['discrimination_timepoints']} "
+                  f"timepoints through handoff {handoff} (t={timing['plan_complete_time']}).",
                   f"- Surveillance of the failure arc needs {timing['surveillance_timepoints']} "
                   f"timepoints through t={duration}.",
                   "- Wall strain-limit crossings: " + ", ".join(
@@ -364,7 +406,8 @@ def acquisition_spec(config_path: Path, output: Path) -> dict:
         parts = []
         for row in cohort[channel]["sweep"]:
             suffix = ", capped" if row["capped"] else \
-                f", confirmed {row['empirical_reliability']:.6g}"
+                f", {'confirmed' if row['confirmed'] else 'unconfirmed'} " \
+                f"(reliability {row['empirical_reliability']:.6g})"
             parts.append(f"m={row['multiplier']:g}: N={row['analytic_units']}{suffix}")
         lines.append(f"- {channel} (binding pair {cohort[channel]['binding_pair']}): "
                      + "; ".join(parts))

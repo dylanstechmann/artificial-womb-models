@@ -3,11 +3,14 @@ import json
 import unittest
 from pathlib import Path
 
+from local_evidence import requires_local_evidence
+
 ROOT = Path(__file__).resolve().parents[1]
 ART = ROOT / "artifacts/eixarch-2023-group-outcomes-2026-10-11-cycle306"
 INVENTORY = ROOT / "config/source_inventories/fetal_ovine_support_transition_2023_2026.json"
 
 
+@requires_local_evidence("eixarch-2023-group-outcomes-2026-10-11-cycle306")
 class EixarchFLIPortfolioCycle306Tests(unittest.TestCase):
     def test_official_author_listing_covers_four_existing_fli_candidates(self):
         assessment = json.loads((ART / "fli-portfolio-screen-cycle306.json").read_text(encoding="utf-8"))

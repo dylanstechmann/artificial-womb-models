@@ -5,6 +5,8 @@ import unittest
 from collections import Counter
 from pathlib import Path
 
+from local_evidence import requires_local_evidence
+
 ROOT = Path(__file__).resolve().parents[1]
 ART = ROOT / "artifacts/eixarch-2023-group-outcomes-2026-10-11-cycle315"
 CANDIDATE = ROOT / "config/observations/eixarch_2023_support_outcomes_candidate.json"
@@ -12,6 +14,10 @@ INVENTORY = ROOT / "config/source_inventories/fetal_ovine_support_transition_202
 SCHEMA = ROOT / "schemas/developmental-observation.schema.json"
 
 
+@requires_local_evidence(
+    "eixarch-2023-group-outcomes-2026-10-11-cycle287",
+    "eixarch-2023-group-outcomes-2026-10-11-cycle315",
+)
 class Eixarch2023FunctionalClassificationCycle315Tests(unittest.TestCase):
     def test_overlay_covers_source_records_and_pins_candidate_and_primary_pdf(self):
         assessment = json.loads((ART / "functional-evidence-assessment-cycle315.json").read_text(encoding="utf-8"))
