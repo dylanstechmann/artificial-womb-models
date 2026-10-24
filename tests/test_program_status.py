@@ -50,7 +50,12 @@ class ProgramStatusTests(unittest.TestCase):
         # D12 queue items T24 (acquisition specification feeding T08) and
         # T25 (the T08 reopen worksheet) were registered complete after
         # them. T26 records the 2026-10-22 numerical qualification as a
-        # software contribution; biological gates remain open.
+        # software contribution; biological gates remain open. T27 (D14,
+        # 2026-10-24) registers the reciprocal damage-gated leak experiment
+        # as held: its T23/T26 dependencies are satisfied, but full
+        # reciprocal-system refinement qualification and comprehensive
+        # validation coverage remain outstanding, so it claims no
+        # completion validity.
         self.assertEqual({item["id"] for item in self.register["tasks"]
                           if item["status"] == "ready"}, set())
         # T15 was deferred on 2026-10-12 when the care/development track moved private.
@@ -65,6 +70,14 @@ class ProgramStatusTests(unittest.TestCase):
         self.assertEqual(numerical["domain"], "software")
         self.assertEqual(numerical["depends_on"], ["T19", "T20", "T21", "T22", "T23", "T24"])
         self.assertTrue(valid["T26"])
+        reciprocal = next(item for item in self.register["tasks"] if item["id"] == "T27")
+        self.assertEqual(reciprocal["status"], "held")
+        self.assertEqual(reciprocal["domain"], "software")
+        self.assertEqual(reciprocal["depends_on"], ["T23", "T26"])
+        self.assertFalse(valid["T27"], "a held task claims no completion validity")
+        row = next(t for t in report["tasks"] if t["id"] == "T27")
+        self.assertTrue(row["dependencies_satisfied"])
+        self.assertFalse(row["eligible_to_start"])
         for row in report["tasks"]:
             if row["eligible_to_start"]:
                 self.assertEqual(row["declared_status"], "ready")

@@ -25,6 +25,7 @@ Every Markdown document in the repository root, grouped by purpose. The [README]
 | [WHOLE_INTERVAL_INSILICO_DESIGN_2026-10-17.md](WHOLE_INTERVAL_INSILICO_DESIGN_2026-10-17.md) | Whole-interval in silico design: sustained exchange through neonatal transition (T18) |
 | [INSILICO_MODELING_CORRECTION_2026-10-17.md](INSILICO_MODELING_CORRECTION_2026-10-17.md) | Correction record (D12): in silico modeling is the working mode; the T19-T22 modeling ladder |
 | [NUMERICAL_INTEGRATION_QUALIFICATION_2026-10-22.md](NUMERICAL_INTEGRATION_QUALIFICATION_2026-10-22.md) | T26: advancing clocks, stiff-wall stability, event balance and independent convergence checks |
+| [RECIPROCAL_COUPLING_QUALIFICATION_2026-10-24.md](RECIPROCAL_COUPLING_QUALIFICATION_2026-10-24.md) | T27: dimensionless damage-gated wall-to-fluidic feedback qualification |
 | [T05_SEQUENCING_CHALLENGE_2026-10-17.md](T05_SEQUENCING_CHALLENGE_2026-10-17.md) | Defer the independent reviewer and prioritize whole-system in silico design (D10) |
 | [THEORETICAL_MODELS.md](THEORETICAL_MODELS.md) | Theoretical modules and the future measured-data contract |
 | [METHODS.md](METHODS.md) | Methods and output interpretation: equations, boundaries and the reproducibility contract |

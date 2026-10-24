@@ -55,6 +55,7 @@ KNOWN_BUNDLE_KINDS = frozenset({
     "dimensionless_whole_path_twin",
     "dimensionless_growth_mechanics_theory",
     "dimensionless_mechanical_twin",
+    "dimensionless_reciprocal_twin",
     "dimensionless_acquisition_spec",
     "dimensionless_platform_requirements",
 })

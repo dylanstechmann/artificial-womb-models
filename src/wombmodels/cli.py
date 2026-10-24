@@ -15,6 +15,7 @@ from .exchange import simulate
 from .growth_scaling import growth_scaling
 from .growth_mechanics import growth_mechanics
 from .mechanical_twin import mechanical_twin
+from .reciprocal_twin import reciprocal_twin
 from .acquisition_spec import acquisition_spec
 from .platform_requirements import platform_requirements
 from .identifiability import analyze
@@ -115,6 +116,9 @@ def main(argv=None) -> int:
     twin_model = commands.add_parser("whole-path-twin", help="Run the dimensionless whole-path system twin across interface variants; no empirical fit")
     twin_model.add_argument("--config", type=Path, required=True)
     twin_model.add_argument("--out", type=Path, required=True)
+    reciprocal = commands.add_parser("reciprocal-twin-model", help="Run the dimensionless damage-gated reciprocal wall/fluidic twin")
+    reciprocal.add_argument("--config", type=Path, required=True)
+    reciprocal.add_argument("--out", type=Path, required=True)
     exchange = commands.add_parser("simulate", help="Run a dimensionless, nonphysiologic exchange fixture")
     exchange.add_argument("--config", type=Path, required=True)
     exchange.add_argument("--out", type=Path, required=True)
@@ -205,6 +209,8 @@ def main(argv=None) -> int:
             receipt = spatial_delivery(args.config, args.out)
         elif args.command == "whole-path-twin":
             receipt = whole_path_twin(args.config, args.out)
+        elif args.command == "reciprocal-twin-model":
+            receipt = reciprocal_twin(args.config, args.out)
         elif args.command == "identifiability-report":
             receipt = analyze(args.config, args.trajectory, args.out)
         elif args.command == "design-sweep":

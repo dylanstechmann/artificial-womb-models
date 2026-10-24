@@ -112,6 +112,7 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | T24 Minimum-measurement acquisition specification module | G3 | no | 10 | none |
 | T25 Platform and resource decision worksheet from the acquisition specification | G1 | no | 10 | none |
 | T26 Numerical integration stability qualification | G3 | no | 12 | none |
+| T27 Reciprocal wall-to-fluidic coupling experiment | G3 | no | 12 | none |
 
 ## Uncertainties
 
@@ -195,5 +196,9 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | T26 | NUMERICAL_INTEGRATION_QUALIFICATION_2026-10-22.md | matches |
 | T26 | tests/test_integration_stability.py | matches |
 | T26 | src/wombmodels/numerics.py | matches |
+| T27 | RECIPROCAL_COUPLING_QUALIFICATION_2026-10-24.md | matches |
+| T27 | tests/test_reciprocal_twin.py | matches |
+| T27 | src/wombmodels/reciprocal_twin.py | matches |
+| T27 | examples/reciprocal_twin_fixture.json | matches |
 
 For the next work cycle, read PROGRAM_PLAN.md and the original task acceptance conditions. Match each claimed result to its gate and uncertainty. Hold a branch after two cycles with no usable new information. Do not contact authors or other people. No new process or automation is started by this status command.

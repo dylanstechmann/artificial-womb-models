@@ -176,6 +176,8 @@ def reproduction_plan(kind: str, files: dict[str, bytes], metadata: dict) -> dic
             "wombmodels growth-mechanics-model --config <input_config.json> --out <new-dir>",
         "dimensionless_mechanical_twin":
             "wombmodels mechanical-twin-model --config <input_config.json> --out <new-dir>",
+        "dimensionless_reciprocal_twin":
+            "wombmodels reciprocal-twin-model --config <input_config.json> --out <new-dir>",
         "dimensionless_acquisition_spec":
             "wombmodels acquisition-spec-model --config <input_config.json> --out <new-dir>",
         "dimensionless_platform_requirements":

@@ -51,6 +51,7 @@ Decision D12 (2026-10-17) made modeling the physical system in silico the progra
 | T24 | Minimum-measurement acquisition specification computed from the twin | `acquisition-spec-model` |
 | T25 | Platform and resource decision worksheet from that specification; prices stay unknown | `platform-requirements-model` |
 | T26 | Numerical stability, exact event accounting and convergence qualification of the fixture solvers | [qualification](NUMERICAL_INTEGRATION_QUALIFICATION_2026-10-22.md) |
+| T27 | Damage-gated reciprocal wall-to-fluidic bulk-leak experiment | `reciprocal-twin-model` |
 
 The schematics render with `python -m wombmodels.schematics --config <layout.json> --out <new-dir>`. `platform-requirements-model` consumes an `acquisition-spec-model` bundle through `--spec`. [The sequencing challenge](T05_SEQUENCING_CHALLENGE_2026-10-17.md) records why independent-reviewer recruitment was deferred behind this work, and [PROGRAM_STATUS.md](PROGRAM_STATUS.md) holds the task states.
 
@@ -80,6 +81,7 @@ The `wombmodels` command has one subcommand per row. Fixture-driven commands run
 | `growth-scaling-model` | Run the dimensionless growth-paced capacity-scaling exchange fixture; no empirical fit | `examples/growth_scaling_fixture.json` |
 | `growth-mechanics-model` | Run the dimensionless growth-accommodation wall fixture; no empirical fit | `examples/growth_mechanics_fixture.json` |
 | `mechanical-twin-model` | Run the dimensionless coupled mechanical twin; no empirical fit | `examples/mechanical_twin_fixture.json` |
+| `reciprocal-twin-model` | Test dimensionless damage-gated wall-to-fluidic bulk leakage; no empirical fit | `examples/reciprocal_twin_fixture.json` |
 | `acquisition-spec-model` | Compute the dimensionless minimum-measurement acquisition specification from the twin; no empirical fit | `examples/acquisition_spec_fixture.json` |
 | `platform-requirements-model` | Turn the published acquisition specification into the dimensionless capability worksheet; prices stay unknown | `examples/platform_requirements_fixture.json` and an `acquisition-spec-model` bundle (`--spec`) |
 | `spatial-delivery-model` | Run the dimensionless spatial internal-delivery identifiability fixture; no empirical fit | `examples/spatial_delivery_fixture.json` |

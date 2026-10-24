@@ -1368,7 +1368,7 @@
       "evidence": [
         {
           "path": "src/wombmodels/whole_path_twin.py",
-          "sha256": "a434325c7bd0458224e9f041a2e21006acd5a14ff2189c77053213b7cc81d26b"
+          "sha256": "52cce75d960d0b51729dd81ff4fb93ca06cb2f2123edec3169a9c92922b8ef0b"
         },
         {
           "path": "examples/whole_path_twin_fixture.json",
@@ -1552,6 +1552,48 @@
       ],
       "actual_agent_hours": null,
       "result": "Advancing-clock and terminal-grid corrections across five solvers; canonical event-split fluidics with analytic reserve accounting; independently subcycled stiffness-bounded wall preserving exact fluidic equality; shared spatial substeps; fifteen independent analytic, refinement, event, guard and downstream timing regressions. Dense wall interpolation order and remaining numerical error are explicit. Software qualification only; no biological gate movement."
+    },
+    {
+      "id": "T27",
+      "title": "Reciprocal wall-to-fluidic coupling experiment",
+      "gate_id": "G3",
+      "uncertainty_id": "U05",
+      "domain": "software",
+      "status": "held",
+      "depends_on": [
+        "T23",
+        "T26"
+      ],
+      "agent_hour_cap": 12,
+      "horizon": "2026-10-24: owner-authorized offline reciprocal-coupling experiment",
+      "acceptance": "Complete the approved reciprocal experiment: feedback-off comparison identifying feedback-only separations, independent analytic reference, full reciprocal-system refinement, comprehensive malformed-input and determinism coverage, and verified publication. Current checks cover only a subset; retain held status until all acceptance checks are established.",
+      "decision_consequence": "Record whether the stated synthetic boundary channel separates variants under the proposed feedback law; do not infer general observability or a physical mechanism.",
+      "stop_rule": "Offline dimensionless software fixtures only. No biological assay, hardware action, procurement, contact or biological gate movement. Full-system splitting convergence and damage-dependent stiffness qualification remain outstanding.",
+      "inputs": [
+        "T23 one-way mechanical twin",
+        "T26 canonical event-split integration",
+        "Owner authorization of the AI-proposed damage-gated leak experiment"
+      ],
+      "evidence": [
+        {
+          "path": "RECIPROCAL_COUPLING_QUALIFICATION_2026-10-24.md",
+          "sha256": "30db3da82c6efd08e5b4fc0c2931a35bdd15b2e3ba170b23d9ed09e001a26ef5"
+        },
+        {
+          "path": "tests/test_reciprocal_twin.py",
+          "sha256": "a4e6be02d906ca9082318313c9bba6d73560bde3677cf324795339f676a33bf2"
+        },
+        {
+          "path": "src/wombmodels/reciprocal_twin.py",
+          "sha256": "777edb78f704a0fe4b39e06b38d286a183c9f3e8633cc7b9c3293a2a05018658"
+        },
+        {
+          "path": "examples/reciprocal_twin_fixture.json",
+          "sha256": "a2f2c8b3d768e392484c9a79cce533eb44da5d6ecea4fa2f24aacd2f730ad071"
+        }
+      ],
+      "actual_agent_hours": null,
+      "result": "Implemented held-damage bulk leakage and CLI publication. Regression checks cover exact equality of all shared zero-feedback trajectory columns with T23, a nonzero-stock constant-damage exponential reference with isolated refinement, boundary bulk-stock separation versus a zero-feedback baseline, deterministic publication, strict verification and the coefficient range guard. Results are fixture-specific; first-order reciprocal splitting and the missing damage-dependent stiffness bound are explicit limitations. No biological gate movement."
     }
   ],
   "decision_log": [
@@ -1646,6 +1688,13 @@
       "decision": "Prioritize numerical integration stability as T26 before extending the twin. Correct clocks and stiff-wall stepping while preserving canonical fluidic equality; qualify independent references and exact power-event accounting.",
       "trigger": "Owner explicitly selected numerical integration stability after the measurement-planning correction.",
       "review": "AI-assisted implementation and read-only numerical reviews; independent scientific review and biological capabilities remain unestablished."
+    },
+    {
+      "id": "D14",
+      "date": "2026-10-24",
+      "decision": "Run T27 as an offline dimensionless discriminator: test whether the AI-proposed damage-gated bulk-loss law makes variant differences visible through boundary stock. Preserve the feedback-off trajectory contract and qualify only tested software behaviors.",
+      "trigger": "Owner authorized the proposed reciprocal-coupling experiment and continuation.",
+      "review": "AI-assisted implementation and agent-run software tests only; independent scientific review and biological capabilities remain unestablished. No biological gate movement."
     }
   ],
   "planning_calendar": {

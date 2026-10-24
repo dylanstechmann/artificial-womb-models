@@ -147,6 +147,10 @@ def _right_hand_side(time, state, parameters, held_reading, operating=None):
     delivered = min(demand * request, capacity) * multiplier
     served = delivered / demand
     d_bulk = delivered + supplement - (bulk["washout"] + bulk["transfer"]) * stock
+    # Optional reciprocal wall feedback. Existing fixtures omit this key, so
+    # their canonical arithmetic and trajectories remain unchanged.
+    if variant.get("wall_damage_leak", 0.0):
+        d_bulk -= variant["wall_damage_leak"] * variant.get("wall_damage", 0.0) * stock
     d_tissue = variant["internal_efficiency"] * bulk["transfer"] * stock - internal["use"] * tissue
     d_unserved = demand * (1.0 - served) - internal["repair"] * unserved
     receipt = internal["use"] * tissue
@@ -158,6 +162,8 @@ def _right_hand_side(time, state, parameters, held_reading, operating=None):
 
 
 def _rk4_step(time, state, substep, parameters, held_reading, operating=None, observer=None):
+    if observer is not None and hasattr(observer, "feedback_state"):
+        parameters[-1]["wall_damage"] = observer.feedback_state()
     first = _right_hand_side(time, state, parameters, held_reading, operating)
     second = _right_hand_side(time + 0.5 * substep,
                               [value + 0.5 * substep * rate for value, rate in zip(state, first)],
