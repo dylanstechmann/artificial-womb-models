@@ -8,3 +8,8 @@ artifacts/
 tmp/
 .coverage
 .pytest_cache/
+
+# local env files hold keys (names in .env.example)
+.env
+.env.*
+!.env.example
