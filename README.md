@@ -35,6 +35,8 @@ The [program status workflow](config/program/README.md) checks pinned local evid
 
 The [machine concept schematic](config/schematics/ectogenesis_platform_v1.json) renders the automation-first platform layout (containment, fluidics, monitoring/control and robotic servicing with human override) as a standalone SVG/HTML page via `python -m wombmodels.schematics --config config/schematics/ectogenesis_platform_v1.json --out <new-dir>`. It is a concept layout for planning and criticism, not a build specification.
 
+`visualize-twin` turns a verified whole-path, mechanical or reciprocal twin bundle into a self-contained 3D trajectory viewer. Open its `index.html` in a browser to select three observables, toggle variants, rotate, zoom and inspect values; `trajectory.svg` supplies a static preview without JavaScript. The viewer works offline with no external libraries or network requests. Axes are independently normalized dimensionless software quantities, not physical geometry or biological measurements.
+
 ### In silico design and modeling
 
 Decision D12 (2026-10-17) made modeling the physical system in silico the program's working mode rather than a phase to finish; the [correction record](INSILICO_MODELING_CORRECTION_2026-10-17.md) explains why. The designs are in silico concepts and the fixtures are artificial dimensionless software constructs. None carries physiological calibration, biological prediction, a setpoint or machine-control output, and no synthetic result is registered as a biological assay.
@@ -52,6 +54,7 @@ Decision D12 (2026-10-17) made modeling the physical system in silico the progra
 | T25 | Platform and resource decision worksheet from that specification; prices stay unknown | `platform-requirements-model` |
 | T26 | Numerical stability, exact event accounting and convergence qualification of the fixture solvers | [qualification](NUMERICAL_INTEGRATION_QUALIFICATION_2026-10-22.md) |
 | T27 | Damage-gated reciprocal wall-to-fluidic bulk-leak experiment | `reciprocal-twin-model` |
+| T28 | Independent-sensor disagreement and frozen-supplement fallback | `sensor-failover-model` |
 
 The schematics render with `python -m wombmodels.schematics --config <layout.json> --out <new-dir>`. `platform-requirements-model` consumes an `acquisition-spec-model` bundle through `--spec`. [The sequencing challenge](T05_SEQUENCING_CHALLENGE_2026-10-17.md) records why independent-reviewer recruitment was deferred behind this work, and [PROGRAM_STATUS.md](PROGRAM_STATUS.md) holds the task states.
 
@@ -82,10 +85,12 @@ The `wombmodels` command has one subcommand per row. Fixture-driven commands run
 | `growth-mechanics-model` | Run the dimensionless growth-accommodation wall fixture; no empirical fit | `examples/growth_mechanics_fixture.json` |
 | `mechanical-twin-model` | Run the dimensionless coupled mechanical twin; no empirical fit | `examples/mechanical_twin_fixture.json` |
 | `reciprocal-twin-model` | Test dimensionless damage-gated wall-to-fluidic bulk leakage; no empirical fit | `examples/reciprocal_twin_fixture.json` |
+| `sensor-failover-model` | Test independent-sensor disagreement and frozen-supplement fallback; no hardware alarm qualification | `examples/sensor_failover_fixture.json` |
 | `acquisition-spec-model` | Compute the dimensionless minimum-measurement acquisition specification from the twin; no empirical fit | `examples/acquisition_spec_fixture.json` |
 | `platform-requirements-model` | Turn the published acquisition specification into the dimensionless capability worksheet; prices stay unknown | `examples/platform_requirements_fixture.json` and an `acquisition-spec-model` bundle (`--spec`) |
 | `spatial-delivery-model` | Run the dimensionless spatial internal-delivery identifiability fixture; no empirical fit | `examples/spatial_delivery_fixture.json` |
 | `whole-path-twin` | Run the dimensionless whole-path system twin across interface variants; no empirical fit | `examples/whole_path_twin_fixture.json` |
+| `visualize-twin` | Publish an offline interactive 3D trajectory viewer and static SVG | a verified whole-path, mechanical or reciprocal twin bundle (`--bundle`) |
 | `simulate` | Run a dimensionless, nonphysiologic exchange fixture | `examples/exchange_fixture.json` |
 | `identifiability-report` | Analyze dimensionless input/conversion identifiability from a synthetic trajectory | `examples/exchange_fixture.json` and the `simulate` trajectory |
 | `design-sweep` | Compare bounded seeded cadence/noise, monitor-fault and event-timing profiles | `examples/exchange_fixture.json` |
@@ -252,6 +257,9 @@ python -m venv .venv
 .venv\Scripts\wombmodels verify-transport --config examples/transport_fixture.json --out artifacts/transport-verification-v1
 .venv\Scripts\wombmodels verify-transport-matrix --config examples/transport_fixture.json --out artifacts/transport-matrix-v1
 .venv\Scripts\wombmodels verify-mechanics --config examples/mechanics_fixture.json --out artifacts/mechanics-verification-v1
+.venv\Scripts\wombmodels whole-path-twin --config examples/whole_path_twin_fixture.json --out artifacts/whole-path-v1
+.venv\Scripts\wombmodels visualize-twin --bundle artifacts/whole-path-v1 --out artifacts/whole-path-3d-v1
+.venv\Scripts\wombmodels verify-bundle --bundle artifacts/whole-path-3d-v1 --strict
 .venv\Scripts\wombmodels verify-bundle --bundle artifacts/identifiability-v1 --strict
 .venv\Scripts\wombmodels desk-status --url http://127.0.0.1:8092
 ```

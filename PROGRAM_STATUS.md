@@ -1,6 +1,6 @@
 # Program progress against the plan
 
-Assessment date: 2026-10-22. Generated from config/program/roadmap.json.
+Assessment date: 2026-11-01. Generated from config/program/roadmap.json.
 
 Owned equipment supporting at least one successful human gestation from embryos supplied upstream, without human surrogates, with independently assessed development and continuing health. One or a few concurrent gestations counts as success; up to ten concurrent gestations sharing one actual birth date is an aspiration, not a completion requirement. Seek the earliest achievable outcome, preferably within two to three years of 2026-10-11 or sooner (2028-10-11 to 2029-10-11). Five years is a comparison scenario; ten years may be tolerable. No supported completion forecast or success guarantee is asserted; longitudinal outcomes continue after birth. AI/robot care, education and development goals are tracked in a separate private repository and are out of scope here.
 
@@ -113,6 +113,7 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | T25 Platform and resource decision worksheet from the acquisition specification | G1 | no | 10 | none |
 | T26 Numerical integration stability qualification | G3 | no | 12 | none |
 | T27 Reciprocal wall-to-fluidic coupling experiment | G3 | no | 12 | none |
+| T28 Independent-sensor disagreement and freeze-fallback experiment | G3 | no | 10 | none |
 
 ## Uncertainties
 
@@ -200,5 +201,9 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | T27 | tests/test_reciprocal_twin.py | matches |
 | T27 | src/wombmodels/reciprocal_twin.py | matches |
 | T27 | examples/reciprocal_twin_fixture.json | matches |
+| T28 | SENSOR_FAILOVER_QUALIFICATION_2026-11-01.md | matches |
+| T28 | tests/test_sensor_failover.py | matches |
+| T28 | src/wombmodels/sensor_failover.py | matches |
+| T28 | examples/sensor_failover_fixture.json | matches |
 
 For the next work cycle, read PROGRAM_PLAN.md and the original task acceptance conditions. Match each claimed result to its gate and uncertainty. Hold a branch after two cycles with no usable new information. Do not contact authors or other people. No new process or automation is started by this status command.

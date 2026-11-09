@@ -178,6 +178,10 @@ def reproduction_plan(kind: str, files: dict[str, bytes], metadata: dict) -> dic
             "wombmodels mechanical-twin-model --config <input_config.json> --out <new-dir>",
         "dimensionless_reciprocal_twin":
             "wombmodels reciprocal-twin-model --config <input_config.json> --out <new-dir>",
+        "dimensionless_sensor_failover":
+            "wombmodels sensor-failover-model --config <input_config.json> --out <new-dir>",
+        "dimensionless_twin_3d_visualization":
+            "wombmodels visualize-twin --bundle <source-twin-bundle> --out <new-dir>",
         "dimensionless_acquisition_spec":
             "wombmodels acquisition-spec-model --config <input_config.json> --out <new-dir>",
         "dimensionless_platform_requirements":

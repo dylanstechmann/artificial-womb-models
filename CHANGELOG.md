@@ -1,3 +1,13 @@
+# 2026-11-01
+
+- Complete T28's offline sensor-fault experiment: `sensor-failover-model` compares single-sensor control with independent-sensor disagreement and a latching frozen-supplement fallback. Publishes sensor/fault observations and trajectories; tests exact no-fault T21 equivalence, shared noise, confirmation delay, false alarms, fallback persistence, malformed inputs and strict bundle integrity. Software-only results do not qualify hardware alarms, physical sensor independence or biological protection.
+
+- Add `visualize-twin`: a receipt-verified, self-contained 3D viewer for whole-path, mechanical and reciprocal twin trajectories. Select axes and variants, rotate, zoom, inspect values and download the current SVG; a static SVG works without JavaScript. No external resources, runtime dependencies, biological units or machine controls. Includes source-integrity, relocation, offline-output and CLI tests.
+
+# 2026-10-31
+
+- Complete T27's software acceptance cycle: publish feedback-only separation results against a zero-feedback baseline, repair event-segment refinement, and derive conservative damage-dependent leak-rate bounds. Regression coverage now includes full-system first-order refinement for all three variants, work-budget rejection without publication, and expanded malformed-input checks. T27 is recorded as a completed software-only contribution; arbitrary-configuration accuracy, independent scientific review and biological capabilities remain unestablished.
+
 # 2026-10-24
 
 - Added T27's offline dimensionless reciprocal twin with optional damage-gated bulk leakage, a CLI command, fixture, and qualification note. Regressions cover bitwise zero-feedback trajectory equality across every shared column with T23, an isolated nonzero-stock analytic exponential leak reference with step refinement, a zero-feedback separation baseline, boundary separation, deterministic publication and strict verification; the coefficient range is bounded and rejected outside it. T27 is registered held in the program register (D14): full reciprocal-system refinement and damage-dependent stiffness qualification remain outstanding, and this AI-assisted software experiment establishes no biological result or gate movement.

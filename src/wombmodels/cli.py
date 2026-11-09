@@ -16,11 +16,13 @@ from .growth_scaling import growth_scaling
 from .growth_mechanics import growth_mechanics
 from .mechanical_twin import mechanical_twin
 from .reciprocal_twin import reciprocal_twin
+from .sensor_failover import sensor_failover
 from .acquisition_spec import acquisition_spec
 from .platform_requirements import platform_requirements
 from .identifiability import analyze
 from .spatial_delivery import spatial_delivery
 from .whole_path_twin import whole_path_twin
+from .visualizations import publish_visualization
 from .hori_source import audit_hori_source
 from .fattahi_source import audit_fattahi_source
 from .crest_linkage import audit_crest_linkage
@@ -119,6 +121,12 @@ def main(argv=None) -> int:
     reciprocal = commands.add_parser("reciprocal-twin-model", help="Run the dimensionless damage-gated reciprocal wall/fluidic twin")
     reciprocal.add_argument("--config", type=Path, required=True)
     reciprocal.add_argument("--out", type=Path, required=True)
+    failover = commands.add_parser("sensor-failover-model", help="Test dimensionless independent-sensor disagreement and freeze fallback")
+    failover.add_argument("--config", type=Path, required=True)
+    failover.add_argument("--out", type=Path, required=True)
+    visualization = commands.add_parser("visualize-twin", help="Render an offline interactive 3D view of a published twin")
+    visualization.add_argument("--bundle", type=Path, required=True)
+    visualization.add_argument("--out", type=Path, required=True)
     exchange = commands.add_parser("simulate", help="Run a dimensionless, nonphysiologic exchange fixture")
     exchange.add_argument("--config", type=Path, required=True)
     exchange.add_argument("--out", type=Path, required=True)
@@ -211,6 +219,10 @@ def main(argv=None) -> int:
             receipt = whole_path_twin(args.config, args.out)
         elif args.command == "reciprocal-twin-model":
             receipt = reciprocal_twin(args.config, args.out)
+        elif args.command == "sensor-failover-model":
+            receipt = sensor_failover(args.config, args.out)
+        elif args.command == "visualize-twin":
+            receipt = publish_visualization(args.bundle, args.out)
         elif args.command == "identifiability-report":
             receipt = analyze(args.config, args.trajectory, args.out)
         elif args.command == "design-sweep":

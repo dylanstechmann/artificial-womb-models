@@ -51,11 +51,13 @@ class ProgramStatusTests(unittest.TestCase):
         # T25 (the T08 reopen worksheet) were registered complete after
         # them. T26 records the 2026-10-22 numerical qualification as a
         # software contribution; biological gates remain open. T27 (D14,
-        # 2026-10-24) registers the reciprocal damage-gated leak experiment
-        # as held: its T23/T26 dependencies are satisfied, but full
-        # reciprocal-system refinement qualification and comprehensive
-        # validation coverage remain outstanding, so it claims no
-        # completion validity.
+        # software acceptance completed 2026-10-31) registers the reciprocal
+        # damage-gated leak experiment as a completed software contribution:
+        # its T23/T26 dependencies and stated regression acceptance checks
+        # are satisfied, without establishing biological capability or
+        # arbitrary-configuration numerical accuracy. T28 (D15, 2026-11-01)
+        # completes the independent-sensor/freeze-fallback software experiment;
+        # physical measurement and fault qualification remain unestablished.
         self.assertEqual({item["id"] for item in self.register["tasks"]
                           if item["status"] == "ready"}, set())
         # T15 was deferred on 2026-10-12 when the care/development track moved private.
@@ -71,13 +73,19 @@ class ProgramStatusTests(unittest.TestCase):
         self.assertEqual(numerical["depends_on"], ["T19", "T20", "T21", "T22", "T23", "T24"])
         self.assertTrue(valid["T26"])
         reciprocal = next(item for item in self.register["tasks"] if item["id"] == "T27")
-        self.assertEqual(reciprocal["status"], "held")
+        self.assertEqual(reciprocal["status"], "complete")
         self.assertEqual(reciprocal["domain"], "software")
         self.assertEqual(reciprocal["depends_on"], ["T23", "T26"])
-        self.assertFalse(valid["T27"], "a held task claims no completion validity")
+        self.assertTrue(valid["T27"], "pinned software evidence and dependencies are valid")
         row = next(t for t in report["tasks"] if t["id"] == "T27")
         self.assertTrue(row["dependencies_satisfied"])
         self.assertFalse(row["eligible_to_start"])
+        failover = next(item for item in self.register["tasks"] if item["id"] == "T28")
+        self.assertEqual(failover["status"], "complete")
+        self.assertEqual(failover["domain"], "software")
+        self.assertEqual(failover["depends_on"], ["T21", "T26"])
+        self.assertTrue(valid["T28"])
+        self.assertFalse(next(t for t in report["tasks"] if t["id"] == "T28")["eligible_to_start"])
         for row in report["tasks"]:
             if row["eligible_to_start"]:
                 self.assertEqual(row["declared_status"], "ready")

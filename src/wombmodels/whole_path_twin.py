@@ -188,7 +188,15 @@ def _variant_run(name, variant, shared, duration, step, boundaries, observer=Non
     rate_scale = (max(variant["serve_rate"], bulk["washout"] + bulk["transfer"],
                       internal["use"], internal["repair"])
                   + control["gain"] + reserve["draw"])
+    # Reciprocal runs add their static damage-dependent leak stiffness bound to
+    # the rate scale so the schedule resolves the stiffest allowed leak rate.
+    # Existing fixtures omit the key, so their canonical arithmetic is unchanged.
+    rate_scale += variant.get("wall_damage_leak_rate_bound", 0.0)
     substeps = max(1, math.ceil(step * rate_scale / SUBSTEP_RATE_TARGET))
+    # Reciprocal refinement multiplies the event-free substep count, which also
+    # refines the held-damage splitting interval. Existing fixtures omit the
+    # key (multiplied by 1), so their canonical arithmetic is unchanged.
+    substeps *= variant.get("substep_refinement", 1)
     times = output_times(duration, step)
     intervals_count = len(times) - 1
     if intervals_count * substeps > MAX_TOTAL_SUBSTEPS:
@@ -248,6 +256,7 @@ def _variant_run(name, variant, shared, duration, step, boundaries, observer=Non
                 state[5] = 0.0
                 continue
             count = max(1, math.ceil((stop - cursor) * rate_scale / SUBSTEP_RATE_TARGET))
+            count *= variant.get("substep_refinement", 1)
             work += count
             if work > MAX_TOTAL_SUBSTEPS:
                 raise InputError(f"Integration exceeds the {MAX_TOTAL_SUBSTEPS}-substep budget")

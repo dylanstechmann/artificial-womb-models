@@ -30,6 +30,11 @@ class ReciprocalTwinTests(unittest.TestCase):
         self.assertEqual(receipt["bundle_kind"], "dimensionless_reciprocal_twin")
         self.assertTrue(any(pair["first_separated"]["bulk_stock"] is not None
                             for pair in report["pairwise_separation"]))
+        for pair in report["pairwise_separation"]:
+            self.assertEqual(pair["feedback_only_first_separated"], {"bulk_stock": 2})
+            self.assertIsNone(pair["zero_feedback_first_separated"]["bulk_stock"])
+            self.assertEqual(pair["first_separated"]["wall_strain"],
+                             pair["zero_feedback_first_separated"]["wall_strain"])
         self.assertTrue(verify_bundle(out, strict=True)["bytes_verified"])
         self.assertIn(NOTICE, (out / "REPORT.md").read_text())
         config["feedback"]["leak_coefficient"] = 0
@@ -84,6 +89,75 @@ class ReciprocalTwinTests(unittest.TestCase):
         self.assertLess(errors[1], errors[0] / 10)
         self.assertLess(errors[2], errors[1] / 10)
 
+    def test_full_reciprocal_system_refinement_is_first_order(self):
+        from wombmodels.reciprocal_twin import _FeedbackWall, _validate
+        from wombmodels.whole_path_twin import _rk4_step, _variant_run
+        config = json.loads((ROOT / "examples/reciprocal_twin_fixture.json").read_text())
+        config["dimensionless_time"] = {"duration": 1.0, "output_step": 0.5}
+        config["interval_boundaries"] = [0.5]
+        config["growth"]["linear_rate"] = 0.0
+        config["control"].update(gain=0.0, rate_limit=0.0, supplement_max=0.0)
+        config["monitor"].update(noise_sd=0.0, cadence=0.5, faults=[])
+        config["outages"] = []
+        config["wall"].update(safe_strain=0.0, damage_rate=100.0,
+                              stiffness_coefficient=3.0, viscosity=0.8)
+        config["feedback"]["leak_coefficient"] = 10.0
+        parsed, wall, couplings, coefficient = _validate(config)
+        (duration, step, boundaries, growth, scaling, bulk, internal, control,
+         reserve, outages, cadence, noise_sd, seed, faults, variants, _analysis) = parsed
+        shared = (growth, scaling, bulk, internal, control, reserve, outages,
+                  cadence, noise_sd, seed, faults)
+        for name in sorted(variants):
+            with self.subTest(variant=name):
+                finals = []
+                for refinement in (1, 2, 4, 8):
+                    variant = dict(variants[name], wall_coupling=couplings[name],
+                                   wall_damage_leak=coefficient, wall_damage=0.0,
+                                   substep_refinement=refinement)
+                    observer = _FeedbackWall(variant, growth, scaling, wall, duration)
+                    rows, _, _ = _variant_run(name, variant, shared, duration, step,
+                                              boundaries, observer=observer)
+                    finals.append((rows[-1]["bulk_stock"], rows[-1]["wall_damage"]))
+                errors = [abs(a - b) + abs(c - d)
+                          for (a, c), (b, d) in zip(finals, finals[1:])]
+                self.assertLess(errors[1], errors[0] * 0.6)
+                self.assertLess(errors[2], errors[1] * 0.6)
+                self.assertLess(errors[-1], 1e-4)
+
+    def test_refinement_applies_to_event_free_segments(self):
+        from unittest.mock import patch
+        from wombmodels.reciprocal_twin import _FeedbackWall, _validate
+        from wombmodels.whole_path_twin import _rk4_step, _variant_run
+        config = json.loads((ROOT / "examples/reciprocal_twin_fixture.json").read_text())
+        parsed, wall, couplings, coefficient = _validate(config)
+        (duration, step, boundaries, growth, scaling, bulk, internal, control,
+         reserve, outages, cadence, noise_sd, seed, faults, variants, _analysis) = parsed
+        shared = (growth, scaling, bulk, internal, control, reserve, outages,
+                  cadence, noise_sd, seed, faults)
+        name = "living_interface"
+        variant = dict(variants[name], wall_coupling=couplings[name],
+                       wall_damage_leak=coefficient, wall_damage=0.0,
+                       substep_refinement=2)
+        observer = _FeedbackWall(variant, growth, scaling, wall, duration)
+        with patch("wombmodels.whole_path_twin._rk4_step", wraps=_rk4_step) as rk:
+            _variant_run(name, variant, shared, duration, step, boundaries, observer)
+            spans = [call.args[2] for call in rk.call_args_list]
+        self.assertTrue(all(span <= step / 2 for span in spans))
+        self.assertTrue(any(span < step / 10 for span in spans))
+
+    def test_excessive_reciprocal_work_fails_without_publication(self):
+        from unittest.mock import patch
+        config = json.loads((ROOT / "examples/reciprocal_twin_fixture.json").read_text())
+        with tempfile.TemporaryDirectory() as temp:
+            base = Path(temp)
+            path = base / "config.json"
+            output = base / "bundle"
+            path.write_text(json.dumps(config), encoding="utf-8")
+            with patch("wombmodels.whole_path_twin.MAX_TOTAL_SUBSTEPS", 1):
+                with self.assertRaisesRegex(InputError, "Integration exceeds"):
+                    reciprocal_twin(path, output)
+            self.assertFalse(output.exists())
+
     def test_deterministic_publication(self):
         config = json.loads((ROOT / "examples/reciprocal_twin_fixture.json").read_text())
         _, _, first = self.run_model(config)
@@ -92,11 +166,26 @@ class ReciprocalTwinTests(unittest.TestCase):
             if path.name != "receipt.json":
                 self.assertEqual(path.read_bytes(), (second / path.name).read_bytes(), path.name)
 
-    def test_rejects_bad_feedback(self):
-        config = json.loads((ROOT / "examples/reciprocal_twin_fixture.json").read_text())
-        config["feedback"]["leak_coefficient"] = 101
-        with self.assertRaises(InputError):
-            self.run_model(config)
+    def test_rejects_malformed_configurations(self):
+        mutations = (
+            (lambda c: c["feedback"].update(leak_coefficient=101), "leak_coefficient"),
+            (lambda c: c["feedback"].update(leak_coefficient=-1), "leak_coefficient"),
+            (lambda c: c["feedback"].update(leak_coefficient=True), "leak_coefficient"),
+            (lambda c: c["feedback"].update(extra=1), "feedback"),
+            (lambda c: c.pop("feedback"), "feedback"),
+            (lambda c: c["wall"].update(damage_rate=101), "damage_rate"),
+            (lambda c: c["wall"].update(safe_strain=0.8), "safe_strain"),
+            (lambda c: c["variants"]["staged"].pop("wall_coupling"), "wall_coupling"),
+            (lambda c: c["bulk"].update(washout=101), "washout"),
+            (lambda c: c["monitor"].update(noise_sd=-1), "noise_sd"),
+            (lambda c: c["bulk"].update(washout=0, transfer=0), "positive bulk loss"),
+        )
+        for mutation, message in mutations:
+            with self.subTest(message=message):
+                config = json.loads((ROOT / "examples/reciprocal_twin_fixture.json").read_text())
+                mutation(config)
+                with self.assertRaisesRegex(InputError, message):
+                    self.run_model(config)
 
 
 if __name__ == "__main__":
