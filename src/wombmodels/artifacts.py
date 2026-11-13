@@ -180,12 +180,16 @@ def reproduction_plan(kind: str, files: dict[str, bytes], metadata: dict) -> dic
             "wombmodels reciprocal-twin-model --config <input_config.json> --out <new-dir>",
         "dimensionless_sensor_failover":
             "wombmodels sensor-failover-model --config <input_config.json> --out <new-dir>",
+        "dimensionless_common_cause_fault":
+            "wombmodels common-cause-fault-model --config <input_config.json> --out <new-dir>",
         "dimensionless_twin_3d_visualization":
             "wombmodels visualize-twin --bundle <source-twin-bundle> --out <new-dir>",
         "dimensionless_acquisition_spec":
             "wombmodels acquisition-spec-model --config <input_config.json> --out <new-dir>",
         "dimensionless_platform_requirements":
             "wombmodels platform-requirements-model --config <input_config.json> --spec <acquisition-spec-bundle> --out <new-dir>",
+        "dimensionless_multi_unit_contention":
+            "wombmodels multi-unit-contention-model --config <config.json> --out <new-dir>",
     }.get(kind)
     parent = metadata.get("parent_receipt_file")
     return {

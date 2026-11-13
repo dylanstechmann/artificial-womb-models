@@ -57,9 +57,11 @@ KNOWN_BUNDLE_KINDS = frozenset({
     "dimensionless_mechanical_twin",
     "dimensionless_reciprocal_twin",
     "dimensionless_sensor_failover",
+    "dimensionless_common_cause_fault",
     "dimensionless_twin_3d_visualization",
     "dimensionless_acquisition_spec",
     "dimensionless_platform_requirements",
+    "dimensionless_multi_unit_contention",
 })
 DIMENSIONLESS_BUNDLE_KINDS = frozenset({
     "synthetic_exchange_software_fixture",
@@ -80,9 +82,11 @@ DIMENSIONLESS_BUNDLE_KINDS = frozenset({
     "dimensionless_mechanical_twin",
     "dimensionless_reciprocal_twin",
     "dimensionless_sensor_failover",
+    "dimensionless_common_cause_fault",
     "dimensionless_twin_3d_visualization",
     "dimensionless_acquisition_spec",
     "dimensionless_platform_requirements",
+    "dimensionless_multi_unit_contention",
 })
 
 

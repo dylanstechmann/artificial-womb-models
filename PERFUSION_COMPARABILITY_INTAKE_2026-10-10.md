@@ -139,3 +139,33 @@ strings. A bounded regression-tested audit matches all 658 selected cached
 value lexemes. This improves intake integrity, but the unbundled external
 workbook and run-level volume/removal/recovery records remain unavailable in the
 inspected source set. See the [Cycle 248 receipt](artifacts/perfusion-intake-2026-10-10/mandelbrot-s1-formula-provenance-reconciliation-cycle248.json).
+
+Cycles 249–250 screened the [Ashley et al. 2022 Figure 1 source-data workbook](ASHLEY_2022_VITAMIN_D_PERFUSION_SOURCE_SCREEN_2026-10-10.md)
+through the [candidate observation card](config/observations/ashley_2022_vitamin_d_perfusion_candidate.json),
+[source-cell ledger](config/source_inventories/ashley_2022_figure1_source_cells.csv),
+[source validator](src/wombmodels/ashley_source.py), and
+[summary checker](src/wombmodels/ashley_summary.py). The audit inventoried all 207
+nonempty cells and reconciled 30 per-perfusion 13C-25(OH)D3 and 1,25(OH)2D3 rate
+endpoints across five worksheet labels; 18 summary statistics and the five-run
+four-part 25(OH)D3 maternal-loss partition checked to 1e-12. The 24,25(OH)2D3
+unit/summary discrepancy (`nmol/min/g` versus `pmol/min/g`, maternal mean 2.4986
+versus 2.05, fetal SEM 0.2196 versus 0.10) and unlinked `placenta` row remain
+excluded. These open-loop metabolic rates are not raw concentration-time series
+or volume-closed balance trajectories, so they remain descriptive candidate
+observations pending human review.
+
+The 2026-11-12 [Ollivier et al. 2026 aciclovir/antipyrine source screen](OLLIVIER_2026_ACICLOVIR_PERFUSION_SOURCE_SCREEN_2026-11-12.md)
+reconciled the [perfusion manifest](config/perfusion_observations/ollivier_2026_aciclovir_antipyrine_dataset.json),
+[Table S1 cell CSV](config/perfusion_observations/ollivier_2026_table_s1_source_cells.csv),
+[candidate observation card](config/observations/ollivier_2026_aciclovir_antipyrine_perfusion_candidate.json),
+[source inventory](config/source_inventories/ollivier_2026_aciclovir_perfusion.json), and
+[source validator](src/wombmodels/ollivier_source.py): 44 Table S1 numeric cells—36
+placenta-labeled three-hour antipyrine cells across Placentas 1–9 plus eight
+printed summary cells—with exact French decimal-comma lexemes and 47
+observation-card records. It preserves without silent correction the
+Results-versus-Table S1 antipyrine metric swap (`81% SD 6.9%` versus
+`39% SD 12.2%`) and Table 1 umbilical-artery pH SD anomaly (`7.28 SD 1.60`).
+Per-placenta three-hour volumes remain missing: implied `Vf/Vm` spans
+`0.328392`–`1.333187`, while common-volume substitution shifts per-placenta FTR
+by `9.15` percentage points mean absolute and `18.29` maximum at Placenta 5;
+group-mean volumes therefore cannot close the dimensional-fit gate.

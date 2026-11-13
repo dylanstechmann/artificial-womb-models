@@ -10,7 +10,7 @@ MAX_REGISTER_BYTES = 200_000
 MAX_EVIDENCE_BYTES = 8_000_000
 TASK_STATES = {"ready", "waiting_dependency", "held", "complete", "deferred"}
 GATE_STATES = {"defined", "not_selected", "not_established", "unassessed", "deferred", "review_required"}
-DOMAINS = {"planning", "software", "engineering", "evidence_curation", "biological", "clinical", "access"}
+DOMAINS = {"planning", "software", "modeling", "engineering", "evidence_curation", "biological", "clinical", "access"}
 
 
 def _items(register, key, limit):
@@ -33,8 +33,11 @@ def _items(register, key, limit):
 
 
 def _evidence(root, ref):
-    if not isinstance(ref, dict) or set(ref) != {"path", "sha256"}:
-        raise InputError("Evidence needs exactly a local path and a SHA-256")
+    if (not isinstance(ref, dict)
+            or not {"path", "sha256"} <= set(ref) <= {"path", "sha256", "note"}):
+        raise InputError("Evidence needs a local path, a SHA-256 and an optional note")
+    if "note" in ref and (not isinstance(ref["note"], str) or len(ref["note"]) > 3000):
+        raise InputError("Evidence note must be bounded text")
     token, expected = ref["path"], ref["sha256"]
     if (not isinstance(token, str) or not 1 <= len(token) <= 500
             or "\\" in token or ":" in token or token.startswith("/")
@@ -172,7 +175,7 @@ def assess_register(register, root):
         "note": "Declared completion and matching evidence bytes do not authenticate acceptance criteria, scientific review or biological outcomes."}
 
 
-def _markdown(register, report):
+def render_markdown(register, report):
     def table_row(values):
         return "| " + " | ".join(str(value).replace("|", "\\|").replace("\r", " ").replace("\n", " ") for value in values) + " |"
     lines = ["# Program progress against the plan", "",
@@ -215,7 +218,7 @@ def publish_status(register_path, root, output):
     files = {"input_register.json": raw, "status_report.json": json_bytes(report),
         "tasks.csv": csv_bytes(list(report["tasks"][0]), report["tasks"]),
         "evidence_checks.csv": csv_bytes(["item_id", "path", "expected_sha256", "observed_sha256", "status"], report["evidence_checks"]),
-        "PROGRAM_STATUS.md": _markdown(register, report)}
+        "PROGRAM_STATUS.md": render_markdown(register, report)}
     files["reproduction_plan.json"] = json_bytes({"schema_version": 1,
         "bundle_kind": "research_program_status", "declared_dependencies": ["Python standard library and this project"],
         "command": "python -m wombmodels.program_status --register <input_register.json> --root <project-root> --out <new-dir>",

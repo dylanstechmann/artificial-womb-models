@@ -1,0 +1,274 @@
+{
+  "antipyrine_metric_swap_diagnostic": {
+    "interpretation": "The Results 81%/6.9% pair aligns with the Table S1 fetal/maternal ratio column, and the Results 39%/12.2% pair aligns with the Table S1 FTR column after rounding. Retain the source-specific labels and flag the apparent swap; do not overwrite either text.",
+    "results_labels": {
+      "fetal_transfer_rate_percent_mean_sd": [
+        81,
+        6.9
+      ],
+      "maternal_to_fetal_concentration_ratio_percent_mean_sd": [
+        39,
+        12.2
+      ]
+    },
+    "status": "results_labels_swapped_relative_to_table_s1_unresolved",
+    "table_s1_derived": {
+      "fetal_to_maternal_concentration_ratio_percent_mean_sample_sd": [
+        80.98,
+        6.87
+      ],
+      "fetal_transfer_rate_percent_mean_sample_sd": [
+        39.44,
+        12.19
+      ]
+    }
+  },
+  "author_contacted": false,
+  "citation": "Ollivier H, Faure Bardon V, Froelicher Bournaud L, et al. Congenital CMV Infection: Determination of Transplacental Passage of Aciclovir by Ex Vivo Placental Perfusion. BJOG. 2026;133(6):1241–1248. doi:10.1111/1471-0528.70168. PMID:41621825. PMCID:PMC13040426.",
+  "cohort_coverage": {
+    "attempted_and_excluded_counts": "not_reported; count closure not assessed",
+    "five_hour_extension_count": 1,
+    "five_hour_extension_is_additional_placenta": false,
+    "sampling_cadence_count_closure": "matches within the nine retained perfusions; no label-level cadence mapping",
+    "sampling_cadence_partition": [
+      2,
+      7
+    ],
+    "validated_perfusions": 9
+  },
+  "dataset_id": "ollivier2026-aciclovir-antipyrine-perfusion-candidate",
+  "eligibility": {
+    "data_availability": "Article states supporting data are available on request and not publicly available because of privacy or ethical restrictions; no author contact was made.",
+    "eligible_for": "Source-linked descriptive 3-hour antipyrine endpoints and author-reported aciclovir/quality-control summaries, pending human source/scientific review.",
+    "figure_digitized": false,
+    "missing_records": [
+      "Per-placenta 3-hour maternal and fetal volumes",
+      "Timepoint-specific volumes and sample-removal history",
+      "Total attempted and excluded perfusion counts",
+      "Numeric per-placenta aciclovir concentration-time observations and volume links",
+      "Individual assay calibration and uncertainty records",
+      "Table S1-label mapping for cadence strata and the five-hour extension"
+    ],
+    "not_eligible_for": [
+      "Per-placenta amount or mass-balance reconstruction",
+      "Net flux or dimensional transfer-parameter fitting",
+      "Substitution of group mean volumes for individual volumes",
+      "Developmental outcome, complete-gestation, artificial-womb performance, or clinical-use inference"
+    ]
+  },
+  "intake_status": "candidate",
+  "jats_artifact": {
+    "artifact_id": "ollivier2026-jats-xml",
+    "license": "CC BY 4.0",
+    "local_path": "artifacts/ollivier-2026-aciclovir-perfusion-2026-11-12/pmc13040426.xml",
+    "role": "Pinned JATS full text; citation, Methods, Results, Table 1, formulas, cohort and summaries.",
+    "sha256": "4e4e7e52d4eaabdf334d3b1a3aa4072aea2bed000e61c93a94b09232249b529d",
+    "size_bytes": 86739,
+    "uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pmc&id=13040426&retmode=xml"
+  },
+  "jats_results_cross_check": {
+    "ftr_mathml_denominator": "FC × FV + MC × MV",
+    "ftr_mathml_numerator": "100 × FC × FV",
+    "methods_antipyrine_molecular_weight": "118 Da",
+    "receipt": "artifacts/ollivier-2026-aciclovir-perfusion-2026-11-12/ollivier-jats-observation-card-audit.json",
+    "results_aciclovir_fetal_3h": "1.85 mg/L (SD: 0.60 mg/L)",
+    "results_aciclovir_ftr_3h": "17.4% at 3 h (SD: 7.8%)",
+    "results_aciclovir_maternal_3h": "7.55 mg/L (SD: 2.46 mg/L)",
+    "results_antipyrine_ftr": "81% (SD: 6.9%)",
+    "results_antipyrine_ratio": "39% (SD: 12.2%)",
+    "results_fetal_volume_3h": "201 mL (SD: 57 mL)",
+    "results_maternal_volume_3h": "247 mL (SD: 53 mL)",
+    "status": "passed_with_source_discrepancies_preserved",
+    "table1_sd_anomaly_preserved_without_correction": true,
+    "table1_umbilical_artery_ph_literal": "7.28 (SD: 1.60)",
+    "validator": "src/wombmodels/ollivier_source.py::audit_ollivier_jats_and_observation_card"
+  },
+  "license": "CC BY 4.0",
+  "observation_card": {
+    "author_reported_summary_records": 11,
+    "cohort_coverage_records": 3,
+    "measured_antipyrine_records": 36,
+    "measurement_pairs": 9,
+    "observations": 47,
+    "path": "config/observations/ollivier_2026_aciclovir_antipyrine_perfusion_candidate.json",
+    "sha256": "aa525b9799308e81376d9bda3eb39cfb181011101dfcc4cd348705b4ce1090fe",
+    "size_bytes": 214815
+  },
+  "observation_file": {
+    "index_convention": "Zero-based DOCX row/column indices; header is row 0 and row-label column is 0.",
+    "path": "config/perfusion_observations/ollivier_2026_table_s1_source_cells.csv",
+    "placenta_perfusion_rows": 36,
+    "rows": 44,
+    "sha256": "8fd97889e86b66e14fa8afad2cf35653ca0b0eed72841c5524361b7330b20199",
+    "size_bytes": 21774,
+    "source_reported_summary_rows": 8,
+    "source_table": "Table S1"
+  },
+  "observed_quantity": {
+    "analyte": "antipyrine",
+    "columns": [
+      {
+        "column_index": 1,
+        "compartment": "maternal reservoir",
+        "endpoint": "Maternal antipyrine concentration at 3 hours",
+        "endpoint_kind": "concentration",
+        "source_column_header": "Maternal Concentration at 3 hours of Antipyrine(µg/mL)",
+        "unit": "µg/mL"
+      },
+      {
+        "column_index": 2,
+        "compartment": "fetal reservoir",
+        "endpoint": "Fetal antipyrine concentration at 3 hours",
+        "endpoint_kind": "concentration",
+        "source_column_header": "Fetal Concentration at 3 hours of Antipyrine (µg/mL)",
+        "unit": "µg/mL"
+      },
+      {
+        "column_index": 3,
+        "compartment": "fetal and maternal reservoirs",
+        "endpoint": "Fetal transfer rate of antipyrine at 3 hours",
+        "endpoint_kind": "fetal_transfer_rate",
+        "source_column_header": "Fetal Transfer Rate of Antipyrine (%)",
+        "unit": "%"
+      },
+      {
+        "column_index": 4,
+        "compartment": "fetal-to-maternal concentration ratio",
+        "endpoint": "Fetal/maternal antipyrine concentration ratio at 3 hours",
+        "endpoint_kind": "concentration_ratio",
+        "source_column_header": "Fetal concentration / Maternal concentration rate of Antipyrine (%)",
+        "unit": "%"
+      }
+    ],
+    "measurement_time": 180,
+    "measurement_time_unit": "min of ex-vivo perfusion; reported as 3 hours; not gestational time"
+  },
+  "pmcid": "PMC13040426",
+  "pmid": "41621825",
+  "primary_article_uri": "https://doi.org/10.1111/1471-0528.70168",
+  "retrieved_on": "2026-11-12",
+  "schema_version": 1,
+  "scope_limits": [
+    "Ex-vivo term-placenta transfer evidence only; not embryo development, continuous gestation, birth, or later-health evidence.",
+    "Source metric conflicts and the anomalous Table 1 SD remain unresolved and visibly qualified.",
+    "No figures were digitized and no individual aciclovir trajectories were inferred from summaries.",
+    "Agent-assisted source transcription and arithmetic checks are not human scientific review."
+  ],
+  "source_artifact": {
+    "artifact_id": "ollivier2026-table-s1-docx",
+    "license": "CC BY 4.0",
+    "local_path": "artifacts/ollivier-2026-aciclovir-perfusion-2026-11-12/BJO-133-1241-s003.docx",
+    "role": "Pinned Table S1 DOCX; one literal-text table with 12 rows by five columns.",
+    "sha256": "442a3272ef5230bf5a649d02432bc6438db09373a1356fd6786802499b99bf84",
+    "size_bytes": 15690,
+    "uri": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13040426/supplementaryFiles"
+  },
+  "source_artifacts": [
+    {
+      "artifact_id": "ollivier2026-jats-xml",
+      "license": "CC BY 4.0",
+      "local_path": "artifacts/ollivier-2026-aciclovir-perfusion-2026-11-12/pmc13040426.xml",
+      "role": "Pinned JATS full text; citation, Methods, Results, Table 1, formulas, cohort and summaries.",
+      "sha256": "4e4e7e52d4eaabdf334d3b1a3aa4072aea2bed000e61c93a94b09232249b529d",
+      "size_bytes": 86739,
+      "uri": "https://eutils.ncbi.nlm.nih.gov/entrez/eutils/efetch.fcgi?db=pmc&id=13040426&retmode=xml"
+    },
+    {
+      "artifact_id": "ollivier2026-supplementary-zip",
+      "license": "CC BY 4.0",
+      "local_path": "artifacts/ollivier-2026-aciclovir-perfusion-2026-11-12/PMC13040426_supplementaryFiles.zip",
+      "role": "Pinned Europe PMC supplementary archive; nine members inventoried without executing content.",
+      "sha256": "70f3ebcb844b79dccf690395301beab4eca2f237ad2cf834511d7d6a0774585e",
+      "size_bytes": 321806,
+      "uri": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13040426/supplementaryFiles"
+    },
+    {
+      "artifact_id": "ollivier2026-table-s1-docx",
+      "license": "CC BY 4.0",
+      "local_path": "artifacts/ollivier-2026-aciclovir-perfusion-2026-11-12/BJO-133-1241-s003.docx",
+      "role": "Pinned Table S1 DOCX; one literal-text table with 12 rows by five columns.",
+      "sha256": "442a3272ef5230bf5a649d02432bc6438db09373a1356fd6786802499b99bf84",
+      "size_bytes": 15690,
+      "uri": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13040426/supplementaryFiles"
+    },
+    {
+      "artifact_id": "ollivier2026-figure-s2-png",
+      "license": "CC BY 4.0",
+      "local_path": "artifacts/ollivier-2026-aciclovir-perfusion-2026-11-12/BJO-133-1241-s001.png",
+      "role": "Pinned Figure S2 PNG (FTR over time); retained as evidence context, not digitized.",
+      "sha256": "abe907575a4dc43dbb72c8577f4ac77fb2657e28e99440dd0d5f345c2d7ae3c5",
+      "size_bytes": 113156,
+      "uri": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13040426/supplementaryFiles"
+    },
+    {
+      "artifact_id": "ollivier2026-figure-s1-png",
+      "license": "CC BY 4.0",
+      "local_path": "artifacts/ollivier-2026-aciclovir-perfusion-2026-11-12/BJO-133-1241-s002.png",
+      "role": "Pinned Figure S1 PNG (aciclovir concentrations over time); retained as evidence context, not digitized.",
+      "sha256": "c65634aad1767eb8544ca17cc4551e4aed370ade201d631e13a5ad699c4ecd18",
+      "size_bytes": 78450,
+      "uri": "https://www.ebi.ac.uk/europepmc/webservices/rest/PMC13040426/supplementaryFiles"
+    }
+  ],
+  "source_inventory": {
+    "path": "config/source_inventories/ollivier_2026_aciclovir_perfusion.json"
+  },
+  "source_reconciliation": {
+    "exact_decimal_comma_lexemes_preserved": 44,
+    "human_source_review_complete": false,
+    "individual_cells": 36,
+    "numeric_cells_reconciled": 44,
+    "receipt": "artifacts/ollivier-2026-aciclovir-perfusion-2026-11-12/ollivier-table-s1-source-audit.json",
+    "source_columns": 5,
+    "source_rows": 12,
+    "source_summary_cells": 8,
+    "source_table_count": 1,
+    "status": "automated_source_cell_reconciliation_passed",
+    "validator": "src/wombmodels/ollivier_source.py::audit_ollivier_table_s1"
+  },
+  "source_review_status": "pending",
+  "source_units": {
+    "experimental_perfusion_labels": [
+      "Placenta 1",
+      "Placenta 2",
+      "Placenta 3",
+      "Placenta 4",
+      "Placenta 5",
+      "Placenta 6",
+      "Placenta 7",
+      "Placenta 8",
+      "Placenta 9"
+    ],
+    "repeated_measure_structure": "Four Table S1 endpoints share each placenta label. Only maternal/fetal concentration records are declared as same-unit/same-time pairs; no aciclovir row-level pairing is inferred.",
+    "source_statement": "Nine source-local placenta/perfusion labels; no personal donor identifiers or cross-study keys are included."
+  },
+  "summary_and_volume_ratio_diagnostic": {
+    "all_four_printed_mean_sd_pairs_match_after_rounding": true,
+    "all_nine_printed_fetal_maternal_ratios_match_round_100_cf_over_cm": true,
+    "common_mean_volume_sensitivity": {
+      "assumed_vf_ml": 201,
+      "assumed_vm_ml": 247,
+      "assumption_status": "Counterfactual common-volume substitution, not observed per-placenta volumes.",
+      "maximum_absolute_difference_percentage_points": 18.290812,
+      "maximum_absolute_difference_placenta": 5,
+      "mean_absolute_per_placenta_difference_percentage_points": 9.154696,
+      "mean_predicted_ftr_percent": 39.664832,
+      "mean_predicted_minus_printed_percentage_points": 0.228165,
+      "printed_mean_ftr_percent": 39.436667,
+      "rmse_per_placenta_difference_percentage_points": 10.854836
+    },
+    "implied_vf_over_vm_max_placenta": 9,
+    "implied_vf_over_vm_min_placenta": 5,
+    "implied_vf_over_vm_range_six_decimals": [
+      "0.328392",
+      "1.333187"
+    ],
+    "implied_volume_ratio_formula": "Vf/Vm = (FTR / (100 - FTR)) * (Cm / Cf)",
+    "interpretation": "The FTR equation algebraically implies a different Vf/Vm for each displayed row. Group means can produce a similar cohort-average FTR while masking large row-level discrepancies; they do not identify or replace missing individual volumes.",
+    "receipt": "artifacts/ollivier-2026-aciclovir-perfusion-2026-11-12/ollivier-antipyrine-summary-volume-ratios.json",
+    "status": "recomputed_with_per_placenta_volume_identifiability_gap",
+    "summary_method": "Decimal arithmetic mean and sample SD (n-1) of nine displayed values per Table S1 column; quantize to two decimals for comparison with printed summary rows.",
+    "validator": "src/wombmodels/ollivier_source.py::derive_ollivier_antipyrine_summary_and_volume_ratios"
+  },
+  "title": "Ollivier et al. 2026 aciclovir/antipyrine ex-vivo placental perfusion source-cell and summary observations"
+}

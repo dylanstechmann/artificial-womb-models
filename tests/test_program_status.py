@@ -6,7 +6,8 @@ from pathlib import Path
 
 from wombmodels.artifacts import InputError, json_bytes, sha256
 from wombmodels.bundle_verification import verify_bundle
-from wombmodels.program_status import assess_register, publish_status
+from wombmodels.program_status import assess_register, publish_status, render_markdown
+from local_evidence import requires_local_evidence
 
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -95,6 +96,35 @@ class ProgramStatusTests(unittest.TestCase):
         self.assertEqual(report["biological_gate_updates"], 0)
         self.assertEqual(report["scientific_review"], "not_established_by_this_tool")
         self.assertTrue(report["evidence_integrity_matches"])
+
+    @requires_local_evidence(
+        "partial-source-interval-intake-cycle345",
+        "usuda-terminal-development-cycle346",
+        "schubert-amazeox-co2-equation-audit-cycle337",
+        "eixarch-2023-group-outcomes-2026-10-11-cycle315",
+        "eixarch-2023-group-outcomes-2026-10-11-cycle310",
+        "program-scope-revision-2026-10-11",
+    )
+    def test_checked_in_register_matches_rendered_status_and_blocks_dependents(self):
+        register = json.loads((ROOT / "config/program/roadmap.json").read_text(encoding="utf-8"))
+        report = assess_register(register, ROOT)
+        completed = {
+            "T01", "T02", "T03", "T04", "T07", "T08", "T12", "T13",
+            "T14", "T16", "T17", "T18", "T19", "T20", "T21", "T22",
+            "T23", "T24", "T25", "T26", "T27", "T28", "T29", "T30",
+        }
+        self.assertEqual({item["id"] for item in register["tasks"]
+                          if item["status"] == "complete"}, completed)
+        self.assertEqual((ROOT / "PROGRAM_STATUS.md").read_bytes(),
+                         render_markdown(register, report))
+        self.assertIn("T29", {task["id"] for task in report["tasks"]})
+        declared = next(task for task in register["tasks"] if task["id"] == "T29")
+        self.assertEqual(declared["status"], "complete")
+        self.assertEqual(declared["depends_on"], ["T28"])
+        common_cause = next(task for task in report["tasks"] if task["id"] == "T29")
+        self.assertEqual(common_cause["declared_status"], "complete")
+        self.assertTrue(common_cause["dependencies_satisfied"])
+        self.assertFalse(common_cause["eligible_to_start"])
 
     def test_stale_or_missing_completion_evidence_blocks_downstream_start(self):
         for missing in (False, True):

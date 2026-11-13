@@ -9,6 +9,8 @@ Every Markdown document in the repository root, grouped by purpose. The [README]
 | Document | What it is |
 | --- | --- |
 | [AGENTS.md](AGENTS.md) | Project guidance for coding agents: scope limits, capability labels, verification rules |
+| [AGENT_TOOLS.md](AGENT_TOOLS.md) | Portable agent-tooling configuration and CLI fallbacks |
+| [CLAUDE.md](CLAUDE.md) | Claude Code entry point to the repository guidance |
 | [CHANGELOG.md](CHANGELOG.md) | Dated record of changes |
 | [PROGRAM_PLAN.md](PROGRAM_PLAN.md) | Master plan: completion program for owned ectogenesis equipment, with gates, requirements and tasks |
 | [PROGRAM_STATUS.md](PROGRAM_STATUS.md) | Progress view of that plan, generated from `config/program/roadmap.json` |
@@ -27,6 +29,8 @@ Every Markdown document in the repository root, grouped by purpose. The [README]
 | [NUMERICAL_INTEGRATION_QUALIFICATION_2026-10-22.md](NUMERICAL_INTEGRATION_QUALIFICATION_2026-10-22.md) | T26: advancing clocks, stiff-wall stability, event balance and independent convergence checks |
 | [RECIPROCAL_COUPLING_QUALIFICATION_2026-10-24.md](RECIPROCAL_COUPLING_QUALIFICATION_2026-10-24.md) | T27: dimensionless damage-gated wall-to-fluidic feedback qualification |
 | [SENSOR_FAILOVER_QUALIFICATION_2026-11-01.md](SENSOR_FAILOVER_QUALIFICATION_2026-11-01.md) | T28: independent-sensor disagreement, fault detection and frozen-supplement fallback |
+| [COMMON_CAUSE_FAULT_QUALIFICATION_2026-11-12.md](COMMON_CAUSE_FAULT_QUALIFICATION_2026-11-12.md) | T29: shared-reference common-cause sensor and supplement-actuator fault qualification |
+| [MULTI_UNIT_CONTENTION_QUALIFICATION_2026-11-12.md](MULTI_UNIT_CONTENTION_QUALIFICATION_2026-11-12.md) | T30: multi-unit shared-service contention and boundary-blindness qualification |
 | [T05_SEQUENCING_CHALLENGE_2026-10-17.md](T05_SEQUENCING_CHALLENGE_2026-10-17.md) | Defer the independent reviewer and prioritize whole-system in silico design (D10) |
 | [THEORETICAL_MODELS.md](THEORETICAL_MODELS.md) | Theoretical modules and the future measured-data contract |
 | [METHODS.md](METHODS.md) | Methods and output interpretation: equations, boundaries and the reproducibility contract |
@@ -111,5 +115,6 @@ Every Markdown document in the repository root, grouped by purpose. The [README]
 | [MANDELBROT_DOLUTEGRAVIR_PERFUSION_INTAKE_2026-10-10.md](MANDELBROT_DOLUTEGRAVIR_PERFUSION_INTAKE_2026-10-10.md) | Mandelbrot et al.: dolutegravir perfusion observation intake |
 | [MATHIESEN_PERFUSION_AVAILABILITY_CROSSWALK_2026-10-10.md](MATHIESEN_PERFUSION_AVAILABILITY_CROSSWALK_2026-10-10.md) | Mathiesen 2020: source availability crosswalk |
 | [MATHIESEN_PERFUSION_QUALIFICATION_2026-10-10.md](MATHIESEN_PERFUSION_QUALIFICATION_2026-10-10.md) | Mathiesen et al.: term placental perfusion qualification |
+| [OLLIVIER_2026_ACICLOVIR_PERFUSION_SOURCE_SCREEN_2026-11-12.md](OLLIVIER_2026_ACICLOVIR_PERFUSION_SOURCE_SCREEN_2026-11-12.md) | Ollivier et al. 2026: aciclovir/antipyrine perfusion source-cell audit and observation intake |
 | [SCHALKWIJK_2016_DOLUTEGRAVIR_ACCESS_SCREEN_2026-10-10.md](SCHALKWIJK_2016_DOLUTEGRAVIR_ACCESS_SCREEN_2026-10-10.md) | Schalkwijk 2016: dolutegravir perfusion access screen |
 | [SPIESS_2023_PERFUSION_SUPPLEMENT_SCREEN_2026-10-10.md](SPIESS_2023_PERFUSION_SUPPLEMENT_SCREEN_2026-10-10.md) | Spiess et al. 2023: placental-perfusion supplement screen |

@@ -1,6 +1,6 @@
 # Program progress against the plan
 
-Assessment date: 2026-11-01. Generated from config/program/roadmap.json.
+Assessment date: 2026-11-12. Generated from config/program/roadmap.json.
 
 Owned equipment supporting at least one successful human gestation from embryos supplied upstream, without human surrogates, with independently assessed development and continuing health. One or a few concurrent gestations counts as success; up to ten concurrent gestations sharing one actual birth date is an aspiration, not a completion requirement. Seek the earliest achievable outcome, preferably within two to three years of 2026-10-11 or sooner (2028-10-11 to 2029-10-11). Five years is a comparison scenario; ten years may be tolerable. No supported completion forecast or success guarantee is asserted; longitudinal outcomes continue after birth. AI/robot care, education and development goals are tracked in a separate private repository and are out of scope here.
 
@@ -114,6 +114,8 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | T26 Numerical integration stability qualification | G3 | no | 12 | none |
 | T27 Reciprocal wall-to-fluidic coupling experiment | G3 | no | 12 | none |
 | T28 Independent-sensor disagreement and freeze-fallback experiment | G3 | no | 10 | none |
+| T29 Common-cause sensor reference and supplement-actuator fault experiment | G2 | no | 3 | none |
+| T30 Multi-unit shared-service contention experiment | G2 | no | 10 | none |
 
 ## Uncertainties
 
@@ -166,6 +168,8 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | T03 | USUDA_SOURCE_AUDIT_REPRODUCTION_2026-10-11.md | matches |
 | T04 | EARLY_SUPPORT_LINKAGE_DECISION_2026-10-11.md | matches |
 | T05 | EARLY_SUPPORT_SOURCE_CHALLENGE_2026-10-11.md | matches |
+| T05 | PERFUSION_COMPARABILITY_INTAKE_2026-10-10.md | matches |
+| T05 | OLLIVIER_2026_ACICLOVIR_PERFUSION_SOURCE_SCREEN_2026-11-12.md | matches |
 | T06 | UNSENT_TECHNICAL_REVIEW_PACKET_DRAFT_2026-10-11.md | matches |
 | T07 | COMPUTE_CALIBRATION_T07_2026-10-11.md | matches |
 | T07 | COMPUTE_CALIBRATION_T07_MEASUREMENTS_2026-10-11.json | matches |
@@ -205,5 +209,13 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | T28 | tests/test_sensor_failover.py | matches |
 | T28 | src/wombmodels/sensor_failover.py | matches |
 | T28 | examples/sensor_failover_fixture.json | matches |
+| T29 | COMMON_CAUSE_FAULT_QUALIFICATION_2026-11-12.md | matches |
+| T29 | src/wombmodels/common_cause_fault.py | matches |
+| T29 | examples/common_cause_fault_fixture.json | matches |
+| T29 | tests/test_common_cause_fault.py | matches |
+| T30 | MULTI_UNIT_CONTENTION_QUALIFICATION_2026-11-12.md | matches |
+| T30 | src/wombmodels/multi_unit_contention.py | matches |
+| T30 | examples/multi_unit_contention_fixture.json | matches |
+| T30 | tests/test_multi_unit_contention.py | matches |
 
 For the next work cycle, read PROGRAM_PLAN.md and the original task acceptance conditions. Match each claimed result to its gate and uncertainty. Hold a branch after two cycles with no usable new information. Do not contact authors or other people. No new process or automation is started by this status command.

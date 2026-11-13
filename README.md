@@ -55,6 +55,7 @@ Decision D12 (2026-10-17) made modeling the physical system in silico the progra
 | T26 | Numerical stability, exact event accounting and convergence qualification of the fixture solvers | [qualification](NUMERICAL_INTEGRATION_QUALIFICATION_2026-10-22.md) |
 | T27 | Damage-gated reciprocal wall-to-fluidic bulk-leak experiment | `reciprocal-twin-model` |
 | T28 | Independent-sensor disagreement and frozen-supplement fallback | `sensor-failover-model` |
+| T29 | Common-cause sensor reference & actuator fault | [COMMON_CAUSE_FAULT_QUALIFICATION_2026-11-12.md](COMMON_CAUSE_FAULT_QUALIFICATION_2026-11-12.md) |
 
 The schematics render with `python -m wombmodels.schematics --config <layout.json> --out <new-dir>`. `platform-requirements-model` consumes an `acquisition-spec-model` bundle through `--spec`. [The sequencing challenge](T05_SEQUENCING_CHALLENGE_2026-10-17.md) records why independent-reviewer recruitment was deferred behind this work, and [PROGRAM_STATUS.md](PROGRAM_STATUS.md) holds the task states.
 
@@ -86,6 +87,8 @@ The `wombmodels` command has one subcommand per row. Fixture-driven commands run
 | `mechanical-twin-model` | Run the dimensionless coupled mechanical twin; no empirical fit | `examples/mechanical_twin_fixture.json` |
 | `reciprocal-twin-model` | Test dimensionless damage-gated wall-to-fluidic bulk leakage; no empirical fit | `examples/reciprocal_twin_fixture.json` |
 | `sensor-failover-model` | Test independent-sensor disagreement and frozen-supplement fallback; no hardware alarm qualification | `examples/sensor_failover_fixture.json` |
+| `common-cause-fault-model` | Run the T29 common-cause sensor reference and supplement-actuator fault twin experiment. | `examples/common_cause_fault_fixture.json` |
+| `multi-unit-contention-model` | Two-unit shared-reservoir contention experiment; tests cross-unit fault propagation through a shared resource | `examples/multi_unit_contention_fixture.json` |
 | `acquisition-spec-model` | Compute the dimensionless minimum-measurement acquisition specification from the twin; no empirical fit | `examples/acquisition_spec_fixture.json` |
 | `platform-requirements-model` | Turn the published acquisition specification into the dimensionless capability worksheet; prices stay unknown | `examples/platform_requirements_fixture.json` and an `acquisition-spec-model` bundle (`--spec`) |
 | `spatial-delivery-model` | Run the dimensionless spatial internal-delivery identifiability fixture; no empirical fit | `examples/spatial_delivery_fixture.json` |
@@ -238,6 +241,8 @@ inventory/recovery and calibration records keep dimensional fitting ineligible.
 Run `audit-mathiesen-source` (including `--s3-table` for a non-joining candidate
 key screen) followed by `validate-observations` to reproduce the candidate
 bundles.
+
+- [OLLIVIER_2026_ACICLOVIR_PERFUSION_SOURCE_SCREEN_2026-11-12.md](OLLIVIER_2026_ACICLOVIR_PERFUSION_SOURCE_SCREEN_2026-11-12.md) reconciles all 44 aciclovir/antipyrine Table S1 source cells, qualifies the Results-versus-Table S1 metric swap, and retains the implied Vf/Vm volume-ratio identifiability diagnostic; no dimensional fit or biological capability is inferred.
 
 ### Example commands and outputs
 

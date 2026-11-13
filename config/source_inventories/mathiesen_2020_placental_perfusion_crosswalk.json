@@ -877,6 +877,57 @@
       "repository_search_receipt": "artifacts/benoit-2026-osimertinib-alectinib-2026-10-11/repository-search-screen-cycle227.json",
       "openaire_relation_screen_receipt": "artifacts/benoit-2026-osimertinib-alectinib-2026-10-11/openaire-relation-screen-cycle228.json",
       "openalex_location_receipt": "artifacts/benoit-2026-osimertinib-alectinib-2026-10-11/openalex-location-screen-cycle229.json"
+    },
+    {
+      "source_id": "ashley_2022_elife_vitamin_d_placental_perfusion",
+      "citation": "Ashley B, Simner C, Manousopoulou A, et al. Placental uptake and metabolism of 25(OH)vitamin D determine its activity within the fetoplacental unit. eLife. 2022;11:e71094. doi:10.7554/eLife.71094.",
+      "doi": "10.7554/eLife.71094",
+      "pmcid": "PMC8963876",
+      "pmid": "35257660",
+      "article_url": "https://doi.org/10.7554/eLife.71094",
+      "retrieved_on": "2026-10-10",
+      "license": "CC BY 4.0 (article and Figure 1 source data; eLife release)",
+      "accessible_artifacts": {
+        "source_screen": "ASHLEY_2022_VITAMIN_D_PERFUSION_SOURCE_SCREEN_2026-10-10.md",
+        "candidate_observation_card": "config/observations/ashley_2022_vitamin_d_perfusion_candidate.json",
+        "figure1_source_cell_ledger": "config/source_inventories/ashley_2022_figure1_source_cells.csv",
+        "validators": [
+          "src/wombmodels/ashley_source.py",
+          "src/wombmodels/ashley_summary.py"
+        ]
+      },
+      "key_study_design_facts": [
+        "Five fresh term human placentas underwent five-hour open-loop ex-vivo cotyledon perfusion with isotope-labeled 25(OH)D3; the Figure 1 source-data workbook contains one worksheet and no formulas.",
+        "Cycles 249–250 reconciled all 207 nonempty workbook cells and 30 per-perfusion 13C-25(OH)D3 and 1,25(OH)2D3 rate endpoints across five worksheet labels, plus 18 summary statistics and the five-run four-part 25(OH)D3 maternal-loss partition to 1e-12.",
+        "The 24,25(OH)2D3 unit/summary discrepancy (nmol/min/g versus pmol/min/g; maternal mean 2.4986 versus 2.05; fetal SEM 0.2196 versus 0.10) and the unlinked placenta-only 1,25(OH)2D3 row remain excluded rather than silently corrected."
+      ],
+      "comparability_assessment": "The workbook supports source-linked descriptive comparison of derived open-loop metabolic-rate endpoints, pending human review. These are not raw concentration-time series or volume-closed balance trajectories, and related derived endpoints are not independent validations.",
+      "decision": "Retain as a candidate descriptive intake with the stated exclusions; do not pool with other studies, infer vitamin sufficiency or developmental outcomes, or fit amount, mass balance, net flux, or dimensional transfer parameters. No author was contacted."
+    },
+    {
+      "source_id": "ollivier_2026_bjog_aciclovir_antipyrine_placental_perfusion",
+      "citation": "Ollivier H, Faure Bardon V, Froelicher Bournaud L, et al. Congenital CMV Infection: Determination of Transplacental Passage of Aciclovir by Ex Vivo Placental Perfusion. BJOG. 2026;133(6):1241–1248. doi:10.1111/1471-0528.70168.",
+      "doi": "10.1111/1471-0528.70168",
+      "pmcid": "PMC13040426",
+      "pmid": "41621825",
+      "article_url": "https://doi.org/10.1111/1471-0528.70168",
+      "retrieved_on": "2026-11-12",
+      "license": "CC BY 4.0",
+      "accessible_artifacts": {
+        "source_screen": "OLLIVIER_2026_ACICLOVIR_PERFUSION_SOURCE_SCREEN_2026-11-12.md",
+        "perfusion_manifest": "config/perfusion_observations/ollivier_2026_aciclovir_antipyrine_dataset.json",
+        "table_s1_source_cells": "config/perfusion_observations/ollivier_2026_table_s1_source_cells.csv",
+        "candidate_observation_card": "config/observations/ollivier_2026_aciclovir_antipyrine_perfusion_candidate.json",
+        "source_inventory": "config/source_inventories/ollivier_2026_aciclovir_perfusion.json",
+        "validator": "src/wombmodels/ollivier_source.py"
+      },
+      "key_study_design_facts": [
+        "Nine retained term-placenta perfusions contribute 36 placenta-labeled three-hour antipyrine cells and eight printed summary cells in Table S1; all 44 numeric cells preserve exact French decimal-comma lexemes, and the candidate card contains 47 observation records.",
+        "The Results-versus-Table S1 antipyrine metric swap (81% SD 6.9% versus 39% SD 12.2%) and Table 1 umbilical-artery pH SD anomaly (7.28 SD 1.60) remain visibly qualified without silent correction.",
+        "Per-placenta three-hour volumes are missing. Table S1 implies Vf/Vm from 0.328392 to 1.333187; substituting the reported group means of 201 mL fetal and 247 mL maternal into every row shifts FTR by 9.15 percentage points mean absolute and 18.29 percentage points maximum at Placenta 5."
+      ],
+      "comparability_assessment": "The tracked intake supports source-linked descriptive three-hour antipyrine endpoints and author-reported aciclovir/QC summaries only, pending human review. No figure was digitized, no individual aciclovir trajectory was inferred, and group-mean volumes cannot replace missing individual volume histories.",
+      "decision": "Retain as a candidate descriptive intake while preserving both source discrepancies and the volume-identifiability boundary. Do not reconstruct per-placenta amount or mass balance, estimate net flux, fit dimensional transfer parameters, or infer developmental or clinical outcomes. No author was contacted."
     }
   ],
   "claim_limits": {
@@ -889,6 +940,14 @@
     "highest_value_missing_field": "Per-run time-resolved volume and sample-removal ledger linked to concentration rows.",
     "next_intake_priority": "Audit the accessible Spiess Frontiers supplement against the per-run concentration-to-volume/removal gate, while preserving its aggregate-only curve limits; retain the descriptive-only boundary and pursue dimensional model fields only if an accessible source supplies linked per-run records.",
     "scope_limit": "These sources are transfer-method comparators, not evidence of artificial human gestation or healthy birth.",
-    "supplement_route_status": "Spiess protopine supplement filename is exposed in official PMC/Europe PMC metadata; the PMC attachment challenged, Europe PMC file route returned 403, and Thieme article PDF returned 404. Do not retry these routes; continue with the accessible Frontiers comparator."
+    "supplement_route_status": "Spiess protopine supplement filename is exposed in official PMC/Europe PMC metadata; the PMC attachment challenged, Europe PMC file route returned 403, and Thieme article PDF returned 404. Do not retry these routes; continue with the accessible Frontiers comparator.",
+    "what_is_now_supported": [
+      "Source-linked descriptive comparison, pending human review, is supported for four reconciled config/perfusion_observations tables: Eliesen 2024 Table S3 (config/perfusion_observations/eliesen_2024_tofacitinib_table_s3.csv), Faure Bardon 2020 S1 (config/perfusion_observations/faure_bardon_2020_lmv_mbv_s1_source_cells.csv), Mandelbrot 2019 S1 (config/perfusion_observations/mandelbrot_2019_dolutegravir_s1_cached_values.csv), and Ollivier 2026 Table S1 (config/perfusion_observations/ollivier_2026_table_s1_source_cells.csv).",
+      "The Ashley 2022 Figure 1 source-data workbook adds reconciled derived metabolic-rate endpoints through config/observations/ashley_2022_vitamin_d_perfusion_candidate.json and config/source_inventories/ashley_2022_figure1_source_cells.csv; the Mathiesen 2020 S2 file contributes its audited structure/context. These additions retain their source-specific derived-endpoint, provenance, discrepancy, and human-review limits."
+    ],
+    "what_remains_unsupported": [
+      "Dimensional transfer-parameter fitting, amount or net-flux inference, and mass-balance reconstruction remain unsupported: neither the reconciled Eliesen 2024, Faure Bardon 2020, Mandelbrot 2019, or Ollivier 2026 config/perfusion_observations tables, nor the Ashley 2022 derived-rate workbook or Mathiesen 2020 S2 file, supplies a source-linked per-run concentration/volume/sample-removal/recovery join.",
+      "Ollivier 2026 Table S1 algebraically demonstrates why substituting group-mean volumes (201 mL fetal, 247 mL maternal) into individual FTR rows is invalid: the displayed rows imply per-placenta Vf/Vm values spanning 0.328392–1.333187, and common-volume substitution masks that variation with 9.15 percentage-point mean absolute error and 18.29 percentage-point maximum error at Placenta 5."
+    ]
   }
 }

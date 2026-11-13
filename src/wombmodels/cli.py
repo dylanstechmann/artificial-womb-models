@@ -27,6 +27,8 @@ from .hori_source import audit_hori_source
 from .fattahi_source import audit_fattahi_source
 from .crest_linkage import audit_crest_linkage
 from .collection_accounting import collection_accounting
+from .common_cause_fault import common_cause_fault
+from .multi_unit_contention import _run_experiment as run_multi_unit_contention
 from .roelofsen_source import audit_roelofsen_source
 from .guo_source import audit_guo_source
 from .yolk_sac_source import audit_yolk_sac_source
@@ -124,6 +126,11 @@ def main(argv=None) -> int:
     failover = commands.add_parser("sensor-failover-model", help="Test dimensionless independent-sensor disagreement and freeze fallback")
     failover.add_argument("--config", type=Path, required=True)
     failover.add_argument("--out", type=Path, required=True)
+    common_cause = commands.add_parser(
+        "common-cause-fault-model",
+        help="Discriminate dimensionless common-sensor and supplement-actuator faults")
+    common_cause.add_argument("--config", type=Path, required=True)
+    common_cause.add_argument("--out", type=Path, required=True)
     visualization = commands.add_parser("visualize-twin", help="Render an offline interactive 3D view of a published twin")
     visualization.add_argument("--bundle", type=Path, required=True)
     visualization.add_argument("--out", type=Path, required=True)
@@ -167,6 +174,10 @@ def main(argv=None) -> int:
     verify_bundle_parser.add_argument("--bundle", type=Path, required=True)
     verify_bundle_parser.add_argument("--strict", action="store_true",
                                       help="also fail on undeclared files and unknown bundle kinds")
+    multi = commands.add_parser("multi-unit-contention-model",
+                                help="Run the multi-unit shared-reservoir contention experiment")
+    multi.add_argument("--config", type=Path, required=True)
+    multi.add_argument("--out", type=Path, required=True)
     args = parser.parse_args(argv)
     try:
         if args.command == "verify-bundle":
@@ -221,6 +232,8 @@ def main(argv=None) -> int:
             receipt = reciprocal_twin(args.config, args.out)
         elif args.command == "sensor-failover-model":
             receipt = sensor_failover(args.config, args.out)
+        elif args.command == "common-cause-fault-model":
+            receipt = common_cause_fault(args.config, args.out)
         elif args.command == "visualize-twin":
             receipt = publish_visualization(args.bundle, args.out)
         elif args.command == "identifiability-report":
@@ -237,6 +250,8 @@ def main(argv=None) -> int:
             receipt = verify_mechanics_accuracy(args.config, args.out)
         elif args.command == "verify-transport-matrix":
             receipt = verify_transport_matrix(args.config, args.out)
+        elif args.command == "multi-unit-contention-model":
+            receipt = run_multi_unit_contention(args.config, args.out)
         else:
             receipt = simulate(args.config, args.out)
     except (InputError, OSError) as exc:
