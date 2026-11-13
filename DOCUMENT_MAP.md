@@ -15,6 +15,7 @@ Every Markdown document in the repository root, grouped by purpose. The [README]
 | [PROGRAM_PLAN.md](PROGRAM_PLAN.md) | Master plan: completion program for owned ectogenesis equipment, with gates, requirements and tasks |
 | [PROGRAM_STATUS.md](PROGRAM_STATUS.md) | Progress view of that plan, generated from `config/program/roadmap.json` |
 | [ROADMAP.md](ROADMAP.md) | Development roadmap: cycle-by-cycle numerical, uncertainty and verification history |
+| [INTEGRATED_PORTFOLIO_REVIEW_2026-11-13.md](INTEGRATED_PORTFOLIO_REVIEW_2026-11-13.md) | Held first-month integrated portfolio and resource review (T09); exposes the T05 dependency, planning only |
 | [RESEARCH_PROGRAM.md](RESEARCH_PROGRAM.md) | Research program: from separate demonstrations to testable ectogenesis questions |
 | [FEASIBILITY_STRATEGY.md](FEASIBILITY_STRATEGY.md) | Making the embryo-to-birth concept testable |
 
@@ -31,6 +32,7 @@ Every Markdown document in the repository root, grouped by purpose. The [README]
 | [SENSOR_FAILOVER_QUALIFICATION_2026-11-01.md](SENSOR_FAILOVER_QUALIFICATION_2026-11-01.md) | T28: independent-sensor disagreement, fault detection and frozen-supplement fallback |
 | [COMMON_CAUSE_FAULT_QUALIFICATION_2026-11-12.md](COMMON_CAUSE_FAULT_QUALIFICATION_2026-11-12.md) | T29: shared-reference common-cause sensor and supplement-actuator fault qualification |
 | [MULTI_UNIT_CONTENTION_QUALIFICATION_2026-11-12.md](MULTI_UNIT_CONTENTION_QUALIFICATION_2026-11-12.md) | T30: multi-unit shared-service contention and boundary-blindness qualification |
+| [TRANSITION_DEMAND_QUALIFICATION_2026-11-13.md](TRANSITION_DEMAND_QUALIFICATION_2026-11-13.md) | T31: concurrent transition demand and shared-station contention qualification |
 | [T05_SEQUENCING_CHALLENGE_2026-10-17.md](T05_SEQUENCING_CHALLENGE_2026-10-17.md) | Defer the independent reviewer and prioritize whole-system in silico design (D10) |
 | [THEORETICAL_MODELS.md](THEORETICAL_MODELS.md) | Theoretical modules and the future measured-data contract |
 | [METHODS.md](METHODS.md) | Methods and output interpretation: equations, boundaries and the reproducibility contract |

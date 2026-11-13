@@ -305,6 +305,29 @@
       "decision": "Complete T30 multi-unit shared-service contention experiment; demonstrate that a fault in unit A propagates to unit B through a shared bulk stock reservoir, and that per-unit boundary monitoring cannot distinguish cross-unit propagation from local delivery failure. Isolated operation eliminates cross-unit propagation but does not represent the shared-infrastructure architecture. Keep qualification hold until multi-unit physical testbed and biological validation exist.",
       "id": "D17",
       "rationale": "T29 established that pairwise sensor disagreement misses common-cause faults within a single unit. T30 extends the fault register to cross-unit propagation: when two units share a common resource, a fault in one unit can degrade the other through resource depletion, and the degraded unit's boundary observables cannot distinguish this from its own local failure. This has direct consequences for the ten-unit shared-infrastructure architecture: per-unit monitoring alone is insufficient to diagnose cross-unit resource contention."
+    },
+    {
+      "affected_items": [
+        "T30",
+        "T31",
+        "U10",
+        "G3"
+      ],
+      "date": "2026-11-13",
+      "decision": "Complete T31; simultaneous demand and station outages create contention and correlated delay at the transition layer; unit-local channels cannot attribute delay cause; keep the hold until physical transition capability and biological validation exist.",
+      "id": "D18",
+      "rationale": "T30 established cross-unit propagation during steady-state support; T31 closes the remaining U10 named discriminator \u2014 simultaneous transition demand \u2014 showing the transition station is a second shared-resource contention surface with stage-overshoot consequences."
+    },
+    {
+      "affected_items": [
+        "T09",
+        "T05",
+        "T06"
+      ],
+      "date": "2026-11-13",
+      "decision": "execute the first-month integrated review as a held review: expose the T05 dependency, record the three-day miss against the 2026-11-10 target, continue the D12 agenda under the named-discriminator filter, keep T05/T06 held, and name independent-reviewer capacity plus the T24/T25 measurement capability quotation as the two standing owner resource decisions",
+      "id": "D19",
+      "rationale": "the plan requires the review on the date even when registered inputs are missing, without falsely marking T09 complete"
     }
   ],
   "gate_policy": "Explicit integrator declarations only. Reporting checks pinned bytes and full task dependencies, never advances biological/clinical gates or asserts a success guarantee. G4-to-G5 is program policy; preparation and applicable execution planning run in parallel. Service access or sequential results do not complete the owner target.",
@@ -1093,7 +1116,7 @@
         "PROGRAM_PLAN.md",
         "Register and accepted T01-T08 outputs"
       ],
-      "result": null,
+      "result": "Held review recorded 2026-11-13 in INTEGRATED_PORTFOLIO_REVIEW_2026-11-13.md; T09 remains incomplete because T05's independent reviewer remains held, and the review exposes that dependency without marking T09 complete.",
       "status": "waiting_dependency",
       "stop_rule": "Do not fill budget with held work or equate document count with feasibility.",
       "title": "Integrated portfolio and resource review",
@@ -1788,6 +1811,44 @@
       "status": "complete",
       "stop_rule": "Do not treat cross-unit propagation detection as biological safety, multi-unit physical isolation, or internal tissue-use observability; keep the qualification hold until multi-unit physical testbed and biological validation exist.",
       "title": "Multi-unit shared-service contention experiment",
+      "uncertainty_id": "U10"
+    },
+    {
+      "acceptance": "Publish a dimensionless transition-demand module (src/wombmodels/transition_demand.py, examples/transition_demand_fixture.json, CLI transition-demand-model, bundle kind dimensionless_transition_demand) that derives readiness from twin progression, schedules FIFO shared-station service with preemption/resume outages, and verifies dedicated-twin equality, the simultaneous-demand wait, the closed-form offset sweep, outage-correlated delay and local cause-blindness.",
+      "agent_hour_cap": 10,
+      "decision_consequence": "Qualifies that simultaneous transition demand forces contention even at a faultless shared station, that a station outage correlates delays across units, that waiting accrues stage overshoot, and that delay cause is not attributable from unit-local channels; dedicated stations eliminate waiting by construction; does not establish physical transition capacity or biological readiness.",
+      "depends_on": [
+        "T30"
+      ],
+      "domain": "modeling",
+      "evidence": [
+        {
+          "note": "Qualification record for T31 concurrent transition demand experiment",
+          "path": "TRANSITION_DEMAND_QUALIFICATION_2026-11-13.md",
+          "sha256": "03344dc7e00177c11b3c9a5437d191b70e3b45e7932b8a45f83369f25aa239a4"
+        },
+        {
+          "note": "Dimensionless concurrent transition demand module",
+          "path": "src/wombmodels/transition_demand.py",
+          "sha256": "0a364692e41d16e4fa0f452ae14e78134c3094bbfe537237865edbfcabe06560"
+        },
+        {
+          "note": "Canonical fixture for two-unit simultaneous transition demand with a shared-station outage",
+          "path": "examples/transition_demand_fixture.json",
+          "sha256": "ef08ecbe9aabfb2b2322bb1cc0eb029ff5c5eb0d4e5ddf492eb28f74ba3d159e"
+        },
+        {
+          "note": "Fourteen regression tests for dedicated-twin equality, simultaneous-demand wait, closed-form offset sweep, outage-correlated delay, local cause-blindness, deterministic publication and input guards",
+          "path": "tests/test_transition_demand.py",
+          "sha256": "1f30ff7a614b373dc44330c64ce7d10a311cc52cdcfbea9e4360416594f5eb1c"
+        }
+      ],
+      "gate_id": "G3",
+      "horizon": "completed 2026-11-13 under the D12 physical-world modeling agenda",
+      "id": "T31",
+      "status": "complete",
+      "stop_rule": "Do not treat waiting times, overshoots or station scheduling as neonatal readiness, physical station capacity or biological safety; qualification hold remains until physical multi-unit transition capability and biological validation exist.",
+      "title": "Concurrent transition demand experiment",
       "uncertainty_id": "U10"
     }
   ],

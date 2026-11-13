@@ -190,6 +190,8 @@ def reproduction_plan(kind: str, files: dict[str, bytes], metadata: dict) -> dic
             "wombmodels platform-requirements-model --config <input_config.json> --spec <acquisition-spec-bundle> --out <new-dir>",
         "dimensionless_multi_unit_contention":
             "wombmodels multi-unit-contention-model --config <config.json> --out <new-dir>",
+        "dimensionless_transition_demand":
+            "wombmodels transition-demand-model --config <config.json> --out <new-dir>",
     }.get(kind)
     parent = metadata.get("parent_receipt_file")
     return {

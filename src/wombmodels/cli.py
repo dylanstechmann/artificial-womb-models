@@ -29,6 +29,7 @@ from .crest_linkage import audit_crest_linkage
 from .collection_accounting import collection_accounting
 from .common_cause_fault import common_cause_fault
 from .multi_unit_contention import _run_experiment as run_multi_unit_contention
+from .transition_demand import transition_demand
 from .roelofsen_source import audit_roelofsen_source
 from .guo_source import audit_guo_source
 from .yolk_sac_source import audit_yolk_sac_source
@@ -178,6 +179,10 @@ def main(argv=None) -> int:
                                 help="Run the multi-unit shared-reservoir contention experiment")
     multi.add_argument("--config", type=Path, required=True)
     multi.add_argument("--out", type=Path, required=True)
+    transition = commands.add_parser("transition-demand-model",
+                                     help="Run the concurrent transition demand experiment")
+    transition.add_argument("--config", type=Path, required=True)
+    transition.add_argument("--out", type=Path, required=True)
     args = parser.parse_args(argv)
     try:
         if args.command == "verify-bundle":
@@ -252,6 +257,8 @@ def main(argv=None) -> int:
             receipt = verify_transport_matrix(args.config, args.out)
         elif args.command == "multi-unit-contention-model":
             receipt = run_multi_unit_contention(args.config, args.out)
+        elif args.command == "transition-demand-model":
+            receipt = transition_demand(args.config, args.out)
         else:
             receipt = simulate(args.config, args.out)
     except (InputError, OSError) as exc:

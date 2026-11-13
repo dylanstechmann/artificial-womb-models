@@ -111,7 +111,7 @@ class ProgramStatusTests(unittest.TestCase):
         completed = {
             "T01", "T02", "T03", "T04", "T07", "T08", "T12", "T13",
             "T14", "T16", "T17", "T18", "T19", "T20", "T21", "T22",
-            "T23", "T24", "T25", "T26", "T27", "T28", "T29", "T30",
+            "T23", "T24", "T25", "T26", "T27", "T28", "T29", "T30", "T31",
         }
         self.assertEqual({item["id"] for item in register["tasks"]
                           if item["status"] == "complete"}, completed)

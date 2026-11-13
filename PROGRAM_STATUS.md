@@ -116,6 +116,7 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | T28 Independent-sensor disagreement and freeze-fallback experiment | G3 | no | 10 | none |
 | T29 Common-cause sensor reference and supplement-actuator fault experiment | G2 | no | 3 | none |
 | T30 Multi-unit shared-service contention experiment | G2 | no | 10 | none |
+| T31 Concurrent transition demand experiment | G3 | no | 10 | none |
 
 ## Uncertainties
 
@@ -217,5 +218,9 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | T30 | src/wombmodels/multi_unit_contention.py | matches |
 | T30 | examples/multi_unit_contention_fixture.json | matches |
 | T30 | tests/test_multi_unit_contention.py | matches |
+| T31 | TRANSITION_DEMAND_QUALIFICATION_2026-11-13.md | matches |
+| T31 | src/wombmodels/transition_demand.py | matches |
+| T31 | examples/transition_demand_fixture.json | matches |
+| T31 | tests/test_transition_demand.py | matches |
 
 For the next work cycle, read PROGRAM_PLAN.md and the original task acceptance conditions. Match each claimed result to its gate and uncertainty. Hold a branch after two cycles with no usable new information. Do not contact authors or other people. No new process or automation is started by this status command.

@@ -89,6 +89,7 @@ The `wombmodels` command has one subcommand per row. Fixture-driven commands run
 | `sensor-failover-model` | Test independent-sensor disagreement and frozen-supplement fallback; no hardware alarm qualification | `examples/sensor_failover_fixture.json` |
 | `common-cause-fault-model` | Run the T29 common-cause sensor reference and supplement-actuator fault twin experiment. | `examples/common_cause_fault_fixture.json` |
 | `multi-unit-contention-model` | Two-unit shared-reservoir contention experiment; tests cross-unit fault propagation through a shared resource | `examples/multi_unit_contention_fixture.json` |
+| `transition-demand-model` | Two-unit transition demand and shared-station contention experiment; tests simultaneous transition demand, outage-correlated delay and stage overshoot | `examples/transition_demand_fixture.json` |
 | `acquisition-spec-model` | Compute the dimensionless minimum-measurement acquisition specification from the twin; no empirical fit | `examples/acquisition_spec_fixture.json` |
 | `platform-requirements-model` | Turn the published acquisition specification into the dimensionless capability worksheet; prices stay unknown | `examples/platform_requirements_fixture.json` and an `acquisition-spec-model` bundle (`--spec`) |
 | `spatial-delivery-model` | Run the dimensionless spatial internal-delivery identifiability fixture; no empirical fit | `examples/spatial_delivery_fixture.json` |
