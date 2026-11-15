@@ -1,6 +1,6 @@
 # Program progress against the plan
 
-Assessment date: 2026-11-12. Generated from config/program/roadmap.json.
+Assessment date: 2026-11-15. Generated from config/program/roadmap.json.
 
 Owned equipment supporting at least one successful human gestation from embryos supplied upstream, without human surrogates, with independently assessed development and continuing health. One or a few concurrent gestations counts as success; up to ten concurrent gestations sharing one actual birth date is an aspiration, not a completion requirement. Seek the earliest achievable outcome, preferably within two to three years of 2026-10-11 or sooner (2028-10-11 to 2029-10-11). Five years is a comparison scenario; ten years may be tolerable. No supported completion forecast or success guarantee is asserted; longitudinal outcomes continue after birth. AI/robot care, education and development goals are tracked in a separate private repository and are out of scope here.
 
@@ -117,6 +117,7 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | T29 Common-cause sensor reference and supplement-actuator fault experiment | G2 | no | 3 | none |
 | T30 Multi-unit shared-service contention experiment | G2 | no | 10 | none |
 | T31 Concurrent transition demand experiment | G3 | no | 10 | none |
+| T32 Shared-station observability counterexample and measurement addendum | G3 | no | 10 | none |
 
 ## Uncertainties
 
@@ -222,5 +223,9 @@ This view checks pinned local evidence and task dependencies. It never advances 
 | T31 | src/wombmodels/transition_demand.py | matches |
 | T31 | examples/transition_demand_fixture.json | matches |
 | T31 | tests/test_transition_demand.py | matches |
+| T32 | STATION_OBSERVABILITY_QUALIFICATION_2026-11-15.md | matches |
+| T32 | src/wombmodels/station_observability.py | matches |
+| T32 | examples/station_observability_fixture.json | matches |
+| T32 | tests/test_station_observability.py | matches |
 
 For the next work cycle, read PROGRAM_PLAN.md and the original task acceptance conditions. Match each claimed result to its gate and uncertainty. Hold a branch after two cycles with no usable new information. Do not contact authors or other people. No new process or automation is started by this status command.

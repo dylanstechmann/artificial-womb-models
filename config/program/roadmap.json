@@ -129,7 +129,7 @@
       "title": "Bounded local compute calibration"
     }
   ],
-  "assessment_date": "2026-11-12",
+  "assessment_date": "2026-11-15",
   "constraints": {
     "account_capacity_verified": false,
     "aspirational_concurrent_gestations": 10,
@@ -328,6 +328,19 @@
       "decision": "execute the first-month integrated review as a held review: expose the T05 dependency, record the three-day miss against the 2026-11-10 target, continue the D12 agenda under the named-discriminator filter, keep T05/T06 held, and name independent-reviewer capacity plus the T24/T25 measurement capability quotation as the two standing owner resource decisions",
       "id": "D19",
       "rationale": "the plan requires the review on the date even when registered inputs are missing, without falsely marking T09 complete"
+    },
+    {
+      "affected_items": [
+        "T31",
+        "T32",
+        "U10",
+        "U13",
+        "G3"
+      ],
+      "date": "2026-11-15",
+      "decision": "Complete T32 delay-matched shared-station observability counterexample; require independently calibrated station operational state and active-unit occupancy to distinguish queueing from outage, and reject a coarse busy-or-outage flag as insufficient. Keep the operational addendum alongside T24/T25 without mutating their frozen architecture-discrimination specification; all prices remain null and no procurement or gate movement is authorized.",
+      "id": "D20",
+      "rationale": "T31 established that unit-local channels cannot attribute delay cause. T32 constructs identical B demand, wait, service, overshoot, boundary, wall and internal trajectories under queue-only and outage-only worlds, proving non-identifiability even with internal per-unit D/M/P channels while identifying the two independent station-side observations that separate the worlds."
     }
   ],
   "gate_policy": "Explicit integrator declarations only. Reporting checks pinned bytes and full task dependencies, never advances biological/clinical gates or asserts a success guarantee. G4-to-G5 is program policy; preparation and applicable execution planning run in parallel. Service access or sequential results do not complete the owner target.",
@@ -1849,6 +1862,50 @@
       "status": "complete",
       "stop_rule": "Do not treat waiting times, overshoots or station scheduling as neonatal readiness, physical station capacity or biological safety; qualification hold remains until physical multi-unit transition capability and biological validation exist.",
       "title": "Concurrent transition demand experiment",
+      "uncertainty_id": "U10"
+    },
+    {
+      "acceptance": "Publish a delay-matched shared-station observability module (src/wombmodels/station_observability.py, examples/station_observability_fixture.json, CLI station-observability-model, bundle kind dimensionless_station_observability) reusing T31 readiness/scheduling without changing its canonical behavior; prove exact B local/event equality across queue-only and outage-only worlds for all variants, show unit-local and coarse-unavailable non-identifiability, demonstrate independent operational-state and active-occupancy separation, and emit a calibrated operational addendum with null prices.",
+      "agent_hour_cap": 10,
+      "decision_consequence": "Qualifies that no unit-local channel set, including internal per-unit D/M/P and wall channels, can attribute B's matched delay to queueing versus station outage. Independent station operational state and active-unit occupancy separate the causes during [d,d+s), whereas a lumped busy-or-outage flag does not. Adds operational shared-station measurement requirements alongside T24/T25 without selecting hardware or authorizing procurement.",
+      "depends_on": [
+        "T31"
+      ],
+      "domain": "software",
+      "evidence": [
+        {
+          "note": "Qualification record for T32 delay-matched shared-station observability counterexample",
+          "path": "STATION_OBSERVABILITY_QUALIFICATION_2026-11-15.md",
+          "sha256": "8bc0a76fc3cdda51e4bb92ce8f18831b6d8c3f43f6bd2c9f5a8d2ff8df86be26"
+        },
+        {
+          "note": "Dimensionless station observability module reusing canonical T31 readiness, scheduling and overshoot evaluation",
+          "path": "src/wombmodels/station_observability.py",
+          "sha256": "8ae33e7908d93a5702e43a3928a725f66cfa7177df4072192eadbb22982a9831"
+        },
+        {
+          "note": "Canonical three-variant delay-matched queue/outage fixture with wall channels",
+          "path": "examples/station_observability_fixture.json",
+          "sha256": "8518c2e48a3770fb4d698dacc202dee9372d3a06a7dd642ce7cbfb8f96f62b0f"
+        },
+        {
+          "note": "Twenty-five regression tests for exact counterexample equality, station-channel separation, input guards, determinism, CLI and strict relocation/tamper verification",
+          "path": "tests/test_station_observability.py",
+          "sha256": "239cd1e7211d8f8842d8c3f682e535d3cbfb66403d82a93c2e0dc61d12814621"
+        }
+      ],
+      "gate_id": "G3",
+      "horizon": "completed 2026-11-15 under the D12 physical-world modeling agenda (registered by D20)",
+      "id": "T32",
+      "inputs": [
+        "T31 canonical readiness evaluation, FIFO scheduler and stage-overshoot calculation",
+        "T23 one-way wall strain and damage channels",
+        "T24/T25 frozen architecture-discrimination specification (not mutated)"
+      ],
+      "result": "Completed the bounded software counterexample. For living-interface/staged/synthetic, B demands at 12.5/17.5/32.0, waits 3.0 and is served at 15.5-18.5/20.5-23.5/35.0-38.0 in both worlds; stage overshoot is 0.07621185758956822/0.053517864711518426/0.024255711822430026. B local boundary, wall and internal series are bit-for-bit identical. Operational state and active occupancy separate queue from outage; the lumped unavailable flag does not. Calibration remains required, all prices are null, and no biological gate, hardware reliability or procurement claim is made.",
+      "status": "complete",
+      "stop_rule": "Artificially dimensionless offline software only. Do not treat the counterexample or addendum as a transition procedure, neonatal readiness criterion, hardware reliability result, physical capacity qualification or procurement authorization. Do not mutate T24/T25, contact any person or advance G1/G2/G3 or any biological/clinical gate.",
+      "title": "Shared-station observability counterexample and measurement addendum",
       "uncertainty_id": "U10"
     }
   ],

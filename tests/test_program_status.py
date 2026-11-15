@@ -87,6 +87,12 @@ class ProgramStatusTests(unittest.TestCase):
         self.assertEqual(failover["depends_on"], ["T21", "T26"])
         self.assertTrue(valid["T28"])
         self.assertFalse(next(t for t in report["tasks"] if t["id"] == "T28")["eligible_to_start"])
+        observability = next(item for item in self.register["tasks"] if item["id"] == "T32")
+        self.assertEqual(observability["status"], "complete")
+        self.assertEqual(observability["domain"], "software")
+        self.assertEqual(observability["depends_on"], ["T31"])
+        self.assertTrue(valid["T32"])
+        self.assertFalse(next(t for t in report["tasks"] if t["id"] == "T32")["eligible_to_start"])
         for row in report["tasks"]:
             if row["eligible_to_start"]:
                 self.assertEqual(row["declared_status"], "ready")
@@ -111,7 +117,7 @@ class ProgramStatusTests(unittest.TestCase):
         completed = {
             "T01", "T02", "T03", "T04", "T07", "T08", "T12", "T13",
             "T14", "T16", "T17", "T18", "T19", "T20", "T21", "T22",
-            "T23", "T24", "T25", "T26", "T27", "T28", "T29", "T30", "T31",
+            "T23", "T24", "T25", "T26", "T27", "T28", "T29", "T30", "T31", "T32",
         }
         self.assertEqual({item["id"] for item in register["tasks"]
                           if item["status"] == "complete"}, completed)

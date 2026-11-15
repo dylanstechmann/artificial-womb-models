@@ -33,6 +33,7 @@ Every Markdown document in the repository root, grouped by purpose. The [README]
 | [COMMON_CAUSE_FAULT_QUALIFICATION_2026-11-12.md](COMMON_CAUSE_FAULT_QUALIFICATION_2026-11-12.md) | T29: shared-reference common-cause sensor and supplement-actuator fault qualification |
 | [MULTI_UNIT_CONTENTION_QUALIFICATION_2026-11-12.md](MULTI_UNIT_CONTENTION_QUALIFICATION_2026-11-12.md) | T30: multi-unit shared-service contention and boundary-blindness qualification |
 | [TRANSITION_DEMAND_QUALIFICATION_2026-11-13.md](TRANSITION_DEMAND_QUALIFICATION_2026-11-13.md) | T31: concurrent transition demand and shared-station contention qualification |
+| [STATION_OBSERVABILITY_QUALIFICATION_2026-11-15.md](STATION_OBSERVABILITY_QUALIFICATION_2026-11-15.md) | T32: delay-matched shared-station observability counterexample and operational measurement addendum |
 | [T05_SEQUENCING_CHALLENGE_2026-10-17.md](T05_SEQUENCING_CHALLENGE_2026-10-17.md) | Defer the independent reviewer and prioritize whole-system in silico design (D10) |
 | [THEORETICAL_MODELS.md](THEORETICAL_MODELS.md) | Theoretical modules and the future measured-data contract |
 | [METHODS.md](METHODS.md) | Methods and output interpretation: equations, boundaries and the reproducibility contract |
