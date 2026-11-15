@@ -56,6 +56,9 @@ Decision D12 (2026-10-17) made modeling the physical system in silico the progra
 | T27 | Damage-gated reciprocal wall-to-fluidic bulk-leak experiment | `reciprocal-twin-model` |
 | T28 | Independent-sensor disagreement and frozen-supplement fallback | `sensor-failover-model` |
 | T29 | Common-cause sensor reference & actuator fault | [COMMON_CAUSE_FAULT_QUALIFICATION_2026-11-12.md](COMMON_CAUSE_FAULT_QUALIFICATION_2026-11-12.md) |
+| T32 | Delay-matched shared-station observability counterexample and operational station-channel addendum | [STATION_OBSERVABILITY_QUALIFICATION_2026-11-15.md](STATION_OBSERVABILITY_QUALIFICATION_2026-11-15.md), `station-observability-model` |
+
+T32 proves that identical unit-local boundary, wall and internal D/M/P series cannot distinguish queueing from a station outage; independent operational-state and active-occupancy channels can, while a lumped busy-or-outage flag cannot. Its addendum does not mutate T24/T25, requires calibration and leaves every price null. It makes no hardware-reliability, physical-capacity, biological, clinical or procurement claim and advances no gate.
 
 The schematics render with `python -m wombmodels.schematics --config <layout.json> --out <new-dir>`. `platform-requirements-model` consumes an `acquisition-spec-model` bundle through `--spec`. [The sequencing challenge](T05_SEQUENCING_CHALLENGE_2026-10-17.md) records why independent-reviewer recruitment was deferred behind this work, and [PROGRAM_STATUS.md](PROGRAM_STATUS.md) holds the task states.
 
@@ -90,6 +93,7 @@ The `wombmodels` command has one subcommand per row. Fixture-driven commands run
 | `common-cause-fault-model` | Run the T29 common-cause sensor reference and supplement-actuator fault twin experiment. | `examples/common_cause_fault_fixture.json` |
 | `multi-unit-contention-model` | Two-unit shared-reservoir contention experiment; tests cross-unit fault propagation through a shared resource | `examples/multi_unit_contention_fixture.json` |
 | `transition-demand-model` | Two-unit transition demand and shared-station contention experiment; tests simultaneous transition demand, outage-correlated delay and stage overshoot | `examples/transition_demand_fixture.json` |
+| `station-observability-model` | Delay-matched queue-versus-outage counterexample; requires independent station state and occupancy, not a lumped unavailable flag | `examples/station_observability_fixture.json` |
 | `acquisition-spec-model` | Compute the dimensionless minimum-measurement acquisition specification from the twin; no empirical fit | `examples/acquisition_spec_fixture.json` |
 | `platform-requirements-model` | Turn the published acquisition specification into the dimensionless capability worksheet; prices stay unknown | `examples/platform_requirements_fixture.json` and an `acquisition-spec-model` bundle (`--spec`) |
 | `spatial-delivery-model` | Run the dimensionless spatial internal-delivery identifiability fixture; no empirical fit | `examples/spatial_delivery_fixture.json` |

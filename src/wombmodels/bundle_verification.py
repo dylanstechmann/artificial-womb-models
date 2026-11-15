@@ -63,6 +63,7 @@ KNOWN_BUNDLE_KINDS = frozenset({
     "dimensionless_platform_requirements",
     "dimensionless_multi_unit_contention",
     "dimensionless_transition_demand",
+    "dimensionless_station_observability",
 })
 DIMENSIONLESS_BUNDLE_KINDS = frozenset({
     "synthetic_exchange_software_fixture",
@@ -89,6 +90,7 @@ DIMENSIONLESS_BUNDLE_KINDS = frozenset({
     "dimensionless_platform_requirements",
     "dimensionless_multi_unit_contention",
     "dimensionless_transition_demand",
+    "dimensionless_station_observability",
 })
 
 
