@@ -71,7 +71,7 @@ The `wombmodels` command has one subcommand per row. Fixture-driven commands run
 | --- | --- | --- |
 | `evidence-report` | Validate and report a reviewed evidence ledger | `config/evidence.json` |
 | `validate-observations` | Validate source-linked developmental observations and preserve exact-unit groups | a dataset card, e.g. `examples/observation_intake_fixture.json` or `config/observations/`; `--source-root` hashes local source files |
-| `audit-mouse-length-splits` | Check time coverage for candidate mouse embryo length holdouts within each measurement axis | [Pinned mouse length candidate](config/observations/aguilera_castrejon_2021_length_source_candidate.json) |
+| `audit-mouse-length-splits` | Compare middle group means with linear interpolation on each mouse length axis. Optional `--workbook` checks every value against Panel e. | [Mouse length data and results](AGUILERA_CASTREJON_2021_E11_HANDOFF_2026-10-10.md#candidate-holdout-audit) |
 | `validate-phenotypes` | Audit individual phenotype coverage, exclusions and experiment/source hierarchy; no effect estimation | a dataset card, e.g. `examples/phenotype_intake_fixture.json` |
 | `audit-hori-source` | Audit the pinned Hori 2024 Figure 5G workbook offline; no model fit | a pinned published workbook (not redistributed here) |
 | `audit-fattahi-source` | Audit pinned Figure 2 functional readouts offline; no pairing or model fit | a pinned published workbook (not redistributed here) |

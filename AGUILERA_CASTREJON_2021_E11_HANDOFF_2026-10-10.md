@@ -23,4 +23,13 @@ wombmodels audit-mouse-length-splits --dataset config/observations/aguilera_cast
 wombmodels verify-bundle --bundle artifacts/mouse-length-splits --strict
 ```
 
-The audit preserves the source clocks and records the row IDs in each proposed holdout. The earliest groups each have a single antero-posterior time point. Each crown-rump series has three time points. Only the middle time is bracketed by its two reference times, at E10.5 in utero and +Day 3 ex utero. Holding out either end requires extrapolation. The candidate card still needs source review, and specimen independence across groups remains unresolved. These are coverage checks for a future benchmark.
+The audit preserves the source clocks and records the row IDs in each proposed holdout. The earliest groups each have a single antero-posterior time point. Each crown-rump series has three time points. The comparison estimates the middle group mean by drawing a straight line between the earlier and later group means at their recorded times. Holding out either end would require extrapolation.
+
+| Middle group | Measurements | Times defining the reference | Linear reference (μm) | Observed mean (μm) | Observed minus reference (μm) |
+| --- | ---: | --- | ---: | ---: | ---: |
+| In utero E10.5 | 15 | E9.5 and E11 | 4,895.4 | 4,727.1 | −168.3 |
+| Ex utero +Day 3 | 43 | +Day 2 and +Day 4 | 4,316.0 | 4,445.1 | +129.2 |
+
+These differences describe the recorded group means retrospectively. Embryo identities across times and specimen independence remain unresolved. The data card retains its candidate review status.
+
+To repeat the source check, download the [publisher workbook](https://static-content.springer.com/esm/art%3A10.1038%2Fs41586-021-03416-3/MediaObjects/41586_2021_3416_MOESM11_ESM.xlsx) and pass its local path with `--workbook`. The command verifies the file hash, column headers, row labels, and all 216 numeric cells in Panel e. It compares the workbook and JSON numbers at binary64 precision. The bundle records whether the workbook was supplied.

@@ -59,8 +59,10 @@ def main(argv=None) -> int:
                                help="Optional local source directory; hashes only declared relative local_path files")
     observations.add_argument("--out", type=Path, required=True)
     mouse_length_splits = commands.add_parser("audit-mouse-length-splits",
-        help="Audit held-out group coverage in the pinned mouse embryo length candidate")
+        help="Audit held-out mouse embryo length groups and compare their means with interpolation")
     mouse_length_splits.add_argument("--dataset", type=Path, required=True)
+    mouse_length_splits.add_argument("--workbook", type=Path,
+        help="Optionally verify Panel e against the pinned publisher XLSX")
     mouse_length_splits.add_argument("--out", type=Path, required=True)
     phenotypes = commands.add_parser("validate-phenotypes", help="Audit individual phenotype coverage, exclusions and experiment/source hierarchy; no effect estimation")
     phenotypes.add_argument("--dataset", type=Path, required=True)
@@ -202,7 +204,7 @@ def main(argv=None) -> int:
         elif args.command == "validate-observations":
             receipt = observation_report(args.dataset, args.out, source_root=args.source_root)
         elif args.command == "audit-mouse-length-splits":
-            receipt = audit_mouse_length_splits(args.dataset, args.out)
+            receipt = audit_mouse_length_splits(args.dataset, args.out, workbook_path=args.workbook)
         elif args.command == "validate-phenotypes":
             receipt = phenotype_report(args.dataset, args.out, source_root=args.source_root)
         elif args.command == "audit-hori-source":
