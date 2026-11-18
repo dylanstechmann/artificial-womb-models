@@ -33,6 +33,7 @@ KNOWN_BUNDLE_KINDS = frozenset({
     "reviewed_evidence_map",
     "developmental_observation_dataset_report",
     "developmental_observation_intake",
+    "mouse_embryo_length_split_audit",
     "specimen_phenotype_intake",
     "published_endpoint_source_audit",
     "functional_readout_source_audit",

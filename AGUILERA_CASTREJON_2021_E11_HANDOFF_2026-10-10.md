@@ -15,3 +15,12 @@ NCBI classifies the series as high-throughput expression profiling and links sam
 For the feasibility map, this is an important stage transition: a system can reproduce substantial early development and still fail when the growing embryo's extraembryonic exchange support is insufficient. The observation motivates a specific evidence need—unit-linked serial morphology, circulation, adverse-event, and disposition data at the late-organogenesis boundary—without establishing a solution or human operating target. It does not demonstrate live birth, complete gestation, or postnatal health. The separate E12.5 mouse preprint and ovine fetal-support cohorts remain distinct evidence windows, with no linked embryo or animal trajectory.
 
 The structured source inventory is [aguilera_castrejon_2021_ex_utero.json](config/source_inventories/aguilera_castrejon_2021_ex_utero.json); the read-only GEO metadata snapshots and hashes are recorded there. The six aggregate workbook rows remain candidate observations, and no author was contacted.
+
+## Candidate holdout audit
+
+```sh
+wombmodels audit-mouse-length-splits --dataset config/observations/aguilera_castrejon_2021_length_source_candidate.json --out artifacts/mouse-length-splits
+wombmodels verify-bundle --bundle artifacts/mouse-length-splits --strict
+```
+
+The audit preserves the source clocks and records the row IDs in each proposed holdout. The earliest groups each have a single antero-posterior time point. Each crown-rump series has three time points. Only the middle time is bracketed by its two reference times, at E10.5 in utero and +Day 3 ex utero. Holding out either end requires extrapolation. The candidate card still needs source review, and specimen independence across groups remains unresolved. These are coverage checks for a future benchmark.
