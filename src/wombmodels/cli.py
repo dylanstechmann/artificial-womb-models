@@ -35,6 +35,7 @@ from .guo_source import audit_guo_source
 from .yolk_sac_source import audit_yolk_sac_source
 from .boundary_source import audit_boundary_source
 from .mathiesen_source import audit_mathiesen_source
+from .mouse_length_splits import audit_mouse_length_splits
 from .numerical_verification import (
     verify_mechanics_accuracy,
     verify_transport_accuracy,
@@ -57,6 +58,12 @@ def main(argv=None) -> int:
     observations.add_argument("--source-root", type=Path,
                                help="Optional local source directory; hashes only declared relative local_path files")
     observations.add_argument("--out", type=Path, required=True)
+    mouse_length_splits = commands.add_parser("audit-mouse-length-splits",
+        help="Audit held-out mouse embryo length groups and compare their means with interpolation")
+    mouse_length_splits.add_argument("--dataset", type=Path, required=True)
+    mouse_length_splits.add_argument("--workbook", type=Path,
+        help="Optionally verify Panel e against the pinned publisher XLSX")
+    mouse_length_splits.add_argument("--out", type=Path, required=True)
     phenotypes = commands.add_parser("validate-phenotypes", help="Audit individual phenotype coverage, exclusions and experiment/source hierarchy; no effect estimation")
     phenotypes.add_argument("--dataset", type=Path, required=True)
     phenotypes.add_argument("--source-root", type=Path)
@@ -196,6 +203,8 @@ def main(argv=None) -> int:
             receipt = evidence_report(args.ledger, args.out)
         elif args.command == "validate-observations":
             receipt = observation_report(args.dataset, args.out, source_root=args.source_root)
+        elif args.command == "audit-mouse-length-splits":
+            receipt = audit_mouse_length_splits(args.dataset, args.out, workbook_path=args.workbook)
         elif args.command == "validate-phenotypes":
             receipt = phenotype_report(args.dataset, args.out, source_root=args.source_root)
         elif args.command == "audit-hori-source":

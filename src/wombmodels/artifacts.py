@@ -138,6 +138,8 @@ def reproduction_plan(kind: str, files: dict[str, bytes], metadata: dict) -> dic
             "wombmodels validate-observations --dataset <dataset.json> --out <new-dir>",
         "developmental_observation_intake":
             "wombmodels validate-observations --dataset <input_dataset.json> --out <new-dir>",
+        "mouse_embryo_length_split_audit":
+            "wombmodels audit-mouse-length-splits --dataset <input_dataset.json> --out <new-dir>",
         "yolk_sac_functional_source_audit":
             "wombmodels audit-yolk-sac-source --workbook <external-pinned-source.xlsx> --out <new-dir>",
         "developmental_boundary_source_linkage_audit":
@@ -214,7 +216,7 @@ def reproduction_plan(kind: str, files: dict[str, bytes], metadata: dict) -> dic
                    ["input_phenotypes.json", "external source files for optional byte verification (not bundled)"]
                    if kind == "specimen_phenotype_intake" else
                    ["input_config.json"] if kind in {"dimensionless_transport_identifiability", "dimensionless_collection_accounting"} else
-                   ["input_dataset.json"] if kind == "developmental_observation_intake"
+                   ["input_dataset.json"] if kind in {"developmental_observation_intake", "mouse_embryo_length_split_audit"}
                    else ["source_config.json"] if "source_config.json" in files else []),
         "parent_bundle_receipt": parent,
         # The plan lists itself and the receipt: a reviewer checking a relocated
@@ -224,7 +226,7 @@ def reproduction_plan(kind: str, files: dict[str, bytes], metadata: dict) -> dic
             "Matching hashes establish bundle integrity only, not numerical correctness, "
             "parameter identifiability or biological validity.",
             ("Source audit/intake preserves reported units; it does not establish measurement validity, rights, analysis eligibility or predict human gestation."
-             if kind in {"developmental_observation_intake", "published_endpoint_source_audit", "functional_readout_source_audit", "native_placental_source_recovery", "human_placental_perfusion_observation_audit", "niche_mechanics_development_source_audit", "yolk_sac_functional_source_audit", "developmental_boundary_source_linkage_audit", "early_interface_source_linkage_audit", "specimen_phenotype_intake"} else
+             if kind in {"developmental_observation_intake", "mouse_embryo_length_split_audit", "published_endpoint_source_audit", "functional_readout_source_audit", "native_placental_source_recovery", "human_placental_perfusion_observation_audit", "niche_mechanics_development_source_audit", "yolk_sac_functional_source_audit", "developmental_boundary_source_linkage_audit", "early_interface_source_linkage_audit", "specimen_phenotype_intake"} else
              "Every value in these fixtures is dimensionless. Nothing here predicts human gestation."),
             "Verification never reruns the model. A rerun needs the recorded package version and "
             "the exact inputs listed above.",

@@ -15,3 +15,21 @@ NCBI classifies the series as high-throughput expression profiling and links sam
 For the feasibility map, this is an important stage transition: a system can reproduce substantial early development and still fail when the growing embryo's extraembryonic exchange support is insufficient. The observation motivates a specific evidence need—unit-linked serial morphology, circulation, adverse-event, and disposition data at the late-organogenesis boundary—without establishing a solution or human operating target. It does not demonstrate live birth, complete gestation, or postnatal health. The separate E12.5 mouse preprint and ovine fetal-support cohorts remain distinct evidence windows, with no linked embryo or animal trajectory.
 
 The structured source inventory is [aguilera_castrejon_2021_ex_utero.json](config/source_inventories/aguilera_castrejon_2021_ex_utero.json); the read-only GEO metadata snapshots and hashes are recorded there. The six aggregate workbook rows remain candidate observations, and no author was contacted.
+
+## Candidate holdout audit
+
+```sh
+wombmodels audit-mouse-length-splits --dataset config/observations/aguilera_castrejon_2021_length_source_candidate.json --out artifacts/mouse-length-splits
+wombmodels verify-bundle --bundle artifacts/mouse-length-splits --strict
+```
+
+The audit preserves the source clocks and records the row IDs in each proposed holdout. The earliest groups each have a single antero-posterior time point. Each crown-rump series has three time points. The comparison estimates the middle group mean by drawing a straight line between the earlier and later group means at their recorded times. Holding out either end would require extrapolation.
+
+| Middle group | Measurements | Times defining the reference | Linear reference (μm) | Observed mean (μm) | Observed minus reference (μm) |
+| --- | ---: | --- | ---: | ---: | ---: |
+| In utero E10.5 | 15 | E9.5 and E11 | 4,895.4 | 4,727.1 | −168.3 |
+| Ex utero +Day 3 | 43 | +Day 2 and +Day 4 | 4,316.0 | 4,445.1 | +129.2 |
+
+These differences describe the recorded group means retrospectively. Embryo identities across times and specimen independence remain unresolved. The data card retains its candidate review status.
+
+To repeat the source check, download the [publisher workbook](https://static-content.springer.com/esm/art%3A10.1038%2Fs41586-021-03416-3/MediaObjects/41586_2021_3416_MOESM11_ESM.xlsx) and pass its local path with `--workbook`. The command verifies the file hash, column headers, row labels, and all 216 numeric cells in Panel e. It compares the workbook and JSON numbers at binary64 precision. The bundle records whether the workbook was supplied.
