@@ -28,6 +28,7 @@ from .fattahi_source import audit_fattahi_source
 from .crest_linkage import audit_crest_linkage
 from .collection_accounting import collection_accounting
 from .common_cause_fault import common_cause_fault
+from .fault_benchmark import DEFAULT_REPLICATES, benchmark_fault_detectors
 from .multi_unit_contention import _run_experiment as run_multi_unit_contention
 from .transition_demand import transition_demand
 from .roelofsen_source import audit_roelofsen_source
@@ -132,6 +133,17 @@ def main(argv=None) -> int:
         help="Discriminate dimensionless common-sensor and supplement-actuator faults")
     common_cause.add_argument("--config", type=Path, required=True)
     common_cause.add_argument("--out", type=Path, required=True)
+    benchmark = commands.add_parser(
+        "benchmark-fault-detectors", help="Score frozen fault detectors on paired dimensionless simulations")
+    benchmark.add_argument("--config", type=Path, required=True)
+    benchmark.add_argument("--out", type=Path, required=True)
+    benchmark.add_argument("--replicates", type=int, default=DEFAULT_REPLICATES,
+                           help="Number of paired noise seeds at each noise level (default %(default)s)")
+    comparison = benchmark.add_mutually_exclusive_group()
+    comparison.add_argument("--calibrate-thresholds", action="store_true",
+                            help="Compare fixed and control-calibrated thresholds on fresh paired evaluation runs")
+    comparison.add_argument("--compare-actuator-thresholds", action="store_true",
+                            help="Compare shared and separately fitted actuator thresholds on paired evaluation runs")
     visualization = commands.add_parser("visualize-twin", help="Render an offline interactive 3D view of a published twin")
     visualization.add_argument("--bundle", type=Path, required=True)
     visualization.add_argument("--out", type=Path, required=True)
@@ -239,6 +251,10 @@ def main(argv=None) -> int:
             receipt = sensor_failover(args.config, args.out)
         elif args.command == "common-cause-fault-model":
             receipt = common_cause_fault(args.config, args.out)
+        elif args.command == "benchmark-fault-detectors":
+            receipt = benchmark_fault_detectors(args.config, args.out, replicates=args.replicates,
+                                                calibrate_thresholds=args.calibrate_thresholds,
+                                                compare_actuator_thresholds=args.compare_actuator_thresholds)
         elif args.command == "visualize-twin":
             receipt = publish_visualization(args.bundle, args.out)
         elif args.command == "identifiability-report":

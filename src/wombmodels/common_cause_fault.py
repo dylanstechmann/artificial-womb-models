@@ -148,13 +148,16 @@ def _actuator_rk4_step(time, state, substep, parameters, held_reading, operating
             for value, a, b, c, d in zip(state, first, second, third, fourth)]
 
 
+def _integration_rate(variant, bulk, internal, control, reserve):
+    return (max(variant["serve_rate"], bulk["washout"] + bulk["transfer"],
+                internal["use"], internal["repair"]) + control["gain"] + reserve["draw"])
+
+
 def _fault_run(name, variant, shared, duration, step, boundaries, mode, experiment, control_faults):
     growth, scaling, bulk, internal, control, reserve, outages = shared[:7]
     cadence, noise_sd, seed, monitor_faults = shared[7:]
     parameters = (growth, scaling, bulk, internal, control, reserve, outages, variant)
-    rate_scale = (max(variant["serve_rate"], bulk["washout"] + bulk["transfer"],
-                      internal["use"], internal["repair"])
-                  + control["gain"] + reserve["draw"])
+    rate_scale = _integration_rate(variant, bulk, internal, control, reserve)
     substeps = max(1, math.ceil(step * rate_scale / SUBSTEP_RATE_TARGET))
     times = output_times(duration, step)
     if (len(times) - 1) * substeps > MAX_TOTAL_SUBSTEPS:
