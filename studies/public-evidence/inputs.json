@@ -1,0 +1,39 @@
+[
+  {
+    "file": "family.soft",
+    "url": "https://www.ncbi.nlm.nih.gov/geo/query/acc.cgi?acc=GSE275228&targ=all&form=text&view=quick",
+    "sha256": "6cc5808a58d80e0e0d73fb0987643cb5b86d92018052adea5d280db408ba0ccb",
+    "bytes": 155313
+  },
+  {
+    "file": "ena.tsv",
+    "url": "https://www.ebi.ac.uk/ena/portal/api/filereport?accession=PRJNA1149839&result=read_run&fields=run_accession,sample_accession,sample_alias,sample_title,study_accession,scientific_name,fastq_ftp,fastq_md5&format=tsv",
+    "sha256": "fcce305a8f5f62e184b6ba493e81cb192bd439b111e254ff436f0aada04b4bdb",
+    "bytes": 11037,
+    "normalization": "Keep header, sort full TSV rows by byte value, terminate with LF"
+  },
+  {
+    "file": "GSE275228_rawStarCounts.csv.gz",
+    "url": "https://www.ncbi.nlm.nih.gov/geo/download/?acc=GSE275228&format=file&file=GSE275228_rawStarCounts.csv.gz",
+    "sha256": "5d83331eb23ee9f0947103ac6012e31099f62040c6e7a65025ed4d830fcdb1f8",
+    "bytes": 1259511
+  },
+  {
+    "file": "Specimen1_Villi.stl",
+    "url": "https://ndownloader.figshare.com/files/12905288",
+    "sha256": "8f6b5c7bdcd686982a3aa834645d2c5efb1e3e8201b219c79a23a6acede71092",
+    "bytes": 1847784
+  },
+  {
+    "file": "Specimen1_Vasculature.stl",
+    "url": "https://ndownloader.figshare.com/files/12905285",
+    "sha256": "378b1af68bbd581bd209f8c42d32d83856533ca946c9131bff2dbaf0af908d12",
+    "bytes": 7587784
+  },
+  {
+    "file": "Dataset_S2.csv",
+    "url": "https://raw.githubusercontent.com/InmaV/CoA_scenarios/5597e52fda7c1f2385a05bef41912ecf10b23142/Dataset_S2.csv",
+    "sha256": "72ff3b9ed2ebc6caafde5e9b9d6e3daca30de0567971c58eb2e5c355a2a8ac72",
+    "bytes": 364843
+  }
+]

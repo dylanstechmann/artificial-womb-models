@@ -1,0 +1,37 @@
+gsm	column	tissue	Sex	experimental group	sheep	run	biosample	assigned_gene_counts	paper_qc
+GSM8473158	A1	hippocampus	Female	Experimental	A	SRR30299599	SAMN43261501	11206149	retained
+GSM8473159	A2	motor cortex	Female	Experimental	A	SRR30299598	SAMN43261500	11539513	retained
+GSM8473160	A3	basal ganglia	Female	Experimental	A	SRR30299597	SAMN43261499	13020225	retained
+GSM8473161	A4	cerebellum	Female	Experimental	A	SRR30299596	SAMN43261498	10609046	retained
+GSM8473162	B1	hippocampus	Female	Experimental	B	SRR30299595	SAMN43261497	17885005	retained
+GSM8473163	B2	motor cortex	Female	Experimental	B	SRR30299594	SAMN43261496	15847368	retained
+GSM8473164	B3	basal ganglia	Female	Experimental	B	SRR30299593	SAMN43261495	17179646	retained
+GSM8473165	B4	cerebellum	Female	Experimental	B	SRR30299592	SAMN43261494	15231181	retained
+GSM8473166	C1	hippocampus	Male	Experimental	C	SRR30299591	SAMN43261493	14790281	retained
+GSM8473167	C2	motor cortex	Male	Experimental	C	SRR30299590	SAMN43261492	13765297	retained
+GSM8473168	C3	basal ganglia	Male	Experimental	C	SRR30299589	SAMN43261491	16100894	retained
+GSM8473169	C4	cerebellum	Male	Experimental	C	SRR30299588	SAMN43261490	13941961	retained
+GSM8473170	D1	hippocampus	Female	Experimental	D	SRR30299587	SAMN43261489	18029099	retained
+GSM8473171	D2	motor cortex	Female	Experimental	D	SRR30299586	SAMN43261488	18153142	retained
+GSM8473172	D3	basal ganglia	Female	Experimental	D	SRR30299585	SAMN43261487	17974635	retained
+GSM8473173	D4	cerebellum	Female	Experimental	D	SRR30299584	SAMN43261486	17847323	retained
+GSM8473174	E1	hippocampus	Female	Experimental	E	SRR30299583	SAMN43261485	17477874	retained
+GSM8473175	E2	motor cortex	Female	Experimental	E	SRR30299582	SAMN43261484	17390050	retained
+GSM8473176	E3	basal ganglia	Female	Experimental	E	SRR30299581	SAMN43261483	17269155	retained
+GSM8473177	E4	cerebellum	Female	Experimental	E	SRR30299580	SAMN43261482	16561599	retained
+GSM8473178	F1	hippocampus	Male	Late pre-term ctrl	F	SRR30299579	SAMN43261481	15771290	retained
+GSM8473179	F2	motor cortex	Male	Late pre-term ctrl	F	SRR30299578	SAMN43261480	15858815	retained
+GSM8473180	F3	basal ganglia	Male	Late pre-term ctrl	F	SRR30299601	SAMN43261479	16451748	retained
+GSM8473181	F4	cerebellum	Male	Late pre-term ctrl	F	SRR30299600	SAMN43261478	14826480	retained
+GSM8473182	G1	hippocampus	Male	Late pre-term ctrl	G	SRR30299577	SAMN43261477	14609917	retained
+GSM8473183	G2	motor cortex	Male	Late pre-term ctrl	G	SRR30299576	SAMN43261476	14955020	retained
+GSM8473184	G3	basal ganglia	Male	Late pre-term ctrl	G	SRR30299575	SAMN43261475	14192449	retained
+GSM8473185	G4	cerebellum	Male	Late pre-term ctrl	G	SRR30299574	SAMN43261474	15055056	retained
+GSM8473186	H1	hippocampus	Female	Pre-term ctrl	H	SRR30299573	SAMN43261473	12595338	retained
+GSM8473187	H2	motor cortex	Female	Pre-term ctrl	H	SRR30299572	SAMN43261472	11964697	retained
+GSM8473188	H3	basal ganglia	Female	Pre-term ctrl	H	SRR30299571	SAMN43261471	11616287	retained
+GSM8473189	H4	cerebellum	Female	Pre-term ctrl	H	SRR30299570	SAMN43261470	8782652	excluded_low_counts
+GSM8473190	I1	hippocampus	Male	Pre-term ctrl	I	SRR30299569	SAMN43261469	10474593	retained
+GSM8473191	I2	motor cortex	Male	Pre-term ctrl	I	SRR30299568	SAMN43261468	10150099	retained
+GSM8473192	I3	basal ganglia	Male	Pre-term ctrl	I	SRR30299567	SAMN43261467	10929328	retained
+GSM8473193	I4	cerebellum	Male	Pre-term ctrl	I	SRR30299566	SAMN43261466	9431687	retained

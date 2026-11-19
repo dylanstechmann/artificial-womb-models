@@ -1,0 +1,26 @@
+{
+  "api": "https://www.ebi.ac.uk/europepmc/webservices/rest/search",
+  "retrieved_utc": "2026-11-19",
+  "publication_cutoff": "2026-11-19",
+  "searches": {
+    "device": {
+      "query": "((TITLE_ABS:\"artificial placenta\" OR TITLE_ABS:\"artificial womb\" OR TITLE_ABS:\"artificial uterus\" OR TITLE_ABS:\"ectogenesis\" OR TITLE_ABS:\"extrauterine environment for newborn development\" OR TITLE_ABS:\"extrauterine life support\" OR TITLE_ABS:\"extra-uterine life support\" OR TITLE_ABS:\"extra-uterine system\" OR TITLE_ABS:\"extrauterine physiology\")) AND FIRST_PDATE:[1800-01-01 TO 2026-11-19]",
+      "hits": 334
+    },
+    "early_development": {
+      "query": "((TITLE_ABS:\"human embryo\" OR TITLE_ABS:\"mouse embryo\" OR TITLE_ABS:\"monkey embryo\" OR TITLE_ABS:\"blastoid\" OR TITLE_ABS:\"embryo model\") AND (TITLE_ABS:\"postimplantation\" OR TITLE_ABS:\"peri-implantation\" OR TITLE_ABS:\"post-implantation\" OR TITLE_ABS:\"gastrulation\") AND (TITLE_ABS:\"in vitro\" OR TITLE_ABS:\"ex utero\" OR TITLE_ABS:\"ex vivo\" OR TITLE_ABS:\"stem cell-derived\")) AND FIRST_PDATE:[1800-01-01 TO 2026-11-19]",
+      "hits": 261
+    },
+    "human_placental_perfusion": {
+      "query": "((TITLE_ABS:\"human placenta\" OR TITLE_ABS:\"human placental\" OR TITLE_ABS:\"human cotyledon\") AND (TITLE_ABS:\"perfusion\" OR TITLE_ABS:\"perfused\") AND (TITLE_ABS:\"ex vivo\" OR TITLE_ABS:\"dual\" OR TITLE_ABS:\"dual-sided\")) AND FIRST_PDATE:[1800-01-01 TO 2026-11-19]",
+      "hits": 358
+    },
+    "computational": {
+      "query": "((TITLE_ABS:\"fetal circulation\" OR TITLE_ABS:\"placental transport\" OR TITLE_ABS:\"fetoplacental\" OR TITLE_ABS:\"feto-placental\" OR TITLE_ABS:\"placental blood flow\") AND (TITLE_ABS:\"computational\" OR TITLE_ABS:\"simulation\" OR TITLE_ABS:\"mathematical model\" OR TITLE_ABS:\"digital twin\")) AND FIRST_PDATE:[1800-01-01 TO 2026-11-19]",
+      "hits": 94
+    }
+  },
+  "unique_source_id_pairs": 1040,
+  "records_sha256": "312ab439f72a0fed0e67a84e83a76e2853fa9f2f9e2425cc6f6e7f995220e6a5",
+  "script_sha256": "31897d10225a101fca832ffe726e530550a357873583cd372fb05e1b4e7ce5ea"
+}

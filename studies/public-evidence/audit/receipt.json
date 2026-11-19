@@ -1,0 +1,17 @@
+{
+  "input_manifest_sha256": "9946f124f683d66187aa3371ec605613454ef24bf97eee62b5b29bdd6919715b",
+  "implementation_sha256": "ab3313ce79d2a026c04e5b0d90617c191071f8e754be6082f1150ab4038bd4ac",
+  "count_rows": 27054,
+  "genes_compared": 15924,
+  "counts_by_closer_reference": {
+    "late": 13,
+    "early": 2
+  },
+  "outputs_sha256": {
+    "samples.tsv": "92766830515a03b9f92fba23bdfa3bc9aee45c23532ee8c9779636894bacd1c7",
+    "ovine_distances.tsv": "ee30a7b9cfee73aab1ee78bf464d1eede9a70c942dc07303fe7de01e66d9bc75",
+    "human_meshes.tsv": "f612e6c64ec052407cb2c207891b11accb0a8ce25dc45c9c8d7d04aab3430f63",
+    "ovine_animals.tsv": "732dc56bb4e9875b6163afd5ac83635b068db682bc1ee59e66dfeba0bbfe21b2",
+    "human_traces.tsv": "7dbfb706d21c8e285dad929fd62c46583db9914abc45c2bf1094b1687d2a9edd"
+  }
+}

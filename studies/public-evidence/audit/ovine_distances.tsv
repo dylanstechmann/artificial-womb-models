@@ -1,0 +1,16 @@
+animal	tissue	mean_distance_early	mean_distance_late	closer
+A	hippocampus	0.371716	0.330748	late
+A	motor cortex	0.386279	0.32515	late
+A	basal ganglia	0.408281	0.517361	early
+B	hippocampus	0.603002	0.467982	late
+B	motor cortex	0.386143	0.334101	late
+B	basal ganglia	0.571653	0.557284	late
+C	hippocampus	0.525628	0.387772	late
+C	motor cortex	0.410948	0.311279	late
+C	basal ganglia	0.454703	0.370432	late
+D	hippocampus	0.396427	0.285618	late
+D	motor cortex	0.41499	0.33102	late
+D	basal ganglia	0.515797	0.601329	early
+E	hippocampus	0.559299	0.426717	late
+E	motor cortex	0.368893	0.316254	late
+E	basal ganglia	0.46987	0.448874	late

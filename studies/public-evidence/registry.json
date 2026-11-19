@@ -1,0 +1,48 @@
+{
+  "registry": "ClinicalTrials.gov",
+  "retrieved_utc": "2026-11-19",
+  "queries": [
+    {
+      "phrase": "artificial womb",
+      "url": "https://clinicaltrials.gov/api/v2/studies?query.term=%22artificial+womb%22&countTotal=true&pageSize=1&fields=NCTId",
+      "total": 0,
+      "first_record": []
+    },
+    {
+      "phrase": "artificial placenta",
+      "url": "https://clinicaltrials.gov/api/v2/studies?query.term=%22artificial+placenta%22&countTotal=true&pageSize=1&fields=NCTId",
+      "total": 0,
+      "first_record": []
+    },
+    {
+      "phrase": "Vitara Biomedical",
+      "url": "https://clinicaltrials.gov/api/v2/studies?query.term=%22Vitara+Biomedical%22&countTotal=true&pageSize=1&fields=NCTId",
+      "total": 0,
+      "first_record": []
+    },
+    {
+      "phrase": "extrauterine environment for neonatal development",
+      "url": "https://clinicaltrials.gov/api/v2/studies?query.term=%22extrauterine+environment+for+neonatal+development%22&countTotal=true&pageSize=1&fields=NCTId",
+      "total": 0,
+      "first_record": []
+    },
+    {
+      "phrase": "perinatal life support",
+      "url": "https://clinicaltrials.gov/api/v2/studies?query.term=%22perinatal+life+support%22&countTotal=true&pageSize=1&fields=NCTId",
+      "total": 0,
+      "first_record": []
+    },
+    {
+      "phrase": "extrauterine environment for newborn development",
+      "url": "https://clinicaltrials.gov/api/v2/studies?query.term=%22extrauterine+environment+for+newborn+development%22&countTotal=true&pageSize=1&fields=NCTId",
+      "total": 0,
+      "first_record": []
+    },
+    {
+      "phrase": "artificial amnion and placenta",
+      "url": "https://clinicaltrials.gov/api/v2/studies?query.term=%22artificial+amnion+and+placenta%22&countTotal=true&pageSize=1&fields=NCTId",
+      "total": 0,
+      "first_record": []
+    }
+  ]
+}

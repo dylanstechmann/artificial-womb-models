@@ -1,0 +1,6 @@
+animal	regions	mean_distance_early	mean_distance_late	reference_pairs_favoring_late_of_four
+A	3	0.388759	0.391086	2
+B	3	0.520266	0.453122	4
+C	3	0.46376	0.356494	4
+D	3	0.442405	0.405989	4
+E	3	0.466021	0.397282	4

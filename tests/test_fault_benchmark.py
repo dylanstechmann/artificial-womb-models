@@ -242,6 +242,9 @@ class FaultBenchmarkTests(unittest.TestCase):
         self.assertEqual(len(report["paired_outcomes"]), 12)
         for pair in report["paired_outcomes"]:
             self.assertEqual(sum(pair[key] for key in ("both", "shared_only", "separate_actuator_only", "neither")), 2)
+        offset = next(pair for pair in report["paired_outcomes"]
+                      if pair["noise_multiplier"] == 2 and pair["fault_kind"] == "actuator_offset")
+        self.assertEqual(offset["separate_actuator_only"], 2)
         for condition in report["conditions"]:
             self.assertEqual(condition["mode"], "balance_augmented_freeze")
             subset = [r for r in calibration if int(r["noise_multiplier"]) == condition["noise_multiplier"]
