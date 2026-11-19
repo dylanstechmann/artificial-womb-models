@@ -58,6 +58,29 @@ PYTHONPATH=src python -m wombmodels verify-bundle --strict --bundle benchmark-re
 
 `benchmark_runs.csv` records each of the 288 runs, including the first alarm in the paired control. `benchmark_report.json` gives detection counts and delays by fault type. `REPORT.md` summarizes the six comparisons. The bundle also contains the original configuration, the rerun command and the file hashes.
 
+### Threshold calibration on separate controls
+
+In the original benchmark, both detectors alarmed in every no-fault control at 4× noise. This follow-up asks whether raising the amplitude thresholds can reduce false alarms while retaining sensitivity. Codex ran the comparison on the repository’s dimensionless T29 simulator for this personal learning project.
+
+For each detector and noise level, the simulator ran the same 12 calibration controls at threshold multipliers of 1, 2 and 4. Each multiplier applies to all three amplitude thresholds. The smallest multiplier with zero control alarms advances to evaluation. If every candidate alarms, the largest multiplier advances and the report flags the missed calibration target. The two-sample confirmation rule stays fixed.
+
+The evaluation used 12 fresh noise seeds and reshuffled eligible onset times. Both policies saw the same noise, injected faults and paired controls. Each row below compares 36 injected faults and 12 controls per detector and policy. The totals of 216 calibration runs and 576 evaluation runs include repeated use of the same noise streams across settings.
+
+| Simulated noise | Selected threshold multiplier (both detectors) | Disagreement detections, fixed → calibrated | Balance-augmented detections, fixed → calibrated | Controls with an alarm, fixed → calibrated (each detector) |
+|---|---:|---:|---:|---:|
+| 1× | 1× | 12/36 → 12/36 | 36/36 → 36/36 | 0/12 → 0/12 |
+| 2× | 2× | 12/36 → 12/36 | 36/36 → 36/36 | 0/12 → 0/12 |
+| 4× | 4× | 2/36 → 11/36 | 5/36 → 25/36 | 12/12 → 0/12 |
+
+At 4× noise, the calibrated balance-augmented detector caught all 12 primary biases, all 12 shared biases and only **1 of 12 actuator offsets**. Its median delay among the 25 detections was 0.5 dimensionless time units. The 12 quiet evaluation controls describe this seed set. The experiment assumes a known simulated noise level and supports conclusions only about this fixture.
+
+```sh
+PYTHONPATH=src python -m wombmodels benchmark-fault-detectors --config examples/common_cause_fault_fixture.json --replicates 12 --calibrate-thresholds --out calibrated-benchmark
+PYTHONPATH=src python -m wombmodels verify-bundle --strict --bundle calibrated-benchmark
+```
+
+`calibration_runs.csv` records each candidate’s first alarm on each calibration seed. `benchmark_runs.csv` identifies the policy and multiplier on each evaluation run. The JSON report includes per-fault counts, delays and the calibration target outcome. The reproduction plan records the comparison flag and replicate count.
+
 ## Key findings
 
 - Pairwise disagreement confirms the primary-only bias at dimensionless time 3.5, but never confirms the common bias at 8.0–11.0 or the actuator offset at 14.0–17.0. During common bias, the pairwise residual remains only the difference between the two independent noise draws.

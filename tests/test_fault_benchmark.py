@@ -10,7 +10,9 @@ from unittest.mock import patch
 from wombmodels.artifacts import InputError
 from wombmodels.bundle_verification import verify_bundle
 from wombmodels.cli import main
-from wombmodels.fault_benchmark import _schedules, _score_event, benchmark_fault_detectors
+from wombmodels.fault_benchmark import (
+    MAX_REPLICATES, _calibrate, _schedules, _score_event, benchmark_fault_detectors,
+)
 from wombmodels.numerics import output_times
 
 FIXTURE = Path(__file__).resolve().parents[1] / "examples" / "common_cause_fault_fixture.json"
@@ -107,6 +109,86 @@ class FaultBenchmarkTests(unittest.TestCase):
             self.assertEqual(file.read_bytes(), (other / file.name).read_bytes(), file.name)
         with self.assertRaisesRegex(InputError, "already exists"):
             benchmark_fault_detectors(self.config, self.output, replicates=1)
+
+    def test_calibration_grid_ties_first_sample_alarm_and_unmet_target(self):
+        experiment = self.fixture["fault_experiment"]
+        for quiet_from, expected, target_met in [(1, 1, True), (2, 2, True), (5, 4, False)]:
+            with self.subTest(quiet_from=quiet_from):
+                def first_alarm(variant, shared, grid, mode, settings, faults):
+                    self.assertEqual(faults, [])
+                    factor = settings["disagreement_threshold"] / experiment["disagreement_threshold"]
+                    for key in ("balance_threshold", "actuator_threshold"):
+                        self.assertEqual(settings[key], experiment[key] * factor)
+                    self.assertEqual(settings["confirmation_samples"], experiment["confirmation_samples"])
+                    return 0.0 if shared == "noisier control" and factor < quiet_from else None
+
+                with patch("wombmodels.fault_benchmark._first_alarm", side_effect=first_alarm):
+                    policy, rows = _calibrate({}, (), "disagreement_freeze", experiment,
+                                              [(10, "quiet control"), (14, "noisier control")], 4)
+                self.assertEqual(policy["threshold_multiplier"], expected)
+                self.assertEqual(policy["calibration_target_met"], target_met)
+                self.assertEqual([(row["threshold_multiplier"], row["noise_seed"]) for row in rows],
+                                 [(factor, seed) for factor in (1, 2, 4) for seed in (10, 14)])
+
+    def test_calibrated_cli_separates_streams_and_preserves_paired_evaluation(self):
+        self.fixture["monitor"]["noise_sd"] = 0.06
+        self.write_fixture()
+        with contextlib.redirect_stdout(io.StringIO()):
+            self.assertEqual(main(["benchmark-fault-detectors", "--config", str(self.config), "--out",
+                                   str(self.output), "--replicates", "2", "--calibrate-thresholds"]), 0)
+        report = json.loads((self.output / "benchmark_report.json").read_bytes())
+        with (self.output / "calibration_runs.csv").open(newline="", encoding="utf-8") as stream:
+            calibration = list(csv.DictReader(stream))
+        with (self.output / "benchmark_runs.csv").open(newline="", encoding="utf-8") as stream:
+            evaluation = list(csv.DictReader(stream))
+        self.assertEqual((report["schema_version"], report["calibration_runs"], report["evaluation_runs"]),
+                         (2, 216, 96))
+        self.assertEqual((len(calibration), len(evaluation)), (216, 96))
+        self.assertEqual(report["simulation_runs"], len(calibration) + len(evaluation))
+        self.assertEqual(len(report["conditions"]), 12)
+        for data, count in [(calibration, 12), (evaluation, 2)]:
+            self.assertEqual(len({row["noise_seed"] for row in data}), count)
+        def streams(rows):
+            return {int(row["noise_seed"]) + channel for row in rows for channel in range(4)}
+        # The negative fixture seed uses abs(-3)..0. The original benchmark starts at 4.
+        original_streams = set(range(4 + 4 * MAX_REPLICATES))
+        self.assertTrue(original_streams.isdisjoint(streams(calibration) | streams(evaluation)))
+        self.assertTrue(streams(calibration).isdisjoint(streams(evaluation)))
+        paired_columns = ("mode", "noise_multiplier", "sensor_noise_sd", "actuator_noise_sd", "replicate",
+                          "noise_seed", "template_index", "fault_kind", "magnitude", "start", "end")
+        def pairs(policy):
+            return [tuple(row[key] for key in paired_columns) for row in evaluation if row["threshold_policy"] == policy]
+        self.assertCountEqual(pairs("fixed"), pairs("calibrated"))
+        for group in report["conditions"]:
+            if group["threshold_policy"] == "fixed":
+                self.assertEqual(group["threshold_multiplier"], 1)
+                continue
+            fitted_on = [row for row in calibration
+                         if row["mode"] == group["mode"] and int(row["noise_multiplier"]) == group["noise_multiplier"]]
+            counts = {}
+            for factor in (1, 2, 4):
+                candidate = [r for r in fitted_on if int(r["threshold_multiplier"]) == factor]
+                self.assertEqual(len({r["noise_seed"] for r in candidate}), 12)
+                counts[factor] = sum(r["first_alarm"] != "" for r in candidate)
+            quiet = [factor for factor, alarms in counts.items() if alarms == 0]
+            self.assertEqual(group["threshold_multiplier"], min(quiet) if quiet else 4)
+            self.assertEqual(group["calibration_target_met"], bool(quiet))
+        verified = verify_bundle(self.output, strict=True)
+        self.assertTrue(verified["bytes_verified"], verified["errors"])
+        self.assertIn("--replicates 2 --calibrate-thresholds", verified["rerun_command"])
+        other = self.output.with_name("rerun")
+        benchmark_fault_detectors(self.output / "source_config.json", other, replicates=2, calibrate_thresholds=True)
+        for file in self.output.iterdir():
+            self.assertEqual(file.read_bytes(), (other / file.name).read_bytes(), file.name)
+
+    def test_calibration_work_budget_includes_fitting_before_simulation(self):
+        with patch("wombmodels.fault_benchmark.MAX_BENCHMARK_SUBSTEPS", 10000), \
+                patch("wombmodels.fault_benchmark._fault_run") as run, self.assertRaisesRegex(InputError, "work budget"):
+            benchmark_fault_detectors(self.config, self.output, replicates=1, calibrate_thresholds=True)
+        run.assert_not_called()
+        with self.assertRaisesRegex(InputError, "boolean"):
+            benchmark_fault_detectors(self.config, self.output, calibrate_thresholds="false")
+        self.assertFalse(self.output.exists())
 
     def test_invalid_or_excessive_work_never_publishes(self):
         for value in (True, 0, 33, 1.5):
