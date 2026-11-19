@@ -2,11 +2,14 @@
 import csv
 import hashlib
 import json
+import os
 import runpy
+import shutil
 import subprocess
 import sys
 import tempfile
 import unittest
+from importlib.util import find_spec
 from pathlib import Path
 from unittest.mock import patch
 
@@ -14,6 +17,11 @@ from local_evidence import requires_local_evidence
 
 ROOT = Path(__file__).resolve().parents[1]
 DIRECTORY = ROOT / "studies" / "public-evidence"
+DOPPLER_SOURCE = ROOT / "artifacts" / "public-inputs-v2" / "Dataset_S2.csv"
+COA_SOURCES = ROOT / "artifacts" / "coa-sources"
+COA_FIGURE = COA_SOURCES / "coa-figure-2.png"
+HAS_FIGURE_DEPS = find_spec("PIL") is not None
+HAS_MODEL_DEPS = HAS_FIGURE_DEPS and all(find_spec(name) for name in ("numpy", "scipy"))
 
 def rows(path):
     with path.open(encoding="utf-8", newline="") as stream:
@@ -112,10 +120,65 @@ class PublicStudyCollectionTests(unittest.TestCase):
 
     @requires_local_evidence("public-inputs-v2")
     def test_doppler_replays_from_pinned_source(self):
-        source = ROOT / "artifacts" / "public-inputs-v2" / "Dataset_S2.csv"
         with tempfile.TemporaryDirectory() as directory:
             output = Path(directory) / "result"
             subprocess.run([sys.executable, str(DIRECTORY / "doppler_benchmark.py"),
-                            str(source), str(output)], check=True)
+                            str(DOPPLER_SOURCE), str(output)], check=True)
             for name in ("by-site.tsv", "receipt.json"):
                 self.assertEqual((output / name).read_bytes(), (DIRECTORY / "doppler" / name).read_bytes())
+
+    @requires_local_evidence("public-inputs-v2", "coa-sources")
+    @unittest.skipUnless(HAS_FIGURE_DEPS, "figure extraction needs Pillow")
+    def test_doppler_figure_replays_from_pinned_sources(self):
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "result"
+            subprocess.run([sys.executable, str(DIRECTORY / "doppler_figure.py"),
+                            str(DOPPLER_SOURCE), str(COA_FIGURE), str(output)], check=True)
+            self.assertEqual((output / "by-site.tsv").read_bytes(),
+                             (DIRECTORY / "doppler-figure" / "by-site.tsv").read_bytes())
+
+    @unittest.skipUnless(HAS_MODEL_DEPS, "model replay needs NumPy, SciPy and Pillow")
+    def test_coa_velocity_mapping_uses_distinct_flow_states_and_areas(self):
+        with patch.object(sys, "path", [str(DIRECTORY), *sys.path]):
+            replay = runpy.run_path(str(DIRECTORY / "coa_replay.py"))
+        states = list(range(73))
+        states[28] = -28
+        constants = [1.0] * 163
+        constants[23], constants[41], constants[51], constants[61] = 2, 4, 5, 3
+        # Known answers from the archived C state legend and Figure 4 conversions.
+        expected = {
+            "Aortic Valve": 2.5,
+            "Pulmonary Valve": 3.2,
+            "Mitral Valve": 1.0,
+            "Tricuspid Valve": 5.0,
+            "Aortic Isthmus": -164.311962,
+            "Ductus Arteriosus": 502.813172,
+            "Umbilical Artery": 508.781722,
+            "Middle Cerebral Artery": 2355.690169,
+        }
+        actual = replay["velocity_outputs"](states, constants)
+        self.assertEqual(actual.keys(), expected.keys())
+        for site, value in expected.items():
+            with self.subTest(site=site):
+                self.assertAlmostEqual(actual[site], value, places=6)
+
+    @requires_local_evidence("coa-sources")
+    @unittest.skipUnless(HAS_MODEL_DEPS and shutil.which("cc"), "model replay needs its scientific dependencies and cc")
+    def test_coa_model_replays_from_pinned_sources(self):
+        with tempfile.TemporaryDirectory() as directory:
+            output = Path(directory) / "result"
+            subprocess.run([sys.executable, str(DIRECTORY / "coa_replay.py"),
+                            str(COA_SOURCES / "FETAL_MODEL_CoA.c"), str(COA_FIGURE), str(output)],
+                           check=True, env={**os.environ, "OPENBLAS_NUM_THREADS": "1"})
+            actual = {row["site"]: row for row in rows(output / "by-site.tsv")}
+        expected = {row["site"]: row for row in rows(DIRECTORY / "coa-replay" / "by-site.tsv")}
+        self.assertEqual(actual.keys(), expected.keys())
+        for site, reference in expected.items():
+            for metric, value in reference.items():
+                if metric == "site":
+                    continue
+                # About two figure columns in phase and 0.05 cm/s for computed velocities.
+                tolerance = 0.003 if metric.endswith("_phase") else 0.05
+                with self.subTest(site=site, metric=metric):
+                    self.assertAlmostEqual(float(actual[site][metric]), float(value), delta=tolerance)
+            self.assertLess(float(actual[site]["solver_max_difference_cm_s"]), 0.01, site)

@@ -34,15 +34,22 @@ These candidate mappings follow the model topology and require checking the MRI 
 
 ## Reproduce the results
 
-Run from the repository root. The baseline runs with standard-library Python 3.10 or newer. The figure and replay commands below use Python 3.12 in a separate local environment, and the C replay also needs a C compiler. Source files stay in the ignored artifacts directory and each run takes a fresh output path. The receipts pin the input and implementation hashes.
+Run from the repository root. The baseline runs with standard-library Python 3.10 or newer. The figure and replay commands below use Python 3.12 in a separate local environment, and the C replay also needs a C compiler. Source files stay in the ignored artifacts directory and each run takes a fresh output path. Reuse `artifacts/public-inputs-v2` if you already fetched it. The receipts pin the input and implementation hashes.
 
 ```sh
-python studies/public-evidence/fetch_inputs.py artifacts/study-inputs
-python studies/public-evidence/doppler_benchmark.py artifacts/study-inputs/Dataset_S2.csv artifacts/doppler
+python3 studies/public-evidence/fetch_inputs.py artifacts/public-inputs-v2
+python3 studies/public-evidence/doppler_benchmark.py artifacts/public-inputs-v2/Dataset_S2.csv artifacts/doppler
 python3.12 -m venv artifacts/coa-env
 artifacts/coa-env/bin/python -m pip install numpy==2.4.6 scipy==1.15.3 pillow==11.3.0
-curl -fL 'https://journals.plos.org/ploscompbiol/article/figure/image?size=large&id=10.1371/journal.pcbi.1013096.g002' -o artifacts/coa-figure-2.png
-curl -fL 'https://raw.githubusercontent.com/InmaV/CoA_scenarios/5597e52fda7c1f2385a05bef41912ecf10b23142/FETAL_MODEL_CoA.c' -o artifacts/FETAL_MODEL_CoA.c
-artifacts/coa-env/bin/python studies/public-evidence/doppler_figure.py artifacts/study-inputs/Dataset_S2.csv artifacts/coa-figure-2.png artifacts/doppler-figure
-OPENBLAS_NUM_THREADS=1 artifacts/coa-env/bin/python studies/public-evidence/coa_replay.py artifacts/FETAL_MODEL_CoA.c artifacts/coa-figure-2.png artifacts/coa-replay
+mkdir -p artifacts/coa-sources
+curl -fL 'https://journals.plos.org/ploscompbiol/article/figure/image?size=large&id=10.1371/journal.pcbi.1013096.g002' -o artifacts/coa-sources/coa-figure-2.png
+curl -fL 'https://raw.githubusercontent.com/InmaV/CoA_scenarios/5597e52fda7c1f2385a05bef41912ecf10b23142/FETAL_MODEL_CoA.c' -o artifacts/coa-sources/FETAL_MODEL_CoA.c
+artifacts/coa-env/bin/python studies/public-evidence/doppler_figure.py artifacts/public-inputs-v2/Dataset_S2.csv artifacts/coa-sources/coa-figure-2.png artifacts/doppler-figure
+OPENBLAS_NUM_THREADS=1 artifacts/coa-env/bin/python studies/public-evidence/coa_replay.py artifacts/coa-sources/FETAL_MODEL_CoA.c artifacts/coa-sources/coa-figure-2.png artifacts/coa-replay
+```
+
+With those inputs in place, the local study tests rerun both analyses and check the eight velocity mappings. The model replay takes a few minutes.
+
+```sh
+artifacts/coa-env/bin/python -m unittest discover -s tests -p test_public_study_collection.py -v
 ```
