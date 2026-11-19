@@ -32,6 +32,32 @@ The fixture uses disagreement and balance thresholds of 0.12, an actuator thresh
 
 These are deterministic sample counts for this fixture, not detection probabilities or hardware alarm performance.
 
+## Held-out fault detector benchmark
+
+The benchmark measures whether each detector raises its first alarm in time to identify an injected event. It runs the `synthetic` variant with the original thresholds and confirmation count. For each of 12 new noise seeds, it runs one control and one separate challenge for each configured fault. Both detectors see the same noise draws and event schedule. Sensor and actuator-meter noise standard deviations are scaled together by 1×, 2× and 4×.
+
+Each fault keeps its configured magnitude and duration. Its start is shuffled across eligible grid times, excluding time zero and all starts in the source fixture. The benchmark samples starts without replacement for each template until its eligible times are exhausted. Across noise levels it reuses the same standardized noise draws and timings.
+
+| Noise | Detector | Events detected | Events missed | Controls with a false alarm | Median delay on detections |
+|---:|---|---:|---:|---:|---:|
+| 1× | Sensor disagreement | 12/36 | 24 | 0/12 | 0.5 |
+| 1× | Balance-augmented | 36/36 | 0 | 0/12 | 0.5 |
+| 2× | Sensor disagreement | 11/36 | 25 | 2/12 | 0.5 |
+| 2× | Balance-augmented | 33/36 | 3 | 2/12 | 0.5 |
+| 4× | Sensor disagreement | 2/36 | 34 | 12/12 | 0.5 |
+| 4× | Balance-augmented | 2/36 | 34 | 12/12 | 0.5 |
+
+At 1× noise, all 12 disagreement detections were primary-only biases. The augmented detector also caught all 12 common biases and all 12 actuator offsets. At 4× noise, its first alarm preceded the injected fault in 34 of 36 challenges. The median delay of 0.5 dimensionless time units at that level describes only its two credited detections.
+
+A detection requires the first confirmation to fall between the injected start and end, inclusive, and to precede the first confirmation in the paired control if that control alarms. Premature, coincident-control, late and absent alarms all count as misses. Delay runs from event onset to the confirming observation. Ground-truth fault times are used for scoring after simulation. These counts describe 12 paired software seeds and one simulated variant.
+
+```sh
+PYTHONPATH=src python -m wombmodels benchmark-fault-detectors --config examples/common_cause_fault_fixture.json --replicates 12 --out benchmark-results
+PYTHONPATH=src python -m wombmodels verify-bundle --strict --bundle benchmark-results
+```
+
+`benchmark_runs.csv` records each of the 288 runs, including the first alarm in the paired control. `benchmark_report.json` gives detection counts and delays by fault type. `REPORT.md` summarizes the six comparisons. The bundle also contains the original configuration, the rerun command and the file hashes.
+
 ## Key findings
 
 - Pairwise disagreement confirms the primary-only bias at dimensionless time 3.5, but never confirms the common bias at 8.0–11.0 or the actuator offset at 14.0–17.0. During common bias, the pairwise residual remains only the difference between the two independent noise draws.

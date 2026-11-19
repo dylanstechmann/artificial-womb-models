@@ -182,6 +182,9 @@ def reproduction_plan(kind: str, files: dict[str, bytes], metadata: dict) -> dic
             "wombmodels sensor-failover-model --config <input_config.json> --out <new-dir>",
         "dimensionless_common_cause_fault":
             "wombmodels common-cause-fault-model --config <input_config.json> --out <new-dir>",
+        "dimensionless_fault_detector_benchmark":
+            "wombmodels benchmark-fault-detectors --config source_config.json "
+            f"--replicates {metadata.get('replicates', '<replicates>')} --out <new-dir>",
         "dimensionless_twin_3d_visualization":
             "wombmodels visualize-twin --bundle <source-twin-bundle> --out <new-dir>",
         "dimensionless_acquisition_spec":
