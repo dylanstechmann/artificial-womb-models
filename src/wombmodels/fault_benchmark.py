@@ -3,7 +3,7 @@ from __future__ import annotations
 
 import math
 import random
-from collections import Counter
+from collections import Counter, defaultdict
 from pathlib import Path
 from statistics import median
 
@@ -26,6 +26,13 @@ CALIBRATION_METHOD = (
     "controls. If every candidate alarms, use the largest factor and flag the unmet target. "
     "The confirmation count stays fixed. Both policies share evaluation seeds and fault timings. "
     "Calibration uses separate noise streams and sees only no-fault runs."
+)
+ACTUATOR_COMPARISON_METHOD = (
+    "Fit a shared multiplier for all three thresholds on no-fault controls. Hold both sensor "
+    "thresholds at that fit and try each actuator multiplier on the same controls. Each stage "
+    "uses the complete balance-augmented detector and selects the smallest candidate with zero "
+    "alarms, or the largest candidate if all alarm. Evaluate both fits on the same fresh noise "
+    "streams and fault timings. The confirmation count stays fixed."
 )
 RUN_COLUMNS = (
     "mode", "replicate", "noise_seed", "noise_multiplier", "sensor_noise_sd",
@@ -73,32 +80,51 @@ def _first_alarm(variant, shared, grid, mode, experiment, faults):
     return next((row["dimensionless_time"] for row in observations if row["fault_detected"]), None)
 
 
-def _scale_thresholds(experiment, factor):
-    return {**experiment, **{key: experiment[key] * factor for key in THRESHOLD_KEYS}}
+def _scale_thresholds(experiment, policy):
+    sensor = policy.get("sensor_threshold_multiplier", policy.get("threshold_multiplier", 1))
+    actuator = policy.get("actuator_threshold_multiplier", sensor)
+    return {**experiment,
+            "disagreement_threshold": experiment["disagreement_threshold"] * sensor,
+            "balance_threshold": experiment["balance_threshold"] * sensor,
+            "actuator_threshold": experiment["actuator_threshold"] * actuator}
 
 
 def _noise_inputs(common, monitor_faults, start_seed, count):
     return [(seed, (*common, seed, monitor_faults)) for seed in range(start_seed, start_seed + 4 * count, 4)]
 
 
-def _calibrate(variant, grid, mode, experiment, calibration_inputs, noise_multiplier):
-    """Select from a fixed grid using only no-fault controls with identical noise per candidate."""
+def _calibrate(variant, grid, mode, experiment, calibration_inputs, noise_multiplier, candidates):
+    """Test an ascending grid on matched no-fault controls, retaining the first quiet candidate."""
     records = []
-    quiet_factors = []
-    for factor in THRESHOLD_MULTIPLIERS:
-        candidate = _scale_thresholds(experiment, factor)
+    selected = None
+    for candidate in candidates:
+        settings = _scale_thresholds(experiment, candidate)
         alarms = 0
         for seed, shared in calibration_inputs:
-            alarm = _first_alarm(variant, shared, grid, mode, candidate, [])
+            alarm = _first_alarm(variant, shared, grid, mode, settings, [])
             alarms += alarm is not None
             records.append({"mode": mode, "noise_multiplier": noise_multiplier, "noise_seed": seed,
-                            "threshold_multiplier": factor, "first_alarm": alarm})
-        if alarms == 0:
-            quiet_factors.append(factor)
-    # If the entire grid alarms, evaluate its upper bound and report the missed target.
-    selected = min(quiet_factors) if quiet_factors else max(THRESHOLD_MULTIPLIERS)
-    return {"threshold_policy": "calibrated", "threshold_multiplier": selected,
-            "calibration_target_met": bool(quiet_factors)}, records
+                            **candidate, "first_alarm": alarm})
+        if alarms == 0 and selected is None:
+            selected = candidate
+    return {**(selected or candidates[-1]), "calibration_target_met": selected is not None}, records
+
+
+def _fit_policies(variant, grid, mode, experiment, inputs, noise_multiplier, compare_actuator):
+    def fit(candidates):
+        return _calibrate(variant, grid, mode, experiment, inputs, noise_multiplier, candidates)
+
+    if not compare_actuator:
+        calibrated, records = fit([{"threshold_multiplier": factor} for factor in THRESHOLD_MULTIPLIERS])
+        return [{"threshold_policy": "fixed", "threshold_multiplier": 1},
+                {"threshold_policy": "calibrated", **calibrated}], records
+
+    shared, records = fit([{"threshold_policy": "shared", "sensor_threshold_multiplier": factor,
+                            "actuator_threshold_multiplier": factor} for factor in THRESHOLD_MULTIPLIERS])
+    separate, actuator_records = fit([
+        {"threshold_policy": "separate_actuator", "sensor_threshold_multiplier": shared["sensor_threshold_multiplier"],
+         "actuator_threshold_multiplier": factor} for factor in THRESHOLD_MULTIPLIERS])
+    return [shared, separate], records + actuator_records
 
 
 def _paired_runs(events, variant, shared, grid, mode, experiment, labels):
@@ -117,7 +143,7 @@ def _paired_runs(events, variant, shared, grid, mode, experiment, labels):
 
 
 def _evaluate_policy(variant, grid, experiment, schedules, inputs, labels):
-    settings = _scale_thresholds(experiment, labels.get("threshold_multiplier", 1))
+    settings = _scale_thresholds(experiment, labels)
     rows = []
     for replicate, ((seed, shared), events) in enumerate(zip(inputs, schedules), start=1):
         run_labels = {**labels, "replicate": replicate, "noise_seed": seed}
@@ -143,6 +169,26 @@ def _summarize(rows, mode, multiplier):
                               for kind in kinds}}
 
 
+def _paired_outcomes(rows):
+    """Count gains and losses on identical challenges, including matched control alarms."""
+    pairs = defaultdict(dict)
+    for row in rows:
+        key = (row["noise_multiplier"], row["fault_kind"], row["noise_seed"], row["template_index"],
+               row.get("start"), row.get("end"), row.get("magnitude"))
+        target = "false_alarm" if row["fault_kind"] == "none" else "detected"
+        pairs[key][row["threshold_policy"]] = row["outcome"] == target
+    categories = {(True, True): "both", (True, False): "shared_only",
+                  (False, True): "separate_actuator_only", (False, False): "neither"}
+    groups = defaultdict(Counter)
+    for (noise, kind, *_), outcomes in pairs.items():
+        category = categories[outcomes["shared"], outcomes["separate_actuator"]]
+        groups[noise, kind][category] += 1
+    return [{"noise_multiplier": noise, "fault_kind": kind,
+             "counted_outcome": "false_alarm" if kind == "none" else "detected",
+             **{name: counts[name] for name in categories.values()}}
+            for (noise, kind), counts in sorted(groups.items())]
+
+
 def _markdown_report(report):
     lines = ["# Paired fault detector benchmark", "", NOTICE, "", report["scoring"], ""]
     if "calibration" in report:
@@ -154,23 +200,41 @@ def _markdown_report(report):
                   "|---:|---|---:|---:|---:|---:|"])
     for row in report["conditions"]:
         detector = row["mode"]
-        if "threshold_policy" in row:
+        if "actuator_threshold_multiplier" in row:
+            detector += (f" ({row['threshold_policy']}, sensors {row['sensor_threshold_multiplier']}×, "
+                         f"actuator {row['actuator_threshold_multiplier']}×)")
+        elif "threshold_policy" in row:
             detector += f" ({row['threshold_policy']}, {row['threshold_multiplier']}× thresholds)"
-            if row.get("calibration_target_met") is False:
-                detector += " — calibration target missed"
+        if row.get("calibration_target_met") is False:
+            detector += " — calibration target missed"
         delay = row["median_detection_delay"]
         lines.append(f"| {row['noise_multiplier']} | {detector} | {row['detected']} / {row['events']} "
                      f"| {row['missed']} | {row['false_alarm_controls']} / {row['control_runs']} "
                      f"| {delay if delay is not None else 'n/a'} |")
+    if "paired_outcomes" in report:
+        lines.extend(["", "## Outcomes on matched runs", "",
+                      "Fault rows count credited detections. No-fault control rows count false alarms.", "",
+                      "| Noise multiplier | Challenge | Both | Shared only | Separate actuator only | Neither |",
+                      "|---:|---|---:|---:|---:|---:|"])
+        for pair in report["paired_outcomes"]:
+            kind = pair["fault_kind"]
+            label = "No-fault control" if kind == "none" else kind.replace("_", " ")
+            lines.append(f"| {pair['noise_multiplier']} | {label} | {pair['both']} | {pair['shared_only']} "
+                         f"| {pair['separate_actuator_only']} | {pair['neither']} |")
     return ("\n".join(lines) + "\n").encode()
 
 
 def benchmark_fault_detectors(config_path: Path, output: Path, *, replicates=DEFAULT_REPLICATES,
-                             calibrate_thresholds=False) -> dict:
+                             calibrate_thresholds=False, compare_actuator_thresholds=False) -> dict:
     if type(replicates) is not int or not 1 <= replicates <= MAX_REPLICATES:
         raise InputError(f"replicates must be an integer in [1, {MAX_REPLICATES}]")
     if type(calibrate_thresholds) is not bool:
         raise InputError("calibrate_thresholds must be a boolean")
+    if type(compare_actuator_thresholds) is not bool:
+        raise InputError("compare_actuator_thresholds must be a boolean")
+    if calibrate_thresholds and compare_actuator_thresholds:
+        raise InputError("Choose one threshold comparison per benchmark")
+    fitting = calibrate_thresholds or compare_actuator_thresholds
     config, raw = read_json(config_path)
     parsed, experiment, templates = _validate_experiment(config)
     (duration, step, boundaries, growth, scaling, bulk, internal, control,
@@ -178,12 +242,14 @@ def benchmark_fault_detectors(config_path: Path, output: Path, *, replicates=DEF
     if "synthetic" not in variants or not templates:
         raise InputError("The benchmark requires the synthetic variant and at least one control fault")
     variant = variants["synthetic"]
-    modes = MODES[1:]  # The single-sensor baseline has no alarm.
+    # Only the balance-augmented detector uses the actuator meter.
+    modes = ("balance_augmented_freeze",) if compare_actuator_thresholds else MODES[1:]
     times = output_times(duration, step)
     grid = (duration, step, boundaries)
     conditions = len(NOISE_MULTIPLIERS) * len(modes)
-    n_evaluation = replicates * conditions * (1 + len(templates)) * (2 if calibrate_thresholds else 1)
-    n_calibration = conditions * CALIBRATION_CONTROLS * len(THRESHOLD_MULTIPLIERS) if calibrate_thresholds else 0
+    n_evaluation = replicates * conditions * (1 + len(templates)) * (2 if fitting else 1)
+    calibration_stages = 2 if compare_actuator_thresholds else int(calibrate_thresholds)
+    n_calibration = conditions * CALIBRATION_CONTROLS * len(THRESHOLD_MULTIPLIERS) * calibration_stages
     n_runs = n_evaluation + n_calibration
     rate = _integration_rate(variant, bulk, internal, control, reserve)
     # Allow for grid rounding, both outage edges and a reserve depletion per outage.
@@ -191,15 +257,20 @@ def benchmark_fault_detectors(config_path: Path, output: Path, *, replicates=DEF
     if n_runs * per_run > MAX_BENCHMARK_SUBSTEPS:
         raise InputError(f"Benchmark exceeds the {MAX_BENCHMARK_SUBSTEPS}-substep work budget")
 
-    schedule_seed = f"threshold-comparison/{seed}" if calibrate_thresholds else seed
-    schedules = _schedules(templates, times, step, schedule_seed, replicates)
     # Random accepts negative integer seeds by absolute value. Reserve four new
     # streams per replicate beyond every stream used by the reference fixture.
     first_seed = max(abs(seed + offset) for offset in range(4)) + 1
     # Keep all four streams of every calibration and evaluation seed disjoint from
     # each other and from even the largest original fixed-threshold benchmark.
     calibration_start = first_seed + 4 * MAX_REPLICATES
-    evaluation_start = calibration_start + 4 * CALIBRATION_CONTROLS if calibrate_thresholds else first_seed
+    evaluation_start = calibration_start + 4 * CALIBRATION_CONTROLS if fitting else first_seed
+    schedule_seed = f"threshold-comparison/{seed}" if fitting else seed
+    if compare_actuator_thresholds:
+        # Refit on the original controls and reserve a third evaluation block
+        # beyond all streams available to the preceding shared-threshold comparison.
+        evaluation_start += 4 * MAX_REPLICATES
+        schedule_seed = f"actuator-comparison/{seed}"
+    schedules = _schedules(templates, times, step, schedule_seed, replicates)
     all_rows, summaries, calibration_rows = [], [], []
     for multiplier in NOISE_MULTIPLIERS:
         sensor_sd = noise_sd * multiplier
@@ -208,11 +279,11 @@ def benchmark_fault_detectors(config_path: Path, output: Path, *, replicates=DEF
         common = (growth, scaling, bulk, internal, control, reserve, outages, cadence, sensor_sd)
         evaluation_inputs = _noise_inputs(common, monitor_faults, evaluation_start, replicates)
         for mode in modes:
-            if calibrate_thresholds:
+            if fitting:
                 calibration_inputs = _noise_inputs(common, monitor_faults, calibration_start, CALIBRATION_CONTROLS)
-                fitted, records = _calibrate(variant, grid, mode, scaled, calibration_inputs, multiplier)
+                policies, records = _fit_policies(variant, grid, mode, scaled, calibration_inputs,
+                                                  multiplier, compare_actuator_thresholds)
                 calibration_rows.extend(records)
-                policies = [{"threshold_policy": "fixed", "threshold_multiplier": 1}, fitted]
             else:
                 policies = [{}]  # Preserve the original fixed-only report and CSV schema.
             for policy in policies:
@@ -237,14 +308,24 @@ def benchmark_fault_detectors(config_path: Path, output: Path, *, replicates=DEF
               "conditions": summaries}
     columns = list(RUN_COLUMNS)
     files = {"source_config.json": raw}
-    if calibrate_thresholds:
-        metadata["calibrate_thresholds"] = True
-        report.update(schema_version=2, evaluation_runs=n_evaluation, calibration_runs=n_calibration,
-                      calibration={"method": CALIBRATION_METHOD, "controls_per_candidate": CALIBRATION_CONTROLS,
+    if fitting:
+        if compare_actuator_thresholds:
+            metadata["compare_actuator_thresholds"] = True
+            report["paired_outcomes"] = _paired_outcomes(all_rows)
+            factors = ["sensor_threshold_multiplier", "actuator_threshold_multiplier"]
+            fit_columns = ["threshold_policy", *factors]
+            method = ACTUATOR_COMPARISON_METHOD
+        else:
+            metadata["calibrate_thresholds"] = True
+            factors = fit_columns = ["threshold_multiplier"]
+            method = CALIBRATION_METHOD
+        report.update(schema_version=3 if compare_actuator_thresholds else 2,
+                      evaluation_runs=n_evaluation, calibration_runs=n_calibration,
+                      calibration={"method": method, "controls_per_candidate": CALIBRATION_CONTROLS,
                                    "candidate_multipliers": list(THRESHOLD_MULTIPLIERS)})
-        columns.extend(("threshold_policy", "threshold_multiplier", "calibration_target_met"))
+        columns.extend(("threshold_policy", *factors, "calibration_target_met"))
         files["calibration_runs.csv"] = csv_bytes(
-            ["mode", "noise_multiplier", "noise_seed", "threshold_multiplier", "first_alarm"], calibration_rows)
+            ["mode", "noise_multiplier", "noise_seed", *fit_columns, "first_alarm"], calibration_rows)
     files.update({"benchmark_runs.csv": csv_bytes(columns, all_rows), "benchmark_report.json": json_bytes(report),
                   "REPORT.md": _markdown_report(report)})
     return publish_bundle(output, kind="dimensionless_fault_detector_benchmark", input_raw=raw,

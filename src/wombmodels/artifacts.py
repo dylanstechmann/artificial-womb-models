@@ -185,7 +185,8 @@ def reproduction_plan(kind: str, files: dict[str, bytes], metadata: dict) -> dic
         "dimensionless_fault_detector_benchmark":
             "wombmodels benchmark-fault-detectors --config source_config.json "
             f"--replicates {metadata.get('replicates', '<replicates>')} "
-            f"{'--calibrate-thresholds ' if metadata.get('calibrate_thresholds') else ''}--out <new-dir>",
+            f"{'--calibrate-thresholds ' if metadata.get('calibrate_thresholds') else ''}"
+            f"{'--compare-actuator-thresholds ' if metadata.get('compare_actuator_thresholds') else ''}--out <new-dir>",
         "dimensionless_twin_3d_visualization":
             "wombmodels visualize-twin --bundle <source-twin-bundle> --out <new-dir>",
         "dimensionless_acquisition_spec":

@@ -11,7 +11,7 @@ from wombmodels.artifacts import InputError
 from wombmodels.bundle_verification import verify_bundle
 from wombmodels.cli import main
 from wombmodels.fault_benchmark import (
-    MAX_REPLICATES, _calibrate, _schedules, _score_event, benchmark_fault_detectors,
+    MAX_REPLICATES, _calibrate, _fit_policies, _paired_outcomes, _schedules, _score_event, benchmark_fault_detectors,
 )
 from wombmodels.numerics import output_times
 
@@ -37,6 +37,10 @@ class FaultBenchmarkTests(unittest.TestCase):
 
     def write_fixture(self):
         self.config.write_text(json.dumps(self.fixture, indent=2) + "\n", encoding="utf-8")
+
+    def read_records(self, name):
+        with (self.output / name).open(newline="", encoding="utf-8") as stream:
+            return list(csv.DictReader(stream))
 
     def test_noiseless_detectors_and_matched_design(self):
         benchmark_fault_detectors(self.config, self.output, replicates=2)
@@ -124,7 +128,8 @@ class FaultBenchmarkTests(unittest.TestCase):
 
                 with patch("wombmodels.fault_benchmark._first_alarm", side_effect=first_alarm):
                     policy, rows = _calibrate({}, (), "disagreement_freeze", experiment,
-                                              [(10, "quiet control"), (14, "noisier control")], 4)
+                                              [(10, "quiet control"), (14, "noisier control")], 4,
+                                              [{"threshold_multiplier": factor} for factor in (1, 2, 4)])
                 self.assertEqual(policy["threshold_multiplier"], expected)
                 self.assertEqual(policy["calibration_target_met"], target_met)
                 self.assertEqual([(row["threshold_multiplier"], row["noise_seed"]) for row in rows],
@@ -137,10 +142,8 @@ class FaultBenchmarkTests(unittest.TestCase):
             self.assertEqual(main(["benchmark-fault-detectors", "--config", str(self.config), "--out",
                                    str(self.output), "--replicates", "2", "--calibrate-thresholds"]), 0)
         report = json.loads((self.output / "benchmark_report.json").read_bytes())
-        with (self.output / "calibration_runs.csv").open(newline="", encoding="utf-8") as stream:
-            calibration = list(csv.DictReader(stream))
-        with (self.output / "benchmark_runs.csv").open(newline="", encoding="utf-8") as stream:
-            evaluation = list(csv.DictReader(stream))
+        calibration = self.read_records("calibration_runs.csv")
+        evaluation = self.read_records("benchmark_runs.csv")
         self.assertEqual((report["schema_version"], report["calibration_runs"], report["evaluation_runs"]),
                          (2, 216, 96))
         self.assertEqual((len(calibration), len(evaluation)), (216, 96))
@@ -188,6 +191,99 @@ class FaultBenchmarkTests(unittest.TestCase):
         run.assert_not_called()
         with self.assertRaisesRegex(InputError, "boolean"):
             benchmark_fault_detectors(self.config, self.output, calibrate_thresholds="false")
+        self.assertFalse(self.output.exists())
+
+    def test_actuator_fit_leaves_sensor_thresholds_at_the_shared_fit(self):
+        experiment = self.fixture["fault_experiment"]
+        for minimum, expected, met in [(1, 1, True), (2, 2, True), (5, 4, False)]:
+            with self.subTest(minimum=minimum):
+                def first_alarm(variant, shared, grid, mode, settings, faults):
+                    self.assertEqual((mode, faults), ("balance_augmented_freeze", []))
+                    sensor = settings["disagreement_threshold"] / experiment["disagreement_threshold"]
+                    self.assertEqual(settings["balance_threshold"], sensor * experiment["balance_threshold"])
+                    self.assertEqual(settings["confirmation_samples"], experiment["confirmation_samples"])
+                    if sensor < 4 or settings["actuator_threshold"] < minimum * experiment["actuator_threshold"]:
+                        return 0.0
+                    return None
+
+                with patch("wombmodels.fault_benchmark._first_alarm", side_effect=first_alarm):
+                    (joint, separate), records = _fit_policies({}, (), "balance_augmented_freeze", experiment,
+                                                               [(4, ())], 4, compare_actuator=True)
+                self.assertEqual((joint["sensor_threshold_multiplier"], joint["actuator_threshold_multiplier"]), (4, 4))
+                self.assertEqual((separate["sensor_threshold_multiplier"], separate["actuator_threshold_multiplier"]),
+                                 (4, expected))
+                self.assertEqual(separate["calibration_target_met"], met)
+                self.assertEqual([(r["sensor_threshold_multiplier"], r["actuator_threshold_multiplier"])
+                                  for r in records], [(1, 1), (2, 2), (4, 4), (4, 1), (4, 2), (4, 4)])
+
+    def test_actuator_comparison_publishes_two_matched_policies_on_fresh_seeds(self):
+        self.fixture["monitor"]["noise_sd"] = 0.06
+        self.fixture["fault_experiment"]["actuator_noise_sd"] = 0.01
+        self.write_fixture()
+        with contextlib.redirect_stdout(io.StringIO()):
+            self.assertEqual(main(["benchmark-fault-detectors", "--config", str(self.config), "--out",
+                                   str(self.output), "--replicates", "2", "--compare-actuator-thresholds"]), 0)
+        report = json.loads((self.output / "benchmark_report.json").read_bytes())
+        calibration = self.read_records("calibration_runs.csv")
+        evaluation = self.read_records("benchmark_runs.csv")
+        self.assertEqual(report["schema_version"], 3)
+        self.assertEqual((len(calibration), len(evaluation)), (216, 48))
+        self.assertEqual((report["calibration_runs"], report["evaluation_runs"], report["simulation_runs"]),
+                         (216, 48, 264))
+        # Four fixture streams, then the original 32 evaluation seeds, 12 training
+        # seeds and another 32 evaluation seeds. Each seed reserves four channels.
+        self.assertEqual({int(r["noise_seed"]) for r in calibration}, set(range(132, 180, 4)))
+        self.assertEqual({int(r["noise_seed"]) for r in evaluation}, {308, 312})
+        identity = ("noise_multiplier", "noise_seed", "replicate", "template_index", "start", "end", "magnitude")
+        paired = [[tuple(r[k] for k in identity) for r in evaluation if r["threshold_policy"] == policy]
+                  for policy in ("shared", "separate_actuator")]
+        self.assertCountEqual(*paired)
+        self.assertEqual(len(report["conditions"]), 6)
+        self.assertEqual(len(report["paired_outcomes"]), 12)
+        for pair in report["paired_outcomes"]:
+            self.assertEqual(sum(pair[key] for key in ("both", "shared_only", "separate_actuator_only", "neither")), 2)
+        for condition in report["conditions"]:
+            self.assertEqual(condition["mode"], "balance_augmented_freeze")
+            subset = [r for r in calibration if int(r["noise_multiplier"]) == condition["noise_multiplier"]
+                      and r["threshold_policy"] == condition["threshold_policy"]]
+            quiet = []
+            for factor in (1, 2, 4):
+                candidate = [r for r in subset if int(r["actuator_threshold_multiplier"]) == factor]
+                self.assertEqual(len({r["noise_seed"] for r in candidate}), 12)
+                if all(r["first_alarm"] == "" for r in candidate):
+                    quiet.append(factor)
+            self.assertEqual(condition["actuator_threshold_multiplier"], min(quiet) if quiet else 4)
+            self.assertEqual(condition["calibration_target_met"], bool(quiet))
+            if condition["threshold_policy"] == "separate_actuator":
+                self.assertEqual({int(r["sensor_threshold_multiplier"]) for r in subset},
+                                 {condition["sensor_threshold_multiplier"]})
+        checked = verify_bundle(self.output, strict=True)
+        self.assertTrue(checked["bytes_verified"], checked["errors"])
+        self.assertIn("--replicates 2 --compare-actuator-thresholds", checked["rerun_command"])
+
+    def test_paired_outcomes_count_control_alarms_and_match_reordered_fault_templates(self):
+        shared, separate = [], []
+        for template, left, right in [(None, "quiet", "false_alarm"), (1, "detected", "control_as_early"),
+                                      (2, "no_alarm", "detected"), (3, "detected", "detected")]:
+            case = {"noise_multiplier": 4, "noise_seed": 42, "template_index": template,
+                    "fault_kind": "actuator_offset" if template else "none"}
+            shared.append({**case, "threshold_policy": "shared", "outcome": left})
+            separate.append({**case, "threshold_policy": "separate_actuator", "outcome": right})
+        results = {r["fault_kind"]: r for r in _paired_outcomes(shared + list(reversed(separate)))}
+        fault, control = results["actuator_offset"], results["none"]
+        self.assertEqual((fault["both"], fault["shared_only"], fault["separate_actuator_only"], fault["neither"]),
+                         (1, 1, 1, 0))
+        self.assertEqual((control["counted_outcome"], control["separate_actuator_only"]), ("false_alarm", 1))
+
+    def test_actuator_comparison_bounds_both_fits_and_rejects_ambiguous_options(self):
+        with patch("wombmodels.fault_benchmark.MAX_BENCHMARK_SUBSTEPS", 30000), \
+                patch("wombmodels.fault_benchmark._fault_run") as run, self.assertRaisesRegex(InputError, "work budget"):
+            benchmark_fault_detectors(self.config, self.output, replicates=1, compare_actuator_thresholds=True)
+        run.assert_not_called()
+        with self.assertRaisesRegex(InputError, "one threshold comparison"):
+            benchmark_fault_detectors(self.config, self.output, calibrate_thresholds=True, compare_actuator_thresholds=True)
+        with self.assertRaisesRegex(InputError, "boolean"):
+            benchmark_fault_detectors(self.config, self.output, compare_actuator_thresholds="false")
         self.assertFalse(self.output.exists())
 
     def test_invalid_or_excessive_work_never_publishes(self):

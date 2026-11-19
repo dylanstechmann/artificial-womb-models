@@ -81,6 +81,29 @@ PYTHONPATH=src python -m wombmodels verify-bundle --strict --bundle calibrated-b
 
 `calibration_runs.csv` records each candidate’s first alarm on each calibration seed. `benchmark_runs.csv` identifies the policy and multiplier on each evaluation run. The JSON report includes per-fault counts, delays and the calibration target outcome. The reproduction plan records the comparison flag and replicate count.
 
+### Separate actuator threshold
+
+In the preceding 4× noise experiment, shared calibration raised the actuator threshold to 0.40 for an injected offset of 0.35. On replay, the actuator residual never exceeded that threshold on two consecutive samples in any of the eleven missed windows. This suggested testing whether the meter could use a lower threshold while the two sensor thresholds stayed at their fitted values.
+
+Codex ran both policies on the balance-augmented detector. First, it fitted the shared multiplier on the same 12 no-fault calibration seeds as before. It then held the disagreement and balance thresholds fixed and tried actuator multipliers of 1, 2 and 4 on those controls. Both stages scored alarms from the complete detector, including confirmations caused by successive triggers on different channels. The smallest multiplier with zero control alarms advanced. If every candidate alarms, the benchmark uses 4 and flags the missed target.
+
+Evaluation used 32 fresh seeds and reshuffled fault windows. Each policy saw identical challenges and a noise-matched control for each seed and noise level. The 216 calibration runs and 768 evaluation runs include repeated use of seeds across settings. The arrows below show the change from shared calibration to a separately fitted actuator threshold.
+
+| Simulated noise | Sensor multiplier | Actuator multiplier | Actuator offsets caught | All faults caught | Controls with an alarm |
+|---|---:|---:|---:|---:|---:|
+| 1× | 1× | 1× → 1× | 32/32 → 32/32 | 96/96 → 96/96 | 0/32 → 0/32 |
+| 2× | 2× | 2× → 1× | 32/32 → 32/32 | 96/96 → 96/96 | 0/32 → 0/32 |
+| 4× | 4× | 4× → 1× | 5/32 → 32/32 | 68/96 → 94/96 | 0/32 → 1/32 |
+
+At 4× noise the separate actuator threshold recovered 27 previously missed offsets. For the five offsets both policies caught, the median delay fell from 2.5 to 0.5 dimensionless time units. Both policies caught all 32 primary biases. Shared-bias detections fell from 31 to 30. In the lost case, the challenge and its no-fault control both first alarmed at time 27.5, so the paired scoring rule denied credit. These counts describe the simulated offsets, noise model and observation horizon in this fixture.
+
+```sh
+PYTHONPATH=src python -m wombmodels benchmark-fault-detectors --config examples/common_cause_fault_fixture.json --replicates 32 --compare-actuator-thresholds --out actuator-comparison
+PYTHONPATH=src python -m wombmodels verify-bundle --strict --bundle actuator-comparison
+```
+
+The CSV records carry both multiplier values. The JSON and Markdown reports also show which matched faults each policy detected and which matched controls raised a false alarm.
+
 ## Key findings
 
 - Pairwise disagreement confirms the primary-only bias at dimensionless time 3.5, but never confirms the common bias at 8.0–11.0 or the actuator offset at 14.0–17.0. During common bias, the pairwise residual remains only the difference between the two independent noise draws.
