@@ -1,0 +1,9 @@
+site	pixels_scored	published_model_min_cm_s	published_model_peak_cm_s	model_vs_observed_mean_rmse_cm_s	model_vs_participant_median_rmse_cm_s	green_mean_pixels_checked	green_vs_observed_mean_rmse_cm_s	pixel_threshold_max_change_cm_s
+Aortic Valve	723	-0.112	90.601	10.036	10.873	185	0.631	0.538
+Pulmonary Valve	723	0.000	76.824	7.890	8.408	208	0.545	0.966
+Mitral Valve	723	-0.050	57.011	7.156	8.321	249	0.494	0.358
+Tricuspid Valve	723	-0.072	65.075	9.282	10.728	214	0.531	0.516
+Aortic Isthmus	723	-14.982	76.958	18.388	17.973	500	0.645	0.546
+Ductus Arteriosus	723	0.812	116.071	14.184	15.674	422	0.305	0.812
+Umbilical Artery	723	13.828	38.086	3.469	4.253	455	0.042	0.048
+Middle Cerebral Artery	723	10.696	52.568	5.824	8.929	383	0.056	0.132

@@ -1,0 +1,28 @@
+{
+  "source": {
+    "url": "https://journals.plos.org/ploscompbiol/article/figure/image?size=large&id=10.1371/journal.pcbi.1013096.g002",
+    "sha256": "54c4633a87b479d5400a5ffb9be6d70da23a12e1f07712b5b161a63c11f8386c",
+    "bytes": 2040228
+  },
+  "observation_source": {
+    "file": "Dataset_S2.csv",
+    "url": "https://raw.githubusercontent.com/InmaV/CoA_scenarios/5597e52fda7c1f2385a05bef41912ecf10b23142/Dataset_S2.csv",
+    "sha256": "72ff3b9ed2ebc6caafde5e9b9d6e3daca30de0567971c58eb2e5c355a2a8ac72",
+    "bytes": 364843
+  },
+  "observation_manifest_sha256": "9946f124f683d66187aa3371ec605613454ef24bf97eee62b5b29bdd6919715b",
+  "implementation_sha256": {
+    "doppler_figure.py": "3752a4a44809602e6e42b682aa7245b5a173e5d0a1687093bc0b8c2fa7afbdba",
+    "doppler_benchmark.py": "2c04fc3992e32e416d0d72640b2e8660e362d40b861cf43abba37861450616d4",
+    "audit.py": "2bce2030efcb2468cbadb489cac60bd16039cd123e03c6c60f3362fbac7bd9a8"
+  },
+  "pillow": "11.3.0",
+  "phase_bounds": [
+    0.02,
+    0.98
+  ],
+  "comparison": "in_sample_published_figure",
+  "outputs_sha256": {
+    "by-site.tsv": "8cde520f93bc78fbb633a6787f2225821cbfc84fce19be258a8bd25822d213ae"
+  }
+}

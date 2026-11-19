@@ -1,0 +1,21 @@
+{
+  "source": {
+    "file": "Dataset_S2.csv",
+    "url": "https://raw.githubusercontent.com/InmaV/CoA_scenarios/5597e52fda7c1f2385a05bef41912ecf10b23142/Dataset_S2.csv",
+    "sha256": "72ff3b9ed2ebc6caafde5e9b9d6e3daca30de0567971c58eb2e5c355a2a8ac72",
+    "bytes": 364843
+  },
+  "input_manifest_sha256": "9946f124f683d66187aa3371ec605613454ef24bf97eee62b5b29bdd6919715b",
+  "implementation_sha256": {
+    "doppler_benchmark.py": "2c04fc3992e32e416d0d72640b2e8660e362d40b861cf43abba37861450616d4",
+    "audit.py": "2bce2030efcb2468cbadb489cac60bd16039cd123e03c6c60f3362fbac7bd9a8"
+  },
+  "participants": 7,
+  "traces": 56,
+  "phase_intervals": 200,
+  "duplicate_timestamps_collapsed": 28,
+  "folds_with_lower_template_rmse": 56,
+  "outputs_sha256": {
+    "by-site.tsv": "bf8530a41bd2318f63ecc2e6a5b712bdb80d9f6ff872e809a97d377a86645f99"
+  }
+}

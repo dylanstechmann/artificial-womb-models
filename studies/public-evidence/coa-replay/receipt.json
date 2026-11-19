@@ -1,0 +1,39 @@
+{
+  "model_source": {
+    "archive": "https://doi.org/10.5281/zenodo.14826951",
+    "url": "https://raw.githubusercontent.com/InmaV/CoA_scenarios/5597e52fda7c1f2385a05bef41912ecf10b23142/FETAL_MODEL_CoA.c",
+    "sha256": "520b47b327b613119034e6ff334616082f314ecff73911aae56a90da9564529f",
+    "bytes": 67413
+  },
+  "figure_source": {
+    "url": "https://journals.plos.org/ploscompbiol/article/figure/image?size=large&id=10.1371/journal.pcbi.1013096.g002",
+    "sha256": "54c4633a87b479d5400a5ffb9be6d70da23a12e1f07712b5b161a63c11f8386c",
+    "bytes": 2040228
+  },
+  "implementation_sha256": {
+    "coa_replay.py": "f67f429049d299ea077079271e6846050a2d9915d0a439b875c10c887a8aed28",
+    "doppler_figure.py": "3752a4a44809602e6e42b682aa7245b5a173e5d0a1687093bc0b8c2fa7afbdba",
+    "doppler_benchmark.py": "2c04fc3992e32e416d0d72640b2e8660e362d40b861cf43abba37861450616d4",
+    "audit.py": "2bce2030efcb2468cbadb489cac60bd16039cd123e03c6c60f3362fbac7bd9a8"
+  },
+  "libraries": {
+    "numpy": "2.4.6",
+    "scipy": "1.15.3",
+    "pillow": "11.3.0"
+  },
+  "absolute_and_relative_tolerances": {
+    "BDF": 1e-07,
+    "Radau": 1e-08
+  },
+  "max_step_fraction_of_period": 0.01,
+  "cycles_integrated": 26,
+  "scored_cycle_index": 24,
+  "phase_bounds": [
+    0.02,
+    0.98
+  ],
+  "comparison": "archived_healthy_equations_vs_published_plot",
+  "outputs_sha256": {
+    "by-site.tsv": "882123fbdb21c25567e34b3e8da7e989bacfadc7c3d248508c834763496ada53"
+  }
+}

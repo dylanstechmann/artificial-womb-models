@@ -115,21 +115,27 @@ def mesh_audit(path):
     return {"file": path.name, "facets": triangles, "unique_xyz": len(vertices),
             "zero_area_facets": degenerate}
 
-def doppler_audit(path):
-    cases_by_site = defaultdict(set)
-    pairs_by_site = Counter()
+def read_doppler(path):
+    traces = defaultdict(dict)
     with path.open(newline="", encoding="utf-8") as stream:
         for row in csv.DictReader(stream):
             site, case = row["Doppler Label"], row["Case"]
             times = list(map(float, row["Time"].split(",")))
             speeds = list(map(float, row["Velocity"].split(",")))
-            if len(times) != len(speeds) or not times or case in cases_by_site[site]:
+            if len(times) != len(speeds) or not times or not site or not case or site in traces[case]:
                 raise ValueError("Unpaired or repeated Doppler trace")
             if not all(map(math.isfinite, times + speeds)):
                 raise ValueError("Nonfinite tracing value")
-            cases_by_site[site].add(case)
+            traces[case][site] = times, speeds
+    return traces
+
+def doppler_audit(path):
+    cases_by_site, pairs_by_site = Counter(), Counter()
+    for sites in read_doppler(path).values():
+        for site, (times, _) in sites.items():
+            cases_by_site[site] += 1
             pairs_by_site[site] += len(times)
-    return [{"site": site, "cases": len(cases), "time_velocity_pairs": pairs_by_site[site]}
+    return [{"site": site, "cases": cases, "time_velocity_pairs": pairs_by_site[site]}
             for site, cases in sorted(cases_by_site.items())]
 
 def main():
