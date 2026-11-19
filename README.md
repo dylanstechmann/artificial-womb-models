@@ -6,6 +6,8 @@ An open research software project investigating **complete human ectogenesis: de
 
 The repository contains a curated stage/evidence map and an abstract exchange, backup-power and monitoring fixture. Its outputs measure software behavior. Complete human gestation, replacement of surrogacy and fewer congenital defects remain unassessed or undemonstrated in the evidence ledger last updated on 2026-10-06. The project evidence map is not an independent scientific review.
 
+The [public study collection](studies/public-evidence/README.md) connects human, animal and simulation evidence to downloadable data. It includes a searchable bibliography, a reanalysis of five supported lambs with four control animals, human mesh and Doppler audits, public program records and the two reproducible alarm comparisons.
+
 The [master program plan](PROGRAM_PLAN.md) defines the owner goal: owned equipment for at least one successful surrogate-free gestation, assuming 100+ embryos available upstream; one or a few concurrent gestations counts as success and larger concurrency with a common birth date is an aspiration, not a requirement. It adds computer/laboratory feedback and physical engineering; AI/robot care and development goals are tracked in a separate private repository. The [current progress comparison](PROGRAM_STATUS.md) and [versioned register](config/program/roadmap.json) distinguish completion requirements from demonstrated software/source contributions and unestablished biological capabilities.
 
 The [research program](RESEARCH_PROGRAM.md) supplies the detailed transition and benchmark contracts. The [implementation roadmap](ROADMAP.md) retains the numerical, uncertainty and portable-verification history. Use the master plan and register to select new work.
@@ -27,7 +29,7 @@ wombmodels verify-bundle --bundle artifacts/exchange-v1 --strict
 python -W error::ResourceWarning -m unittest discover -s tests
 ```
 
-Every output directory must be new, so repeat a command with a different `--out`. All numerical outputs are dimensionless software fixtures. In a fresh clone, the tests that audit locally held source files are reported as skipped rather than passed; see [Development and verification](#development-and-verification).
+Every output directory must be new, so repeat a command with a different `--out`. Simulation outputs use dimensionless software fixtures. Public-study audits preserve the source measurements and their provenance. In a fresh clone, the tests that audit locally held source files are reported as skipped rather than passed; see [Development and verification](#development-and-verification).
 
 ## What you can run
 

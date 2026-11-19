@@ -1,0 +1,9 @@
+site	replay_vs_published_rmse_cm_s	replay_peak_cm_s	published_peak_cm_s	replay_peak_phase	published_peak_phase	solver_max_difference_cm_s	previous_cycle_max_difference_cm_s
+Aortic Valve	0.845	90.675	90.601	0.0836	0.0783	0.000360	0.017363
+Pulmonary Valve	3.517	76.812	76.824	0.0849	0.0968	0.000318	0.015109
+Mitral Valve	21.630	57.080	57.011	0.8050	0.9045	0.000237	0.010249
+Tricuspid Valve	22.832	53.775	65.075	0.7976	0.8971	0.000320	0.011439
+Aortic Isthmus	0.741	77.301	76.958	0.0810	0.0770	0.000396	0.023422
+Ductus Arteriosus	1.273	116.189	116.071	0.1154	0.1088	0.000360	0.028180
+Umbilical Artery	1.759	38.076	38.086	0.2984	0.2573	0.000026	0.039953
+Middle Cerebral Artery	2.103	52.646	52.568	0.2123	0.1911	0.000062	0.007425
