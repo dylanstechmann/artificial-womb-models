@@ -9,6 +9,7 @@ from pathlib import Path
 from wombmodels.artifacts import InputError
 from wombmodels.bundle_verification import verify_bundle
 from wombmodels.cli import main
+from wombmodels.mechanical_twin import mechanical_twin
 from wombmodels.reciprocal_twin import reciprocal_twin
 from wombmodels.visualizations import (
     _extent, _normalize, _project, load_twin_bundle, publish_visualization, render_html, render_svg)
@@ -97,6 +98,27 @@ class VisualizationTests(unittest.TestCase):
         ):
             with self.subTest(value=value, low=low, high=high):
                 self.assertEqual(_normalize(value, low, high), expected)
+
+    def test_interactive_redraw_clears_stale_point_readout(self):
+        page = render_html(load_twin_bundle(self.source))
+        self.assertIn("hoverMarker=null;\n readout.textContent='';", page)
+        self.assertIn("function draw(){\n clearHover();", page)
+        self.assertIn("dot.addEventListener('pointerleave',clearHover);", page)
+
+    def test_mechanical_bundle_uses_available_default_axes_in_both_views(self):
+        source = self.root / "mechanical"
+        mechanical_twin(ROOT / "examples/mechanical_twin_fixture.json", source)
+        output = self.root / "mechanical-view"
+        publish_visualization(source, output)
+        page = (output / "index.html").read_text(encoding="utf-8")
+        payload = page.split('<script id="trajectory-data" type="application/json">', 1)[1]
+        data = json.loads(payload.split('</script>', 1)[0])
+        defaults = [data["axes"][index] for index in data["defaults"]]
+        self.assertEqual(len(defaults), 3)
+        svg = (output / "trajectory.svg").read_text(encoding="utf-8")
+        for index, axis in enumerate(defaults):
+            self.assertIn(f"{'XYZ'[index]}: {axis}", svg)
+        self.assertTrue(verify_bundle(output, strict=True)["bytes_verified"])
 
     def test_publication_verifies_and_relocates_with_parent_receipt(self):
         output = self.root / "view"
