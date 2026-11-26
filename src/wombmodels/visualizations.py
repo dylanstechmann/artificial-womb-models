@@ -191,7 +191,13 @@ def render_html(source):
 <title>Dimensionless twin 3D trajectories</title>
 <style>
 :root{color-scheme:light;font-family:system-ui,-apple-system,sans-serif;color:#172536;background:#f3f6fa}
-*{box-sizing:border-box}body{margin:0;padding:28px}main{max-width:1250px;margin:auto}h1{font-size:26px;margin:0 0 8px}p{line-height:1.5;color:#526174}.notice{background:#fff8df;border:1px solid #e6d79b;padding:12px 16px;border-radius:8px;font-size:14px}.panel{background:white;border:1px solid #d9e0e9;border-radius:12px;padding:18px;margin-top:18px;box-shadow:0 3px 14px #1725360a}.controls{display:flex;flex-wrap:wrap;gap:14px;align-items:end}.control{display:grid;gap:5px;font-size:13px;color:#526174}select,button{font:inherit;padding:8px 10px;border:1px solid #bcc8d6;border-radius:6px;background:white;color:#172536}button{cursor:pointer}button:hover{background:#edf3f9}.variants{display:flex;gap:14px;flex-wrap:wrap;margin-top:16px}.variant{display:flex;align-items:center;gap:6px;font-size:14px}.variant span{width:12px;height:12px;border-radius:50%;background:var(--color)}#plot{display:block;width:100%;height:auto;min-height:360px;background:#f7f9fc;border-radius:8px;margin-top:16px;touch-action:none;cursor:grab}#plot:active{cursor:grabbing}.hint{font-size:13px;margin-bottom:0}.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}#readout{font-variant-numeric:tabular-nums;font-size:13px;min-height:1.5em}noscript{display:block;margin-top:16px}a{color:#1769aa}@media(max-width:650px){body{padding:14px}.controls{display:grid;grid-template-columns:1fr 1fr}.panel{padding:12px}h1{font-size:22px}}
+*{box-sizing:border-box}body{margin:0;padding:28px}main{max-width:1250px;margin:auto}h1{font-size:26px;margin:0 0 8px}p{line-height:1.5;color:#526174}.notice{background:#fff8df;border:1px solid #e6d79b;padding:12px 16px;border-radius:8px;font-size:14px}.panel{background:white;border:1px solid #d9e0e9;border-radius:12px;padding:18px;margin-top:18px;box-shadow:0 3px 14px #1725360a}.controls{display:flex;flex-wrap:wrap;gap:14px;align-items:end}.control{display:grid;gap:5px;font-size:13px;color:#526174}select,button{font:inherit;padding:8px 10px;border:1px solid #bcc8d6;border-radius:6px;background:white;color:#172536}button{cursor:pointer}button:hover{background:#edf3f9}.variants{display:flex;gap:14px;flex-wrap:wrap;margin-top:16px}.variant{display:flex;align-items:center;gap:6px;font-size:14px}.variant span{width:12px;height:12px;border-radius:50%;background:var(--color)}#plot{display:block;width:100%;height:auto;min-height:360px;background:#f7f9fc;border-radius:8px;margin-top:16px;touch-action:none;cursor:grab}#plot:active{cursor:grabbing}.hint{font-size:13px;margin-bottom:0}.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0,0,0,0)}#readout{font-variant-numeric:tabular-nums;font-size:13px;min-height:1.5em}noscript{display:block;margin-top:16px}a{color:#1769aa}@media(max-width:650px){body{padding:14px}.controls{display:grid;grid-template-columns:repeat(2,minmax(0,1fr))}.control,.control select{min-width:0}.panel{padding:12px}h1{font-size:22px}}
+.inspector{margin:16px 0 0;padding:12px 0 0;border:0;border-top:1px solid #d9e0e9;min-width:0}
+.inspector legend{padding:0 8px 0 0;font-size:14px;font-weight:600}
+.inspector select,.inspector input{width:100%;min-width:0}
+.inspector input{font:inherit;color:#172536;background:white;border:1px solid #bcc8d6;border-radius:6px;padding:8px 10px}
+#sample-values{font-size:13px;font-variant-numeric:tabular-nums;margin:8px 0 0}
+#sample-values:empty{margin:0}
 </style></head><body><main>
 <h1>Dimensionless twin trajectories in 3D</h1>
 <p>Explore the published software trajectories as three selected quantities. Each axis is scaled independently for visibility; distances between axes are not physical distances.</p>
@@ -204,6 +210,14 @@ def render_html(source):
 <button id="reset" type="button">Reset view</button><button id="download" type="button">Download SVG</button>
 </div>
 <div class="variants" aria-label="Visible variants">__VARIANTS__</div>
+<fieldset class="inspector">
+<legend>Inspect samples</legend>
+<div class="controls">
+<label class="control">Variant<select id="inspect-variant"><option value="">Choose a variant</option></select></label>
+<label class="control"><span id="sample-label">Sample</span><input id="inspect-sample" type="number" min="1" step="1" disabled></label>
+</div>
+<p id="sample-values" aria-live="polite"></p>
+</fieldset>
 <svg id="plot" viewBox="0 0 1000 650" role="img" aria-labelledby="plot-title plot-desc" tabindex="0">
 <title id="plot-title">Interactive three-dimensional twin trajectories</title><desc id="plot-desc">Drag to rotate, use the mouse wheel to zoom, or use arrow keys to rotate and plus or minus to zoom.</desc>
 </svg>
@@ -220,6 +234,13 @@ const selectors=['x','y','z'].map(id=>document.getElementById(id));
 let yaw=-0.65,pitch=0.48,zoom=1,drag=null,hoverMarker=null;
 const readout=document.getElementById('readout');
 const visible=data.series.map(()=>true);
+const inspectVariant=document.getElementById('inspect-variant');
+const inspectSample=document.getElementById('inspect-sample');
+const sampleLabel=document.getElementById('sample-label');
+const sampleValues=document.getElementById('sample-values');
+const inspectOptions=data.series.map((series,index)=>new Option(series.name,String(index)));
+inspectVariant.append(...inspectOptions);
+let sampleMarker=null,displayedAxes=[],displayedExtents=[];
 function node(name,attrs,text){const e=document.createElementNS(NS,name);for(const [k,v] of Object.entries(attrs||{}))e.setAttribute(k,v);if(text!==undefined)e.textContent=text;return e;}
 function extent(axis){let lo=Infinity,hi=-Infinity;for(const s of data.series)for(const p of s.points){lo=Math.min(lo,p[axis]);hi=Math.max(hi,p[axis]);}return[lo,hi];}
 function normalize(value,[low,high]){
@@ -245,11 +266,42 @@ function showHover(series,color,index,point,axes){
  clearHover();
  hoverMarker=node('circle',{cx:point[0],cy:point[1],r:6,fill:'white',stroke:color,'stroke-width':3,'pointer-events':'none'});
  svg.append(hoverMarker);
- readout.textContent=series.name+' · '+axes.map((axis,i)=>'XYZ'[i]+' '+data.axes[axis]+' = '+series.points[index][axis]).join(' · ');
+ readout.textContent=series.name+' · '+axisValues(series.points[index],axes);
+}
+function axisValues(row,axes){
+ return axes.map((axis,i)=>'XYZ'[i]+' '+data.axes[axis]+' = '+row[axis]).join(' · ');
+}
+function showSample(){
+ if(sampleMarker)sampleMarker.remove();
+ sampleMarker=null;
+ const variant=inspectVariant.value===''?null:Number(inspectVariant.value);
+ const sample=inspectSample.valueAsNumber;
+ const series=variant===null?null:data.series[variant];
+ let message='';
+ if(series&&Number.isInteger(sample)&&sample>=1&&sample<=series.points.length){
+  const row=series.points[sample-1];
+  const point=project(displayedAxes.map((axis,i)=>normalize(row[axis],displayedExtents[i])));
+  sampleMarker=node('circle',{cx:point[0],cy:point[1],r:8,fill:'none',stroke:data.colors[variant],'stroke-width':3,'pointer-events':'none',class:'sample-marker'});
+  svg.append(sampleMarker);
+  message=series.name+' · Sample '+sample+' of '+series.points.length+' · '+axisValues(row,displayedAxes);
+ }else if(series&&(inspectSample.value!==''||inspectSample.validity.badInput)){
+  message='Enter a whole sample number from 1 to '+inspectSample.max+'.';
+ }
+ if(sampleValues.textContent!==message)sampleValues.textContent=message;
+}
+function resetSample(){
+ const selected=inspectVariant.value!=='';
+ const count=selected?data.series[Number(inspectVariant.value)].points.length:0;
+ inspectSample.disabled=!selected;
+ inspectSample.max=selected?String(count):'';
+ inspectSample.value=selected?'1':'';
+ sampleLabel.textContent=selected?'Sample (1–'+count+')':'Sample';
+ showSample();
 }
 function draw(){
  clearHover();
  const axes=selectors.map(s=>Number(s.value)),extents=axes.map(extent);
+ displayedAxes=axes;displayedExtents=extents;
  svg.querySelectorAll('.generated').forEach(e=>e.remove());
  for(const [a,b] of edges){const p=project(a),q=project(b);svg.append(node('line',{x1:p[0],y1:p[1],x2:q[0],y2:q[1],stroke:'#c7d0dc','stroke-width':1,class:'generated'}));}
  const title=node('text',{x:32,y:36,'font-size':19,'font-weight':600,fill:'#172536',class:'generated'},'3D projection · independently normalized axes');svg.append(title);
@@ -264,10 +316,19 @@ function draw(){
    svg.append(dot);
   });
   const end=points[points.length-1];svg.append(node('circle',{cx:end[0],cy:end[1],r:4,fill:data.colors[i],'pointer-events':'none',class:'generated'}));});
+ showSample();
 }
-function reset(){yaw=-.65;pitch=.48;zoom=1;selectors.forEach((s,i)=>s.value=data.defaults[i]);visible.fill(true);document.querySelectorAll('[data-variant]').forEach(c=>c.checked=true);draw();}
+function reset(){yaw=-.65;pitch=.48;zoom=1;selectors.forEach((s,i)=>s.value=data.defaults[i]);visible.fill(true);document.querySelectorAll('[data-variant]').forEach(c=>c.checked=true);inspectOptions.forEach(option=>option.disabled=false);inspectVariant.value='';resetSample();draw();}
 selectors.forEach(s=>s.addEventListener('change',draw));document.getElementById('reset').addEventListener('click',reset);
-document.querySelectorAll('[data-variant]').forEach(c=>c.addEventListener('change',()=>{visible[Number(c.dataset.variant)]=c.checked;draw();}));
+inspectVariant.addEventListener('change',resetSample);
+inspectSample.addEventListener('input',showSample);
+document.querySelectorAll('[data-variant]').forEach(c=>c.addEventListener('change',()=>{
+ const index=Number(c.dataset.variant);
+ visible[index]=c.checked;
+ inspectOptions[index].disabled=!c.checked;
+ if(!c.checked&&inspectVariant.value===c.dataset.variant){inspectVariant.value='';resetSample();}
+ draw();
+}));
 svg.addEventListener('pointerdown',e=>{if(e.target.tagName==='circle')return;drag={x:e.clientX,y:e.clientY};svg.setPointerCapture(e.pointerId);});
 svg.addEventListener('pointermove',e=>{if(!drag)return;yaw+=(e.clientX-drag.x)*.008;pitch=Math.max(-1.4,Math.min(1.4,pitch+(e.clientY-drag.y)*.008));drag={x:e.clientX,y:e.clientY};draw();});
 svg.addEventListener('pointerup',()=>drag=null);svg.addEventListener('pointercancel',()=>drag=null);

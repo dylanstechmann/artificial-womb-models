@@ -35,7 +35,7 @@ The [program status workflow](config/program/README.md) checks pinned local evid
 
 The [machine concept schematic](config/schematics/ectogenesis_platform_v1.json) renders the automation-first platform layout (containment, fluidics, monitoring/control and robotic servicing with human override) as a standalone SVG/HTML page via `python -m wombmodels.schematics --config config/schematics/ectogenesis_platform_v1.json --out <new-dir>`. It is a concept layout for planning and criticism, not a build specification.
 
-`visualize-twin` turns a verified whole-path, mechanical or reciprocal twin bundle into a self-contained 3D trajectory viewer. Open its `index.html` in a browser to select three observables, toggle variants, rotate, zoom and inspect values; `trajectory.svg` supplies a static preview without JavaScript. The viewer works offline with no external libraries or network requests. Axes are independently normalized dimensionless software quantities, not physical geometry or biological measurements.
+`visualize-twin` turns a verified whole-path, mechanical or reciprocal twin bundle into a self-contained 3D trajectory viewer. Open its `index.html` in a browser to select three observables, toggle variants, rotate and zoom. Under **Inspect samples**, choose a visible variant and enter a sample number to read its values and mark the corresponding point, including points between the hover targets. Use `trajectory.svg` for a static preview without JavaScript. The viewer works offline with no external libraries or network requests. Each axis is scaled independently and shows dimensionless software quantities.
 
 ### In silico design and modeling
 
