@@ -23,7 +23,11 @@ python -m venv .venv
 . .venv/bin/activate        # Windows PowerShell: .venv\Scripts\Activate.ps1
 python -m pip install -e .
 wombmodels simulate --config examples/exchange_fixture.json --out artifacts/exchange-v1
+wombmodels identifiability-report --config examples/exchange_fixture.json --trajectory artifacts/exchange-v1/trajectory.csv --out artifacts/identifiability-v1
 wombmodels verify-bundle --bundle artifacts/exchange-v1 --strict
+wombmodels rerun-bundle --bundle artifacts/exchange-v1 --out artifacts/exchange-reproduction-v1
+wombmodels rerun-bundle --bundle artifacts/identifiability-v1 --out artifacts/identifiability-reproduction-v1
+wombmodels verify-bundle --bundle artifacts/exchange-reproduction-v1 --strict
 python -W error::ResourceWarning -m unittest discover -s tests
 ```
 
@@ -109,6 +113,7 @@ The `wombmodels` command has one subcommand per row. Fixture-driven commands run
 | `verify-mechanics` | Check dimensionless mechanics against a closed-form piecewise-load reference | `examples/mechanics_fixture.json` |
 | `verify-transport-matrix` | Check transport Euler convergence across seven dimensionless rate regimes | `examples/transport_fixture.json` |
 | `verify-bundle` | Verify a published bundle's receipt, files, parent ancestry and declared dependencies | any published bundle directory |
+| `rerun-bundle` | Bounded offline exact-byte rerun and receipt-backed reproduction report | only `synthetic_exchange_software_fixture` or `synthetic_exchange_observability_diagnostic` (`--bundle`) |
 
 ### Source audits and intake notes
 
@@ -259,6 +264,8 @@ python -m venv .venv
 .venv\Scripts\wombmodels evidence-report --ledger config/evidence.json --out artifacts/evidence-v1
 .venv\Scripts\wombmodels simulate --config examples/exchange_fixture.json --out artifacts/exchange-v1
 .venv\Scripts\wombmodels identifiability-report --config examples/exchange_fixture.json --trajectory artifacts/exchange-v1/trajectory.csv --out artifacts/identifiability-v1
+.venv\Scripts\wombmodels rerun-bundle --bundle artifacts/exchange-v1 --out artifacts/exchange-reproduction-v1
+.venv\Scripts\wombmodels rerun-bundle --bundle artifacts/identifiability-v1 --out artifacts/identifiability-reproduction-v1
 .venv\Scripts\wombmodels design-sweep --config examples/exchange_fixture.json --out artifacts/design-sweep-v1 --replicates 8
 .venv\Scripts\wombmodels transport-model --config examples/transport_fixture.json --out artifacts/transport-v1
 .venv\Scripts\wombmodels transport-identifiability --config examples/transport_identifiability_fixture.json --out artifacts/transport-ambiguity-v1
@@ -318,8 +325,48 @@ matches), `scientific_review`, always `not_established_by_this_tool`, and
 `reproduction`, always `not_attempted`. `--strict` also fails on files the
 receipt does not declare and on bundle kinds this package does not publish.
 The GitHub Actions workflow runs `verify-bundle --strict` on its simulation and
-identifiability bundles, then on a renamed copy of the identifiability bundle
-after the original directories are deleted.
+identifiability bundles, then reruns fresh and renamed copies after the original
+bundles are deleted. It strictly verifies every reproduction report and compares
+fresh and relocated report/receipt bytes.
+
+### Bounded offline reruns
+
+`wombmodels rerun-bundle --bundle DIRECTORY --out NEW_DIRECTORY` supports exactly
+`synthetic_exchange_software_fixture` and
+`synthetic_exchange_observability_diagnostic`. Their reproduction plans declare
+an entry point, exact inputs and staging map, fixed trusted-runner template, and
+the `synthetic_bundle_reproduction_check` report kind. The harness strictly
+verifies the source and required ancestry, checks the complete plan and all
+current implementation hashes plus package version, and only then stages exact
+allowlisted bytes. It never evaluates a plan command, executes bundle-selected
+code, or uses a shell.
+
+Execution uses `python -I -B`, a scrubbed environment, temporary working
+directory, 120-second timeout, and at most 64 KiB of retained stdout and stderr
+per stream. Only stream hashes and capture counts are reported, not process
+text. This is a bounded offline deterministic mechanism for two trusted package
+entry points, **not** a general untrusted-code sandbox.
+
+The report compares the complete expected and actual inventories, including the
+receipt, and distinguishes missing, extra, and changed files with bounded
+mismatch details. A separate payload-only summary is diagnostic and cannot
+override a byte mismatch or introduce numeric tolerance. Reports are
+receipt-backed, deterministic for identical inputs and implementation, contain
+no timestamps or absolute paths, and publish `receipt.json` last. Strictly check
+one with `wombmodels verify-bundle --bundle REPRODUCTION_DIRECTORY --strict`;
+verification itself never reruns it.
+
+Exit status is **0** only for `reproduced_exact`, **1** for `not_reproduced` or
+`could_not_run` (including implementation mismatch, timeout, or nonzero child
+exit), and **2** for malformed/source-verification/unsupported/destination
+errors. Every output destination must be new. Source and archived-parent metadata
+containers and output entries are explicitly type-checked, and plan versions
+must match receipt-bound safe version metadata. Fresh and relocated acceptance
+on 2026-11-16 used Python 3.12.16 for both supported kinds, including repeated
+byte-identical reports and 28 real 0/1/2 CLI cases; evidence and command logs are
+under `artifacts/m5-rerun-acceptance-2026-11-16-review/`. Exact reproduction is
+a software-determinism result only. Python 3.10/3.13 and the GitHub Actions
+matrix were not run locally.
 
 ## Developmental scope
 

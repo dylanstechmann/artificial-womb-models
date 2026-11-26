@@ -1545,15 +1545,36 @@ Fifteen cases cover changed, missing, swapped-parent, symlinked, undeclared,
 malformed-receipt and relocated bundles, including one that verifies a copied
 bundle after deleting its source directory.
 
-- Remaining: a rerun harness. Verification does not execute the recorded command,
-  so "verified" and "reproduced" remain different claims. Bundles other than
-  `identifiability-report` have no parent, so their ancestry status is
+**Rerun harness delivered 2026-11-15.** `rerun-bundle` supports exactly the
+synthetic exchange and observability bundle kinds. Corrected plans declare fixed
+entry points, exact inputs/staging, a trusted `python -I -B` runner and the new
+`synthetic_bundle_reproduction_check` kind. Strict source/ancestry/plan and
+package/implementation preflights precede isolated, scrubbed, 120-second,
+bounded-output subprocesses. Full-inventory comparison distinguishes missing,
+extra and changed bytes; payload-only equality remains diagnostic. Deterministic
+receipt-last reports contain no timestamps or absolute paths. CLI exits are 0
+for exact reproduction, 1 for mismatch/inability, and 2 for source/usage/
+destination errors. Verification still never executes a bundle. Independent-review
+hardening explicitly type-checks source/archived-parent structures and binds
+expected plan versions to validated receipt metadata rather than submitted plans.
+
+Fresh simulation and identifiability bundles and relocated copies were rerun
+successfully with local Python 3.12.16 after the original bundles were deleted.
+All generated model/report bundles passed strict verification; repeated and
+relocated reports/receipts were byte-identical, and real CLI 0/1/2 cases passed.
+Evidence is under `artifacts/m5-rerun-acceptance-2026-11-16-review/`. The workflow now
+runs equivalent checks on Python 3.10/3.12/3.13, but that matrix was not run
+locally. The two-entry-point mechanism is not a general sandbox or a scientific,
+physiological, biological-measurement or human-gestation claim.
+
+- Remaining: no rerun support beyond those two synthetic kinds. Bundles other
+  than `identifiability-report` have no parent, so their ancestry status is
   `no_parent_declared` rather than resolved.
 
-**Acceptance:** a fresh environment can verify and rerun the synthetic example;
-missing parents or changed bytes fail explicitly. ResearchDesk remains an
-optional consumer, not a runtime requirement of the model package. *Verification
-and explicit failures are met; automated rerunning is not.*
+**Acceptance:** met for fresh and relocated software reruns of both supported
+synthetic examples; missing parents, changed bytes, implementation mismatches,
+nonzero execution and bad destinations fail explicitly. ResearchDesk remains an
+optional consumer, not a runtime requirement of the model package.
 
 ## M6 — Establish an empirical benchmark with appropriate units
 

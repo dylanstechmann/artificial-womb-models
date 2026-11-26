@@ -28,6 +28,7 @@ KNOWN_BUNDLE_KINDS = frozenset({
     "machine_schematic",
     "synthetic_exchange_software_fixture",
     "synthetic_exchange_observability_diagnostic",
+    "synthetic_bundle_reproduction_check",
     "synthetic_exchange_design_sweep",
     "reviewed_evidence_ledger_report",
     "reviewed_evidence_map",
@@ -68,6 +69,7 @@ KNOWN_BUNDLE_KINDS = frozenset({
 DIMENSIONLESS_BUNDLE_KINDS = frozenset({
     "synthetic_exchange_software_fixture",
     "synthetic_exchange_observability_diagnostic",
+    "synthetic_bundle_reproduction_check",
     "synthetic_exchange_design_sweep",
     "dimensionless_transport_theory",
     "dimensionless_transport_identifiability",
