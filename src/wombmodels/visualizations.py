@@ -33,6 +33,7 @@ COMMON_AXES = (
 MECHANICAL_AXES = ("wall_load", "wall_stiffness", "wall_strain",
                    "wall_safety_margin", "wall_damage")
 COLORS = ("#1769aa", "#c43c39", "#16836f", "#8659a8", "#a66a00", "#bc477b")
+DEFAULT_AXES = ("dimensionless_time", "bulk_stock", "progression")
 
 
 def _read_trajectory(path, expected):
@@ -108,24 +109,39 @@ def load_twin_bundle(directory):
 def _extent(series, axis):
     low = min(row[axis] for item in series for row in item["rows"])
     high = max(row[axis] for item in series for row in item["rows"])
-    if low == high:
-        padding = max(abs(low) * 0.05, 0.5)
-        return low - padding, high + padding
     return low, high
 
 
+def _normalize(value, low, high):
+    if low == high:
+        return 0.0
+    if math.isinf(high - low):
+        # Halve before subtracting when the span exceeds the float range.
+        value, low, high = value / 2, low / 2, high / 2
+    return 2 * ((value - low) / (high - low)) - 1
+
+
 def _project(point, extents, yaw=-0.65, pitch=0.48, width=1000, height=650):
-    centered = [2 * (value - low) / (high - low) - 1
-                for value, (low, high) in zip(point, extents)]
-    x, y, z = centered
+    normalized = [_normalize(value, low, high)
+                  for value, (low, high) in zip(point, extents)]
+    return _project_normalized(normalized, yaw, pitch, width, height)
+
+
+def _project_normalized(point, yaw=-0.65, pitch=0.48, width=1000, height=650):
+    x, y, z = point
     horizontal = x * math.cos(yaw) - y * math.sin(yaw)
     depth = x * math.sin(yaw) + y * math.cos(yaw)
     vertical = z * math.cos(pitch) - depth * math.sin(pitch)
     return (width / 2 + horizontal * width * 0.32,
-            height * 0.53 - vertical * height * 0.36)
+            height * 0.53 - vertical * height * 0.26)
 
 
-def render_svg(series, axes=("dimensionless_time", "bulk_stock", "progression")):
+def _default_axes(available):
+    preferred = [axis for axis in DEFAULT_AXES if axis in available]
+    return (preferred + [axis for axis in available if axis not in preferred])[:3]
+
+
+def render_svg(series, axes=DEFAULT_AXES):
     extents = [_extent(series, axis) for axis in axes]
     parts = [
         '<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 1000 650" '
@@ -134,12 +150,12 @@ def render_svg(series, axes=("dimensionless_time", "bulk_stock", "progression"))
         '<text x="36" y="42" font-family="sans-serif" font-size="23" font-weight="600" fill="#172536">Dimensionless twin trajectories</text>',
         '<text x="36" y="68" font-family="sans-serif" font-size="14" fill="#526174">Static 3D projection; open index.html for interactive rotation and axis selection.</text>',
     ]
-    corners = [(x, y, z) for x in (0, 1) for y in (0, 1) for z in (0, 1)]
-    edges = [(a, b) for a in corners for b in corners
+    corners = [(x, y, z) for x in (-1, 1) for y in (-1, 1) for z in (-1, 1)]
+    edges = [(a, b) for index, a in enumerate(corners) for b in corners[index + 1:]
              if sum(x != y for x, y in zip(a, b)) == 1]
     for start, end in edges:
-        one = _project(start, extents)
-        two = _project(end, extents)
+        one = _project_normalized(start)
+        two = _project_normalized(end)
         parts.append(f'<line x1="{one[0]:.3f}" y1="{one[1]:.3f}" x2="{two[0]:.3f}" y2="{two[1]:.3f}" stroke="#c7d0dc" stroke-width="1"/>')
     for index, item in enumerate(series):
         points = [_project([row[axis] for axis in axes], extents) for row in item["rows"]]
@@ -158,14 +174,14 @@ def render_svg(series, axes=("dimensionless_time", "bulk_stock", "progression"))
 
 def render_html(source):
     axes = source["axes"]
-    defaults = [axis for axis in ("dimensionless_time", "bulk_stock", "progression") if axis in axes]
-    defaults += [axis for axis in axes if axis not in defaults][:3 - len(defaults)]
+    defaults = [axes.index(axis) for axis in _default_axes(axes)]
     data = {"axes": axes, "defaults": defaults, "colors": COLORS,
             "series": [{"name": item["name"],
                         "points": [[row[axis] for axis in axes] for row in item["rows"]]}
                        for item in source["series"]]}
     encoded = json.dumps(data, separators=(",", ":"), allow_nan=False).replace("<", "\\u003c")
-    options = "".join(f'<option value="{escape(axis)}">{escape(axis.replace("_", " "))}</option>' for axis in axes)
+    options = "".join(f'<option value="{index}">{escape(axis.replace("_", " "))}</option>'
+                      for index, axis in enumerate(axes))
     variants = "".join(
         f'<label class="variant"><input type="checkbox" data-variant="{index}" checked> '
         f'<span style="--color:{COLORS[index % len(COLORS)]}"></span>{escape(item["name"])}</label>'
@@ -201,20 +217,53 @@ def render_html(source):
 const data=JSON.parse(document.getElementById('trajectory-data').textContent);
 const svg=document.getElementById('plot'), NS='http://www.w3.org/2000/svg';
 const selectors=['x','y','z'].map(id=>document.getElementById(id));
-let yaw=-0.65,pitch=0.48,zoom=1,drag=null,hover=null;
+let yaw=-0.65,pitch=0.48,zoom=1,drag=null,hoverMarker=null;
+const readout=document.getElementById('readout');
 const visible=data.series.map(()=>true);
 function node(name,attrs,text){const e=document.createElementNS(NS,name);for(const [k,v] of Object.entries(attrs||{}))e.setAttribute(k,v);if(text!==undefined)e.textContent=text;return e;}
-function extent(axis){let lo=Infinity,hi=-Infinity;for(const s of data.series)for(const p of s.points){lo=Math.min(lo,p[axis]);hi=Math.max(hi,p[axis]);}if(lo===hi){const d=Math.max(Math.abs(lo)*.05,.5);lo-=d;hi+=d;}return[lo,hi];}
-function project(p,extents){const c=p.map((v,i)=>2*(v-extents[i][0])/(extents[i][1]-extents[i][0])-1);const[x,y,z]=c;const h=x*Math.cos(yaw)-y*Math.sin(yaw),d=x*Math.sin(yaw)+y*Math.cos(yaw),v=z*Math.cos(pitch)-d*Math.sin(pitch);return[500+h*320*zoom,344.5-v*234*zoom];}
-function draw(){const axes=selectors.map(s=>Number(s.value)),extents=axes.map(extent);svg.querySelectorAll('.generated').forEach(e=>e.remove());
- const corners=[];for(const x of[0,1])for(const y of[0,1])for(const z of[0,1])corners.push([x,y,z]);
- for(const a of corners)for(const b of corners){if(a.reduce((n,v,i)=>n+(v!==b[i]),0)!==1)continue;const p=project(a,extents),q=project(b,extents);svg.append(node('line',{x1:p[0],y1:p[1],x2:q[0],y2:q[1],stroke:'#c7d0dc','stroke-width':1,class:'generated'}));}
+function extent(axis){let lo=Infinity,hi=-Infinity;for(const s of data.series)for(const p of s.points){lo=Math.min(lo,p[axis]);hi=Math.max(hi,p[axis]);}return[lo,hi];}
+function normalize(value,[low,high]){
+ if(low===high)return 0;
+ if(!Number.isFinite(high-low)){value/=2;low/=2;high/=2;}
+ return 2*((value-low)/(high-low))-1;
+}
+function project([x,y,z]){
+ const horizontal=x*Math.cos(yaw)-y*Math.sin(yaw),depth=x*Math.sin(yaw)+y*Math.cos(yaw);
+ const vertical=z*Math.cos(pitch)-depth*Math.sin(pitch);
+ return[500+horizontal*320*zoom,344.5-vertical*169*zoom];
+}
+const corners=[];
+for(const x of[-1,1])for(const y of[-1,1])for(const z of[-1,1])corners.push([x,y,z]);
+const edges=corners.flatMap((a,i)=>corners.slice(i+1)
+ .filter(b=>a.filter((value,axis)=>value!==b[axis]).length===1).map(b=>[a,b]));
+function clearHover(){
+ if(hoverMarker)hoverMarker.remove();
+ hoverMarker=null;
+ readout.textContent='';
+}
+function showHover(series,color,index,point,axes){
+ clearHover();
+ hoverMarker=node('circle',{cx:point[0],cy:point[1],r:6,fill:'white',stroke:color,'stroke-width':3,'pointer-events':'none'});
+ svg.append(hoverMarker);
+ readout.textContent=series.name+' · '+axes.map((axis,i)=>'XYZ'[i]+' '+data.axes[axis]+' = '+series.points[index][axis]).join(' · ');
+}
+function draw(){
+ clearHover();
+ const axes=selectors.map(s=>Number(s.value)),extents=axes.map(extent);
+ svg.querySelectorAll('.generated').forEach(e=>e.remove());
+ for(const [a,b] of edges){const p=project(a),q=project(b);svg.append(node('line',{x1:p[0],y1:p[1],x2:q[0],y2:q[1],stroke:'#c7d0dc','stroke-width':1,class:'generated'}));}
  const title=node('text',{x:32,y:36,'font-size':19,'font-weight':600,fill:'#172536',class:'generated'},'3D projection · independently normalized axes');svg.append(title);
  const labels=node('text',{x:32,y:62,'font-size':14,fill:'#526174',class:'generated'},axes.map((a,i)=>'XYZ'[i]+': '+data.axes[a]).join('  |  '));svg.append(labels);
- data.series.forEach((s,i)=>{if(!visible[i])return;const points=s.points.map(p=>project(axes.map(a=>p[a]),extents));const d=points.map((p,j)=>(j?'L':'M')+p[0].toFixed(2)+' '+p[1].toFixed(2)).join(' ');const path=node('path',{d,fill:'none',stroke:data.colors[i],'stroke-width':2.5,'stroke-linejoin':'round','stroke-linecap':'round',class:'generated'});svg.append(path);
-  points.forEach((p,j)=>{if(j%Math.max(1,Math.floor(points.length/80))!==0&&j!==points.length-1)return;const dot=node('circle',{cx:p[0],cy:p[1],r:7,fill:'transparent',class:'generated',tabindex:-1});dot.addEventListener('pointerenter',()=>{hover={s,i,j,p};draw();});dot.addEventListener('pointerleave',()=>{hover=null;draw();});svg.append(dot);});
-  const end=points[points.length-1];svg.append(node('circle',{cx:end[0],cy:end[1],r:4,fill:data.colors[i],class:'generated'}));});
- if(hover){const{s,i,j,p}=hover;svg.append(node('circle',{cx:p[0],cy:p[1],r:6,fill:'white',stroke:data.colors[i],'stroke-width':3,class:'generated'}));document.getElementById('readout').textContent=s.name+' · '+axes.map((a,k)=>'XYZ'[k]+' '+data.axes[a]+' = '+s.points[j][a]).join(' · ');}else document.getElementById('readout').textContent='';
+ data.series.forEach((s,i)=>{if(!visible[i])return;const points=s.points.map(p=>project(axes.map((a,k)=>normalize(p[a],extents[k]))));const d=points.map((p,j)=>(j?'L':'M')+p[0].toFixed(2)+' '+p[1].toFixed(2)).join(' ');const path=node('path',{d,fill:'none',stroke:data.colors[i],'stroke-width':2.5,'stroke-linejoin':'round','stroke-linecap':'round',class:'generated'});svg.append(path);
+  const stride=Math.max(1,Math.floor(points.length/80));
+  points.forEach((point,j)=>{
+   if(j%stride!==0&&j!==points.length-1)return;
+   const dot=node('circle',{cx:point[0],cy:point[1],r:7,fill:'transparent',class:'generated'});
+   dot.addEventListener('pointerenter',()=>showHover(s,data.colors[i],j,point,axes));
+   dot.addEventListener('pointerleave',clearHover);
+   svg.append(dot);
+  });
+  const end=points[points.length-1];svg.append(node('circle',{cx:end[0],cy:end[1],r:4,fill:data.colors[i],'pointer-events':'none',class:'generated'}));});
 }
 function reset(){yaw=-.65;pitch=.48;zoom=1;selectors.forEach((s,i)=>s.value=data.defaults[i]);visible.fill(true);document.querySelectorAll('[data-variant]').forEach(c=>c.checked=true);draw();}
 selectors.forEach(s=>s.addEventListener('change',draw));document.getElementById('reset').addEventListener('click',reset);
@@ -235,7 +284,7 @@ reset();
 
 def publish_visualization(bundle, output):
     source = load_twin_bundle(bundle)
-    svg = render_svg(source["series"])
+    svg = render_svg(source["series"], _default_axes(source["axes"]))
     files = {
         "index.html": render_html(source).encode("utf-8"),
         "trajectory.svg": svg.encode("utf-8"),
