@@ -1,5 +1,6 @@
 import json
 import shutil
+import sys
 import tempfile
 import unittest
 import xml.etree.ElementTree as ET
@@ -10,7 +11,7 @@ from wombmodels.bundle_verification import verify_bundle
 from wombmodels.cli import main
 from wombmodels.reciprocal_twin import reciprocal_twin
 from wombmodels.visualizations import (
-    _extent, _project, load_twin_bundle, publish_visualization, render_html, render_svg)
+    _extent, _normalize, _project, load_twin_bundle, publish_visualization, render_html, render_svg)
 from wombmodels.whole_path_twin import whole_path_twin
 
 ROOT = Path(__file__).resolve().parents[1]
@@ -44,8 +45,13 @@ class VisualizationTests(unittest.TestCase):
         self.assertIn("Download SVG", page)
         for item in source["series"]:
             self.assertIn(item["name"], page)
-        for axis in source["axes"]:
+        payload = page.split('<script id="trajectory-data" type="application/json">', 1)[1]
+        data = json.loads(payload.split('</script>', 1)[0])
+        self.assertEqual([data["axes"][index] for index in data["defaults"]],
+                         ["dimensionless_time", "bulk_stock", "progression"])
+        for index, axis in enumerate(source["axes"]):
             self.assertIn(axis, page)
+            self.assertIn(f'<option value="{index}">{axis.replace("_", " ")}</option>', page)
         self.assertNotIn("https://", page)
         self.assertNotIn("http://", page.replace("http://www.w3.org/2000/svg", ""))
         self.assertNotIn("fetch(", page)
@@ -60,6 +66,37 @@ class VisualizationTests(unittest.TestCase):
         self.assertTrue(root.tag.endswith("svg"))
         self.assertIn("Dimensionless twin trajectories", svg)
         self.assertNotIn("<script", svg)
+
+    def test_static_frame_matches_the_trajectory_extents_in_screen_space(self):
+        axes = ("dimensionless_time", "bulk_stock", "progression")
+        series = [{"name": "fixture", "rows": [
+            dict(zip(axes, point)) for point in ((0, -40, 0.05), (40, -20, 0.051))]}]
+        root = ET.fromstring(render_svg(series, axes))
+        elements = "{http://www.w3.org/2000/svg}"
+        edges = root.findall(f"{elements}line")
+        self.assertEqual(len(edges), 12)
+        frame_vertices = {
+            (edge.get(f"x{index}"), edge.get(f"y{index}"))
+            for edge in edges for index in (1, 2)
+        }
+        self.assertEqual(len(frame_vertices), 8)
+        for x, y in frame_vertices:
+            self.assertTrue(0 <= float(x) <= 1000 and 0 <= float(y) <= 650)
+        path = root.find(f"{elements}path").get("d").split()
+        self.assertIn(tuple(path[1:3]), frame_vertices)
+        self.assertIn(tuple(path[4:6]), frame_vertices)
+
+    def test_extreme_finite_and_constant_axes_stay_normalized(self):
+        largest = sys.float_info.max
+        for value, low, high, expected in (
+            (-largest, -largest, largest, -1),
+            (0, -largest, largest, 0),
+            (largest, -largest, largest, 1),
+            (largest, largest, largest, 0),
+            (5e-324, 0, 1e-323, 0),
+        ):
+            with self.subTest(value=value, low=low, high=high):
+                self.assertEqual(_normalize(value, low, high), expected)
 
     def test_publication_verifies_and_relocates_with_parent_receipt(self):
         output = self.root / "view"
