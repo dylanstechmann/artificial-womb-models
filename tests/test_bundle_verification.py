@@ -6,6 +6,7 @@ import shutil
 import tempfile
 import unittest
 from pathlib import Path
+from unittest import mock
 
 from wombmodels.artifacts import InputError, reproduction_plan, sha256
 from wombmodels.bundle_verification import KNOWN_BUNDLE_KINDS, verify_bundle
@@ -41,7 +42,7 @@ class BundleVerificationTests(unittest.TestCase):
         self.assertEqual(report["reproduction"], "not_attempted")
         self.assertEqual(report["inventory"]["declared_outputs"], report["inventory"]["verified_outputs"])
         self.assertEqual(report["declared_dependencies"], ["python>=3.10 standard library only"])
-        self.assertIn("identifiability-report", report["rerun_command"])
+        self.assertIn("identifiability/1", report["rerun_command"])
 
     def test_every_bundle_carries_a_reproduction_plan_without_absolute_paths(self):
         for bundle in (self.simulation, self.bundle):
@@ -49,7 +50,7 @@ class BundleVerificationTests(unittest.TestCase):
                 plan = json.loads((bundle / "reproduction_plan.json").read_text(encoding="utf-8"))
                 self.assertEqual(plan["schema_version"], 1)
                 self.assertEqual(plan["declared_dependencies"], ["python>=3.10 standard library only"])
-                self.assertIn("wombmodels", plan["command"])
+                self.assertTrue("wombmodels" in plan["command"] or plan["command"].startswith("python -I -B "))
                 self.assertIn("reproduction_plan.json", plan["expected_outputs"])
                 self.assertTrue(plan["limits"])
                 encoded = json.dumps(plan)
@@ -80,6 +81,13 @@ class BundleVerificationTests(unittest.TestCase):
         self.assertTrue(report["bytes_verified"], report["errors"])
         self.assertEqual(report["ancestry_resolved"], "resolved")
         self.assertEqual(report["bundle"], "renamed-bundle")
+
+    def test_verification_never_executes_the_rerun_harness(self):
+        with mock.patch("wombmodels.reproduction._execute_entry_point") as execute:
+            report = verify_bundle(self.bundle, strict=True)
+        self.assertTrue(report["bytes_verified"], report["errors"])
+        self.assertEqual(report["reproduction"], "not_attempted")
+        execute.assert_not_called()
 
     def test_changed_output_bytes_fail_with_the_offending_name(self):
         target = self.bundle / "observability_report.json"
@@ -166,6 +174,34 @@ class BundleVerificationTests(unittest.TestCase):
         self.assertFalse(report["bytes_verified"])
         self.assertIn("receipt implementation_sha256 must record the publishing implementation", report["errors"])
         self.assertTrue(any("64-character sha256" in error for error in report["errors"]))
+
+    def test_receipt_rejects_malformed_provenance_even_when_files_match(self):
+        original = self.receipt(self.bundle)
+        for field, value in (("schema_version", True), ("schema_version", 1.0),
+                             ("bundle_kind", []), ("input_sha256", "z" * 64),
+                             ("implementation_sha256", {"source.py": None})):
+            with self.subTest(field=field, value=value):
+                receipt = {**original, field: value}
+                (self.bundle / "receipt.json").write_text(json.dumps(receipt), encoding="utf-8")
+                report = verify_bundle(self.bundle)
+                self.assertFalse(report["bytes_verified"])
+                self.assertTrue(any(field in error for error in report["errors"]))
+
+    def test_verified_output_count_requires_matching_integer_size_and_digest(self):
+        receipt = self.receipt(self.bundle)
+        target = self.bundle / "REPORT.md"
+        target.write_bytes(b"x")
+        receipt["outputs"]["REPORT.md"]["sha256"] = sha256(b"x")
+        for size in (True, 1.0, 2, 1):
+            with self.subTest(size=repr(size)):
+                receipt["outputs"]["REPORT.md"]["size_bytes"] = size
+                (self.bundle / "receipt.json").write_text(json.dumps(receipt), encoding="utf-8")
+                report = verify_bundle(self.bundle)
+                valid = type(size) is int and size == 1
+                self.assertEqual(report["bytes_verified"], valid)
+                self.assertEqual(report["files"]["REPORT.md"]["size_match"], valid)
+                self.assertEqual(report["inventory"]["verified_outputs"],
+                                 len(receipt["outputs"]) - (0 if valid else 1))
 
     def test_unknown_bundle_kind_warns_and_fails_strictly(self):
         receipt = self.receipt(self.bundle)

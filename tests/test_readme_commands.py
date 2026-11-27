@@ -30,6 +30,18 @@ class ReadmeCommandTests(unittest.TestCase):
         self.assertEqual(sorted(documented - set(commands)), [],
                          "the README documents commands the CLI does not have")
 
+    def test_rerun_functional_examples_and_exit_contract_are_documented(self):
+        text = README.read_text(encoding="utf-8")
+        self.assertIn("wombmodels rerun-bundle --bundle artifacts/exchange-v1 --out artifacts/exchange-reproduction-v1", text)
+        self.assertIn("wombmodels rerun-bundle --bundle artifacts/identifiability-v1 --out artifacts/identifiability-reproduction-v1", text)
+        self.assertIn("wombmodels verify-bundle --bundle REPRODUCTION_DIRECTORY --strict", text)
+        for status in ("reproduced_exact", "not_reproduced", "could_not_run"):
+            self.assertIn(status, text)
+        self.assertIn("**0**", text)
+        self.assertIn("**1**", text)
+        self.assertIn("**2**", text)
+        self.assertIn("general untrusted-code sandbox", text.lower())
+
 
 if __name__ == "__main__":
     unittest.main()

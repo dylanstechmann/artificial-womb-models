@@ -129,9 +129,10 @@ def reproduction_plan(kind: str, files: dict[str, bytes], metadata: dict) -> dic
     establishes that a model is biologically valid.
     """
     command = {
-        "synthetic_exchange_software_fixture": "wombmodels simulate --config <config.json> --out <new-dir>",
+        "synthetic_exchange_software_fixture":
+            "python -I -B <trusted-wombmodels-reproduction-runner> --entry-point simulate/1 --staged <staged-input-directory> --out <new-output-directory>",
         "synthetic_exchange_observability_diagnostic":
-            "wombmodels identifiability-report --config <config.json> --trajectory <trajectory.csv> --out <new-dir>",
+            "python -I -B <trusted-wombmodels-reproduction-runner> --entry-point identifiability/1 --staged <staged-input-directory> --out <new-output-directory>",
         "synthetic_exchange_design_sweep": "wombmodels design-sweep --config <config.json> --out <new-dir>",
         "reviewed_evidence_ledger_report": "wombmodels evidence-report --ledger <evidence.json> --out <new-dir>",
         "developmental_observation_dataset_report":
@@ -194,9 +195,11 @@ def reproduction_plan(kind: str, files: dict[str, bytes], metadata: dict) -> dic
             "wombmodels transition-demand-model --config <config.json> --out <new-dir>",
         "dimensionless_station_observability":
             "wombmodels station-observability-model --config <config.json> --out <new-dir>",
+        "synthetic_bundle_reproduction_check":
+            "wombmodels verify-bundle --bundle <reproduction-report-bundle> --strict",
     }.get(kind)
     parent = metadata.get("parent_receipt_file")
-    return {
+    plan = {
         "schema_version": 1,
         "bundle_kind": kind,
         "package_version": __version__,
@@ -232,6 +235,21 @@ def reproduction_plan(kind: str, files: dict[str, bytes], metadata: dict) -> dic
             "the exact inputs listed above.",
         ],
     }
+    rerun_contracts = {
+        "synthetic_exchange_software_fixture": (
+            "simulate/1", ["input_config.json"], {"input_config.json": "config.json"}),
+        "synthetic_exchange_observability_diagnostic": (
+            "identifiability/1",
+            ["source_manifest.json", "source_config.json", "source_trajectory.csv", "source_receipt.json"],
+            {"source_config.json": "config.json",
+             "source_trajectory.csv": "simulation/trajectory.csv",
+             "source_receipt.json": "simulation/receipt.json"}),
+    }
+    if kind in rerun_contracts:
+        entry_point, inputs, input_mapping = rerun_contracts[kind]
+        plan.update(entry_point=entry_point, inputs=inputs, input_mapping=input_mapping,
+                    report_kind="synthetic_bundle_reproduction_check")
+    return plan
 
 
 def publish_bundle(output: Path, *, kind: str, input_raw: bytes,

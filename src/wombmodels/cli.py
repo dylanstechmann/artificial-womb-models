@@ -20,6 +20,7 @@ from .sensor_failover import sensor_failover
 from .acquisition_spec import acquisition_spec
 from .platform_requirements import platform_requirements
 from .identifiability import analyze
+from .reproduction import rerun_bundle
 from .spatial_delivery import spatial_delivery
 from .whole_path_twin import whole_path_twin
 from .visualizations import publish_visualization
@@ -176,6 +177,11 @@ def main(argv=None) -> int:
     verify_bundle_parser.add_argument("--bundle", type=Path, required=True)
     verify_bundle_parser.add_argument("--strict", action="store_true",
                                       help="also fail on undeclared files and unknown bundle kinds")
+    rerun = commands.add_parser(
+        "rerun-bundle",
+        help="Bounded offline exact-byte rerun of a supported synthetic bundle")
+    rerun.add_argument("--bundle", type=Path, required=True)
+    rerun.add_argument("--out", type=Path, required=True, help="new report directory")
     multi = commands.add_parser("multi-unit-contention-model",
                                 help="Run the multi-unit shared-reservoir contention experiment")
     multi.add_argument("--config", type=Path, required=True)
@@ -191,6 +197,12 @@ def main(argv=None) -> int:
     station.add_argument("--out", type=Path, required=True)
     args = parser.parse_args(argv)
     try:
+        if args.command == "rerun-bundle":
+            report = rerun_bundle(args.bundle, args.out)
+            print(json.dumps({"output": str(args.out),
+                              "reproduction_status": report["reproduction_status"],
+                              "source_receipt_sha256": report["source_receipt_sha256"]}, indent=2))
+            return 0 if report["reproduction_status"] == "reproduced_exact" else 1
         if args.command == "verify-bundle":
             report = verify_bundle(args.bundle, strict=args.strict)
             print(json.dumps(report, indent=2))

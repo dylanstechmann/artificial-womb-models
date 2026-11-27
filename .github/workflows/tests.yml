@@ -21,9 +21,23 @@ jobs:
       - run: wombmodels mechanics-model --config examples/mechanics_fixture.json --out artifacts/mechanics-ci
       - run: wombmodels verify-bundle --bundle artifacts/identifiability-ci --strict
       - run: wombmodels verify-bundle --bundle artifacts/exchange-ci --strict
-      - name: A relocated bundle verifies without its source directory
+      - run: wombmodels rerun-bundle --bundle artifacts/exchange-ci --out artifacts/exchange-reproduction-ci
+      - run: wombmodels rerun-bundle --bundle artifacts/identifiability-ci --out artifacts/identifiability-reproduction-ci
+      - run: wombmodels verify-bundle --bundle artifacts/exchange-reproduction-ci --strict
+      - run: wombmodels verify-bundle --bundle artifacts/identifiability-reproduction-ci --strict
+      - name: Relocated bundles rerun exactly after the originals are deleted
         run: |
           mkdir -p artifacts/relocated
-          cp -r artifacts/identifiability-ci artifacts/relocated/renamed-bundle
+          cp -r artifacts/exchange-ci artifacts/relocated/exchange-ci
+          cp -r artifacts/identifiability-ci artifacts/relocated/renamed-identifiability
           rm -rf artifacts/exchange-ci artifacts/identifiability-ci
-          wombmodels verify-bundle --bundle artifacts/relocated/renamed-bundle --strict
+          wombmodels verify-bundle --bundle artifacts/relocated/exchange-ci --strict
+          wombmodels verify-bundle --bundle artifacts/relocated/renamed-identifiability --strict
+          wombmodels rerun-bundle --bundle artifacts/relocated/exchange-ci --out artifacts/relocated/exchange-reproduction-ci
+          wombmodels rerun-bundle --bundle artifacts/relocated/renamed-identifiability --out artifacts/relocated/identifiability-reproduction-ci
+          wombmodels verify-bundle --bundle artifacts/relocated/exchange-reproduction-ci --strict
+          wombmodels verify-bundle --bundle artifacts/relocated/identifiability-reproduction-ci --strict
+          cmp artifacts/exchange-reproduction-ci/reproduction_report.json artifacts/relocated/exchange-reproduction-ci/reproduction_report.json
+          cmp artifacts/exchange-reproduction-ci/receipt.json artifacts/relocated/exchange-reproduction-ci/receipt.json
+          cmp artifacts/identifiability-reproduction-ci/reproduction_report.json artifacts/relocated/identifiability-reproduction-ci/reproduction_report.json
+          cmp artifacts/identifiability-reproduction-ci/receipt.json artifacts/relocated/identifiability-reproduction-ci/receipt.json
