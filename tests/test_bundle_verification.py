@@ -155,6 +155,25 @@ class BundleVerificationTests(unittest.TestCase):
         self.assertTrue(any("does not declare" in warning for warning in lenient["warnings"]))
         self.assertFalse(verify_bundle(self.bundle, strict=True)["bytes_verified"])
 
+    def test_flat_inventory_reports_undeclared_directories(self):
+        folder = self.bundle / "unlisted"
+        folder.mkdir()
+        (folder / "notes.txt").write_text("nested", encoding="utf-8")
+        self.assertTrue(verify_bundle(self.bundle)["bytes_verified"])
+        report = verify_bundle(self.bundle, strict=True)
+        self.assertFalse(report["bytes_verified"])
+        self.assertEqual(report["inventory"]["undeclared_other_entries"], ["unlisted"])
+
+    def test_unlisted_broken_symlink_is_visible_in_the_inventory(self):
+        link = self.bundle / "unlisted-link"
+        try:
+            link.symlink_to(self.root / "absent")
+        except (OSError, NotImplementedError):
+            self.skipTest("this platform does not permit creating test symlinks")
+        report = verify_bundle(self.bundle, strict=True)
+        self.assertFalse(report["bytes_verified"])
+        self.assertEqual(report["inventory"]["undeclared_other_entries"], ["unlisted-link"])
+
     def test_symlinked_output_is_rejected(self):
         target = self.bundle / "observability_report.json"
         payload = target.read_bytes()

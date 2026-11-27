@@ -141,8 +141,8 @@ def _receipt_structure_errors(receipt: dict) -> list[str]:
 def verify_bundle(directory: Path, *, strict: bool = False) -> dict:
     """Return a verification report for one published bundle directory.
 
-    ``strict`` additionally fails when the directory holds files the receipt does
-    not declare, or when the receipt names a bundle kind this package does not
+    ``strict`` additionally fails on undeclared top-level entries (including links
+    and directories), or when the receipt names a bundle kind this package does not
     publish.
     """
     root = Path(directory)
@@ -203,10 +203,16 @@ def verify_bundle(directory: Path, *, strict: bool = False) -> dict:
             except InputError:
                 errors.append("reproduction_plan.json is not readable bounded JSON")
 
-    present = {path.name for path in root.iterdir() if path.is_file() and not path.is_symlink()}
-    undeclared = sorted(present - set(outputs) - {"receipt.json"})
-    for name in undeclared:
-        message = f"bundle holds a file the receipt does not declare: {name}"
+    undeclared = []
+    other_entries = []
+    for path in sorted(root.iterdir()):
+        if path.name == "receipt.json" or path.name in outputs:
+            continue
+        if not path.is_symlink() and path.is_file():
+            undeclared.append(path.name)
+        else:
+            other_entries.append(path.name)
+        message = f"bundle holds an entry the receipt does not declare: {path.name}"
         (errors if strict else warnings).append(message)
 
     metadata = receipt.get("metadata") if isinstance(receipt.get("metadata"), dict) else {}
@@ -264,7 +270,7 @@ def verify_bundle(directory: Path, *, strict: bool = False) -> dict:
         "rerun_command": (plan or {}).get("command"),
         "inventory": {"declared_outputs": len(outputs), "verified_outputs":
                       sum(1 for item in files.values() if item.get("hash_match") and item.get("size_match")),
-                      "undeclared_files": undeclared},
+                      "undeclared_files": undeclared, "undeclared_other_entries": other_entries},
         "ancestry": ancestry,
         "files": files,
         "errors": errors,
