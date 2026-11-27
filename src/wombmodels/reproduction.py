@@ -43,7 +43,7 @@ RERUN_ENTRY_POINTS = {
     "synthetic_exchange_software_fixture": "simulate/1",
     "synthetic_exchange_observability_diagnostic": "identifiability/1",
 }
-REPRODUCTION_REPORT_ID = "synthetic_bundle_reproduction_check"
+REPRODUCTION_BUNDLE_KIND = "synthetic_bundle_reproduction_check"  # SECRETS-GUARD-IGNORE: public schema identifier, not a credential
 RERUN_TIMEOUT_SECONDS = 120
 MAX_CAPTURED_STREAM_BYTES = 65_536
 MAX_MISMATCH_DETAILS = 32
@@ -574,7 +574,7 @@ def _publish_reproduction_report(source: dict, output: Path, manifest: dict,
         "physiologically_calibrated": False,
         "human_gestation_prediction": False,
     }
-    plan = reproduction_plan(REPRODUCTION_REPORT_ID, files, metadata)
+    plan = reproduction_plan(REPRODUCTION_BUNDLE_KIND, files, metadata)
     plan.update({
         "command": "wombmodels verify-bundle --bundle <reproduction-report-bundle> --strict",
         "inputs": ["source_bundle_receipt.json", "source_reproduction_plan.json",
@@ -584,7 +584,7 @@ def _publish_reproduction_report(source: dict, output: Path, manifest: dict,
                    "A reproduction report is verified as evidence and is not recursively rerunnable."],
     })
     files["reproduction_plan.json"] = json_bytes(plan)
-    publish_bundle(output, kind=REPRODUCTION_REPORT_ID, input_raw=source["receipt_raw"],
+    publish_bundle(output, kind=REPRODUCTION_BUNDLE_KIND, input_raw=source["receipt_raw"],
                    files=files, metadata=metadata)
     return report
 
@@ -638,7 +638,7 @@ def rerun_bundle(bundle: Path, output: Path) -> dict:
                 status = "reproduced_exact" if comparison["exact_match"] else "not_reproduced"
         report = {
             "schema_version": 1,
-            "report_kind": REPRODUCTION_REPORT_ID,
+            "report_kind": REPRODUCTION_BUNDLE_KIND,
             "source_bundle_kind": source["kind"],
             "source_receipt_sha256": sha256(source["receipt_raw"]),
             "source_plan_sha256": sha256(source["plan_raw"]),

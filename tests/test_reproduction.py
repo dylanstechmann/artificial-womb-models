@@ -19,7 +19,7 @@ from wombmodels.exchange import simulate
 from wombmodels.identifiability import analyze
 from wombmodels.reproduction import (
     MAX_CAPTURED_STREAM_BYTES,
-    REPRODUCTION_REPORT_ID,
+    REPRODUCTION_BUNDLE_KIND,
     RERUN_ENTRY_POINTS,
     RERUN_TIMEOUT_SECONDS,
     _compare_output_bytes,
@@ -107,7 +107,7 @@ class ReproductionTests(unittest.TestCase):
             "synthetic_exchange_software_fixture": "simulate/1",
             "synthetic_exchange_observability_diagnostic": "identifiability/1",
         })
-        self.assertEqual(REPRODUCTION_REPORT_ID, "synthetic_bundle_reproduction_check")
+        self.assertEqual(REPRODUCTION_BUNDLE_KIND, "synthetic_bundle_reproduction_check")
         self.assertEqual(RERUN_TIMEOUT_SECONDS, 120)
         expected = {
             self.simulation: (["input_config.json"], {"input_config.json": "config.json"}),
@@ -123,7 +123,7 @@ class ReproductionTests(unittest.TestCase):
                 self.assertEqual(plan["entry_point"], RERUN_ENTRY_POINTS[plan["bundle_kind"]])
                 self.assertEqual(plan["inputs"], inputs)
                 self.assertEqual(plan["input_mapping"], mapping)
-                self.assertEqual(plan["report_kind"], REPRODUCTION_REPORT_ID)
+                self.assertEqual(plan["report_kind"], REPRODUCTION_BUNDLE_KIND)
                 self.assertTrue(plan["command"].startswith("python -I -B "), plan["command"])
                 self.assertNotIn("shell", plan["command"].lower())
 
@@ -148,7 +148,7 @@ class ReproductionTests(unittest.TestCase):
         self.assertFalse(report["human_gestation_prediction"])
         verified = verify_bundle(output, strict=True)
         self.assertTrue(verified["bytes_verified"], verified["errors"])
-        self.assertEqual(verified["bundle_kind"], REPRODUCTION_REPORT_ID)
+        self.assertEqual(verified["bundle_kind"], REPRODUCTION_BUNDLE_KIND)
         self.assertEqual(verified["reproduction"], "not_attempted")
         required = {"source_bundle_receipt.json", "source_reproduction_plan.json",
                     "rerun_input_manifest.json", "input_config.json", "reproduction_report.json",
