@@ -15,12 +15,14 @@ would additionally require.
 """
 from __future__ import annotations
 
+import re
 from pathlib import Path
 
-from .artifacts import InputError, read_json, sha256
+from .artifacts import InputError, decode_json, read_json, sha256
 
 MAX_FILE_BYTES = 50_000_000
 MAX_FILES = 500
+SHA256_HEX = re.compile(r"[0-9a-f]{64}")
 STATUS_NOT_REVIEWED = "not_established_by_this_tool"
 # Names from earlier releases stay listed so bundles published then still verify.
 KNOWN_BUNDLE_KINDS = frozenset({
@@ -98,16 +100,24 @@ DIMENSIONLESS_BUNDLE_KINDS = frozenset({
 
 def _receipt_structure_errors(receipt: dict) -> list[str]:
     errors = []
-    if receipt.get("schema_version") != 1:
+    if type(receipt.get("schema_version")) is not int or receipt["schema_version"] != 1:
         errors.append("receipt schema_version must be 1")
     kind = receipt.get("bundle_kind")
     if not isinstance(kind, str) or not kind:
         errors.append("receipt bundle_kind must be a non-empty string")
-    for field in ("package_version", "python_version", "input_sha256"):
+    for field in ("package_version", "python_version"):
         if not isinstance(receipt.get(field), str) or not receipt[field]:
             errors.append(f"receipt {field} must be a non-empty string")
-    if not isinstance(receipt.get("implementation_sha256"), dict) or not receipt["implementation_sha256"]:
+    input_hash = receipt.get("input_sha256")
+    if not isinstance(input_hash, str) or not SHA256_HEX.fullmatch(input_hash):
+        errors.append("receipt input_sha256 must be a lowercase hexadecimal SHA-256 digest")
+    implementation = receipt.get("implementation_sha256")
+    if not isinstance(implementation, dict) or not implementation:
         errors.append("receipt implementation_sha256 must record the publishing implementation")
+    else:
+        for source, digest in implementation.items():
+            if not isinstance(digest, str) or not SHA256_HEX.fullmatch(digest):
+                errors.append(f"receipt implementation_sha256 has a malformed digest for {source!r}")
     outputs = receipt.get("outputs")
     if not isinstance(outputs, dict) or not outputs:
         errors.append("receipt outputs must list at least one file")
@@ -121,9 +131,9 @@ def _receipt_structure_errors(receipt: dict) -> list[str]:
         if not isinstance(entry, dict):
             errors.append(f"receipt output {name} must be an object")
             continue
-        if not isinstance(entry.get("sha256"), str) or len(entry.get("sha256", "")) != 64:
+        if not isinstance(entry.get("sha256"), str) or not SHA256_HEX.fullmatch(entry["sha256"]):
             errors.append(f"receipt output {name} needs a 64-character sha256")
-        if not isinstance(entry.get("size_bytes"), int) or entry["size_bytes"] < 0:
+        if type(entry.get("size_bytes")) is not int or entry["size_bytes"] < 0:
             errors.append(f"receipt output {name} needs a byte count")
     return errors
 
@@ -131,8 +141,8 @@ def _receipt_structure_errors(receipt: dict) -> list[str]:
 def verify_bundle(directory: Path, *, strict: bool = False) -> dict:
     """Return a verification report for one published bundle directory.
 
-    ``strict`` additionally fails when the directory holds files the receipt does
-    not declare, or when the receipt names a bundle kind this package does not
+    ``strict`` additionally fails on undeclared top-level entries (including links
+    and directories), or when the receipt names a bundle kind this package does not
     publish.
     """
     root = Path(directory)
@@ -155,6 +165,7 @@ def verify_bundle(directory: Path, *, strict: bool = False) -> dict:
 
     outputs = receipt.get("outputs") if isinstance(receipt.get("outputs"), dict) else {}
     files: dict[str, dict] = {}
+    plan = None
     for name, entry in sorted(outputs.items()):
         if Path(name).name != name or name in {".", "..", "receipt.json"}:
             continue
@@ -176,18 +187,32 @@ def verify_bundle(directory: Path, *, strict: bool = False) -> dict:
         digest = sha256(raw)
         declared = entry if isinstance(entry, dict) else {}
         hash_match = digest == declared.get("sha256")
-        size_match = len(raw) == declared.get("size_bytes")
+        size_match = type(declared.get("size_bytes")) is int and len(raw) == declared["size_bytes"]
         if not hash_match:
             errors.append(f"output bytes do not match the receipt hash: {name}")
         if not size_match:
             errors.append(f"output byte count does not match the receipt: {name}")
         files[name] = {"present": True, "bytes": len(raw), "sha256": digest,
                        "hash_match": hash_match, "size_match": size_match}
+        if name == "reproduction_plan.json" and hash_match and size_match:
+            try:
+                decoded = decode_json(raw)
+                if not isinstance(decoded, dict):
+                    raise InputError("expected a JSON object")
+                plan = decoded
+            except InputError:
+                errors.append("reproduction_plan.json is not readable bounded JSON")
 
-    present = {path.name for path in root.iterdir() if path.is_file() and not path.is_symlink()}
-    undeclared = sorted(present - set(outputs) - {"receipt.json"})
-    for name in undeclared:
-        message = f"bundle holds a file the receipt does not declare: {name}"
+    undeclared = []
+    other_entries = []
+    for path in sorted(root.iterdir()):
+        if path.name == "receipt.json" or path.name in outputs:
+            continue
+        if not path.is_symlink() and path.is_file():
+            undeclared.append(path.name)
+        else:
+            other_entries.append(path.name)
+        message = f"bundle holds an entry the receipt does not declare: {path.name}"
         (errors if strict else warnings).append(message)
 
     metadata = receipt.get("metadata") if isinstance(receipt.get("metadata"), dict) else {}
@@ -214,14 +239,8 @@ def verify_bundle(directory: Path, *, strict: bool = False) -> dict:
             ancestry_status = "resolved"
             ancestry["observed_parent_sha256"] = result["sha256"]
 
-    plan = None
-    if (root / "reproduction_plan.json").is_file() and not (root / "reproduction_plan.json").is_symlink():
-        try:
-            plan, _raw = read_json(root / "reproduction_plan.json")
-        except InputError:
-            errors.append("reproduction_plan.json is not readable bounded JSON")
-    else:
-        warnings.append("bundle has no reproduction_plan.json; it predates recorded plans")
+    if "reproduction_plan.json" not in outputs:
+        warnings.append("bundle has no receipt-listed reproduction plan")
 
     limits = [
         "Matching hashes establish bundle integrity only. They do not establish numerical accuracy, "
@@ -232,7 +251,7 @@ def verify_bundle(directory: Path, *, strict: bool = False) -> dict:
         "bundle declares. It cannot authenticate the original run environment.",
         "This command never reruns a model.",
     ]
-    if kind in DIMENSIONLESS_BUNDLE_KINDS:
+    if isinstance(kind, str) and kind in DIMENSIONLESS_BUNDLE_KINDS:
         limits.insert(3, "Every fixture value in this package is dimensionless. Verification says nothing about human "
                       "gestation, surrogacy or congenital outcomes.")
 
@@ -250,8 +269,8 @@ def verify_bundle(directory: Path, *, strict: bool = False) -> dict:
         "declared_dependencies": (plan or {}).get("declared_dependencies"),
         "rerun_command": (plan or {}).get("command"),
         "inventory": {"declared_outputs": len(outputs), "verified_outputs":
-                      sum(1 for item in files.values() if item.get("hash_match")),
-                      "undeclared_files": undeclared},
+                      sum(1 for item in files.values() if item.get("hash_match") and item.get("size_match")),
+                      "undeclared_files": undeclared, "undeclared_other_entries": other_entries},
         "ancestry": ancestry,
         "files": files,
         "errors": errors,
