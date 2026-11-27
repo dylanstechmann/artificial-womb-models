@@ -18,7 +18,7 @@ from __future__ import annotations
 import re
 from pathlib import Path
 
-from .artifacts import InputError, read_json, sha256
+from .artifacts import InputError, decode_json, read_json, sha256
 
 MAX_FILE_BYTES = 50_000_000
 MAX_FILES = 500
@@ -165,6 +165,7 @@ def verify_bundle(directory: Path, *, strict: bool = False) -> dict:
 
     outputs = receipt.get("outputs") if isinstance(receipt.get("outputs"), dict) else {}
     files: dict[str, dict] = {}
+    plan = None
     for name, entry in sorted(outputs.items()):
         if Path(name).name != name or name in {".", "..", "receipt.json"}:
             continue
@@ -193,6 +194,14 @@ def verify_bundle(directory: Path, *, strict: bool = False) -> dict:
             errors.append(f"output byte count does not match the receipt: {name}")
         files[name] = {"present": True, "bytes": len(raw), "sha256": digest,
                        "hash_match": hash_match, "size_match": size_match}
+        if name == "reproduction_plan.json" and hash_match and size_match:
+            try:
+                decoded = decode_json(raw)
+                if not isinstance(decoded, dict):
+                    raise InputError("expected a JSON object")
+                plan = decoded
+            except InputError:
+                errors.append("reproduction_plan.json is not readable bounded JSON")
 
     present = {path.name for path in root.iterdir() if path.is_file() and not path.is_symlink()}
     undeclared = sorted(present - set(outputs) - {"receipt.json"})
@@ -224,14 +233,8 @@ def verify_bundle(directory: Path, *, strict: bool = False) -> dict:
             ancestry_status = "resolved"
             ancestry["observed_parent_sha256"] = result["sha256"]
 
-    plan = None
-    if (root / "reproduction_plan.json").is_file() and not (root / "reproduction_plan.json").is_symlink():
-        try:
-            plan, _raw = read_json(root / "reproduction_plan.json")
-        except InputError:
-            errors.append("reproduction_plan.json is not readable bounded JSON")
-    else:
-        warnings.append("bundle has no reproduction_plan.json; it predates recorded plans")
+    if "reproduction_plan.json" not in outputs:
+        warnings.append("bundle has no receipt-listed reproduction plan")
 
     limits = [
         "Matching hashes establish bundle integrity only. They do not establish numerical accuracy, "

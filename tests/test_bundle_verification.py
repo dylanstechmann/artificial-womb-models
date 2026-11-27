@@ -82,6 +82,21 @@ class BundleVerificationTests(unittest.TestCase):
         self.assertEqual(report["ancestry_resolved"], "resolved")
         self.assertEqual(report["bundle"], "renamed-bundle")
 
+    def test_rerun_details_require_a_receipt_matched_plan(self):
+        path = self.bundle / "reproduction_plan.json"
+        receipt = self.receipt(self.bundle)
+        path.write_text(json.dumps({"command": "unverified instruction",
+                                    "declared_dependencies": ["unknown"]}), encoding="utf-8")
+        for listed in (True, False):
+            with self.subTest(listed=listed):
+                if not listed:
+                    del receipt["outputs"][path.name]
+                    (self.bundle / "receipt.json").write_text(json.dumps(receipt), encoding="utf-8")
+                report = verify_bundle(self.bundle)
+                self.assertIsNone(report["rerun_command"])
+                self.assertIsNone(report["declared_dependencies"])
+                self.assertEqual(report["bytes_verified"], not listed)
+
     def test_verification_never_executes_the_rerun_harness(self):
         with mock.patch("wombmodels.reproduction._execute_entry_point") as execute:
             report = verify_bundle(self.bundle, strict=True)
