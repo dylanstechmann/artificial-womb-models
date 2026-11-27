@@ -175,6 +175,34 @@ class BundleVerificationTests(unittest.TestCase):
         self.assertIn("receipt implementation_sha256 must record the publishing implementation", report["errors"])
         self.assertTrue(any("64-character sha256" in error for error in report["errors"]))
 
+    def test_receipt_rejects_malformed_provenance_even_when_files_match(self):
+        original = self.receipt(self.bundle)
+        for field, value in (("schema_version", True), ("schema_version", 1.0),
+                             ("bundle_kind", []), ("input_sha256", "z" * 64),
+                             ("implementation_sha256", {"source.py": None})):
+            with self.subTest(field=field, value=value):
+                receipt = {**original, field: value}
+                (self.bundle / "receipt.json").write_text(json.dumps(receipt), encoding="utf-8")
+                report = verify_bundle(self.bundle)
+                self.assertFalse(report["bytes_verified"])
+                self.assertTrue(any(field in error for error in report["errors"]))
+
+    def test_verified_output_count_requires_matching_integer_size_and_digest(self):
+        receipt = self.receipt(self.bundle)
+        target = self.bundle / "REPORT.md"
+        target.write_bytes(b"x")
+        receipt["outputs"]["REPORT.md"]["sha256"] = sha256(b"x")
+        for size in (True, 1.0, 2, 1):
+            with self.subTest(size=repr(size)):
+                receipt["outputs"]["REPORT.md"]["size_bytes"] = size
+                (self.bundle / "receipt.json").write_text(json.dumps(receipt), encoding="utf-8")
+                report = verify_bundle(self.bundle)
+                valid = type(size) is int and size == 1
+                self.assertEqual(report["bytes_verified"], valid)
+                self.assertEqual(report["files"]["REPORT.md"]["size_match"], valid)
+                self.assertEqual(report["inventory"]["verified_outputs"],
+                                 len(receipt["outputs"]) - (0 if valid else 1))
+
     def test_unknown_bundle_kind_warns_and_fails_strictly(self):
         receipt = self.receipt(self.bundle)
         receipt["bundle_kind"] = "speculative_human_gestation_prediction"

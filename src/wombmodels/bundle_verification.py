@@ -15,12 +15,14 @@ would additionally require.
 """
 from __future__ import annotations
 
+import re
 from pathlib import Path
 
 from .artifacts import InputError, read_json, sha256
 
 MAX_FILE_BYTES = 50_000_000
 MAX_FILES = 500
+SHA256_HEX = re.compile(r"[0-9a-f]{64}")
 STATUS_NOT_REVIEWED = "not_established_by_this_tool"
 # Names from earlier releases stay listed so bundles published then still verify.
 KNOWN_BUNDLE_KINDS = frozenset({
@@ -98,16 +100,24 @@ DIMENSIONLESS_BUNDLE_KINDS = frozenset({
 
 def _receipt_structure_errors(receipt: dict) -> list[str]:
     errors = []
-    if receipt.get("schema_version") != 1:
+    if type(receipt.get("schema_version")) is not int or receipt["schema_version"] != 1:
         errors.append("receipt schema_version must be 1")
     kind = receipt.get("bundle_kind")
     if not isinstance(kind, str) or not kind:
         errors.append("receipt bundle_kind must be a non-empty string")
-    for field in ("package_version", "python_version", "input_sha256"):
+    for field in ("package_version", "python_version"):
         if not isinstance(receipt.get(field), str) or not receipt[field]:
             errors.append(f"receipt {field} must be a non-empty string")
-    if not isinstance(receipt.get("implementation_sha256"), dict) or not receipt["implementation_sha256"]:
+    input_hash = receipt.get("input_sha256")
+    if not isinstance(input_hash, str) or not SHA256_HEX.fullmatch(input_hash):
+        errors.append("receipt input_sha256 must be a lowercase hexadecimal SHA-256 digest")
+    implementation = receipt.get("implementation_sha256")
+    if not isinstance(implementation, dict) or not implementation:
         errors.append("receipt implementation_sha256 must record the publishing implementation")
+    else:
+        for source, digest in implementation.items():
+            if not isinstance(digest, str) or not SHA256_HEX.fullmatch(digest):
+                errors.append(f"receipt implementation_sha256 has a malformed digest for {source!r}")
     outputs = receipt.get("outputs")
     if not isinstance(outputs, dict) or not outputs:
         errors.append("receipt outputs must list at least one file")
@@ -121,9 +131,9 @@ def _receipt_structure_errors(receipt: dict) -> list[str]:
         if not isinstance(entry, dict):
             errors.append(f"receipt output {name} must be an object")
             continue
-        if not isinstance(entry.get("sha256"), str) or len(entry.get("sha256", "")) != 64:
+        if not isinstance(entry.get("sha256"), str) or not SHA256_HEX.fullmatch(entry["sha256"]):
             errors.append(f"receipt output {name} needs a 64-character sha256")
-        if not isinstance(entry.get("size_bytes"), int) or entry["size_bytes"] < 0:
+        if type(entry.get("size_bytes")) is not int or entry["size_bytes"] < 0:
             errors.append(f"receipt output {name} needs a byte count")
     return errors
 
@@ -176,7 +186,7 @@ def verify_bundle(directory: Path, *, strict: bool = False) -> dict:
         digest = sha256(raw)
         declared = entry if isinstance(entry, dict) else {}
         hash_match = digest == declared.get("sha256")
-        size_match = len(raw) == declared.get("size_bytes")
+        size_match = type(declared.get("size_bytes")) is int and len(raw) == declared["size_bytes"]
         if not hash_match:
             errors.append(f"output bytes do not match the receipt hash: {name}")
         if not size_match:
@@ -232,7 +242,7 @@ def verify_bundle(directory: Path, *, strict: bool = False) -> dict:
         "bundle declares. It cannot authenticate the original run environment.",
         "This command never reruns a model.",
     ]
-    if kind in DIMENSIONLESS_BUNDLE_KINDS:
+    if isinstance(kind, str) and kind in DIMENSIONLESS_BUNDLE_KINDS:
         limits.insert(3, "Every fixture value in this package is dimensionless. Verification says nothing about human "
                       "gestation, surrogacy or congenital outcomes.")
 
@@ -250,7 +260,7 @@ def verify_bundle(directory: Path, *, strict: bool = False) -> dict:
         "declared_dependencies": (plan or {}).get("declared_dependencies"),
         "rerun_command": (plan or {}).get("command"),
         "inventory": {"declared_outputs": len(outputs), "verified_outputs":
-                      sum(1 for item in files.values() if item.get("hash_match")),
+                      sum(1 for item in files.values() if item.get("hash_match") and item.get("size_match")),
                       "undeclared_files": undeclared},
         "ancestry": ancestry,
         "files": files,
